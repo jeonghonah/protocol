@@ -53,6 +53,10 @@
         "inventory": {
           "type": "string",
           "id": 6
+        },
+        "armor": {
+          "type": "string",
+          "id": 7
         }
       }
     },
@@ -85,6 +89,10 @@
         "inventory": {
           "type": "string",
           "id": 1
+        },
+        "type": {
+          "type": "string",
+          "id": 2
         }
       }
     },
@@ -249,6 +257,18 @@
         "type": {
           "type": "bool",
           "id": 5
+        }
+      }
+    },
+    "registryUpdate": {
+      "fields": {
+        "itemsDef": {
+          "type": "string",
+          "id": 1
+        },
+        "blocksDef": {
+          "type": "string",
+          "id": 2
         }
       }
     }

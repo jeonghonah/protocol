@@ -326,6 +326,7 @@
          * @property {string|null} [itemsDef] loginSuccess itemsDef
          * @property {string|null} [blocksDef] loginSuccess blocksDef
          * @property {string|null} [inventory] loginSuccess inventory
+         * @property {string|null} [armor] loginSuccess armor
          */
     
         /**
@@ -392,6 +393,14 @@
         loginSuccess.prototype.inventory = "";
     
         /**
+         * loginSuccess armor.
+         * @member {string} armor
+         * @memberof loginSuccess
+         * @instance
+         */
+        loginSuccess.prototype.armor = "";
+    
+        /**
          * Creates a new loginSuccess instance using the specified properties.
          * @function create
          * @memberof loginSuccess
@@ -427,6 +436,8 @@
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.blocksDef);
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.inventory);
+            if (message.armor != null && Object.hasOwnProperty.call(message, "armor"))
+                writer.uint32(/* id 7, wireType 2 =*/58).string(message.armor);
             return writer;
         };
     
@@ -478,6 +489,9 @@
                     break;
                 case 6:
                     message.inventory = reader.string();
+                    break;
+                case 7:
+                    message.armor = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -532,6 +546,9 @@
             if (message.inventory != null && message.hasOwnProperty("inventory"))
                 if (!$util.isString(message.inventory))
                     return "inventory: string expected";
+            if (message.armor != null && message.hasOwnProperty("armor"))
+                if (!$util.isString(message.armor))
+                    return "armor: string expected";
             return null;
         };
     
@@ -559,6 +576,8 @@
                 message.blocksDef = String(object.blocksDef);
             if (object.inventory != null)
                 message.inventory = String(object.inventory);
+            if (object.armor != null)
+                message.armor = String(object.armor);
             return message;
         };
     
@@ -582,6 +601,7 @@
                 object.itemsDef = "";
                 object.blocksDef = "";
                 object.inventory = "";
+                object.armor = "";
             }
             if (message.xPos != null && message.hasOwnProperty("xPos"))
                 object.xPos = options.json && !isFinite(message.xPos) ? String(message.xPos) : message.xPos;
@@ -595,6 +615,8 @@
                 object.blocksDef = message.blocksDef;
             if (message.inventory != null && message.hasOwnProperty("inventory"))
                 object.inventory = message.inventory;
+            if (message.armor != null && message.hasOwnProperty("armor"))
+                object.armor = message.armor;
             return object;
         };
     
@@ -1038,6 +1060,7 @@
          * @exports IplayerInventory
          * @interface IplayerInventory
          * @property {string|null} [inventory] playerInventory inventory
+         * @property {string|null} [type] playerInventory type
          */
     
         /**
@@ -1062,6 +1085,14 @@
          * @instance
          */
         playerInventory.prototype.inventory = "";
+    
+        /**
+         * playerInventory type.
+         * @member {string} type
+         * @memberof playerInventory
+         * @instance
+         */
+        playerInventory.prototype.type = "";
     
         /**
          * Creates a new playerInventory instance using the specified properties.
@@ -1089,6 +1120,8 @@
                 writer = $Writer.create();
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.inventory);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
             return writer;
         };
     
@@ -1125,6 +1158,9 @@
                 switch (tag >>> 3) {
                 case 1:
                     message.inventory = reader.string();
+                    break;
+                case 2:
+                    message.type = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1164,6 +1200,9 @@
             if (message.inventory != null && message.hasOwnProperty("inventory"))
                 if (!$util.isString(message.inventory))
                     return "inventory: string expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                if (!$util.isString(message.type))
+                    return "type: string expected";
             return null;
         };
     
@@ -1181,6 +1220,8 @@
             var message = new $root.playerInventory();
             if (object.inventory != null)
                 message.inventory = String(object.inventory);
+            if (object.type != null)
+                message.type = String(object.type);
             return message;
         };
     
@@ -1197,10 +1238,14 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.inventory = "";
+                object.type = "";
+            }
             if (message.inventory != null && message.hasOwnProperty("inventory"))
                 object.inventory = message.inventory;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = message.type;
             return object;
         };
     
@@ -3707,6 +3752,216 @@
         };
     
         return worldChunk;
+    })();
+    
+    $root.registryUpdate = (function() {
+    
+        /**
+         * Properties of a registryUpdate.
+         * @exports IregistryUpdate
+         * @interface IregistryUpdate
+         * @property {string|null} [itemsDef] registryUpdate itemsDef
+         * @property {string|null} [blocksDef] registryUpdate blocksDef
+         */
+    
+        /**
+         * Constructs a new registryUpdate.
+         * @exports registryUpdate
+         * @classdesc Represents a registryUpdate.
+         * @implements IregistryUpdate
+         * @constructor
+         * @param {IregistryUpdate=} [properties] Properties to set
+         */
+        function registryUpdate(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * registryUpdate itemsDef.
+         * @member {string} itemsDef
+         * @memberof registryUpdate
+         * @instance
+         */
+        registryUpdate.prototype.itemsDef = "";
+    
+        /**
+         * registryUpdate blocksDef.
+         * @member {string} blocksDef
+         * @memberof registryUpdate
+         * @instance
+         */
+        registryUpdate.prototype.blocksDef = "";
+    
+        /**
+         * Creates a new registryUpdate instance using the specified properties.
+         * @function create
+         * @memberof registryUpdate
+         * @static
+         * @param {IregistryUpdate=} [properties] Properties to set
+         * @returns {registryUpdate} registryUpdate instance
+         */
+        registryUpdate.create = function create(properties) {
+            return new registryUpdate(properties);
+        };
+    
+        /**
+         * Encodes the specified registryUpdate message. Does not implicitly {@link registryUpdate.verify|verify} messages.
+         * @function encode
+         * @memberof registryUpdate
+         * @static
+         * @param {IregistryUpdate} message registryUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        registryUpdate.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.itemsDef != null && Object.hasOwnProperty.call(message, "itemsDef"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.itemsDef);
+            if (message.blocksDef != null && Object.hasOwnProperty.call(message, "blocksDef"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.blocksDef);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified registryUpdate message, length delimited. Does not implicitly {@link registryUpdate.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof registryUpdate
+         * @static
+         * @param {IregistryUpdate} message registryUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        registryUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a registryUpdate message from the specified reader or buffer.
+         * @function decode
+         * @memberof registryUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {registryUpdate} registryUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        registryUpdate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.registryUpdate();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.itemsDef = reader.string();
+                    break;
+                case 2:
+                    message.blocksDef = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a registryUpdate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof registryUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {registryUpdate} registryUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        registryUpdate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a registryUpdate message.
+         * @function verify
+         * @memberof registryUpdate
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        registryUpdate.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
+                if (!$util.isString(message.itemsDef))
+                    return "itemsDef: string expected";
+            if (message.blocksDef != null && message.hasOwnProperty("blocksDef"))
+                if (!$util.isString(message.blocksDef))
+                    return "blocksDef: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a registryUpdate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof registryUpdate
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {registryUpdate} registryUpdate
+         */
+        registryUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.registryUpdate)
+                return object;
+            var message = new $root.registryUpdate();
+            if (object.itemsDef != null)
+                message.itemsDef = String(object.itemsDef);
+            if (object.blocksDef != null)
+                message.blocksDef = String(object.blocksDef);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a registryUpdate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof registryUpdate
+         * @static
+         * @param {registryUpdate} message registryUpdate
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        registryUpdate.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.itemsDef = "";
+                object.blocksDef = "";
+            }
+            if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
+                object.itemsDef = message.itemsDef;
+            if (message.blocksDef != null && message.hasOwnProperty("blocksDef"))
+                object.blocksDef = message.blocksDef;
+            return object;
+        };
+    
+        /**
+         * Converts this registryUpdate to JSON.
+         * @function toJSON
+         * @memberof registryUpdate
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        registryUpdate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return registryUpdate;
     })();
 
     return $root;

@@ -139,6 +139,9 @@ export interface IloginSuccess {
 
     /** loginSuccess inventory */
     inventory?: (string|null);
+
+    /** loginSuccess armor */
+    armor?: (string|null);
 }
 
 /** Represents a loginSuccess. */
@@ -167,6 +170,9 @@ export class loginSuccess implements IloginSuccess {
 
     /** loginSuccess inventory. */
     public inventory: string;
+
+    /** loginSuccess armor. */
+    public armor: string;
 
     /**
      * Creates a new loginSuccess instance using the specified properties.
@@ -436,6 +442,9 @@ export interface IplayerInventory {
 
     /** playerInventory inventory */
     inventory?: (string|null);
+
+    /** playerInventory type */
+    type?: (string|null);
 }
 
 /** Represents a playerInventory. */
@@ -449,6 +458,9 @@ export class playerInventory implements IplayerInventory {
 
     /** playerInventory inventory. */
     public inventory: string;
+
+    /** playerInventory type. */
+    public type: string;
 
     /**
      * Creates a new playerInventory instance using the specified properties.
@@ -1620,6 +1632,102 @@ export class worldChunk implements IworldChunk {
 
     /**
      * Converts this worldChunk to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a registryUpdate. */
+export interface IregistryUpdate {
+
+    /** registryUpdate itemsDef */
+    itemsDef?: (string|null);
+
+    /** registryUpdate blocksDef */
+    blocksDef?: (string|null);
+}
+
+/** Represents a registryUpdate. */
+export class registryUpdate implements IregistryUpdate {
+
+    /**
+     * Constructs a new registryUpdate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IregistryUpdate);
+
+    /** registryUpdate itemsDef. */
+    public itemsDef: string;
+
+    /** registryUpdate blocksDef. */
+    public blocksDef: string;
+
+    /**
+     * Creates a new registryUpdate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns registryUpdate instance
+     */
+    public static create(properties?: IregistryUpdate): registryUpdate;
+
+    /**
+     * Encodes the specified registryUpdate message. Does not implicitly {@link registryUpdate.verify|verify} messages.
+     * @param message registryUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IregistryUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified registryUpdate message, length delimited. Does not implicitly {@link registryUpdate.verify|verify} messages.
+     * @param message registryUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IregistryUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a registryUpdate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns registryUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): registryUpdate;
+
+    /**
+     * Decodes a registryUpdate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns registryUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): registryUpdate;
+
+    /**
+     * Verifies a registryUpdate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a registryUpdate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns registryUpdate
+     */
+    public static fromObject(object: { [k: string]: any }): registryUpdate;
+
+    /**
+     * Creates a plain object from a registryUpdate message. Also converts values to other types if specified.
+     * @param message registryUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: registryUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this registryUpdate to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

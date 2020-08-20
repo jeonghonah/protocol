@@ -27,7 +27,8 @@ message loginSuccess {
     double z_pos = 3;
     string items_def = 4;
     string blocks_def = 5;
-    string inventory = 6;
+	string inventory = 6;
+	string armor = 7;
 }
 
 /* 
@@ -56,6 +57,7 @@ message playerTeleport {
 
 message playerInventory {
 	string inventory = 1;
+	string type = 2;
 }
 
 /* 
@@ -168,4 +170,14 @@ message worldChunk {
 	int32 z = 3;
 	bytes data = 4;
 	bool type = 5;
+}
+
+/* 
+ * registryUpdate updates client-side registry
+ * Warning! It can create bugs!
+*/
+
+message registryUpdate {
+    string items_def = 1;
+    string blocks_def = 2;
 }
