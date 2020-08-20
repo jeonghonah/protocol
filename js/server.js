@@ -1447,22 +1447,6 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        /**
-         * SlotType enum.
-         * @name playerSlotUpdate.SlotType
-         * @enum {number}
-         * @property {number} MAIN=0 MAIN value
-         * @property {number} TEMP=1 TEMP value
-         * @property {number} HOOK=2 HOOK value
-         */
-        playerSlotUpdate.SlotType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "MAIN"] = 0;
-            values[valuesById[1] = "TEMP"] = 1;
-            values[valuesById[2] = "HOOK"] = 2;
-            return values;
-        })();
-    
         return playerSlotUpdate;
     })();
     
@@ -3447,8 +3431,10 @@
          * @exports IworldChunk
          * @interface IworldChunk
          * @property {number|null} [x] worldChunk x
+         * @property {number|null} [y] worldChunk y
          * @property {number|null} [z] worldChunk z
          * @property {Uint8Array|null} [data] worldChunk data
+         * @property {boolean|null} [type] worldChunk type
          */
     
         /**
@@ -3475,6 +3461,14 @@
         worldChunk.prototype.x = 0;
     
         /**
+         * worldChunk y.
+         * @member {number} y
+         * @memberof worldChunk
+         * @instance
+         */
+        worldChunk.prototype.y = 0;
+    
+        /**
          * worldChunk z.
          * @member {number} z
          * @memberof worldChunk
@@ -3489,6 +3483,14 @@
          * @instance
          */
         worldChunk.prototype.data = $util.newBuffer([]);
+    
+        /**
+         * worldChunk type.
+         * @member {boolean} type
+         * @memberof worldChunk
+         * @instance
+         */
+        worldChunk.prototype.type = false;
     
         /**
          * Creates a new worldChunk instance using the specified properties.
@@ -3516,10 +3518,14 @@
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+            if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.z);
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
             if (message.data != null && Object.hasOwnProperty.call(message, "data"))
-                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.data);
+                writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.data);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.type);
             return writer;
         };
     
@@ -3558,10 +3564,16 @@
                     message.x = reader.int32();
                     break;
                 case 2:
-                    message.z = reader.int32();
+                    message.y = reader.int32();
                     break;
                 case 3:
+                    message.z = reader.int32();
+                    break;
+                case 4:
                     message.data = reader.bytes();
+                    break;
+                case 5:
+                    message.type = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3601,12 +3613,18 @@
             if (message.x != null && message.hasOwnProperty("x"))
                 if (!$util.isInteger(message.x))
                     return "x: integer expected";
+            if (message.y != null && message.hasOwnProperty("y"))
+                if (!$util.isInteger(message.y))
+                    return "y: integer expected";
             if (message.z != null && message.hasOwnProperty("z"))
                 if (!$util.isInteger(message.z))
                     return "z: integer expected";
             if (message.data != null && message.hasOwnProperty("data"))
                 if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
                     return "data: buffer expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                if (typeof message.type !== "boolean")
+                    return "type: boolean expected";
             return null;
         };
     
@@ -3624,6 +3642,8 @@
             var message = new $root.worldChunk();
             if (object.x != null)
                 message.x = object.x | 0;
+            if (object.y != null)
+                message.y = object.y | 0;
             if (object.z != null)
                 message.z = object.z | 0;
             if (object.data != null)
@@ -3631,6 +3651,8 @@
                     $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
                 else if (object.data.length)
                     message.data = object.data;
+            if (object.type != null)
+                message.type = Boolean(object.type);
             return message;
         };
     
@@ -3649,6 +3671,7 @@
             var object = {};
             if (options.defaults) {
                 object.x = 0;
+                object.y = 0;
                 object.z = 0;
                 if (options.bytes === String)
                     object.data = "";
@@ -3657,13 +3680,18 @@
                     if (options.bytes !== Array)
                         object.data = $util.newBuffer(object.data);
                 }
+                object.type = false;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = message.x;
+            if (message.y != null && message.hasOwnProperty("y"))
+                object.y = message.y;
             if (message.z != null && message.hasOwnProperty("z"))
                 object.z = message.z;
             if (message.data != null && message.hasOwnProperty("data"))
                 object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = message.type;
             return object;
         };
     

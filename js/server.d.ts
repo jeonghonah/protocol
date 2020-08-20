@@ -623,16 +623,6 @@ export class playerSlotUpdate implements IplayerSlotUpdate {
     public toJSON(): { [k: string]: any };
 }
 
-export namespace playerSlotUpdate {
-
-    /** SlotType enum. */
-    enum SlotType {
-        MAIN = 0,
-        TEMP = 1,
-        HOOK = 2
-    }
-}
-
 /** Properties of a playerMovementChange. */
 export interface IplayerMovementChange {
 
@@ -1527,11 +1517,17 @@ export interface IworldChunk {
     /** worldChunk x */
     x?: (number|null);
 
+    /** worldChunk y */
+    y?: (number|null);
+
     /** worldChunk z */
     z?: (number|null);
 
     /** worldChunk data */
     data?: (Uint8Array|null);
+
+    /** worldChunk type */
+    type?: (boolean|null);
 }
 
 /** Represents a worldChunk. */
@@ -1546,11 +1542,17 @@ export class worldChunk implements IworldChunk {
     /** worldChunk x. */
     public x: number;
 
+    /** worldChunk y. */
+    public y: number;
+
     /** worldChunk z. */
     public z: number;
 
     /** worldChunk data. */
     public data: Uint8Array;
+
+    /** worldChunk type. */
+    public type: boolean;
 
     /**
      * Creates a new worldChunk instance using the specified properties.

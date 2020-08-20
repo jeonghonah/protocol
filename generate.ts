@@ -17,5 +17,12 @@ fs.readdir('proto', (err, data) => {
 				fs.writeFileSync(`./js/${name}.d.ts`, output);
 			});
 		});
+		pbjs.main(['--target', 'json', `./proto/${x}`], function (err, output) {
+			if (err) throw err;
+
+			const name = x.replace('.proto', '');
+
+			fs.writeFileSync(`./json/${name}.json`, output);
+		});
 	});
 });

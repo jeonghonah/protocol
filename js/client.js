@@ -1227,6 +1227,8 @@
          * @interface IactionInventoryClick
          * @property {number|null} [slot] actionInventoryClick slot
          * @property {string|null} [type] actionInventoryClick type
+         * @property {string|null} [inventory] actionInventoryClick inventory
+         * @property {number|null} [slot2] actionInventoryClick slot2
          */
     
         /**
@@ -1261,6 +1263,22 @@
         actionInventoryClick.prototype.type = "";
     
         /**
+         * actionInventoryClick inventory.
+         * @member {string} inventory
+         * @memberof actionInventoryClick
+         * @instance
+         */
+        actionInventoryClick.prototype.inventory = "";
+    
+        /**
+         * actionInventoryClick slot2.
+         * @member {number} slot2
+         * @memberof actionInventoryClick
+         * @instance
+         */
+        actionInventoryClick.prototype.slot2 = 0;
+    
+        /**
          * Creates a new actionInventoryClick instance using the specified properties.
          * @function create
          * @memberof actionInventoryClick
@@ -1288,6 +1306,10 @@
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.slot);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.inventory);
+            if (message.slot2 != null && Object.hasOwnProperty.call(message, "slot2"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.slot2);
             return writer;
         };
     
@@ -1327,6 +1349,12 @@
                     break;
                 case 2:
                     message.type = reader.string();
+                    break;
+                case 3:
+                    message.inventory = reader.string();
+                    break;
+                case 4:
+                    message.slot2 = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1369,6 +1397,12 @@
             if (message.type != null && message.hasOwnProperty("type"))
                 if (!$util.isString(message.type))
                     return "type: string expected";
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                if (!$util.isString(message.inventory))
+                    return "inventory: string expected";
+            if (message.slot2 != null && message.hasOwnProperty("slot2"))
+                if (!$util.isInteger(message.slot2))
+                    return "slot2: integer expected";
             return null;
         };
     
@@ -1388,6 +1422,10 @@
                 message.slot = object.slot | 0;
             if (object.type != null)
                 message.type = String(object.type);
+            if (object.inventory != null)
+                message.inventory = String(object.inventory);
+            if (object.slot2 != null)
+                message.slot2 = object.slot2 | 0;
             return message;
         };
     
@@ -1407,11 +1445,17 @@
             if (options.defaults) {
                 object.slot = 0;
                 object.type = "";
+                object.inventory = "";
+                object.slot2 = 0;
             }
             if (message.slot != null && message.hasOwnProperty("slot"))
                 object.slot = message.slot;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = message.type;
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                object.inventory = message.inventory;
+            if (message.slot2 != null && message.hasOwnProperty("slot2"))
+                object.slot2 = message.slot2;
             return object;
         };
     
@@ -1425,26 +1469,6 @@
         actionInventoryClick.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
-    
-        /**
-         * ClickType enum.
-         * @name actionInventoryClick.ClickType
-         * @enum {number}
-         * @property {number} LEFT=0 LEFT value
-         * @property {number} RIGHT=1 RIGHT value
-         * @property {number} SELECT=2 SELECT value
-         * @property {number} LEFTSHIFT=3 LEFTSHIFT value
-         * @property {number} RIGHTSHIFT=4 RIGHTSHIFT value
-         */
-        actionInventoryClick.ClickType = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "LEFT"] = 0;
-            values[valuesById[1] = "RIGHT"] = 1;
-            values[valuesById[2] = "SELECT"] = 2;
-            values[valuesById[3] = "LEFTSHIFT"] = 3;
-            values[valuesById[4] = "RIGHTSHIFT"] = 4;
-            return values;
-        })();
     
         return actionInventoryClick;
     })();

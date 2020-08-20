@@ -65,13 +65,6 @@ message playerInventory {
 
 message playerSlotUpdate {
 	int32 slot = 1;
-
-	enum SlotType {
-		MAIN = 0;
-		TEMP = 1;
-		HOOK = 2;
-	}
-
     string type = 2;
     string data = 3;
 }
@@ -171,6 +164,8 @@ message worldBlockUpdate {
 
 message worldChunk {
     int32 x = 1;
-    int32 z = 2;
-    bytes data = 3;
+	int32 y = 2;
+	int32 z = 3;
+	bytes data = 4;
+	bool type = 5;
 }

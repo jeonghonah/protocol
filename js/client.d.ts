@@ -529,6 +529,12 @@ export interface IactionInventoryClick {
 
     /** actionInventoryClick type */
     type?: (string|null);
+
+    /** actionInventoryClick inventory */
+    inventory?: (string|null);
+
+    /** actionInventoryClick slot2 */
+    slot2?: (number|null);
 }
 
 /** Represents an actionInventoryClick. */
@@ -545,6 +551,12 @@ export class actionInventoryClick implements IactionInventoryClick {
 
     /** actionInventoryClick type. */
     public type: string;
+
+    /** actionInventoryClick inventory. */
+    public inventory: string;
+
+    /** actionInventoryClick slot2. */
+    public slot2: number;
 
     /**
      * Creates a new actionInventoryClick instance using the specified properties.
@@ -615,16 +627,4 @@ export class actionInventoryClick implements IactionInventoryClick {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
-}
-
-export namespace actionInventoryClick {
-
-    /** ClickType enum. */
-    enum ClickType {
-        LEFT = 0,
-        RIGHT = 1,
-        SELECT = 2,
-        LEFTSHIFT = 3,
-        RIGHTSHIFT = 4
-    }
 }
