@@ -628,3 +628,105 @@ export class actionInventoryClick implements IactionInventoryClick {
      */
     public toJSON(): { [k: string]: any };
 }
+
+/** Properties of a chunkRequest. */
+export interface IchunkRequest {
+
+    /** chunkRequest x */
+    x?: (number|null);
+
+    /** chunkRequest y */
+    y?: (number|null);
+
+    /** chunkRequest z */
+    z?: (number|null);
+}
+
+/** Represents a chunkRequest. */
+export class chunkRequest implements IchunkRequest {
+
+    /**
+     * Constructs a new chunkRequest.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IchunkRequest);
+
+    /** chunkRequest x. */
+    public x: number;
+
+    /** chunkRequest y. */
+    public y: number;
+
+    /** chunkRequest z. */
+    public z: number;
+
+    /**
+     * Creates a new chunkRequest instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns chunkRequest instance
+     */
+    public static create(properties?: IchunkRequest): chunkRequest;
+
+    /**
+     * Encodes the specified chunkRequest message. Does not implicitly {@link chunkRequest.verify|verify} messages.
+     * @param message chunkRequest message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IchunkRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified chunkRequest message, length delimited. Does not implicitly {@link chunkRequest.verify|verify} messages.
+     * @param message chunkRequest message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IchunkRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a chunkRequest message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns chunkRequest
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): chunkRequest;
+
+    /**
+     * Decodes a chunkRequest message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns chunkRequest
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): chunkRequest;
+
+    /**
+     * Verifies a chunkRequest message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a chunkRequest message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns chunkRequest
+     */
+    public static fromObject(object: { [k: string]: any }): chunkRequest;
+
+    /**
+     * Creates a plain object from a chunkRequest message. Also converts values to other types if specified.
+     * @param message chunkRequest
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: chunkRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this chunkRequest to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}

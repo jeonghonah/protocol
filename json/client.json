@@ -107,6 +107,22 @@
           "id": 4
         }
       }
+    },
+    "chunkRequest": {
+      "fields": {
+        "x": {
+          "type": "int32",
+          "id": 1
+        },
+        "y": {
+          "type": "int32",
+          "id": 2
+        },
+        "z": {
+          "type": "int32",
+          "id": 3
+        }
+      }
     }
   }
 }

@@ -71,3 +71,15 @@ message actionInventoryClick {
 	optional int32 slot2 = 4;
 
 }
+
+
+/* 
+ * chunkRequest is send when client is missing some chunks
+*/
+
+message chunkRequest {
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+
+}

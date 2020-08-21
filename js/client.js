@@ -1472,6 +1472,238 @@
     
         return actionInventoryClick;
     })();
+    
+    $root.chunkRequest = (function() {
+    
+        /**
+         * Properties of a chunkRequest.
+         * @exports IchunkRequest
+         * @interface IchunkRequest
+         * @property {number|null} [x] chunkRequest x
+         * @property {number|null} [y] chunkRequest y
+         * @property {number|null} [z] chunkRequest z
+         */
+    
+        /**
+         * Constructs a new chunkRequest.
+         * @exports chunkRequest
+         * @classdesc Represents a chunkRequest.
+         * @implements IchunkRequest
+         * @constructor
+         * @param {IchunkRequest=} [properties] Properties to set
+         */
+        function chunkRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * chunkRequest x.
+         * @member {number} x
+         * @memberof chunkRequest
+         * @instance
+         */
+        chunkRequest.prototype.x = 0;
+    
+        /**
+         * chunkRequest y.
+         * @member {number} y
+         * @memberof chunkRequest
+         * @instance
+         */
+        chunkRequest.prototype.y = 0;
+    
+        /**
+         * chunkRequest z.
+         * @member {number} z
+         * @memberof chunkRequest
+         * @instance
+         */
+        chunkRequest.prototype.z = 0;
+    
+        /**
+         * Creates a new chunkRequest instance using the specified properties.
+         * @function create
+         * @memberof chunkRequest
+         * @static
+         * @param {IchunkRequest=} [properties] Properties to set
+         * @returns {chunkRequest} chunkRequest instance
+         */
+        chunkRequest.create = function create(properties) {
+            return new chunkRequest(properties);
+        };
+    
+        /**
+         * Encodes the specified chunkRequest message. Does not implicitly {@link chunkRequest.verify|verify} messages.
+         * @function encode
+         * @memberof chunkRequest
+         * @static
+         * @param {IchunkRequest} message chunkRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        chunkRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.x != null && Object.hasOwnProperty.call(message, "x"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+            if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+            if (message.z != null && Object.hasOwnProperty.call(message, "z"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified chunkRequest message, length delimited. Does not implicitly {@link chunkRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof chunkRequest
+         * @static
+         * @param {IchunkRequest} message chunkRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        chunkRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a chunkRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof chunkRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {chunkRequest} chunkRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        chunkRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.chunkRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.x = reader.int32();
+                    break;
+                case 2:
+                    message.y = reader.int32();
+                    break;
+                case 3:
+                    message.z = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a chunkRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof chunkRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {chunkRequest} chunkRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        chunkRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a chunkRequest message.
+         * @function verify
+         * @memberof chunkRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        chunkRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.x != null && message.hasOwnProperty("x"))
+                if (!$util.isInteger(message.x))
+                    return "x: integer expected";
+            if (message.y != null && message.hasOwnProperty("y"))
+                if (!$util.isInteger(message.y))
+                    return "y: integer expected";
+            if (message.z != null && message.hasOwnProperty("z"))
+                if (!$util.isInteger(message.z))
+                    return "z: integer expected";
+            return null;
+        };
+    
+        /**
+         * Creates a chunkRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof chunkRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {chunkRequest} chunkRequest
+         */
+        chunkRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.chunkRequest)
+                return object;
+            var message = new $root.chunkRequest();
+            if (object.x != null)
+                message.x = object.x | 0;
+            if (object.y != null)
+                message.y = object.y | 0;
+            if (object.z != null)
+                message.z = object.z | 0;
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a chunkRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof chunkRequest
+         * @static
+         * @param {chunkRequest} message chunkRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        chunkRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.x = 0;
+                object.y = 0;
+                object.z = 0;
+            }
+            if (message.x != null && message.hasOwnProperty("x"))
+                object.x = message.x;
+            if (message.y != null && message.hasOwnProperty("y"))
+                object.y = message.y;
+            if (message.z != null && message.hasOwnProperty("z"))
+                object.z = message.z;
+            return object;
+        };
+    
+        /**
+         * Converts this chunkRequest to JSON.
+         * @function toJSON
+         * @memberof chunkRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        chunkRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return chunkRequest;
+    })();
 
     return $root;
 });
