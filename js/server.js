@@ -1712,6 +1712,7 @@
          * @exports IplayerKick
          * @interface IplayerKick
          * @property {string|null} [reason] playerKick reason
+         * @property {number|Long|null} [time] playerKick time
          */
     
         /**
@@ -1736,6 +1737,14 @@
          * @instance
          */
         playerKick.prototype.reason = "";
+    
+        /**
+         * playerKick time.
+         * @member {number|Long} time
+         * @memberof playerKick
+         * @instance
+         */
+        playerKick.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
     
         /**
          * Creates a new playerKick instance using the specified properties.
@@ -1763,6 +1772,8 @@
                 writer = $Writer.create();
             if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.reason);
+            if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
             return writer;
         };
     
@@ -1799,6 +1810,9 @@
                 switch (tag >>> 3) {
                 case 1:
                     message.reason = reader.string();
+                    break;
+                case 2:
+                    message.time = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1838,6 +1852,9 @@
             if (message.reason != null && message.hasOwnProperty("reason"))
                 if (!$util.isString(message.reason))
                     return "reason: string expected";
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                    return "time: integer|Long expected";
             return null;
         };
     
@@ -1855,6 +1872,15 @@
             var message = new $root.playerKick();
             if (object.reason != null)
                 message.reason = String(object.reason);
+            if (object.time != null)
+                if ($util.Long)
+                    (message.time = $util.Long.fromValue(object.time)).unsigned = true;
+                else if (typeof object.time === "string")
+                    message.time = parseInt(object.time, 10);
+                else if (typeof object.time === "number")
+                    message.time = object.time;
+                else if (typeof object.time === "object")
+                    message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber(true);
             return message;
         };
     
@@ -1871,10 +1897,21 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.reason = "";
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.time = options.longs === String ? "0" : 0;
+            }
             if (message.reason != null && message.hasOwnProperty("reason"))
                 object.reason = message.reason;
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (typeof message.time === "number")
+                    object.time = options.longs === String ? String(message.time) : message.time;
+                else
+                    object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber(true) : message.time;
             return object;
         };
     
@@ -3215,6 +3252,492 @@
         return entityMove;
     })();
     
+    $root.entityUpdate = (function() {
+    
+        /**
+         * Properties of an entityUpdate.
+         * @exports IentityUpdate
+         * @interface IentityUpdate
+         * @property {string|null} [uuid] entityUpdate uuid
+         * @property {string|null} [key] entityUpdate key
+         * @property {string|null} [value] entityUpdate value
+         */
+    
+        /**
+         * Constructs a new entityUpdate.
+         * @exports entityUpdate
+         * @classdesc Represents an entityUpdate.
+         * @implements IentityUpdate
+         * @constructor
+         * @param {IentityUpdate=} [properties] Properties to set
+         */
+        function entityUpdate(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * entityUpdate uuid.
+         * @member {string} uuid
+         * @memberof entityUpdate
+         * @instance
+         */
+        entityUpdate.prototype.uuid = "";
+    
+        /**
+         * entityUpdate key.
+         * @member {string} key
+         * @memberof entityUpdate
+         * @instance
+         */
+        entityUpdate.prototype.key = "";
+    
+        /**
+         * entityUpdate value.
+         * @member {string} value
+         * @memberof entityUpdate
+         * @instance
+         */
+        entityUpdate.prototype.value = "";
+    
+        /**
+         * Creates a new entityUpdate instance using the specified properties.
+         * @function create
+         * @memberof entityUpdate
+         * @static
+         * @param {IentityUpdate=} [properties] Properties to set
+         * @returns {entityUpdate} entityUpdate instance
+         */
+        entityUpdate.create = function create(properties) {
+            return new entityUpdate(properties);
+        };
+    
+        /**
+         * Encodes the specified entityUpdate message. Does not implicitly {@link entityUpdate.verify|verify} messages.
+         * @function encode
+         * @memberof entityUpdate
+         * @static
+         * @param {IentityUpdate} message entityUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        entityUpdate.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+            if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.key);
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.value);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified entityUpdate message, length delimited. Does not implicitly {@link entityUpdate.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof entityUpdate
+         * @static
+         * @param {IentityUpdate} message entityUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        entityUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an entityUpdate message from the specified reader or buffer.
+         * @function decode
+         * @memberof entityUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {entityUpdate} entityUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        entityUpdate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.entityUpdate();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.uuid = reader.string();
+                    break;
+                case 2:
+                    message.key = reader.string();
+                    break;
+                case 3:
+                    message.value = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an entityUpdate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof entityUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {entityUpdate} entityUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        entityUpdate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an entityUpdate message.
+         * @function verify
+         * @memberof entityUpdate
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        entityUpdate.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
+            if (message.key != null && message.hasOwnProperty("key"))
+                if (!$util.isString(message.key))
+                    return "key: string expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (!$util.isString(message.value))
+                    return "value: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an entityUpdate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof entityUpdate
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {entityUpdate} entityUpdate
+         */
+        entityUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.entityUpdate)
+                return object;
+            var message = new $root.entityUpdate();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
+            if (object.key != null)
+                message.key = String(object.key);
+            if (object.value != null)
+                message.value = String(object.value);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an entityUpdate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof entityUpdate
+         * @static
+         * @param {entityUpdate} message entityUpdate
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        entityUpdate.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.uuid = "";
+                object.key = "";
+                object.value = "";
+            }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
+            if (message.key != null && message.hasOwnProperty("key"))
+                object.key = message.key;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = message.value;
+            return object;
+        };
+    
+        /**
+         * Converts this entityUpdate to JSON.
+         * @function toJSON
+         * @memberof entityUpdate
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        entityUpdate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return entityUpdate;
+    })();
+    
+    $root.entityAnimate = (function() {
+    
+        /**
+         * Properties of an entityAnimate.
+         * @exports IentityAnimate
+         * @interface IentityAnimate
+         * @property {string|null} [uuid] entityAnimate uuid
+         * @property {string|null} [animation] entityAnimate animation
+         * @property {number|null} [time] entityAnimate time
+         * @property {boolean|null} [replace] entityAnimate replace
+         */
+    
+        /**
+         * Constructs a new entityAnimate.
+         * @exports entityAnimate
+         * @classdesc Represents an entityAnimate.
+         * @implements IentityAnimate
+         * @constructor
+         * @param {IentityAnimate=} [properties] Properties to set
+         */
+        function entityAnimate(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * entityAnimate uuid.
+         * @member {string} uuid
+         * @memberof entityAnimate
+         * @instance
+         */
+        entityAnimate.prototype.uuid = "";
+    
+        /**
+         * entityAnimate animation.
+         * @member {string} animation
+         * @memberof entityAnimate
+         * @instance
+         */
+        entityAnimate.prototype.animation = "";
+    
+        /**
+         * entityAnimate time.
+         * @member {number} time
+         * @memberof entityAnimate
+         * @instance
+         */
+        entityAnimate.prototype.time = 0;
+    
+        /**
+         * entityAnimate replace.
+         * @member {boolean} replace
+         * @memberof entityAnimate
+         * @instance
+         */
+        entityAnimate.prototype.replace = false;
+    
+        /**
+         * Creates a new entityAnimate instance using the specified properties.
+         * @function create
+         * @memberof entityAnimate
+         * @static
+         * @param {IentityAnimate=} [properties] Properties to set
+         * @returns {entityAnimate} entityAnimate instance
+         */
+        entityAnimate.create = function create(properties) {
+            return new entityAnimate(properties);
+        };
+    
+        /**
+         * Encodes the specified entityAnimate message. Does not implicitly {@link entityAnimate.verify|verify} messages.
+         * @function encode
+         * @memberof entityAnimate
+         * @static
+         * @param {IentityAnimate} message entityAnimate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        entityAnimate.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+            if (message.animation != null && Object.hasOwnProperty.call(message, "animation"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.animation);
+            if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.time);
+            if (message.replace != null && Object.hasOwnProperty.call(message, "replace"))
+                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.replace);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified entityAnimate message, length delimited. Does not implicitly {@link entityAnimate.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof entityAnimate
+         * @static
+         * @param {IentityAnimate} message entityAnimate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        entityAnimate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an entityAnimate message from the specified reader or buffer.
+         * @function decode
+         * @memberof entityAnimate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {entityAnimate} entityAnimate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        entityAnimate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.entityAnimate();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.uuid = reader.string();
+                    break;
+                case 2:
+                    message.animation = reader.string();
+                    break;
+                case 3:
+                    message.time = reader.uint32();
+                    break;
+                case 4:
+                    message.replace = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an entityAnimate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof entityAnimate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {entityAnimate} entityAnimate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        entityAnimate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an entityAnimate message.
+         * @function verify
+         * @memberof entityAnimate
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        entityAnimate.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
+            if (message.animation != null && message.hasOwnProperty("animation"))
+                if (!$util.isString(message.animation))
+                    return "animation: string expected";
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (!$util.isInteger(message.time))
+                    return "time: integer expected";
+            if (message.replace != null && message.hasOwnProperty("replace"))
+                if (typeof message.replace !== "boolean")
+                    return "replace: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates an entityAnimate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof entityAnimate
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {entityAnimate} entityAnimate
+         */
+        entityAnimate.fromObject = function fromObject(object) {
+            if (object instanceof $root.entityAnimate)
+                return object;
+            var message = new $root.entityAnimate();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
+            if (object.animation != null)
+                message.animation = String(object.animation);
+            if (object.time != null)
+                message.time = object.time >>> 0;
+            if (object.replace != null)
+                message.replace = Boolean(object.replace);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an entityAnimate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof entityAnimate
+         * @static
+         * @param {entityAnimate} message entityAnimate
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        entityAnimate.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.uuid = "";
+                object.animation = "";
+                object.time = 0;
+                object.replace = false;
+            }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
+            if (message.animation != null && message.hasOwnProperty("animation"))
+                object.animation = message.animation;
+            if (message.time != null && message.hasOwnProperty("time"))
+                object.time = message.time;
+            if (message.replace != null && message.hasOwnProperty("replace"))
+                object.replace = message.replace;
+            return object;
+        };
+    
+        /**
+         * Converts this entityAnimate to JSON.
+         * @function toJSON
+         * @memberof entityAnimate
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        entityAnimate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return entityAnimate;
+    })();
+    
     $root.worldBlockUpdate = (function() {
     
         /**
@@ -3480,6 +4003,7 @@
          * @property {number|null} [z] worldChunk z
          * @property {Uint8Array|null} [data] worldChunk data
          * @property {boolean|null} [type] worldChunk type
+         * @property {boolean|null} [compressed] worldChunk compressed
          */
     
         /**
@@ -3538,6 +4062,14 @@
         worldChunk.prototype.type = false;
     
         /**
+         * worldChunk compressed.
+         * @member {boolean} compressed
+         * @memberof worldChunk
+         * @instance
+         */
+        worldChunk.prototype.compressed = false;
+    
+        /**
          * Creates a new worldChunk instance using the specified properties.
          * @function create
          * @memberof worldChunk
@@ -3571,6 +4103,8 @@
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.data);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 5, wireType 0 =*/40).bool(message.type);
+            if (message.compressed != null && Object.hasOwnProperty.call(message, "compressed"))
+                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.compressed);
             return writer;
         };
     
@@ -3619,6 +4153,9 @@
                     break;
                 case 5:
                     message.type = reader.bool();
+                    break;
+                case 6:
+                    message.compressed = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3670,6 +4207,9 @@
             if (message.type != null && message.hasOwnProperty("type"))
                 if (typeof message.type !== "boolean")
                     return "type: boolean expected";
+            if (message.compressed != null && message.hasOwnProperty("compressed"))
+                if (typeof message.compressed !== "boolean")
+                    return "compressed: boolean expected";
             return null;
         };
     
@@ -3698,6 +4238,8 @@
                     message.data = object.data;
             if (object.type != null)
                 message.type = Boolean(object.type);
+            if (object.compressed != null)
+                message.compressed = Boolean(object.compressed);
             return message;
         };
     
@@ -3726,6 +4268,7 @@
                         object.data = $util.newBuffer(object.data);
                 }
                 object.type = false;
+                object.compressed = false;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = message.x;
@@ -3737,6 +4280,8 @@
                 object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = message.type;
+            if (message.compressed != null && message.hasOwnProperty("compressed"))
+                object.compressed = message.compressed;
             return object;
         };
     

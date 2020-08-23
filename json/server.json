@@ -129,6 +129,10 @@
         "reason": {
           "type": "string",
           "id": 1
+        },
+        "time": {
+          "type": "uint64",
+          "id": 2
         }
       }
     },
@@ -216,6 +220,42 @@
         }
       }
     },
+    "entityUpdate": {
+      "fields": {
+        "uuid": {
+          "type": "string",
+          "id": 1
+        },
+        "key": {
+          "type": "string",
+          "id": 2
+        },
+        "value": {
+          "type": "string",
+          "id": 3
+        }
+      }
+    },
+    "entityAnimate": {
+      "fields": {
+        "uuid": {
+          "type": "string",
+          "id": 1
+        },
+        "animation": {
+          "type": "string",
+          "id": 2
+        },
+        "time": {
+          "type": "uint32",
+          "id": 3
+        },
+        "replace": {
+          "type": "bool",
+          "id": 4
+        }
+      }
+    },
     "worldBlockUpdate": {
       "fields": {
         "x": {
@@ -257,6 +297,10 @@
         "type": {
           "type": "bool",
           "id": 5
+        },
+        "compressed": {
+          "type": "bool",
+          "id": 6
         }
       }
     },

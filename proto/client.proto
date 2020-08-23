@@ -69,9 +69,37 @@ message actionInventoryClick {
 	string type = 2;
 	string inventory = 3;
 	optional int32 slot2 = 4;
-
 }
 
+/* 
+ * actionInventoryOpen is send after opening and closing any inventory/menu
+ * It can be used to determine, if player should be able to do other actions.
+*/
+
+message actionInventoryOpen {
+	string inventory = 1;
+	bool action = 2;
+}
+
+/* 
+ * actionClick is send after clicking a block
+*/
+
+message actionClick {
+    int32 x = 1;
+    int32 y = 2;
+	int32 z = 3;
+	string type = 4;
+}
+
+/* 
+ * actionClick is send after clicking an entity
+*/
+
+message actionClickEntity {
+    string uuid = 1;
+	string type = 2;
+}
 
 /* 
  * chunkRequest is send when client is missing some chunks
@@ -81,5 +109,7 @@ message chunkRequest {
     int32 x = 1;
     int32 y = 2;
     int32 z = 3;
-
 }
+
+
+

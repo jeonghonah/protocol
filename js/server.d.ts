@@ -736,6 +736,9 @@ export interface IplayerKick {
 
     /** playerKick reason */
     reason?: (string|null);
+
+    /** playerKick time */
+    time?: (number|Long|null);
 }
 
 /** Represents a playerKick. */
@@ -749,6 +752,9 @@ export class playerKick implements IplayerKick {
 
     /** playerKick reason. */
     public reason: string;
+
+    /** playerKick time. */
+    public time: (number|Long);
 
     /**
      * Creates a new playerKick instance using the specified properties.
@@ -1415,6 +1421,216 @@ export class entityMove implements IentityMove {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of an entityUpdate. */
+export interface IentityUpdate {
+
+    /** entityUpdate uuid */
+    uuid?: (string|null);
+
+    /** entityUpdate key */
+    key?: (string|null);
+
+    /** entityUpdate value */
+    value?: (string|null);
+}
+
+/** Represents an entityUpdate. */
+export class entityUpdate implements IentityUpdate {
+
+    /**
+     * Constructs a new entityUpdate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IentityUpdate);
+
+    /** entityUpdate uuid. */
+    public uuid: string;
+
+    /** entityUpdate key. */
+    public key: string;
+
+    /** entityUpdate value. */
+    public value: string;
+
+    /**
+     * Creates a new entityUpdate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns entityUpdate instance
+     */
+    public static create(properties?: IentityUpdate): entityUpdate;
+
+    /**
+     * Encodes the specified entityUpdate message. Does not implicitly {@link entityUpdate.verify|verify} messages.
+     * @param message entityUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IentityUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified entityUpdate message, length delimited. Does not implicitly {@link entityUpdate.verify|verify} messages.
+     * @param message entityUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IentityUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an entityUpdate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns entityUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): entityUpdate;
+
+    /**
+     * Decodes an entityUpdate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns entityUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): entityUpdate;
+
+    /**
+     * Verifies an entityUpdate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an entityUpdate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns entityUpdate
+     */
+    public static fromObject(object: { [k: string]: any }): entityUpdate;
+
+    /**
+     * Creates a plain object from an entityUpdate message. Also converts values to other types if specified.
+     * @param message entityUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: entityUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this entityUpdate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an entityAnimate. */
+export interface IentityAnimate {
+
+    /** entityAnimate uuid */
+    uuid?: (string|null);
+
+    /** entityAnimate animation */
+    animation?: (string|null);
+
+    /** entityAnimate time */
+    time?: (number|null);
+
+    /** entityAnimate replace */
+    replace?: (boolean|null);
+}
+
+/** Represents an entityAnimate. */
+export class entityAnimate implements IentityAnimate {
+
+    /**
+     * Constructs a new entityAnimate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IentityAnimate);
+
+    /** entityAnimate uuid. */
+    public uuid: string;
+
+    /** entityAnimate animation. */
+    public animation: string;
+
+    /** entityAnimate time. */
+    public time: number;
+
+    /** entityAnimate replace. */
+    public replace: boolean;
+
+    /**
+     * Creates a new entityAnimate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns entityAnimate instance
+     */
+    public static create(properties?: IentityAnimate): entityAnimate;
+
+    /**
+     * Encodes the specified entityAnimate message. Does not implicitly {@link entityAnimate.verify|verify} messages.
+     * @param message entityAnimate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IentityAnimate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified entityAnimate message, length delimited. Does not implicitly {@link entityAnimate.verify|verify} messages.
+     * @param message entityAnimate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IentityAnimate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an entityAnimate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns entityAnimate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): entityAnimate;
+
+    /**
+     * Decodes an entityAnimate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns entityAnimate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): entityAnimate;
+
+    /**
+     * Verifies an entityAnimate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an entityAnimate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns entityAnimate
+     */
+    public static fromObject(object: { [k: string]: any }): entityAnimate;
+
+    /**
+     * Creates a plain object from an entityAnimate message. Also converts values to other types if specified.
+     * @param message entityAnimate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: entityAnimate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this entityAnimate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a worldBlockUpdate. */
 export interface IworldBlockUpdate {
 
@@ -1540,6 +1756,9 @@ export interface IworldChunk {
 
     /** worldChunk type */
     type?: (boolean|null);
+
+    /** worldChunk compressed */
+    compressed?: (boolean|null);
 }
 
 /** Represents a worldChunk. */
@@ -1565,6 +1784,9 @@ export class worldChunk implements IworldChunk {
 
     /** worldChunk type. */
     public type: boolean;
+
+    /** worldChunk compressed. */
+    public compressed: boolean;
 
     /**
      * Creates a new worldChunk instance using the specified properties.

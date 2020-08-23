@@ -108,6 +108,50 @@
         }
       }
     },
+    "actionInventoryOpen": {
+      "fields": {
+        "inventory": {
+          "type": "string",
+          "id": 1
+        },
+        "action": {
+          "type": "bool",
+          "id": 2
+        }
+      }
+    },
+    "actionClick": {
+      "fields": {
+        "x": {
+          "type": "int32",
+          "id": 1
+        },
+        "y": {
+          "type": "int32",
+          "id": 2
+        },
+        "z": {
+          "type": "int32",
+          "id": 3
+        },
+        "type": {
+          "type": "string",
+          "id": 4
+        }
+      }
+    },
+    "actionClickEntity": {
+      "fields": {
+        "uuid": {
+          "type": "string",
+          "id": 1
+        },
+        "type": {
+          "type": "string",
+          "id": 2
+        }
+      }
+    },
     "chunkRequest": {
       "fields": {
         "x": {

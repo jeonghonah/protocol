@@ -1473,6 +1473,680 @@
         return actionInventoryClick;
     })();
     
+    $root.actionInventoryOpen = (function() {
+    
+        /**
+         * Properties of an actionInventoryOpen.
+         * @exports IactionInventoryOpen
+         * @interface IactionInventoryOpen
+         * @property {string|null} [inventory] actionInventoryOpen inventory
+         * @property {boolean|null} [action] actionInventoryOpen action
+         */
+    
+        /**
+         * Constructs a new actionInventoryOpen.
+         * @exports actionInventoryOpen
+         * @classdesc Represents an actionInventoryOpen.
+         * @implements IactionInventoryOpen
+         * @constructor
+         * @param {IactionInventoryOpen=} [properties] Properties to set
+         */
+        function actionInventoryOpen(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * actionInventoryOpen inventory.
+         * @member {string} inventory
+         * @memberof actionInventoryOpen
+         * @instance
+         */
+        actionInventoryOpen.prototype.inventory = "";
+    
+        /**
+         * actionInventoryOpen action.
+         * @member {boolean} action
+         * @memberof actionInventoryOpen
+         * @instance
+         */
+        actionInventoryOpen.prototype.action = false;
+    
+        /**
+         * Creates a new actionInventoryOpen instance using the specified properties.
+         * @function create
+         * @memberof actionInventoryOpen
+         * @static
+         * @param {IactionInventoryOpen=} [properties] Properties to set
+         * @returns {actionInventoryOpen} actionInventoryOpen instance
+         */
+        actionInventoryOpen.create = function create(properties) {
+            return new actionInventoryOpen(properties);
+        };
+    
+        /**
+         * Encodes the specified actionInventoryOpen message. Does not implicitly {@link actionInventoryOpen.verify|verify} messages.
+         * @function encode
+         * @memberof actionInventoryOpen
+         * @static
+         * @param {IactionInventoryOpen} message actionInventoryOpen message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        actionInventoryOpen.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.inventory);
+            if (message.action != null && Object.hasOwnProperty.call(message, "action"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.action);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified actionInventoryOpen message, length delimited. Does not implicitly {@link actionInventoryOpen.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof actionInventoryOpen
+         * @static
+         * @param {IactionInventoryOpen} message actionInventoryOpen message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        actionInventoryOpen.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an actionInventoryOpen message from the specified reader or buffer.
+         * @function decode
+         * @memberof actionInventoryOpen
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {actionInventoryOpen} actionInventoryOpen
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        actionInventoryOpen.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionInventoryOpen();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.inventory = reader.string();
+                    break;
+                case 2:
+                    message.action = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an actionInventoryOpen message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof actionInventoryOpen
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {actionInventoryOpen} actionInventoryOpen
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        actionInventoryOpen.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an actionInventoryOpen message.
+         * @function verify
+         * @memberof actionInventoryOpen
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        actionInventoryOpen.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                if (!$util.isString(message.inventory))
+                    return "inventory: string expected";
+            if (message.action != null && message.hasOwnProperty("action"))
+                if (typeof message.action !== "boolean")
+                    return "action: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates an actionInventoryOpen message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof actionInventoryOpen
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {actionInventoryOpen} actionInventoryOpen
+         */
+        actionInventoryOpen.fromObject = function fromObject(object) {
+            if (object instanceof $root.actionInventoryOpen)
+                return object;
+            var message = new $root.actionInventoryOpen();
+            if (object.inventory != null)
+                message.inventory = String(object.inventory);
+            if (object.action != null)
+                message.action = Boolean(object.action);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an actionInventoryOpen message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof actionInventoryOpen
+         * @static
+         * @param {actionInventoryOpen} message actionInventoryOpen
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        actionInventoryOpen.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.inventory = "";
+                object.action = false;
+            }
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                object.inventory = message.inventory;
+            if (message.action != null && message.hasOwnProperty("action"))
+                object.action = message.action;
+            return object;
+        };
+    
+        /**
+         * Converts this actionInventoryOpen to JSON.
+         * @function toJSON
+         * @memberof actionInventoryOpen
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        actionInventoryOpen.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return actionInventoryOpen;
+    })();
+    
+    $root.actionClick = (function() {
+    
+        /**
+         * Properties of an actionClick.
+         * @exports IactionClick
+         * @interface IactionClick
+         * @property {number|null} [x] actionClick x
+         * @property {number|null} [y] actionClick y
+         * @property {number|null} [z] actionClick z
+         * @property {string|null} [type] actionClick type
+         */
+    
+        /**
+         * Constructs a new actionClick.
+         * @exports actionClick
+         * @classdesc Represents an actionClick.
+         * @implements IactionClick
+         * @constructor
+         * @param {IactionClick=} [properties] Properties to set
+         */
+        function actionClick(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * actionClick x.
+         * @member {number} x
+         * @memberof actionClick
+         * @instance
+         */
+        actionClick.prototype.x = 0;
+    
+        /**
+         * actionClick y.
+         * @member {number} y
+         * @memberof actionClick
+         * @instance
+         */
+        actionClick.prototype.y = 0;
+    
+        /**
+         * actionClick z.
+         * @member {number} z
+         * @memberof actionClick
+         * @instance
+         */
+        actionClick.prototype.z = 0;
+    
+        /**
+         * actionClick type.
+         * @member {string} type
+         * @memberof actionClick
+         * @instance
+         */
+        actionClick.prototype.type = "";
+    
+        /**
+         * Creates a new actionClick instance using the specified properties.
+         * @function create
+         * @memberof actionClick
+         * @static
+         * @param {IactionClick=} [properties] Properties to set
+         * @returns {actionClick} actionClick instance
+         */
+        actionClick.create = function create(properties) {
+            return new actionClick(properties);
+        };
+    
+        /**
+         * Encodes the specified actionClick message. Does not implicitly {@link actionClick.verify|verify} messages.
+         * @function encode
+         * @memberof actionClick
+         * @static
+         * @param {IactionClick} message actionClick message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        actionClick.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.x != null && Object.hasOwnProperty.call(message, "x"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+            if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+            if (message.z != null && Object.hasOwnProperty.call(message, "z"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.type);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified actionClick message, length delimited. Does not implicitly {@link actionClick.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof actionClick
+         * @static
+         * @param {IactionClick} message actionClick message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        actionClick.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an actionClick message from the specified reader or buffer.
+         * @function decode
+         * @memberof actionClick
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {actionClick} actionClick
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        actionClick.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionClick();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.x = reader.int32();
+                    break;
+                case 2:
+                    message.y = reader.int32();
+                    break;
+                case 3:
+                    message.z = reader.int32();
+                    break;
+                case 4:
+                    message.type = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an actionClick message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof actionClick
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {actionClick} actionClick
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        actionClick.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an actionClick message.
+         * @function verify
+         * @memberof actionClick
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        actionClick.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.x != null && message.hasOwnProperty("x"))
+                if (!$util.isInteger(message.x))
+                    return "x: integer expected";
+            if (message.y != null && message.hasOwnProperty("y"))
+                if (!$util.isInteger(message.y))
+                    return "y: integer expected";
+            if (message.z != null && message.hasOwnProperty("z"))
+                if (!$util.isInteger(message.z))
+                    return "z: integer expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                if (!$util.isString(message.type))
+                    return "type: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an actionClick message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof actionClick
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {actionClick} actionClick
+         */
+        actionClick.fromObject = function fromObject(object) {
+            if (object instanceof $root.actionClick)
+                return object;
+            var message = new $root.actionClick();
+            if (object.x != null)
+                message.x = object.x | 0;
+            if (object.y != null)
+                message.y = object.y | 0;
+            if (object.z != null)
+                message.z = object.z | 0;
+            if (object.type != null)
+                message.type = String(object.type);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an actionClick message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof actionClick
+         * @static
+         * @param {actionClick} message actionClick
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        actionClick.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.x = 0;
+                object.y = 0;
+                object.z = 0;
+                object.type = "";
+            }
+            if (message.x != null && message.hasOwnProperty("x"))
+                object.x = message.x;
+            if (message.y != null && message.hasOwnProperty("y"))
+                object.y = message.y;
+            if (message.z != null && message.hasOwnProperty("z"))
+                object.z = message.z;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = message.type;
+            return object;
+        };
+    
+        /**
+         * Converts this actionClick to JSON.
+         * @function toJSON
+         * @memberof actionClick
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        actionClick.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return actionClick;
+    })();
+    
+    $root.actionClickEntity = (function() {
+    
+        /**
+         * Properties of an actionClickEntity.
+         * @exports IactionClickEntity
+         * @interface IactionClickEntity
+         * @property {string|null} [uuid] actionClickEntity uuid
+         * @property {string|null} [type] actionClickEntity type
+         */
+    
+        /**
+         * Constructs a new actionClickEntity.
+         * @exports actionClickEntity
+         * @classdesc Represents an actionClickEntity.
+         * @implements IactionClickEntity
+         * @constructor
+         * @param {IactionClickEntity=} [properties] Properties to set
+         */
+        function actionClickEntity(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * actionClickEntity uuid.
+         * @member {string} uuid
+         * @memberof actionClickEntity
+         * @instance
+         */
+        actionClickEntity.prototype.uuid = "";
+    
+        /**
+         * actionClickEntity type.
+         * @member {string} type
+         * @memberof actionClickEntity
+         * @instance
+         */
+        actionClickEntity.prototype.type = "";
+    
+        /**
+         * Creates a new actionClickEntity instance using the specified properties.
+         * @function create
+         * @memberof actionClickEntity
+         * @static
+         * @param {IactionClickEntity=} [properties] Properties to set
+         * @returns {actionClickEntity} actionClickEntity instance
+         */
+        actionClickEntity.create = function create(properties) {
+            return new actionClickEntity(properties);
+        };
+    
+        /**
+         * Encodes the specified actionClickEntity message. Does not implicitly {@link actionClickEntity.verify|verify} messages.
+         * @function encode
+         * @memberof actionClickEntity
+         * @static
+         * @param {IactionClickEntity} message actionClickEntity message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        actionClickEntity.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified actionClickEntity message, length delimited. Does not implicitly {@link actionClickEntity.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof actionClickEntity
+         * @static
+         * @param {IactionClickEntity} message actionClickEntity message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        actionClickEntity.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an actionClickEntity message from the specified reader or buffer.
+         * @function decode
+         * @memberof actionClickEntity
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {actionClickEntity} actionClickEntity
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        actionClickEntity.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionClickEntity();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.uuid = reader.string();
+                    break;
+                case 2:
+                    message.type = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an actionClickEntity message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof actionClickEntity
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {actionClickEntity} actionClickEntity
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        actionClickEntity.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an actionClickEntity message.
+         * @function verify
+         * @memberof actionClickEntity
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        actionClickEntity.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                if (!$util.isString(message.type))
+                    return "type: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an actionClickEntity message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof actionClickEntity
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {actionClickEntity} actionClickEntity
+         */
+        actionClickEntity.fromObject = function fromObject(object) {
+            if (object instanceof $root.actionClickEntity)
+                return object;
+            var message = new $root.actionClickEntity();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
+            if (object.type != null)
+                message.type = String(object.type);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an actionClickEntity message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof actionClickEntity
+         * @static
+         * @param {actionClickEntity} message actionClickEntity
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        actionClickEntity.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.uuid = "";
+                object.type = "";
+            }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = message.type;
+            return object;
+        };
+    
+        /**
+         * Converts this actionClickEntity to JSON.
+         * @function toJSON
+         * @memberof actionClickEntity
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        actionClickEntity.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return actionClickEntity;
+    })();
+    
     $root.chunkRequest = (function() {
     
         /**

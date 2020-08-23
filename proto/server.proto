@@ -52,7 +52,7 @@ message playerTeleport {
 
 /* 
  * playerInventory updates entire inventory of player.
- * inventory contains stringified copy of player's inventory objecyt
+ * inventory contains stringified copy of player's inventory object
 */
 
 message playerInventory {
@@ -85,7 +85,8 @@ message playerMovementChange {
 */
 
 message playerKick {
-    string reason = 1;
+	string reason = 1;
+	uint64 time = 2;
 }
 
 /* 
@@ -149,6 +150,27 @@ message entityMove {
 }
 
 /* 
+ * entityUpdate updates data of entity
+*/
+
+message entityUpdate {
+    string uuid = 1;
+    string key = 2;
+    string value = 3;
+}
+
+/* 
+ * entityAnimate plays entity's animation.
+*/
+
+message entityAnimate {
+    string uuid = 1;
+	string animation = 2;
+	uint32 time = 3;
+	bool replace = 4;
+}
+
+/* 
  * worldBlockUpdate changes block at x, y, z to block with id id
 */
 
@@ -160,8 +182,10 @@ message worldBlockUpdate {
 }
 
 /* 
- * worldChunk updates chunk for player. 
- * x and z changes chunk's location. Data is buffer with all blocks
+ * worldChunk updates chunk for player. x, y and z changes chunk's location. 
+ * type changes, how chunks are used. If true, chunks are 32x256x32 and y is ignored.
+ * Else (type = false), chunks are 32x32x32.
+ * Data is buffer with all blocks. Compressed bool is set to true, if data is compressed with zlib.
 */
 
 message worldChunk {
@@ -170,6 +194,7 @@ message worldChunk {
 	int32 z = 3;
 	bytes data = 4;
 	bool type = 5;
+	bool compressed = 6;
 }
 
 /* 
