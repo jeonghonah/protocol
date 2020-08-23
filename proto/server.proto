@@ -108,7 +108,14 @@ message soundPlay {
 */
 
 message chatMessage {
-    string message = 1;
+	message chatComponent {
+		string text = 1;
+		string font = 2;
+		string color = 3;
+	}
+
+	map<uint32, chatComponent> message = 1; 
+	uint64 time = 2;
 }
 
 /* 

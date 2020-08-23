@@ -163,8 +163,31 @@
     "chatMessage": {
       "fields": {
         "message": {
-          "type": "string",
+          "keyType": "uint32",
+          "type": "chatComponent",
           "id": 1
+        },
+        "time": {
+          "type": "uint64",
+          "id": 2
+        }
+      },
+      "nested": {
+        "chatComponent": {
+          "fields": {
+            "text": {
+              "type": "string",
+              "id": 1
+            },
+            "font": {
+              "type": "string",
+              "id": 2
+            },
+            "color": {
+              "type": "string",
+              "id": 3
+            }
+          }
         }
       }
     },
