@@ -13,6 +13,14 @@
         "mobile": {
           "type": "bool",
           "id": 3
+        },
+        "client": {
+          "type": "string",
+          "id": 4
+        },
+        "secret": {
+          "type": "string",
+          "id": 5
         }
       }
     },
@@ -117,6 +125,14 @@
         "action": {
           "type": "bool",
           "id": 2
+        }
+      }
+    },
+    "actionInventoryClose": {
+      "fields": {
+        "inventory": {
+          "type": "string",
+          "id": 1
         }
       }
     },

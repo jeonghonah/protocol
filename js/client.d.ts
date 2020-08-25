@@ -10,6 +10,12 @@ export interface IloginResponse {
 
     /** loginResponse mobile */
     mobile?: (boolean|null);
+
+    /** loginResponse client */
+    client?: (string|null);
+
+    /** loginResponse secret */
+    secret?: (string|null);
 }
 
 /** Represents a loginResponse. */
@@ -29,6 +35,12 @@ export class loginResponse implements IloginResponse {
 
     /** loginResponse mobile. */
     public mobile: boolean;
+
+    /** loginResponse client. */
+    public client: string;
+
+    /** loginResponse secret. */
+    public secret: string;
 
     /**
      * Creates a new loginResponse instance using the specified properties.
@@ -720,6 +732,96 @@ export class actionInventoryOpen implements IactionInventoryOpen {
 
     /**
      * Converts this actionInventoryOpen to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an actionInventoryClose. */
+export interface IactionInventoryClose {
+
+    /** actionInventoryClose inventory */
+    inventory?: (string|null);
+}
+
+/** Represents an actionInventoryClose. */
+export class actionInventoryClose implements IactionInventoryClose {
+
+    /**
+     * Constructs a new actionInventoryClose.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IactionInventoryClose);
+
+    /** actionInventoryClose inventory. */
+    public inventory: string;
+
+    /**
+     * Creates a new actionInventoryClose instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns actionInventoryClose instance
+     */
+    public static create(properties?: IactionInventoryClose): actionInventoryClose;
+
+    /**
+     * Encodes the specified actionInventoryClose message. Does not implicitly {@link actionInventoryClose.verify|verify} messages.
+     * @param message actionInventoryClose message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IactionInventoryClose, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified actionInventoryClose message, length delimited. Does not implicitly {@link actionInventoryClose.verify|verify} messages.
+     * @param message actionInventoryClose message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IactionInventoryClose, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an actionInventoryClose message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns actionInventoryClose
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionInventoryClose;
+
+    /**
+     * Decodes an actionInventoryClose message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns actionInventoryClose
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionInventoryClose;
+
+    /**
+     * Verifies an actionInventoryClose message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an actionInventoryClose message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns actionInventoryClose
+     */
+    public static fromObject(object: { [k: string]: any }): actionInventoryClose;
+
+    /**
+     * Creates a plain object from an actionInventoryClose message. Also converts values to other types if specified.
+     * @param message actionInventoryClose
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: actionInventoryClose, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this actionInventoryClose to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

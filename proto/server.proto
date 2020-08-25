@@ -112,6 +112,8 @@ message chatMessage {
 		string text = 1;
 		string font = 2;
 		string color = 3;
+		bool linethrough = 4;
+		bool underline = 5;
 	}
 
 	map<uint32, chatComponent> message = 1; 
@@ -123,8 +125,8 @@ message chatMessage {
 */
 
 message tabUpdate {
-    string message = 1;
-}
+	string message = 1; 
+	uint64 time = 2;}
 
 /* 
  * entityCreate creates new entity.

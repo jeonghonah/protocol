@@ -25,6 +25,8 @@
          * @property {string|null} [username] loginResponse username
          * @property {number|null} [protocol] loginResponse protocol
          * @property {boolean|null} [mobile] loginResponse mobile
+         * @property {string|null} [client] loginResponse client
+         * @property {string|null} [secret] loginResponse secret
          */
     
         /**
@@ -67,6 +69,22 @@
         loginResponse.prototype.mobile = false;
     
         /**
+         * loginResponse client.
+         * @member {string} client
+         * @memberof loginResponse
+         * @instance
+         */
+        loginResponse.prototype.client = "";
+    
+        /**
+         * loginResponse secret.
+         * @member {string} secret
+         * @memberof loginResponse
+         * @instance
+         */
+        loginResponse.prototype.secret = "";
+    
+        /**
          * Creates a new loginResponse instance using the specified properties.
          * @function create
          * @memberof loginResponse
@@ -96,6 +114,10 @@
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.protocol);
             if (message.mobile != null && Object.hasOwnProperty.call(message, "mobile"))
                 writer.uint32(/* id 3, wireType 0 =*/24).bool(message.mobile);
+            if (message.client != null && Object.hasOwnProperty.call(message, "client"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.client);
+            if (message.secret != null && Object.hasOwnProperty.call(message, "secret"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.secret);
             return writer;
         };
     
@@ -138,6 +160,12 @@
                     break;
                 case 3:
                     message.mobile = reader.bool();
+                    break;
+                case 4:
+                    message.client = reader.string();
+                    break;
+                case 5:
+                    message.secret = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -183,6 +211,12 @@
             if (message.mobile != null && message.hasOwnProperty("mobile"))
                 if (typeof message.mobile !== "boolean")
                     return "mobile: boolean expected";
+            if (message.client != null && message.hasOwnProperty("client"))
+                if (!$util.isString(message.client))
+                    return "client: string expected";
+            if (message.secret != null && message.hasOwnProperty("secret"))
+                if (!$util.isString(message.secret))
+                    return "secret: string expected";
             return null;
         };
     
@@ -204,6 +238,10 @@
                 message.protocol = object.protocol >>> 0;
             if (object.mobile != null)
                 message.mobile = Boolean(object.mobile);
+            if (object.client != null)
+                message.client = String(object.client);
+            if (object.secret != null)
+                message.secret = String(object.secret);
             return message;
         };
     
@@ -224,6 +262,8 @@
                 object.username = "";
                 object.protocol = 0;
                 object.mobile = false;
+                object.client = "";
+                object.secret = "";
             }
             if (message.username != null && message.hasOwnProperty("username"))
                 object.username = message.username;
@@ -231,6 +271,10 @@
                 object.protocol = message.protocol;
             if (message.mobile != null && message.hasOwnProperty("mobile"))
                 object.mobile = message.mobile;
+            if (message.client != null && message.hasOwnProperty("client"))
+                object.client = message.client;
+            if (message.secret != null && message.hasOwnProperty("secret"))
+                object.secret = message.secret;
             return object;
         };
     
@@ -1681,6 +1725,193 @@
         };
     
         return actionInventoryOpen;
+    })();
+    
+    $root.actionInventoryClose = (function() {
+    
+        /**
+         * Properties of an actionInventoryClose.
+         * @exports IactionInventoryClose
+         * @interface IactionInventoryClose
+         * @property {string|null} [inventory] actionInventoryClose inventory
+         */
+    
+        /**
+         * Constructs a new actionInventoryClose.
+         * @exports actionInventoryClose
+         * @classdesc Represents an actionInventoryClose.
+         * @implements IactionInventoryClose
+         * @constructor
+         * @param {IactionInventoryClose=} [properties] Properties to set
+         */
+        function actionInventoryClose(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * actionInventoryClose inventory.
+         * @member {string} inventory
+         * @memberof actionInventoryClose
+         * @instance
+         */
+        actionInventoryClose.prototype.inventory = "";
+    
+        /**
+         * Creates a new actionInventoryClose instance using the specified properties.
+         * @function create
+         * @memberof actionInventoryClose
+         * @static
+         * @param {IactionInventoryClose=} [properties] Properties to set
+         * @returns {actionInventoryClose} actionInventoryClose instance
+         */
+        actionInventoryClose.create = function create(properties) {
+            return new actionInventoryClose(properties);
+        };
+    
+        /**
+         * Encodes the specified actionInventoryClose message. Does not implicitly {@link actionInventoryClose.verify|verify} messages.
+         * @function encode
+         * @memberof actionInventoryClose
+         * @static
+         * @param {IactionInventoryClose} message actionInventoryClose message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        actionInventoryClose.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.inventory);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified actionInventoryClose message, length delimited. Does not implicitly {@link actionInventoryClose.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof actionInventoryClose
+         * @static
+         * @param {IactionInventoryClose} message actionInventoryClose message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        actionInventoryClose.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an actionInventoryClose message from the specified reader or buffer.
+         * @function decode
+         * @memberof actionInventoryClose
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {actionInventoryClose} actionInventoryClose
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        actionInventoryClose.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionInventoryClose();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.inventory = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an actionInventoryClose message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof actionInventoryClose
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {actionInventoryClose} actionInventoryClose
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        actionInventoryClose.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an actionInventoryClose message.
+         * @function verify
+         * @memberof actionInventoryClose
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        actionInventoryClose.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                if (!$util.isString(message.inventory))
+                    return "inventory: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an actionInventoryClose message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof actionInventoryClose
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {actionInventoryClose} actionInventoryClose
+         */
+        actionInventoryClose.fromObject = function fromObject(object) {
+            if (object instanceof $root.actionInventoryClose)
+                return object;
+            var message = new $root.actionInventoryClose();
+            if (object.inventory != null)
+                message.inventory = String(object.inventory);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an actionInventoryClose message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof actionInventoryClose
+         * @static
+         * @param {actionInventoryClose} message actionInventoryClose
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        actionInventoryClose.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.inventory = "";
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                object.inventory = message.inventory;
+            return object;
+        };
+    
+        /**
+         * Converts this actionInventoryClose to JSON.
+         * @function toJSON
+         * @memberof actionInventoryClose
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        actionInventoryClose.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return actionInventoryClose;
     })();
     
     $root.actionClick = (function() {

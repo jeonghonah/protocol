@@ -2481,6 +2481,8 @@
              * @property {string|null} [text] chatComponent text
              * @property {string|null} [font] chatComponent font
              * @property {string|null} [color] chatComponent color
+             * @property {boolean|null} [linethrough] chatComponent linethrough
+             * @property {boolean|null} [underline] chatComponent underline
              */
     
             /**
@@ -2523,6 +2525,22 @@
             chatComponent.prototype.color = "";
     
             /**
+             * chatComponent linethrough.
+             * @member {boolean} linethrough
+             * @memberof chatMessage.chatComponent
+             * @instance
+             */
+            chatComponent.prototype.linethrough = false;
+    
+            /**
+             * chatComponent underline.
+             * @member {boolean} underline
+             * @memberof chatMessage.chatComponent
+             * @instance
+             */
+            chatComponent.prototype.underline = false;
+    
+            /**
              * Creates a new chatComponent instance using the specified properties.
              * @function create
              * @memberof chatMessage.chatComponent
@@ -2552,6 +2570,10 @@
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.font);
                 if (message.color != null && Object.hasOwnProperty.call(message, "color"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.color);
+                if (message.linethrough != null && Object.hasOwnProperty.call(message, "linethrough"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.linethrough);
+                if (message.underline != null && Object.hasOwnProperty.call(message, "underline"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.underline);
                 return writer;
             };
     
@@ -2594,6 +2616,12 @@
                         break;
                     case 3:
                         message.color = reader.string();
+                        break;
+                    case 4:
+                        message.linethrough = reader.bool();
+                        break;
+                    case 5:
+                        message.underline = reader.bool();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -2639,6 +2667,12 @@
                 if (message.color != null && message.hasOwnProperty("color"))
                     if (!$util.isString(message.color))
                         return "color: string expected";
+                if (message.linethrough != null && message.hasOwnProperty("linethrough"))
+                    if (typeof message.linethrough !== "boolean")
+                        return "linethrough: boolean expected";
+                if (message.underline != null && message.hasOwnProperty("underline"))
+                    if (typeof message.underline !== "boolean")
+                        return "underline: boolean expected";
                 return null;
             };
     
@@ -2660,6 +2694,10 @@
                     message.font = String(object.font);
                 if (object.color != null)
                     message.color = String(object.color);
+                if (object.linethrough != null)
+                    message.linethrough = Boolean(object.linethrough);
+                if (object.underline != null)
+                    message.underline = Boolean(object.underline);
                 return message;
             };
     
@@ -2680,6 +2718,8 @@
                     object.text = "";
                     object.font = "";
                     object.color = "";
+                    object.linethrough = false;
+                    object.underline = false;
                 }
                 if (message.text != null && message.hasOwnProperty("text"))
                     object.text = message.text;
@@ -2687,6 +2727,10 @@
                     object.font = message.font;
                 if (message.color != null && message.hasOwnProperty("color"))
                     object.color = message.color;
+                if (message.linethrough != null && message.hasOwnProperty("linethrough"))
+                    object.linethrough = message.linethrough;
+                if (message.underline != null && message.hasOwnProperty("underline"))
+                    object.underline = message.underline;
                 return object;
             };
     
@@ -2714,6 +2758,7 @@
          * @exports ItabUpdate
          * @interface ItabUpdate
          * @property {string|null} [message] tabUpdate message
+         * @property {number|Long|null} [time] tabUpdate time
          */
     
         /**
@@ -2738,6 +2783,14 @@
          * @instance
          */
         tabUpdate.prototype.message = "";
+    
+        /**
+         * tabUpdate time.
+         * @member {number|Long} time
+         * @memberof tabUpdate
+         * @instance
+         */
+        tabUpdate.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
     
         /**
          * Creates a new tabUpdate instance using the specified properties.
@@ -2765,6 +2818,8 @@
                 writer = $Writer.create();
             if (message.message != null && Object.hasOwnProperty.call(message, "message"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.message);
+            if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
             return writer;
         };
     
@@ -2801,6 +2856,9 @@
                 switch (tag >>> 3) {
                 case 1:
                     message.message = reader.string();
+                    break;
+                case 2:
+                    message.time = reader.uint64();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2840,6 +2898,9 @@
             if (message.message != null && message.hasOwnProperty("message"))
                 if (!$util.isString(message.message))
                     return "message: string expected";
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                    return "time: integer|Long expected";
             return null;
         };
     
@@ -2857,6 +2918,15 @@
             var message = new $root.tabUpdate();
             if (object.message != null)
                 message.message = String(object.message);
+            if (object.time != null)
+                if ($util.Long)
+                    (message.time = $util.Long.fromValue(object.time)).unsigned = true;
+                else if (typeof object.time === "string")
+                    message.time = parseInt(object.time, 10);
+                else if (typeof object.time === "number")
+                    message.time = object.time;
+                else if (typeof object.time === "object")
+                    message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber(true);
             return message;
         };
     
@@ -2873,10 +2943,21 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.message = "";
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.time = options.longs === String ? "0" : 0;
+            }
             if (message.message != null && message.hasOwnProperty("message"))
                 object.message = message.message;
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (typeof message.time === "number")
+                    object.time = options.longs === String ? String(message.time) : message.time;
+                else
+                    object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber(true) : message.time;
             return object;
         };
     

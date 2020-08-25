@@ -186,6 +186,14 @@
             "color": {
               "type": "string",
               "id": 3
+            },
+            "linethrough": {
+              "type": "bool",
+              "id": 4
+            },
+            "underline": {
+              "type": "bool",
+              "id": 5
             }
           }
         }
@@ -196,6 +204,10 @@
         "message": {
           "type": "string",
           "id": 1
+        },
+        "time": {
+          "type": "uint64",
+          "id": 2
         }
       }
     },

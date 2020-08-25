@@ -6,9 +6,11 @@ syntax = "proto3";
 */
 
 message loginResponse {
-    string username = 1;   // Player's username
-    uint32 protocol = 2;   // Client's protocol version
-    bool mobile = 3;       // Is set to true, if player is using mobile device
+    string username = 1;
+    uint32 protocol = 2;
+	bool mobile = 3;       // Is set to true, if player is using mobile device
+	string client = 4;
+	string secret = 5;
 }
 
 /* 
@@ -72,13 +74,21 @@ message actionInventoryClick {
 }
 
 /* 
- * actionInventoryOpen is send after opening and closing any inventory/menu
+ * actionInventoryOpen is send after opening any inventory/menu
  * It can be used to determine, if player should be able to do other actions.
 */
 
 message actionInventoryOpen {
 	string inventory = 1;
 	bool action = 2;
+}
+
+/* 
+ * actionInventoryClose is send after closing active inventory/gui
+*/
+
+message actionInventoryClose {
+	string inventory = 1;
 }
 
 /* 

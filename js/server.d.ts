@@ -1050,6 +1050,12 @@ export namespace chatMessage {
 
         /** chatComponent color */
         color?: (string|null);
+
+        /** chatComponent linethrough */
+        linethrough?: (boolean|null);
+
+        /** chatComponent underline */
+        underline?: (boolean|null);
     }
 
     /** Represents a chatComponent. */
@@ -1069,6 +1075,12 @@ export namespace chatMessage {
 
         /** chatComponent color. */
         public color: string;
+
+        /** chatComponent linethrough. */
+        public linethrough: boolean;
+
+        /** chatComponent underline. */
+        public underline: boolean;
 
         /**
          * Creates a new chatComponent instance using the specified properties.
@@ -1147,6 +1159,9 @@ export interface ItabUpdate {
 
     /** tabUpdate message */
     message?: (string|null);
+
+    /** tabUpdate time */
+    time?: (number|Long|null);
 }
 
 /** Represents a tabUpdate. */
@@ -1160,6 +1175,9 @@ export class tabUpdate implements ItabUpdate {
 
     /** tabUpdate message. */
     public message: string;
+
+    /** tabUpdate time. */
+    public time: (number|Long);
 
     /**
      * Creates a new tabUpdate instance using the specified properties.
