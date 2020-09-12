@@ -142,7 +142,7 @@ message EntityCreate {
  * entityRemove removes entity
 */
 
-message entityRemove {
+message EntityRemove {
     string uuid = 1;
 }
 
