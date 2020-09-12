@@ -5,7 +5,7 @@ syntax = "proto3";
  * Client response to server's loginRequest messege.
 */
 
-message loginResponse {
+message LoginResponse {
     string username = 1;
     uint32 protocol = 2;
 	bool mobile = 3;       // Is set to true, if player is using mobile device
@@ -14,12 +14,12 @@ message loginResponse {
 }
 
 /* 
- * actionMove is send, when player moves or rotates.
+ * ActionMove is send, when player moves or rotates.
  * Field x, y and z corresponds for player's position in world
  * rotation is just player's camera rotation
 */
 
-message actionMove {
+message ActionMove {
     double x = 1;          
     double y = 2;          
     double z = 3;          
@@ -27,20 +27,20 @@ message actionMove {
 }
 
 /* 
- * actionMessage is used for sending chat messages and commands.
+ * ActionMessage is used for sending chat messages and commands.
 */
 
-message actionMessage {
+message ActionMessage {
     string message = 1;
 }
 
 /* 
- * actionBlockPlace is send after player tries to place a block
+ * ActionBlockPlace is send after player tries to place a block
  * x, y and z are coordinates of placed block
  * x2, y2 and z2 is position block targeted by player
 */
 
-message actionBlockPlace {
+message ActionBlockPlace {
     int32 x = 1;
     int32 y = 2;
     int32 z = 3;
@@ -50,23 +50,23 @@ message actionBlockPlace {
 }
 
 /* 
- * actionBlockBreak is send after player tries to break a block
+ * ActionBlockBreak is send after player tries to break a block
  * x, y and z are coordinates of targeted block
 */
 
-message actionBlockBreak {
+message ActionBlockBreak {
     int32 x = 1;
     int32 y = 2;
     int32 z = 3;
 }
 
 /* 
- * actionInventoryClick is send after every inventory click and change of selected hotbar slot
+ * ActionInventoryClick is send after every inventory click and change of selected hotbar slot
  * slot is an slot number. It can be negative for non-standart slots
  * type is a type of click/action.
 */
 
-message actionInventoryClick {
+message ActionInventoryClick {
 	int32 slot = 1;
 	string type = 2;
 	string inventory = 3;
@@ -74,28 +74,27 @@ message actionInventoryClick {
 }
 
 /* 
- * actionInventoryOpen is send after opening any inventory/menu
+ * ActionInventoryOpen is send after opening any inventory/menu
  * It can be used to determine, if player should be able to do other actions.
 */
 
-message actionInventoryOpen {
-	string inventory = 1;
-	bool action = 2;
-}
-
-/* 
- * actionInventoryClose is send after closing active inventory/gui
-*/
-
-message actionInventoryClose {
+message ActionInventoryOpen {
 	string inventory = 1;
 }
 
 /* 
- * actionClick is send after clicking a block
+ * ActionInventoryClose is send after closing active inventory/gui
 */
 
-message actionClick {
+message ActionInventoryClose {
+	string inventory = 1;
+}
+
+/* 
+ * ActionClick is send after clicking a block
+*/
+
+message ActionClick {
     int32 x = 1;
     int32 y = 2;
 	int32 z = 3;
@@ -106,7 +105,7 @@ message actionClick {
  * actionClick is send after clicking an entity
 */
 
-message actionClickEntity {
+message ActionClickEntity {
     string uuid = 1;
 	string type = 2;
 }
@@ -115,7 +114,7 @@ message actionClickEntity {
  * chunkRequest is send when client is missing some chunks
 */
 
-message chunkRequest {
+message ChunkRequest {
     int32 x = 1;
     int32 y = 2;
     int32 z = 3;

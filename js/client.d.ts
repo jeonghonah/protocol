@@ -1,1133 +1,1127 @@
 import * as $protobuf from "protobufjs";
-/** Properties of a loginResponse. */
-export interface IloginResponse {
+/** Properties of a LoginResponse. */
+export interface ILoginResponse {
 
-    /** loginResponse username */
+    /** LoginResponse username */
     username?: (string|null);
 
-    /** loginResponse protocol */
+    /** LoginResponse protocol */
     protocol?: (number|null);
 
-    /** loginResponse mobile */
+    /** LoginResponse mobile */
     mobile?: (boolean|null);
 
-    /** loginResponse client */
+    /** LoginResponse client */
     client?: (string|null);
 
-    /** loginResponse secret */
+    /** LoginResponse secret */
     secret?: (string|null);
 }
 
-/** Represents a loginResponse. */
-export class loginResponse implements IloginResponse {
+/** Represents a LoginResponse. */
+export class LoginResponse implements ILoginResponse {
 
     /**
-     * Constructs a new loginResponse.
+     * Constructs a new LoginResponse.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IloginResponse);
+    constructor(properties?: ILoginResponse);
 
-    /** loginResponse username. */
+    /** LoginResponse username. */
     public username: string;
 
-    /** loginResponse protocol. */
+    /** LoginResponse protocol. */
     public protocol: number;
 
-    /** loginResponse mobile. */
+    /** LoginResponse mobile. */
     public mobile: boolean;
 
-    /** loginResponse client. */
+    /** LoginResponse client. */
     public client: string;
 
-    /** loginResponse secret. */
+    /** LoginResponse secret. */
     public secret: string;
 
     /**
-     * Creates a new loginResponse instance using the specified properties.
+     * Creates a new LoginResponse instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns loginResponse instance
+     * @returns LoginResponse instance
      */
-    public static create(properties?: IloginResponse): loginResponse;
+    public static create(properties?: ILoginResponse): LoginResponse;
 
     /**
-     * Encodes the specified loginResponse message. Does not implicitly {@link loginResponse.verify|verify} messages.
-     * @param message loginResponse message or plain object to encode
+     * Encodes the specified LoginResponse message. Does not implicitly {@link LoginResponse.verify|verify} messages.
+     * @param message LoginResponse message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IloginResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: ILoginResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified loginResponse message, length delimited. Does not implicitly {@link loginResponse.verify|verify} messages.
-     * @param message loginResponse message or plain object to encode
+     * Encodes the specified LoginResponse message, length delimited. Does not implicitly {@link LoginResponse.verify|verify} messages.
+     * @param message LoginResponse message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IloginResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: ILoginResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a loginResponse message from the specified reader or buffer.
+     * Decodes a LoginResponse message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns loginResponse
+     * @returns LoginResponse
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): loginResponse;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): LoginResponse;
 
     /**
-     * Decodes a loginResponse message from the specified reader or buffer, length delimited.
+     * Decodes a LoginResponse message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns loginResponse
+     * @returns LoginResponse
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): loginResponse;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): LoginResponse;
 
     /**
-     * Verifies a loginResponse message.
+     * Verifies a LoginResponse message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a loginResponse message from a plain object. Also converts values to their respective internal types.
+     * Creates a LoginResponse message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns loginResponse
+     * @returns LoginResponse
      */
-    public static fromObject(object: { [k: string]: any }): loginResponse;
+    public static fromObject(object: { [k: string]: any }): LoginResponse;
 
     /**
-     * Creates a plain object from a loginResponse message. Also converts values to other types if specified.
-     * @param message loginResponse
+     * Creates a plain object from a LoginResponse message. Also converts values to other types if specified.
+     * @param message LoginResponse
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: loginResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: LoginResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this loginResponse to JSON.
+     * Converts this LoginResponse to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an actionMove. */
-export interface IactionMove {
+/** Properties of an ActionMove. */
+export interface IActionMove {
 
-    /** actionMove x */
+    /** ActionMove x */
     x?: (number|null);
 
-    /** actionMove y */
+    /** ActionMove y */
     y?: (number|null);
 
-    /** actionMove z */
+    /** ActionMove z */
     z?: (number|null);
 
-    /** actionMove rotation */
+    /** ActionMove rotation */
     rotation?: (number|null);
 }
 
-/** Represents an actionMove. */
-export class actionMove implements IactionMove {
+/** Represents an ActionMove. */
+export class ActionMove implements IActionMove {
 
     /**
-     * Constructs a new actionMove.
+     * Constructs a new ActionMove.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IactionMove);
+    constructor(properties?: IActionMove);
 
-    /** actionMove x. */
+    /** ActionMove x. */
     public x: number;
 
-    /** actionMove y. */
+    /** ActionMove y. */
     public y: number;
 
-    /** actionMove z. */
+    /** ActionMove z. */
     public z: number;
 
-    /** actionMove rotation. */
+    /** ActionMove rotation. */
     public rotation: number;
 
     /**
-     * Creates a new actionMove instance using the specified properties.
+     * Creates a new ActionMove instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns actionMove instance
+     * @returns ActionMove instance
      */
-    public static create(properties?: IactionMove): actionMove;
+    public static create(properties?: IActionMove): ActionMove;
 
     /**
-     * Encodes the specified actionMove message. Does not implicitly {@link actionMove.verify|verify} messages.
-     * @param message actionMove message or plain object to encode
+     * Encodes the specified ActionMove message. Does not implicitly {@link ActionMove.verify|verify} messages.
+     * @param message ActionMove message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IactionMove, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IActionMove, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified actionMove message, length delimited. Does not implicitly {@link actionMove.verify|verify} messages.
-     * @param message actionMove message or plain object to encode
+     * Encodes the specified ActionMove message, length delimited. Does not implicitly {@link ActionMove.verify|verify} messages.
+     * @param message ActionMove message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IactionMove, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IActionMove, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an actionMove message from the specified reader or buffer.
+     * Decodes an ActionMove message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns actionMove
+     * @returns ActionMove
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionMove;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionMove;
 
     /**
-     * Decodes an actionMove message from the specified reader or buffer, length delimited.
+     * Decodes an ActionMove message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns actionMove
+     * @returns ActionMove
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionMove;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionMove;
 
     /**
-     * Verifies an actionMove message.
+     * Verifies an ActionMove message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an actionMove message from a plain object. Also converts values to their respective internal types.
+     * Creates an ActionMove message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns actionMove
+     * @returns ActionMove
      */
-    public static fromObject(object: { [k: string]: any }): actionMove;
+    public static fromObject(object: { [k: string]: any }): ActionMove;
 
     /**
-     * Creates a plain object from an actionMove message. Also converts values to other types if specified.
-     * @param message actionMove
+     * Creates a plain object from an ActionMove message. Also converts values to other types if specified.
+     * @param message ActionMove
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: actionMove, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ActionMove, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this actionMove to JSON.
+     * Converts this ActionMove to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an actionMessage. */
-export interface IactionMessage {
+/** Properties of an ActionMessage. */
+export interface IActionMessage {
 
-    /** actionMessage message */
+    /** ActionMessage message */
     message?: (string|null);
 }
 
-/** Represents an actionMessage. */
-export class actionMessage implements IactionMessage {
+/** Represents an ActionMessage. */
+export class ActionMessage implements IActionMessage {
 
     /**
-     * Constructs a new actionMessage.
+     * Constructs a new ActionMessage.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IactionMessage);
+    constructor(properties?: IActionMessage);
 
-    /** actionMessage message. */
+    /** ActionMessage message. */
     public message: string;
 
     /**
-     * Creates a new actionMessage instance using the specified properties.
+     * Creates a new ActionMessage instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns actionMessage instance
+     * @returns ActionMessage instance
      */
-    public static create(properties?: IactionMessage): actionMessage;
+    public static create(properties?: IActionMessage): ActionMessage;
 
     /**
-     * Encodes the specified actionMessage message. Does not implicitly {@link actionMessage.verify|verify} messages.
-     * @param message actionMessage message or plain object to encode
+     * Encodes the specified ActionMessage message. Does not implicitly {@link ActionMessage.verify|verify} messages.
+     * @param message ActionMessage message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IactionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified actionMessage message, length delimited. Does not implicitly {@link actionMessage.verify|verify} messages.
-     * @param message actionMessage message or plain object to encode
+     * Encodes the specified ActionMessage message, length delimited. Does not implicitly {@link ActionMessage.verify|verify} messages.
+     * @param message ActionMessage message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IactionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an actionMessage message from the specified reader or buffer.
+     * Decodes an ActionMessage message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns actionMessage
+     * @returns ActionMessage
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionMessage;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionMessage;
 
     /**
-     * Decodes an actionMessage message from the specified reader or buffer, length delimited.
+     * Decodes an ActionMessage message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns actionMessage
+     * @returns ActionMessage
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionMessage;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionMessage;
 
     /**
-     * Verifies an actionMessage message.
+     * Verifies an ActionMessage message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an actionMessage message from a plain object. Also converts values to their respective internal types.
+     * Creates an ActionMessage message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns actionMessage
+     * @returns ActionMessage
      */
-    public static fromObject(object: { [k: string]: any }): actionMessage;
+    public static fromObject(object: { [k: string]: any }): ActionMessage;
 
     /**
-     * Creates a plain object from an actionMessage message. Also converts values to other types if specified.
-     * @param message actionMessage
+     * Creates a plain object from an ActionMessage message. Also converts values to other types if specified.
+     * @param message ActionMessage
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: actionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ActionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this actionMessage to JSON.
+     * Converts this ActionMessage to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an actionBlockPlace. */
-export interface IactionBlockPlace {
+/** Properties of an ActionBlockPlace. */
+export interface IActionBlockPlace {
 
-    /** actionBlockPlace x */
+    /** ActionBlockPlace x */
     x?: (number|null);
 
-    /** actionBlockPlace y */
+    /** ActionBlockPlace y */
     y?: (number|null);
 
-    /** actionBlockPlace z */
+    /** ActionBlockPlace z */
     z?: (number|null);
 
-    /** actionBlockPlace x2 */
+    /** ActionBlockPlace x2 */
     x2?: (number|null);
 
-    /** actionBlockPlace y2 */
+    /** ActionBlockPlace y2 */
     y2?: (number|null);
 
-    /** actionBlockPlace z2 */
+    /** ActionBlockPlace z2 */
     z2?: (number|null);
 }
 
-/** Represents an actionBlockPlace. */
-export class actionBlockPlace implements IactionBlockPlace {
+/** Represents an ActionBlockPlace. */
+export class ActionBlockPlace implements IActionBlockPlace {
 
     /**
-     * Constructs a new actionBlockPlace.
+     * Constructs a new ActionBlockPlace.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IactionBlockPlace);
+    constructor(properties?: IActionBlockPlace);
 
-    /** actionBlockPlace x. */
+    /** ActionBlockPlace x. */
     public x: number;
 
-    /** actionBlockPlace y. */
+    /** ActionBlockPlace y. */
     public y: number;
 
-    /** actionBlockPlace z. */
+    /** ActionBlockPlace z. */
     public z: number;
 
-    /** actionBlockPlace x2. */
+    /** ActionBlockPlace x2. */
     public x2: number;
 
-    /** actionBlockPlace y2. */
+    /** ActionBlockPlace y2. */
     public y2: number;
 
-    /** actionBlockPlace z2. */
+    /** ActionBlockPlace z2. */
     public z2: number;
 
     /**
-     * Creates a new actionBlockPlace instance using the specified properties.
+     * Creates a new ActionBlockPlace instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns actionBlockPlace instance
+     * @returns ActionBlockPlace instance
      */
-    public static create(properties?: IactionBlockPlace): actionBlockPlace;
+    public static create(properties?: IActionBlockPlace): ActionBlockPlace;
 
     /**
-     * Encodes the specified actionBlockPlace message. Does not implicitly {@link actionBlockPlace.verify|verify} messages.
-     * @param message actionBlockPlace message or plain object to encode
+     * Encodes the specified ActionBlockPlace message. Does not implicitly {@link ActionBlockPlace.verify|verify} messages.
+     * @param message ActionBlockPlace message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IactionBlockPlace, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IActionBlockPlace, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified actionBlockPlace message, length delimited. Does not implicitly {@link actionBlockPlace.verify|verify} messages.
-     * @param message actionBlockPlace message or plain object to encode
+     * Encodes the specified ActionBlockPlace message, length delimited. Does not implicitly {@link ActionBlockPlace.verify|verify} messages.
+     * @param message ActionBlockPlace message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IactionBlockPlace, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IActionBlockPlace, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an actionBlockPlace message from the specified reader or buffer.
+     * Decodes an ActionBlockPlace message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns actionBlockPlace
+     * @returns ActionBlockPlace
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionBlockPlace;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionBlockPlace;
 
     /**
-     * Decodes an actionBlockPlace message from the specified reader or buffer, length delimited.
+     * Decodes an ActionBlockPlace message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns actionBlockPlace
+     * @returns ActionBlockPlace
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionBlockPlace;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionBlockPlace;
 
     /**
-     * Verifies an actionBlockPlace message.
+     * Verifies an ActionBlockPlace message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an actionBlockPlace message from a plain object. Also converts values to their respective internal types.
+     * Creates an ActionBlockPlace message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns actionBlockPlace
+     * @returns ActionBlockPlace
      */
-    public static fromObject(object: { [k: string]: any }): actionBlockPlace;
+    public static fromObject(object: { [k: string]: any }): ActionBlockPlace;
 
     /**
-     * Creates a plain object from an actionBlockPlace message. Also converts values to other types if specified.
-     * @param message actionBlockPlace
+     * Creates a plain object from an ActionBlockPlace message. Also converts values to other types if specified.
+     * @param message ActionBlockPlace
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: actionBlockPlace, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ActionBlockPlace, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this actionBlockPlace to JSON.
+     * Converts this ActionBlockPlace to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an actionBlockBreak. */
-export interface IactionBlockBreak {
+/** Properties of an ActionBlockBreak. */
+export interface IActionBlockBreak {
 
-    /** actionBlockBreak x */
+    /** ActionBlockBreak x */
     x?: (number|null);
 
-    /** actionBlockBreak y */
+    /** ActionBlockBreak y */
     y?: (number|null);
 
-    /** actionBlockBreak z */
+    /** ActionBlockBreak z */
     z?: (number|null);
 }
 
-/** Represents an actionBlockBreak. */
-export class actionBlockBreak implements IactionBlockBreak {
+/** Represents an ActionBlockBreak. */
+export class ActionBlockBreak implements IActionBlockBreak {
 
     /**
-     * Constructs a new actionBlockBreak.
+     * Constructs a new ActionBlockBreak.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IactionBlockBreak);
+    constructor(properties?: IActionBlockBreak);
 
-    /** actionBlockBreak x. */
+    /** ActionBlockBreak x. */
     public x: number;
 
-    /** actionBlockBreak y. */
+    /** ActionBlockBreak y. */
     public y: number;
 
-    /** actionBlockBreak z. */
+    /** ActionBlockBreak z. */
     public z: number;
 
     /**
-     * Creates a new actionBlockBreak instance using the specified properties.
+     * Creates a new ActionBlockBreak instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns actionBlockBreak instance
+     * @returns ActionBlockBreak instance
      */
-    public static create(properties?: IactionBlockBreak): actionBlockBreak;
+    public static create(properties?: IActionBlockBreak): ActionBlockBreak;
 
     /**
-     * Encodes the specified actionBlockBreak message. Does not implicitly {@link actionBlockBreak.verify|verify} messages.
-     * @param message actionBlockBreak message or plain object to encode
+     * Encodes the specified ActionBlockBreak message. Does not implicitly {@link ActionBlockBreak.verify|verify} messages.
+     * @param message ActionBlockBreak message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IactionBlockBreak, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IActionBlockBreak, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified actionBlockBreak message, length delimited. Does not implicitly {@link actionBlockBreak.verify|verify} messages.
-     * @param message actionBlockBreak message or plain object to encode
+     * Encodes the specified ActionBlockBreak message, length delimited. Does not implicitly {@link ActionBlockBreak.verify|verify} messages.
+     * @param message ActionBlockBreak message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IactionBlockBreak, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IActionBlockBreak, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an actionBlockBreak message from the specified reader or buffer.
+     * Decodes an ActionBlockBreak message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns actionBlockBreak
+     * @returns ActionBlockBreak
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionBlockBreak;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionBlockBreak;
 
     /**
-     * Decodes an actionBlockBreak message from the specified reader or buffer, length delimited.
+     * Decodes an ActionBlockBreak message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns actionBlockBreak
+     * @returns ActionBlockBreak
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionBlockBreak;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionBlockBreak;
 
     /**
-     * Verifies an actionBlockBreak message.
+     * Verifies an ActionBlockBreak message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an actionBlockBreak message from a plain object. Also converts values to their respective internal types.
+     * Creates an ActionBlockBreak message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns actionBlockBreak
+     * @returns ActionBlockBreak
      */
-    public static fromObject(object: { [k: string]: any }): actionBlockBreak;
+    public static fromObject(object: { [k: string]: any }): ActionBlockBreak;
 
     /**
-     * Creates a plain object from an actionBlockBreak message. Also converts values to other types if specified.
-     * @param message actionBlockBreak
+     * Creates a plain object from an ActionBlockBreak message. Also converts values to other types if specified.
+     * @param message ActionBlockBreak
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: actionBlockBreak, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ActionBlockBreak, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this actionBlockBreak to JSON.
+     * Converts this ActionBlockBreak to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an actionInventoryClick. */
-export interface IactionInventoryClick {
+/** Properties of an ActionInventoryClick. */
+export interface IActionInventoryClick {
 
-    /** actionInventoryClick slot */
+    /** ActionInventoryClick slot */
     slot?: (number|null);
 
-    /** actionInventoryClick type */
+    /** ActionInventoryClick type */
     type?: (string|null);
 
-    /** actionInventoryClick inventory */
+    /** ActionInventoryClick inventory */
     inventory?: (string|null);
 
-    /** actionInventoryClick slot2 */
+    /** ActionInventoryClick slot2 */
     slot2?: (number|null);
 }
 
-/** Represents an actionInventoryClick. */
-export class actionInventoryClick implements IactionInventoryClick {
+/** Represents an ActionInventoryClick. */
+export class ActionInventoryClick implements IActionInventoryClick {
 
     /**
-     * Constructs a new actionInventoryClick.
+     * Constructs a new ActionInventoryClick.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IactionInventoryClick);
+    constructor(properties?: IActionInventoryClick);
 
-    /** actionInventoryClick slot. */
+    /** ActionInventoryClick slot. */
     public slot: number;
 
-    /** actionInventoryClick type. */
+    /** ActionInventoryClick type. */
     public type: string;
 
-    /** actionInventoryClick inventory. */
+    /** ActionInventoryClick inventory. */
     public inventory: string;
 
-    /** actionInventoryClick slot2. */
+    /** ActionInventoryClick slot2. */
     public slot2: number;
 
     /**
-     * Creates a new actionInventoryClick instance using the specified properties.
+     * Creates a new ActionInventoryClick instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns actionInventoryClick instance
+     * @returns ActionInventoryClick instance
      */
-    public static create(properties?: IactionInventoryClick): actionInventoryClick;
+    public static create(properties?: IActionInventoryClick): ActionInventoryClick;
 
     /**
-     * Encodes the specified actionInventoryClick message. Does not implicitly {@link actionInventoryClick.verify|verify} messages.
-     * @param message actionInventoryClick message or plain object to encode
+     * Encodes the specified ActionInventoryClick message. Does not implicitly {@link ActionInventoryClick.verify|verify} messages.
+     * @param message ActionInventoryClick message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IactionInventoryClick, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IActionInventoryClick, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified actionInventoryClick message, length delimited. Does not implicitly {@link actionInventoryClick.verify|verify} messages.
-     * @param message actionInventoryClick message or plain object to encode
+     * Encodes the specified ActionInventoryClick message, length delimited. Does not implicitly {@link ActionInventoryClick.verify|verify} messages.
+     * @param message ActionInventoryClick message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IactionInventoryClick, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IActionInventoryClick, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an actionInventoryClick message from the specified reader or buffer.
+     * Decodes an ActionInventoryClick message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns actionInventoryClick
+     * @returns ActionInventoryClick
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionInventoryClick;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionInventoryClick;
 
     /**
-     * Decodes an actionInventoryClick message from the specified reader or buffer, length delimited.
+     * Decodes an ActionInventoryClick message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns actionInventoryClick
+     * @returns ActionInventoryClick
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionInventoryClick;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionInventoryClick;
 
     /**
-     * Verifies an actionInventoryClick message.
+     * Verifies an ActionInventoryClick message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an actionInventoryClick message from a plain object. Also converts values to their respective internal types.
+     * Creates an ActionInventoryClick message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns actionInventoryClick
+     * @returns ActionInventoryClick
      */
-    public static fromObject(object: { [k: string]: any }): actionInventoryClick;
+    public static fromObject(object: { [k: string]: any }): ActionInventoryClick;
 
     /**
-     * Creates a plain object from an actionInventoryClick message. Also converts values to other types if specified.
-     * @param message actionInventoryClick
+     * Creates a plain object from an ActionInventoryClick message. Also converts values to other types if specified.
+     * @param message ActionInventoryClick
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: actionInventoryClick, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ActionInventoryClick, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this actionInventoryClick to JSON.
+     * Converts this ActionInventoryClick to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an actionInventoryOpen. */
-export interface IactionInventoryOpen {
+/** Properties of an ActionInventoryOpen. */
+export interface IActionInventoryOpen {
 
-    /** actionInventoryOpen inventory */
-    inventory?: (string|null);
-
-    /** actionInventoryOpen action */
-    action?: (boolean|null);
-}
-
-/** Represents an actionInventoryOpen. */
-export class actionInventoryOpen implements IactionInventoryOpen {
-
-    /**
-     * Constructs a new actionInventoryOpen.
-     * @param [properties] Properties to set
-     */
-    constructor(properties?: IactionInventoryOpen);
-
-    /** actionInventoryOpen inventory. */
-    public inventory: string;
-
-    /** actionInventoryOpen action. */
-    public action: boolean;
-
-    /**
-     * Creates a new actionInventoryOpen instance using the specified properties.
-     * @param [properties] Properties to set
-     * @returns actionInventoryOpen instance
-     */
-    public static create(properties?: IactionInventoryOpen): actionInventoryOpen;
-
-    /**
-     * Encodes the specified actionInventoryOpen message. Does not implicitly {@link actionInventoryOpen.verify|verify} messages.
-     * @param message actionInventoryOpen message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encode(message: IactionInventoryOpen, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Encodes the specified actionInventoryOpen message, length delimited. Does not implicitly {@link actionInventoryOpen.verify|verify} messages.
-     * @param message actionInventoryOpen message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encodeDelimited(message: IactionInventoryOpen, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Decodes an actionInventoryOpen message from the specified reader or buffer.
-     * @param reader Reader or buffer to decode from
-     * @param [length] Message length if known beforehand
-     * @returns actionInventoryOpen
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionInventoryOpen;
-
-    /**
-     * Decodes an actionInventoryOpen message from the specified reader or buffer, length delimited.
-     * @param reader Reader or buffer to decode from
-     * @returns actionInventoryOpen
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionInventoryOpen;
-
-    /**
-     * Verifies an actionInventoryOpen message.
-     * @param message Plain object to verify
-     * @returns `null` if valid, otherwise the reason why it is not
-     */
-    public static verify(message: { [k: string]: any }): (string|null);
-
-    /**
-     * Creates an actionInventoryOpen message from a plain object. Also converts values to their respective internal types.
-     * @param object Plain object
-     * @returns actionInventoryOpen
-     */
-    public static fromObject(object: { [k: string]: any }): actionInventoryOpen;
-
-    /**
-     * Creates a plain object from an actionInventoryOpen message. Also converts values to other types if specified.
-     * @param message actionInventoryOpen
-     * @param [options] Conversion options
-     * @returns Plain object
-     */
-    public static toObject(message: actionInventoryOpen, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-    /**
-     * Converts this actionInventoryOpen to JSON.
-     * @returns JSON object
-     */
-    public toJSON(): { [k: string]: any };
-}
-
-/** Properties of an actionInventoryClose. */
-export interface IactionInventoryClose {
-
-    /** actionInventoryClose inventory */
+    /** ActionInventoryOpen inventory */
     inventory?: (string|null);
 }
 
-/** Represents an actionInventoryClose. */
-export class actionInventoryClose implements IactionInventoryClose {
+/** Represents an ActionInventoryOpen. */
+export class ActionInventoryOpen implements IActionInventoryOpen {
 
     /**
-     * Constructs a new actionInventoryClose.
+     * Constructs a new ActionInventoryOpen.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IactionInventoryClose);
+    constructor(properties?: IActionInventoryOpen);
 
-    /** actionInventoryClose inventory. */
+    /** ActionInventoryOpen inventory. */
     public inventory: string;
 
     /**
-     * Creates a new actionInventoryClose instance using the specified properties.
+     * Creates a new ActionInventoryOpen instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns actionInventoryClose instance
+     * @returns ActionInventoryOpen instance
      */
-    public static create(properties?: IactionInventoryClose): actionInventoryClose;
+    public static create(properties?: IActionInventoryOpen): ActionInventoryOpen;
 
     /**
-     * Encodes the specified actionInventoryClose message. Does not implicitly {@link actionInventoryClose.verify|verify} messages.
-     * @param message actionInventoryClose message or plain object to encode
+     * Encodes the specified ActionInventoryOpen message. Does not implicitly {@link ActionInventoryOpen.verify|verify} messages.
+     * @param message ActionInventoryOpen message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IactionInventoryClose, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IActionInventoryOpen, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified actionInventoryClose message, length delimited. Does not implicitly {@link actionInventoryClose.verify|verify} messages.
-     * @param message actionInventoryClose message or plain object to encode
+     * Encodes the specified ActionInventoryOpen message, length delimited. Does not implicitly {@link ActionInventoryOpen.verify|verify} messages.
+     * @param message ActionInventoryOpen message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IactionInventoryClose, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IActionInventoryOpen, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an actionInventoryClose message from the specified reader or buffer.
+     * Decodes an ActionInventoryOpen message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns actionInventoryClose
+     * @returns ActionInventoryOpen
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionInventoryClose;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionInventoryOpen;
 
     /**
-     * Decodes an actionInventoryClose message from the specified reader or buffer, length delimited.
+     * Decodes an ActionInventoryOpen message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns actionInventoryClose
+     * @returns ActionInventoryOpen
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionInventoryClose;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionInventoryOpen;
 
     /**
-     * Verifies an actionInventoryClose message.
+     * Verifies an ActionInventoryOpen message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an actionInventoryClose message from a plain object. Also converts values to their respective internal types.
+     * Creates an ActionInventoryOpen message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns actionInventoryClose
+     * @returns ActionInventoryOpen
      */
-    public static fromObject(object: { [k: string]: any }): actionInventoryClose;
+    public static fromObject(object: { [k: string]: any }): ActionInventoryOpen;
 
     /**
-     * Creates a plain object from an actionInventoryClose message. Also converts values to other types if specified.
-     * @param message actionInventoryClose
+     * Creates a plain object from an ActionInventoryOpen message. Also converts values to other types if specified.
+     * @param message ActionInventoryOpen
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: actionInventoryClose, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ActionInventoryOpen, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this actionInventoryClose to JSON.
+     * Converts this ActionInventoryOpen to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an actionClick. */
-export interface IactionClick {
+/** Properties of an ActionInventoryClose. */
+export interface IActionInventoryClose {
 
-    /** actionClick x */
+    /** ActionInventoryClose inventory */
+    inventory?: (string|null);
+}
+
+/** Represents an ActionInventoryClose. */
+export class ActionInventoryClose implements IActionInventoryClose {
+
+    /**
+     * Constructs a new ActionInventoryClose.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IActionInventoryClose);
+
+    /** ActionInventoryClose inventory. */
+    public inventory: string;
+
+    /**
+     * Creates a new ActionInventoryClose instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ActionInventoryClose instance
+     */
+    public static create(properties?: IActionInventoryClose): ActionInventoryClose;
+
+    /**
+     * Encodes the specified ActionInventoryClose message. Does not implicitly {@link ActionInventoryClose.verify|verify} messages.
+     * @param message ActionInventoryClose message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IActionInventoryClose, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ActionInventoryClose message, length delimited. Does not implicitly {@link ActionInventoryClose.verify|verify} messages.
+     * @param message ActionInventoryClose message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IActionInventoryClose, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an ActionInventoryClose message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ActionInventoryClose
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionInventoryClose;
+
+    /**
+     * Decodes an ActionInventoryClose message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ActionInventoryClose
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionInventoryClose;
+
+    /**
+     * Verifies an ActionInventoryClose message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an ActionInventoryClose message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ActionInventoryClose
+     */
+    public static fromObject(object: { [k: string]: any }): ActionInventoryClose;
+
+    /**
+     * Creates a plain object from an ActionInventoryClose message. Also converts values to other types if specified.
+     * @param message ActionInventoryClose
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ActionInventoryClose, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ActionInventoryClose to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an ActionClick. */
+export interface IActionClick {
+
+    /** ActionClick x */
     x?: (number|null);
 
-    /** actionClick y */
+    /** ActionClick y */
     y?: (number|null);
 
-    /** actionClick z */
+    /** ActionClick z */
     z?: (number|null);
 
-    /** actionClick type */
+    /** ActionClick type */
     type?: (string|null);
 }
 
-/** Represents an actionClick. */
-export class actionClick implements IactionClick {
+/** Represents an ActionClick. */
+export class ActionClick implements IActionClick {
 
     /**
-     * Constructs a new actionClick.
+     * Constructs a new ActionClick.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IactionClick);
+    constructor(properties?: IActionClick);
 
-    /** actionClick x. */
+    /** ActionClick x. */
     public x: number;
 
-    /** actionClick y. */
+    /** ActionClick y. */
     public y: number;
 
-    /** actionClick z. */
+    /** ActionClick z. */
     public z: number;
 
-    /** actionClick type. */
+    /** ActionClick type. */
     public type: string;
 
     /**
-     * Creates a new actionClick instance using the specified properties.
+     * Creates a new ActionClick instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns actionClick instance
+     * @returns ActionClick instance
      */
-    public static create(properties?: IactionClick): actionClick;
+    public static create(properties?: IActionClick): ActionClick;
 
     /**
-     * Encodes the specified actionClick message. Does not implicitly {@link actionClick.verify|verify} messages.
-     * @param message actionClick message or plain object to encode
+     * Encodes the specified ActionClick message. Does not implicitly {@link ActionClick.verify|verify} messages.
+     * @param message ActionClick message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IactionClick, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IActionClick, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified actionClick message, length delimited. Does not implicitly {@link actionClick.verify|verify} messages.
-     * @param message actionClick message or plain object to encode
+     * Encodes the specified ActionClick message, length delimited. Does not implicitly {@link ActionClick.verify|verify} messages.
+     * @param message ActionClick message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IactionClick, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IActionClick, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an actionClick message from the specified reader or buffer.
+     * Decodes an ActionClick message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns actionClick
+     * @returns ActionClick
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionClick;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionClick;
 
     /**
-     * Decodes an actionClick message from the specified reader or buffer, length delimited.
+     * Decodes an ActionClick message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns actionClick
+     * @returns ActionClick
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionClick;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionClick;
 
     /**
-     * Verifies an actionClick message.
+     * Verifies an ActionClick message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an actionClick message from a plain object. Also converts values to their respective internal types.
+     * Creates an ActionClick message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns actionClick
+     * @returns ActionClick
      */
-    public static fromObject(object: { [k: string]: any }): actionClick;
+    public static fromObject(object: { [k: string]: any }): ActionClick;
 
     /**
-     * Creates a plain object from an actionClick message. Also converts values to other types if specified.
-     * @param message actionClick
+     * Creates a plain object from an ActionClick message. Also converts values to other types if specified.
+     * @param message ActionClick
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: actionClick, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ActionClick, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this actionClick to JSON.
+     * Converts this ActionClick to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an actionClickEntity. */
-export interface IactionClickEntity {
+/** Properties of an ActionClickEntity. */
+export interface IActionClickEntity {
 
-    /** actionClickEntity uuid */
+    /** ActionClickEntity uuid */
     uuid?: (string|null);
 
-    /** actionClickEntity type */
+    /** ActionClickEntity type */
     type?: (string|null);
 }
 
-/** Represents an actionClickEntity. */
-export class actionClickEntity implements IactionClickEntity {
+/** Represents an ActionClickEntity. */
+export class ActionClickEntity implements IActionClickEntity {
 
     /**
-     * Constructs a new actionClickEntity.
+     * Constructs a new ActionClickEntity.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IactionClickEntity);
+    constructor(properties?: IActionClickEntity);
 
-    /** actionClickEntity uuid. */
+    /** ActionClickEntity uuid. */
     public uuid: string;
 
-    /** actionClickEntity type. */
+    /** ActionClickEntity type. */
     public type: string;
 
     /**
-     * Creates a new actionClickEntity instance using the specified properties.
+     * Creates a new ActionClickEntity instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns actionClickEntity instance
+     * @returns ActionClickEntity instance
      */
-    public static create(properties?: IactionClickEntity): actionClickEntity;
+    public static create(properties?: IActionClickEntity): ActionClickEntity;
 
     /**
-     * Encodes the specified actionClickEntity message. Does not implicitly {@link actionClickEntity.verify|verify} messages.
-     * @param message actionClickEntity message or plain object to encode
+     * Encodes the specified ActionClickEntity message. Does not implicitly {@link ActionClickEntity.verify|verify} messages.
+     * @param message ActionClickEntity message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IactionClickEntity, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IActionClickEntity, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified actionClickEntity message, length delimited. Does not implicitly {@link actionClickEntity.verify|verify} messages.
-     * @param message actionClickEntity message or plain object to encode
+     * Encodes the specified ActionClickEntity message, length delimited. Does not implicitly {@link ActionClickEntity.verify|verify} messages.
+     * @param message ActionClickEntity message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IactionClickEntity, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IActionClickEntity, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an actionClickEntity message from the specified reader or buffer.
+     * Decodes an ActionClickEntity message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns actionClickEntity
+     * @returns ActionClickEntity
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): actionClickEntity;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionClickEntity;
 
     /**
-     * Decodes an actionClickEntity message from the specified reader or buffer, length delimited.
+     * Decodes an ActionClickEntity message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns actionClickEntity
+     * @returns ActionClickEntity
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): actionClickEntity;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionClickEntity;
 
     /**
-     * Verifies an actionClickEntity message.
+     * Verifies an ActionClickEntity message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an actionClickEntity message from a plain object. Also converts values to their respective internal types.
+     * Creates an ActionClickEntity message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns actionClickEntity
+     * @returns ActionClickEntity
      */
-    public static fromObject(object: { [k: string]: any }): actionClickEntity;
+    public static fromObject(object: { [k: string]: any }): ActionClickEntity;
 
     /**
-     * Creates a plain object from an actionClickEntity message. Also converts values to other types if specified.
-     * @param message actionClickEntity
+     * Creates a plain object from an ActionClickEntity message. Also converts values to other types if specified.
+     * @param message ActionClickEntity
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: actionClickEntity, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ActionClickEntity, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this actionClickEntity to JSON.
+     * Converts this ActionClickEntity to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of a chunkRequest. */
-export interface IchunkRequest {
+/** Properties of a ChunkRequest. */
+export interface IChunkRequest {
 
-    /** chunkRequest x */
+    /** ChunkRequest x */
     x?: (number|null);
 
-    /** chunkRequest y */
+    /** ChunkRequest y */
     y?: (number|null);
 
-    /** chunkRequest z */
+    /** ChunkRequest z */
     z?: (number|null);
 }
 
-/** Represents a chunkRequest. */
-export class chunkRequest implements IchunkRequest {
+/** Represents a ChunkRequest. */
+export class ChunkRequest implements IChunkRequest {
 
     /**
-     * Constructs a new chunkRequest.
+     * Constructs a new ChunkRequest.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IchunkRequest);
+    constructor(properties?: IChunkRequest);
 
-    /** chunkRequest x. */
+    /** ChunkRequest x. */
     public x: number;
 
-    /** chunkRequest y. */
+    /** ChunkRequest y. */
     public y: number;
 
-    /** chunkRequest z. */
+    /** ChunkRequest z. */
     public z: number;
 
     /**
-     * Creates a new chunkRequest instance using the specified properties.
+     * Creates a new ChunkRequest instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns chunkRequest instance
+     * @returns ChunkRequest instance
      */
-    public static create(properties?: IchunkRequest): chunkRequest;
+    public static create(properties?: IChunkRequest): ChunkRequest;
 
     /**
-     * Encodes the specified chunkRequest message. Does not implicitly {@link chunkRequest.verify|verify} messages.
-     * @param message chunkRequest message or plain object to encode
+     * Encodes the specified ChunkRequest message. Does not implicitly {@link ChunkRequest.verify|verify} messages.
+     * @param message ChunkRequest message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IchunkRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IChunkRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified chunkRequest message, length delimited. Does not implicitly {@link chunkRequest.verify|verify} messages.
-     * @param message chunkRequest message or plain object to encode
+     * Encodes the specified ChunkRequest message, length delimited. Does not implicitly {@link ChunkRequest.verify|verify} messages.
+     * @param message ChunkRequest message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IchunkRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IChunkRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a chunkRequest message from the specified reader or buffer.
+     * Decodes a ChunkRequest message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns chunkRequest
+     * @returns ChunkRequest
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): chunkRequest;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChunkRequest;
 
     /**
-     * Decodes a chunkRequest message from the specified reader or buffer, length delimited.
+     * Decodes a ChunkRequest message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns chunkRequest
+     * @returns ChunkRequest
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): chunkRequest;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChunkRequest;
 
     /**
-     * Verifies a chunkRequest message.
+     * Verifies a ChunkRequest message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a chunkRequest message from a plain object. Also converts values to their respective internal types.
+     * Creates a ChunkRequest message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns chunkRequest
+     * @returns ChunkRequest
      */
-    public static fromObject(object: { [k: string]: any }): chunkRequest;
+    public static fromObject(object: { [k: string]: any }): ChunkRequest;
 
     /**
-     * Creates a plain object from a chunkRequest message. Also converts values to other types if specified.
-     * @param message chunkRequest
+     * Creates a plain object from a ChunkRequest message. Also converts values to other types if specified.
+     * @param message ChunkRequest
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: chunkRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: ChunkRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this chunkRequest to JSON.
+     * Converts this ChunkRequest to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

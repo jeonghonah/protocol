@@ -1,6 +1,6 @@
 {
   "nested": {
-    "loginRequest": {
+    "LoginRequest": {
       "fields": {
         "name": {
           "type": "string",
@@ -28,7 +28,7 @@
         }
       }
     },
-    "loginSuccess": {
+    "LoginSuccess": {
       "fields": {
         "xPos": {
           "type": "double",
@@ -60,7 +60,7 @@
         }
       }
     },
-    "playerEntity": {
+    "PlayerEntity": {
       "fields": {
         "uuid": {
           "type": "string",
@@ -68,7 +68,7 @@
         }
       }
     },
-    "playerTeleport": {
+    "PlayerTeleport": {
       "fields": {
         "x": {
           "type": "double",
@@ -84,7 +84,7 @@
         }
       }
     },
-    "playerInventory": {
+    "PlayerInventory": {
       "fields": {
         "inventory": {
           "type": "string",
@@ -96,7 +96,7 @@
         }
       }
     },
-    "playerSlotUpdate": {
+    "PlayerSlotUpdate": {
       "fields": {
         "slot": {
           "type": "int32",
@@ -112,7 +112,7 @@
         }
       }
     },
-    "playerMovementChange": {
+    "PlayerMovementChange": {
       "fields": {
         "key": {
           "type": "string",
@@ -124,7 +124,7 @@
         }
       }
     },
-    "playerKick": {
+    "PlayerKick": {
       "fields": {
         "reason": {
           "type": "string",
@@ -136,7 +136,7 @@
         }
       }
     },
-    "soundPlay": {
+    "SoundPlay": {
       "fields": {
         "sound": {
           "type": "string",
@@ -160,11 +160,11 @@
         }
       }
     },
-    "chatMessage": {
+    "ChatMessage": {
       "fields": {
         "message": {
           "keyType": "uint32",
-          "type": "chatComponent",
+          "type": "ChatComponent",
           "id": 1
         },
         "time": {
@@ -173,7 +173,7 @@
         }
       },
       "nested": {
-        "chatComponent": {
+        "ChatComponent": {
           "fields": {
             "text": {
               "type": "string",
@@ -199,7 +199,7 @@
         }
       }
     },
-    "tabUpdate": {
+    "TabUpdate": {
       "fields": {
         "message": {
           "type": "string",
@@ -211,7 +211,7 @@
         }
       }
     },
-    "entityCreate": {
+    "EntityCreate": {
       "fields": {
         "uuid": {
           "type": "string",
@@ -231,7 +231,7 @@
         }
       }
     },
-    "entityMove": {
+    "EntityMove": {
       "fields": {
         "uuid": {
           "type": "string",
@@ -255,7 +255,7 @@
         }
       }
     },
-    "entityUpdate": {
+    "EntityUpdate": {
       "fields": {
         "uuid": {
           "type": "string",
@@ -271,7 +271,7 @@
         }
       }
     },
-    "entityAnimate": {
+    "EntityAnimate": {
       "fields": {
         "uuid": {
           "type": "string",
@@ -291,7 +291,7 @@
         }
       }
     },
-    "worldBlockUpdate": {
+    "WorldBlockUpdate": {
       "fields": {
         "x": {
           "type": "int32",
@@ -311,7 +311,7 @@
         }
       }
     },
-    "worldChunk": {
+    "WorldChunkLoad": {
       "fields": {
         "x": {
           "type": "int32",
@@ -339,7 +339,27 @@
         }
       }
     },
-    "registryUpdate": {
+    "WorldChunkUnload": {
+      "fields": {
+        "x": {
+          "type": "int32",
+          "id": 1
+        },
+        "y": {
+          "type": "int32",
+          "id": 2
+        },
+        "z": {
+          "type": "int32",
+          "id": 3
+        },
+        "type": {
+          "type": "bool",
+          "id": 4
+        }
+      }
+    },
+    "RegistryUpdate": {
       "fields": {
         "itemsDef": {
           "type": "string",

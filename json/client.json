@@ -1,6 +1,6 @@
 {
   "nested": {
-    "loginResponse": {
+    "LoginResponse": {
       "fields": {
         "username": {
           "type": "string",
@@ -24,7 +24,7 @@
         }
       }
     },
-    "actionMove": {
+    "ActionMove": {
       "fields": {
         "x": {
           "type": "double",
@@ -44,7 +44,7 @@
         }
       }
     },
-    "actionMessage": {
+    "ActionMessage": {
       "fields": {
         "message": {
           "type": "string",
@@ -52,7 +52,7 @@
         }
       }
     },
-    "actionBlockPlace": {
+    "ActionBlockPlace": {
       "fields": {
         "x": {
           "type": "int32",
@@ -80,7 +80,7 @@
         }
       }
     },
-    "actionBlockBreak": {
+    "ActionBlockBreak": {
       "fields": {
         "x": {
           "type": "int32",
@@ -96,7 +96,7 @@
         }
       }
     },
-    "actionInventoryClick": {
+    "ActionInventoryClick": {
       "fields": {
         "slot": {
           "type": "int32",
@@ -116,19 +116,7 @@
         }
       }
     },
-    "actionInventoryOpen": {
-      "fields": {
-        "inventory": {
-          "type": "string",
-          "id": 1
-        },
-        "action": {
-          "type": "bool",
-          "id": 2
-        }
-      }
-    },
-    "actionInventoryClose": {
+    "ActionInventoryOpen": {
       "fields": {
         "inventory": {
           "type": "string",
@@ -136,7 +124,15 @@
         }
       }
     },
-    "actionClick": {
+    "ActionInventoryClose": {
+      "fields": {
+        "inventory": {
+          "type": "string",
+          "id": 1
+        }
+      }
+    },
+    "ActionClick": {
       "fields": {
         "x": {
           "type": "int32",
@@ -156,7 +152,7 @@
         }
       }
     },
-    "actionClickEntity": {
+    "ActionClickEntity": {
       "fields": {
         "uuid": {
           "type": "string",
@@ -168,7 +164,7 @@
         }
       }
     },
-    "chunkRequest": {
+    "ChunkRequest": {
       "fields": {
         "x": {
           "type": "int32",

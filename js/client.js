@@ -16,28 +16,28 @@
     // Exported root namespace
     var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
     
-    $root.loginResponse = (function() {
+    $root.LoginResponse = (function() {
     
         /**
-         * Properties of a loginResponse.
-         * @exports IloginResponse
-         * @interface IloginResponse
-         * @property {string|null} [username] loginResponse username
-         * @property {number|null} [protocol] loginResponse protocol
-         * @property {boolean|null} [mobile] loginResponse mobile
-         * @property {string|null} [client] loginResponse client
-         * @property {string|null} [secret] loginResponse secret
+         * Properties of a LoginResponse.
+         * @exports ILoginResponse
+         * @interface ILoginResponse
+         * @property {string|null} [username] LoginResponse username
+         * @property {number|null} [protocol] LoginResponse protocol
+         * @property {boolean|null} [mobile] LoginResponse mobile
+         * @property {string|null} [client] LoginResponse client
+         * @property {string|null} [secret] LoginResponse secret
          */
     
         /**
-         * Constructs a new loginResponse.
-         * @exports loginResponse
-         * @classdesc Represents a loginResponse.
-         * @implements IloginResponse
+         * Constructs a new LoginResponse.
+         * @exports LoginResponse
+         * @classdesc Represents a LoginResponse.
+         * @implements ILoginResponse
          * @constructor
-         * @param {IloginResponse=} [properties] Properties to set
+         * @param {ILoginResponse=} [properties] Properties to set
          */
-        function loginResponse(properties) {
+        function LoginResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -45,67 +45,67 @@
         }
     
         /**
-         * loginResponse username.
+         * LoginResponse username.
          * @member {string} username
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @instance
          */
-        loginResponse.prototype.username = "";
+        LoginResponse.prototype.username = "";
     
         /**
-         * loginResponse protocol.
+         * LoginResponse protocol.
          * @member {number} protocol
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @instance
          */
-        loginResponse.prototype.protocol = 0;
+        LoginResponse.prototype.protocol = 0;
     
         /**
-         * loginResponse mobile.
+         * LoginResponse mobile.
          * @member {boolean} mobile
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @instance
          */
-        loginResponse.prototype.mobile = false;
+        LoginResponse.prototype.mobile = false;
     
         /**
-         * loginResponse client.
+         * LoginResponse client.
          * @member {string} client
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @instance
          */
-        loginResponse.prototype.client = "";
+        LoginResponse.prototype.client = "";
     
         /**
-         * loginResponse secret.
+         * LoginResponse secret.
          * @member {string} secret
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @instance
          */
-        loginResponse.prototype.secret = "";
+        LoginResponse.prototype.secret = "";
     
         /**
-         * Creates a new loginResponse instance using the specified properties.
+         * Creates a new LoginResponse instance using the specified properties.
          * @function create
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @static
-         * @param {IloginResponse=} [properties] Properties to set
-         * @returns {loginResponse} loginResponse instance
+         * @param {ILoginResponse=} [properties] Properties to set
+         * @returns {LoginResponse} LoginResponse instance
          */
-        loginResponse.create = function create(properties) {
-            return new loginResponse(properties);
+        LoginResponse.create = function create(properties) {
+            return new LoginResponse(properties);
         };
     
         /**
-         * Encodes the specified loginResponse message. Does not implicitly {@link loginResponse.verify|verify} messages.
+         * Encodes the specified LoginResponse message. Does not implicitly {@link LoginResponse.verify|verify} messages.
          * @function encode
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @static
-         * @param {IloginResponse} message loginResponse message or plain object to encode
+         * @param {ILoginResponse} message LoginResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        loginResponse.encode = function encode(message, writer) {
+        LoginResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.username != null && Object.hasOwnProperty.call(message, "username"))
@@ -122,33 +122,33 @@
         };
     
         /**
-         * Encodes the specified loginResponse message, length delimited. Does not implicitly {@link loginResponse.verify|verify} messages.
+         * Encodes the specified LoginResponse message, length delimited. Does not implicitly {@link LoginResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @static
-         * @param {IloginResponse} message loginResponse message or plain object to encode
+         * @param {ILoginResponse} message LoginResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        loginResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        LoginResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a loginResponse message from the specified reader or buffer.
+         * Decodes a LoginResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {loginResponse} loginResponse
+         * @returns {LoginResponse} LoginResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        loginResponse.decode = function decode(reader, length) {
+        LoginResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.loginResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -176,30 +176,30 @@
         };
     
         /**
-         * Decodes a loginResponse message from the specified reader or buffer, length delimited.
+         * Decodes a LoginResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {loginResponse} loginResponse
+         * @returns {LoginResponse} LoginResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        loginResponse.decodeDelimited = function decodeDelimited(reader) {
+        LoginResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a loginResponse message.
+         * Verifies a LoginResponse message.
          * @function verify
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        loginResponse.verify = function verify(message) {
+        LoginResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.username != null && message.hasOwnProperty("username"))
@@ -221,17 +221,17 @@
         };
     
         /**
-         * Creates a loginResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a LoginResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {loginResponse} loginResponse
+         * @returns {LoginResponse} LoginResponse
          */
-        loginResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.loginResponse)
+        LoginResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginResponse)
                 return object;
-            var message = new $root.loginResponse();
+            var message = new $root.LoginResponse();
             if (object.username != null)
                 message.username = String(object.username);
             if (object.protocol != null)
@@ -246,15 +246,15 @@
         };
     
         /**
-         * Creates a plain object from a loginResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a LoginResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @static
-         * @param {loginResponse} message loginResponse
+         * @param {LoginResponse} message LoginResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        loginResponse.toObject = function toObject(message, options) {
+        LoginResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -279,40 +279,40 @@
         };
     
         /**
-         * Converts this loginResponse to JSON.
+         * Converts this LoginResponse to JSON.
          * @function toJSON
-         * @memberof loginResponse
+         * @memberof LoginResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        loginResponse.prototype.toJSON = function toJSON() {
+        LoginResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return loginResponse;
+        return LoginResponse;
     })();
     
-    $root.actionMove = (function() {
+    $root.ActionMove = (function() {
     
         /**
-         * Properties of an actionMove.
-         * @exports IactionMove
-         * @interface IactionMove
-         * @property {number|null} [x] actionMove x
-         * @property {number|null} [y] actionMove y
-         * @property {number|null} [z] actionMove z
-         * @property {number|null} [rotation] actionMove rotation
+         * Properties of an ActionMove.
+         * @exports IActionMove
+         * @interface IActionMove
+         * @property {number|null} [x] ActionMove x
+         * @property {number|null} [y] ActionMove y
+         * @property {number|null} [z] ActionMove z
+         * @property {number|null} [rotation] ActionMove rotation
          */
     
         /**
-         * Constructs a new actionMove.
-         * @exports actionMove
-         * @classdesc Represents an actionMove.
-         * @implements IactionMove
+         * Constructs a new ActionMove.
+         * @exports ActionMove
+         * @classdesc Represents an ActionMove.
+         * @implements IActionMove
          * @constructor
-         * @param {IactionMove=} [properties] Properties to set
+         * @param {IActionMove=} [properties] Properties to set
          */
-        function actionMove(properties) {
+        function ActionMove(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -320,59 +320,59 @@
         }
     
         /**
-         * actionMove x.
+         * ActionMove x.
          * @member {number} x
-         * @memberof actionMove
+         * @memberof ActionMove
          * @instance
          */
-        actionMove.prototype.x = 0;
+        ActionMove.prototype.x = 0;
     
         /**
-         * actionMove y.
+         * ActionMove y.
          * @member {number} y
-         * @memberof actionMove
+         * @memberof ActionMove
          * @instance
          */
-        actionMove.prototype.y = 0;
+        ActionMove.prototype.y = 0;
     
         /**
-         * actionMove z.
+         * ActionMove z.
          * @member {number} z
-         * @memberof actionMove
+         * @memberof ActionMove
          * @instance
          */
-        actionMove.prototype.z = 0;
+        ActionMove.prototype.z = 0;
     
         /**
-         * actionMove rotation.
+         * ActionMove rotation.
          * @member {number} rotation
-         * @memberof actionMove
+         * @memberof ActionMove
          * @instance
          */
-        actionMove.prototype.rotation = 0;
+        ActionMove.prototype.rotation = 0;
     
         /**
-         * Creates a new actionMove instance using the specified properties.
+         * Creates a new ActionMove instance using the specified properties.
          * @function create
-         * @memberof actionMove
+         * @memberof ActionMove
          * @static
-         * @param {IactionMove=} [properties] Properties to set
-         * @returns {actionMove} actionMove instance
+         * @param {IActionMove=} [properties] Properties to set
+         * @returns {ActionMove} ActionMove instance
          */
-        actionMove.create = function create(properties) {
-            return new actionMove(properties);
+        ActionMove.create = function create(properties) {
+            return new ActionMove(properties);
         };
     
         /**
-         * Encodes the specified actionMove message. Does not implicitly {@link actionMove.verify|verify} messages.
+         * Encodes the specified ActionMove message. Does not implicitly {@link ActionMove.verify|verify} messages.
          * @function encode
-         * @memberof actionMove
+         * @memberof ActionMove
          * @static
-         * @param {IactionMove} message actionMove message or plain object to encode
+         * @param {IActionMove} message ActionMove message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionMove.encode = function encode(message, writer) {
+        ActionMove.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
@@ -387,33 +387,33 @@
         };
     
         /**
-         * Encodes the specified actionMove message, length delimited. Does not implicitly {@link actionMove.verify|verify} messages.
+         * Encodes the specified ActionMove message, length delimited. Does not implicitly {@link ActionMove.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof actionMove
+         * @memberof ActionMove
          * @static
-         * @param {IactionMove} message actionMove message or plain object to encode
+         * @param {IActionMove} message ActionMove message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionMove.encodeDelimited = function encodeDelimited(message, writer) {
+        ActionMove.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an actionMove message from the specified reader or buffer.
+         * Decodes an ActionMove message from the specified reader or buffer.
          * @function decode
-         * @memberof actionMove
+         * @memberof ActionMove
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {actionMove} actionMove
+         * @returns {ActionMove} ActionMove
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionMove.decode = function decode(reader, length) {
+        ActionMove.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionMove();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionMove();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -438,30 +438,30 @@
         };
     
         /**
-         * Decodes an actionMove message from the specified reader or buffer, length delimited.
+         * Decodes an ActionMove message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof actionMove
+         * @memberof ActionMove
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionMove} actionMove
+         * @returns {ActionMove} ActionMove
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionMove.decodeDelimited = function decodeDelimited(reader) {
+        ActionMove.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an actionMove message.
+         * Verifies an ActionMove message.
          * @function verify
-         * @memberof actionMove
+         * @memberof ActionMove
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        actionMove.verify = function verify(message) {
+        ActionMove.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.x != null && message.hasOwnProperty("x"))
@@ -480,17 +480,17 @@
         };
     
         /**
-         * Creates an actionMove message from a plain object. Also converts values to their respective internal types.
+         * Creates an ActionMove message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof actionMove
+         * @memberof ActionMove
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {actionMove} actionMove
+         * @returns {ActionMove} ActionMove
          */
-        actionMove.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionMove)
+        ActionMove.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionMove)
                 return object;
-            var message = new $root.actionMove();
+            var message = new $root.ActionMove();
             if (object.x != null)
                 message.x = Number(object.x);
             if (object.y != null)
@@ -503,15 +503,15 @@
         };
     
         /**
-         * Creates a plain object from an actionMove message. Also converts values to other types if specified.
+         * Creates a plain object from an ActionMove message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof actionMove
+         * @memberof ActionMove
          * @static
-         * @param {actionMove} message actionMove
+         * @param {ActionMove} message ActionMove
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        actionMove.toObject = function toObject(message, options) {
+        ActionMove.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -533,37 +533,37 @@
         };
     
         /**
-         * Converts this actionMove to JSON.
+         * Converts this ActionMove to JSON.
          * @function toJSON
-         * @memberof actionMove
+         * @memberof ActionMove
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        actionMove.prototype.toJSON = function toJSON() {
+        ActionMove.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return actionMove;
+        return ActionMove;
     })();
     
-    $root.actionMessage = (function() {
+    $root.ActionMessage = (function() {
     
         /**
-         * Properties of an actionMessage.
-         * @exports IactionMessage
-         * @interface IactionMessage
-         * @property {string|null} [message] actionMessage message
+         * Properties of an ActionMessage.
+         * @exports IActionMessage
+         * @interface IActionMessage
+         * @property {string|null} [message] ActionMessage message
          */
     
         /**
-         * Constructs a new actionMessage.
-         * @exports actionMessage
-         * @classdesc Represents an actionMessage.
-         * @implements IactionMessage
+         * Constructs a new ActionMessage.
+         * @exports ActionMessage
+         * @classdesc Represents an ActionMessage.
+         * @implements IActionMessage
          * @constructor
-         * @param {IactionMessage=} [properties] Properties to set
+         * @param {IActionMessage=} [properties] Properties to set
          */
-        function actionMessage(properties) {
+        function ActionMessage(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -571,35 +571,35 @@
         }
     
         /**
-         * actionMessage message.
+         * ActionMessage message.
          * @member {string} message
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @instance
          */
-        actionMessage.prototype.message = "";
+        ActionMessage.prototype.message = "";
     
         /**
-         * Creates a new actionMessage instance using the specified properties.
+         * Creates a new ActionMessage instance using the specified properties.
          * @function create
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @static
-         * @param {IactionMessage=} [properties] Properties to set
-         * @returns {actionMessage} actionMessage instance
+         * @param {IActionMessage=} [properties] Properties to set
+         * @returns {ActionMessage} ActionMessage instance
          */
-        actionMessage.create = function create(properties) {
-            return new actionMessage(properties);
+        ActionMessage.create = function create(properties) {
+            return new ActionMessage(properties);
         };
     
         /**
-         * Encodes the specified actionMessage message. Does not implicitly {@link actionMessage.verify|verify} messages.
+         * Encodes the specified ActionMessage message. Does not implicitly {@link ActionMessage.verify|verify} messages.
          * @function encode
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @static
-         * @param {IactionMessage} message actionMessage message or plain object to encode
+         * @param {IActionMessage} message ActionMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionMessage.encode = function encode(message, writer) {
+        ActionMessage.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.message != null && Object.hasOwnProperty.call(message, "message"))
@@ -608,33 +608,33 @@
         };
     
         /**
-         * Encodes the specified actionMessage message, length delimited. Does not implicitly {@link actionMessage.verify|verify} messages.
+         * Encodes the specified ActionMessage message, length delimited. Does not implicitly {@link ActionMessage.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @static
-         * @param {IactionMessage} message actionMessage message or plain object to encode
+         * @param {IActionMessage} message ActionMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionMessage.encodeDelimited = function encodeDelimited(message, writer) {
+        ActionMessage.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an actionMessage message from the specified reader or buffer.
+         * Decodes an ActionMessage message from the specified reader or buffer.
          * @function decode
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {actionMessage} actionMessage
+         * @returns {ActionMessage} ActionMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionMessage.decode = function decode(reader, length) {
+        ActionMessage.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionMessage();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -650,30 +650,30 @@
         };
     
         /**
-         * Decodes an actionMessage message from the specified reader or buffer, length delimited.
+         * Decodes an ActionMessage message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionMessage} actionMessage
+         * @returns {ActionMessage} ActionMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionMessage.decodeDelimited = function decodeDelimited(reader) {
+        ActionMessage.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an actionMessage message.
+         * Verifies an ActionMessage message.
          * @function verify
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        actionMessage.verify = function verify(message) {
+        ActionMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.message != null && message.hasOwnProperty("message"))
@@ -683,32 +683,32 @@
         };
     
         /**
-         * Creates an actionMessage message from a plain object. Also converts values to their respective internal types.
+         * Creates an ActionMessage message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {actionMessage} actionMessage
+         * @returns {ActionMessage} ActionMessage
          */
-        actionMessage.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionMessage)
+        ActionMessage.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionMessage)
                 return object;
-            var message = new $root.actionMessage();
+            var message = new $root.ActionMessage();
             if (object.message != null)
                 message.message = String(object.message);
             return message;
         };
     
         /**
-         * Creates a plain object from an actionMessage message. Also converts values to other types if specified.
+         * Creates a plain object from an ActionMessage message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @static
-         * @param {actionMessage} message actionMessage
+         * @param {ActionMessage} message ActionMessage
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        actionMessage.toObject = function toObject(message, options) {
+        ActionMessage.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -720,42 +720,42 @@
         };
     
         /**
-         * Converts this actionMessage to JSON.
+         * Converts this ActionMessage to JSON.
          * @function toJSON
-         * @memberof actionMessage
+         * @memberof ActionMessage
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        actionMessage.prototype.toJSON = function toJSON() {
+        ActionMessage.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return actionMessage;
+        return ActionMessage;
     })();
     
-    $root.actionBlockPlace = (function() {
+    $root.ActionBlockPlace = (function() {
     
         /**
-         * Properties of an actionBlockPlace.
-         * @exports IactionBlockPlace
-         * @interface IactionBlockPlace
-         * @property {number|null} [x] actionBlockPlace x
-         * @property {number|null} [y] actionBlockPlace y
-         * @property {number|null} [z] actionBlockPlace z
-         * @property {number|null} [x2] actionBlockPlace x2
-         * @property {number|null} [y2] actionBlockPlace y2
-         * @property {number|null} [z2] actionBlockPlace z2
+         * Properties of an ActionBlockPlace.
+         * @exports IActionBlockPlace
+         * @interface IActionBlockPlace
+         * @property {number|null} [x] ActionBlockPlace x
+         * @property {number|null} [y] ActionBlockPlace y
+         * @property {number|null} [z] ActionBlockPlace z
+         * @property {number|null} [x2] ActionBlockPlace x2
+         * @property {number|null} [y2] ActionBlockPlace y2
+         * @property {number|null} [z2] ActionBlockPlace z2
          */
     
         /**
-         * Constructs a new actionBlockPlace.
-         * @exports actionBlockPlace
-         * @classdesc Represents an actionBlockPlace.
-         * @implements IactionBlockPlace
+         * Constructs a new ActionBlockPlace.
+         * @exports ActionBlockPlace
+         * @classdesc Represents an ActionBlockPlace.
+         * @implements IActionBlockPlace
          * @constructor
-         * @param {IactionBlockPlace=} [properties] Properties to set
+         * @param {IActionBlockPlace=} [properties] Properties to set
          */
-        function actionBlockPlace(properties) {
+        function ActionBlockPlace(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -763,75 +763,75 @@
         }
     
         /**
-         * actionBlockPlace x.
+         * ActionBlockPlace x.
          * @member {number} x
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @instance
          */
-        actionBlockPlace.prototype.x = 0;
+        ActionBlockPlace.prototype.x = 0;
     
         /**
-         * actionBlockPlace y.
+         * ActionBlockPlace y.
          * @member {number} y
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @instance
          */
-        actionBlockPlace.prototype.y = 0;
+        ActionBlockPlace.prototype.y = 0;
     
         /**
-         * actionBlockPlace z.
+         * ActionBlockPlace z.
          * @member {number} z
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @instance
          */
-        actionBlockPlace.prototype.z = 0;
+        ActionBlockPlace.prototype.z = 0;
     
         /**
-         * actionBlockPlace x2.
+         * ActionBlockPlace x2.
          * @member {number} x2
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @instance
          */
-        actionBlockPlace.prototype.x2 = 0;
+        ActionBlockPlace.prototype.x2 = 0;
     
         /**
-         * actionBlockPlace y2.
+         * ActionBlockPlace y2.
          * @member {number} y2
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @instance
          */
-        actionBlockPlace.prototype.y2 = 0;
+        ActionBlockPlace.prototype.y2 = 0;
     
         /**
-         * actionBlockPlace z2.
+         * ActionBlockPlace z2.
          * @member {number} z2
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @instance
          */
-        actionBlockPlace.prototype.z2 = 0;
+        ActionBlockPlace.prototype.z2 = 0;
     
         /**
-         * Creates a new actionBlockPlace instance using the specified properties.
+         * Creates a new ActionBlockPlace instance using the specified properties.
          * @function create
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @static
-         * @param {IactionBlockPlace=} [properties] Properties to set
-         * @returns {actionBlockPlace} actionBlockPlace instance
+         * @param {IActionBlockPlace=} [properties] Properties to set
+         * @returns {ActionBlockPlace} ActionBlockPlace instance
          */
-        actionBlockPlace.create = function create(properties) {
-            return new actionBlockPlace(properties);
+        ActionBlockPlace.create = function create(properties) {
+            return new ActionBlockPlace(properties);
         };
     
         /**
-         * Encodes the specified actionBlockPlace message. Does not implicitly {@link actionBlockPlace.verify|verify} messages.
+         * Encodes the specified ActionBlockPlace message. Does not implicitly {@link ActionBlockPlace.verify|verify} messages.
          * @function encode
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @static
-         * @param {IactionBlockPlace} message actionBlockPlace message or plain object to encode
+         * @param {IActionBlockPlace} message ActionBlockPlace message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionBlockPlace.encode = function encode(message, writer) {
+        ActionBlockPlace.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
@@ -850,33 +850,33 @@
         };
     
         /**
-         * Encodes the specified actionBlockPlace message, length delimited. Does not implicitly {@link actionBlockPlace.verify|verify} messages.
+         * Encodes the specified ActionBlockPlace message, length delimited. Does not implicitly {@link ActionBlockPlace.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @static
-         * @param {IactionBlockPlace} message actionBlockPlace message or plain object to encode
+         * @param {IActionBlockPlace} message ActionBlockPlace message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionBlockPlace.encodeDelimited = function encodeDelimited(message, writer) {
+        ActionBlockPlace.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an actionBlockPlace message from the specified reader or buffer.
+         * Decodes an ActionBlockPlace message from the specified reader or buffer.
          * @function decode
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {actionBlockPlace} actionBlockPlace
+         * @returns {ActionBlockPlace} ActionBlockPlace
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionBlockPlace.decode = function decode(reader, length) {
+        ActionBlockPlace.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionBlockPlace();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionBlockPlace();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -907,30 +907,30 @@
         };
     
         /**
-         * Decodes an actionBlockPlace message from the specified reader or buffer, length delimited.
+         * Decodes an ActionBlockPlace message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionBlockPlace} actionBlockPlace
+         * @returns {ActionBlockPlace} ActionBlockPlace
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionBlockPlace.decodeDelimited = function decodeDelimited(reader) {
+        ActionBlockPlace.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an actionBlockPlace message.
+         * Verifies an ActionBlockPlace message.
          * @function verify
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        actionBlockPlace.verify = function verify(message) {
+        ActionBlockPlace.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.x != null && message.hasOwnProperty("x"))
@@ -955,17 +955,17 @@
         };
     
         /**
-         * Creates an actionBlockPlace message from a plain object. Also converts values to their respective internal types.
+         * Creates an ActionBlockPlace message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {actionBlockPlace} actionBlockPlace
+         * @returns {ActionBlockPlace} ActionBlockPlace
          */
-        actionBlockPlace.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionBlockPlace)
+        ActionBlockPlace.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionBlockPlace)
                 return object;
-            var message = new $root.actionBlockPlace();
+            var message = new $root.ActionBlockPlace();
             if (object.x != null)
                 message.x = object.x | 0;
             if (object.y != null)
@@ -982,15 +982,15 @@
         };
     
         /**
-         * Creates a plain object from an actionBlockPlace message. Also converts values to other types if specified.
+         * Creates a plain object from an ActionBlockPlace message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @static
-         * @param {actionBlockPlace} message actionBlockPlace
+         * @param {ActionBlockPlace} message ActionBlockPlace
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        actionBlockPlace.toObject = function toObject(message, options) {
+        ActionBlockPlace.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1018,39 +1018,39 @@
         };
     
         /**
-         * Converts this actionBlockPlace to JSON.
+         * Converts this ActionBlockPlace to JSON.
          * @function toJSON
-         * @memberof actionBlockPlace
+         * @memberof ActionBlockPlace
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        actionBlockPlace.prototype.toJSON = function toJSON() {
+        ActionBlockPlace.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return actionBlockPlace;
+        return ActionBlockPlace;
     })();
     
-    $root.actionBlockBreak = (function() {
+    $root.ActionBlockBreak = (function() {
     
         /**
-         * Properties of an actionBlockBreak.
-         * @exports IactionBlockBreak
-         * @interface IactionBlockBreak
-         * @property {number|null} [x] actionBlockBreak x
-         * @property {number|null} [y] actionBlockBreak y
-         * @property {number|null} [z] actionBlockBreak z
+         * Properties of an ActionBlockBreak.
+         * @exports IActionBlockBreak
+         * @interface IActionBlockBreak
+         * @property {number|null} [x] ActionBlockBreak x
+         * @property {number|null} [y] ActionBlockBreak y
+         * @property {number|null} [z] ActionBlockBreak z
          */
     
         /**
-         * Constructs a new actionBlockBreak.
-         * @exports actionBlockBreak
-         * @classdesc Represents an actionBlockBreak.
-         * @implements IactionBlockBreak
+         * Constructs a new ActionBlockBreak.
+         * @exports ActionBlockBreak
+         * @classdesc Represents an ActionBlockBreak.
+         * @implements IActionBlockBreak
          * @constructor
-         * @param {IactionBlockBreak=} [properties] Properties to set
+         * @param {IActionBlockBreak=} [properties] Properties to set
          */
-        function actionBlockBreak(properties) {
+        function ActionBlockBreak(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1058,51 +1058,51 @@
         }
     
         /**
-         * actionBlockBreak x.
+         * ActionBlockBreak x.
          * @member {number} x
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @instance
          */
-        actionBlockBreak.prototype.x = 0;
+        ActionBlockBreak.prototype.x = 0;
     
         /**
-         * actionBlockBreak y.
+         * ActionBlockBreak y.
          * @member {number} y
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @instance
          */
-        actionBlockBreak.prototype.y = 0;
+        ActionBlockBreak.prototype.y = 0;
     
         /**
-         * actionBlockBreak z.
+         * ActionBlockBreak z.
          * @member {number} z
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @instance
          */
-        actionBlockBreak.prototype.z = 0;
+        ActionBlockBreak.prototype.z = 0;
     
         /**
-         * Creates a new actionBlockBreak instance using the specified properties.
+         * Creates a new ActionBlockBreak instance using the specified properties.
          * @function create
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @static
-         * @param {IactionBlockBreak=} [properties] Properties to set
-         * @returns {actionBlockBreak} actionBlockBreak instance
+         * @param {IActionBlockBreak=} [properties] Properties to set
+         * @returns {ActionBlockBreak} ActionBlockBreak instance
          */
-        actionBlockBreak.create = function create(properties) {
-            return new actionBlockBreak(properties);
+        ActionBlockBreak.create = function create(properties) {
+            return new ActionBlockBreak(properties);
         };
     
         /**
-         * Encodes the specified actionBlockBreak message. Does not implicitly {@link actionBlockBreak.verify|verify} messages.
+         * Encodes the specified ActionBlockBreak message. Does not implicitly {@link ActionBlockBreak.verify|verify} messages.
          * @function encode
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @static
-         * @param {IactionBlockBreak} message actionBlockBreak message or plain object to encode
+         * @param {IActionBlockBreak} message ActionBlockBreak message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionBlockBreak.encode = function encode(message, writer) {
+        ActionBlockBreak.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
@@ -1115,33 +1115,33 @@
         };
     
         /**
-         * Encodes the specified actionBlockBreak message, length delimited. Does not implicitly {@link actionBlockBreak.verify|verify} messages.
+         * Encodes the specified ActionBlockBreak message, length delimited. Does not implicitly {@link ActionBlockBreak.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @static
-         * @param {IactionBlockBreak} message actionBlockBreak message or plain object to encode
+         * @param {IActionBlockBreak} message ActionBlockBreak message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionBlockBreak.encodeDelimited = function encodeDelimited(message, writer) {
+        ActionBlockBreak.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an actionBlockBreak message from the specified reader or buffer.
+         * Decodes an ActionBlockBreak message from the specified reader or buffer.
          * @function decode
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {actionBlockBreak} actionBlockBreak
+         * @returns {ActionBlockBreak} ActionBlockBreak
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionBlockBreak.decode = function decode(reader, length) {
+        ActionBlockBreak.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionBlockBreak();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionBlockBreak();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1163,30 +1163,30 @@
         };
     
         /**
-         * Decodes an actionBlockBreak message from the specified reader or buffer, length delimited.
+         * Decodes an ActionBlockBreak message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionBlockBreak} actionBlockBreak
+         * @returns {ActionBlockBreak} ActionBlockBreak
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionBlockBreak.decodeDelimited = function decodeDelimited(reader) {
+        ActionBlockBreak.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an actionBlockBreak message.
+         * Verifies an ActionBlockBreak message.
          * @function verify
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        actionBlockBreak.verify = function verify(message) {
+        ActionBlockBreak.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.x != null && message.hasOwnProperty("x"))
@@ -1202,17 +1202,17 @@
         };
     
         /**
-         * Creates an actionBlockBreak message from a plain object. Also converts values to their respective internal types.
+         * Creates an ActionBlockBreak message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {actionBlockBreak} actionBlockBreak
+         * @returns {ActionBlockBreak} ActionBlockBreak
          */
-        actionBlockBreak.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionBlockBreak)
+        ActionBlockBreak.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionBlockBreak)
                 return object;
-            var message = new $root.actionBlockBreak();
+            var message = new $root.ActionBlockBreak();
             if (object.x != null)
                 message.x = object.x | 0;
             if (object.y != null)
@@ -1223,15 +1223,15 @@
         };
     
         /**
-         * Creates a plain object from an actionBlockBreak message. Also converts values to other types if specified.
+         * Creates a plain object from an ActionBlockBreak message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @static
-         * @param {actionBlockBreak} message actionBlockBreak
+         * @param {ActionBlockBreak} message ActionBlockBreak
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        actionBlockBreak.toObject = function toObject(message, options) {
+        ActionBlockBreak.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1250,40 +1250,40 @@
         };
     
         /**
-         * Converts this actionBlockBreak to JSON.
+         * Converts this ActionBlockBreak to JSON.
          * @function toJSON
-         * @memberof actionBlockBreak
+         * @memberof ActionBlockBreak
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        actionBlockBreak.prototype.toJSON = function toJSON() {
+        ActionBlockBreak.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return actionBlockBreak;
+        return ActionBlockBreak;
     })();
     
-    $root.actionInventoryClick = (function() {
+    $root.ActionInventoryClick = (function() {
     
         /**
-         * Properties of an actionInventoryClick.
-         * @exports IactionInventoryClick
-         * @interface IactionInventoryClick
-         * @property {number|null} [slot] actionInventoryClick slot
-         * @property {string|null} [type] actionInventoryClick type
-         * @property {string|null} [inventory] actionInventoryClick inventory
-         * @property {number|null} [slot2] actionInventoryClick slot2
+         * Properties of an ActionInventoryClick.
+         * @exports IActionInventoryClick
+         * @interface IActionInventoryClick
+         * @property {number|null} [slot] ActionInventoryClick slot
+         * @property {string|null} [type] ActionInventoryClick type
+         * @property {string|null} [inventory] ActionInventoryClick inventory
+         * @property {number|null} [slot2] ActionInventoryClick slot2
          */
     
         /**
-         * Constructs a new actionInventoryClick.
-         * @exports actionInventoryClick
-         * @classdesc Represents an actionInventoryClick.
-         * @implements IactionInventoryClick
+         * Constructs a new ActionInventoryClick.
+         * @exports ActionInventoryClick
+         * @classdesc Represents an ActionInventoryClick.
+         * @implements IActionInventoryClick
          * @constructor
-         * @param {IactionInventoryClick=} [properties] Properties to set
+         * @param {IActionInventoryClick=} [properties] Properties to set
          */
-        function actionInventoryClick(properties) {
+        function ActionInventoryClick(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1291,59 +1291,59 @@
         }
     
         /**
-         * actionInventoryClick slot.
+         * ActionInventoryClick slot.
          * @member {number} slot
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @instance
          */
-        actionInventoryClick.prototype.slot = 0;
+        ActionInventoryClick.prototype.slot = 0;
     
         /**
-         * actionInventoryClick type.
+         * ActionInventoryClick type.
          * @member {string} type
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @instance
          */
-        actionInventoryClick.prototype.type = "";
+        ActionInventoryClick.prototype.type = "";
     
         /**
-         * actionInventoryClick inventory.
+         * ActionInventoryClick inventory.
          * @member {string} inventory
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @instance
          */
-        actionInventoryClick.prototype.inventory = "";
+        ActionInventoryClick.prototype.inventory = "";
     
         /**
-         * actionInventoryClick slot2.
+         * ActionInventoryClick slot2.
          * @member {number} slot2
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @instance
          */
-        actionInventoryClick.prototype.slot2 = 0;
+        ActionInventoryClick.prototype.slot2 = 0;
     
         /**
-         * Creates a new actionInventoryClick instance using the specified properties.
+         * Creates a new ActionInventoryClick instance using the specified properties.
          * @function create
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @static
-         * @param {IactionInventoryClick=} [properties] Properties to set
-         * @returns {actionInventoryClick} actionInventoryClick instance
+         * @param {IActionInventoryClick=} [properties] Properties to set
+         * @returns {ActionInventoryClick} ActionInventoryClick instance
          */
-        actionInventoryClick.create = function create(properties) {
-            return new actionInventoryClick(properties);
+        ActionInventoryClick.create = function create(properties) {
+            return new ActionInventoryClick(properties);
         };
     
         /**
-         * Encodes the specified actionInventoryClick message. Does not implicitly {@link actionInventoryClick.verify|verify} messages.
+         * Encodes the specified ActionInventoryClick message. Does not implicitly {@link ActionInventoryClick.verify|verify} messages.
          * @function encode
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @static
-         * @param {IactionInventoryClick} message actionInventoryClick message or plain object to encode
+         * @param {IActionInventoryClick} message ActionInventoryClick message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionInventoryClick.encode = function encode(message, writer) {
+        ActionInventoryClick.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.slot != null && Object.hasOwnProperty.call(message, "slot"))
@@ -1358,33 +1358,33 @@
         };
     
         /**
-         * Encodes the specified actionInventoryClick message, length delimited. Does not implicitly {@link actionInventoryClick.verify|verify} messages.
+         * Encodes the specified ActionInventoryClick message, length delimited. Does not implicitly {@link ActionInventoryClick.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @static
-         * @param {IactionInventoryClick} message actionInventoryClick message or plain object to encode
+         * @param {IActionInventoryClick} message ActionInventoryClick message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionInventoryClick.encodeDelimited = function encodeDelimited(message, writer) {
+        ActionInventoryClick.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an actionInventoryClick message from the specified reader or buffer.
+         * Decodes an ActionInventoryClick message from the specified reader or buffer.
          * @function decode
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {actionInventoryClick} actionInventoryClick
+         * @returns {ActionInventoryClick} ActionInventoryClick
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionInventoryClick.decode = function decode(reader, length) {
+        ActionInventoryClick.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionInventoryClick();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionInventoryClick();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1409,30 +1409,30 @@
         };
     
         /**
-         * Decodes an actionInventoryClick message from the specified reader or buffer, length delimited.
+         * Decodes an ActionInventoryClick message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionInventoryClick} actionInventoryClick
+         * @returns {ActionInventoryClick} ActionInventoryClick
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionInventoryClick.decodeDelimited = function decodeDelimited(reader) {
+        ActionInventoryClick.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an actionInventoryClick message.
+         * Verifies an ActionInventoryClick message.
          * @function verify
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        actionInventoryClick.verify = function verify(message) {
+        ActionInventoryClick.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.slot != null && message.hasOwnProperty("slot"))
@@ -1451,17 +1451,17 @@
         };
     
         /**
-         * Creates an actionInventoryClick message from a plain object. Also converts values to their respective internal types.
+         * Creates an ActionInventoryClick message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {actionInventoryClick} actionInventoryClick
+         * @returns {ActionInventoryClick} ActionInventoryClick
          */
-        actionInventoryClick.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionInventoryClick)
+        ActionInventoryClick.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionInventoryClick)
                 return object;
-            var message = new $root.actionInventoryClick();
+            var message = new $root.ActionInventoryClick();
             if (object.slot != null)
                 message.slot = object.slot | 0;
             if (object.type != null)
@@ -1474,15 +1474,15 @@
         };
     
         /**
-         * Creates a plain object from an actionInventoryClick message. Also converts values to other types if specified.
+         * Creates a plain object from an ActionInventoryClick message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @static
-         * @param {actionInventoryClick} message actionInventoryClick
+         * @param {ActionInventoryClick} message ActionInventoryClick
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        actionInventoryClick.toObject = function toObject(message, options) {
+        ActionInventoryClick.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1504,38 +1504,37 @@
         };
     
         /**
-         * Converts this actionInventoryClick to JSON.
+         * Converts this ActionInventoryClick to JSON.
          * @function toJSON
-         * @memberof actionInventoryClick
+         * @memberof ActionInventoryClick
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        actionInventoryClick.prototype.toJSON = function toJSON() {
+        ActionInventoryClick.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return actionInventoryClick;
+        return ActionInventoryClick;
     })();
     
-    $root.actionInventoryOpen = (function() {
+    $root.ActionInventoryOpen = (function() {
     
         /**
-         * Properties of an actionInventoryOpen.
-         * @exports IactionInventoryOpen
-         * @interface IactionInventoryOpen
-         * @property {string|null} [inventory] actionInventoryOpen inventory
-         * @property {boolean|null} [action] actionInventoryOpen action
+         * Properties of an ActionInventoryOpen.
+         * @exports IActionInventoryOpen
+         * @interface IActionInventoryOpen
+         * @property {string|null} [inventory] ActionInventoryOpen inventory
          */
     
         /**
-         * Constructs a new actionInventoryOpen.
-         * @exports actionInventoryOpen
-         * @classdesc Represents an actionInventoryOpen.
-         * @implements IactionInventoryOpen
+         * Constructs a new ActionInventoryOpen.
+         * @exports ActionInventoryOpen
+         * @classdesc Represents an ActionInventoryOpen.
+         * @implements IActionInventoryOpen
          * @constructor
-         * @param {IactionInventoryOpen=} [properties] Properties to set
+         * @param {IActionInventoryOpen=} [properties] Properties to set
          */
-        function actionInventoryOpen(properties) {
+        function ActionInventoryOpen(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1543,244 +1542,35 @@
         }
     
         /**
-         * actionInventoryOpen inventory.
+         * ActionInventoryOpen inventory.
          * @member {string} inventory
-         * @memberof actionInventoryOpen
+         * @memberof ActionInventoryOpen
          * @instance
          */
-        actionInventoryOpen.prototype.inventory = "";
+        ActionInventoryOpen.prototype.inventory = "";
     
         /**
-         * actionInventoryOpen action.
-         * @member {boolean} action
-         * @memberof actionInventoryOpen
-         * @instance
-         */
-        actionInventoryOpen.prototype.action = false;
-    
-        /**
-         * Creates a new actionInventoryOpen instance using the specified properties.
+         * Creates a new ActionInventoryOpen instance using the specified properties.
          * @function create
-         * @memberof actionInventoryOpen
+         * @memberof ActionInventoryOpen
          * @static
-         * @param {IactionInventoryOpen=} [properties] Properties to set
-         * @returns {actionInventoryOpen} actionInventoryOpen instance
+         * @param {IActionInventoryOpen=} [properties] Properties to set
+         * @returns {ActionInventoryOpen} ActionInventoryOpen instance
          */
-        actionInventoryOpen.create = function create(properties) {
-            return new actionInventoryOpen(properties);
+        ActionInventoryOpen.create = function create(properties) {
+            return new ActionInventoryOpen(properties);
         };
     
         /**
-         * Encodes the specified actionInventoryOpen message. Does not implicitly {@link actionInventoryOpen.verify|verify} messages.
+         * Encodes the specified ActionInventoryOpen message. Does not implicitly {@link ActionInventoryOpen.verify|verify} messages.
          * @function encode
-         * @memberof actionInventoryOpen
+         * @memberof ActionInventoryOpen
          * @static
-         * @param {IactionInventoryOpen} message actionInventoryOpen message or plain object to encode
+         * @param {IActionInventoryOpen} message ActionInventoryOpen message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionInventoryOpen.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.inventory);
-            if (message.action != null && Object.hasOwnProperty.call(message, "action"))
-                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.action);
-            return writer;
-        };
-    
-        /**
-         * Encodes the specified actionInventoryOpen message, length delimited. Does not implicitly {@link actionInventoryOpen.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof actionInventoryOpen
-         * @static
-         * @param {IactionInventoryOpen} message actionInventoryOpen message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        actionInventoryOpen.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-    
-        /**
-         * Decodes an actionInventoryOpen message from the specified reader or buffer.
-         * @function decode
-         * @memberof actionInventoryOpen
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {actionInventoryOpen} actionInventoryOpen
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        actionInventoryOpen.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionInventoryOpen();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.inventory = reader.string();
-                    break;
-                case 2:
-                    message.action = reader.bool();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-    
-        /**
-         * Decodes an actionInventoryOpen message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof actionInventoryOpen
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionInventoryOpen} actionInventoryOpen
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        actionInventoryOpen.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-    
-        /**
-         * Verifies an actionInventoryOpen message.
-         * @function verify
-         * @memberof actionInventoryOpen
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        actionInventoryOpen.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.inventory != null && message.hasOwnProperty("inventory"))
-                if (!$util.isString(message.inventory))
-                    return "inventory: string expected";
-            if (message.action != null && message.hasOwnProperty("action"))
-                if (typeof message.action !== "boolean")
-                    return "action: boolean expected";
-            return null;
-        };
-    
-        /**
-         * Creates an actionInventoryOpen message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof actionInventoryOpen
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {actionInventoryOpen} actionInventoryOpen
-         */
-        actionInventoryOpen.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionInventoryOpen)
-                return object;
-            var message = new $root.actionInventoryOpen();
-            if (object.inventory != null)
-                message.inventory = String(object.inventory);
-            if (object.action != null)
-                message.action = Boolean(object.action);
-            return message;
-        };
-    
-        /**
-         * Creates a plain object from an actionInventoryOpen message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof actionInventoryOpen
-         * @static
-         * @param {actionInventoryOpen} message actionInventoryOpen
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        actionInventoryOpen.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.inventory = "";
-                object.action = false;
-            }
-            if (message.inventory != null && message.hasOwnProperty("inventory"))
-                object.inventory = message.inventory;
-            if (message.action != null && message.hasOwnProperty("action"))
-                object.action = message.action;
-            return object;
-        };
-    
-        /**
-         * Converts this actionInventoryOpen to JSON.
-         * @function toJSON
-         * @memberof actionInventoryOpen
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        actionInventoryOpen.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-    
-        return actionInventoryOpen;
-    })();
-    
-    $root.actionInventoryClose = (function() {
-    
-        /**
-         * Properties of an actionInventoryClose.
-         * @exports IactionInventoryClose
-         * @interface IactionInventoryClose
-         * @property {string|null} [inventory] actionInventoryClose inventory
-         */
-    
-        /**
-         * Constructs a new actionInventoryClose.
-         * @exports actionInventoryClose
-         * @classdesc Represents an actionInventoryClose.
-         * @implements IactionInventoryClose
-         * @constructor
-         * @param {IactionInventoryClose=} [properties] Properties to set
-         */
-        function actionInventoryClose(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-    
-        /**
-         * actionInventoryClose inventory.
-         * @member {string} inventory
-         * @memberof actionInventoryClose
-         * @instance
-         */
-        actionInventoryClose.prototype.inventory = "";
-    
-        /**
-         * Creates a new actionInventoryClose instance using the specified properties.
-         * @function create
-         * @memberof actionInventoryClose
-         * @static
-         * @param {IactionInventoryClose=} [properties] Properties to set
-         * @returns {actionInventoryClose} actionInventoryClose instance
-         */
-        actionInventoryClose.create = function create(properties) {
-            return new actionInventoryClose(properties);
-        };
-    
-        /**
-         * Encodes the specified actionInventoryClose message. Does not implicitly {@link actionInventoryClose.verify|verify} messages.
-         * @function encode
-         * @memberof actionInventoryClose
-         * @static
-         * @param {IactionInventoryClose} message actionInventoryClose message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        actionInventoryClose.encode = function encode(message, writer) {
+        ActionInventoryOpen.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
@@ -1789,33 +1579,33 @@
         };
     
         /**
-         * Encodes the specified actionInventoryClose message, length delimited. Does not implicitly {@link actionInventoryClose.verify|verify} messages.
+         * Encodes the specified ActionInventoryOpen message, length delimited. Does not implicitly {@link ActionInventoryOpen.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof actionInventoryClose
+         * @memberof ActionInventoryOpen
          * @static
-         * @param {IactionInventoryClose} message actionInventoryClose message or plain object to encode
+         * @param {IActionInventoryOpen} message ActionInventoryOpen message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionInventoryClose.encodeDelimited = function encodeDelimited(message, writer) {
+        ActionInventoryOpen.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an actionInventoryClose message from the specified reader or buffer.
+         * Decodes an ActionInventoryOpen message from the specified reader or buffer.
          * @function decode
-         * @memberof actionInventoryClose
+         * @memberof ActionInventoryOpen
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {actionInventoryClose} actionInventoryClose
+         * @returns {ActionInventoryOpen} ActionInventoryOpen
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionInventoryClose.decode = function decode(reader, length) {
+        ActionInventoryOpen.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionInventoryClose();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionInventoryOpen();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1831,30 +1621,30 @@
         };
     
         /**
-         * Decodes an actionInventoryClose message from the specified reader or buffer, length delimited.
+         * Decodes an ActionInventoryOpen message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof actionInventoryClose
+         * @memberof ActionInventoryOpen
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionInventoryClose} actionInventoryClose
+         * @returns {ActionInventoryOpen} ActionInventoryOpen
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionInventoryClose.decodeDelimited = function decodeDelimited(reader) {
+        ActionInventoryOpen.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an actionInventoryClose message.
+         * Verifies an ActionInventoryOpen message.
          * @function verify
-         * @memberof actionInventoryClose
+         * @memberof ActionInventoryOpen
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        actionInventoryClose.verify = function verify(message) {
+        ActionInventoryOpen.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.inventory != null && message.hasOwnProperty("inventory"))
@@ -1864,32 +1654,32 @@
         };
     
         /**
-         * Creates an actionInventoryClose message from a plain object. Also converts values to their respective internal types.
+         * Creates an ActionInventoryOpen message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof actionInventoryClose
+         * @memberof ActionInventoryOpen
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {actionInventoryClose} actionInventoryClose
+         * @returns {ActionInventoryOpen} ActionInventoryOpen
          */
-        actionInventoryClose.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionInventoryClose)
+        ActionInventoryOpen.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionInventoryOpen)
                 return object;
-            var message = new $root.actionInventoryClose();
+            var message = new $root.ActionInventoryOpen();
             if (object.inventory != null)
                 message.inventory = String(object.inventory);
             return message;
         };
     
         /**
-         * Creates a plain object from an actionInventoryClose message. Also converts values to other types if specified.
+         * Creates a plain object from an ActionInventoryOpen message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof actionInventoryClose
+         * @memberof ActionInventoryOpen
          * @static
-         * @param {actionInventoryClose} message actionInventoryClose
+         * @param {ActionInventoryOpen} message ActionInventoryOpen
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        actionInventoryClose.toObject = function toObject(message, options) {
+        ActionInventoryOpen.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1901,40 +1691,37 @@
         };
     
         /**
-         * Converts this actionInventoryClose to JSON.
+         * Converts this ActionInventoryOpen to JSON.
          * @function toJSON
-         * @memberof actionInventoryClose
+         * @memberof ActionInventoryOpen
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        actionInventoryClose.prototype.toJSON = function toJSON() {
+        ActionInventoryOpen.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return actionInventoryClose;
+        return ActionInventoryOpen;
     })();
     
-    $root.actionClick = (function() {
+    $root.ActionInventoryClose = (function() {
     
         /**
-         * Properties of an actionClick.
-         * @exports IactionClick
-         * @interface IactionClick
-         * @property {number|null} [x] actionClick x
-         * @property {number|null} [y] actionClick y
-         * @property {number|null} [z] actionClick z
-         * @property {string|null} [type] actionClick type
+         * Properties of an ActionInventoryClose.
+         * @exports IActionInventoryClose
+         * @interface IActionInventoryClose
+         * @property {string|null} [inventory] ActionInventoryClose inventory
          */
     
         /**
-         * Constructs a new actionClick.
-         * @exports actionClick
-         * @classdesc Represents an actionClick.
-         * @implements IactionClick
+         * Constructs a new ActionInventoryClose.
+         * @exports ActionInventoryClose
+         * @classdesc Represents an ActionInventoryClose.
+         * @implements IActionInventoryClose
          * @constructor
-         * @param {IactionClick=} [properties] Properties to set
+         * @param {IActionInventoryClose=} [properties] Properties to set
          */
-        function actionClick(properties) {
+        function ActionInventoryClose(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1942,59 +1729,249 @@
         }
     
         /**
-         * actionClick x.
-         * @member {number} x
-         * @memberof actionClick
+         * ActionInventoryClose inventory.
+         * @member {string} inventory
+         * @memberof ActionInventoryClose
          * @instance
          */
-        actionClick.prototype.x = 0;
+        ActionInventoryClose.prototype.inventory = "";
     
         /**
-         * actionClick y.
-         * @member {number} y
-         * @memberof actionClick
-         * @instance
-         */
-        actionClick.prototype.y = 0;
-    
-        /**
-         * actionClick z.
-         * @member {number} z
-         * @memberof actionClick
-         * @instance
-         */
-        actionClick.prototype.z = 0;
-    
-        /**
-         * actionClick type.
-         * @member {string} type
-         * @memberof actionClick
-         * @instance
-         */
-        actionClick.prototype.type = "";
-    
-        /**
-         * Creates a new actionClick instance using the specified properties.
+         * Creates a new ActionInventoryClose instance using the specified properties.
          * @function create
-         * @memberof actionClick
+         * @memberof ActionInventoryClose
          * @static
-         * @param {IactionClick=} [properties] Properties to set
-         * @returns {actionClick} actionClick instance
+         * @param {IActionInventoryClose=} [properties] Properties to set
+         * @returns {ActionInventoryClose} ActionInventoryClose instance
          */
-        actionClick.create = function create(properties) {
-            return new actionClick(properties);
+        ActionInventoryClose.create = function create(properties) {
+            return new ActionInventoryClose(properties);
         };
     
         /**
-         * Encodes the specified actionClick message. Does not implicitly {@link actionClick.verify|verify} messages.
+         * Encodes the specified ActionInventoryClose message. Does not implicitly {@link ActionInventoryClose.verify|verify} messages.
          * @function encode
-         * @memberof actionClick
+         * @memberof ActionInventoryClose
          * @static
-         * @param {IactionClick} message actionClick message or plain object to encode
+         * @param {IActionInventoryClose} message ActionInventoryClose message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionClick.encode = function encode(message, writer) {
+        ActionInventoryClose.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.inventory);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified ActionInventoryClose message, length delimited. Does not implicitly {@link ActionInventoryClose.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ActionInventoryClose
+         * @static
+         * @param {IActionInventoryClose} message ActionInventoryClose message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionInventoryClose.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an ActionInventoryClose message from the specified reader or buffer.
+         * @function decode
+         * @memberof ActionInventoryClose
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ActionInventoryClose} ActionInventoryClose
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionInventoryClose.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionInventoryClose();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.inventory = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an ActionInventoryClose message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ActionInventoryClose
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ActionInventoryClose} ActionInventoryClose
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionInventoryClose.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an ActionInventoryClose message.
+         * @function verify
+         * @memberof ActionInventoryClose
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ActionInventoryClose.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                if (!$util.isString(message.inventory))
+                    return "inventory: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an ActionInventoryClose message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ActionInventoryClose
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ActionInventoryClose} ActionInventoryClose
+         */
+        ActionInventoryClose.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionInventoryClose)
+                return object;
+            var message = new $root.ActionInventoryClose();
+            if (object.inventory != null)
+                message.inventory = String(object.inventory);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an ActionInventoryClose message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ActionInventoryClose
+         * @static
+         * @param {ActionInventoryClose} message ActionInventoryClose
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ActionInventoryClose.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.inventory = "";
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                object.inventory = message.inventory;
+            return object;
+        };
+    
+        /**
+         * Converts this ActionInventoryClose to JSON.
+         * @function toJSON
+         * @memberof ActionInventoryClose
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ActionInventoryClose.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return ActionInventoryClose;
+    })();
+    
+    $root.ActionClick = (function() {
+    
+        /**
+         * Properties of an ActionClick.
+         * @exports IActionClick
+         * @interface IActionClick
+         * @property {number|null} [x] ActionClick x
+         * @property {number|null} [y] ActionClick y
+         * @property {number|null} [z] ActionClick z
+         * @property {string|null} [type] ActionClick type
+         */
+    
+        /**
+         * Constructs a new ActionClick.
+         * @exports ActionClick
+         * @classdesc Represents an ActionClick.
+         * @implements IActionClick
+         * @constructor
+         * @param {IActionClick=} [properties] Properties to set
+         */
+        function ActionClick(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * ActionClick x.
+         * @member {number} x
+         * @memberof ActionClick
+         * @instance
+         */
+        ActionClick.prototype.x = 0;
+    
+        /**
+         * ActionClick y.
+         * @member {number} y
+         * @memberof ActionClick
+         * @instance
+         */
+        ActionClick.prototype.y = 0;
+    
+        /**
+         * ActionClick z.
+         * @member {number} z
+         * @memberof ActionClick
+         * @instance
+         */
+        ActionClick.prototype.z = 0;
+    
+        /**
+         * ActionClick type.
+         * @member {string} type
+         * @memberof ActionClick
+         * @instance
+         */
+        ActionClick.prototype.type = "";
+    
+        /**
+         * Creates a new ActionClick instance using the specified properties.
+         * @function create
+         * @memberof ActionClick
+         * @static
+         * @param {IActionClick=} [properties] Properties to set
+         * @returns {ActionClick} ActionClick instance
+         */
+        ActionClick.create = function create(properties) {
+            return new ActionClick(properties);
+        };
+    
+        /**
+         * Encodes the specified ActionClick message. Does not implicitly {@link ActionClick.verify|verify} messages.
+         * @function encode
+         * @memberof ActionClick
+         * @static
+         * @param {IActionClick} message ActionClick message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionClick.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
@@ -2009,33 +1986,33 @@
         };
     
         /**
-         * Encodes the specified actionClick message, length delimited. Does not implicitly {@link actionClick.verify|verify} messages.
+         * Encodes the specified ActionClick message, length delimited. Does not implicitly {@link ActionClick.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof actionClick
+         * @memberof ActionClick
          * @static
-         * @param {IactionClick} message actionClick message or plain object to encode
+         * @param {IActionClick} message ActionClick message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionClick.encodeDelimited = function encodeDelimited(message, writer) {
+        ActionClick.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an actionClick message from the specified reader or buffer.
+         * Decodes an ActionClick message from the specified reader or buffer.
          * @function decode
-         * @memberof actionClick
+         * @memberof ActionClick
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {actionClick} actionClick
+         * @returns {ActionClick} ActionClick
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionClick.decode = function decode(reader, length) {
+        ActionClick.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionClick();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionClick();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2060,30 +2037,30 @@
         };
     
         /**
-         * Decodes an actionClick message from the specified reader or buffer, length delimited.
+         * Decodes an ActionClick message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof actionClick
+         * @memberof ActionClick
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionClick} actionClick
+         * @returns {ActionClick} ActionClick
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionClick.decodeDelimited = function decodeDelimited(reader) {
+        ActionClick.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an actionClick message.
+         * Verifies an ActionClick message.
          * @function verify
-         * @memberof actionClick
+         * @memberof ActionClick
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        actionClick.verify = function verify(message) {
+        ActionClick.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.x != null && message.hasOwnProperty("x"))
@@ -2102,17 +2079,17 @@
         };
     
         /**
-         * Creates an actionClick message from a plain object. Also converts values to their respective internal types.
+         * Creates an ActionClick message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof actionClick
+         * @memberof ActionClick
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {actionClick} actionClick
+         * @returns {ActionClick} ActionClick
          */
-        actionClick.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionClick)
+        ActionClick.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionClick)
                 return object;
-            var message = new $root.actionClick();
+            var message = new $root.ActionClick();
             if (object.x != null)
                 message.x = object.x | 0;
             if (object.y != null)
@@ -2125,15 +2102,15 @@
         };
     
         /**
-         * Creates a plain object from an actionClick message. Also converts values to other types if specified.
+         * Creates a plain object from an ActionClick message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof actionClick
+         * @memberof ActionClick
          * @static
-         * @param {actionClick} message actionClick
+         * @param {ActionClick} message ActionClick
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        actionClick.toObject = function toObject(message, options) {
+        ActionClick.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -2155,38 +2132,38 @@
         };
     
         /**
-         * Converts this actionClick to JSON.
+         * Converts this ActionClick to JSON.
          * @function toJSON
-         * @memberof actionClick
+         * @memberof ActionClick
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        actionClick.prototype.toJSON = function toJSON() {
+        ActionClick.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return actionClick;
+        return ActionClick;
     })();
     
-    $root.actionClickEntity = (function() {
+    $root.ActionClickEntity = (function() {
     
         /**
-         * Properties of an actionClickEntity.
-         * @exports IactionClickEntity
-         * @interface IactionClickEntity
-         * @property {string|null} [uuid] actionClickEntity uuid
-         * @property {string|null} [type] actionClickEntity type
+         * Properties of an ActionClickEntity.
+         * @exports IActionClickEntity
+         * @interface IActionClickEntity
+         * @property {string|null} [uuid] ActionClickEntity uuid
+         * @property {string|null} [type] ActionClickEntity type
          */
     
         /**
-         * Constructs a new actionClickEntity.
-         * @exports actionClickEntity
-         * @classdesc Represents an actionClickEntity.
-         * @implements IactionClickEntity
+         * Constructs a new ActionClickEntity.
+         * @exports ActionClickEntity
+         * @classdesc Represents an ActionClickEntity.
+         * @implements IActionClickEntity
          * @constructor
-         * @param {IactionClickEntity=} [properties] Properties to set
+         * @param {IActionClickEntity=} [properties] Properties to set
          */
-        function actionClickEntity(properties) {
+        function ActionClickEntity(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -2194,43 +2171,43 @@
         }
     
         /**
-         * actionClickEntity uuid.
+         * ActionClickEntity uuid.
          * @member {string} uuid
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @instance
          */
-        actionClickEntity.prototype.uuid = "";
+        ActionClickEntity.prototype.uuid = "";
     
         /**
-         * actionClickEntity type.
+         * ActionClickEntity type.
          * @member {string} type
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @instance
          */
-        actionClickEntity.prototype.type = "";
+        ActionClickEntity.prototype.type = "";
     
         /**
-         * Creates a new actionClickEntity instance using the specified properties.
+         * Creates a new ActionClickEntity instance using the specified properties.
          * @function create
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @static
-         * @param {IactionClickEntity=} [properties] Properties to set
-         * @returns {actionClickEntity} actionClickEntity instance
+         * @param {IActionClickEntity=} [properties] Properties to set
+         * @returns {ActionClickEntity} ActionClickEntity instance
          */
-        actionClickEntity.create = function create(properties) {
-            return new actionClickEntity(properties);
+        ActionClickEntity.create = function create(properties) {
+            return new ActionClickEntity(properties);
         };
     
         /**
-         * Encodes the specified actionClickEntity message. Does not implicitly {@link actionClickEntity.verify|verify} messages.
+         * Encodes the specified ActionClickEntity message. Does not implicitly {@link ActionClickEntity.verify|verify} messages.
          * @function encode
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @static
-         * @param {IactionClickEntity} message actionClickEntity message or plain object to encode
+         * @param {IActionClickEntity} message ActionClickEntity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionClickEntity.encode = function encode(message, writer) {
+        ActionClickEntity.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
@@ -2241,33 +2218,33 @@
         };
     
         /**
-         * Encodes the specified actionClickEntity message, length delimited. Does not implicitly {@link actionClickEntity.verify|verify} messages.
+         * Encodes the specified ActionClickEntity message, length delimited. Does not implicitly {@link ActionClickEntity.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @static
-         * @param {IactionClickEntity} message actionClickEntity message or plain object to encode
+         * @param {IActionClickEntity} message ActionClickEntity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        actionClickEntity.encodeDelimited = function encodeDelimited(message, writer) {
+        ActionClickEntity.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an actionClickEntity message from the specified reader or buffer.
+         * Decodes an ActionClickEntity message from the specified reader or buffer.
          * @function decode
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {actionClickEntity} actionClickEntity
+         * @returns {ActionClickEntity} ActionClickEntity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionClickEntity.decode = function decode(reader, length) {
+        ActionClickEntity.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.actionClickEntity();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionClickEntity();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2286,30 +2263,30 @@
         };
     
         /**
-         * Decodes an actionClickEntity message from the specified reader or buffer, length delimited.
+         * Decodes an ActionClickEntity message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {actionClickEntity} actionClickEntity
+         * @returns {ActionClickEntity} ActionClickEntity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        actionClickEntity.decodeDelimited = function decodeDelimited(reader) {
+        ActionClickEntity.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an actionClickEntity message.
+         * Verifies an ActionClickEntity message.
          * @function verify
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        actionClickEntity.verify = function verify(message) {
+        ActionClickEntity.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.uuid != null && message.hasOwnProperty("uuid"))
@@ -2322,17 +2299,17 @@
         };
     
         /**
-         * Creates an actionClickEntity message from a plain object. Also converts values to their respective internal types.
+         * Creates an ActionClickEntity message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {actionClickEntity} actionClickEntity
+         * @returns {ActionClickEntity} ActionClickEntity
          */
-        actionClickEntity.fromObject = function fromObject(object) {
-            if (object instanceof $root.actionClickEntity)
+        ActionClickEntity.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionClickEntity)
                 return object;
-            var message = new $root.actionClickEntity();
+            var message = new $root.ActionClickEntity();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
             if (object.type != null)
@@ -2341,15 +2318,15 @@
         };
     
         /**
-         * Creates a plain object from an actionClickEntity message. Also converts values to other types if specified.
+         * Creates a plain object from an ActionClickEntity message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @static
-         * @param {actionClickEntity} message actionClickEntity
+         * @param {ActionClickEntity} message ActionClickEntity
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        actionClickEntity.toObject = function toObject(message, options) {
+        ActionClickEntity.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -2365,39 +2342,39 @@
         };
     
         /**
-         * Converts this actionClickEntity to JSON.
+         * Converts this ActionClickEntity to JSON.
          * @function toJSON
-         * @memberof actionClickEntity
+         * @memberof ActionClickEntity
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        actionClickEntity.prototype.toJSON = function toJSON() {
+        ActionClickEntity.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return actionClickEntity;
+        return ActionClickEntity;
     })();
     
-    $root.chunkRequest = (function() {
+    $root.ChunkRequest = (function() {
     
         /**
-         * Properties of a chunkRequest.
-         * @exports IchunkRequest
-         * @interface IchunkRequest
-         * @property {number|null} [x] chunkRequest x
-         * @property {number|null} [y] chunkRequest y
-         * @property {number|null} [z] chunkRequest z
+         * Properties of a ChunkRequest.
+         * @exports IChunkRequest
+         * @interface IChunkRequest
+         * @property {number|null} [x] ChunkRequest x
+         * @property {number|null} [y] ChunkRequest y
+         * @property {number|null} [z] ChunkRequest z
          */
     
         /**
-         * Constructs a new chunkRequest.
-         * @exports chunkRequest
-         * @classdesc Represents a chunkRequest.
-         * @implements IchunkRequest
+         * Constructs a new ChunkRequest.
+         * @exports ChunkRequest
+         * @classdesc Represents a ChunkRequest.
+         * @implements IChunkRequest
          * @constructor
-         * @param {IchunkRequest=} [properties] Properties to set
+         * @param {IChunkRequest=} [properties] Properties to set
          */
-        function chunkRequest(properties) {
+        function ChunkRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -2405,51 +2382,51 @@
         }
     
         /**
-         * chunkRequest x.
+         * ChunkRequest x.
          * @member {number} x
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @instance
          */
-        chunkRequest.prototype.x = 0;
+        ChunkRequest.prototype.x = 0;
     
         /**
-         * chunkRequest y.
+         * ChunkRequest y.
          * @member {number} y
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @instance
          */
-        chunkRequest.prototype.y = 0;
+        ChunkRequest.prototype.y = 0;
     
         /**
-         * chunkRequest z.
+         * ChunkRequest z.
          * @member {number} z
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @instance
          */
-        chunkRequest.prototype.z = 0;
+        ChunkRequest.prototype.z = 0;
     
         /**
-         * Creates a new chunkRequest instance using the specified properties.
+         * Creates a new ChunkRequest instance using the specified properties.
          * @function create
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @static
-         * @param {IchunkRequest=} [properties] Properties to set
-         * @returns {chunkRequest} chunkRequest instance
+         * @param {IChunkRequest=} [properties] Properties to set
+         * @returns {ChunkRequest} ChunkRequest instance
          */
-        chunkRequest.create = function create(properties) {
-            return new chunkRequest(properties);
+        ChunkRequest.create = function create(properties) {
+            return new ChunkRequest(properties);
         };
     
         /**
-         * Encodes the specified chunkRequest message. Does not implicitly {@link chunkRequest.verify|verify} messages.
+         * Encodes the specified ChunkRequest message. Does not implicitly {@link ChunkRequest.verify|verify} messages.
          * @function encode
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @static
-         * @param {IchunkRequest} message chunkRequest message or plain object to encode
+         * @param {IChunkRequest} message ChunkRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        chunkRequest.encode = function encode(message, writer) {
+        ChunkRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
@@ -2462,33 +2439,33 @@
         };
     
         /**
-         * Encodes the specified chunkRequest message, length delimited. Does not implicitly {@link chunkRequest.verify|verify} messages.
+         * Encodes the specified ChunkRequest message, length delimited. Does not implicitly {@link ChunkRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @static
-         * @param {IchunkRequest} message chunkRequest message or plain object to encode
+         * @param {IChunkRequest} message ChunkRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        chunkRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        ChunkRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a chunkRequest message from the specified reader or buffer.
+         * Decodes a ChunkRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {chunkRequest} chunkRequest
+         * @returns {ChunkRequest} ChunkRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        chunkRequest.decode = function decode(reader, length) {
+        ChunkRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.chunkRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChunkRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2510,30 +2487,30 @@
         };
     
         /**
-         * Decodes a chunkRequest message from the specified reader or buffer, length delimited.
+         * Decodes a ChunkRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {chunkRequest} chunkRequest
+         * @returns {ChunkRequest} ChunkRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        chunkRequest.decodeDelimited = function decodeDelimited(reader) {
+        ChunkRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a chunkRequest message.
+         * Verifies a ChunkRequest message.
          * @function verify
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        chunkRequest.verify = function verify(message) {
+        ChunkRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.x != null && message.hasOwnProperty("x"))
@@ -2549,17 +2526,17 @@
         };
     
         /**
-         * Creates a chunkRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a ChunkRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {chunkRequest} chunkRequest
+         * @returns {ChunkRequest} ChunkRequest
          */
-        chunkRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.chunkRequest)
+        ChunkRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.ChunkRequest)
                 return object;
-            var message = new $root.chunkRequest();
+            var message = new $root.ChunkRequest();
             if (object.x != null)
                 message.x = object.x | 0;
             if (object.y != null)
@@ -2570,15 +2547,15 @@
         };
     
         /**
-         * Creates a plain object from a chunkRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a ChunkRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @static
-         * @param {chunkRequest} message chunkRequest
+         * @param {ChunkRequest} message ChunkRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        chunkRequest.toObject = function toObject(message, options) {
+        ChunkRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -2597,17 +2574,17 @@
         };
     
         /**
-         * Converts this chunkRequest to JSON.
+         * Converts this ChunkRequest to JSON.
          * @function toJSON
-         * @memberof chunkRequest
+         * @memberof ChunkRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        chunkRequest.prototype.toJSON = function toJSON() {
+        ChunkRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return chunkRequest;
+        return ChunkRequest;
     })();
 
     return $root;

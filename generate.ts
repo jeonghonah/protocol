@@ -13,7 +13,7 @@ fs.readdir('proto', (err, data) => {
 
 			pbts.main([`./js/${name}.js`], function (err, output) {
 				if (err) throw err;
-		
+
 				fs.writeFileSync(`./js/${name}.d.ts`, output);
 			});
 		});
@@ -23,6 +23,10 @@ fs.readdir('proto', (err, data) => {
 			const name = x.replace('.proto', '');
 
 			fs.writeFileSync(`./json/${name}.json`, output);
+
+			const obj = JSON.parse(output);
+
+			fs.writeFileSync(`./idmap/${name}.json`, JSON.stringify(Object.keys(obj.nested)));
 		});
 	});
 });

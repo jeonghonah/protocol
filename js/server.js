@@ -16,29 +16,29 @@
     // Exported root namespace
     var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
     
-    $root.loginRequest = (function() {
+    $root.LoginRequest = (function() {
     
         /**
-         * Properties of a loginRequest.
-         * @exports IloginRequest
-         * @interface IloginRequest
-         * @property {string|null} [name] loginRequest name
-         * @property {number|null} [protocol] loginRequest protocol
-         * @property {number|null} [maxplayers] loginRequest maxplayers
-         * @property {number|null} [numberplayers] loginRequest numberplayers
-         * @property {string|null} [motd] loginRequest motd
-         * @property {string|null} [software] loginRequest software
+         * Properties of a LoginRequest.
+         * @exports ILoginRequest
+         * @interface ILoginRequest
+         * @property {string|null} [name] LoginRequest name
+         * @property {number|null} [protocol] LoginRequest protocol
+         * @property {number|null} [maxplayers] LoginRequest maxplayers
+         * @property {number|null} [numberplayers] LoginRequest numberplayers
+         * @property {string|null} [motd] LoginRequest motd
+         * @property {string|null} [software] LoginRequest software
          */
     
         /**
-         * Constructs a new loginRequest.
-         * @exports loginRequest
-         * @classdesc Represents a loginRequest.
-         * @implements IloginRequest
+         * Constructs a new LoginRequest.
+         * @exports LoginRequest
+         * @classdesc Represents a LoginRequest.
+         * @implements ILoginRequest
          * @constructor
-         * @param {IloginRequest=} [properties] Properties to set
+         * @param {ILoginRequest=} [properties] Properties to set
          */
-        function loginRequest(properties) {
+        function LoginRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -46,75 +46,75 @@
         }
     
         /**
-         * loginRequest name.
+         * LoginRequest name.
          * @member {string} name
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @instance
          */
-        loginRequest.prototype.name = "";
+        LoginRequest.prototype.name = "";
     
         /**
-         * loginRequest protocol.
+         * LoginRequest protocol.
          * @member {number} protocol
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @instance
          */
-        loginRequest.prototype.protocol = 0;
+        LoginRequest.prototype.protocol = 0;
     
         /**
-         * loginRequest maxplayers.
+         * LoginRequest maxplayers.
          * @member {number} maxplayers
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @instance
          */
-        loginRequest.prototype.maxplayers = 0;
+        LoginRequest.prototype.maxplayers = 0;
     
         /**
-         * loginRequest numberplayers.
+         * LoginRequest numberplayers.
          * @member {number} numberplayers
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @instance
          */
-        loginRequest.prototype.numberplayers = 0;
+        LoginRequest.prototype.numberplayers = 0;
     
         /**
-         * loginRequest motd.
+         * LoginRequest motd.
          * @member {string} motd
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @instance
          */
-        loginRequest.prototype.motd = "";
+        LoginRequest.prototype.motd = "";
     
         /**
-         * loginRequest software.
+         * LoginRequest software.
          * @member {string} software
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @instance
          */
-        loginRequest.prototype.software = "";
+        LoginRequest.prototype.software = "";
     
         /**
-         * Creates a new loginRequest instance using the specified properties.
+         * Creates a new LoginRequest instance using the specified properties.
          * @function create
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @static
-         * @param {IloginRequest=} [properties] Properties to set
-         * @returns {loginRequest} loginRequest instance
+         * @param {ILoginRequest=} [properties] Properties to set
+         * @returns {LoginRequest} LoginRequest instance
          */
-        loginRequest.create = function create(properties) {
-            return new loginRequest(properties);
+        LoginRequest.create = function create(properties) {
+            return new LoginRequest(properties);
         };
     
         /**
-         * Encodes the specified loginRequest message. Does not implicitly {@link loginRequest.verify|verify} messages.
+         * Encodes the specified LoginRequest message. Does not implicitly {@link LoginRequest.verify|verify} messages.
          * @function encode
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @static
-         * @param {IloginRequest} message loginRequest message or plain object to encode
+         * @param {ILoginRequest} message LoginRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        loginRequest.encode = function encode(message, writer) {
+        LoginRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.name != null && Object.hasOwnProperty.call(message, "name"))
@@ -133,33 +133,33 @@
         };
     
         /**
-         * Encodes the specified loginRequest message, length delimited. Does not implicitly {@link loginRequest.verify|verify} messages.
+         * Encodes the specified LoginRequest message, length delimited. Does not implicitly {@link LoginRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @static
-         * @param {IloginRequest} message loginRequest message or plain object to encode
+         * @param {ILoginRequest} message LoginRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        loginRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        LoginRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a loginRequest message from the specified reader or buffer.
+         * Decodes a LoginRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {loginRequest} loginRequest
+         * @returns {LoginRequest} LoginRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        loginRequest.decode = function decode(reader, length) {
+        LoginRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.loginRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -190,30 +190,30 @@
         };
     
         /**
-         * Decodes a loginRequest message from the specified reader or buffer, length delimited.
+         * Decodes a LoginRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {loginRequest} loginRequest
+         * @returns {LoginRequest} LoginRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        loginRequest.decodeDelimited = function decodeDelimited(reader) {
+        LoginRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a loginRequest message.
+         * Verifies a LoginRequest message.
          * @function verify
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        loginRequest.verify = function verify(message) {
+        LoginRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.name != null && message.hasOwnProperty("name"))
@@ -238,17 +238,17 @@
         };
     
         /**
-         * Creates a loginRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a LoginRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {loginRequest} loginRequest
+         * @returns {LoginRequest} LoginRequest
          */
-        loginRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.loginRequest)
+        LoginRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginRequest)
                 return object;
-            var message = new $root.loginRequest();
+            var message = new $root.LoginRequest();
             if (object.name != null)
                 message.name = String(object.name);
             if (object.protocol != null)
@@ -265,15 +265,15 @@
         };
     
         /**
-         * Creates a plain object from a loginRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a LoginRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @static
-         * @param {loginRequest} message loginRequest
+         * @param {LoginRequest} message LoginRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        loginRequest.toObject = function toObject(message, options) {
+        LoginRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -301,43 +301,43 @@
         };
     
         /**
-         * Converts this loginRequest to JSON.
+         * Converts this LoginRequest to JSON.
          * @function toJSON
-         * @memberof loginRequest
+         * @memberof LoginRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        loginRequest.prototype.toJSON = function toJSON() {
+        LoginRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return loginRequest;
+        return LoginRequest;
     })();
     
-    $root.loginSuccess = (function() {
+    $root.LoginSuccess = (function() {
     
         /**
-         * Properties of a loginSuccess.
-         * @exports IloginSuccess
-         * @interface IloginSuccess
-         * @property {number|null} [xPos] loginSuccess xPos
-         * @property {number|null} [yPos] loginSuccess yPos
-         * @property {number|null} [zPos] loginSuccess zPos
-         * @property {string|null} [itemsDef] loginSuccess itemsDef
-         * @property {string|null} [blocksDef] loginSuccess blocksDef
-         * @property {string|null} [inventory] loginSuccess inventory
-         * @property {string|null} [armor] loginSuccess armor
+         * Properties of a LoginSuccess.
+         * @exports ILoginSuccess
+         * @interface ILoginSuccess
+         * @property {number|null} [xPos] LoginSuccess xPos
+         * @property {number|null} [yPos] LoginSuccess yPos
+         * @property {number|null} [zPos] LoginSuccess zPos
+         * @property {string|null} [itemsDef] LoginSuccess itemsDef
+         * @property {string|null} [blocksDef] LoginSuccess blocksDef
+         * @property {string|null} [inventory] LoginSuccess inventory
+         * @property {string|null} [armor] LoginSuccess armor
          */
     
         /**
-         * Constructs a new loginSuccess.
-         * @exports loginSuccess
-         * @classdesc Represents a loginSuccess.
-         * @implements IloginSuccess
+         * Constructs a new LoginSuccess.
+         * @exports LoginSuccess
+         * @classdesc Represents a LoginSuccess.
+         * @implements ILoginSuccess
          * @constructor
-         * @param {IloginSuccess=} [properties] Properties to set
+         * @param {ILoginSuccess=} [properties] Properties to set
          */
-        function loginSuccess(properties) {
+        function LoginSuccess(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -345,83 +345,83 @@
         }
     
         /**
-         * loginSuccess xPos.
+         * LoginSuccess xPos.
          * @member {number} xPos
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @instance
          */
-        loginSuccess.prototype.xPos = 0;
+        LoginSuccess.prototype.xPos = 0;
     
         /**
-         * loginSuccess yPos.
+         * LoginSuccess yPos.
          * @member {number} yPos
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @instance
          */
-        loginSuccess.prototype.yPos = 0;
+        LoginSuccess.prototype.yPos = 0;
     
         /**
-         * loginSuccess zPos.
+         * LoginSuccess zPos.
          * @member {number} zPos
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @instance
          */
-        loginSuccess.prototype.zPos = 0;
+        LoginSuccess.prototype.zPos = 0;
     
         /**
-         * loginSuccess itemsDef.
+         * LoginSuccess itemsDef.
          * @member {string} itemsDef
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @instance
          */
-        loginSuccess.prototype.itemsDef = "";
+        LoginSuccess.prototype.itemsDef = "";
     
         /**
-         * loginSuccess blocksDef.
+         * LoginSuccess blocksDef.
          * @member {string} blocksDef
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @instance
          */
-        loginSuccess.prototype.blocksDef = "";
+        LoginSuccess.prototype.blocksDef = "";
     
         /**
-         * loginSuccess inventory.
+         * LoginSuccess inventory.
          * @member {string} inventory
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @instance
          */
-        loginSuccess.prototype.inventory = "";
+        LoginSuccess.prototype.inventory = "";
     
         /**
-         * loginSuccess armor.
+         * LoginSuccess armor.
          * @member {string} armor
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @instance
          */
-        loginSuccess.prototype.armor = "";
+        LoginSuccess.prototype.armor = "";
     
         /**
-         * Creates a new loginSuccess instance using the specified properties.
+         * Creates a new LoginSuccess instance using the specified properties.
          * @function create
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @static
-         * @param {IloginSuccess=} [properties] Properties to set
-         * @returns {loginSuccess} loginSuccess instance
+         * @param {ILoginSuccess=} [properties] Properties to set
+         * @returns {LoginSuccess} LoginSuccess instance
          */
-        loginSuccess.create = function create(properties) {
-            return new loginSuccess(properties);
+        LoginSuccess.create = function create(properties) {
+            return new LoginSuccess(properties);
         };
     
         /**
-         * Encodes the specified loginSuccess message. Does not implicitly {@link loginSuccess.verify|verify} messages.
+         * Encodes the specified LoginSuccess message. Does not implicitly {@link LoginSuccess.verify|verify} messages.
          * @function encode
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @static
-         * @param {IloginSuccess} message loginSuccess message or plain object to encode
+         * @param {ILoginSuccess} message LoginSuccess message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        loginSuccess.encode = function encode(message, writer) {
+        LoginSuccess.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.xPos != null && Object.hasOwnProperty.call(message, "xPos"))
@@ -442,33 +442,33 @@
         };
     
         /**
-         * Encodes the specified loginSuccess message, length delimited. Does not implicitly {@link loginSuccess.verify|verify} messages.
+         * Encodes the specified LoginSuccess message, length delimited. Does not implicitly {@link LoginSuccess.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @static
-         * @param {IloginSuccess} message loginSuccess message or plain object to encode
+         * @param {ILoginSuccess} message LoginSuccess message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        loginSuccess.encodeDelimited = function encodeDelimited(message, writer) {
+        LoginSuccess.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a loginSuccess message from the specified reader or buffer.
+         * Decodes a LoginSuccess message from the specified reader or buffer.
          * @function decode
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {loginSuccess} loginSuccess
+         * @returns {LoginSuccess} LoginSuccess
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        loginSuccess.decode = function decode(reader, length) {
+        LoginSuccess.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.loginSuccess();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginSuccess();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -502,30 +502,30 @@
         };
     
         /**
-         * Decodes a loginSuccess message from the specified reader or buffer, length delimited.
+         * Decodes a LoginSuccess message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {loginSuccess} loginSuccess
+         * @returns {LoginSuccess} LoginSuccess
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        loginSuccess.decodeDelimited = function decodeDelimited(reader) {
+        LoginSuccess.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a loginSuccess message.
+         * Verifies a LoginSuccess message.
          * @function verify
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        loginSuccess.verify = function verify(message) {
+        LoginSuccess.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.xPos != null && message.hasOwnProperty("xPos"))
@@ -553,17 +553,17 @@
         };
     
         /**
-         * Creates a loginSuccess message from a plain object. Also converts values to their respective internal types.
+         * Creates a LoginSuccess message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {loginSuccess} loginSuccess
+         * @returns {LoginSuccess} LoginSuccess
          */
-        loginSuccess.fromObject = function fromObject(object) {
-            if (object instanceof $root.loginSuccess)
+        LoginSuccess.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginSuccess)
                 return object;
-            var message = new $root.loginSuccess();
+            var message = new $root.LoginSuccess();
             if (object.xPos != null)
                 message.xPos = Number(object.xPos);
             if (object.yPos != null)
@@ -582,15 +582,15 @@
         };
     
         /**
-         * Creates a plain object from a loginSuccess message. Also converts values to other types if specified.
+         * Creates a plain object from a LoginSuccess message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @static
-         * @param {loginSuccess} message loginSuccess
+         * @param {LoginSuccess} message LoginSuccess
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        loginSuccess.toObject = function toObject(message, options) {
+        LoginSuccess.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -621,37 +621,37 @@
         };
     
         /**
-         * Converts this loginSuccess to JSON.
+         * Converts this LoginSuccess to JSON.
          * @function toJSON
-         * @memberof loginSuccess
+         * @memberof LoginSuccess
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        loginSuccess.prototype.toJSON = function toJSON() {
+        LoginSuccess.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return loginSuccess;
+        return LoginSuccess;
     })();
     
-    $root.playerEntity = (function() {
+    $root.PlayerEntity = (function() {
     
         /**
-         * Properties of a playerEntity.
-         * @exports IplayerEntity
-         * @interface IplayerEntity
-         * @property {string|null} [uuid] playerEntity uuid
+         * Properties of a PlayerEntity.
+         * @exports IPlayerEntity
+         * @interface IPlayerEntity
+         * @property {string|null} [uuid] PlayerEntity uuid
          */
     
         /**
-         * Constructs a new playerEntity.
-         * @exports playerEntity
-         * @classdesc Represents a playerEntity.
-         * @implements IplayerEntity
+         * Constructs a new PlayerEntity.
+         * @exports PlayerEntity
+         * @classdesc Represents a PlayerEntity.
+         * @implements IPlayerEntity
          * @constructor
-         * @param {IplayerEntity=} [properties] Properties to set
+         * @param {IPlayerEntity=} [properties] Properties to set
          */
-        function playerEntity(properties) {
+        function PlayerEntity(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -659,35 +659,35 @@
         }
     
         /**
-         * playerEntity uuid.
+         * PlayerEntity uuid.
          * @member {string} uuid
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @instance
          */
-        playerEntity.prototype.uuid = "";
+        PlayerEntity.prototype.uuid = "";
     
         /**
-         * Creates a new playerEntity instance using the specified properties.
+         * Creates a new PlayerEntity instance using the specified properties.
          * @function create
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @static
-         * @param {IplayerEntity=} [properties] Properties to set
-         * @returns {playerEntity} playerEntity instance
+         * @param {IPlayerEntity=} [properties] Properties to set
+         * @returns {PlayerEntity} PlayerEntity instance
          */
-        playerEntity.create = function create(properties) {
-            return new playerEntity(properties);
+        PlayerEntity.create = function create(properties) {
+            return new PlayerEntity(properties);
         };
     
         /**
-         * Encodes the specified playerEntity message. Does not implicitly {@link playerEntity.verify|verify} messages.
+         * Encodes the specified PlayerEntity message. Does not implicitly {@link PlayerEntity.verify|verify} messages.
          * @function encode
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @static
-         * @param {IplayerEntity} message playerEntity message or plain object to encode
+         * @param {IPlayerEntity} message PlayerEntity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerEntity.encode = function encode(message, writer) {
+        PlayerEntity.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
@@ -696,33 +696,33 @@
         };
     
         /**
-         * Encodes the specified playerEntity message, length delimited. Does not implicitly {@link playerEntity.verify|verify} messages.
+         * Encodes the specified PlayerEntity message, length delimited. Does not implicitly {@link PlayerEntity.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @static
-         * @param {IplayerEntity} message playerEntity message or plain object to encode
+         * @param {IPlayerEntity} message PlayerEntity message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerEntity.encodeDelimited = function encodeDelimited(message, writer) {
+        PlayerEntity.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a playerEntity message from the specified reader or buffer.
+         * Decodes a PlayerEntity message from the specified reader or buffer.
          * @function decode
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {playerEntity} playerEntity
+         * @returns {PlayerEntity} PlayerEntity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerEntity.decode = function decode(reader, length) {
+        PlayerEntity.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.playerEntity();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerEntity();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -738,30 +738,30 @@
         };
     
         /**
-         * Decodes a playerEntity message from the specified reader or buffer, length delimited.
+         * Decodes a PlayerEntity message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {playerEntity} playerEntity
+         * @returns {PlayerEntity} PlayerEntity
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerEntity.decodeDelimited = function decodeDelimited(reader) {
+        PlayerEntity.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a playerEntity message.
+         * Verifies a PlayerEntity message.
          * @function verify
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        playerEntity.verify = function verify(message) {
+        PlayerEntity.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.uuid != null && message.hasOwnProperty("uuid"))
@@ -771,32 +771,32 @@
         };
     
         /**
-         * Creates a playerEntity message from a plain object. Also converts values to their respective internal types.
+         * Creates a PlayerEntity message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {playerEntity} playerEntity
+         * @returns {PlayerEntity} PlayerEntity
          */
-        playerEntity.fromObject = function fromObject(object) {
-            if (object instanceof $root.playerEntity)
+        PlayerEntity.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerEntity)
                 return object;
-            var message = new $root.playerEntity();
+            var message = new $root.PlayerEntity();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
             return message;
         };
     
         /**
-         * Creates a plain object from a playerEntity message. Also converts values to other types if specified.
+         * Creates a plain object from a PlayerEntity message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @static
-         * @param {playerEntity} message playerEntity
+         * @param {PlayerEntity} message PlayerEntity
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        playerEntity.toObject = function toObject(message, options) {
+        PlayerEntity.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -808,39 +808,39 @@
         };
     
         /**
-         * Converts this playerEntity to JSON.
+         * Converts this PlayerEntity to JSON.
          * @function toJSON
-         * @memberof playerEntity
+         * @memberof PlayerEntity
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        playerEntity.prototype.toJSON = function toJSON() {
+        PlayerEntity.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return playerEntity;
+        return PlayerEntity;
     })();
     
-    $root.playerTeleport = (function() {
+    $root.PlayerTeleport = (function() {
     
         /**
-         * Properties of a playerTeleport.
-         * @exports IplayerTeleport
-         * @interface IplayerTeleport
-         * @property {number|null} [x] playerTeleport x
-         * @property {number|null} [y] playerTeleport y
-         * @property {number|null} [z] playerTeleport z
+         * Properties of a PlayerTeleport.
+         * @exports IPlayerTeleport
+         * @interface IPlayerTeleport
+         * @property {number|null} [x] PlayerTeleport x
+         * @property {number|null} [y] PlayerTeleport y
+         * @property {number|null} [z] PlayerTeleport z
          */
     
         /**
-         * Constructs a new playerTeleport.
-         * @exports playerTeleport
-         * @classdesc Represents a playerTeleport.
-         * @implements IplayerTeleport
+         * Constructs a new PlayerTeleport.
+         * @exports PlayerTeleport
+         * @classdesc Represents a PlayerTeleport.
+         * @implements IPlayerTeleport
          * @constructor
-         * @param {IplayerTeleport=} [properties] Properties to set
+         * @param {IPlayerTeleport=} [properties] Properties to set
          */
-        function playerTeleport(properties) {
+        function PlayerTeleport(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -848,51 +848,51 @@
         }
     
         /**
-         * playerTeleport x.
+         * PlayerTeleport x.
          * @member {number} x
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @instance
          */
-        playerTeleport.prototype.x = 0;
+        PlayerTeleport.prototype.x = 0;
     
         /**
-         * playerTeleport y.
+         * PlayerTeleport y.
          * @member {number} y
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @instance
          */
-        playerTeleport.prototype.y = 0;
+        PlayerTeleport.prototype.y = 0;
     
         /**
-         * playerTeleport z.
+         * PlayerTeleport z.
          * @member {number} z
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @instance
          */
-        playerTeleport.prototype.z = 0;
+        PlayerTeleport.prototype.z = 0;
     
         /**
-         * Creates a new playerTeleport instance using the specified properties.
+         * Creates a new PlayerTeleport instance using the specified properties.
          * @function create
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @static
-         * @param {IplayerTeleport=} [properties] Properties to set
-         * @returns {playerTeleport} playerTeleport instance
+         * @param {IPlayerTeleport=} [properties] Properties to set
+         * @returns {PlayerTeleport} PlayerTeleport instance
          */
-        playerTeleport.create = function create(properties) {
-            return new playerTeleport(properties);
+        PlayerTeleport.create = function create(properties) {
+            return new PlayerTeleport(properties);
         };
     
         /**
-         * Encodes the specified playerTeleport message. Does not implicitly {@link playerTeleport.verify|verify} messages.
+         * Encodes the specified PlayerTeleport message. Does not implicitly {@link PlayerTeleport.verify|verify} messages.
          * @function encode
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @static
-         * @param {IplayerTeleport} message playerTeleport message or plain object to encode
+         * @param {IPlayerTeleport} message PlayerTeleport message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerTeleport.encode = function encode(message, writer) {
+        PlayerTeleport.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
@@ -905,33 +905,33 @@
         };
     
         /**
-         * Encodes the specified playerTeleport message, length delimited. Does not implicitly {@link playerTeleport.verify|verify} messages.
+         * Encodes the specified PlayerTeleport message, length delimited. Does not implicitly {@link PlayerTeleport.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @static
-         * @param {IplayerTeleport} message playerTeleport message or plain object to encode
+         * @param {IPlayerTeleport} message PlayerTeleport message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerTeleport.encodeDelimited = function encodeDelimited(message, writer) {
+        PlayerTeleport.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a playerTeleport message from the specified reader or buffer.
+         * Decodes a PlayerTeleport message from the specified reader or buffer.
          * @function decode
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {playerTeleport} playerTeleport
+         * @returns {PlayerTeleport} PlayerTeleport
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerTeleport.decode = function decode(reader, length) {
+        PlayerTeleport.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.playerTeleport();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerTeleport();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -953,30 +953,30 @@
         };
     
         /**
-         * Decodes a playerTeleport message from the specified reader or buffer, length delimited.
+         * Decodes a PlayerTeleport message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {playerTeleport} playerTeleport
+         * @returns {PlayerTeleport} PlayerTeleport
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerTeleport.decodeDelimited = function decodeDelimited(reader) {
+        PlayerTeleport.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a playerTeleport message.
+         * Verifies a PlayerTeleport message.
          * @function verify
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        playerTeleport.verify = function verify(message) {
+        PlayerTeleport.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.x != null && message.hasOwnProperty("x"))
@@ -992,17 +992,17 @@
         };
     
         /**
-         * Creates a playerTeleport message from a plain object. Also converts values to their respective internal types.
+         * Creates a PlayerTeleport message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {playerTeleport} playerTeleport
+         * @returns {PlayerTeleport} PlayerTeleport
          */
-        playerTeleport.fromObject = function fromObject(object) {
-            if (object instanceof $root.playerTeleport)
+        PlayerTeleport.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerTeleport)
                 return object;
-            var message = new $root.playerTeleport();
+            var message = new $root.PlayerTeleport();
             if (object.x != null)
                 message.x = Number(object.x);
             if (object.y != null)
@@ -1013,15 +1013,15 @@
         };
     
         /**
-         * Creates a plain object from a playerTeleport message. Also converts values to other types if specified.
+         * Creates a plain object from a PlayerTeleport message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @static
-         * @param {playerTeleport} message playerTeleport
+         * @param {PlayerTeleport} message PlayerTeleport
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        playerTeleport.toObject = function toObject(message, options) {
+        PlayerTeleport.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1040,38 +1040,38 @@
         };
     
         /**
-         * Converts this playerTeleport to JSON.
+         * Converts this PlayerTeleport to JSON.
          * @function toJSON
-         * @memberof playerTeleport
+         * @memberof PlayerTeleport
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        playerTeleport.prototype.toJSON = function toJSON() {
+        PlayerTeleport.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return playerTeleport;
+        return PlayerTeleport;
     })();
     
-    $root.playerInventory = (function() {
+    $root.PlayerInventory = (function() {
     
         /**
-         * Properties of a playerInventory.
-         * @exports IplayerInventory
-         * @interface IplayerInventory
-         * @property {string|null} [inventory] playerInventory inventory
-         * @property {string|null} [type] playerInventory type
+         * Properties of a PlayerInventory.
+         * @exports IPlayerInventory
+         * @interface IPlayerInventory
+         * @property {string|null} [inventory] PlayerInventory inventory
+         * @property {string|null} [type] PlayerInventory type
          */
     
         /**
-         * Constructs a new playerInventory.
-         * @exports playerInventory
-         * @classdesc Represents a playerInventory.
-         * @implements IplayerInventory
+         * Constructs a new PlayerInventory.
+         * @exports PlayerInventory
+         * @classdesc Represents a PlayerInventory.
+         * @implements IPlayerInventory
          * @constructor
-         * @param {IplayerInventory=} [properties] Properties to set
+         * @param {IPlayerInventory=} [properties] Properties to set
          */
-        function playerInventory(properties) {
+        function PlayerInventory(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1079,43 +1079,43 @@
         }
     
         /**
-         * playerInventory inventory.
+         * PlayerInventory inventory.
          * @member {string} inventory
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @instance
          */
-        playerInventory.prototype.inventory = "";
+        PlayerInventory.prototype.inventory = "";
     
         /**
-         * playerInventory type.
+         * PlayerInventory type.
          * @member {string} type
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @instance
          */
-        playerInventory.prototype.type = "";
+        PlayerInventory.prototype.type = "";
     
         /**
-         * Creates a new playerInventory instance using the specified properties.
+         * Creates a new PlayerInventory instance using the specified properties.
          * @function create
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @static
-         * @param {IplayerInventory=} [properties] Properties to set
-         * @returns {playerInventory} playerInventory instance
+         * @param {IPlayerInventory=} [properties] Properties to set
+         * @returns {PlayerInventory} PlayerInventory instance
          */
-        playerInventory.create = function create(properties) {
-            return new playerInventory(properties);
+        PlayerInventory.create = function create(properties) {
+            return new PlayerInventory(properties);
         };
     
         /**
-         * Encodes the specified playerInventory message. Does not implicitly {@link playerInventory.verify|verify} messages.
+         * Encodes the specified PlayerInventory message. Does not implicitly {@link PlayerInventory.verify|verify} messages.
          * @function encode
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @static
-         * @param {IplayerInventory} message playerInventory message or plain object to encode
+         * @param {IPlayerInventory} message PlayerInventory message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerInventory.encode = function encode(message, writer) {
+        PlayerInventory.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
@@ -1126,33 +1126,33 @@
         };
     
         /**
-         * Encodes the specified playerInventory message, length delimited. Does not implicitly {@link playerInventory.verify|verify} messages.
+         * Encodes the specified PlayerInventory message, length delimited. Does not implicitly {@link PlayerInventory.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @static
-         * @param {IplayerInventory} message playerInventory message or plain object to encode
+         * @param {IPlayerInventory} message PlayerInventory message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerInventory.encodeDelimited = function encodeDelimited(message, writer) {
+        PlayerInventory.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a playerInventory message from the specified reader or buffer.
+         * Decodes a PlayerInventory message from the specified reader or buffer.
          * @function decode
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {playerInventory} playerInventory
+         * @returns {PlayerInventory} PlayerInventory
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerInventory.decode = function decode(reader, length) {
+        PlayerInventory.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.playerInventory();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerInventory();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1171,30 +1171,30 @@
         };
     
         /**
-         * Decodes a playerInventory message from the specified reader or buffer, length delimited.
+         * Decodes a PlayerInventory message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {playerInventory} playerInventory
+         * @returns {PlayerInventory} PlayerInventory
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerInventory.decodeDelimited = function decodeDelimited(reader) {
+        PlayerInventory.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a playerInventory message.
+         * Verifies a PlayerInventory message.
          * @function verify
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        playerInventory.verify = function verify(message) {
+        PlayerInventory.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.inventory != null && message.hasOwnProperty("inventory"))
@@ -1207,17 +1207,17 @@
         };
     
         /**
-         * Creates a playerInventory message from a plain object. Also converts values to their respective internal types.
+         * Creates a PlayerInventory message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {playerInventory} playerInventory
+         * @returns {PlayerInventory} PlayerInventory
          */
-        playerInventory.fromObject = function fromObject(object) {
-            if (object instanceof $root.playerInventory)
+        PlayerInventory.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerInventory)
                 return object;
-            var message = new $root.playerInventory();
+            var message = new $root.PlayerInventory();
             if (object.inventory != null)
                 message.inventory = String(object.inventory);
             if (object.type != null)
@@ -1226,15 +1226,15 @@
         };
     
         /**
-         * Creates a plain object from a playerInventory message. Also converts values to other types if specified.
+         * Creates a plain object from a PlayerInventory message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @static
-         * @param {playerInventory} message playerInventory
+         * @param {PlayerInventory} message PlayerInventory
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        playerInventory.toObject = function toObject(message, options) {
+        PlayerInventory.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1250,39 +1250,39 @@
         };
     
         /**
-         * Converts this playerInventory to JSON.
+         * Converts this PlayerInventory to JSON.
          * @function toJSON
-         * @memberof playerInventory
+         * @memberof PlayerInventory
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        playerInventory.prototype.toJSON = function toJSON() {
+        PlayerInventory.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return playerInventory;
+        return PlayerInventory;
     })();
     
-    $root.playerSlotUpdate = (function() {
+    $root.PlayerSlotUpdate = (function() {
     
         /**
-         * Properties of a playerSlotUpdate.
-         * @exports IplayerSlotUpdate
-         * @interface IplayerSlotUpdate
-         * @property {number|null} [slot] playerSlotUpdate slot
-         * @property {string|null} [type] playerSlotUpdate type
-         * @property {string|null} [data] playerSlotUpdate data
+         * Properties of a PlayerSlotUpdate.
+         * @exports IPlayerSlotUpdate
+         * @interface IPlayerSlotUpdate
+         * @property {number|null} [slot] PlayerSlotUpdate slot
+         * @property {string|null} [type] PlayerSlotUpdate type
+         * @property {string|null} [data] PlayerSlotUpdate data
          */
     
         /**
-         * Constructs a new playerSlotUpdate.
-         * @exports playerSlotUpdate
-         * @classdesc Represents a playerSlotUpdate.
-         * @implements IplayerSlotUpdate
+         * Constructs a new PlayerSlotUpdate.
+         * @exports PlayerSlotUpdate
+         * @classdesc Represents a PlayerSlotUpdate.
+         * @implements IPlayerSlotUpdate
          * @constructor
-         * @param {IplayerSlotUpdate=} [properties] Properties to set
+         * @param {IPlayerSlotUpdate=} [properties] Properties to set
          */
-        function playerSlotUpdate(properties) {
+        function PlayerSlotUpdate(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1290,51 +1290,51 @@
         }
     
         /**
-         * playerSlotUpdate slot.
+         * PlayerSlotUpdate slot.
          * @member {number} slot
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @instance
          */
-        playerSlotUpdate.prototype.slot = 0;
+        PlayerSlotUpdate.prototype.slot = 0;
     
         /**
-         * playerSlotUpdate type.
+         * PlayerSlotUpdate type.
          * @member {string} type
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @instance
          */
-        playerSlotUpdate.prototype.type = "";
+        PlayerSlotUpdate.prototype.type = "";
     
         /**
-         * playerSlotUpdate data.
+         * PlayerSlotUpdate data.
          * @member {string} data
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @instance
          */
-        playerSlotUpdate.prototype.data = "";
+        PlayerSlotUpdate.prototype.data = "";
     
         /**
-         * Creates a new playerSlotUpdate instance using the specified properties.
+         * Creates a new PlayerSlotUpdate instance using the specified properties.
          * @function create
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @static
-         * @param {IplayerSlotUpdate=} [properties] Properties to set
-         * @returns {playerSlotUpdate} playerSlotUpdate instance
+         * @param {IPlayerSlotUpdate=} [properties] Properties to set
+         * @returns {PlayerSlotUpdate} PlayerSlotUpdate instance
          */
-        playerSlotUpdate.create = function create(properties) {
-            return new playerSlotUpdate(properties);
+        PlayerSlotUpdate.create = function create(properties) {
+            return new PlayerSlotUpdate(properties);
         };
     
         /**
-         * Encodes the specified playerSlotUpdate message. Does not implicitly {@link playerSlotUpdate.verify|verify} messages.
+         * Encodes the specified PlayerSlotUpdate message. Does not implicitly {@link PlayerSlotUpdate.verify|verify} messages.
          * @function encode
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @static
-         * @param {IplayerSlotUpdate} message playerSlotUpdate message or plain object to encode
+         * @param {IPlayerSlotUpdate} message PlayerSlotUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerSlotUpdate.encode = function encode(message, writer) {
+        PlayerSlotUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.slot != null && Object.hasOwnProperty.call(message, "slot"))
@@ -1347,33 +1347,33 @@
         };
     
         /**
-         * Encodes the specified playerSlotUpdate message, length delimited. Does not implicitly {@link playerSlotUpdate.verify|verify} messages.
+         * Encodes the specified PlayerSlotUpdate message, length delimited. Does not implicitly {@link PlayerSlotUpdate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @static
-         * @param {IplayerSlotUpdate} message playerSlotUpdate message or plain object to encode
+         * @param {IPlayerSlotUpdate} message PlayerSlotUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerSlotUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+        PlayerSlotUpdate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a playerSlotUpdate message from the specified reader or buffer.
+         * Decodes a PlayerSlotUpdate message from the specified reader or buffer.
          * @function decode
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {playerSlotUpdate} playerSlotUpdate
+         * @returns {PlayerSlotUpdate} PlayerSlotUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerSlotUpdate.decode = function decode(reader, length) {
+        PlayerSlotUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.playerSlotUpdate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerSlotUpdate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1395,30 +1395,30 @@
         };
     
         /**
-         * Decodes a playerSlotUpdate message from the specified reader or buffer, length delimited.
+         * Decodes a PlayerSlotUpdate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {playerSlotUpdate} playerSlotUpdate
+         * @returns {PlayerSlotUpdate} PlayerSlotUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerSlotUpdate.decodeDelimited = function decodeDelimited(reader) {
+        PlayerSlotUpdate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a playerSlotUpdate message.
+         * Verifies a PlayerSlotUpdate message.
          * @function verify
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        playerSlotUpdate.verify = function verify(message) {
+        PlayerSlotUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.slot != null && message.hasOwnProperty("slot"))
@@ -1434,17 +1434,17 @@
         };
     
         /**
-         * Creates a playerSlotUpdate message from a plain object. Also converts values to their respective internal types.
+         * Creates a PlayerSlotUpdate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {playerSlotUpdate} playerSlotUpdate
+         * @returns {PlayerSlotUpdate} PlayerSlotUpdate
          */
-        playerSlotUpdate.fromObject = function fromObject(object) {
-            if (object instanceof $root.playerSlotUpdate)
+        PlayerSlotUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerSlotUpdate)
                 return object;
-            var message = new $root.playerSlotUpdate();
+            var message = new $root.PlayerSlotUpdate();
             if (object.slot != null)
                 message.slot = object.slot | 0;
             if (object.type != null)
@@ -1455,15 +1455,15 @@
         };
     
         /**
-         * Creates a plain object from a playerSlotUpdate message. Also converts values to other types if specified.
+         * Creates a plain object from a PlayerSlotUpdate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @static
-         * @param {playerSlotUpdate} message playerSlotUpdate
+         * @param {PlayerSlotUpdate} message PlayerSlotUpdate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        playerSlotUpdate.toObject = function toObject(message, options) {
+        PlayerSlotUpdate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1482,38 +1482,38 @@
         };
     
         /**
-         * Converts this playerSlotUpdate to JSON.
+         * Converts this PlayerSlotUpdate to JSON.
          * @function toJSON
-         * @memberof playerSlotUpdate
+         * @memberof PlayerSlotUpdate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        playerSlotUpdate.prototype.toJSON = function toJSON() {
+        PlayerSlotUpdate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return playerSlotUpdate;
+        return PlayerSlotUpdate;
     })();
     
-    $root.playerMovementChange = (function() {
+    $root.PlayerMovementChange = (function() {
     
         /**
-         * Properties of a playerMovementChange.
-         * @exports IplayerMovementChange
-         * @interface IplayerMovementChange
-         * @property {string|null} [key] playerMovementChange key
-         * @property {number|null} [value] playerMovementChange value
+         * Properties of a PlayerMovementChange.
+         * @exports IPlayerMovementChange
+         * @interface IPlayerMovementChange
+         * @property {string|null} [key] PlayerMovementChange key
+         * @property {number|null} [value] PlayerMovementChange value
          */
     
         /**
-         * Constructs a new playerMovementChange.
-         * @exports playerMovementChange
-         * @classdesc Represents a playerMovementChange.
-         * @implements IplayerMovementChange
+         * Constructs a new PlayerMovementChange.
+         * @exports PlayerMovementChange
+         * @classdesc Represents a PlayerMovementChange.
+         * @implements IPlayerMovementChange
          * @constructor
-         * @param {IplayerMovementChange=} [properties] Properties to set
+         * @param {IPlayerMovementChange=} [properties] Properties to set
          */
-        function playerMovementChange(properties) {
+        function PlayerMovementChange(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1521,43 +1521,43 @@
         }
     
         /**
-         * playerMovementChange key.
+         * PlayerMovementChange key.
          * @member {string} key
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @instance
          */
-        playerMovementChange.prototype.key = "";
+        PlayerMovementChange.prototype.key = "";
     
         /**
-         * playerMovementChange value.
+         * PlayerMovementChange value.
          * @member {number} value
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @instance
          */
-        playerMovementChange.prototype.value = 0;
+        PlayerMovementChange.prototype.value = 0;
     
         /**
-         * Creates a new playerMovementChange instance using the specified properties.
+         * Creates a new PlayerMovementChange instance using the specified properties.
          * @function create
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @static
-         * @param {IplayerMovementChange=} [properties] Properties to set
-         * @returns {playerMovementChange} playerMovementChange instance
+         * @param {IPlayerMovementChange=} [properties] Properties to set
+         * @returns {PlayerMovementChange} PlayerMovementChange instance
          */
-        playerMovementChange.create = function create(properties) {
-            return new playerMovementChange(properties);
+        PlayerMovementChange.create = function create(properties) {
+            return new PlayerMovementChange(properties);
         };
     
         /**
-         * Encodes the specified playerMovementChange message. Does not implicitly {@link playerMovementChange.verify|verify} messages.
+         * Encodes the specified PlayerMovementChange message. Does not implicitly {@link PlayerMovementChange.verify|verify} messages.
          * @function encode
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @static
-         * @param {IplayerMovementChange} message playerMovementChange message or plain object to encode
+         * @param {IPlayerMovementChange} message PlayerMovementChange message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerMovementChange.encode = function encode(message, writer) {
+        PlayerMovementChange.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.key != null && Object.hasOwnProperty.call(message, "key"))
@@ -1568,33 +1568,33 @@
         };
     
         /**
-         * Encodes the specified playerMovementChange message, length delimited. Does not implicitly {@link playerMovementChange.verify|verify} messages.
+         * Encodes the specified PlayerMovementChange message, length delimited. Does not implicitly {@link PlayerMovementChange.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @static
-         * @param {IplayerMovementChange} message playerMovementChange message or plain object to encode
+         * @param {IPlayerMovementChange} message PlayerMovementChange message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerMovementChange.encodeDelimited = function encodeDelimited(message, writer) {
+        PlayerMovementChange.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a playerMovementChange message from the specified reader or buffer.
+         * Decodes a PlayerMovementChange message from the specified reader or buffer.
          * @function decode
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {playerMovementChange} playerMovementChange
+         * @returns {PlayerMovementChange} PlayerMovementChange
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerMovementChange.decode = function decode(reader, length) {
+        PlayerMovementChange.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.playerMovementChange();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerMovementChange();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1613,30 +1613,30 @@
         };
     
         /**
-         * Decodes a playerMovementChange message from the specified reader or buffer, length delimited.
+         * Decodes a PlayerMovementChange message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {playerMovementChange} playerMovementChange
+         * @returns {PlayerMovementChange} PlayerMovementChange
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerMovementChange.decodeDelimited = function decodeDelimited(reader) {
+        PlayerMovementChange.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a playerMovementChange message.
+         * Verifies a PlayerMovementChange message.
          * @function verify
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        playerMovementChange.verify = function verify(message) {
+        PlayerMovementChange.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.key != null && message.hasOwnProperty("key"))
@@ -1649,17 +1649,17 @@
         };
     
         /**
-         * Creates a playerMovementChange message from a plain object. Also converts values to their respective internal types.
+         * Creates a PlayerMovementChange message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {playerMovementChange} playerMovementChange
+         * @returns {PlayerMovementChange} PlayerMovementChange
          */
-        playerMovementChange.fromObject = function fromObject(object) {
-            if (object instanceof $root.playerMovementChange)
+        PlayerMovementChange.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerMovementChange)
                 return object;
-            var message = new $root.playerMovementChange();
+            var message = new $root.PlayerMovementChange();
             if (object.key != null)
                 message.key = String(object.key);
             if (object.value != null)
@@ -1668,15 +1668,15 @@
         };
     
         /**
-         * Creates a plain object from a playerMovementChange message. Also converts values to other types if specified.
+         * Creates a plain object from a PlayerMovementChange message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @static
-         * @param {playerMovementChange} message playerMovementChange
+         * @param {PlayerMovementChange} message PlayerMovementChange
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        playerMovementChange.toObject = function toObject(message, options) {
+        PlayerMovementChange.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1692,38 +1692,38 @@
         };
     
         /**
-         * Converts this playerMovementChange to JSON.
+         * Converts this PlayerMovementChange to JSON.
          * @function toJSON
-         * @memberof playerMovementChange
+         * @memberof PlayerMovementChange
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        playerMovementChange.prototype.toJSON = function toJSON() {
+        PlayerMovementChange.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return playerMovementChange;
+        return PlayerMovementChange;
     })();
     
-    $root.playerKick = (function() {
+    $root.PlayerKick = (function() {
     
         /**
-         * Properties of a playerKick.
-         * @exports IplayerKick
-         * @interface IplayerKick
-         * @property {string|null} [reason] playerKick reason
-         * @property {number|Long|null} [time] playerKick time
+         * Properties of a PlayerKick.
+         * @exports IPlayerKick
+         * @interface IPlayerKick
+         * @property {string|null} [reason] PlayerKick reason
+         * @property {number|Long|null} [time] PlayerKick time
          */
     
         /**
-         * Constructs a new playerKick.
-         * @exports playerKick
-         * @classdesc Represents a playerKick.
-         * @implements IplayerKick
+         * Constructs a new PlayerKick.
+         * @exports PlayerKick
+         * @classdesc Represents a PlayerKick.
+         * @implements IPlayerKick
          * @constructor
-         * @param {IplayerKick=} [properties] Properties to set
+         * @param {IPlayerKick=} [properties] Properties to set
          */
-        function playerKick(properties) {
+        function PlayerKick(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1731,43 +1731,43 @@
         }
     
         /**
-         * playerKick reason.
+         * PlayerKick reason.
          * @member {string} reason
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @instance
          */
-        playerKick.prototype.reason = "";
+        PlayerKick.prototype.reason = "";
     
         /**
-         * playerKick time.
+         * PlayerKick time.
          * @member {number|Long} time
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @instance
          */
-        playerKick.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        PlayerKick.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
     
         /**
-         * Creates a new playerKick instance using the specified properties.
+         * Creates a new PlayerKick instance using the specified properties.
          * @function create
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @static
-         * @param {IplayerKick=} [properties] Properties to set
-         * @returns {playerKick} playerKick instance
+         * @param {IPlayerKick=} [properties] Properties to set
+         * @returns {PlayerKick} PlayerKick instance
          */
-        playerKick.create = function create(properties) {
-            return new playerKick(properties);
+        PlayerKick.create = function create(properties) {
+            return new PlayerKick(properties);
         };
     
         /**
-         * Encodes the specified playerKick message. Does not implicitly {@link playerKick.verify|verify} messages.
+         * Encodes the specified PlayerKick message. Does not implicitly {@link PlayerKick.verify|verify} messages.
          * @function encode
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @static
-         * @param {IplayerKick} message playerKick message or plain object to encode
+         * @param {IPlayerKick} message PlayerKick message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerKick.encode = function encode(message, writer) {
+        PlayerKick.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
@@ -1778,33 +1778,33 @@
         };
     
         /**
-         * Encodes the specified playerKick message, length delimited. Does not implicitly {@link playerKick.verify|verify} messages.
+         * Encodes the specified PlayerKick message, length delimited. Does not implicitly {@link PlayerKick.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @static
-         * @param {IplayerKick} message playerKick message or plain object to encode
+         * @param {IPlayerKick} message PlayerKick message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        playerKick.encodeDelimited = function encodeDelimited(message, writer) {
+        PlayerKick.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a playerKick message from the specified reader or buffer.
+         * Decodes a PlayerKick message from the specified reader or buffer.
          * @function decode
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {playerKick} playerKick
+         * @returns {PlayerKick} PlayerKick
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerKick.decode = function decode(reader, length) {
+        PlayerKick.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.playerKick();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerKick();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -1823,30 +1823,30 @@
         };
     
         /**
-         * Decodes a playerKick message from the specified reader or buffer, length delimited.
+         * Decodes a PlayerKick message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {playerKick} playerKick
+         * @returns {PlayerKick} PlayerKick
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        playerKick.decodeDelimited = function decodeDelimited(reader) {
+        PlayerKick.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a playerKick message.
+         * Verifies a PlayerKick message.
          * @function verify
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        playerKick.verify = function verify(message) {
+        PlayerKick.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.reason != null && message.hasOwnProperty("reason"))
@@ -1859,17 +1859,17 @@
         };
     
         /**
-         * Creates a playerKick message from a plain object. Also converts values to their respective internal types.
+         * Creates a PlayerKick message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {playerKick} playerKick
+         * @returns {PlayerKick} PlayerKick
          */
-        playerKick.fromObject = function fromObject(object) {
-            if (object instanceof $root.playerKick)
+        PlayerKick.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerKick)
                 return object;
-            var message = new $root.playerKick();
+            var message = new $root.PlayerKick();
             if (object.reason != null)
                 message.reason = String(object.reason);
             if (object.time != null)
@@ -1885,15 +1885,15 @@
         };
     
         /**
-         * Creates a plain object from a playerKick message. Also converts values to other types if specified.
+         * Creates a plain object from a PlayerKick message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @static
-         * @param {playerKick} message playerKick
+         * @param {PlayerKick} message PlayerKick
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        playerKick.toObject = function toObject(message, options) {
+        PlayerKick.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -1916,41 +1916,41 @@
         };
     
         /**
-         * Converts this playerKick to JSON.
+         * Converts this PlayerKick to JSON.
          * @function toJSON
-         * @memberof playerKick
+         * @memberof PlayerKick
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        playerKick.prototype.toJSON = function toJSON() {
+        PlayerKick.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return playerKick;
+        return PlayerKick;
     })();
     
-    $root.soundPlay = (function() {
+    $root.SoundPlay = (function() {
     
         /**
-         * Properties of a soundPlay.
-         * @exports IsoundPlay
-         * @interface IsoundPlay
-         * @property {string|null} [sound] soundPlay sound
-         * @property {number|null} [volume] soundPlay volume
-         * @property {number|null} [x] soundPlay x
-         * @property {number|null} [y] soundPlay y
-         * @property {number|null} [z] soundPlay z
+         * Properties of a SoundPlay.
+         * @exports ISoundPlay
+         * @interface ISoundPlay
+         * @property {string|null} [sound] SoundPlay sound
+         * @property {number|null} [volume] SoundPlay volume
+         * @property {number|null} [x] SoundPlay x
+         * @property {number|null} [y] SoundPlay y
+         * @property {number|null} [z] SoundPlay z
          */
     
         /**
-         * Constructs a new soundPlay.
-         * @exports soundPlay
-         * @classdesc Represents a soundPlay.
-         * @implements IsoundPlay
+         * Constructs a new SoundPlay.
+         * @exports SoundPlay
+         * @classdesc Represents a SoundPlay.
+         * @implements ISoundPlay
          * @constructor
-         * @param {IsoundPlay=} [properties] Properties to set
+         * @param {ISoundPlay=} [properties] Properties to set
          */
-        function soundPlay(properties) {
+        function SoundPlay(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1958,67 +1958,67 @@
         }
     
         /**
-         * soundPlay sound.
+         * SoundPlay sound.
          * @member {string} sound
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @instance
          */
-        soundPlay.prototype.sound = "";
+        SoundPlay.prototype.sound = "";
     
         /**
-         * soundPlay volume.
+         * SoundPlay volume.
          * @member {number} volume
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @instance
          */
-        soundPlay.prototype.volume = 0;
+        SoundPlay.prototype.volume = 0;
     
         /**
-         * soundPlay x.
+         * SoundPlay x.
          * @member {number} x
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @instance
          */
-        soundPlay.prototype.x = 0;
+        SoundPlay.prototype.x = 0;
     
         /**
-         * soundPlay y.
+         * SoundPlay y.
          * @member {number} y
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @instance
          */
-        soundPlay.prototype.y = 0;
+        SoundPlay.prototype.y = 0;
     
         /**
-         * soundPlay z.
+         * SoundPlay z.
          * @member {number} z
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @instance
          */
-        soundPlay.prototype.z = 0;
+        SoundPlay.prototype.z = 0;
     
         /**
-         * Creates a new soundPlay instance using the specified properties.
+         * Creates a new SoundPlay instance using the specified properties.
          * @function create
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @static
-         * @param {IsoundPlay=} [properties] Properties to set
-         * @returns {soundPlay} soundPlay instance
+         * @param {ISoundPlay=} [properties] Properties to set
+         * @returns {SoundPlay} SoundPlay instance
          */
-        soundPlay.create = function create(properties) {
-            return new soundPlay(properties);
+        SoundPlay.create = function create(properties) {
+            return new SoundPlay(properties);
         };
     
         /**
-         * Encodes the specified soundPlay message. Does not implicitly {@link soundPlay.verify|verify} messages.
+         * Encodes the specified SoundPlay message. Does not implicitly {@link SoundPlay.verify|verify} messages.
          * @function encode
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @static
-         * @param {IsoundPlay} message soundPlay message or plain object to encode
+         * @param {ISoundPlay} message SoundPlay message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        soundPlay.encode = function encode(message, writer) {
+        SoundPlay.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.sound != null && Object.hasOwnProperty.call(message, "sound"))
@@ -2035,33 +2035,33 @@
         };
     
         /**
-         * Encodes the specified soundPlay message, length delimited. Does not implicitly {@link soundPlay.verify|verify} messages.
+         * Encodes the specified SoundPlay message, length delimited. Does not implicitly {@link SoundPlay.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @static
-         * @param {IsoundPlay} message soundPlay message or plain object to encode
+         * @param {ISoundPlay} message SoundPlay message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        soundPlay.encodeDelimited = function encodeDelimited(message, writer) {
+        SoundPlay.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a soundPlay message from the specified reader or buffer.
+         * Decodes a SoundPlay message from the specified reader or buffer.
          * @function decode
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {soundPlay} soundPlay
+         * @returns {SoundPlay} SoundPlay
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        soundPlay.decode = function decode(reader, length) {
+        SoundPlay.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.soundPlay();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SoundPlay();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2089,30 +2089,30 @@
         };
     
         /**
-         * Decodes a soundPlay message from the specified reader or buffer, length delimited.
+         * Decodes a SoundPlay message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {soundPlay} soundPlay
+         * @returns {SoundPlay} SoundPlay
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        soundPlay.decodeDelimited = function decodeDelimited(reader) {
+        SoundPlay.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a soundPlay message.
+         * Verifies a SoundPlay message.
          * @function verify
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        soundPlay.verify = function verify(message) {
+        SoundPlay.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.sound != null && message.hasOwnProperty("sound"))
@@ -2134,17 +2134,17 @@
         };
     
         /**
-         * Creates a soundPlay message from a plain object. Also converts values to their respective internal types.
+         * Creates a SoundPlay message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {soundPlay} soundPlay
+         * @returns {SoundPlay} SoundPlay
          */
-        soundPlay.fromObject = function fromObject(object) {
-            if (object instanceof $root.soundPlay)
+        SoundPlay.fromObject = function fromObject(object) {
+            if (object instanceof $root.SoundPlay)
                 return object;
-            var message = new $root.soundPlay();
+            var message = new $root.SoundPlay();
             if (object.sound != null)
                 message.sound = String(object.sound);
             if (object.volume != null)
@@ -2159,15 +2159,15 @@
         };
     
         /**
-         * Creates a plain object from a soundPlay message. Also converts values to other types if specified.
+         * Creates a plain object from a SoundPlay message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @static
-         * @param {soundPlay} message soundPlay
+         * @param {SoundPlay} message SoundPlay
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        soundPlay.toObject = function toObject(message, options) {
+        SoundPlay.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -2192,38 +2192,38 @@
         };
     
         /**
-         * Converts this soundPlay to JSON.
+         * Converts this SoundPlay to JSON.
          * @function toJSON
-         * @memberof soundPlay
+         * @memberof SoundPlay
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        soundPlay.prototype.toJSON = function toJSON() {
+        SoundPlay.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return soundPlay;
+        return SoundPlay;
     })();
     
-    $root.chatMessage = (function() {
+    $root.ChatMessage = (function() {
     
         /**
-         * Properties of a chatMessage.
-         * @exports IchatMessage
-         * @interface IchatMessage
-         * @property {Object.<string,chatMessage.IchatComponent>|null} [message] chatMessage message
-         * @property {number|Long|null} [time] chatMessage time
+         * Properties of a ChatMessage.
+         * @exports IChatMessage
+         * @interface IChatMessage
+         * @property {Object.<string,ChatMessage.IChatComponent>|null} [message] ChatMessage message
+         * @property {number|Long|null} [time] ChatMessage time
          */
     
         /**
-         * Constructs a new chatMessage.
-         * @exports chatMessage
-         * @classdesc Represents a chatMessage.
-         * @implements IchatMessage
+         * Constructs a new ChatMessage.
+         * @exports ChatMessage
+         * @classdesc Represents a ChatMessage.
+         * @implements IChatMessage
          * @constructor
-         * @param {IchatMessage=} [properties] Properties to set
+         * @param {IChatMessage=} [properties] Properties to set
          */
-        function chatMessage(properties) {
+        function ChatMessage(properties) {
             this.message = {};
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -2232,49 +2232,49 @@
         }
     
         /**
-         * chatMessage message.
-         * @member {Object.<string,chatMessage.IchatComponent>} message
-         * @memberof chatMessage
+         * ChatMessage message.
+         * @member {Object.<string,ChatMessage.IChatComponent>} message
+         * @memberof ChatMessage
          * @instance
          */
-        chatMessage.prototype.message = $util.emptyObject;
+        ChatMessage.prototype.message = $util.emptyObject;
     
         /**
-         * chatMessage time.
+         * ChatMessage time.
          * @member {number|Long} time
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @instance
          */
-        chatMessage.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        ChatMessage.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
     
         /**
-         * Creates a new chatMessage instance using the specified properties.
+         * Creates a new ChatMessage instance using the specified properties.
          * @function create
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @static
-         * @param {IchatMessage=} [properties] Properties to set
-         * @returns {chatMessage} chatMessage instance
+         * @param {IChatMessage=} [properties] Properties to set
+         * @returns {ChatMessage} ChatMessage instance
          */
-        chatMessage.create = function create(properties) {
-            return new chatMessage(properties);
+        ChatMessage.create = function create(properties) {
+            return new ChatMessage(properties);
         };
     
         /**
-         * Encodes the specified chatMessage message. Does not implicitly {@link chatMessage.verify|verify} messages.
+         * Encodes the specified ChatMessage message. Does not implicitly {@link ChatMessage.verify|verify} messages.
          * @function encode
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @static
-         * @param {IchatMessage} message chatMessage message or plain object to encode
+         * @param {IChatMessage} message ChatMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        chatMessage.encode = function encode(message, writer) {
+        ChatMessage.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.message != null && Object.hasOwnProperty.call(message, "message"))
                 for (var keys = Object.keys(message.message), i = 0; i < keys.length; ++i) {
                     writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
-                    $root.chatMessage.chatComponent.encode(message.message[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                    $root.ChatMessage.ChatComponent.encode(message.message[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                 }
             if (message.time != null && Object.hasOwnProperty.call(message, "time"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
@@ -2282,33 +2282,33 @@
         };
     
         /**
-         * Encodes the specified chatMessage message, length delimited. Does not implicitly {@link chatMessage.verify|verify} messages.
+         * Encodes the specified ChatMessage message, length delimited. Does not implicitly {@link ChatMessage.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @static
-         * @param {IchatMessage} message chatMessage message or plain object to encode
+         * @param {IChatMessage} message ChatMessage message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        chatMessage.encodeDelimited = function encodeDelimited(message, writer) {
+        ChatMessage.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a chatMessage message from the specified reader or buffer.
+         * Decodes a ChatMessage message from the specified reader or buffer.
          * @function decode
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {chatMessage} chatMessage
+         * @returns {ChatMessage} ChatMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        chatMessage.decode = function decode(reader, length) {
+        ChatMessage.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.chatMessage(), key, value;
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChatMessage(), key, value;
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2325,7 +2325,7 @@
                             key = reader.uint32();
                             break;
                         case 2:
-                            value = $root.chatMessage.chatComponent.decode(reader, reader.uint32());
+                            value = $root.ChatMessage.ChatComponent.decode(reader, reader.uint32());
                             break;
                         default:
                             reader.skipType(tag2 & 7);
@@ -2346,30 +2346,30 @@
         };
     
         /**
-         * Decodes a chatMessage message from the specified reader or buffer, length delimited.
+         * Decodes a ChatMessage message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {chatMessage} chatMessage
+         * @returns {ChatMessage} ChatMessage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        chatMessage.decodeDelimited = function decodeDelimited(reader) {
+        ChatMessage.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a chatMessage message.
+         * Verifies a ChatMessage message.
          * @function verify
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        chatMessage.verify = function verify(message) {
+        ChatMessage.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.message != null && message.hasOwnProperty("message")) {
@@ -2380,7 +2380,7 @@
                     if (!$util.key32Re.test(key[i]))
                         return "message: integer key{k:uint32} expected";
                     {
-                        var error = $root.chatMessage.chatComponent.verify(message.message[key[i]]);
+                        var error = $root.ChatMessage.ChatComponent.verify(message.message[key[i]]);
                         if (error)
                             return "message." + error;
                     }
@@ -2393,25 +2393,25 @@
         };
     
         /**
-         * Creates a chatMessage message from a plain object. Also converts values to their respective internal types.
+         * Creates a ChatMessage message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {chatMessage} chatMessage
+         * @returns {ChatMessage} ChatMessage
          */
-        chatMessage.fromObject = function fromObject(object) {
-            if (object instanceof $root.chatMessage)
+        ChatMessage.fromObject = function fromObject(object) {
+            if (object instanceof $root.ChatMessage)
                 return object;
-            var message = new $root.chatMessage();
+            var message = new $root.ChatMessage();
             if (object.message) {
                 if (typeof object.message !== "object")
-                    throw TypeError(".chatMessage.message: object expected");
+                    throw TypeError(".ChatMessage.message: object expected");
                 message.message = {};
                 for (var keys = Object.keys(object.message), i = 0; i < keys.length; ++i) {
                     if (typeof object.message[keys[i]] !== "object")
-                        throw TypeError(".chatMessage.message: object expected");
-                    message.message[keys[i]] = $root.chatMessage.chatComponent.fromObject(object.message[keys[i]]);
+                        throw TypeError(".ChatMessage.message: object expected");
+                    message.message[keys[i]] = $root.ChatMessage.ChatComponent.fromObject(object.message[keys[i]]);
                 }
             }
             if (object.time != null)
@@ -2427,15 +2427,15 @@
         };
     
         /**
-         * Creates a plain object from a chatMessage message. Also converts values to other types if specified.
+         * Creates a plain object from a ChatMessage message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @static
-         * @param {chatMessage} message chatMessage
+         * @param {ChatMessage} message ChatMessage
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        chatMessage.toObject = function toObject(message, options) {
+        ChatMessage.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -2451,7 +2451,7 @@
             if (message.message && (keys2 = Object.keys(message.message)).length) {
                 object.message = {};
                 for (var j = 0; j < keys2.length; ++j)
-                    object.message[keys2[j]] = $root.chatMessage.chatComponent.toObject(message.message[keys2[j]], options);
+                    object.message[keys2[j]] = $root.ChatMessage.ChatComponent.toObject(message.message[keys2[j]], options);
             }
             if (message.time != null && message.hasOwnProperty("time"))
                 if (typeof message.time === "number")
@@ -2462,38 +2462,38 @@
         };
     
         /**
-         * Converts this chatMessage to JSON.
+         * Converts this ChatMessage to JSON.
          * @function toJSON
-         * @memberof chatMessage
+         * @memberof ChatMessage
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        chatMessage.prototype.toJSON = function toJSON() {
+        ChatMessage.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        chatMessage.chatComponent = (function() {
+        ChatMessage.ChatComponent = (function() {
     
             /**
-             * Properties of a chatComponent.
-             * @memberof chatMessage
-             * @interface IchatComponent
-             * @property {string|null} [text] chatComponent text
-             * @property {string|null} [font] chatComponent font
-             * @property {string|null} [color] chatComponent color
-             * @property {boolean|null} [linethrough] chatComponent linethrough
-             * @property {boolean|null} [underline] chatComponent underline
+             * Properties of a ChatComponent.
+             * @memberof ChatMessage
+             * @interface IChatComponent
+             * @property {string|null} [text] ChatComponent text
+             * @property {string|null} [font] ChatComponent font
+             * @property {string|null} [color] ChatComponent color
+             * @property {boolean|null} [linethrough] ChatComponent linethrough
+             * @property {boolean|null} [underline] ChatComponent underline
              */
     
             /**
-             * Constructs a new chatComponent.
-             * @memberof chatMessage
-             * @classdesc Represents a chatComponent.
-             * @implements IchatComponent
+             * Constructs a new ChatComponent.
+             * @memberof ChatMessage
+             * @classdesc Represents a ChatComponent.
+             * @implements IChatComponent
              * @constructor
-             * @param {chatMessage.IchatComponent=} [properties] Properties to set
+             * @param {ChatMessage.IChatComponent=} [properties] Properties to set
              */
-            function chatComponent(properties) {
+            function ChatComponent(properties) {
                 if (properties)
                     for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                         if (properties[keys[i]] != null)
@@ -2501,67 +2501,67 @@
             }
     
             /**
-             * chatComponent text.
+             * ChatComponent text.
              * @member {string} text
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @instance
              */
-            chatComponent.prototype.text = "";
+            ChatComponent.prototype.text = "";
     
             /**
-             * chatComponent font.
+             * ChatComponent font.
              * @member {string} font
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @instance
              */
-            chatComponent.prototype.font = "";
+            ChatComponent.prototype.font = "";
     
             /**
-             * chatComponent color.
+             * ChatComponent color.
              * @member {string} color
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @instance
              */
-            chatComponent.prototype.color = "";
+            ChatComponent.prototype.color = "";
     
             /**
-             * chatComponent linethrough.
+             * ChatComponent linethrough.
              * @member {boolean} linethrough
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @instance
              */
-            chatComponent.prototype.linethrough = false;
+            ChatComponent.prototype.linethrough = false;
     
             /**
-             * chatComponent underline.
+             * ChatComponent underline.
              * @member {boolean} underline
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @instance
              */
-            chatComponent.prototype.underline = false;
+            ChatComponent.prototype.underline = false;
     
             /**
-             * Creates a new chatComponent instance using the specified properties.
+             * Creates a new ChatComponent instance using the specified properties.
              * @function create
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @static
-             * @param {chatMessage.IchatComponent=} [properties] Properties to set
-             * @returns {chatMessage.chatComponent} chatComponent instance
+             * @param {ChatMessage.IChatComponent=} [properties] Properties to set
+             * @returns {ChatMessage.ChatComponent} ChatComponent instance
              */
-            chatComponent.create = function create(properties) {
-                return new chatComponent(properties);
+            ChatComponent.create = function create(properties) {
+                return new ChatComponent(properties);
             };
     
             /**
-             * Encodes the specified chatComponent message. Does not implicitly {@link chatMessage.chatComponent.verify|verify} messages.
+             * Encodes the specified ChatComponent message. Does not implicitly {@link ChatMessage.ChatComponent.verify|verify} messages.
              * @function encode
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @static
-             * @param {chatMessage.IchatComponent} message chatComponent message or plain object to encode
+             * @param {ChatMessage.IChatComponent} message ChatComponent message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            chatComponent.encode = function encode(message, writer) {
+            ChatComponent.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
                 if (message.text != null && Object.hasOwnProperty.call(message, "text"))
@@ -2578,33 +2578,33 @@
             };
     
             /**
-             * Encodes the specified chatComponent message, length delimited. Does not implicitly {@link chatMessage.chatComponent.verify|verify} messages.
+             * Encodes the specified ChatComponent message, length delimited. Does not implicitly {@link ChatMessage.ChatComponent.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @static
-             * @param {chatMessage.IchatComponent} message chatComponent message or plain object to encode
+             * @param {ChatMessage.IChatComponent} message ChatComponent message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
              * @returns {$protobuf.Writer} Writer
              */
-            chatComponent.encodeDelimited = function encodeDelimited(message, writer) {
+            ChatComponent.encodeDelimited = function encodeDelimited(message, writer) {
                 return this.encode(message, writer).ldelim();
             };
     
             /**
-             * Decodes a chatComponent message from the specified reader or buffer.
+             * Decodes a ChatComponent message from the specified reader or buffer.
              * @function decode
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
-             * @returns {chatMessage.chatComponent} chatComponent
+             * @returns {ChatMessage.ChatComponent} ChatComponent
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            chatComponent.decode = function decode(reader, length) {
+            ChatComponent.decode = function decode(reader, length) {
                 if (!(reader instanceof $Reader))
                     reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.chatMessage.chatComponent();
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChatMessage.ChatComponent();
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
@@ -2632,30 +2632,30 @@
             };
     
             /**
-             * Decodes a chatComponent message from the specified reader or buffer, length delimited.
+             * Decodes a ChatComponent message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {chatMessage.chatComponent} chatComponent
+             * @returns {ChatMessage.ChatComponent} ChatComponent
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            chatComponent.decodeDelimited = function decodeDelimited(reader) {
+            ChatComponent.decodeDelimited = function decodeDelimited(reader) {
                 if (!(reader instanceof $Reader))
                     reader = new $Reader(reader);
                 return this.decode(reader, reader.uint32());
             };
     
             /**
-             * Verifies a chatComponent message.
+             * Verifies a ChatComponent message.
              * @function verify
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
              */
-            chatComponent.verify = function verify(message) {
+            ChatComponent.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 if (message.text != null && message.hasOwnProperty("text"))
@@ -2677,17 +2677,17 @@
             };
     
             /**
-             * Creates a chatComponent message from a plain object. Also converts values to their respective internal types.
+             * Creates a ChatComponent message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @static
              * @param {Object.<string,*>} object Plain object
-             * @returns {chatMessage.chatComponent} chatComponent
+             * @returns {ChatMessage.ChatComponent} ChatComponent
              */
-            chatComponent.fromObject = function fromObject(object) {
-                if (object instanceof $root.chatMessage.chatComponent)
+            ChatComponent.fromObject = function fromObject(object) {
+                if (object instanceof $root.ChatMessage.ChatComponent)
                     return object;
-                var message = new $root.chatMessage.chatComponent();
+                var message = new $root.ChatMessage.ChatComponent();
                 if (object.text != null)
                     message.text = String(object.text);
                 if (object.font != null)
@@ -2702,15 +2702,15 @@
             };
     
             /**
-             * Creates a plain object from a chatComponent message. Also converts values to other types if specified.
+             * Creates a plain object from a ChatComponent message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @static
-             * @param {chatMessage.chatComponent} message chatComponent
+             * @param {ChatMessage.ChatComponent} message ChatComponent
              * @param {$protobuf.IConversionOptions} [options] Conversion options
              * @returns {Object.<string,*>} Plain object
              */
-            chatComponent.toObject = function toObject(message, options) {
+            ChatComponent.toObject = function toObject(message, options) {
                 if (!options)
                     options = {};
                 var object = {};
@@ -2735,41 +2735,41 @@
             };
     
             /**
-             * Converts this chatComponent to JSON.
+             * Converts this ChatComponent to JSON.
              * @function toJSON
-             * @memberof chatMessage.chatComponent
+             * @memberof ChatMessage.ChatComponent
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
-            chatComponent.prototype.toJSON = function toJSON() {
+            ChatComponent.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
     
-            return chatComponent;
+            return ChatComponent;
         })();
     
-        return chatMessage;
+        return ChatMessage;
     })();
     
-    $root.tabUpdate = (function() {
+    $root.TabUpdate = (function() {
     
         /**
-         * Properties of a tabUpdate.
-         * @exports ItabUpdate
-         * @interface ItabUpdate
-         * @property {string|null} [message] tabUpdate message
-         * @property {number|Long|null} [time] tabUpdate time
+         * Properties of a TabUpdate.
+         * @exports ITabUpdate
+         * @interface ITabUpdate
+         * @property {string|null} [message] TabUpdate message
+         * @property {number|Long|null} [time] TabUpdate time
          */
     
         /**
-         * Constructs a new tabUpdate.
-         * @exports tabUpdate
-         * @classdesc Represents a tabUpdate.
-         * @implements ItabUpdate
+         * Constructs a new TabUpdate.
+         * @exports TabUpdate
+         * @classdesc Represents a TabUpdate.
+         * @implements ITabUpdate
          * @constructor
-         * @param {ItabUpdate=} [properties] Properties to set
+         * @param {ITabUpdate=} [properties] Properties to set
          */
-        function tabUpdate(properties) {
+        function TabUpdate(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -2777,43 +2777,43 @@
         }
     
         /**
-         * tabUpdate message.
+         * TabUpdate message.
          * @member {string} message
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @instance
          */
-        tabUpdate.prototype.message = "";
+        TabUpdate.prototype.message = "";
     
         /**
-         * tabUpdate time.
+         * TabUpdate time.
          * @member {number|Long} time
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @instance
          */
-        tabUpdate.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        TabUpdate.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
     
         /**
-         * Creates a new tabUpdate instance using the specified properties.
+         * Creates a new TabUpdate instance using the specified properties.
          * @function create
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @static
-         * @param {ItabUpdate=} [properties] Properties to set
-         * @returns {tabUpdate} tabUpdate instance
+         * @param {ITabUpdate=} [properties] Properties to set
+         * @returns {TabUpdate} TabUpdate instance
          */
-        tabUpdate.create = function create(properties) {
-            return new tabUpdate(properties);
+        TabUpdate.create = function create(properties) {
+            return new TabUpdate(properties);
         };
     
         /**
-         * Encodes the specified tabUpdate message. Does not implicitly {@link tabUpdate.verify|verify} messages.
+         * Encodes the specified TabUpdate message. Does not implicitly {@link TabUpdate.verify|verify} messages.
          * @function encode
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @static
-         * @param {ItabUpdate} message tabUpdate message or plain object to encode
+         * @param {ITabUpdate} message TabUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        tabUpdate.encode = function encode(message, writer) {
+        TabUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.message != null && Object.hasOwnProperty.call(message, "message"))
@@ -2824,33 +2824,33 @@
         };
     
         /**
-         * Encodes the specified tabUpdate message, length delimited. Does not implicitly {@link tabUpdate.verify|verify} messages.
+         * Encodes the specified TabUpdate message, length delimited. Does not implicitly {@link TabUpdate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @static
-         * @param {ItabUpdate} message tabUpdate message or plain object to encode
+         * @param {ITabUpdate} message TabUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        tabUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+        TabUpdate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a tabUpdate message from the specified reader or buffer.
+         * Decodes a TabUpdate message from the specified reader or buffer.
          * @function decode
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {tabUpdate} tabUpdate
+         * @returns {TabUpdate} TabUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        tabUpdate.decode = function decode(reader, length) {
+        TabUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.tabUpdate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.TabUpdate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -2869,30 +2869,30 @@
         };
     
         /**
-         * Decodes a tabUpdate message from the specified reader or buffer, length delimited.
+         * Decodes a TabUpdate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {tabUpdate} tabUpdate
+         * @returns {TabUpdate} TabUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        tabUpdate.decodeDelimited = function decodeDelimited(reader) {
+        TabUpdate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a tabUpdate message.
+         * Verifies a TabUpdate message.
          * @function verify
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        tabUpdate.verify = function verify(message) {
+        TabUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.message != null && message.hasOwnProperty("message"))
@@ -2905,17 +2905,17 @@
         };
     
         /**
-         * Creates a tabUpdate message from a plain object. Also converts values to their respective internal types.
+         * Creates a TabUpdate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {tabUpdate} tabUpdate
+         * @returns {TabUpdate} TabUpdate
          */
-        tabUpdate.fromObject = function fromObject(object) {
-            if (object instanceof $root.tabUpdate)
+        TabUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.TabUpdate)
                 return object;
-            var message = new $root.tabUpdate();
+            var message = new $root.TabUpdate();
             if (object.message != null)
                 message.message = String(object.message);
             if (object.time != null)
@@ -2931,15 +2931,15 @@
         };
     
         /**
-         * Creates a plain object from a tabUpdate message. Also converts values to other types if specified.
+         * Creates a plain object from a TabUpdate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @static
-         * @param {tabUpdate} message tabUpdate
+         * @param {TabUpdate} message TabUpdate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        tabUpdate.toObject = function toObject(message, options) {
+        TabUpdate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -2962,38 +2962,38 @@
         };
     
         /**
-         * Converts this tabUpdate to JSON.
+         * Converts this TabUpdate to JSON.
          * @function toJSON
-         * @memberof tabUpdate
+         * @memberof TabUpdate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        tabUpdate.prototype.toJSON = function toJSON() {
+        TabUpdate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return tabUpdate;
+        return TabUpdate;
     })();
     
-    $root.entityCreate = (function() {
+    $root.EntityCreate = (function() {
     
         /**
-         * Properties of an entityCreate.
-         * @exports IentityCreate
-         * @interface IentityCreate
-         * @property {string|null} [uuid] entityCreate uuid
-         * @property {string|null} [data] entityCreate data
+         * Properties of an EntityCreate.
+         * @exports IEntityCreate
+         * @interface IEntityCreate
+         * @property {string|null} [uuid] EntityCreate uuid
+         * @property {string|null} [data] EntityCreate data
          */
     
         /**
-         * Constructs a new entityCreate.
-         * @exports entityCreate
-         * @classdesc Represents an entityCreate.
-         * @implements IentityCreate
+         * Constructs a new EntityCreate.
+         * @exports EntityCreate
+         * @classdesc Represents an EntityCreate.
+         * @implements IEntityCreate
          * @constructor
-         * @param {IentityCreate=} [properties] Properties to set
+         * @param {IEntityCreate=} [properties] Properties to set
          */
-        function entityCreate(properties) {
+        function EntityCreate(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -3001,43 +3001,43 @@
         }
     
         /**
-         * entityCreate uuid.
+         * EntityCreate uuid.
          * @member {string} uuid
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @instance
          */
-        entityCreate.prototype.uuid = "";
+        EntityCreate.prototype.uuid = "";
     
         /**
-         * entityCreate data.
+         * EntityCreate data.
          * @member {string} data
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @instance
          */
-        entityCreate.prototype.data = "";
+        EntityCreate.prototype.data = "";
     
         /**
-         * Creates a new entityCreate instance using the specified properties.
+         * Creates a new EntityCreate instance using the specified properties.
          * @function create
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @static
-         * @param {IentityCreate=} [properties] Properties to set
-         * @returns {entityCreate} entityCreate instance
+         * @param {IEntityCreate=} [properties] Properties to set
+         * @returns {EntityCreate} EntityCreate instance
          */
-        entityCreate.create = function create(properties) {
-            return new entityCreate(properties);
+        EntityCreate.create = function create(properties) {
+            return new EntityCreate(properties);
         };
     
         /**
-         * Encodes the specified entityCreate message. Does not implicitly {@link entityCreate.verify|verify} messages.
+         * Encodes the specified EntityCreate message. Does not implicitly {@link EntityCreate.verify|verify} messages.
          * @function encode
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @static
-         * @param {IentityCreate} message entityCreate message or plain object to encode
+         * @param {IEntityCreate} message EntityCreate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        entityCreate.encode = function encode(message, writer) {
+        EntityCreate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
@@ -3048,33 +3048,33 @@
         };
     
         /**
-         * Encodes the specified entityCreate message, length delimited. Does not implicitly {@link entityCreate.verify|verify} messages.
+         * Encodes the specified EntityCreate message, length delimited. Does not implicitly {@link EntityCreate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @static
-         * @param {IentityCreate} message entityCreate message or plain object to encode
+         * @param {IEntityCreate} message EntityCreate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        entityCreate.encodeDelimited = function encodeDelimited(message, writer) {
+        EntityCreate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an entityCreate message from the specified reader or buffer.
+         * Decodes an EntityCreate message from the specified reader or buffer.
          * @function decode
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {entityCreate} entityCreate
+         * @returns {EntityCreate} EntityCreate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        entityCreate.decode = function decode(reader, length) {
+        EntityCreate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.entityCreate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityCreate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3093,30 +3093,30 @@
         };
     
         /**
-         * Decodes an entityCreate message from the specified reader or buffer, length delimited.
+         * Decodes an EntityCreate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {entityCreate} entityCreate
+         * @returns {EntityCreate} EntityCreate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        entityCreate.decodeDelimited = function decodeDelimited(reader) {
+        EntityCreate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an entityCreate message.
+         * Verifies an EntityCreate message.
          * @function verify
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        entityCreate.verify = function verify(message) {
+        EntityCreate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.uuid != null && message.hasOwnProperty("uuid"))
@@ -3129,17 +3129,17 @@
         };
     
         /**
-         * Creates an entityCreate message from a plain object. Also converts values to their respective internal types.
+         * Creates an EntityCreate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {entityCreate} entityCreate
+         * @returns {EntityCreate} EntityCreate
          */
-        entityCreate.fromObject = function fromObject(object) {
-            if (object instanceof $root.entityCreate)
+        EntityCreate.fromObject = function fromObject(object) {
+            if (object instanceof $root.EntityCreate)
                 return object;
-            var message = new $root.entityCreate();
+            var message = new $root.EntityCreate();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
             if (object.data != null)
@@ -3148,15 +3148,15 @@
         };
     
         /**
-         * Creates a plain object from an entityCreate message. Also converts values to other types if specified.
+         * Creates a plain object from an EntityCreate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @static
-         * @param {entityCreate} message entityCreate
+         * @param {EntityCreate} message EntityCreate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        entityCreate.toObject = function toObject(message, options) {
+        EntityCreate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -3172,17 +3172,17 @@
         };
     
         /**
-         * Converts this entityCreate to JSON.
+         * Converts this EntityCreate to JSON.
          * @function toJSON
-         * @memberof entityCreate
+         * @memberof EntityCreate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        entityCreate.prototype.toJSON = function toJSON() {
+        EntityCreate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return entityCreate;
+        return EntityCreate;
     })();
     
     $root.entityRemove = (function() {
@@ -3372,28 +3372,28 @@
         return entityRemove;
     })();
     
-    $root.entityMove = (function() {
+    $root.EntityMove = (function() {
     
         /**
-         * Properties of an entityMove.
-         * @exports IentityMove
-         * @interface IentityMove
-         * @property {string|null} [uuid] entityMove uuid
-         * @property {number|null} [x] entityMove x
-         * @property {number|null} [y] entityMove y
-         * @property {number|null} [z] entityMove z
-         * @property {number|null} [rotation] entityMove rotation
+         * Properties of an EntityMove.
+         * @exports IEntityMove
+         * @interface IEntityMove
+         * @property {string|null} [uuid] EntityMove uuid
+         * @property {number|null} [x] EntityMove x
+         * @property {number|null} [y] EntityMove y
+         * @property {number|null} [z] EntityMove z
+         * @property {number|null} [rotation] EntityMove rotation
          */
     
         /**
-         * Constructs a new entityMove.
-         * @exports entityMove
-         * @classdesc Represents an entityMove.
-         * @implements IentityMove
+         * Constructs a new EntityMove.
+         * @exports EntityMove
+         * @classdesc Represents an EntityMove.
+         * @implements IEntityMove
          * @constructor
-         * @param {IentityMove=} [properties] Properties to set
+         * @param {IEntityMove=} [properties] Properties to set
          */
-        function entityMove(properties) {
+        function EntityMove(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -3401,67 +3401,67 @@
         }
     
         /**
-         * entityMove uuid.
+         * EntityMove uuid.
          * @member {string} uuid
-         * @memberof entityMove
+         * @memberof EntityMove
          * @instance
          */
-        entityMove.prototype.uuid = "";
+        EntityMove.prototype.uuid = "";
     
         /**
-         * entityMove x.
+         * EntityMove x.
          * @member {number} x
-         * @memberof entityMove
+         * @memberof EntityMove
          * @instance
          */
-        entityMove.prototype.x = 0;
+        EntityMove.prototype.x = 0;
     
         /**
-         * entityMove y.
+         * EntityMove y.
          * @member {number} y
-         * @memberof entityMove
+         * @memberof EntityMove
          * @instance
          */
-        entityMove.prototype.y = 0;
+        EntityMove.prototype.y = 0;
     
         /**
-         * entityMove z.
+         * EntityMove z.
          * @member {number} z
-         * @memberof entityMove
+         * @memberof EntityMove
          * @instance
          */
-        entityMove.prototype.z = 0;
+        EntityMove.prototype.z = 0;
     
         /**
-         * entityMove rotation.
+         * EntityMove rotation.
          * @member {number} rotation
-         * @memberof entityMove
+         * @memberof EntityMove
          * @instance
          */
-        entityMove.prototype.rotation = 0;
+        EntityMove.prototype.rotation = 0;
     
         /**
-         * Creates a new entityMove instance using the specified properties.
+         * Creates a new EntityMove instance using the specified properties.
          * @function create
-         * @memberof entityMove
+         * @memberof EntityMove
          * @static
-         * @param {IentityMove=} [properties] Properties to set
-         * @returns {entityMove} entityMove instance
+         * @param {IEntityMove=} [properties] Properties to set
+         * @returns {EntityMove} EntityMove instance
          */
-        entityMove.create = function create(properties) {
-            return new entityMove(properties);
+        EntityMove.create = function create(properties) {
+            return new EntityMove(properties);
         };
     
         /**
-         * Encodes the specified entityMove message. Does not implicitly {@link entityMove.verify|verify} messages.
+         * Encodes the specified EntityMove message. Does not implicitly {@link EntityMove.verify|verify} messages.
          * @function encode
-         * @memberof entityMove
+         * @memberof EntityMove
          * @static
-         * @param {IentityMove} message entityMove message or plain object to encode
+         * @param {IEntityMove} message EntityMove message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        entityMove.encode = function encode(message, writer) {
+        EntityMove.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
@@ -3478,33 +3478,33 @@
         };
     
         /**
-         * Encodes the specified entityMove message, length delimited. Does not implicitly {@link entityMove.verify|verify} messages.
+         * Encodes the specified EntityMove message, length delimited. Does not implicitly {@link EntityMove.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof entityMove
+         * @memberof EntityMove
          * @static
-         * @param {IentityMove} message entityMove message or plain object to encode
+         * @param {IEntityMove} message EntityMove message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        entityMove.encodeDelimited = function encodeDelimited(message, writer) {
+        EntityMove.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an entityMove message from the specified reader or buffer.
+         * Decodes an EntityMove message from the specified reader or buffer.
          * @function decode
-         * @memberof entityMove
+         * @memberof EntityMove
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {entityMove} entityMove
+         * @returns {EntityMove} EntityMove
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        entityMove.decode = function decode(reader, length) {
+        EntityMove.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.entityMove();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityMove();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3532,30 +3532,30 @@
         };
     
         /**
-         * Decodes an entityMove message from the specified reader or buffer, length delimited.
+         * Decodes an EntityMove message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof entityMove
+         * @memberof EntityMove
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {entityMove} entityMove
+         * @returns {EntityMove} EntityMove
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        entityMove.decodeDelimited = function decodeDelimited(reader) {
+        EntityMove.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an entityMove message.
+         * Verifies an EntityMove message.
          * @function verify
-         * @memberof entityMove
+         * @memberof EntityMove
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        entityMove.verify = function verify(message) {
+        EntityMove.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.uuid != null && message.hasOwnProperty("uuid"))
@@ -3577,17 +3577,17 @@
         };
     
         /**
-         * Creates an entityMove message from a plain object. Also converts values to their respective internal types.
+         * Creates an EntityMove message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof entityMove
+         * @memberof EntityMove
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {entityMove} entityMove
+         * @returns {EntityMove} EntityMove
          */
-        entityMove.fromObject = function fromObject(object) {
-            if (object instanceof $root.entityMove)
+        EntityMove.fromObject = function fromObject(object) {
+            if (object instanceof $root.EntityMove)
                 return object;
-            var message = new $root.entityMove();
+            var message = new $root.EntityMove();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
             if (object.x != null)
@@ -3602,15 +3602,15 @@
         };
     
         /**
-         * Creates a plain object from an entityMove message. Also converts values to other types if specified.
+         * Creates a plain object from an EntityMove message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof entityMove
+         * @memberof EntityMove
          * @static
-         * @param {entityMove} message entityMove
+         * @param {EntityMove} message EntityMove
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        entityMove.toObject = function toObject(message, options) {
+        EntityMove.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -3635,39 +3635,39 @@
         };
     
         /**
-         * Converts this entityMove to JSON.
+         * Converts this EntityMove to JSON.
          * @function toJSON
-         * @memberof entityMove
+         * @memberof EntityMove
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        entityMove.prototype.toJSON = function toJSON() {
+        EntityMove.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return entityMove;
+        return EntityMove;
     })();
     
-    $root.entityUpdate = (function() {
+    $root.EntityUpdate = (function() {
     
         /**
-         * Properties of an entityUpdate.
-         * @exports IentityUpdate
-         * @interface IentityUpdate
-         * @property {string|null} [uuid] entityUpdate uuid
-         * @property {string|null} [key] entityUpdate key
-         * @property {string|null} [value] entityUpdate value
+         * Properties of an EntityUpdate.
+         * @exports IEntityUpdate
+         * @interface IEntityUpdate
+         * @property {string|null} [uuid] EntityUpdate uuid
+         * @property {string|null} [key] EntityUpdate key
+         * @property {string|null} [value] EntityUpdate value
          */
     
         /**
-         * Constructs a new entityUpdate.
-         * @exports entityUpdate
-         * @classdesc Represents an entityUpdate.
-         * @implements IentityUpdate
+         * Constructs a new EntityUpdate.
+         * @exports EntityUpdate
+         * @classdesc Represents an EntityUpdate.
+         * @implements IEntityUpdate
          * @constructor
-         * @param {IentityUpdate=} [properties] Properties to set
+         * @param {IEntityUpdate=} [properties] Properties to set
          */
-        function entityUpdate(properties) {
+        function EntityUpdate(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -3675,51 +3675,51 @@
         }
     
         /**
-         * entityUpdate uuid.
+         * EntityUpdate uuid.
          * @member {string} uuid
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @instance
          */
-        entityUpdate.prototype.uuid = "";
+        EntityUpdate.prototype.uuid = "";
     
         /**
-         * entityUpdate key.
+         * EntityUpdate key.
          * @member {string} key
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @instance
          */
-        entityUpdate.prototype.key = "";
+        EntityUpdate.prototype.key = "";
     
         /**
-         * entityUpdate value.
+         * EntityUpdate value.
          * @member {string} value
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @instance
          */
-        entityUpdate.prototype.value = "";
+        EntityUpdate.prototype.value = "";
     
         /**
-         * Creates a new entityUpdate instance using the specified properties.
+         * Creates a new EntityUpdate instance using the specified properties.
          * @function create
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @static
-         * @param {IentityUpdate=} [properties] Properties to set
-         * @returns {entityUpdate} entityUpdate instance
+         * @param {IEntityUpdate=} [properties] Properties to set
+         * @returns {EntityUpdate} EntityUpdate instance
          */
-        entityUpdate.create = function create(properties) {
-            return new entityUpdate(properties);
+        EntityUpdate.create = function create(properties) {
+            return new EntityUpdate(properties);
         };
     
         /**
-         * Encodes the specified entityUpdate message. Does not implicitly {@link entityUpdate.verify|verify} messages.
+         * Encodes the specified EntityUpdate message. Does not implicitly {@link EntityUpdate.verify|verify} messages.
          * @function encode
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @static
-         * @param {IentityUpdate} message entityUpdate message or plain object to encode
+         * @param {IEntityUpdate} message EntityUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        entityUpdate.encode = function encode(message, writer) {
+        EntityUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
@@ -3732,33 +3732,33 @@
         };
     
         /**
-         * Encodes the specified entityUpdate message, length delimited. Does not implicitly {@link entityUpdate.verify|verify} messages.
+         * Encodes the specified EntityUpdate message, length delimited. Does not implicitly {@link EntityUpdate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @static
-         * @param {IentityUpdate} message entityUpdate message or plain object to encode
+         * @param {IEntityUpdate} message EntityUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        entityUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+        EntityUpdate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an entityUpdate message from the specified reader or buffer.
+         * Decodes an EntityUpdate message from the specified reader or buffer.
          * @function decode
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {entityUpdate} entityUpdate
+         * @returns {EntityUpdate} EntityUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        entityUpdate.decode = function decode(reader, length) {
+        EntityUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.entityUpdate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityUpdate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3780,30 +3780,30 @@
         };
     
         /**
-         * Decodes an entityUpdate message from the specified reader or buffer, length delimited.
+         * Decodes an EntityUpdate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {entityUpdate} entityUpdate
+         * @returns {EntityUpdate} EntityUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        entityUpdate.decodeDelimited = function decodeDelimited(reader) {
+        EntityUpdate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an entityUpdate message.
+         * Verifies an EntityUpdate message.
          * @function verify
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        entityUpdate.verify = function verify(message) {
+        EntityUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.uuid != null && message.hasOwnProperty("uuid"))
@@ -3819,17 +3819,17 @@
         };
     
         /**
-         * Creates an entityUpdate message from a plain object. Also converts values to their respective internal types.
+         * Creates an EntityUpdate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {entityUpdate} entityUpdate
+         * @returns {EntityUpdate} EntityUpdate
          */
-        entityUpdate.fromObject = function fromObject(object) {
-            if (object instanceof $root.entityUpdate)
+        EntityUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.EntityUpdate)
                 return object;
-            var message = new $root.entityUpdate();
+            var message = new $root.EntityUpdate();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
             if (object.key != null)
@@ -3840,15 +3840,15 @@
         };
     
         /**
-         * Creates a plain object from an entityUpdate message. Also converts values to other types if specified.
+         * Creates a plain object from an EntityUpdate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @static
-         * @param {entityUpdate} message entityUpdate
+         * @param {EntityUpdate} message EntityUpdate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        entityUpdate.toObject = function toObject(message, options) {
+        EntityUpdate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -3867,40 +3867,40 @@
         };
     
         /**
-         * Converts this entityUpdate to JSON.
+         * Converts this EntityUpdate to JSON.
          * @function toJSON
-         * @memberof entityUpdate
+         * @memberof EntityUpdate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        entityUpdate.prototype.toJSON = function toJSON() {
+        EntityUpdate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return entityUpdate;
+        return EntityUpdate;
     })();
     
-    $root.entityAnimate = (function() {
+    $root.EntityAnimate = (function() {
     
         /**
-         * Properties of an entityAnimate.
-         * @exports IentityAnimate
-         * @interface IentityAnimate
-         * @property {string|null} [uuid] entityAnimate uuid
-         * @property {string|null} [animation] entityAnimate animation
-         * @property {number|null} [time] entityAnimate time
-         * @property {boolean|null} [replace] entityAnimate replace
+         * Properties of an EntityAnimate.
+         * @exports IEntityAnimate
+         * @interface IEntityAnimate
+         * @property {string|null} [uuid] EntityAnimate uuid
+         * @property {string|null} [animation] EntityAnimate animation
+         * @property {number|null} [time] EntityAnimate time
+         * @property {boolean|null} [replace] EntityAnimate replace
          */
     
         /**
-         * Constructs a new entityAnimate.
-         * @exports entityAnimate
-         * @classdesc Represents an entityAnimate.
-         * @implements IentityAnimate
+         * Constructs a new EntityAnimate.
+         * @exports EntityAnimate
+         * @classdesc Represents an EntityAnimate.
+         * @implements IEntityAnimate
          * @constructor
-         * @param {IentityAnimate=} [properties] Properties to set
+         * @param {IEntityAnimate=} [properties] Properties to set
          */
-        function entityAnimate(properties) {
+        function EntityAnimate(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -3908,59 +3908,59 @@
         }
     
         /**
-         * entityAnimate uuid.
+         * EntityAnimate uuid.
          * @member {string} uuid
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @instance
          */
-        entityAnimate.prototype.uuid = "";
+        EntityAnimate.prototype.uuid = "";
     
         /**
-         * entityAnimate animation.
+         * EntityAnimate animation.
          * @member {string} animation
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @instance
          */
-        entityAnimate.prototype.animation = "";
+        EntityAnimate.prototype.animation = "";
     
         /**
-         * entityAnimate time.
+         * EntityAnimate time.
          * @member {number} time
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @instance
          */
-        entityAnimate.prototype.time = 0;
+        EntityAnimate.prototype.time = 0;
     
         /**
-         * entityAnimate replace.
+         * EntityAnimate replace.
          * @member {boolean} replace
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @instance
          */
-        entityAnimate.prototype.replace = false;
+        EntityAnimate.prototype.replace = false;
     
         /**
-         * Creates a new entityAnimate instance using the specified properties.
+         * Creates a new EntityAnimate instance using the specified properties.
          * @function create
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @static
-         * @param {IentityAnimate=} [properties] Properties to set
-         * @returns {entityAnimate} entityAnimate instance
+         * @param {IEntityAnimate=} [properties] Properties to set
+         * @returns {EntityAnimate} EntityAnimate instance
          */
-        entityAnimate.create = function create(properties) {
-            return new entityAnimate(properties);
+        EntityAnimate.create = function create(properties) {
+            return new EntityAnimate(properties);
         };
     
         /**
-         * Encodes the specified entityAnimate message. Does not implicitly {@link entityAnimate.verify|verify} messages.
+         * Encodes the specified EntityAnimate message. Does not implicitly {@link EntityAnimate.verify|verify} messages.
          * @function encode
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @static
-         * @param {IentityAnimate} message entityAnimate message or plain object to encode
+         * @param {IEntityAnimate} message EntityAnimate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        entityAnimate.encode = function encode(message, writer) {
+        EntityAnimate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
@@ -3975,33 +3975,33 @@
         };
     
         /**
-         * Encodes the specified entityAnimate message, length delimited. Does not implicitly {@link entityAnimate.verify|verify} messages.
+         * Encodes the specified EntityAnimate message, length delimited. Does not implicitly {@link EntityAnimate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @static
-         * @param {IentityAnimate} message entityAnimate message or plain object to encode
+         * @param {IEntityAnimate} message EntityAnimate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        entityAnimate.encodeDelimited = function encodeDelimited(message, writer) {
+        EntityAnimate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an entityAnimate message from the specified reader or buffer.
+         * Decodes an EntityAnimate message from the specified reader or buffer.
          * @function decode
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {entityAnimate} entityAnimate
+         * @returns {EntityAnimate} EntityAnimate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        entityAnimate.decode = function decode(reader, length) {
+        EntityAnimate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.entityAnimate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityAnimate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4026,30 +4026,30 @@
         };
     
         /**
-         * Decodes an entityAnimate message from the specified reader or buffer, length delimited.
+         * Decodes an EntityAnimate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {entityAnimate} entityAnimate
+         * @returns {EntityAnimate} EntityAnimate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        entityAnimate.decodeDelimited = function decodeDelimited(reader) {
+        EntityAnimate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an entityAnimate message.
+         * Verifies an EntityAnimate message.
          * @function verify
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        entityAnimate.verify = function verify(message) {
+        EntityAnimate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.uuid != null && message.hasOwnProperty("uuid"))
@@ -4068,17 +4068,17 @@
         };
     
         /**
-         * Creates an entityAnimate message from a plain object. Also converts values to their respective internal types.
+         * Creates an EntityAnimate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {entityAnimate} entityAnimate
+         * @returns {EntityAnimate} EntityAnimate
          */
-        entityAnimate.fromObject = function fromObject(object) {
-            if (object instanceof $root.entityAnimate)
+        EntityAnimate.fromObject = function fromObject(object) {
+            if (object instanceof $root.EntityAnimate)
                 return object;
-            var message = new $root.entityAnimate();
+            var message = new $root.EntityAnimate();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
             if (object.animation != null)
@@ -4091,15 +4091,15 @@
         };
     
         /**
-         * Creates a plain object from an entityAnimate message. Also converts values to other types if specified.
+         * Creates a plain object from an EntityAnimate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @static
-         * @param {entityAnimate} message entityAnimate
+         * @param {EntityAnimate} message EntityAnimate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        entityAnimate.toObject = function toObject(message, options) {
+        EntityAnimate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -4121,40 +4121,40 @@
         };
     
         /**
-         * Converts this entityAnimate to JSON.
+         * Converts this EntityAnimate to JSON.
          * @function toJSON
-         * @memberof entityAnimate
+         * @memberof EntityAnimate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        entityAnimate.prototype.toJSON = function toJSON() {
+        EntityAnimate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return entityAnimate;
+        return EntityAnimate;
     })();
     
-    $root.worldBlockUpdate = (function() {
+    $root.WorldBlockUpdate = (function() {
     
         /**
-         * Properties of a worldBlockUpdate.
-         * @exports IworldBlockUpdate
-         * @interface IworldBlockUpdate
-         * @property {number|null} [x] worldBlockUpdate x
-         * @property {number|null} [y] worldBlockUpdate y
-         * @property {number|null} [z] worldBlockUpdate z
-         * @property {number|null} [id] worldBlockUpdate id
+         * Properties of a WorldBlockUpdate.
+         * @exports IWorldBlockUpdate
+         * @interface IWorldBlockUpdate
+         * @property {number|null} [x] WorldBlockUpdate x
+         * @property {number|null} [y] WorldBlockUpdate y
+         * @property {number|null} [z] WorldBlockUpdate z
+         * @property {number|null} [id] WorldBlockUpdate id
          */
     
         /**
-         * Constructs a new worldBlockUpdate.
-         * @exports worldBlockUpdate
-         * @classdesc Represents a worldBlockUpdate.
-         * @implements IworldBlockUpdate
+         * Constructs a new WorldBlockUpdate.
+         * @exports WorldBlockUpdate
+         * @classdesc Represents a WorldBlockUpdate.
+         * @implements IWorldBlockUpdate
          * @constructor
-         * @param {IworldBlockUpdate=} [properties] Properties to set
+         * @param {IWorldBlockUpdate=} [properties] Properties to set
          */
-        function worldBlockUpdate(properties) {
+        function WorldBlockUpdate(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -4162,59 +4162,59 @@
         }
     
         /**
-         * worldBlockUpdate x.
+         * WorldBlockUpdate x.
          * @member {number} x
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @instance
          */
-        worldBlockUpdate.prototype.x = 0;
+        WorldBlockUpdate.prototype.x = 0;
     
         /**
-         * worldBlockUpdate y.
+         * WorldBlockUpdate y.
          * @member {number} y
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @instance
          */
-        worldBlockUpdate.prototype.y = 0;
+        WorldBlockUpdate.prototype.y = 0;
     
         /**
-         * worldBlockUpdate z.
+         * WorldBlockUpdate z.
          * @member {number} z
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @instance
          */
-        worldBlockUpdate.prototype.z = 0;
+        WorldBlockUpdate.prototype.z = 0;
     
         /**
-         * worldBlockUpdate id.
+         * WorldBlockUpdate id.
          * @member {number} id
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @instance
          */
-        worldBlockUpdate.prototype.id = 0;
+        WorldBlockUpdate.prototype.id = 0;
     
         /**
-         * Creates a new worldBlockUpdate instance using the specified properties.
+         * Creates a new WorldBlockUpdate instance using the specified properties.
          * @function create
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @static
-         * @param {IworldBlockUpdate=} [properties] Properties to set
-         * @returns {worldBlockUpdate} worldBlockUpdate instance
+         * @param {IWorldBlockUpdate=} [properties] Properties to set
+         * @returns {WorldBlockUpdate} WorldBlockUpdate instance
          */
-        worldBlockUpdate.create = function create(properties) {
-            return new worldBlockUpdate(properties);
+        WorldBlockUpdate.create = function create(properties) {
+            return new WorldBlockUpdate(properties);
         };
     
         /**
-         * Encodes the specified worldBlockUpdate message. Does not implicitly {@link worldBlockUpdate.verify|verify} messages.
+         * Encodes the specified WorldBlockUpdate message. Does not implicitly {@link WorldBlockUpdate.verify|verify} messages.
          * @function encode
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @static
-         * @param {IworldBlockUpdate} message worldBlockUpdate message or plain object to encode
+         * @param {IWorldBlockUpdate} message WorldBlockUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        worldBlockUpdate.encode = function encode(message, writer) {
+        WorldBlockUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
@@ -4229,33 +4229,33 @@
         };
     
         /**
-         * Encodes the specified worldBlockUpdate message, length delimited. Does not implicitly {@link worldBlockUpdate.verify|verify} messages.
+         * Encodes the specified WorldBlockUpdate message, length delimited. Does not implicitly {@link WorldBlockUpdate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @static
-         * @param {IworldBlockUpdate} message worldBlockUpdate message or plain object to encode
+         * @param {IWorldBlockUpdate} message WorldBlockUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        worldBlockUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+        WorldBlockUpdate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a worldBlockUpdate message from the specified reader or buffer.
+         * Decodes a WorldBlockUpdate message from the specified reader or buffer.
          * @function decode
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {worldBlockUpdate} worldBlockUpdate
+         * @returns {WorldBlockUpdate} WorldBlockUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        worldBlockUpdate.decode = function decode(reader, length) {
+        WorldBlockUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.worldBlockUpdate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.WorldBlockUpdate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4280,30 +4280,30 @@
         };
     
         /**
-         * Decodes a worldBlockUpdate message from the specified reader or buffer, length delimited.
+         * Decodes a WorldBlockUpdate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {worldBlockUpdate} worldBlockUpdate
+         * @returns {WorldBlockUpdate} WorldBlockUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        worldBlockUpdate.decodeDelimited = function decodeDelimited(reader) {
+        WorldBlockUpdate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a worldBlockUpdate message.
+         * Verifies a WorldBlockUpdate message.
          * @function verify
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        worldBlockUpdate.verify = function verify(message) {
+        WorldBlockUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.x != null && message.hasOwnProperty("x"))
@@ -4322,17 +4322,17 @@
         };
     
         /**
-         * Creates a worldBlockUpdate message from a plain object. Also converts values to their respective internal types.
+         * Creates a WorldBlockUpdate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {worldBlockUpdate} worldBlockUpdate
+         * @returns {WorldBlockUpdate} WorldBlockUpdate
          */
-        worldBlockUpdate.fromObject = function fromObject(object) {
-            if (object instanceof $root.worldBlockUpdate)
+        WorldBlockUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.WorldBlockUpdate)
                 return object;
-            var message = new $root.worldBlockUpdate();
+            var message = new $root.WorldBlockUpdate();
             if (object.x != null)
                 message.x = object.x | 0;
             if (object.y != null)
@@ -4345,15 +4345,15 @@
         };
     
         /**
-         * Creates a plain object from a worldBlockUpdate message. Also converts values to other types if specified.
+         * Creates a plain object from a WorldBlockUpdate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @static
-         * @param {worldBlockUpdate} message worldBlockUpdate
+         * @param {WorldBlockUpdate} message WorldBlockUpdate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        worldBlockUpdate.toObject = function toObject(message, options) {
+        WorldBlockUpdate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -4375,42 +4375,42 @@
         };
     
         /**
-         * Converts this worldBlockUpdate to JSON.
+         * Converts this WorldBlockUpdate to JSON.
          * @function toJSON
-         * @memberof worldBlockUpdate
+         * @memberof WorldBlockUpdate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        worldBlockUpdate.prototype.toJSON = function toJSON() {
+        WorldBlockUpdate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return worldBlockUpdate;
+        return WorldBlockUpdate;
     })();
     
-    $root.worldChunk = (function() {
+    $root.WorldChunkLoad = (function() {
     
         /**
-         * Properties of a worldChunk.
-         * @exports IworldChunk
-         * @interface IworldChunk
-         * @property {number|null} [x] worldChunk x
-         * @property {number|null} [y] worldChunk y
-         * @property {number|null} [z] worldChunk z
-         * @property {Uint8Array|null} [data] worldChunk data
-         * @property {boolean|null} [type] worldChunk type
-         * @property {boolean|null} [compressed] worldChunk compressed
+         * Properties of a WorldChunkLoad.
+         * @exports IWorldChunkLoad
+         * @interface IWorldChunkLoad
+         * @property {number|null} [x] WorldChunkLoad x
+         * @property {number|null} [y] WorldChunkLoad y
+         * @property {number|null} [z] WorldChunkLoad z
+         * @property {Uint8Array|null} [data] WorldChunkLoad data
+         * @property {boolean|null} [type] WorldChunkLoad type
+         * @property {boolean|null} [compressed] WorldChunkLoad compressed
          */
     
         /**
-         * Constructs a new worldChunk.
-         * @exports worldChunk
-         * @classdesc Represents a worldChunk.
-         * @implements IworldChunk
+         * Constructs a new WorldChunkLoad.
+         * @exports WorldChunkLoad
+         * @classdesc Represents a WorldChunkLoad.
+         * @implements IWorldChunkLoad
          * @constructor
-         * @param {IworldChunk=} [properties] Properties to set
+         * @param {IWorldChunkLoad=} [properties] Properties to set
          */
-        function worldChunk(properties) {
+        function WorldChunkLoad(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -4418,75 +4418,75 @@
         }
     
         /**
-         * worldChunk x.
+         * WorldChunkLoad x.
          * @member {number} x
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @instance
          */
-        worldChunk.prototype.x = 0;
+        WorldChunkLoad.prototype.x = 0;
     
         /**
-         * worldChunk y.
+         * WorldChunkLoad y.
          * @member {number} y
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @instance
          */
-        worldChunk.prototype.y = 0;
+        WorldChunkLoad.prototype.y = 0;
     
         /**
-         * worldChunk z.
+         * WorldChunkLoad z.
          * @member {number} z
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @instance
          */
-        worldChunk.prototype.z = 0;
+        WorldChunkLoad.prototype.z = 0;
     
         /**
-         * worldChunk data.
+         * WorldChunkLoad data.
          * @member {Uint8Array} data
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @instance
          */
-        worldChunk.prototype.data = $util.newBuffer([]);
+        WorldChunkLoad.prototype.data = $util.newBuffer([]);
     
         /**
-         * worldChunk type.
+         * WorldChunkLoad type.
          * @member {boolean} type
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @instance
          */
-        worldChunk.prototype.type = false;
+        WorldChunkLoad.prototype.type = false;
     
         /**
-         * worldChunk compressed.
+         * WorldChunkLoad compressed.
          * @member {boolean} compressed
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @instance
          */
-        worldChunk.prototype.compressed = false;
+        WorldChunkLoad.prototype.compressed = false;
     
         /**
-         * Creates a new worldChunk instance using the specified properties.
+         * Creates a new WorldChunkLoad instance using the specified properties.
          * @function create
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @static
-         * @param {IworldChunk=} [properties] Properties to set
-         * @returns {worldChunk} worldChunk instance
+         * @param {IWorldChunkLoad=} [properties] Properties to set
+         * @returns {WorldChunkLoad} WorldChunkLoad instance
          */
-        worldChunk.create = function create(properties) {
-            return new worldChunk(properties);
+        WorldChunkLoad.create = function create(properties) {
+            return new WorldChunkLoad(properties);
         };
     
         /**
-         * Encodes the specified worldChunk message. Does not implicitly {@link worldChunk.verify|verify} messages.
+         * Encodes the specified WorldChunkLoad message. Does not implicitly {@link WorldChunkLoad.verify|verify} messages.
          * @function encode
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @static
-         * @param {IworldChunk} message worldChunk message or plain object to encode
+         * @param {IWorldChunkLoad} message WorldChunkLoad message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        worldChunk.encode = function encode(message, writer) {
+        WorldChunkLoad.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
@@ -4505,33 +4505,33 @@
         };
     
         /**
-         * Encodes the specified worldChunk message, length delimited. Does not implicitly {@link worldChunk.verify|verify} messages.
+         * Encodes the specified WorldChunkLoad message, length delimited. Does not implicitly {@link WorldChunkLoad.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @static
-         * @param {IworldChunk} message worldChunk message or plain object to encode
+         * @param {IWorldChunkLoad} message WorldChunkLoad message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        worldChunk.encodeDelimited = function encodeDelimited(message, writer) {
+        WorldChunkLoad.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a worldChunk message from the specified reader or buffer.
+         * Decodes a WorldChunkLoad message from the specified reader or buffer.
          * @function decode
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {worldChunk} worldChunk
+         * @returns {WorldChunkLoad} WorldChunkLoad
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        worldChunk.decode = function decode(reader, length) {
+        WorldChunkLoad.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.worldChunk();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.WorldChunkLoad();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4562,30 +4562,30 @@
         };
     
         /**
-         * Decodes a worldChunk message from the specified reader or buffer, length delimited.
+         * Decodes a WorldChunkLoad message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {worldChunk} worldChunk
+         * @returns {WorldChunkLoad} WorldChunkLoad
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        worldChunk.decodeDelimited = function decodeDelimited(reader) {
+        WorldChunkLoad.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a worldChunk message.
+         * Verifies a WorldChunkLoad message.
          * @function verify
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        worldChunk.verify = function verify(message) {
+        WorldChunkLoad.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.x != null && message.hasOwnProperty("x"))
@@ -4610,17 +4610,17 @@
         };
     
         /**
-         * Creates a worldChunk message from a plain object. Also converts values to their respective internal types.
+         * Creates a WorldChunkLoad message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {worldChunk} worldChunk
+         * @returns {WorldChunkLoad} WorldChunkLoad
          */
-        worldChunk.fromObject = function fromObject(object) {
-            if (object instanceof $root.worldChunk)
+        WorldChunkLoad.fromObject = function fromObject(object) {
+            if (object instanceof $root.WorldChunkLoad)
                 return object;
-            var message = new $root.worldChunk();
+            var message = new $root.WorldChunkLoad();
             if (object.x != null)
                 message.x = object.x | 0;
             if (object.y != null)
@@ -4640,15 +4640,15 @@
         };
     
         /**
-         * Creates a plain object from a worldChunk message. Also converts values to other types if specified.
+         * Creates a plain object from a WorldChunkLoad message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @static
-         * @param {worldChunk} message worldChunk
+         * @param {WorldChunkLoad} message WorldChunkLoad
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        worldChunk.toObject = function toObject(message, options) {
+        WorldChunkLoad.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -4682,38 +4682,40 @@
         };
     
         /**
-         * Converts this worldChunk to JSON.
+         * Converts this WorldChunkLoad to JSON.
          * @function toJSON
-         * @memberof worldChunk
+         * @memberof WorldChunkLoad
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        worldChunk.prototype.toJSON = function toJSON() {
+        WorldChunkLoad.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return worldChunk;
+        return WorldChunkLoad;
     })();
     
-    $root.registryUpdate = (function() {
+    $root.WorldChunkUnload = (function() {
     
         /**
-         * Properties of a registryUpdate.
-         * @exports IregistryUpdate
-         * @interface IregistryUpdate
-         * @property {string|null} [itemsDef] registryUpdate itemsDef
-         * @property {string|null} [blocksDef] registryUpdate blocksDef
+         * Properties of a WorldChunkUnload.
+         * @exports IWorldChunkUnload
+         * @interface IWorldChunkUnload
+         * @property {number|null} [x] WorldChunkUnload x
+         * @property {number|null} [y] WorldChunkUnload y
+         * @property {number|null} [z] WorldChunkUnload z
+         * @property {boolean|null} [type] WorldChunkUnload type
          */
     
         /**
-         * Constructs a new registryUpdate.
-         * @exports registryUpdate
-         * @classdesc Represents a registryUpdate.
-         * @implements IregistryUpdate
+         * Constructs a new WorldChunkUnload.
+         * @exports WorldChunkUnload
+         * @classdesc Represents a WorldChunkUnload.
+         * @implements IWorldChunkUnload
          * @constructor
-         * @param {IregistryUpdate=} [properties] Properties to set
+         * @param {IWorldChunkUnload=} [properties] Properties to set
          */
-        function registryUpdate(properties) {
+        function WorldChunkUnload(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -4721,43 +4723,295 @@
         }
     
         /**
-         * registryUpdate itemsDef.
-         * @member {string} itemsDef
-         * @memberof registryUpdate
+         * WorldChunkUnload x.
+         * @member {number} x
+         * @memberof WorldChunkUnload
          * @instance
          */
-        registryUpdate.prototype.itemsDef = "";
+        WorldChunkUnload.prototype.x = 0;
     
         /**
-         * registryUpdate blocksDef.
-         * @member {string} blocksDef
-         * @memberof registryUpdate
+         * WorldChunkUnload y.
+         * @member {number} y
+         * @memberof WorldChunkUnload
          * @instance
          */
-        registryUpdate.prototype.blocksDef = "";
+        WorldChunkUnload.prototype.y = 0;
     
         /**
-         * Creates a new registryUpdate instance using the specified properties.
+         * WorldChunkUnload z.
+         * @member {number} z
+         * @memberof WorldChunkUnload
+         * @instance
+         */
+        WorldChunkUnload.prototype.z = 0;
+    
+        /**
+         * WorldChunkUnload type.
+         * @member {boolean} type
+         * @memberof WorldChunkUnload
+         * @instance
+         */
+        WorldChunkUnload.prototype.type = false;
+    
+        /**
+         * Creates a new WorldChunkUnload instance using the specified properties.
          * @function create
-         * @memberof registryUpdate
+         * @memberof WorldChunkUnload
          * @static
-         * @param {IregistryUpdate=} [properties] Properties to set
-         * @returns {registryUpdate} registryUpdate instance
+         * @param {IWorldChunkUnload=} [properties] Properties to set
+         * @returns {WorldChunkUnload} WorldChunkUnload instance
          */
-        registryUpdate.create = function create(properties) {
-            return new registryUpdate(properties);
+        WorldChunkUnload.create = function create(properties) {
+            return new WorldChunkUnload(properties);
         };
     
         /**
-         * Encodes the specified registryUpdate message. Does not implicitly {@link registryUpdate.verify|verify} messages.
+         * Encodes the specified WorldChunkUnload message. Does not implicitly {@link WorldChunkUnload.verify|verify} messages.
          * @function encode
-         * @memberof registryUpdate
+         * @memberof WorldChunkUnload
          * @static
-         * @param {IregistryUpdate} message registryUpdate message or plain object to encode
+         * @param {IWorldChunkUnload} message WorldChunkUnload message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        registryUpdate.encode = function encode(message, writer) {
+        WorldChunkUnload.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.x != null && Object.hasOwnProperty.call(message, "x"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+            if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+            if (message.z != null && Object.hasOwnProperty.call(message, "z"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.type);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified WorldChunkUnload message, length delimited. Does not implicitly {@link WorldChunkUnload.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof WorldChunkUnload
+         * @static
+         * @param {IWorldChunkUnload} message WorldChunkUnload message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        WorldChunkUnload.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a WorldChunkUnload message from the specified reader or buffer.
+         * @function decode
+         * @memberof WorldChunkUnload
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {WorldChunkUnload} WorldChunkUnload
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        WorldChunkUnload.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.WorldChunkUnload();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.x = reader.int32();
+                    break;
+                case 2:
+                    message.y = reader.int32();
+                    break;
+                case 3:
+                    message.z = reader.int32();
+                    break;
+                case 4:
+                    message.type = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a WorldChunkUnload message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof WorldChunkUnload
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {WorldChunkUnload} WorldChunkUnload
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        WorldChunkUnload.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a WorldChunkUnload message.
+         * @function verify
+         * @memberof WorldChunkUnload
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        WorldChunkUnload.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.x != null && message.hasOwnProperty("x"))
+                if (!$util.isInteger(message.x))
+                    return "x: integer expected";
+            if (message.y != null && message.hasOwnProperty("y"))
+                if (!$util.isInteger(message.y))
+                    return "y: integer expected";
+            if (message.z != null && message.hasOwnProperty("z"))
+                if (!$util.isInteger(message.z))
+                    return "z: integer expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                if (typeof message.type !== "boolean")
+                    return "type: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates a WorldChunkUnload message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof WorldChunkUnload
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {WorldChunkUnload} WorldChunkUnload
+         */
+        WorldChunkUnload.fromObject = function fromObject(object) {
+            if (object instanceof $root.WorldChunkUnload)
+                return object;
+            var message = new $root.WorldChunkUnload();
+            if (object.x != null)
+                message.x = object.x | 0;
+            if (object.y != null)
+                message.y = object.y | 0;
+            if (object.z != null)
+                message.z = object.z | 0;
+            if (object.type != null)
+                message.type = Boolean(object.type);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a WorldChunkUnload message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof WorldChunkUnload
+         * @static
+         * @param {WorldChunkUnload} message WorldChunkUnload
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        WorldChunkUnload.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.x = 0;
+                object.y = 0;
+                object.z = 0;
+                object.type = false;
+            }
+            if (message.x != null && message.hasOwnProperty("x"))
+                object.x = message.x;
+            if (message.y != null && message.hasOwnProperty("y"))
+                object.y = message.y;
+            if (message.z != null && message.hasOwnProperty("z"))
+                object.z = message.z;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = message.type;
+            return object;
+        };
+    
+        /**
+         * Converts this WorldChunkUnload to JSON.
+         * @function toJSON
+         * @memberof WorldChunkUnload
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        WorldChunkUnload.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return WorldChunkUnload;
+    })();
+    
+    $root.RegistryUpdate = (function() {
+    
+        /**
+         * Properties of a RegistryUpdate.
+         * @exports IRegistryUpdate
+         * @interface IRegistryUpdate
+         * @property {string|null} [itemsDef] RegistryUpdate itemsDef
+         * @property {string|null} [blocksDef] RegistryUpdate blocksDef
+         */
+    
+        /**
+         * Constructs a new RegistryUpdate.
+         * @exports RegistryUpdate
+         * @classdesc Represents a RegistryUpdate.
+         * @implements IRegistryUpdate
+         * @constructor
+         * @param {IRegistryUpdate=} [properties] Properties to set
+         */
+        function RegistryUpdate(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * RegistryUpdate itemsDef.
+         * @member {string} itemsDef
+         * @memberof RegistryUpdate
+         * @instance
+         */
+        RegistryUpdate.prototype.itemsDef = "";
+    
+        /**
+         * RegistryUpdate blocksDef.
+         * @member {string} blocksDef
+         * @memberof RegistryUpdate
+         * @instance
+         */
+        RegistryUpdate.prototype.blocksDef = "";
+    
+        /**
+         * Creates a new RegistryUpdate instance using the specified properties.
+         * @function create
+         * @memberof RegistryUpdate
+         * @static
+         * @param {IRegistryUpdate=} [properties] Properties to set
+         * @returns {RegistryUpdate} RegistryUpdate instance
+         */
+        RegistryUpdate.create = function create(properties) {
+            return new RegistryUpdate(properties);
+        };
+    
+        /**
+         * Encodes the specified RegistryUpdate message. Does not implicitly {@link RegistryUpdate.verify|verify} messages.
+         * @function encode
+         * @memberof RegistryUpdate
+         * @static
+         * @param {IRegistryUpdate} message RegistryUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        RegistryUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.itemsDef != null && Object.hasOwnProperty.call(message, "itemsDef"))
@@ -4768,33 +5022,33 @@
         };
     
         /**
-         * Encodes the specified registryUpdate message, length delimited. Does not implicitly {@link registryUpdate.verify|verify} messages.
+         * Encodes the specified RegistryUpdate message, length delimited. Does not implicitly {@link RegistryUpdate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof registryUpdate
+         * @memberof RegistryUpdate
          * @static
-         * @param {IregistryUpdate} message registryUpdate message or plain object to encode
+         * @param {IRegistryUpdate} message RegistryUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        registryUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+        RegistryUpdate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a registryUpdate message from the specified reader or buffer.
+         * Decodes a RegistryUpdate message from the specified reader or buffer.
          * @function decode
-         * @memberof registryUpdate
+         * @memberof RegistryUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {registryUpdate} registryUpdate
+         * @returns {RegistryUpdate} RegistryUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        registryUpdate.decode = function decode(reader, length) {
+        RegistryUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.registryUpdate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.RegistryUpdate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -4813,30 +5067,30 @@
         };
     
         /**
-         * Decodes a registryUpdate message from the specified reader or buffer, length delimited.
+         * Decodes a RegistryUpdate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof registryUpdate
+         * @memberof RegistryUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {registryUpdate} registryUpdate
+         * @returns {RegistryUpdate} RegistryUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        registryUpdate.decodeDelimited = function decodeDelimited(reader) {
+        RegistryUpdate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a registryUpdate message.
+         * Verifies a RegistryUpdate message.
          * @function verify
-         * @memberof registryUpdate
+         * @memberof RegistryUpdate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        registryUpdate.verify = function verify(message) {
+        RegistryUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
@@ -4849,17 +5103,17 @@
         };
     
         /**
-         * Creates a registryUpdate message from a plain object. Also converts values to their respective internal types.
+         * Creates a RegistryUpdate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof registryUpdate
+         * @memberof RegistryUpdate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {registryUpdate} registryUpdate
+         * @returns {RegistryUpdate} RegistryUpdate
          */
-        registryUpdate.fromObject = function fromObject(object) {
-            if (object instanceof $root.registryUpdate)
+        RegistryUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.RegistryUpdate)
                 return object;
-            var message = new $root.registryUpdate();
+            var message = new $root.RegistryUpdate();
             if (object.itemsDef != null)
                 message.itemsDef = String(object.itemsDef);
             if (object.blocksDef != null)
@@ -4868,15 +5122,15 @@
         };
     
         /**
-         * Creates a plain object from a registryUpdate message. Also converts values to other types if specified.
+         * Creates a plain object from a RegistryUpdate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof registryUpdate
+         * @memberof RegistryUpdate
          * @static
-         * @param {registryUpdate} message registryUpdate
+         * @param {RegistryUpdate} message RegistryUpdate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        registryUpdate.toObject = function toObject(message, options) {
+        RegistryUpdate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -4892,17 +5146,17 @@
         };
     
         /**
-         * Converts this registryUpdate to JSON.
+         * Converts this RegistryUpdate to JSON.
          * @function toJSON
-         * @memberof registryUpdate
+         * @memberof RegistryUpdate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        registryUpdate.prototype.toJSON = function toJSON() {
+        RegistryUpdate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return registryUpdate;
+        return RegistryUpdate;
     })();
 
     return $root;
