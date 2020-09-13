@@ -731,6 +731,108 @@ export class PlayerSlotUpdate implements IPlayerSlotUpdate {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a PlayerApplyImpulse. */
+export interface IPlayerApplyImpulse {
+
+    /** PlayerApplyImpulse x */
+    x?: (number|null);
+
+    /** PlayerApplyImpulse y */
+    y?: (number|null);
+
+    /** PlayerApplyImpulse z */
+    z?: (number|null);
+}
+
+/** Represents a PlayerApplyImpulse. */
+export class PlayerApplyImpulse implements IPlayerApplyImpulse {
+
+    /**
+     * Constructs a new PlayerApplyImpulse.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerApplyImpulse);
+
+    /** PlayerApplyImpulse x. */
+    public x: number;
+
+    /** PlayerApplyImpulse y. */
+    public y: number;
+
+    /** PlayerApplyImpulse z. */
+    public z: number;
+
+    /**
+     * Creates a new PlayerApplyImpulse instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerApplyImpulse instance
+     */
+    public static create(properties?: IPlayerApplyImpulse): PlayerApplyImpulse;
+
+    /**
+     * Encodes the specified PlayerApplyImpulse message. Does not implicitly {@link PlayerApplyImpulse.verify|verify} messages.
+     * @param message PlayerApplyImpulse message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerApplyImpulse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerApplyImpulse message, length delimited. Does not implicitly {@link PlayerApplyImpulse.verify|verify} messages.
+     * @param message PlayerApplyImpulse message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerApplyImpulse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerApplyImpulse message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerApplyImpulse
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerApplyImpulse;
+
+    /**
+     * Decodes a PlayerApplyImpulse message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerApplyImpulse
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerApplyImpulse;
+
+    /**
+     * Verifies a PlayerApplyImpulse message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerApplyImpulse message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerApplyImpulse
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerApplyImpulse;
+
+    /**
+     * Creates a plain object from a PlayerApplyImpulse message. Also converts values to other types if specified.
+     * @param message PlayerApplyImpulse
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerApplyImpulse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerApplyImpulse to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PlayerUpdateMovement. */
 export interface IPlayerUpdateMovement {
 

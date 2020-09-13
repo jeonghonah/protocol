@@ -124,6 +124,22 @@
         }
       }
     },
+    "PlayerApplyImpulse": {
+      "fields": {
+        "x": {
+          "type": "float",
+          "id": 1
+        },
+        "y": {
+          "type": "float",
+          "id": 2
+        },
+        "z": {
+          "type": "float",
+          "id": 3
+        }
+      }
+    },
     "PlayerUpdateMovement": {
       "fields": {
         "key": {

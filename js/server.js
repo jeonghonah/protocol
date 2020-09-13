@@ -1719,6 +1719,238 @@
         return PlayerSlotUpdate;
     })();
     
+    $root.PlayerApplyImpulse = (function() {
+    
+        /**
+         * Properties of a PlayerApplyImpulse.
+         * @exports IPlayerApplyImpulse
+         * @interface IPlayerApplyImpulse
+         * @property {number|null} [x] PlayerApplyImpulse x
+         * @property {number|null} [y] PlayerApplyImpulse y
+         * @property {number|null} [z] PlayerApplyImpulse z
+         */
+    
+        /**
+         * Constructs a new PlayerApplyImpulse.
+         * @exports PlayerApplyImpulse
+         * @classdesc Represents a PlayerApplyImpulse.
+         * @implements IPlayerApplyImpulse
+         * @constructor
+         * @param {IPlayerApplyImpulse=} [properties] Properties to set
+         */
+        function PlayerApplyImpulse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerApplyImpulse x.
+         * @member {number} x
+         * @memberof PlayerApplyImpulse
+         * @instance
+         */
+        PlayerApplyImpulse.prototype.x = 0;
+    
+        /**
+         * PlayerApplyImpulse y.
+         * @member {number} y
+         * @memberof PlayerApplyImpulse
+         * @instance
+         */
+        PlayerApplyImpulse.prototype.y = 0;
+    
+        /**
+         * PlayerApplyImpulse z.
+         * @member {number} z
+         * @memberof PlayerApplyImpulse
+         * @instance
+         */
+        PlayerApplyImpulse.prototype.z = 0;
+    
+        /**
+         * Creates a new PlayerApplyImpulse instance using the specified properties.
+         * @function create
+         * @memberof PlayerApplyImpulse
+         * @static
+         * @param {IPlayerApplyImpulse=} [properties] Properties to set
+         * @returns {PlayerApplyImpulse} PlayerApplyImpulse instance
+         */
+        PlayerApplyImpulse.create = function create(properties) {
+            return new PlayerApplyImpulse(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerApplyImpulse message. Does not implicitly {@link PlayerApplyImpulse.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerApplyImpulse
+         * @static
+         * @param {IPlayerApplyImpulse} message PlayerApplyImpulse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerApplyImpulse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.x != null && Object.hasOwnProperty.call(message, "x"))
+                writer.uint32(/* id 1, wireType 5 =*/13).float(message.x);
+            if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+                writer.uint32(/* id 2, wireType 5 =*/21).float(message.y);
+            if (message.z != null && Object.hasOwnProperty.call(message, "z"))
+                writer.uint32(/* id 3, wireType 5 =*/29).float(message.z);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerApplyImpulse message, length delimited. Does not implicitly {@link PlayerApplyImpulse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerApplyImpulse
+         * @static
+         * @param {IPlayerApplyImpulse} message PlayerApplyImpulse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerApplyImpulse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerApplyImpulse message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerApplyImpulse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerApplyImpulse} PlayerApplyImpulse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerApplyImpulse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerApplyImpulse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.x = reader.float();
+                    break;
+                case 2:
+                    message.y = reader.float();
+                    break;
+                case 3:
+                    message.z = reader.float();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerApplyImpulse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerApplyImpulse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerApplyImpulse} PlayerApplyImpulse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerApplyImpulse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerApplyImpulse message.
+         * @function verify
+         * @memberof PlayerApplyImpulse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerApplyImpulse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.x != null && message.hasOwnProperty("x"))
+                if (typeof message.x !== "number")
+                    return "x: number expected";
+            if (message.y != null && message.hasOwnProperty("y"))
+                if (typeof message.y !== "number")
+                    return "y: number expected";
+            if (message.z != null && message.hasOwnProperty("z"))
+                if (typeof message.z !== "number")
+                    return "z: number expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerApplyImpulse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerApplyImpulse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerApplyImpulse} PlayerApplyImpulse
+         */
+        PlayerApplyImpulse.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerApplyImpulse)
+                return object;
+            var message = new $root.PlayerApplyImpulse();
+            if (object.x != null)
+                message.x = Number(object.x);
+            if (object.y != null)
+                message.y = Number(object.y);
+            if (object.z != null)
+                message.z = Number(object.z);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerApplyImpulse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerApplyImpulse
+         * @static
+         * @param {PlayerApplyImpulse} message PlayerApplyImpulse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerApplyImpulse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.x = 0;
+                object.y = 0;
+                object.z = 0;
+            }
+            if (message.x != null && message.hasOwnProperty("x"))
+                object.x = options.json && !isFinite(message.x) ? String(message.x) : message.x;
+            if (message.y != null && message.hasOwnProperty("y"))
+                object.y = options.json && !isFinite(message.y) ? String(message.y) : message.y;
+            if (message.z != null && message.hasOwnProperty("z"))
+                object.z = options.json && !isFinite(message.z) ? String(message.z) : message.z;
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerApplyImpulse to JSON.
+         * @function toJSON
+         * @memberof PlayerApplyImpulse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerApplyImpulse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerApplyImpulse;
+    })();
+    
     $root.PlayerUpdateMovement = (function() {
     
         /**
