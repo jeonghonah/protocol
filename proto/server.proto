@@ -5,8 +5,8 @@ syntax = "proto3";
 */
 
 message LoginRequest {
-    string name = 1;           // Server's name
-    int32 protocol = 2;
+	string name = 1;   // Server's name
+	int32 protocol = 2;
 	int32 maxplayers = 3;
 	int32 numberplayers = 4;
 	string motd = 5;
@@ -22,21 +22,32 @@ message LoginRequest {
 */
 
 message LoginSuccess {
-    double x_pos = 1;
-    double y_pos = 2;
-    double z_pos = 3;
-    string items_def = 4;
-    string blocks_def = 5;
+	double x_pos = 1;
+	double y_pos = 2;
+	double z_pos = 3;
+	string items_def = 4;
+	string blocks_def = 5;
 	string inventory = 6;
 	string armor = 7;
 }
 
 /* 
+ * PlayerKick is used to set reason of connection close
+*/
+
+message PlayerKick {
+	string reason = 1;
+	uint64 time = 2;
+}
+
+
+/* 
  * PlayerEntity is send to make client ignore actions of player's entity
 */
 
+
 message PlayerEntity {
-    string uuid = 1;
+	string uuid = 1;
 }
 
 /* 
@@ -45,9 +56,9 @@ message PlayerEntity {
 */
 
 message PlayerTeleport {
-    double x = 1;
-    double y = 2;
-    double z = 3;
+	double x = 1;
+	double y = 2;
+	double z = 3;
 }
 
 /* 
@@ -67,26 +78,26 @@ message PlayerInventory {
 
 message PlayerSlotUpdate {
 	int32 slot = 1;
-    string type = 2;
-    string data = 3;
+	string type = 2;
+	string data = 3;
 }
 
 /* 
- * PlayerMovementChange updates player's movement (noa) values.
+ * PlayerUpdateMovement updates player's movement (noa) values.
 */
 
-message PlayerMovementChange {
-    string key = 1;
-    double value = 2;
+message PlayerUpdateMovement {
+	string key = 1;
+	double value = 2;
 }
 
 /* 
- * PlayerKick is used to set reason of connection close
+ * PlayerUpdatePhysics updates player's physic (noa) values.
 */
 
-message PlayerKick {
-	string reason = 1;
-	uint64 time = 2;
+message PlayerUpdatePhysics {
+	string key = 1;
+	double value = 2;
 }
 
 /* 
@@ -96,11 +107,11 @@ message PlayerKick {
 */
 
 message SoundPlay {
-    string sound = 1;
-    int32 volume = 2;
-    double x = 3;
-    double y = 4;
-    double z = 5;
+	string sound = 1;
+	int32 volume = 2;
+	double x = 3;
+	double y = 4;
+	double z = 5;
 }
 
 /* 
@@ -116,7 +127,7 @@ message ChatMessage {
 		bool underline = 5;
 	}
 
-	map<uint32, ChatComponent> message = 1; 
+	map<uint32, ChatComponent> message = 1;
 	uint64 time = 2;
 }
 
@@ -125,8 +136,17 @@ message ChatMessage {
 */
 
 message TabUpdate {
-	string message = 1; 
-	uint64 time = 2;}
+	message ChatComponent {
+		string text = 1;
+		string font = 2;
+		string color = 3;
+		bool linethrough = 4;
+		bool underline = 5;
+	}
+
+	map<uint32, ChatComponent> message = 1;
+	uint64 time = 2;
+}
 
 /* 
  * EntityCreate creates new entity.
@@ -134,8 +154,8 @@ message TabUpdate {
 */
 
 message EntityCreate {
-    string uuid = 1;
-    string data = 2;
+	string uuid = 1;
+	string data = 2;
 }
 
 /* 
@@ -143,7 +163,7 @@ message EntityCreate {
 */
 
 message EntityRemove {
-    string uuid = 1;
+	string uuid = 1;
 }
 
 /* 
@@ -151,11 +171,12 @@ message EntityRemove {
 */
 
 message EntityMove {
-    string uuid = 1;
-    double x = 2;
-    double y = 3;
-    double z = 4;
-    float rotation = 5;
+	string uuid = 1;
+	double x = 2;
+	double y = 3;
+	double z = 4;
+	float rotation = 5;
+	float pitch = 6;
 }
 
 /* 
@@ -163,9 +184,9 @@ message EntityMove {
 */
 
 message EntityUpdate {
-    string uuid = 1;
-    string key = 2;
-    string value = 3;
+	string uuid = 1;
+	string key = 2;
+	string value = 3;
 }
 
 /* 
@@ -173,7 +194,7 @@ message EntityUpdate {
 */
 
 message EntityAnimate {
-    string uuid = 1;
+	string uuid = 1;
 	string animation = 2;
 	uint32 time = 3;
 	bool replace = 4;
@@ -184,10 +205,10 @@ message EntityAnimate {
 */
 
 message WorldBlockUpdate {
-    int32 x = 1;
-    int32 y = 2;
-    int32 z = 3;
-    uint32 id = 4;
+	int32 x = 1;
+	int32 y = 2;
+	int32 z = 3;
+	uint32 id = 4;
 }
 
 /* 
@@ -198,7 +219,7 @@ message WorldBlockUpdate {
 */
 
 message WorldChunkLoad {
-    int32 x = 1;
+	int32 x = 1;
 	int32 y = 2;
 	int32 z = 3;
 	bytes data = 4;
@@ -214,7 +235,7 @@ message WorldChunkLoad {
 */
 
 message WorldChunkUnload {
-    int32 x = 1;
+	int32 x = 1;
 	int32 y = 2;
 	int32 z = 3;
 	bool type = 4;
@@ -226,6 +247,6 @@ message WorldChunkUnload {
 */
 
 message RegistryUpdate {
-    string items_def = 1;
-    string blocks_def = 2;
+	string items_def = 1;
+	string blocks_def = 2;
 }

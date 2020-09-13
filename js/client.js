@@ -26,6 +26,7 @@
          * @property {number|null} [protocol] LoginResponse protocol
          * @property {boolean|null} [mobile] LoginResponse mobile
          * @property {string|null} [client] LoginResponse client
+         * @property {string|null} [uuid] LoginResponse uuid
          * @property {string|null} [secret] LoginResponse secret
          */
     
@@ -77,6 +78,14 @@
         LoginResponse.prototype.client = "";
     
         /**
+         * LoginResponse uuid.
+         * @member {string} uuid
+         * @memberof LoginResponse
+         * @instance
+         */
+        LoginResponse.prototype.uuid = "";
+    
+        /**
          * LoginResponse secret.
          * @member {string} secret
          * @memberof LoginResponse
@@ -116,8 +125,10 @@
                 writer.uint32(/* id 3, wireType 0 =*/24).bool(message.mobile);
             if (message.client != null && Object.hasOwnProperty.call(message, "client"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.client);
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 5, wireType 2 =*/42).string(message.uuid);
             if (message.secret != null && Object.hasOwnProperty.call(message, "secret"))
-                writer.uint32(/* id 5, wireType 2 =*/42).string(message.secret);
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.secret);
             return writer;
         };
     
@@ -165,6 +176,9 @@
                     message.client = reader.string();
                     break;
                 case 5:
+                    message.uuid = reader.string();
+                    break;
+                case 6:
                     message.secret = reader.string();
                     break;
                 default:
@@ -214,6 +228,9 @@
             if (message.client != null && message.hasOwnProperty("client"))
                 if (!$util.isString(message.client))
                     return "client: string expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
             if (message.secret != null && message.hasOwnProperty("secret"))
                 if (!$util.isString(message.secret))
                     return "secret: string expected";
@@ -240,6 +257,8 @@
                 message.mobile = Boolean(object.mobile);
             if (object.client != null)
                 message.client = String(object.client);
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
             if (object.secret != null)
                 message.secret = String(object.secret);
             return message;
@@ -263,6 +282,7 @@
                 object.protocol = 0;
                 object.mobile = false;
                 object.client = "";
+                object.uuid = "";
                 object.secret = "";
             }
             if (message.username != null && message.hasOwnProperty("username"))
@@ -273,6 +293,8 @@
                 object.mobile = message.mobile;
             if (message.client != null && message.hasOwnProperty("client"))
                 object.client = message.client;
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
             if (message.secret != null && message.hasOwnProperty("secret"))
                 object.secret = message.secret;
             return object;
@@ -302,6 +324,7 @@
          * @property {number|null} [y] ActionMove y
          * @property {number|null} [z] ActionMove z
          * @property {number|null} [rotation] ActionMove rotation
+         * @property {number|null} [pitch] ActionMove pitch
          */
     
         /**
@@ -352,6 +375,14 @@
         ActionMove.prototype.rotation = 0;
     
         /**
+         * ActionMove pitch.
+         * @member {number} pitch
+         * @memberof ActionMove
+         * @instance
+         */
+        ActionMove.prototype.pitch = 0;
+    
+        /**
          * Creates a new ActionMove instance using the specified properties.
          * @function create
          * @memberof ActionMove
@@ -383,6 +414,8 @@
                 writer.uint32(/* id 3, wireType 1 =*/25).double(message.z);
             if (message.rotation != null && Object.hasOwnProperty.call(message, "rotation"))
                 writer.uint32(/* id 4, wireType 5 =*/37).float(message.rotation);
+            if (message.pitch != null && Object.hasOwnProperty.call(message, "pitch"))
+                writer.uint32(/* id 5, wireType 5 =*/45).float(message.pitch);
             return writer;
         };
     
@@ -428,6 +461,9 @@
                     break;
                 case 4:
                     message.rotation = reader.float();
+                    break;
+                case 5:
+                    message.pitch = reader.float();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -476,6 +512,9 @@
             if (message.rotation != null && message.hasOwnProperty("rotation"))
                 if (typeof message.rotation !== "number")
                     return "rotation: number expected";
+            if (message.pitch != null && message.hasOwnProperty("pitch"))
+                if (typeof message.pitch !== "number")
+                    return "pitch: number expected";
             return null;
         };
     
@@ -499,6 +538,8 @@
                 message.z = Number(object.z);
             if (object.rotation != null)
                 message.rotation = Number(object.rotation);
+            if (object.pitch != null)
+                message.pitch = Number(object.pitch);
             return message;
         };
     
@@ -520,6 +561,7 @@
                 object.y = 0;
                 object.z = 0;
                 object.rotation = 0;
+                object.pitch = 0;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = options.json && !isFinite(message.x) ? String(message.x) : message.x;
@@ -529,6 +571,8 @@
                 object.z = options.json && !isFinite(message.z) ? String(message.z) : message.z;
             if (message.rotation != null && message.hasOwnProperty("rotation"))
                 object.rotation = options.json && !isFinite(message.rotation) ? String(message.rotation) : message.rotation;
+            if (message.pitch != null && message.hasOwnProperty("pitch"))
+                object.pitch = options.json && !isFinite(message.pitch) ? String(message.pitch) : message.pitch;
             return object;
         };
     
@@ -1901,6 +1945,7 @@
          * @property {number|null} [y] ActionClick y
          * @property {number|null} [z] ActionClick z
          * @property {string|null} [type] ActionClick type
+         * @property {boolean|null} [onBlock] ActionClick onBlock
          */
     
         /**
@@ -1951,6 +1996,14 @@
         ActionClick.prototype.type = "";
     
         /**
+         * ActionClick onBlock.
+         * @member {boolean} onBlock
+         * @memberof ActionClick
+         * @instance
+         */
+        ActionClick.prototype.onBlock = false;
+    
+        /**
          * Creates a new ActionClick instance using the specified properties.
          * @function create
          * @memberof ActionClick
@@ -1982,6 +2035,8 @@
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.type);
+            if (message.onBlock != null && Object.hasOwnProperty.call(message, "onBlock"))
+                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.onBlock);
             return writer;
         };
     
@@ -2027,6 +2082,9 @@
                     break;
                 case 4:
                     message.type = reader.string();
+                    break;
+                case 5:
+                    message.onBlock = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2075,6 +2133,9 @@
             if (message.type != null && message.hasOwnProperty("type"))
                 if (!$util.isString(message.type))
                     return "type: string expected";
+            if (message.onBlock != null && message.hasOwnProperty("onBlock"))
+                if (typeof message.onBlock !== "boolean")
+                    return "onBlock: boolean expected";
             return null;
         };
     
@@ -2098,6 +2159,8 @@
                 message.z = object.z | 0;
             if (object.type != null)
                 message.type = String(object.type);
+            if (object.onBlock != null)
+                message.onBlock = Boolean(object.onBlock);
             return message;
         };
     
@@ -2119,6 +2182,7 @@
                 object.y = 0;
                 object.z = 0;
                 object.type = "";
+                object.onBlock = false;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = message.x;
@@ -2128,6 +2192,8 @@
                 object.z = message.z;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = message.type;
+            if (message.onBlock != null && message.hasOwnProperty("onBlock"))
+                object.onBlock = message.onBlock;
             return object;
         };
     
@@ -2153,6 +2219,7 @@
          * @interface IActionClickEntity
          * @property {string|null} [uuid] ActionClickEntity uuid
          * @property {string|null} [type] ActionClickEntity type
+         * @property {number|null} [distance] ActionClickEntity distance
          */
     
         /**
@@ -2187,6 +2254,14 @@
         ActionClickEntity.prototype.type = "";
     
         /**
+         * ActionClickEntity distance.
+         * @member {number} distance
+         * @memberof ActionClickEntity
+         * @instance
+         */
+        ActionClickEntity.prototype.distance = 0;
+    
+        /**
          * Creates a new ActionClickEntity instance using the specified properties.
          * @function create
          * @memberof ActionClickEntity
@@ -2214,6 +2289,8 @@
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+            if (message.distance != null && Object.hasOwnProperty.call(message, "distance"))
+                writer.uint32(/* id 3, wireType 5 =*/29).float(message.distance);
             return writer;
         };
     
@@ -2253,6 +2330,9 @@
                     break;
                 case 2:
                     message.type = reader.string();
+                    break;
+                case 3:
+                    message.distance = reader.float();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2295,6 +2375,9 @@
             if (message.type != null && message.hasOwnProperty("type"))
                 if (!$util.isString(message.type))
                     return "type: string expected";
+            if (message.distance != null && message.hasOwnProperty("distance"))
+                if (typeof message.distance !== "number")
+                    return "distance: number expected";
             return null;
         };
     
@@ -2314,6 +2397,8 @@
                 message.uuid = String(object.uuid);
             if (object.type != null)
                 message.type = String(object.type);
+            if (object.distance != null)
+                message.distance = Number(object.distance);
             return message;
         };
     
@@ -2333,11 +2418,14 @@
             if (options.defaults) {
                 object.uuid = "";
                 object.type = "";
+                object.distance = 0;
             }
             if (message.uuid != null && message.hasOwnProperty("uuid"))
                 object.uuid = message.uuid;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = message.type;
+            if (message.distance != null && message.hasOwnProperty("distance"))
+                object.distance = options.json && !isFinite(message.distance) ? String(message.distance) : message.distance;
             return object;
         };
     
@@ -2353,238 +2441,6 @@
         };
     
         return ActionClickEntity;
-    })();
-    
-    $root.ChunkRequest = (function() {
-    
-        /**
-         * Properties of a ChunkRequest.
-         * @exports IChunkRequest
-         * @interface IChunkRequest
-         * @property {number|null} [x] ChunkRequest x
-         * @property {number|null} [y] ChunkRequest y
-         * @property {number|null} [z] ChunkRequest z
-         */
-    
-        /**
-         * Constructs a new ChunkRequest.
-         * @exports ChunkRequest
-         * @classdesc Represents a ChunkRequest.
-         * @implements IChunkRequest
-         * @constructor
-         * @param {IChunkRequest=} [properties] Properties to set
-         */
-        function ChunkRequest(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-    
-        /**
-         * ChunkRequest x.
-         * @member {number} x
-         * @memberof ChunkRequest
-         * @instance
-         */
-        ChunkRequest.prototype.x = 0;
-    
-        /**
-         * ChunkRequest y.
-         * @member {number} y
-         * @memberof ChunkRequest
-         * @instance
-         */
-        ChunkRequest.prototype.y = 0;
-    
-        /**
-         * ChunkRequest z.
-         * @member {number} z
-         * @memberof ChunkRequest
-         * @instance
-         */
-        ChunkRequest.prototype.z = 0;
-    
-        /**
-         * Creates a new ChunkRequest instance using the specified properties.
-         * @function create
-         * @memberof ChunkRequest
-         * @static
-         * @param {IChunkRequest=} [properties] Properties to set
-         * @returns {ChunkRequest} ChunkRequest instance
-         */
-        ChunkRequest.create = function create(properties) {
-            return new ChunkRequest(properties);
-        };
-    
-        /**
-         * Encodes the specified ChunkRequest message. Does not implicitly {@link ChunkRequest.verify|verify} messages.
-         * @function encode
-         * @memberof ChunkRequest
-         * @static
-         * @param {IChunkRequest} message ChunkRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        ChunkRequest.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.x != null && Object.hasOwnProperty.call(message, "x"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
-            if (message.y != null && Object.hasOwnProperty.call(message, "y"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
-            if (message.z != null && Object.hasOwnProperty.call(message, "z"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
-            return writer;
-        };
-    
-        /**
-         * Encodes the specified ChunkRequest message, length delimited. Does not implicitly {@link ChunkRequest.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof ChunkRequest
-         * @static
-         * @param {IChunkRequest} message ChunkRequest message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        ChunkRequest.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-    
-        /**
-         * Decodes a ChunkRequest message from the specified reader or buffer.
-         * @function decode
-         * @memberof ChunkRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {ChunkRequest} ChunkRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        ChunkRequest.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChunkRequest();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.x = reader.int32();
-                    break;
-                case 2:
-                    message.y = reader.int32();
-                    break;
-                case 3:
-                    message.z = reader.int32();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-    
-        /**
-         * Decodes a ChunkRequest message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof ChunkRequest
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ChunkRequest} ChunkRequest
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        ChunkRequest.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-    
-        /**
-         * Verifies a ChunkRequest message.
-         * @function verify
-         * @memberof ChunkRequest
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        ChunkRequest.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.x != null && message.hasOwnProperty("x"))
-                if (!$util.isInteger(message.x))
-                    return "x: integer expected";
-            if (message.y != null && message.hasOwnProperty("y"))
-                if (!$util.isInteger(message.y))
-                    return "y: integer expected";
-            if (message.z != null && message.hasOwnProperty("z"))
-                if (!$util.isInteger(message.z))
-                    return "z: integer expected";
-            return null;
-        };
-    
-        /**
-         * Creates a ChunkRequest message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof ChunkRequest
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {ChunkRequest} ChunkRequest
-         */
-        ChunkRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.ChunkRequest)
-                return object;
-            var message = new $root.ChunkRequest();
-            if (object.x != null)
-                message.x = object.x | 0;
-            if (object.y != null)
-                message.y = object.y | 0;
-            if (object.z != null)
-                message.z = object.z | 0;
-            return message;
-        };
-    
-        /**
-         * Creates a plain object from a ChunkRequest message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof ChunkRequest
-         * @static
-         * @param {ChunkRequest} message ChunkRequest
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        ChunkRequest.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.x = 0;
-                object.y = 0;
-                object.z = 0;
-            }
-            if (message.x != null && message.hasOwnProperty("x"))
-                object.x = message.x;
-            if (message.y != null && message.hasOwnProperty("y"))
-                object.y = message.y;
-            if (message.z != null && message.hasOwnProperty("z"))
-                object.z = message.z;
-            return object;
-        };
-    
-        /**
-         * Converts this ChunkRequest to JSON.
-         * @function toJSON
-         * @memberof ChunkRequest
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        ChunkRequest.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-    
-        return ChunkRequest;
     })();
 
     return $root;

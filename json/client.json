@@ -18,9 +18,13 @@
           "type": "string",
           "id": 4
         },
-        "secret": {
+        "uuid": {
           "type": "string",
           "id": 5
+        },
+        "secret": {
+          "type": "string",
+          "id": 6
         }
       }
     },
@@ -41,6 +45,10 @@
         "rotation": {
           "type": "float",
           "id": 4
+        },
+        "pitch": {
+          "type": "float",
+          "id": 5
         }
       }
     },
@@ -149,6 +157,10 @@
         "type": {
           "type": "string",
           "id": 4
+        },
+        "onBlock": {
+          "type": "bool",
+          "id": 5
         }
       }
     },
@@ -161,21 +173,9 @@
         "type": {
           "type": "string",
           "id": 2
-        }
-      }
-    },
-    "ChunkRequest": {
-      "fields": {
-        "x": {
-          "type": "int32",
-          "id": 1
         },
-        "y": {
-          "type": "int32",
-          "id": 2
-        },
-        "z": {
-          "type": "int32",
+        "distance": {
+          "type": "float",
           "id": 3
         }
       }

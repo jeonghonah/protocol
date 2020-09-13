@@ -14,6 +14,9 @@ export interface ILoginResponse {
     /** LoginResponse client */
     client?: (string|null);
 
+    /** LoginResponse uuid */
+    uuid?: (string|null);
+
     /** LoginResponse secret */
     secret?: (string|null);
 }
@@ -38,6 +41,9 @@ export class LoginResponse implements ILoginResponse {
 
     /** LoginResponse client. */
     public client: string;
+
+    /** LoginResponse uuid. */
+    public uuid: string;
 
     /** LoginResponse secret. */
     public secret: string;
@@ -127,6 +133,9 @@ export interface IActionMove {
 
     /** ActionMove rotation */
     rotation?: (number|null);
+
+    /** ActionMove pitch */
+    pitch?: (number|null);
 }
 
 /** Represents an ActionMove. */
@@ -149,6 +158,9 @@ export class ActionMove implements IActionMove {
 
     /** ActionMove rotation. */
     public rotation: number;
+
+    /** ActionMove pitch. */
+    public pitch: number;
 
     /**
      * Creates a new ActionMove instance using the specified properties.
@@ -835,6 +847,9 @@ export interface IActionClick {
 
     /** ActionClick type */
     type?: (string|null);
+
+    /** ActionClick onBlock */
+    onBlock?: (boolean|null);
 }
 
 /** Represents an ActionClick. */
@@ -857,6 +872,9 @@ export class ActionClick implements IActionClick {
 
     /** ActionClick type. */
     public type: string;
+
+    /** ActionClick onBlock. */
+    public onBlock: boolean;
 
     /**
      * Creates a new ActionClick instance using the specified properties.
@@ -937,6 +955,9 @@ export interface IActionClickEntity {
 
     /** ActionClickEntity type */
     type?: (string|null);
+
+    /** ActionClickEntity distance */
+    distance?: (number|null);
 }
 
 /** Represents an ActionClickEntity. */
@@ -953,6 +974,9 @@ export class ActionClickEntity implements IActionClickEntity {
 
     /** ActionClickEntity type. */
     public type: string;
+
+    /** ActionClickEntity distance. */
+    public distance: number;
 
     /**
      * Creates a new ActionClickEntity instance using the specified properties.
@@ -1020,108 +1044,6 @@ export class ActionClickEntity implements IActionClickEntity {
 
     /**
      * Converts this ActionClickEntity to JSON.
-     * @returns JSON object
-     */
-    public toJSON(): { [k: string]: any };
-}
-
-/** Properties of a ChunkRequest. */
-export interface IChunkRequest {
-
-    /** ChunkRequest x */
-    x?: (number|null);
-
-    /** ChunkRequest y */
-    y?: (number|null);
-
-    /** ChunkRequest z */
-    z?: (number|null);
-}
-
-/** Represents a ChunkRequest. */
-export class ChunkRequest implements IChunkRequest {
-
-    /**
-     * Constructs a new ChunkRequest.
-     * @param [properties] Properties to set
-     */
-    constructor(properties?: IChunkRequest);
-
-    /** ChunkRequest x. */
-    public x: number;
-
-    /** ChunkRequest y. */
-    public y: number;
-
-    /** ChunkRequest z. */
-    public z: number;
-
-    /**
-     * Creates a new ChunkRequest instance using the specified properties.
-     * @param [properties] Properties to set
-     * @returns ChunkRequest instance
-     */
-    public static create(properties?: IChunkRequest): ChunkRequest;
-
-    /**
-     * Encodes the specified ChunkRequest message. Does not implicitly {@link ChunkRequest.verify|verify} messages.
-     * @param message ChunkRequest message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encode(message: IChunkRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Encodes the specified ChunkRequest message, length delimited. Does not implicitly {@link ChunkRequest.verify|verify} messages.
-     * @param message ChunkRequest message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encodeDelimited(message: IChunkRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Decodes a ChunkRequest message from the specified reader or buffer.
-     * @param reader Reader or buffer to decode from
-     * @param [length] Message length if known beforehand
-     * @returns ChunkRequest
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChunkRequest;
-
-    /**
-     * Decodes a ChunkRequest message from the specified reader or buffer, length delimited.
-     * @param reader Reader or buffer to decode from
-     * @returns ChunkRequest
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChunkRequest;
-
-    /**
-     * Verifies a ChunkRequest message.
-     * @param message Plain object to verify
-     * @returns `null` if valid, otherwise the reason why it is not
-     */
-    public static verify(message: { [k: string]: any }): (string|null);
-
-    /**
-     * Creates a ChunkRequest message from a plain object. Also converts values to their respective internal types.
-     * @param object Plain object
-     * @returns ChunkRequest
-     */
-    public static fromObject(object: { [k: string]: any }): ChunkRequest;
-
-    /**
-     * Creates a plain object from a ChunkRequest message. Also converts values to other types if specified.
-     * @param message ChunkRequest
-     * @param [options] Conversion options
-     * @returns Plain object
-     */
-    public static toObject(message: ChunkRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-    /**
-     * Converts this ChunkRequest to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

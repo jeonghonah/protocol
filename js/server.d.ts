@@ -245,6 +245,102 @@ export class LoginSuccess implements ILoginSuccess {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a PlayerKick. */
+export interface IPlayerKick {
+
+    /** PlayerKick reason */
+    reason?: (string|null);
+
+    /** PlayerKick time */
+    time?: (number|Long|null);
+}
+
+/** Represents a PlayerKick. */
+export class PlayerKick implements IPlayerKick {
+
+    /**
+     * Constructs a new PlayerKick.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerKick);
+
+    /** PlayerKick reason. */
+    public reason: string;
+
+    /** PlayerKick time. */
+    public time: (number|Long);
+
+    /**
+     * Creates a new PlayerKick instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerKick instance
+     */
+    public static create(properties?: IPlayerKick): PlayerKick;
+
+    /**
+     * Encodes the specified PlayerKick message. Does not implicitly {@link PlayerKick.verify|verify} messages.
+     * @param message PlayerKick message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerKick, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerKick message, length delimited. Does not implicitly {@link PlayerKick.verify|verify} messages.
+     * @param message PlayerKick message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerKick, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerKick message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerKick
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerKick;
+
+    /**
+     * Decodes a PlayerKick message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerKick
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerKick;
+
+    /**
+     * Verifies a PlayerKick message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerKick message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerKick
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerKick;
+
+    /**
+     * Creates a plain object from a PlayerKick message. Also converts values to other types if specified.
+     * @param message PlayerKick
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerKick, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerKick to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PlayerEntity. */
 export interface IPlayerEntity {
 
@@ -635,193 +731,193 @@ export class PlayerSlotUpdate implements IPlayerSlotUpdate {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of a PlayerMovementChange. */
-export interface IPlayerMovementChange {
+/** Properties of a PlayerUpdateMovement. */
+export interface IPlayerUpdateMovement {
 
-    /** PlayerMovementChange key */
+    /** PlayerUpdateMovement key */
     key?: (string|null);
 
-    /** PlayerMovementChange value */
+    /** PlayerUpdateMovement value */
     value?: (number|null);
 }
 
-/** Represents a PlayerMovementChange. */
-export class PlayerMovementChange implements IPlayerMovementChange {
+/** Represents a PlayerUpdateMovement. */
+export class PlayerUpdateMovement implements IPlayerUpdateMovement {
 
     /**
-     * Constructs a new PlayerMovementChange.
+     * Constructs a new PlayerUpdateMovement.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IPlayerMovementChange);
+    constructor(properties?: IPlayerUpdateMovement);
 
-    /** PlayerMovementChange key. */
+    /** PlayerUpdateMovement key. */
     public key: string;
 
-    /** PlayerMovementChange value. */
+    /** PlayerUpdateMovement value. */
     public value: number;
 
     /**
-     * Creates a new PlayerMovementChange instance using the specified properties.
+     * Creates a new PlayerUpdateMovement instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns PlayerMovementChange instance
+     * @returns PlayerUpdateMovement instance
      */
-    public static create(properties?: IPlayerMovementChange): PlayerMovementChange;
+    public static create(properties?: IPlayerUpdateMovement): PlayerUpdateMovement;
 
     /**
-     * Encodes the specified PlayerMovementChange message. Does not implicitly {@link PlayerMovementChange.verify|verify} messages.
-     * @param message PlayerMovementChange message or plain object to encode
+     * Encodes the specified PlayerUpdateMovement message. Does not implicitly {@link PlayerUpdateMovement.verify|verify} messages.
+     * @param message PlayerUpdateMovement message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IPlayerMovementChange, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IPlayerUpdateMovement, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified PlayerMovementChange message, length delimited. Does not implicitly {@link PlayerMovementChange.verify|verify} messages.
-     * @param message PlayerMovementChange message or plain object to encode
+     * Encodes the specified PlayerUpdateMovement message, length delimited. Does not implicitly {@link PlayerUpdateMovement.verify|verify} messages.
+     * @param message PlayerUpdateMovement message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IPlayerMovementChange, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IPlayerUpdateMovement, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a PlayerMovementChange message from the specified reader or buffer.
+     * Decodes a PlayerUpdateMovement message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns PlayerMovementChange
+     * @returns PlayerUpdateMovement
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerMovementChange;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerUpdateMovement;
 
     /**
-     * Decodes a PlayerMovementChange message from the specified reader or buffer, length delimited.
+     * Decodes a PlayerUpdateMovement message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns PlayerMovementChange
+     * @returns PlayerUpdateMovement
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerMovementChange;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerUpdateMovement;
 
     /**
-     * Verifies a PlayerMovementChange message.
+     * Verifies a PlayerUpdateMovement message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a PlayerMovementChange message from a plain object. Also converts values to their respective internal types.
+     * Creates a PlayerUpdateMovement message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns PlayerMovementChange
+     * @returns PlayerUpdateMovement
      */
-    public static fromObject(object: { [k: string]: any }): PlayerMovementChange;
+    public static fromObject(object: { [k: string]: any }): PlayerUpdateMovement;
 
     /**
-     * Creates a plain object from a PlayerMovementChange message. Also converts values to other types if specified.
-     * @param message PlayerMovementChange
+     * Creates a plain object from a PlayerUpdateMovement message. Also converts values to other types if specified.
+     * @param message PlayerUpdateMovement
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: PlayerMovementChange, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: PlayerUpdateMovement, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this PlayerMovementChange to JSON.
+     * Converts this PlayerUpdateMovement to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of a PlayerKick. */
-export interface IPlayerKick {
+/** Properties of a PlayerUpdatePhysics. */
+export interface IPlayerUpdatePhysics {
 
-    /** PlayerKick reason */
-    reason?: (string|null);
+    /** PlayerUpdatePhysics key */
+    key?: (string|null);
 
-    /** PlayerKick time */
-    time?: (number|Long|null);
+    /** PlayerUpdatePhysics value */
+    value?: (number|null);
 }
 
-/** Represents a PlayerKick. */
-export class PlayerKick implements IPlayerKick {
+/** Represents a PlayerUpdatePhysics. */
+export class PlayerUpdatePhysics implements IPlayerUpdatePhysics {
 
     /**
-     * Constructs a new PlayerKick.
+     * Constructs a new PlayerUpdatePhysics.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IPlayerKick);
+    constructor(properties?: IPlayerUpdatePhysics);
 
-    /** PlayerKick reason. */
-    public reason: string;
+    /** PlayerUpdatePhysics key. */
+    public key: string;
 
-    /** PlayerKick time. */
-    public time: (number|Long);
+    /** PlayerUpdatePhysics value. */
+    public value: number;
 
     /**
-     * Creates a new PlayerKick instance using the specified properties.
+     * Creates a new PlayerUpdatePhysics instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns PlayerKick instance
+     * @returns PlayerUpdatePhysics instance
      */
-    public static create(properties?: IPlayerKick): PlayerKick;
+    public static create(properties?: IPlayerUpdatePhysics): PlayerUpdatePhysics;
 
     /**
-     * Encodes the specified PlayerKick message. Does not implicitly {@link PlayerKick.verify|verify} messages.
-     * @param message PlayerKick message or plain object to encode
+     * Encodes the specified PlayerUpdatePhysics message. Does not implicitly {@link PlayerUpdatePhysics.verify|verify} messages.
+     * @param message PlayerUpdatePhysics message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IPlayerKick, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IPlayerUpdatePhysics, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified PlayerKick message, length delimited. Does not implicitly {@link PlayerKick.verify|verify} messages.
-     * @param message PlayerKick message or plain object to encode
+     * Encodes the specified PlayerUpdatePhysics message, length delimited. Does not implicitly {@link PlayerUpdatePhysics.verify|verify} messages.
+     * @param message PlayerUpdatePhysics message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IPlayerKick, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IPlayerUpdatePhysics, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a PlayerKick message from the specified reader or buffer.
+     * Decodes a PlayerUpdatePhysics message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns PlayerKick
+     * @returns PlayerUpdatePhysics
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerKick;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerUpdatePhysics;
 
     /**
-     * Decodes a PlayerKick message from the specified reader or buffer, length delimited.
+     * Decodes a PlayerUpdatePhysics message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns PlayerKick
+     * @returns PlayerUpdatePhysics
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerKick;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerUpdatePhysics;
 
     /**
-     * Verifies a PlayerKick message.
+     * Verifies a PlayerUpdatePhysics message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a PlayerKick message from a plain object. Also converts values to their respective internal types.
+     * Creates a PlayerUpdatePhysics message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns PlayerKick
+     * @returns PlayerUpdatePhysics
      */
-    public static fromObject(object: { [k: string]: any }): PlayerKick;
+    public static fromObject(object: { [k: string]: any }): PlayerUpdatePhysics;
 
     /**
-     * Creates a plain object from a PlayerKick message. Also converts values to other types if specified.
-     * @param message PlayerKick
+     * Creates a plain object from a PlayerUpdatePhysics message. Also converts values to other types if specified.
+     * @param message PlayerUpdatePhysics
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: PlayerKick, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: PlayerUpdatePhysics, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this PlayerKick to JSON.
+     * Converts this PlayerUpdatePhysics to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
@@ -1158,7 +1254,7 @@ export namespace ChatMessage {
 export interface ITabUpdate {
 
     /** TabUpdate message */
-    message?: (string|null);
+    message?: ({ [k: string]: TabUpdate.IChatComponent }|null);
 
     /** TabUpdate time */
     time?: (number|Long|null);
@@ -1174,7 +1270,7 @@ export class TabUpdate implements ITabUpdate {
     constructor(properties?: ITabUpdate);
 
     /** TabUpdate message. */
-    public message: string;
+    public message: { [k: string]: TabUpdate.IChatComponent };
 
     /** TabUpdate time. */
     public time: (number|Long);
@@ -1248,6 +1344,123 @@ export class TabUpdate implements ITabUpdate {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+}
+
+export namespace TabUpdate {
+
+    /** Properties of a ChatComponent. */
+    interface IChatComponent {
+
+        /** ChatComponent text */
+        text?: (string|null);
+
+        /** ChatComponent font */
+        font?: (string|null);
+
+        /** ChatComponent color */
+        color?: (string|null);
+
+        /** ChatComponent linethrough */
+        linethrough?: (boolean|null);
+
+        /** ChatComponent underline */
+        underline?: (boolean|null);
+    }
+
+    /** Represents a ChatComponent. */
+    class ChatComponent implements IChatComponent {
+
+        /**
+         * Constructs a new ChatComponent.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: TabUpdate.IChatComponent);
+
+        /** ChatComponent text. */
+        public text: string;
+
+        /** ChatComponent font. */
+        public font: string;
+
+        /** ChatComponent color. */
+        public color: string;
+
+        /** ChatComponent linethrough. */
+        public linethrough: boolean;
+
+        /** ChatComponent underline. */
+        public underline: boolean;
+
+        /**
+         * Creates a new ChatComponent instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ChatComponent instance
+         */
+        public static create(properties?: TabUpdate.IChatComponent): TabUpdate.ChatComponent;
+
+        /**
+         * Encodes the specified ChatComponent message. Does not implicitly {@link TabUpdate.ChatComponent.verify|verify} messages.
+         * @param message ChatComponent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: TabUpdate.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ChatComponent message, length delimited. Does not implicitly {@link TabUpdate.ChatComponent.verify|verify} messages.
+         * @param message ChatComponent message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: TabUpdate.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ChatComponent message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ChatComponent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): TabUpdate.ChatComponent;
+
+        /**
+         * Decodes a ChatComponent message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ChatComponent
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): TabUpdate.ChatComponent;
+
+        /**
+         * Verifies a ChatComponent message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ChatComponent message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ChatComponent
+         */
+        public static fromObject(object: { [k: string]: any }): TabUpdate.ChatComponent;
+
+        /**
+         * Creates a plain object from a ChatComponent message. Also converts values to other types if specified.
+         * @param message ChatComponent
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: TabUpdate.ChatComponent, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ChatComponent to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
 }
 
 /** Properties of an EntityCreate. */
@@ -1346,91 +1559,91 @@ export class EntityCreate implements IEntityCreate {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an entityRemove. */
-export interface IentityRemove {
+/** Properties of an EntityRemove. */
+export interface IEntityRemove {
 
-    /** entityRemove uuid */
+    /** EntityRemove uuid */
     uuid?: (string|null);
 }
 
-/** Represents an entityRemove. */
-export class entityRemove implements IentityRemove {
+/** Represents an EntityRemove. */
+export class EntityRemove implements IEntityRemove {
 
     /**
-     * Constructs a new entityRemove.
+     * Constructs a new EntityRemove.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IentityRemove);
+    constructor(properties?: IEntityRemove);
 
-    /** entityRemove uuid. */
+    /** EntityRemove uuid. */
     public uuid: string;
 
     /**
-     * Creates a new entityRemove instance using the specified properties.
+     * Creates a new EntityRemove instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns entityRemove instance
+     * @returns EntityRemove instance
      */
-    public static create(properties?: IentityRemove): entityRemove;
+    public static create(properties?: IEntityRemove): EntityRemove;
 
     /**
-     * Encodes the specified entityRemove message. Does not implicitly {@link entityRemove.verify|verify} messages.
-     * @param message entityRemove message or plain object to encode
+     * Encodes the specified EntityRemove message. Does not implicitly {@link EntityRemove.verify|verify} messages.
+     * @param message EntityRemove message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IentityRemove, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IEntityRemove, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified entityRemove message, length delimited. Does not implicitly {@link entityRemove.verify|verify} messages.
-     * @param message entityRemove message or plain object to encode
+     * Encodes the specified EntityRemove message, length delimited. Does not implicitly {@link EntityRemove.verify|verify} messages.
+     * @param message EntityRemove message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IentityRemove, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IEntityRemove, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an entityRemove message from the specified reader or buffer.
+     * Decodes an EntityRemove message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns entityRemove
+     * @returns EntityRemove
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): entityRemove;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EntityRemove;
 
     /**
-     * Decodes an entityRemove message from the specified reader or buffer, length delimited.
+     * Decodes an EntityRemove message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns entityRemove
+     * @returns EntityRemove
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): entityRemove;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EntityRemove;
 
     /**
-     * Verifies an entityRemove message.
+     * Verifies an EntityRemove message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an entityRemove message from a plain object. Also converts values to their respective internal types.
+     * Creates an EntityRemove message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns entityRemove
+     * @returns EntityRemove
      */
-    public static fromObject(object: { [k: string]: any }): entityRemove;
+    public static fromObject(object: { [k: string]: any }): EntityRemove;
 
     /**
-     * Creates a plain object from an entityRemove message. Also converts values to other types if specified.
-     * @param message entityRemove
+     * Creates a plain object from an EntityRemove message. Also converts values to other types if specified.
+     * @param message EntityRemove
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: entityRemove, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: EntityRemove, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this entityRemove to JSON.
+     * Converts this EntityRemove to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
@@ -1453,6 +1666,9 @@ export interface IEntityMove {
 
     /** EntityMove rotation */
     rotation?: (number|null);
+
+    /** EntityMove pitch */
+    pitch?: (number|null);
 }
 
 /** Represents an EntityMove. */
@@ -1478,6 +1694,9 @@ export class EntityMove implements IEntityMove {
 
     /** EntityMove rotation. */
     public rotation: number;
+
+    /** EntityMove pitch. */
+    public pitch: number;
 
     /**
      * Creates a new EntityMove instance using the specified properties.

@@ -60,6 +60,18 @@
         }
       }
     },
+    "PlayerKick": {
+      "fields": {
+        "reason": {
+          "type": "string",
+          "id": 1
+        },
+        "time": {
+          "type": "uint64",
+          "id": 2
+        }
+      }
+    },
     "PlayerEntity": {
       "fields": {
         "uuid": {
@@ -112,7 +124,7 @@
         }
       }
     },
-    "PlayerMovementChange": {
+    "PlayerUpdateMovement": {
       "fields": {
         "key": {
           "type": "string",
@@ -124,14 +136,14 @@
         }
       }
     },
-    "PlayerKick": {
+    "PlayerUpdatePhysics": {
       "fields": {
-        "reason": {
+        "key": {
           "type": "string",
           "id": 1
         },
-        "time": {
-          "type": "uint64",
+        "value": {
+          "type": "double",
           "id": 2
         }
       }
@@ -202,12 +214,39 @@
     "TabUpdate": {
       "fields": {
         "message": {
-          "type": "string",
+          "keyType": "uint32",
+          "type": "ChatComponent",
           "id": 1
         },
         "time": {
           "type": "uint64",
           "id": 2
+        }
+      },
+      "nested": {
+        "ChatComponent": {
+          "fields": {
+            "text": {
+              "type": "string",
+              "id": 1
+            },
+            "font": {
+              "type": "string",
+              "id": 2
+            },
+            "color": {
+              "type": "string",
+              "id": 3
+            },
+            "linethrough": {
+              "type": "bool",
+              "id": 4
+            },
+            "underline": {
+              "type": "bool",
+              "id": 5
+            }
+          }
         }
       }
     },
@@ -223,7 +262,7 @@
         }
       }
     },
-    "entityRemove": {
+    "EntityRemove": {
       "fields": {
         "uuid": {
           "type": "string",
@@ -252,6 +291,10 @@
         "rotation": {
           "type": "float",
           "id": 5
+        },
+        "pitch": {
+          "type": "float",
+          "id": 6
         }
       }
     },

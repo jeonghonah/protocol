@@ -6,11 +6,13 @@ syntax = "proto3";
 */
 
 message LoginResponse {
-    string username = 1;
-    uint32 protocol = 2;
-	bool mobile = 3;       // Is set to true, if player is using mobile device
+	string username = 1;
+	uint32 protocol = 2;
+	bool mobile = 3;// Is set to true, if player is using mobile device
 	string client = 4;
-	string secret = 5;
+	string uuid = 5;
+	string secret = 6;
+
 }
 
 /* 
@@ -20,10 +22,11 @@ message LoginResponse {
 */
 
 message ActionMove {
-    double x = 1;          
-    double y = 2;          
-    double z = 3;          
-    float rotation = 4;
+	double x = 1;
+	double y = 2;
+	double z = 3;
+	float rotation = 4;
+	float pitch = 5;
 }
 
 /* 
@@ -31,7 +34,7 @@ message ActionMove {
 */
 
 message ActionMessage {
-    string message = 1;
+	string message = 1;
 }
 
 /* 
@@ -41,12 +44,12 @@ message ActionMessage {
 */
 
 message ActionBlockPlace {
-    int32 x = 1;
-    int32 y = 2;
-    int32 z = 3;
-    int32 x2 = 4;
-    int32 y2 = 5;
-    int32 z2 = 6;
+	int32 x = 1;
+	int32 y = 2;
+	int32 z = 3;
+	int32 x2 = 4;
+	int32 y2 = 5;
+	int32 z2 = 6;
 }
 
 /* 
@@ -55,9 +58,9 @@ message ActionBlockPlace {
 */
 
 message ActionBlockBreak {
-    int32 x = 1;
-    int32 y = 2;
-    int32 z = 3;
+	int32 x = 1;
+	int32 y = 2;
+	int32 z = 3;
 }
 
 /* 
@@ -95,10 +98,11 @@ message ActionInventoryClose {
 */
 
 message ActionClick {
-    int32 x = 1;
-    int32 y = 2;
+	int32 x = 1;
+	int32 y = 2;
 	int32 z = 3;
 	string type = 4;
+	bool onBlock = 5;
 }
 
 /* 
@@ -106,19 +110,11 @@ message ActionClick {
 */
 
 message ActionClickEntity {
-    string uuid = 1;
+	string uuid = 1;
 	string type = 2;
+	float distance = 3;
 }
 
-/* 
- * chunkRequest is send when client is missing some chunks
-*/
-
-message ChunkRequest {
-    int32 x = 1;
-    int32 y = 2;
-    int32 z = 3;
-}
 
 
 
