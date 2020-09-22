@@ -1,19 +1,22 @@
 {
-  "name": "voxelsrv-protocol",
-  "version": "0.2.0",
-  "description": "",
-  "scripts": {
-    "start": "ts-node generate.ts"
-  },
-  "keywords": [
-    "voxel",
-    "server"
-  ],
-  "author": "Patbox",
-  "license": "MIT",
-  "dependencies": {
-    "protobufjs": "^6.10.1",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
-  }
+	"name": "voxelsrv-protocol",
+	"version": "0.2.0",
+	"description": "",
+	"scripts": {
+		"start": "ts-node generate.ts"
+	},
+	"keywords": [
+		"voxel",
+		"server"
+	],
+	"main": "index.js",
+	"author": "Patbox",
+	"license": "CC0",
+	"dependencies": {
+		"protobufjs": "^6.10.1"
+	},
+	"devDependencies": {
+		"ts-node": "^8.10.2",
+		"typescript": "^3.9.7"
+	}
 }
