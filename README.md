@@ -1,3 +1,6 @@
+For client, see [VoxelSrv/voxelsrv](https://github.com/VoxelSrv/voxelsrv)
+For server, see [VoxelSrv/voxelsrv-server](https://github.com/VoxelSrv/voxelsrv-server)
+
 VoxelSrv is using Protocol Buffers with additional byte (ID) at the beginning.
 Everything is sent via WebSockets with ArrayBuffers.
 
