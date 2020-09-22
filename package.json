@@ -1,17 +1,19 @@
 {
 	"name": "voxelsrv-protocol",
-	"version": "0.2.0",
+	"version": "0.2.0-beta.5",
 	"description": "",
 	"scripts": {
 		"start": "ts-node generate.ts"
 	},
 	"keywords": [
 		"voxel",
-		"server"
+		"server",
+		"voxelsrv"
 	],
 	"main": "index.js",
 	"author": "Patbox",
 	"license": "CC0",
+	"repository": "https://github.com/VoxelSrv/protocol",
 	"dependencies": {
 		"protobufjs": "^6.10.1"
 	},
