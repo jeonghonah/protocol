@@ -142,6 +142,15 @@ export interface ILoginSuccess {
 
     /** LoginSuccess armor */
     armor?: (string|null);
+
+    /** LoginSuccess allowCheats */
+    allowCheats?: (boolean|null);
+
+    /** LoginSuccess allowCustomSkins */
+    allowCustomSkins?: (boolean|null);
+
+    /** LoginSuccess movement */
+    movement?: (string|null);
 }
 
 /** Represents a LoginSuccess. */
@@ -173,6 +182,15 @@ export class LoginSuccess implements ILoginSuccess {
 
     /** LoginSuccess armor. */
     public armor: string;
+
+    /** LoginSuccess allowCheats. */
+    public allowCheats: boolean;
+
+    /** LoginSuccess allowCustomSkins. */
+    public allowCustomSkins: boolean;
+
+    /** LoginSuccess movement. */
+    public movement: string;
 
     /**
      * Creates a new LoginSuccess instance using the specified properties.
@@ -1020,6 +1038,198 @@ export class PlayerUpdatePhysics implements IPlayerUpdatePhysics {
 
     /**
      * Converts this PlayerUpdatePhysics to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a PlayerHealth. */
+export interface IPlayerHealth {
+
+    /** PlayerHealth value */
+    value?: (number|null);
+}
+
+/** Represents a PlayerHealth. */
+export class PlayerHealth implements IPlayerHealth {
+
+    /**
+     * Constructs a new PlayerHealth.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerHealth);
+
+    /** PlayerHealth value. */
+    public value: number;
+
+    /**
+     * Creates a new PlayerHealth instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerHealth instance
+     */
+    public static create(properties?: IPlayerHealth): PlayerHealth;
+
+    /**
+     * Encodes the specified PlayerHealth message. Does not implicitly {@link PlayerHealth.verify|verify} messages.
+     * @param message PlayerHealth message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerHealth, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerHealth message, length delimited. Does not implicitly {@link PlayerHealth.verify|verify} messages.
+     * @param message PlayerHealth message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerHealth, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerHealth message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerHealth
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerHealth;
+
+    /**
+     * Decodes a PlayerHealth message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerHealth
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerHealth;
+
+    /**
+     * Verifies a PlayerHealth message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerHealth message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerHealth
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerHealth;
+
+    /**
+     * Creates a plain object from a PlayerHealth message. Also converts values to other types if specified.
+     * @param message PlayerHealth
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerHealth, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerHealth to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a PlayerOpenInventory. */
+export interface IPlayerOpenInventory {
+
+    /** PlayerOpenInventory name */
+    name?: (string|null);
+
+    /** PlayerOpenInventory type */
+    type?: (string|null);
+
+    /** PlayerOpenInventory data */
+    data?: (string|null);
+}
+
+/** Represents a PlayerOpenInventory. */
+export class PlayerOpenInventory implements IPlayerOpenInventory {
+
+    /**
+     * Constructs a new PlayerOpenInventory.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerOpenInventory);
+
+    /** PlayerOpenInventory name. */
+    public name: string;
+
+    /** PlayerOpenInventory type. */
+    public type: string;
+
+    /** PlayerOpenInventory data. */
+    public data: string;
+
+    /**
+     * Creates a new PlayerOpenInventory instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerOpenInventory instance
+     */
+    public static create(properties?: IPlayerOpenInventory): PlayerOpenInventory;
+
+    /**
+     * Encodes the specified PlayerOpenInventory message. Does not implicitly {@link PlayerOpenInventory.verify|verify} messages.
+     * @param message PlayerOpenInventory message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerOpenInventory, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerOpenInventory message, length delimited. Does not implicitly {@link PlayerOpenInventory.verify|verify} messages.
+     * @param message PlayerOpenInventory message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerOpenInventory, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerOpenInventory message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerOpenInventory
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerOpenInventory;
+
+    /**
+     * Decodes a PlayerOpenInventory message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerOpenInventory
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerOpenInventory;
+
+    /**
+     * Verifies a PlayerOpenInventory message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerOpenInventory message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerOpenInventory
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerOpenInventory;
+
+    /**
+     * Creates a plain object from a PlayerOpenInventory message. Also converts values to other types if specified.
+     * @param message PlayerOpenInventory
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerOpenInventory, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerOpenInventory to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

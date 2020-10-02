@@ -29,6 +29,9 @@ message LoginSuccess {
 	string blocks_def = 5;
 	string inventory = 6;
 	string armor = 7;
+	bool allow_cheats = 8;
+	bool allow_custom_skins = 9;
+	string movement = 10;
 }
 
 /* 
@@ -40,11 +43,9 @@ message PlayerKick {
 	uint64 time = 2;
 }
 
-
 /* 
  * PlayerEntity is send to make client ignore actions of player's entity
 */
-
 
 message PlayerEntity {
 	string uuid = 1;
@@ -108,6 +109,24 @@ message PlayerUpdateMovement {
 message PlayerUpdatePhysics {
 	string key = 1;
 	double value = 2;
+}
+
+/* 
+ * PlayerHealth updates number of hearts of player.
+*/
+
+message PlayerHealth {
+	uint32 value = 1;
+}
+
+/* 
+ * PlayerOpenInventory opens inventory to player.
+*/
+
+message PlayerOpenInventory {
+	string name = 1;
+	string type = 2;
+	string data = 3;
 }
 
 /* 

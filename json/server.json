@@ -57,6 +57,18 @@
         "armor": {
           "type": "string",
           "id": 7
+        },
+        "allowCheats": {
+          "type": "bool",
+          "id": 8
+        },
+        "allowCustomSkins": {
+          "type": "bool",
+          "id": 9
+        },
+        "movement": {
+          "type": "string",
+          "id": 10
         }
       }
     },
@@ -161,6 +173,30 @@
         "value": {
           "type": "double",
           "id": 2
+        }
+      }
+    },
+    "PlayerHealth": {
+      "fields": {
+        "value": {
+          "type": "uint32",
+          "id": 1
+        }
+      }
+    },
+    "PlayerOpenInventory": {
+      "fields": {
+        "name": {
+          "type": "string",
+          "id": 1
+        },
+        "type": {
+          "type": "string",
+          "id": 2
+        },
+        "data": {
+          "type": "string",
+          "id": 3
         }
       }
     },

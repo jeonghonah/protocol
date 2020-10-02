@@ -327,6 +327,9 @@
          * @property {string|null} [blocksDef] LoginSuccess blocksDef
          * @property {string|null} [inventory] LoginSuccess inventory
          * @property {string|null} [armor] LoginSuccess armor
+         * @property {boolean|null} [allowCheats] LoginSuccess allowCheats
+         * @property {boolean|null} [allowCustomSkins] LoginSuccess allowCustomSkins
+         * @property {string|null} [movement] LoginSuccess movement
          */
     
         /**
@@ -401,6 +404,30 @@
         LoginSuccess.prototype.armor = "";
     
         /**
+         * LoginSuccess allowCheats.
+         * @member {boolean} allowCheats
+         * @memberof LoginSuccess
+         * @instance
+         */
+        LoginSuccess.prototype.allowCheats = false;
+    
+        /**
+         * LoginSuccess allowCustomSkins.
+         * @member {boolean} allowCustomSkins
+         * @memberof LoginSuccess
+         * @instance
+         */
+        LoginSuccess.prototype.allowCustomSkins = false;
+    
+        /**
+         * LoginSuccess movement.
+         * @member {string} movement
+         * @memberof LoginSuccess
+         * @instance
+         */
+        LoginSuccess.prototype.movement = "";
+    
+        /**
          * Creates a new LoginSuccess instance using the specified properties.
          * @function create
          * @memberof LoginSuccess
@@ -438,6 +465,12 @@
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.inventory);
             if (message.armor != null && Object.hasOwnProperty.call(message, "armor"))
                 writer.uint32(/* id 7, wireType 2 =*/58).string(message.armor);
+            if (message.allowCheats != null && Object.hasOwnProperty.call(message, "allowCheats"))
+                writer.uint32(/* id 8, wireType 0 =*/64).bool(message.allowCheats);
+            if (message.allowCustomSkins != null && Object.hasOwnProperty.call(message, "allowCustomSkins"))
+                writer.uint32(/* id 9, wireType 0 =*/72).bool(message.allowCustomSkins);
+            if (message.movement != null && Object.hasOwnProperty.call(message, "movement"))
+                writer.uint32(/* id 10, wireType 2 =*/82).string(message.movement);
             return writer;
         };
     
@@ -492,6 +525,15 @@
                     break;
                 case 7:
                     message.armor = reader.string();
+                    break;
+                case 8:
+                    message.allowCheats = reader.bool();
+                    break;
+                case 9:
+                    message.allowCustomSkins = reader.bool();
+                    break;
+                case 10:
+                    message.movement = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -549,6 +591,15 @@
             if (message.armor != null && message.hasOwnProperty("armor"))
                 if (!$util.isString(message.armor))
                     return "armor: string expected";
+            if (message.allowCheats != null && message.hasOwnProperty("allowCheats"))
+                if (typeof message.allowCheats !== "boolean")
+                    return "allowCheats: boolean expected";
+            if (message.allowCustomSkins != null && message.hasOwnProperty("allowCustomSkins"))
+                if (typeof message.allowCustomSkins !== "boolean")
+                    return "allowCustomSkins: boolean expected";
+            if (message.movement != null && message.hasOwnProperty("movement"))
+                if (!$util.isString(message.movement))
+                    return "movement: string expected";
             return null;
         };
     
@@ -578,6 +629,12 @@
                 message.inventory = String(object.inventory);
             if (object.armor != null)
                 message.armor = String(object.armor);
+            if (object.allowCheats != null)
+                message.allowCheats = Boolean(object.allowCheats);
+            if (object.allowCustomSkins != null)
+                message.allowCustomSkins = Boolean(object.allowCustomSkins);
+            if (object.movement != null)
+                message.movement = String(object.movement);
             return message;
         };
     
@@ -602,6 +659,9 @@
                 object.blocksDef = "";
                 object.inventory = "";
                 object.armor = "";
+                object.allowCheats = false;
+                object.allowCustomSkins = false;
+                object.movement = "";
             }
             if (message.xPos != null && message.hasOwnProperty("xPos"))
                 object.xPos = options.json && !isFinite(message.xPos) ? String(message.xPos) : message.xPos;
@@ -617,6 +677,12 @@
                 object.inventory = message.inventory;
             if (message.armor != null && message.hasOwnProperty("armor"))
                 object.armor = message.armor;
+            if (message.allowCheats != null && message.hasOwnProperty("allowCheats"))
+                object.allowCheats = message.allowCheats;
+            if (message.allowCustomSkins != null && message.hasOwnProperty("allowCustomSkins"))
+                object.allowCustomSkins = message.allowCustomSkins;
+            if (message.movement != null && message.hasOwnProperty("movement"))
+                object.movement = message.movement;
             return object;
         };
     
@@ -2369,6 +2435,425 @@
         };
     
         return PlayerUpdatePhysics;
+    })();
+    
+    $root.PlayerHealth = (function() {
+    
+        /**
+         * Properties of a PlayerHealth.
+         * @exports IPlayerHealth
+         * @interface IPlayerHealth
+         * @property {number|null} [value] PlayerHealth value
+         */
+    
+        /**
+         * Constructs a new PlayerHealth.
+         * @exports PlayerHealth
+         * @classdesc Represents a PlayerHealth.
+         * @implements IPlayerHealth
+         * @constructor
+         * @param {IPlayerHealth=} [properties] Properties to set
+         */
+        function PlayerHealth(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerHealth value.
+         * @member {number} value
+         * @memberof PlayerHealth
+         * @instance
+         */
+        PlayerHealth.prototype.value = 0;
+    
+        /**
+         * Creates a new PlayerHealth instance using the specified properties.
+         * @function create
+         * @memberof PlayerHealth
+         * @static
+         * @param {IPlayerHealth=} [properties] Properties to set
+         * @returns {PlayerHealth} PlayerHealth instance
+         */
+        PlayerHealth.create = function create(properties) {
+            return new PlayerHealth(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerHealth message. Does not implicitly {@link PlayerHealth.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerHealth
+         * @static
+         * @param {IPlayerHealth} message PlayerHealth message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerHealth.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.value);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerHealth message, length delimited. Does not implicitly {@link PlayerHealth.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerHealth
+         * @static
+         * @param {IPlayerHealth} message PlayerHealth message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerHealth.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerHealth message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerHealth
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerHealth} PlayerHealth
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerHealth.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerHealth();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.value = reader.uint32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerHealth message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerHealth
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerHealth} PlayerHealth
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerHealth.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerHealth message.
+         * @function verify
+         * @memberof PlayerHealth
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerHealth.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (!$util.isInteger(message.value))
+                    return "value: integer expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerHealth message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerHealth
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerHealth} PlayerHealth
+         */
+        PlayerHealth.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerHealth)
+                return object;
+            var message = new $root.PlayerHealth();
+            if (object.value != null)
+                message.value = object.value >>> 0;
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerHealth message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerHealth
+         * @static
+         * @param {PlayerHealth} message PlayerHealth
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerHealth.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.value = 0;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = message.value;
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerHealth to JSON.
+         * @function toJSON
+         * @memberof PlayerHealth
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerHealth.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerHealth;
+    })();
+    
+    $root.PlayerOpenInventory = (function() {
+    
+        /**
+         * Properties of a PlayerOpenInventory.
+         * @exports IPlayerOpenInventory
+         * @interface IPlayerOpenInventory
+         * @property {string|null} [name] PlayerOpenInventory name
+         * @property {string|null} [type] PlayerOpenInventory type
+         * @property {string|null} [data] PlayerOpenInventory data
+         */
+    
+        /**
+         * Constructs a new PlayerOpenInventory.
+         * @exports PlayerOpenInventory
+         * @classdesc Represents a PlayerOpenInventory.
+         * @implements IPlayerOpenInventory
+         * @constructor
+         * @param {IPlayerOpenInventory=} [properties] Properties to set
+         */
+        function PlayerOpenInventory(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerOpenInventory name.
+         * @member {string} name
+         * @memberof PlayerOpenInventory
+         * @instance
+         */
+        PlayerOpenInventory.prototype.name = "";
+    
+        /**
+         * PlayerOpenInventory type.
+         * @member {string} type
+         * @memberof PlayerOpenInventory
+         * @instance
+         */
+        PlayerOpenInventory.prototype.type = "";
+    
+        /**
+         * PlayerOpenInventory data.
+         * @member {string} data
+         * @memberof PlayerOpenInventory
+         * @instance
+         */
+        PlayerOpenInventory.prototype.data = "";
+    
+        /**
+         * Creates a new PlayerOpenInventory instance using the specified properties.
+         * @function create
+         * @memberof PlayerOpenInventory
+         * @static
+         * @param {IPlayerOpenInventory=} [properties] Properties to set
+         * @returns {PlayerOpenInventory} PlayerOpenInventory instance
+         */
+        PlayerOpenInventory.create = function create(properties) {
+            return new PlayerOpenInventory(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerOpenInventory message. Does not implicitly {@link PlayerOpenInventory.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerOpenInventory
+         * @static
+         * @param {IPlayerOpenInventory} message PlayerOpenInventory message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerOpenInventory.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.data);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerOpenInventory message, length delimited. Does not implicitly {@link PlayerOpenInventory.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerOpenInventory
+         * @static
+         * @param {IPlayerOpenInventory} message PlayerOpenInventory message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerOpenInventory.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerOpenInventory message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerOpenInventory
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerOpenInventory} PlayerOpenInventory
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerOpenInventory.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerOpenInventory();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                case 2:
+                    message.type = reader.string();
+                    break;
+                case 3:
+                    message.data = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerOpenInventory message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerOpenInventory
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerOpenInventory} PlayerOpenInventory
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerOpenInventory.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerOpenInventory message.
+         * @function verify
+         * @memberof PlayerOpenInventory
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerOpenInventory.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                if (!$util.isString(message.type))
+                    return "type: string expected";
+            if (message.data != null && message.hasOwnProperty("data"))
+                if (!$util.isString(message.data))
+                    return "data: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerOpenInventory message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerOpenInventory
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerOpenInventory} PlayerOpenInventory
+         */
+        PlayerOpenInventory.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerOpenInventory)
+                return object;
+            var message = new $root.PlayerOpenInventory();
+            if (object.name != null)
+                message.name = String(object.name);
+            if (object.type != null)
+                message.type = String(object.type);
+            if (object.data != null)
+                message.data = String(object.data);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerOpenInventory message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerOpenInventory
+         * @static
+         * @param {PlayerOpenInventory} message PlayerOpenInventory
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerOpenInventory.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.name = "";
+                object.type = "";
+                object.data = "";
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = message.type;
+            if (message.data != null && message.hasOwnProperty("data"))
+                object.data = message.data;
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerOpenInventory to JSON.
+         * @function toJSON
+         * @memberof PlayerOpenInventory
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerOpenInventory.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerOpenInventory;
     })();
     
     $root.SoundPlay = (function() {

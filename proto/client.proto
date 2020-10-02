@@ -8,7 +8,7 @@ syntax = "proto3";
 message LoginResponse {
 	string username = 1;
 	uint32 protocol = 2;
-	bool mobile = 3;// Is set to true, if player is using mobile device
+	bool mobile = 3; // Is set to true, if player is using mobile device
 	string client = 4;
 	string uuid = 5;
 	string secret = 6;
