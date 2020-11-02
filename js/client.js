@@ -879,17 +879,17 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.x);
             if (message.y != null && Object.hasOwnProperty.call(message, "y"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+                writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             if (message.x2 != null && Object.hasOwnProperty.call(message, "x2"))
-                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.x2);
+                writer.uint32(/* id 4, wireType 0 =*/32).sint32(message.x2);
             if (message.y2 != null && Object.hasOwnProperty.call(message, "y2"))
-                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.y2);
+                writer.uint32(/* id 5, wireType 0 =*/40).sint32(message.y2);
             if (message.z2 != null && Object.hasOwnProperty.call(message, "z2"))
-                writer.uint32(/* id 6, wireType 0 =*/48).int32(message.z2);
+                writer.uint32(/* id 6, wireType 0 =*/48).sint32(message.z2);
             return writer;
         };
     
@@ -925,22 +925,22 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.x = reader.int32();
+                    message.x = reader.sint32();
                     break;
                 case 2:
-                    message.y = reader.int32();
+                    message.y = reader.sint32();
                     break;
                 case 3:
-                    message.z = reader.int32();
+                    message.z = reader.sint32();
                     break;
                 case 4:
-                    message.x2 = reader.int32();
+                    message.x2 = reader.sint32();
                     break;
                 case 5:
-                    message.y2 = reader.int32();
+                    message.y2 = reader.sint32();
                     break;
                 case 6:
-                    message.z2 = reader.int32();
+                    message.z2 = reader.sint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1150,11 +1150,11 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.x);
             if (message.y != null && Object.hasOwnProperty.call(message, "y"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+                writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             return writer;
         };
     
@@ -1190,13 +1190,13 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.x = reader.int32();
+                    message.x = reader.sint32();
                     break;
                 case 2:
-                    message.y = reader.int32();
+                    message.y = reader.sint32();
                     break;
                 case 3:
-                    message.z = reader.int32();
+                    message.z = reader.sint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1391,13 +1391,13 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.slot != null && Object.hasOwnProperty.call(message, "slot"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.slot);
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.slot);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.inventory);
             if (message.slot2 != null && Object.hasOwnProperty.call(message, "slot2"))
-                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.slot2);
+                writer.uint32(/* id 4, wireType 0 =*/32).sint32(message.slot2);
             return writer;
         };
     
@@ -1433,7 +1433,7 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.slot = reader.int32();
+                    message.slot = reader.sint32();
                     break;
                 case 2:
                     message.type = reader.string();
@@ -1442,7 +1442,7 @@
                     message.inventory = reader.string();
                     break;
                 case 4:
-                    message.slot2 = reader.int32();
+                    message.slot2 = reader.sint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2028,11 +2028,11 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.x);
             if (message.y != null && Object.hasOwnProperty.call(message, "y"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+                writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.type);
             if (message.onBlock != null && Object.hasOwnProperty.call(message, "onBlock"))
@@ -2072,13 +2072,13 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.x = reader.int32();
+                    message.x = reader.sint32();
                     break;
                 case 2:
-                    message.y = reader.int32();
+                    message.y = reader.sint32();
                     break;
                 case 3:
-                    message.z = reader.int32();
+                    message.z = reader.sint32();
                     break;
                 case 4:
                     message.type = reader.string();
@@ -2441,6 +2441,238 @@
         };
     
         return ActionClickEntity;
+    })();
+    
+    $root.PluginMessage = (function() {
+    
+        /**
+         * Properties of a PluginMessage.
+         * @exports IPluginMessage
+         * @interface IPluginMessage
+         * @property {string|null} [key] PluginMessage key
+         * @property {number|null} [version] PluginMessage version
+         * @property {string|null} [value] PluginMessage value
+         */
+    
+        /**
+         * Constructs a new PluginMessage.
+         * @exports PluginMessage
+         * @classdesc Represents a PluginMessage.
+         * @implements IPluginMessage
+         * @constructor
+         * @param {IPluginMessage=} [properties] Properties to set
+         */
+        function PluginMessage(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PluginMessage key.
+         * @member {string} key
+         * @memberof PluginMessage
+         * @instance
+         */
+        PluginMessage.prototype.key = "";
+    
+        /**
+         * PluginMessage version.
+         * @member {number} version
+         * @memberof PluginMessage
+         * @instance
+         */
+        PluginMessage.prototype.version = 0;
+    
+        /**
+         * PluginMessage value.
+         * @member {string} value
+         * @memberof PluginMessage
+         * @instance
+         */
+        PluginMessage.prototype.value = "";
+    
+        /**
+         * Creates a new PluginMessage instance using the specified properties.
+         * @function create
+         * @memberof PluginMessage
+         * @static
+         * @param {IPluginMessage=} [properties] Properties to set
+         * @returns {PluginMessage} PluginMessage instance
+         */
+        PluginMessage.create = function create(properties) {
+            return new PluginMessage(properties);
+        };
+    
+        /**
+         * Encodes the specified PluginMessage message. Does not implicitly {@link PluginMessage.verify|verify} messages.
+         * @function encode
+         * @memberof PluginMessage
+         * @static
+         * @param {IPluginMessage} message PluginMessage message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PluginMessage.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.key);
+            if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.version);
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.value);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PluginMessage message, length delimited. Does not implicitly {@link PluginMessage.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PluginMessage
+         * @static
+         * @param {IPluginMessage} message PluginMessage message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PluginMessage.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PluginMessage message from the specified reader or buffer.
+         * @function decode
+         * @memberof PluginMessage
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PluginMessage} PluginMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PluginMessage.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PluginMessage();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.key = reader.string();
+                    break;
+                case 2:
+                    message.version = reader.uint32();
+                    break;
+                case 3:
+                    message.value = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PluginMessage message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PluginMessage
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PluginMessage} PluginMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PluginMessage.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PluginMessage message.
+         * @function verify
+         * @memberof PluginMessage
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PluginMessage.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.key != null && message.hasOwnProperty("key"))
+                if (!$util.isString(message.key))
+                    return "key: string expected";
+            if (message.version != null && message.hasOwnProperty("version"))
+                if (!$util.isInteger(message.version))
+                    return "version: integer expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (!$util.isString(message.value))
+                    return "value: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PluginMessage message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PluginMessage
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PluginMessage} PluginMessage
+         */
+        PluginMessage.fromObject = function fromObject(object) {
+            if (object instanceof $root.PluginMessage)
+                return object;
+            var message = new $root.PluginMessage();
+            if (object.key != null)
+                message.key = String(object.key);
+            if (object.version != null)
+                message.version = object.version >>> 0;
+            if (object.value != null)
+                message.value = String(object.value);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PluginMessage message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PluginMessage
+         * @static
+         * @param {PluginMessage} message PluginMessage
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PluginMessage.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.key = "";
+                object.version = 0;
+                object.value = "";
+            }
+            if (message.key != null && message.hasOwnProperty("key"))
+                object.key = message.key;
+            if (message.version != null && message.hasOwnProperty("version"))
+                object.version = message.version;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = message.value;
+            return object;
+        };
+    
+        /**
+         * Converts this PluginMessage to JSON.
+         * @function toJSON
+         * @memberof PluginMessage
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PluginMessage.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PluginMessage;
     })();
 
     return $root;

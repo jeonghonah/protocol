@@ -28,6 +28,8 @@
          * @property {number|null} [numberplayers] LoginRequest numberplayers
          * @property {string|null} [motd] LoginRequest motd
          * @property {string|null} [software] LoginRequest software
+         * @property {boolean|null} [auth] LoginRequest auth
+         * @property {string|null} [secret] LoginRequest secret
          */
     
         /**
@@ -94,6 +96,22 @@
         LoginRequest.prototype.software = "";
     
         /**
+         * LoginRequest auth.
+         * @member {boolean} auth
+         * @memberof LoginRequest
+         * @instance
+         */
+        LoginRequest.prototype.auth = false;
+    
+        /**
+         * LoginRequest secret.
+         * @member {string} secret
+         * @memberof LoginRequest
+         * @instance
+         */
+        LoginRequest.prototype.secret = "";
+    
+        /**
          * Creates a new LoginRequest instance using the specified properties.
          * @function create
          * @memberof LoginRequest
@@ -120,15 +138,19 @@
             if (message.name != null && Object.hasOwnProperty.call(message, "name"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
             if (message.protocol != null && Object.hasOwnProperty.call(message, "protocol"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.protocol);
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.protocol);
             if (message.maxplayers != null && Object.hasOwnProperty.call(message, "maxplayers"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.maxplayers);
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.maxplayers);
             if (message.numberplayers != null && Object.hasOwnProperty.call(message, "numberplayers"))
-                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.numberplayers);
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.numberplayers);
             if (message.motd != null && Object.hasOwnProperty.call(message, "motd"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.motd);
             if (message.software != null && Object.hasOwnProperty.call(message, "software"))
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.software);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                writer.uint32(/* id 7, wireType 0 =*/56).bool(message.auth);
+            if (message.secret != null && Object.hasOwnProperty.call(message, "secret"))
+                writer.uint32(/* id 8, wireType 2 =*/66).string(message.secret);
             return writer;
         };
     
@@ -167,19 +189,25 @@
                     message.name = reader.string();
                     break;
                 case 2:
-                    message.protocol = reader.int32();
+                    message.protocol = reader.uint32();
                     break;
                 case 3:
-                    message.maxplayers = reader.int32();
+                    message.maxplayers = reader.uint32();
                     break;
                 case 4:
-                    message.numberplayers = reader.int32();
+                    message.numberplayers = reader.uint32();
                     break;
                 case 5:
                     message.motd = reader.string();
                     break;
                 case 6:
                     message.software = reader.string();
+                    break;
+                case 7:
+                    message.auth = reader.bool();
+                    break;
+                case 8:
+                    message.secret = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -234,6 +262,12 @@
             if (message.software != null && message.hasOwnProperty("software"))
                 if (!$util.isString(message.software))
                     return "software: string expected";
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                if (typeof message.auth !== "boolean")
+                    return "auth: boolean expected";
+            if (message.secret != null && message.hasOwnProperty("secret"))
+                if (!$util.isString(message.secret))
+                    return "secret: string expected";
             return null;
         };
     
@@ -252,15 +286,19 @@
             if (object.name != null)
                 message.name = String(object.name);
             if (object.protocol != null)
-                message.protocol = object.protocol | 0;
+                message.protocol = object.protocol >>> 0;
             if (object.maxplayers != null)
-                message.maxplayers = object.maxplayers | 0;
+                message.maxplayers = object.maxplayers >>> 0;
             if (object.numberplayers != null)
-                message.numberplayers = object.numberplayers | 0;
+                message.numberplayers = object.numberplayers >>> 0;
             if (object.motd != null)
                 message.motd = String(object.motd);
             if (object.software != null)
                 message.software = String(object.software);
+            if (object.auth != null)
+                message.auth = Boolean(object.auth);
+            if (object.secret != null)
+                message.secret = String(object.secret);
             return message;
         };
     
@@ -284,6 +322,8 @@
                 object.numberplayers = 0;
                 object.motd = "";
                 object.software = "";
+                object.auth = false;
+                object.secret = "";
             }
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
@@ -297,6 +337,10 @@
                 object.motd = message.motd;
             if (message.software != null && message.hasOwnProperty("software"))
                 object.software = message.software;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = message.auth;
+            if (message.secret != null && message.hasOwnProperty("secret"))
+                object.secret = message.secret;
             return object;
         };
     
@@ -327,8 +371,6 @@
          * @property {string|null} [blocksDef] LoginSuccess blocksDef
          * @property {string|null} [inventory] LoginSuccess inventory
          * @property {string|null} [armor] LoginSuccess armor
-         * @property {boolean|null} [allowCheats] LoginSuccess allowCheats
-         * @property {boolean|null} [allowCustomSkins] LoginSuccess allowCustomSkins
          * @property {string|null} [movement] LoginSuccess movement
          */
     
@@ -404,22 +446,6 @@
         LoginSuccess.prototype.armor = "";
     
         /**
-         * LoginSuccess allowCheats.
-         * @member {boolean} allowCheats
-         * @memberof LoginSuccess
-         * @instance
-         */
-        LoginSuccess.prototype.allowCheats = false;
-    
-        /**
-         * LoginSuccess allowCustomSkins.
-         * @member {boolean} allowCustomSkins
-         * @memberof LoginSuccess
-         * @instance
-         */
-        LoginSuccess.prototype.allowCustomSkins = false;
-    
-        /**
          * LoginSuccess movement.
          * @member {string} movement
          * @memberof LoginSuccess
@@ -465,12 +491,8 @@
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.inventory);
             if (message.armor != null && Object.hasOwnProperty.call(message, "armor"))
                 writer.uint32(/* id 7, wireType 2 =*/58).string(message.armor);
-            if (message.allowCheats != null && Object.hasOwnProperty.call(message, "allowCheats"))
-                writer.uint32(/* id 8, wireType 0 =*/64).bool(message.allowCheats);
-            if (message.allowCustomSkins != null && Object.hasOwnProperty.call(message, "allowCustomSkins"))
-                writer.uint32(/* id 9, wireType 0 =*/72).bool(message.allowCustomSkins);
             if (message.movement != null && Object.hasOwnProperty.call(message, "movement"))
-                writer.uint32(/* id 10, wireType 2 =*/82).string(message.movement);
+                writer.uint32(/* id 8, wireType 2 =*/66).string(message.movement);
             return writer;
         };
     
@@ -527,12 +549,6 @@
                     message.armor = reader.string();
                     break;
                 case 8:
-                    message.allowCheats = reader.bool();
-                    break;
-                case 9:
-                    message.allowCustomSkins = reader.bool();
-                    break;
-                case 10:
                     message.movement = reader.string();
                     break;
                 default:
@@ -591,12 +607,6 @@
             if (message.armor != null && message.hasOwnProperty("armor"))
                 if (!$util.isString(message.armor))
                     return "armor: string expected";
-            if (message.allowCheats != null && message.hasOwnProperty("allowCheats"))
-                if (typeof message.allowCheats !== "boolean")
-                    return "allowCheats: boolean expected";
-            if (message.allowCustomSkins != null && message.hasOwnProperty("allowCustomSkins"))
-                if (typeof message.allowCustomSkins !== "boolean")
-                    return "allowCustomSkins: boolean expected";
             if (message.movement != null && message.hasOwnProperty("movement"))
                 if (!$util.isString(message.movement))
                     return "movement: string expected";
@@ -629,10 +639,6 @@
                 message.inventory = String(object.inventory);
             if (object.armor != null)
                 message.armor = String(object.armor);
-            if (object.allowCheats != null)
-                message.allowCheats = Boolean(object.allowCheats);
-            if (object.allowCustomSkins != null)
-                message.allowCustomSkins = Boolean(object.allowCustomSkins);
             if (object.movement != null)
                 message.movement = String(object.movement);
             return message;
@@ -659,8 +665,6 @@
                 object.blocksDef = "";
                 object.inventory = "";
                 object.armor = "";
-                object.allowCheats = false;
-                object.allowCustomSkins = false;
                 object.movement = "";
             }
             if (message.xPos != null && message.hasOwnProperty("xPos"))
@@ -677,10 +681,6 @@
                 object.inventory = message.inventory;
             if (message.armor != null && message.hasOwnProperty("armor"))
                 object.armor = message.armor;
-            if (message.allowCheats != null && message.hasOwnProperty("allowCheats"))
-                object.allowCheats = message.allowCheats;
-            if (message.allowCustomSkins != null && message.hasOwnProperty("allowCustomSkins"))
-                object.allowCustomSkins = message.allowCustomSkins;
             if (message.movement != null && message.hasOwnProperty("movement"))
                 object.movement = message.movement;
             return object;
@@ -931,6 +931,8 @@
          * @exports IPlayerEntity
          * @interface IPlayerEntity
          * @property {string|null} [uuid] PlayerEntity uuid
+         * @property {string|null} [model] PlayerEntity model
+         * @property {string|null} [texture] PlayerEntity texture
          */
     
         /**
@@ -955,6 +957,22 @@
          * @instance
          */
         PlayerEntity.prototype.uuid = "";
+    
+        /**
+         * PlayerEntity model.
+         * @member {string} model
+         * @memberof PlayerEntity
+         * @instance
+         */
+        PlayerEntity.prototype.model = "";
+    
+        /**
+         * PlayerEntity texture.
+         * @member {string} texture
+         * @memberof PlayerEntity
+         * @instance
+         */
+        PlayerEntity.prototype.texture = "";
     
         /**
          * Creates a new PlayerEntity instance using the specified properties.
@@ -982,6 +1000,10 @@
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.model);
+            if (message.texture != null && Object.hasOwnProperty.call(message, "texture"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.texture);
             return writer;
         };
     
@@ -1018,6 +1040,12 @@
                 switch (tag >>> 3) {
                 case 1:
                     message.uuid = reader.string();
+                    break;
+                case 2:
+                    message.model = reader.string();
+                    break;
+                case 3:
+                    message.texture = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1057,6 +1085,12 @@
             if (message.uuid != null && message.hasOwnProperty("uuid"))
                 if (!$util.isString(message.uuid))
                     return "uuid: string expected";
+            if (message.model != null && message.hasOwnProperty("model"))
+                if (!$util.isString(message.model))
+                    return "model: string expected";
+            if (message.texture != null && message.hasOwnProperty("texture"))
+                if (!$util.isString(message.texture))
+                    return "texture: string expected";
             return null;
         };
     
@@ -1074,6 +1108,10 @@
             var message = new $root.PlayerEntity();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
+            if (object.model != null)
+                message.model = String(object.model);
+            if (object.texture != null)
+                message.texture = String(object.texture);
             return message;
         };
     
@@ -1090,10 +1128,17 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.uuid = "";
+                object.model = "";
+                object.texture = "";
+            }
             if (message.uuid != null && message.hasOwnProperty("uuid"))
                 object.uuid = message.uuid;
+            if (message.model != null && message.hasOwnProperty("model"))
+                object.model = message.model;
+            if (message.texture != null && message.hasOwnProperty("texture"))
+                object.texture = message.texture;
             return object;
         };
     
@@ -1349,8 +1394,8 @@
          * Properties of a PlayerInventory.
          * @exports IPlayerInventory
          * @interface IPlayerInventory
-         * @property {string|null} [inventory] PlayerInventory inventory
          * @property {string|null} [type] PlayerInventory type
+         * @property {string|null} [inventory] PlayerInventory inventory
          */
     
         /**
@@ -1369,20 +1414,20 @@
         }
     
         /**
-         * PlayerInventory inventory.
-         * @member {string} inventory
-         * @memberof PlayerInventory
-         * @instance
-         */
-        PlayerInventory.prototype.inventory = "";
-    
-        /**
          * PlayerInventory type.
          * @member {string} type
          * @memberof PlayerInventory
          * @instance
          */
         PlayerInventory.prototype.type = "";
+    
+        /**
+         * PlayerInventory inventory.
+         * @member {string} inventory
+         * @memberof PlayerInventory
+         * @instance
+         */
+        PlayerInventory.prototype.inventory = "";
     
         /**
          * Creates a new PlayerInventory instance using the specified properties.
@@ -1408,10 +1453,10 @@
         PlayerInventory.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.inventory);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.type);
+            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.inventory);
             return writer;
         };
     
@@ -1447,10 +1492,10 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.inventory = reader.string();
+                    message.type = reader.string();
                     break;
                 case 2:
-                    message.type = reader.string();
+                    message.inventory = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1487,12 +1532,12 @@
         PlayerInventory.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.inventory != null && message.hasOwnProperty("inventory"))
-                if (!$util.isString(message.inventory))
-                    return "inventory: string expected";
             if (message.type != null && message.hasOwnProperty("type"))
                 if (!$util.isString(message.type))
                     return "type: string expected";
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                if (!$util.isString(message.inventory))
+                    return "inventory: string expected";
             return null;
         };
     
@@ -1508,10 +1553,10 @@
             if (object instanceof $root.PlayerInventory)
                 return object;
             var message = new $root.PlayerInventory();
-            if (object.inventory != null)
-                message.inventory = String(object.inventory);
             if (object.type != null)
                 message.type = String(object.type);
+            if (object.inventory != null)
+                message.inventory = String(object.inventory);
             return message;
         };
     
@@ -1529,13 +1574,13 @@
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.inventory = "";
                 object.type = "";
+                object.inventory = "";
             }
-            if (message.inventory != null && message.hasOwnProperty("inventory"))
-                object.inventory = message.inventory;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = message.type;
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                object.inventory = message.inventory;
             return object;
         };
     
@@ -1628,7 +1673,7 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.slot != null && Object.hasOwnProperty.call(message, "slot"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.slot);
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.slot);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
             if (message.data != null && Object.hasOwnProperty.call(message, "data"))
@@ -1668,7 +1713,7 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.slot = reader.int32();
+                    message.slot = reader.uint32();
                     break;
                 case 2:
                     message.type = reader.string();
@@ -1736,7 +1781,7 @@
                 return object;
             var message = new $root.PlayerSlotUpdate();
             if (object.slot != null)
-                message.slot = object.slot | 0;
+                message.slot = object.slot >>> 0;
             if (object.type != null)
                 message.type = String(object.type);
             if (object.data != null)
@@ -2494,7 +2539,7 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.value);
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.value);
             return writer;
         };
     
@@ -2530,7 +2575,7 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.value = reader.uint32();
+                    message.value = reader.sint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2586,7 +2631,7 @@
                 return object;
             var message = new $root.PlayerHealth();
             if (object.value != null)
-                message.value = object.value >>> 0;
+                message.value = object.value | 0;
             return message;
         };
     
@@ -2951,7 +2996,7 @@
             if (message.sound != null && Object.hasOwnProperty.call(message, "sound"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.sound);
             if (message.volume != null && Object.hasOwnProperty.call(message, "volume"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.volume);
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.volume);
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
                 writer.uint32(/* id 3, wireType 1 =*/25).double(message.x);
             if (message.y != null && Object.hasOwnProperty.call(message, "y"))
@@ -2996,7 +3041,7 @@
                     message.sound = reader.string();
                     break;
                 case 2:
-                    message.volume = reader.int32();
+                    message.volume = reader.uint32();
                     break;
                 case 3:
                     message.x = reader.double();
@@ -3075,7 +3120,7 @@
             if (object.sound != null)
                 message.sound = String(object.sound);
             if (object.volume != null)
-                message.volume = object.volume | 0;
+                message.volume = object.volume >>> 0;
             if (object.x != null)
                 message.x = Number(object.x);
             if (object.y != null)
@@ -5489,11 +5534,11 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.x);
             if (message.y != null && Object.hasOwnProperty.call(message, "y"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+                writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.id);
             return writer;
@@ -5531,13 +5576,13 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.x = reader.int32();
+                    message.x = reader.sint32();
                     break;
                 case 2:
-                    message.y = reader.int32();
+                    message.y = reader.sint32();
                     break;
                 case 3:
-                    message.z = reader.int32();
+                    message.z = reader.sint32();
                     break;
                 case 4:
                     message.id = reader.uint32();
@@ -5761,11 +5806,11 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.x);
             if (message.y != null && Object.hasOwnProperty.call(message, "y"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+                writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             if (message.data != null && Object.hasOwnProperty.call(message, "data"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.data);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
@@ -5807,13 +5852,13 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.x = reader.int32();
+                    message.x = reader.sint32();
                     break;
                 case 2:
-                    message.y = reader.int32();
+                    message.y = reader.sint32();
                     break;
                 case 3:
-                    message.z = reader.int32();
+                    message.z = reader.sint32();
                     break;
                 case 4:
                     message.data = reader.bytes();
@@ -6050,11 +6095,11 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.x != null && Object.hasOwnProperty.call(message, "x"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.x);
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.x);
             if (message.y != null && Object.hasOwnProperty.call(message, "y"))
-                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.y);
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.z);
+                writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 4, wireType 0 =*/32).bool(message.type);
             return writer;
@@ -6092,13 +6137,13 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.x = reader.int32();
+                    message.x = reader.sint32();
                     break;
                 case 2:
-                    message.y = reader.int32();
+                    message.y = reader.sint32();
                     break;
                 case 3:
-                    message.z = reader.int32();
+                    message.z = reader.sint32();
                     break;
                 case 4:
                     message.type = reader.bool();
@@ -6428,6 +6473,448 @@
         };
     
         return RegistryUpdate;
+    })();
+    
+    $root.UpdateGameplaySetting = (function() {
+    
+        /**
+         * Properties of an UpdateGameplaySetting.
+         * @exports IUpdateGameplaySetting
+         * @interface IUpdateGameplaySetting
+         * @property {string|null} [key] UpdateGameplaySetting key
+         * @property {string|null} [value] UpdateGameplaySetting value
+         */
+    
+        /**
+         * Constructs a new UpdateGameplaySetting.
+         * @exports UpdateGameplaySetting
+         * @classdesc Represents an UpdateGameplaySetting.
+         * @implements IUpdateGameplaySetting
+         * @constructor
+         * @param {IUpdateGameplaySetting=} [properties] Properties to set
+         */
+        function UpdateGameplaySetting(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * UpdateGameplaySetting key.
+         * @member {string} key
+         * @memberof UpdateGameplaySetting
+         * @instance
+         */
+        UpdateGameplaySetting.prototype.key = "";
+    
+        /**
+         * UpdateGameplaySetting value.
+         * @member {string} value
+         * @memberof UpdateGameplaySetting
+         * @instance
+         */
+        UpdateGameplaySetting.prototype.value = "";
+    
+        /**
+         * Creates a new UpdateGameplaySetting instance using the specified properties.
+         * @function create
+         * @memberof UpdateGameplaySetting
+         * @static
+         * @param {IUpdateGameplaySetting=} [properties] Properties to set
+         * @returns {UpdateGameplaySetting} UpdateGameplaySetting instance
+         */
+        UpdateGameplaySetting.create = function create(properties) {
+            return new UpdateGameplaySetting(properties);
+        };
+    
+        /**
+         * Encodes the specified UpdateGameplaySetting message. Does not implicitly {@link UpdateGameplaySetting.verify|verify} messages.
+         * @function encode
+         * @memberof UpdateGameplaySetting
+         * @static
+         * @param {IUpdateGameplaySetting} message UpdateGameplaySetting message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateGameplaySetting.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.key);
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.value);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified UpdateGameplaySetting message, length delimited. Does not implicitly {@link UpdateGameplaySetting.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof UpdateGameplaySetting
+         * @static
+         * @param {IUpdateGameplaySetting} message UpdateGameplaySetting message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UpdateGameplaySetting.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an UpdateGameplaySetting message from the specified reader or buffer.
+         * @function decode
+         * @memberof UpdateGameplaySetting
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {UpdateGameplaySetting} UpdateGameplaySetting
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateGameplaySetting.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UpdateGameplaySetting();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.key = reader.string();
+                    break;
+                case 2:
+                    message.value = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an UpdateGameplaySetting message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof UpdateGameplaySetting
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {UpdateGameplaySetting} UpdateGameplaySetting
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UpdateGameplaySetting.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an UpdateGameplaySetting message.
+         * @function verify
+         * @memberof UpdateGameplaySetting
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UpdateGameplaySetting.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.key != null && message.hasOwnProperty("key"))
+                if (!$util.isString(message.key))
+                    return "key: string expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (!$util.isString(message.value))
+                    return "value: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an UpdateGameplaySetting message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof UpdateGameplaySetting
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {UpdateGameplaySetting} UpdateGameplaySetting
+         */
+        UpdateGameplaySetting.fromObject = function fromObject(object) {
+            if (object instanceof $root.UpdateGameplaySetting)
+                return object;
+            var message = new $root.UpdateGameplaySetting();
+            if (object.key != null)
+                message.key = String(object.key);
+            if (object.value != null)
+                message.value = String(object.value);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an UpdateGameplaySetting message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof UpdateGameplaySetting
+         * @static
+         * @param {UpdateGameplaySetting} message UpdateGameplaySetting
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UpdateGameplaySetting.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.key = "";
+                object.value = "";
+            }
+            if (message.key != null && message.hasOwnProperty("key"))
+                object.key = message.key;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = message.value;
+            return object;
+        };
+    
+        /**
+         * Converts this UpdateGameplaySetting to JSON.
+         * @function toJSON
+         * @memberof UpdateGameplaySetting
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UpdateGameplaySetting.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return UpdateGameplaySetting;
+    })();
+    
+    $root.PluginMessage = (function() {
+    
+        /**
+         * Properties of a PluginMessage.
+         * @exports IPluginMessage
+         * @interface IPluginMessage
+         * @property {string|null} [key] PluginMessage key
+         * @property {number|null} [version] PluginMessage version
+         * @property {string|null} [value] PluginMessage value
+         */
+    
+        /**
+         * Constructs a new PluginMessage.
+         * @exports PluginMessage
+         * @classdesc Represents a PluginMessage.
+         * @implements IPluginMessage
+         * @constructor
+         * @param {IPluginMessage=} [properties] Properties to set
+         */
+        function PluginMessage(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PluginMessage key.
+         * @member {string} key
+         * @memberof PluginMessage
+         * @instance
+         */
+        PluginMessage.prototype.key = "";
+    
+        /**
+         * PluginMessage version.
+         * @member {number} version
+         * @memberof PluginMessage
+         * @instance
+         */
+        PluginMessage.prototype.version = 0;
+    
+        /**
+         * PluginMessage value.
+         * @member {string} value
+         * @memberof PluginMessage
+         * @instance
+         */
+        PluginMessage.prototype.value = "";
+    
+        /**
+         * Creates a new PluginMessage instance using the specified properties.
+         * @function create
+         * @memberof PluginMessage
+         * @static
+         * @param {IPluginMessage=} [properties] Properties to set
+         * @returns {PluginMessage} PluginMessage instance
+         */
+        PluginMessage.create = function create(properties) {
+            return new PluginMessage(properties);
+        };
+    
+        /**
+         * Encodes the specified PluginMessage message. Does not implicitly {@link PluginMessage.verify|verify} messages.
+         * @function encode
+         * @memberof PluginMessage
+         * @static
+         * @param {IPluginMessage} message PluginMessage message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PluginMessage.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.key);
+            if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.version);
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.value);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PluginMessage message, length delimited. Does not implicitly {@link PluginMessage.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PluginMessage
+         * @static
+         * @param {IPluginMessage} message PluginMessage message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PluginMessage.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PluginMessage message from the specified reader or buffer.
+         * @function decode
+         * @memberof PluginMessage
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PluginMessage} PluginMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PluginMessage.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PluginMessage();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.key = reader.string();
+                    break;
+                case 2:
+                    message.version = reader.uint32();
+                    break;
+                case 3:
+                    message.value = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PluginMessage message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PluginMessage
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PluginMessage} PluginMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PluginMessage.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PluginMessage message.
+         * @function verify
+         * @memberof PluginMessage
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PluginMessage.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.key != null && message.hasOwnProperty("key"))
+                if (!$util.isString(message.key))
+                    return "key: string expected";
+            if (message.version != null && message.hasOwnProperty("version"))
+                if (!$util.isInteger(message.version))
+                    return "version: integer expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (!$util.isString(message.value))
+                    return "value: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PluginMessage message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PluginMessage
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PluginMessage} PluginMessage
+         */
+        PluginMessage.fromObject = function fromObject(object) {
+            if (object instanceof $root.PluginMessage)
+                return object;
+            var message = new $root.PluginMessage();
+            if (object.key != null)
+                message.key = String(object.key);
+            if (object.version != null)
+                message.version = object.version >>> 0;
+            if (object.value != null)
+                message.value = String(object.value);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PluginMessage message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PluginMessage
+         * @static
+         * @param {PluginMessage} message PluginMessage
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PluginMessage.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.key = "";
+                object.version = 0;
+                object.value = "";
+            }
+            if (message.key != null && message.hasOwnProperty("key"))
+                object.key = message.key;
+            if (message.version != null && message.hasOwnProperty("version"))
+                object.version = message.version;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = message.value;
+            return object;
+        };
+    
+        /**
+         * Converts this PluginMessage to JSON.
+         * @function toJSON
+         * @memberof PluginMessage
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PluginMessage.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PluginMessage;
     })();
 
     return $root;

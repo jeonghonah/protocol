@@ -7,15 +7,15 @@
           "id": 1
         },
         "protocol": {
-          "type": "int32",
+          "type": "uint32",
           "id": 2
         },
         "maxplayers": {
-          "type": "int32",
+          "type": "uint32",
           "id": 3
         },
         "numberplayers": {
-          "type": "int32",
+          "type": "uint32",
           "id": 4
         },
         "motd": {
@@ -25,6 +25,14 @@
         "software": {
           "type": "string",
           "id": 6
+        },
+        "auth": {
+          "type": "bool",
+          "id": 7
+        },
+        "secret": {
+          "type": "string",
+          "id": 8
         }
       }
     },
@@ -58,17 +66,9 @@
           "type": "string",
           "id": 7
         },
-        "allowCheats": {
-          "type": "bool",
-          "id": 8
-        },
-        "allowCustomSkins": {
-          "type": "bool",
-          "id": 9
-        },
         "movement": {
           "type": "string",
-          "id": 10
+          "id": 8
         }
       }
     },
@@ -89,6 +89,14 @@
         "uuid": {
           "type": "string",
           "id": 1
+        },
+        "model": {
+          "type": "string",
+          "id": 2
+        },
+        "texture": {
+          "type": "string",
+          "id": 3
         }
       }
     },
@@ -110,11 +118,11 @@
     },
     "PlayerInventory": {
       "fields": {
-        "inventory": {
+        "type": {
           "type": "string",
           "id": 1
         },
-        "type": {
+        "inventory": {
           "type": "string",
           "id": 2
         }
@@ -123,7 +131,7 @@
     "PlayerSlotUpdate": {
       "fields": {
         "slot": {
-          "type": "int32",
+          "type": "uint32",
           "id": 1
         },
         "type": {
@@ -179,7 +187,7 @@
     "PlayerHealth": {
       "fields": {
         "value": {
-          "type": "uint32",
+          "type": "sint32",
           "id": 1
         }
       }
@@ -207,7 +215,7 @@
           "id": 1
         },
         "volume": {
-          "type": "int32",
+          "type": "uint32",
           "id": 2
         },
         "x": {
@@ -389,15 +397,15 @@
     "WorldBlockUpdate": {
       "fields": {
         "x": {
-          "type": "int32",
+          "type": "sint32",
           "id": 1
         },
         "y": {
-          "type": "int32",
+          "type": "sint32",
           "id": 2
         },
         "z": {
-          "type": "int32",
+          "type": "sint32",
           "id": 3
         },
         "id": {
@@ -409,15 +417,15 @@
     "WorldChunkLoad": {
       "fields": {
         "x": {
-          "type": "int32",
+          "type": "sint32",
           "id": 1
         },
         "y": {
-          "type": "int32",
+          "type": "sint32",
           "id": 2
         },
         "z": {
-          "type": "int32",
+          "type": "sint32",
           "id": 3
         },
         "data": {
@@ -437,15 +445,15 @@
     "WorldChunkUnload": {
       "fields": {
         "x": {
-          "type": "int32",
+          "type": "sint32",
           "id": 1
         },
         "y": {
-          "type": "int32",
+          "type": "sint32",
           "id": 2
         },
         "z": {
-          "type": "int32",
+          "type": "sint32",
           "id": 3
         },
         "type": {
@@ -463,6 +471,34 @@
         "blocksDef": {
           "type": "string",
           "id": 2
+        }
+      }
+    },
+    "UpdateGameplaySetting": {
+      "fields": {
+        "key": {
+          "type": "string",
+          "id": 1
+        },
+        "value": {
+          "type": "string",
+          "id": 2
+        }
+      }
+    },
+    "PluginMessage": {
+      "fields": {
+        "key": {
+          "type": "string",
+          "id": 1
+        },
+        "version": {
+          "type": "uint32",
+          "id": 2
+        },
+        "value": {
+          "type": "string",
+          "id": 3
         }
       }
     }

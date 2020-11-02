@@ -1048,3 +1048,105 @@ export class ActionClickEntity implements IActionClickEntity {
      */
     public toJSON(): { [k: string]: any };
 }
+
+/** Properties of a PluginMessage. */
+export interface IPluginMessage {
+
+    /** PluginMessage key */
+    key?: (string|null);
+
+    /** PluginMessage version */
+    version?: (number|null);
+
+    /** PluginMessage value */
+    value?: (string|null);
+}
+
+/** Represents a PluginMessage. */
+export class PluginMessage implements IPluginMessage {
+
+    /**
+     * Constructs a new PluginMessage.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPluginMessage);
+
+    /** PluginMessage key. */
+    public key: string;
+
+    /** PluginMessage version. */
+    public version: number;
+
+    /** PluginMessage value. */
+    public value: string;
+
+    /**
+     * Creates a new PluginMessage instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PluginMessage instance
+     */
+    public static create(properties?: IPluginMessage): PluginMessage;
+
+    /**
+     * Encodes the specified PluginMessage message. Does not implicitly {@link PluginMessage.verify|verify} messages.
+     * @param message PluginMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPluginMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PluginMessage message, length delimited. Does not implicitly {@link PluginMessage.verify|verify} messages.
+     * @param message PluginMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPluginMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PluginMessage message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PluginMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PluginMessage;
+
+    /**
+     * Decodes a PluginMessage message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PluginMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PluginMessage;
+
+    /**
+     * Verifies a PluginMessage message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PluginMessage message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PluginMessage
+     */
+    public static fromObject(object: { [k: string]: any }): PluginMessage;
+
+    /**
+     * Creates a plain object from a PluginMessage message. Also converts values to other types if specified.
+     * @param message PluginMessage
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PluginMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PluginMessage to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}

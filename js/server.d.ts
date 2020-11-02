@@ -19,6 +19,12 @@ export interface ILoginRequest {
 
     /** LoginRequest software */
     software?: (string|null);
+
+    /** LoginRequest auth */
+    auth?: (boolean|null);
+
+    /** LoginRequest secret */
+    secret?: (string|null);
 }
 
 /** Represents a LoginRequest. */
@@ -47,6 +53,12 @@ export class LoginRequest implements ILoginRequest {
 
     /** LoginRequest software. */
     public software: string;
+
+    /** LoginRequest auth. */
+    public auth: boolean;
+
+    /** LoginRequest secret. */
+    public secret: string;
 
     /**
      * Creates a new LoginRequest instance using the specified properties.
@@ -143,12 +155,6 @@ export interface ILoginSuccess {
     /** LoginSuccess armor */
     armor?: (string|null);
 
-    /** LoginSuccess allowCheats */
-    allowCheats?: (boolean|null);
-
-    /** LoginSuccess allowCustomSkins */
-    allowCustomSkins?: (boolean|null);
-
     /** LoginSuccess movement */
     movement?: (string|null);
 }
@@ -182,12 +188,6 @@ export class LoginSuccess implements ILoginSuccess {
 
     /** LoginSuccess armor. */
     public armor: string;
-
-    /** LoginSuccess allowCheats. */
-    public allowCheats: boolean;
-
-    /** LoginSuccess allowCustomSkins. */
-    public allowCustomSkins: boolean;
 
     /** LoginSuccess movement. */
     public movement: string;
@@ -364,6 +364,12 @@ export interface IPlayerEntity {
 
     /** PlayerEntity uuid */
     uuid?: (string|null);
+
+    /** PlayerEntity model */
+    model?: (string|null);
+
+    /** PlayerEntity texture */
+    texture?: (string|null);
 }
 
 /** Represents a PlayerEntity. */
@@ -377,6 +383,12 @@ export class PlayerEntity implements IPlayerEntity {
 
     /** PlayerEntity uuid. */
     public uuid: string;
+
+    /** PlayerEntity model. */
+    public model: string;
+
+    /** PlayerEntity texture. */
+    public texture: string;
 
     /**
      * Creates a new PlayerEntity instance using the specified properties.
@@ -554,11 +566,11 @@ export class PlayerTeleport implements IPlayerTeleport {
 /** Properties of a PlayerInventory. */
 export interface IPlayerInventory {
 
-    /** PlayerInventory inventory */
-    inventory?: (string|null);
-
     /** PlayerInventory type */
     type?: (string|null);
+
+    /** PlayerInventory inventory */
+    inventory?: (string|null);
 }
 
 /** Represents a PlayerInventory. */
@@ -570,11 +582,11 @@ export class PlayerInventory implements IPlayerInventory {
      */
     constructor(properties?: IPlayerInventory);
 
-    /** PlayerInventory inventory. */
-    public inventory: string;
-
     /** PlayerInventory type. */
     public type: string;
+
+    /** PlayerInventory inventory. */
+    public inventory: string;
 
     /**
      * Creates a new PlayerInventory instance using the specified properties.
@@ -2718,6 +2730,204 @@ export class RegistryUpdate implements IRegistryUpdate {
 
     /**
      * Converts this RegistryUpdate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an UpdateGameplaySetting. */
+export interface IUpdateGameplaySetting {
+
+    /** UpdateGameplaySetting key */
+    key?: (string|null);
+
+    /** UpdateGameplaySetting value */
+    value?: (string|null);
+}
+
+/** Represents an UpdateGameplaySetting. */
+export class UpdateGameplaySetting implements IUpdateGameplaySetting {
+
+    /**
+     * Constructs a new UpdateGameplaySetting.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IUpdateGameplaySetting);
+
+    /** UpdateGameplaySetting key. */
+    public key: string;
+
+    /** UpdateGameplaySetting value. */
+    public value: string;
+
+    /**
+     * Creates a new UpdateGameplaySetting instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns UpdateGameplaySetting instance
+     */
+    public static create(properties?: IUpdateGameplaySetting): UpdateGameplaySetting;
+
+    /**
+     * Encodes the specified UpdateGameplaySetting message. Does not implicitly {@link UpdateGameplaySetting.verify|verify} messages.
+     * @param message UpdateGameplaySetting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IUpdateGameplaySetting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified UpdateGameplaySetting message, length delimited. Does not implicitly {@link UpdateGameplaySetting.verify|verify} messages.
+     * @param message UpdateGameplaySetting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IUpdateGameplaySetting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an UpdateGameplaySetting message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns UpdateGameplaySetting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UpdateGameplaySetting;
+
+    /**
+     * Decodes an UpdateGameplaySetting message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns UpdateGameplaySetting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UpdateGameplaySetting;
+
+    /**
+     * Verifies an UpdateGameplaySetting message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an UpdateGameplaySetting message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns UpdateGameplaySetting
+     */
+    public static fromObject(object: { [k: string]: any }): UpdateGameplaySetting;
+
+    /**
+     * Creates a plain object from an UpdateGameplaySetting message. Also converts values to other types if specified.
+     * @param message UpdateGameplaySetting
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: UpdateGameplaySetting, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this UpdateGameplaySetting to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a PluginMessage. */
+export interface IPluginMessage {
+
+    /** PluginMessage key */
+    key?: (string|null);
+
+    /** PluginMessage version */
+    version?: (number|null);
+
+    /** PluginMessage value */
+    value?: (string|null);
+}
+
+/** Represents a PluginMessage. */
+export class PluginMessage implements IPluginMessage {
+
+    /**
+     * Constructs a new PluginMessage.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPluginMessage);
+
+    /** PluginMessage key. */
+    public key: string;
+
+    /** PluginMessage version. */
+    public version: number;
+
+    /** PluginMessage value. */
+    public value: string;
+
+    /**
+     * Creates a new PluginMessage instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PluginMessage instance
+     */
+    public static create(properties?: IPluginMessage): PluginMessage;
+
+    /**
+     * Encodes the specified PluginMessage message. Does not implicitly {@link PluginMessage.verify|verify} messages.
+     * @param message PluginMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPluginMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PluginMessage message, length delimited. Does not implicitly {@link PluginMessage.verify|verify} messages.
+     * @param message PluginMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPluginMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PluginMessage message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PluginMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PluginMessage;
+
+    /**
+     * Decodes a PluginMessage message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PluginMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PluginMessage;
+
+    /**
+     * Verifies a PluginMessage message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PluginMessage message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PluginMessage
+     */
+    public static fromObject(object: { [k: string]: any }): PluginMessage;
+
+    /**
+     * Creates a plain object from a PluginMessage message. Also converts values to other types if specified.
+     * @param message PluginMessage
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PluginMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PluginMessage to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

@@ -63,27 +63,27 @@
     "ActionBlockPlace": {
       "fields": {
         "x": {
-          "type": "int32",
+          "type": "sint32",
           "id": 1
         },
         "y": {
-          "type": "int32",
+          "type": "sint32",
           "id": 2
         },
         "z": {
-          "type": "int32",
+          "type": "sint32",
           "id": 3
         },
         "x2": {
-          "type": "int32",
+          "type": "sint32",
           "id": 4
         },
         "y2": {
-          "type": "int32",
+          "type": "sint32",
           "id": 5
         },
         "z2": {
-          "type": "int32",
+          "type": "sint32",
           "id": 6
         }
       }
@@ -91,15 +91,15 @@
     "ActionBlockBreak": {
       "fields": {
         "x": {
-          "type": "int32",
+          "type": "sint32",
           "id": 1
         },
         "y": {
-          "type": "int32",
+          "type": "sint32",
           "id": 2
         },
         "z": {
-          "type": "int32",
+          "type": "sint32",
           "id": 3
         }
       }
@@ -107,7 +107,7 @@
     "ActionInventoryClick": {
       "fields": {
         "slot": {
-          "type": "int32",
+          "type": "sint32",
           "id": 1
         },
         "type": {
@@ -119,7 +119,7 @@
           "id": 3
         },
         "slot2": {
-          "type": "int32",
+          "type": "sint32",
           "id": 4
         }
       }
@@ -143,15 +143,15 @@
     "ActionClick": {
       "fields": {
         "x": {
-          "type": "int32",
+          "type": "sint32",
           "id": 1
         },
         "y": {
-          "type": "int32",
+          "type": "sint32",
           "id": 2
         },
         "z": {
-          "type": "int32",
+          "type": "sint32",
           "id": 3
         },
         "type": {
@@ -176,6 +176,22 @@
         },
         "distance": {
           "type": "float",
+          "id": 3
+        }
+      }
+    },
+    "PluginMessage": {
+      "fields": {
+        "key": {
+          "type": "string",
+          "id": 1
+        },
+        "version": {
+          "type": "uint32",
+          "id": 2
+        },
+        "value": {
+          "type": "string",
           "id": 3
         }
       }

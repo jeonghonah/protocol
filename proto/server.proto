@@ -6,18 +6,20 @@ syntax = "proto3";
 
 message LoginRequest {
 	string name = 1;   // Server's name
-	int32 protocol = 2;
-	int32 maxplayers = 3;
-	int32 numberplayers = 4;
+	uint32 protocol = 2;
+	uint32 maxplayers = 3;
+	uint32 numberplayers = 4;
 	string motd = 5;
 	string software = 6;
+	bool auth = 7;
+	string secret = 8;
 }
 
 
 /* 
  * LoginSuccess is send after successful login.
  * x/y/z_pos corresponds player's position
- * items/blocks/blockIds_def are stringified copies of servers block/item registry
+ * items/blocksare stringified copies of servers block/item registry
  * inventory is stringified copy of player's inventory object
 */
 
@@ -29,9 +31,7 @@ message LoginSuccess {
 	string blocks_def = 5;
 	string inventory = 6;
 	string armor = 7;
-	bool allow_cheats = 8;
-	bool allow_custom_skins = 9;
-	string movement = 10;
+	string movement = 8;
 }
 
 /* 
@@ -45,10 +45,13 @@ message PlayerKick {
 
 /* 
  * PlayerEntity is send to make client ignore actions of player's entity
+ * Also sets player's model and texture
 */
 
 message PlayerEntity {
 	string uuid = 1;
+	string model = 2;
+	string texture = 3;
 }
 
 /* 
@@ -68,8 +71,8 @@ message PlayerTeleport {
 */
 
 message PlayerInventory {
-	string inventory = 1;
-	string type = 2;
+	string type = 1;
+	string inventory = 2;
 }
 
 /* 
@@ -78,7 +81,7 @@ message PlayerInventory {
 */
 
 message PlayerSlotUpdate {
-	int32 slot = 1;
+	uint32 slot = 1;
 	string type = 2;
 	string data = 3;
 }
@@ -116,7 +119,7 @@ message PlayerUpdatePhysics {
 */
 
 message PlayerHealth {
-	uint32 value = 1;
+	sint32 value = 1;
 }
 
 /* 
@@ -137,7 +140,7 @@ message PlayerOpenInventory {
 
 message SoundPlay {
 	string sound = 1;
-	int32 volume = 2;
+	uint32 volume = 2;
 	double x = 3;
 	double y = 4;
 	double z = 5;
@@ -234,9 +237,9 @@ message EntityAnimate {
 */
 
 message WorldBlockUpdate {
-	int32 x = 1;
-	int32 y = 2;
-	int32 z = 3;
+	sint32 x = 1;
+	sint32 y = 2;
+	sint32 z = 3;
 	uint32 id = 4;
 }
 
@@ -248,9 +251,9 @@ message WorldBlockUpdate {
 */
 
 message WorldChunkLoad {
-	int32 x = 1;
-	int32 y = 2;
-	int32 z = 3;
+	sint32 x = 1;
+	sint32 y = 2;
+	sint32 z = 3;
 	bytes data = 4;
 	bool type = 5;
 	bool compressed = 6;
@@ -264,9 +267,9 @@ message WorldChunkLoad {
 */
 
 message WorldChunkUnload {
-	int32 x = 1;
-	int32 y = 2;
-	int32 z = 3;
+	sint32 x = 1;
+	sint32 y = 2;
+	sint32 z = 3;
 	bool type = 4;
 }
 
@@ -278,4 +281,26 @@ message WorldChunkUnload {
 message RegistryUpdate {
 	string items_def = 1;
 	string blocks_def = 2;
+}
+
+/*
+ * Updates some gameplay settings of client
+*/
+
+
+message UpdateGameplaySetting {
+	string key = 1;
+	string value = 2;
+}
+
+/*
+ * Message for custom/plugin data
+ * It isn't used by server or client by default
+*/
+
+
+message PluginMessage {
+	string key = 1;
+	uint32 version = 2;
+	string value = 3;
 }
