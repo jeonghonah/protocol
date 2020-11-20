@@ -700,6 +700,207 @@
         return LoginSuccess;
     })();
     
+    $root.Ping = (function() {
+    
+        /**
+         * Properties of a Ping.
+         * @exports IPing
+         * @interface IPing
+         * @property {number|Long|null} [time] Ping time
+         */
+    
+        /**
+         * Constructs a new Ping.
+         * @exports Ping
+         * @classdesc Represents a Ping.
+         * @implements IPing
+         * @constructor
+         * @param {IPing=} [properties] Properties to set
+         */
+        function Ping(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * Ping time.
+         * @member {number|Long} time
+         * @memberof Ping
+         * @instance
+         */
+        Ping.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+    
+        /**
+         * Creates a new Ping instance using the specified properties.
+         * @function create
+         * @memberof Ping
+         * @static
+         * @param {IPing=} [properties] Properties to set
+         * @returns {Ping} Ping instance
+         */
+        Ping.create = function create(properties) {
+            return new Ping(properties);
+        };
+    
+        /**
+         * Encodes the specified Ping message. Does not implicitly {@link Ping.verify|verify} messages.
+         * @function encode
+         * @memberof Ping
+         * @static
+         * @param {IPing} message Ping message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Ping.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.time);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified Ping message, length delimited. Does not implicitly {@link Ping.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof Ping
+         * @static
+         * @param {IPing} message Ping message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Ping.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a Ping message from the specified reader or buffer.
+         * @function decode
+         * @memberof Ping
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {Ping} Ping
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Ping.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Ping();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.time = reader.uint64();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a Ping message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof Ping
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {Ping} Ping
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Ping.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a Ping message.
+         * @function verify
+         * @memberof Ping
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        Ping.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                    return "time: integer|Long expected";
+            return null;
+        };
+    
+        /**
+         * Creates a Ping message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof Ping
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {Ping} Ping
+         */
+        Ping.fromObject = function fromObject(object) {
+            if (object instanceof $root.Ping)
+                return object;
+            var message = new $root.Ping();
+            if (object.time != null)
+                if ($util.Long)
+                    (message.time = $util.Long.fromValue(object.time)).unsigned = true;
+                else if (typeof object.time === "string")
+                    message.time = parseInt(object.time, 10);
+                else if (typeof object.time === "number")
+                    message.time = object.time;
+                else if (typeof object.time === "object")
+                    message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber(true);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a Ping message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof Ping
+         * @static
+         * @param {Ping} message Ping
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        Ping.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.time = options.longs === String ? "0" : 0;
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (typeof message.time === "number")
+                    object.time = options.longs === String ? String(message.time) : message.time;
+                else
+                    object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber(true) : message.time;
+            return object;
+        };
+    
+        /**
+         * Converts this Ping to JSON.
+         * @function toJSON
+         * @memberof Ping
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        Ping.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return Ping;
+    })();
+    
     $root.PlayerKick = (function() {
     
         /**
@@ -6475,25 +6676,25 @@
         return RegistryUpdate;
     })();
     
-    $root.UpdateGameplaySetting = (function() {
+    $root.GameplaySettingUpdate = (function() {
     
         /**
-         * Properties of an UpdateGameplaySetting.
-         * @exports IUpdateGameplaySetting
-         * @interface IUpdateGameplaySetting
-         * @property {string|null} [key] UpdateGameplaySetting key
-         * @property {string|null} [value] UpdateGameplaySetting value
+         * Properties of a GameplaySettingUpdate.
+         * @exports IGameplaySettingUpdate
+         * @interface IGameplaySettingUpdate
+         * @property {string|null} [key] GameplaySettingUpdate key
+         * @property {string|null} [value] GameplaySettingUpdate value
          */
     
         /**
-         * Constructs a new UpdateGameplaySetting.
-         * @exports UpdateGameplaySetting
-         * @classdesc Represents an UpdateGameplaySetting.
-         * @implements IUpdateGameplaySetting
+         * Constructs a new GameplaySettingUpdate.
+         * @exports GameplaySettingUpdate
+         * @classdesc Represents a GameplaySettingUpdate.
+         * @implements IGameplaySettingUpdate
          * @constructor
-         * @param {IUpdateGameplaySetting=} [properties] Properties to set
+         * @param {IGameplaySettingUpdate=} [properties] Properties to set
          */
-        function UpdateGameplaySetting(properties) {
+        function GameplaySettingUpdate(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -6501,43 +6702,43 @@
         }
     
         /**
-         * UpdateGameplaySetting key.
+         * GameplaySettingUpdate key.
          * @member {string} key
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @instance
          */
-        UpdateGameplaySetting.prototype.key = "";
+        GameplaySettingUpdate.prototype.key = "";
     
         /**
-         * UpdateGameplaySetting value.
+         * GameplaySettingUpdate value.
          * @member {string} value
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @instance
          */
-        UpdateGameplaySetting.prototype.value = "";
+        GameplaySettingUpdate.prototype.value = "";
     
         /**
-         * Creates a new UpdateGameplaySetting instance using the specified properties.
+         * Creates a new GameplaySettingUpdate instance using the specified properties.
          * @function create
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @static
-         * @param {IUpdateGameplaySetting=} [properties] Properties to set
-         * @returns {UpdateGameplaySetting} UpdateGameplaySetting instance
+         * @param {IGameplaySettingUpdate=} [properties] Properties to set
+         * @returns {GameplaySettingUpdate} GameplaySettingUpdate instance
          */
-        UpdateGameplaySetting.create = function create(properties) {
-            return new UpdateGameplaySetting(properties);
+        GameplaySettingUpdate.create = function create(properties) {
+            return new GameplaySettingUpdate(properties);
         };
     
         /**
-         * Encodes the specified UpdateGameplaySetting message. Does not implicitly {@link UpdateGameplaySetting.verify|verify} messages.
+         * Encodes the specified GameplaySettingUpdate message. Does not implicitly {@link GameplaySettingUpdate.verify|verify} messages.
          * @function encode
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @static
-         * @param {IUpdateGameplaySetting} message UpdateGameplaySetting message or plain object to encode
+         * @param {IGameplaySettingUpdate} message GameplaySettingUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateGameplaySetting.encode = function encode(message, writer) {
+        GameplaySettingUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.key != null && Object.hasOwnProperty.call(message, "key"))
@@ -6548,33 +6749,33 @@
         };
     
         /**
-         * Encodes the specified UpdateGameplaySetting message, length delimited. Does not implicitly {@link UpdateGameplaySetting.verify|verify} messages.
+         * Encodes the specified GameplaySettingUpdate message, length delimited. Does not implicitly {@link GameplaySettingUpdate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @static
-         * @param {IUpdateGameplaySetting} message UpdateGameplaySetting message or plain object to encode
+         * @param {IGameplaySettingUpdate} message GameplaySettingUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        UpdateGameplaySetting.encodeDelimited = function encodeDelimited(message, writer) {
+        GameplaySettingUpdate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an UpdateGameplaySetting message from the specified reader or buffer.
+         * Decodes a GameplaySettingUpdate message from the specified reader or buffer.
          * @function decode
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {UpdateGameplaySetting} UpdateGameplaySetting
+         * @returns {GameplaySettingUpdate} GameplaySettingUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateGameplaySetting.decode = function decode(reader, length) {
+        GameplaySettingUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UpdateGameplaySetting();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.GameplaySettingUpdate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -6593,30 +6794,30 @@
         };
     
         /**
-         * Decodes an UpdateGameplaySetting message from the specified reader or buffer, length delimited.
+         * Decodes a GameplaySettingUpdate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {UpdateGameplaySetting} UpdateGameplaySetting
+         * @returns {GameplaySettingUpdate} GameplaySettingUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        UpdateGameplaySetting.decodeDelimited = function decodeDelimited(reader) {
+        GameplaySettingUpdate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an UpdateGameplaySetting message.
+         * Verifies a GameplaySettingUpdate message.
          * @function verify
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        UpdateGameplaySetting.verify = function verify(message) {
+        GameplaySettingUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.key != null && message.hasOwnProperty("key"))
@@ -6629,17 +6830,17 @@
         };
     
         /**
-         * Creates an UpdateGameplaySetting message from a plain object. Also converts values to their respective internal types.
+         * Creates a GameplaySettingUpdate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {UpdateGameplaySetting} UpdateGameplaySetting
+         * @returns {GameplaySettingUpdate} GameplaySettingUpdate
          */
-        UpdateGameplaySetting.fromObject = function fromObject(object) {
-            if (object instanceof $root.UpdateGameplaySetting)
+        GameplaySettingUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.GameplaySettingUpdate)
                 return object;
-            var message = new $root.UpdateGameplaySetting();
+            var message = new $root.GameplaySettingUpdate();
             if (object.key != null)
                 message.key = String(object.key);
             if (object.value != null)
@@ -6648,15 +6849,15 @@
         };
     
         /**
-         * Creates a plain object from an UpdateGameplaySetting message. Also converts values to other types if specified.
+         * Creates a plain object from a GameplaySettingUpdate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @static
-         * @param {UpdateGameplaySetting} message UpdateGameplaySetting
+         * @param {GameplaySettingUpdate} message GameplaySettingUpdate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        UpdateGameplaySetting.toObject = function toObject(message, options) {
+        GameplaySettingUpdate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -6672,17 +6873,591 @@
         };
     
         /**
-         * Converts this UpdateGameplaySetting to JSON.
+         * Converts this GameplaySettingUpdate to JSON.
          * @function toJSON
-         * @memberof UpdateGameplaySetting
+         * @memberof GameplaySettingUpdate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        UpdateGameplaySetting.prototype.toJSON = function toJSON() {
+        GameplaySettingUpdate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return UpdateGameplaySetting;
+        return GameplaySettingUpdate;
+    })();
+    
+    $root.EnvironmentFogUpdate = (function() {
+    
+        /**
+         * Properties of an EnvironmentFogUpdate.
+         * @exports IEnvironmentFogUpdate
+         * @interface IEnvironmentFogUpdate
+         * @property {number|null} [mode] EnvironmentFogUpdate mode
+         * @property {number|null} [density] EnvironmentFogUpdate density
+         * @property {number|null} [start] EnvironmentFogUpdate start
+         * @property {number|null} [end] EnvironmentFogUpdate end
+         * @property {number|null} [colorRed] EnvironmentFogUpdate colorRed
+         * @property {number|null} [colorGreen] EnvironmentFogUpdate colorGreen
+         * @property {number|null} [colorBlue] EnvironmentFogUpdate colorBlue
+         */
+    
+        /**
+         * Constructs a new EnvironmentFogUpdate.
+         * @exports EnvironmentFogUpdate
+         * @classdesc Represents an EnvironmentFogUpdate.
+         * @implements IEnvironmentFogUpdate
+         * @constructor
+         * @param {IEnvironmentFogUpdate=} [properties] Properties to set
+         */
+        function EnvironmentFogUpdate(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * EnvironmentFogUpdate mode.
+         * @member {number} mode
+         * @memberof EnvironmentFogUpdate
+         * @instance
+         */
+        EnvironmentFogUpdate.prototype.mode = 0;
+    
+        /**
+         * EnvironmentFogUpdate density.
+         * @member {number} density
+         * @memberof EnvironmentFogUpdate
+         * @instance
+         */
+        EnvironmentFogUpdate.prototype.density = 0;
+    
+        /**
+         * EnvironmentFogUpdate start.
+         * @member {number} start
+         * @memberof EnvironmentFogUpdate
+         * @instance
+         */
+        EnvironmentFogUpdate.prototype.start = 0;
+    
+        /**
+         * EnvironmentFogUpdate end.
+         * @member {number} end
+         * @memberof EnvironmentFogUpdate
+         * @instance
+         */
+        EnvironmentFogUpdate.prototype.end = 0;
+    
+        /**
+         * EnvironmentFogUpdate colorRed.
+         * @member {number} colorRed
+         * @memberof EnvironmentFogUpdate
+         * @instance
+         */
+        EnvironmentFogUpdate.prototype.colorRed = 0;
+    
+        /**
+         * EnvironmentFogUpdate colorGreen.
+         * @member {number} colorGreen
+         * @memberof EnvironmentFogUpdate
+         * @instance
+         */
+        EnvironmentFogUpdate.prototype.colorGreen = 0;
+    
+        /**
+         * EnvironmentFogUpdate colorBlue.
+         * @member {number} colorBlue
+         * @memberof EnvironmentFogUpdate
+         * @instance
+         */
+        EnvironmentFogUpdate.prototype.colorBlue = 0;
+    
+        /**
+         * Creates a new EnvironmentFogUpdate instance using the specified properties.
+         * @function create
+         * @memberof EnvironmentFogUpdate
+         * @static
+         * @param {IEnvironmentFogUpdate=} [properties] Properties to set
+         * @returns {EnvironmentFogUpdate} EnvironmentFogUpdate instance
+         */
+        EnvironmentFogUpdate.create = function create(properties) {
+            return new EnvironmentFogUpdate(properties);
+        };
+    
+        /**
+         * Encodes the specified EnvironmentFogUpdate message. Does not implicitly {@link EnvironmentFogUpdate.verify|verify} messages.
+         * @function encode
+         * @memberof EnvironmentFogUpdate
+         * @static
+         * @param {IEnvironmentFogUpdate} message EnvironmentFogUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnvironmentFogUpdate.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.mode);
+            if (message.density != null && Object.hasOwnProperty.call(message, "density"))
+                writer.uint32(/* id 2, wireType 5 =*/21).float(message.density);
+            if (message.start != null && Object.hasOwnProperty.call(message, "start"))
+                writer.uint32(/* id 3, wireType 5 =*/29).float(message.start);
+            if (message.end != null && Object.hasOwnProperty.call(message, "end"))
+                writer.uint32(/* id 4, wireType 5 =*/37).float(message.end);
+            if (message.colorRed != null && Object.hasOwnProperty.call(message, "colorRed"))
+                writer.uint32(/* id 5, wireType 5 =*/45).float(message.colorRed);
+            if (message.colorGreen != null && Object.hasOwnProperty.call(message, "colorGreen"))
+                writer.uint32(/* id 6, wireType 5 =*/53).float(message.colorGreen);
+            if (message.colorBlue != null && Object.hasOwnProperty.call(message, "colorBlue"))
+                writer.uint32(/* id 7, wireType 5 =*/61).float(message.colorBlue);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified EnvironmentFogUpdate message, length delimited. Does not implicitly {@link EnvironmentFogUpdate.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof EnvironmentFogUpdate
+         * @static
+         * @param {IEnvironmentFogUpdate} message EnvironmentFogUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnvironmentFogUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an EnvironmentFogUpdate message from the specified reader or buffer.
+         * @function decode
+         * @memberof EnvironmentFogUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {EnvironmentFogUpdate} EnvironmentFogUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnvironmentFogUpdate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EnvironmentFogUpdate();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.mode = reader.int32();
+                    break;
+                case 2:
+                    message.density = reader.float();
+                    break;
+                case 3:
+                    message.start = reader.float();
+                    break;
+                case 4:
+                    message.end = reader.float();
+                    break;
+                case 5:
+                    message.colorRed = reader.float();
+                    break;
+                case 6:
+                    message.colorGreen = reader.float();
+                    break;
+                case 7:
+                    message.colorBlue = reader.float();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an EnvironmentFogUpdate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof EnvironmentFogUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {EnvironmentFogUpdate} EnvironmentFogUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnvironmentFogUpdate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an EnvironmentFogUpdate message.
+         * @function verify
+         * @memberof EnvironmentFogUpdate
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        EnvironmentFogUpdate.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.mode != null && message.hasOwnProperty("mode"))
+                if (!$util.isInteger(message.mode))
+                    return "mode: integer expected";
+            if (message.density != null && message.hasOwnProperty("density"))
+                if (typeof message.density !== "number")
+                    return "density: number expected";
+            if (message.start != null && message.hasOwnProperty("start"))
+                if (typeof message.start !== "number")
+                    return "start: number expected";
+            if (message.end != null && message.hasOwnProperty("end"))
+                if (typeof message.end !== "number")
+                    return "end: number expected";
+            if (message.colorRed != null && message.hasOwnProperty("colorRed"))
+                if (typeof message.colorRed !== "number")
+                    return "colorRed: number expected";
+            if (message.colorGreen != null && message.hasOwnProperty("colorGreen"))
+                if (typeof message.colorGreen !== "number")
+                    return "colorGreen: number expected";
+            if (message.colorBlue != null && message.hasOwnProperty("colorBlue"))
+                if (typeof message.colorBlue !== "number")
+                    return "colorBlue: number expected";
+            return null;
+        };
+    
+        /**
+         * Creates an EnvironmentFogUpdate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof EnvironmentFogUpdate
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {EnvironmentFogUpdate} EnvironmentFogUpdate
+         */
+        EnvironmentFogUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.EnvironmentFogUpdate)
+                return object;
+            var message = new $root.EnvironmentFogUpdate();
+            if (object.mode != null)
+                message.mode = object.mode | 0;
+            if (object.density != null)
+                message.density = Number(object.density);
+            if (object.start != null)
+                message.start = Number(object.start);
+            if (object.end != null)
+                message.end = Number(object.end);
+            if (object.colorRed != null)
+                message.colorRed = Number(object.colorRed);
+            if (object.colorGreen != null)
+                message.colorGreen = Number(object.colorGreen);
+            if (object.colorBlue != null)
+                message.colorBlue = Number(object.colorBlue);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an EnvironmentFogUpdate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof EnvironmentFogUpdate
+         * @static
+         * @param {EnvironmentFogUpdate} message EnvironmentFogUpdate
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EnvironmentFogUpdate.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.mode = 0;
+                object.density = 0;
+                object.start = 0;
+                object.end = 0;
+                object.colorRed = 0;
+                object.colorGreen = 0;
+                object.colorBlue = 0;
+            }
+            if (message.mode != null && message.hasOwnProperty("mode"))
+                object.mode = message.mode;
+            if (message.density != null && message.hasOwnProperty("density"))
+                object.density = options.json && !isFinite(message.density) ? String(message.density) : message.density;
+            if (message.start != null && message.hasOwnProperty("start"))
+                object.start = options.json && !isFinite(message.start) ? String(message.start) : message.start;
+            if (message.end != null && message.hasOwnProperty("end"))
+                object.end = options.json && !isFinite(message.end) ? String(message.end) : message.end;
+            if (message.colorRed != null && message.hasOwnProperty("colorRed"))
+                object.colorRed = options.json && !isFinite(message.colorRed) ? String(message.colorRed) : message.colorRed;
+            if (message.colorGreen != null && message.hasOwnProperty("colorGreen"))
+                object.colorGreen = options.json && !isFinite(message.colorGreen) ? String(message.colorGreen) : message.colorGreen;
+            if (message.colorBlue != null && message.hasOwnProperty("colorBlue"))
+                object.colorBlue = options.json && !isFinite(message.colorBlue) ? String(message.colorBlue) : message.colorBlue;
+            return object;
+        };
+    
+        /**
+         * Converts this EnvironmentFogUpdate to JSON.
+         * @function toJSON
+         * @memberof EnvironmentFogUpdate
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EnvironmentFogUpdate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return EnvironmentFogUpdate;
+    })();
+    
+    $root.EnvironmentSkyUpdate = (function() {
+    
+        /**
+         * Properties of an EnvironmentSkyUpdate.
+         * @exports IEnvironmentSkyUpdate
+         * @interface IEnvironmentSkyUpdate
+         * @property {boolean|null} [clouds] EnvironmentSkyUpdate clouds
+         * @property {number|null} [colorRed] EnvironmentSkyUpdate colorRed
+         * @property {number|null} [colorGreen] EnvironmentSkyUpdate colorGreen
+         * @property {number|null} [colorBlue] EnvironmentSkyUpdate colorBlue
+         */
+    
+        /**
+         * Constructs a new EnvironmentSkyUpdate.
+         * @exports EnvironmentSkyUpdate
+         * @classdesc Represents an EnvironmentSkyUpdate.
+         * @implements IEnvironmentSkyUpdate
+         * @constructor
+         * @param {IEnvironmentSkyUpdate=} [properties] Properties to set
+         */
+        function EnvironmentSkyUpdate(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * EnvironmentSkyUpdate clouds.
+         * @member {boolean} clouds
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.clouds = false;
+    
+        /**
+         * EnvironmentSkyUpdate colorRed.
+         * @member {number} colorRed
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorRed = 0;
+    
+        /**
+         * EnvironmentSkyUpdate colorGreen.
+         * @member {number} colorGreen
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorGreen = 0;
+    
+        /**
+         * EnvironmentSkyUpdate colorBlue.
+         * @member {number} colorBlue
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorBlue = 0;
+    
+        /**
+         * Creates a new EnvironmentSkyUpdate instance using the specified properties.
+         * @function create
+         * @memberof EnvironmentSkyUpdate
+         * @static
+         * @param {IEnvironmentSkyUpdate=} [properties] Properties to set
+         * @returns {EnvironmentSkyUpdate} EnvironmentSkyUpdate instance
+         */
+        EnvironmentSkyUpdate.create = function create(properties) {
+            return new EnvironmentSkyUpdate(properties);
+        };
+    
+        /**
+         * Encodes the specified EnvironmentSkyUpdate message. Does not implicitly {@link EnvironmentSkyUpdate.verify|verify} messages.
+         * @function encode
+         * @memberof EnvironmentSkyUpdate
+         * @static
+         * @param {IEnvironmentSkyUpdate} message EnvironmentSkyUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnvironmentSkyUpdate.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.clouds != null && Object.hasOwnProperty.call(message, "clouds"))
+                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.clouds);
+            if (message.colorRed != null && Object.hasOwnProperty.call(message, "colorRed"))
+                writer.uint32(/* id 2, wireType 5 =*/21).float(message.colorRed);
+            if (message.colorGreen != null && Object.hasOwnProperty.call(message, "colorGreen"))
+                writer.uint32(/* id 3, wireType 5 =*/29).float(message.colorGreen);
+            if (message.colorBlue != null && Object.hasOwnProperty.call(message, "colorBlue"))
+                writer.uint32(/* id 4, wireType 5 =*/37).float(message.colorBlue);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified EnvironmentSkyUpdate message, length delimited. Does not implicitly {@link EnvironmentSkyUpdate.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof EnvironmentSkyUpdate
+         * @static
+         * @param {IEnvironmentSkyUpdate} message EnvironmentSkyUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnvironmentSkyUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an EnvironmentSkyUpdate message from the specified reader or buffer.
+         * @function decode
+         * @memberof EnvironmentSkyUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {EnvironmentSkyUpdate} EnvironmentSkyUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnvironmentSkyUpdate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EnvironmentSkyUpdate();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.clouds = reader.bool();
+                    break;
+                case 2:
+                    message.colorRed = reader.float();
+                    break;
+                case 3:
+                    message.colorGreen = reader.float();
+                    break;
+                case 4:
+                    message.colorBlue = reader.float();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an EnvironmentSkyUpdate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof EnvironmentSkyUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {EnvironmentSkyUpdate} EnvironmentSkyUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnvironmentSkyUpdate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an EnvironmentSkyUpdate message.
+         * @function verify
+         * @memberof EnvironmentSkyUpdate
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        EnvironmentSkyUpdate.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.clouds != null && message.hasOwnProperty("clouds"))
+                if (typeof message.clouds !== "boolean")
+                    return "clouds: boolean expected";
+            if (message.colorRed != null && message.hasOwnProperty("colorRed"))
+                if (typeof message.colorRed !== "number")
+                    return "colorRed: number expected";
+            if (message.colorGreen != null && message.hasOwnProperty("colorGreen"))
+                if (typeof message.colorGreen !== "number")
+                    return "colorGreen: number expected";
+            if (message.colorBlue != null && message.hasOwnProperty("colorBlue"))
+                if (typeof message.colorBlue !== "number")
+                    return "colorBlue: number expected";
+            return null;
+        };
+    
+        /**
+         * Creates an EnvironmentSkyUpdate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof EnvironmentSkyUpdate
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {EnvironmentSkyUpdate} EnvironmentSkyUpdate
+         */
+        EnvironmentSkyUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.EnvironmentSkyUpdate)
+                return object;
+            var message = new $root.EnvironmentSkyUpdate();
+            if (object.clouds != null)
+                message.clouds = Boolean(object.clouds);
+            if (object.colorRed != null)
+                message.colorRed = Number(object.colorRed);
+            if (object.colorGreen != null)
+                message.colorGreen = Number(object.colorGreen);
+            if (object.colorBlue != null)
+                message.colorBlue = Number(object.colorBlue);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an EnvironmentSkyUpdate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof EnvironmentSkyUpdate
+         * @static
+         * @param {EnvironmentSkyUpdate} message EnvironmentSkyUpdate
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EnvironmentSkyUpdate.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.clouds = false;
+                object.colorRed = 0;
+                object.colorGreen = 0;
+                object.colorBlue = 0;
+            }
+            if (message.clouds != null && message.hasOwnProperty("clouds"))
+                object.clouds = message.clouds;
+            if (message.colorRed != null && message.hasOwnProperty("colorRed"))
+                object.colorRed = options.json && !isFinite(message.colorRed) ? String(message.colorRed) : message.colorRed;
+            if (message.colorGreen != null && message.hasOwnProperty("colorGreen"))
+                object.colorGreen = options.json && !isFinite(message.colorGreen) ? String(message.colorGreen) : message.colorGreen;
+            if (message.colorBlue != null && message.hasOwnProperty("colorBlue"))
+                object.colorBlue = options.json && !isFinite(message.colorBlue) ? String(message.colorBlue) : message.colorBlue;
+            return object;
+        };
+    
+        /**
+         * Converts this EnvironmentSkyUpdate to JSON.
+         * @function toJSON
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EnvironmentSkyUpdate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return EnvironmentSkyUpdate;
     })();
     
     $root.PluginMessage = (function() {

@@ -15,12 +15,41 @@ message LoginResponse {
 }
 
 /* 
- * ActionMove is send, when player moves or rotates.
+ * Client ping message.
+*/
+
+message Ping {
+	uint64 time = 1;
+}
+
+/* 
+ * ActionMove is send, when player moves.
+ * Field x, y and z corresponds for player's position in world
+*/
+
+message ActionMove {
+	double x = 1;
+	double y = 2;
+	double z = 3;
+}
+
+/* 
+ * ActionLook is send, when player rotates.
+ * rotation is just player's camera rotation
+*/
+
+message ActionLook {
+	float rotation = 1;
+	float pitch = 2;
+}
+
+/* 
+ * ActionMoveLook is send, when player moves and rotates.
  * Field x, y and z corresponds for player's position in world
  * rotation is just player's camera rotation
 */
 
-message ActionMove {
+message ActionMoveLook {
 	double x = 1;
 	double y = 2;
 	double z = 3;
@@ -54,12 +83,14 @@ message ActionBlockPlace {
 /* 
  * ActionBlockBreak is send after player tries to break a block
  * x, y and z are coordinates of targeted block
+ * finished is set to true, when blockbreak is finished
 */
 
 message ActionBlockBreak {
 	sint32 x = 1;
 	sint32 y = 2;
 	sint32 z = 3;
+	bool finished = 4;
 }
 
 /* 
@@ -101,7 +132,7 @@ message ActionClick {
 	sint32 y = 2;
 	sint32 z = 3;
 	string type = 4;
-	bool onBlock = 5;
+	bool on_block = 5;
 }
 
 /* 

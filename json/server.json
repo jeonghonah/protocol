@@ -72,6 +72,14 @@
         }
       }
     },
+    "Ping": {
+      "fields": {
+        "time": {
+          "type": "uint64",
+          "id": 1
+        }
+      }
+    },
     "PlayerKick": {
       "fields": {
         "reason": {
@@ -474,7 +482,7 @@
         }
       }
     },
-    "UpdateGameplaySetting": {
+    "GameplaySettingUpdate": {
       "fields": {
         "key": {
           "type": "string",
@@ -483,6 +491,58 @@
         "value": {
           "type": "string",
           "id": 2
+        }
+      }
+    },
+    "EnvironmentFogUpdate": {
+      "fields": {
+        "mode": {
+          "type": "int32",
+          "id": 1
+        },
+        "density": {
+          "type": "float",
+          "id": 2
+        },
+        "start": {
+          "type": "float",
+          "id": 3
+        },
+        "end": {
+          "type": "float",
+          "id": 4
+        },
+        "colorRed": {
+          "type": "float",
+          "id": 5
+        },
+        "colorGreen": {
+          "type": "float",
+          "id": 6
+        },
+        "colorBlue": {
+          "type": "float",
+          "id": 7
+        }
+      }
+    },
+    "EnvironmentSkyUpdate": {
+      "fields": {
+        "clouds": {
+          "type": "bool",
+          "id": 1
+        },
+        "colorRed": {
+          "type": "float",
+          "id": 2
+        },
+        "colorGreen": {
+          "type": "float",
+          "id": 3
+        },
+        "colorBlue": {
+          "type": "float",
+          "id": 4
         }
       }
     },

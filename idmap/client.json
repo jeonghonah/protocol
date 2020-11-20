@@ -1,1 +1,1 @@
-["LoginResponse","ActionMove","ActionMessage","ActionBlockPlace","ActionBlockBreak","ActionInventoryClick","ActionInventoryOpen","ActionInventoryClose","ActionClick","ActionClickEntity","PluginMessage"]
+["LoginResponse","Ping","ActionMove","ActionLook","ActionMoveLook","ActionMessage","ActionBlockPlace","ActionBlockBreak","ActionInventoryClick","ActionInventoryOpen","ActionInventoryClose","ActionClick","ActionClickEntity","PluginMessage"]

@@ -28,7 +28,43 @@
         }
       }
     },
+    "Ping": {
+      "fields": {
+        "time": {
+          "type": "uint64",
+          "id": 1
+        }
+      }
+    },
     "ActionMove": {
+      "fields": {
+        "x": {
+          "type": "double",
+          "id": 1
+        },
+        "y": {
+          "type": "double",
+          "id": 2
+        },
+        "z": {
+          "type": "double",
+          "id": 3
+        }
+      }
+    },
+    "ActionLook": {
+      "fields": {
+        "rotation": {
+          "type": "float",
+          "id": 1
+        },
+        "pitch": {
+          "type": "float",
+          "id": 2
+        }
+      }
+    },
+    "ActionMoveLook": {
       "fields": {
         "x": {
           "type": "double",
@@ -101,6 +137,10 @@
         "z": {
           "type": "sint32",
           "id": 3
+        },
+        "finished": {
+          "type": "bool",
+          "id": 4
         }
       }
     },

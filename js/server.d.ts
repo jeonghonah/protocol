@@ -263,6 +263,96 @@ export class LoginSuccess implements ILoginSuccess {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a Ping. */
+export interface IPing {
+
+    /** Ping time */
+    time?: (number|Long|null);
+}
+
+/** Represents a Ping. */
+export class Ping implements IPing {
+
+    /**
+     * Constructs a new Ping.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPing);
+
+    /** Ping time. */
+    public time: (number|Long);
+
+    /**
+     * Creates a new Ping instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns Ping instance
+     */
+    public static create(properties?: IPing): Ping;
+
+    /**
+     * Encodes the specified Ping message. Does not implicitly {@link Ping.verify|verify} messages.
+     * @param message Ping message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPing, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified Ping message, length delimited. Does not implicitly {@link Ping.verify|verify} messages.
+     * @param message Ping message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPing, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a Ping message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Ping
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Ping;
+
+    /**
+     * Decodes a Ping message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns Ping
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Ping;
+
+    /**
+     * Verifies a Ping message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a Ping message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns Ping
+     */
+    public static fromObject(object: { [k: string]: any }): Ping;
+
+    /**
+     * Creates a plain object from a Ping message. Also converts values to other types if specified.
+     * @param message Ping
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: Ping, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this Ping to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PlayerKick. */
 export interface IPlayerKick {
 
@@ -2735,97 +2825,331 @@ export class RegistryUpdate implements IRegistryUpdate {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an UpdateGameplaySetting. */
-export interface IUpdateGameplaySetting {
+/** Properties of a GameplaySettingUpdate. */
+export interface IGameplaySettingUpdate {
 
-    /** UpdateGameplaySetting key */
+    /** GameplaySettingUpdate key */
     key?: (string|null);
 
-    /** UpdateGameplaySetting value */
+    /** GameplaySettingUpdate value */
     value?: (string|null);
 }
 
-/** Represents an UpdateGameplaySetting. */
-export class UpdateGameplaySetting implements IUpdateGameplaySetting {
+/** Represents a GameplaySettingUpdate. */
+export class GameplaySettingUpdate implements IGameplaySettingUpdate {
 
     /**
-     * Constructs a new UpdateGameplaySetting.
+     * Constructs a new GameplaySettingUpdate.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IUpdateGameplaySetting);
+    constructor(properties?: IGameplaySettingUpdate);
 
-    /** UpdateGameplaySetting key. */
+    /** GameplaySettingUpdate key. */
     public key: string;
 
-    /** UpdateGameplaySetting value. */
+    /** GameplaySettingUpdate value. */
     public value: string;
 
     /**
-     * Creates a new UpdateGameplaySetting instance using the specified properties.
+     * Creates a new GameplaySettingUpdate instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns UpdateGameplaySetting instance
+     * @returns GameplaySettingUpdate instance
      */
-    public static create(properties?: IUpdateGameplaySetting): UpdateGameplaySetting;
+    public static create(properties?: IGameplaySettingUpdate): GameplaySettingUpdate;
 
     /**
-     * Encodes the specified UpdateGameplaySetting message. Does not implicitly {@link UpdateGameplaySetting.verify|verify} messages.
-     * @param message UpdateGameplaySetting message or plain object to encode
+     * Encodes the specified GameplaySettingUpdate message. Does not implicitly {@link GameplaySettingUpdate.verify|verify} messages.
+     * @param message GameplaySettingUpdate message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IUpdateGameplaySetting, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IGameplaySettingUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified UpdateGameplaySetting message, length delimited. Does not implicitly {@link UpdateGameplaySetting.verify|verify} messages.
-     * @param message UpdateGameplaySetting message or plain object to encode
+     * Encodes the specified GameplaySettingUpdate message, length delimited. Does not implicitly {@link GameplaySettingUpdate.verify|verify} messages.
+     * @param message GameplaySettingUpdate message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IUpdateGameplaySetting, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IGameplaySettingUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an UpdateGameplaySetting message from the specified reader or buffer.
+     * Decodes a GameplaySettingUpdate message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns UpdateGameplaySetting
+     * @returns GameplaySettingUpdate
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UpdateGameplaySetting;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): GameplaySettingUpdate;
 
     /**
-     * Decodes an UpdateGameplaySetting message from the specified reader or buffer, length delimited.
+     * Decodes a GameplaySettingUpdate message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns UpdateGameplaySetting
+     * @returns GameplaySettingUpdate
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UpdateGameplaySetting;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): GameplaySettingUpdate;
 
     /**
-     * Verifies an UpdateGameplaySetting message.
+     * Verifies a GameplaySettingUpdate message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an UpdateGameplaySetting message from a plain object. Also converts values to their respective internal types.
+     * Creates a GameplaySettingUpdate message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns UpdateGameplaySetting
+     * @returns GameplaySettingUpdate
      */
-    public static fromObject(object: { [k: string]: any }): UpdateGameplaySetting;
+    public static fromObject(object: { [k: string]: any }): GameplaySettingUpdate;
 
     /**
-     * Creates a plain object from an UpdateGameplaySetting message. Also converts values to other types if specified.
-     * @param message UpdateGameplaySetting
+     * Creates a plain object from a GameplaySettingUpdate message. Also converts values to other types if specified.
+     * @param message GameplaySettingUpdate
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: UpdateGameplaySetting, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: GameplaySettingUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this UpdateGameplaySetting to JSON.
+     * Converts this GameplaySettingUpdate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an EnvironmentFogUpdate. */
+export interface IEnvironmentFogUpdate {
+
+    /** EnvironmentFogUpdate mode */
+    mode?: (number|null);
+
+    /** EnvironmentFogUpdate density */
+    density?: (number|null);
+
+    /** EnvironmentFogUpdate start */
+    start?: (number|null);
+
+    /** EnvironmentFogUpdate end */
+    end?: (number|null);
+
+    /** EnvironmentFogUpdate colorRed */
+    colorRed?: (number|null);
+
+    /** EnvironmentFogUpdate colorGreen */
+    colorGreen?: (number|null);
+
+    /** EnvironmentFogUpdate colorBlue */
+    colorBlue?: (number|null);
+}
+
+/** Represents an EnvironmentFogUpdate. */
+export class EnvironmentFogUpdate implements IEnvironmentFogUpdate {
+
+    /**
+     * Constructs a new EnvironmentFogUpdate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IEnvironmentFogUpdate);
+
+    /** EnvironmentFogUpdate mode. */
+    public mode: number;
+
+    /** EnvironmentFogUpdate density. */
+    public density: number;
+
+    /** EnvironmentFogUpdate start. */
+    public start: number;
+
+    /** EnvironmentFogUpdate end. */
+    public end: number;
+
+    /** EnvironmentFogUpdate colorRed. */
+    public colorRed: number;
+
+    /** EnvironmentFogUpdate colorGreen. */
+    public colorGreen: number;
+
+    /** EnvironmentFogUpdate colorBlue. */
+    public colorBlue: number;
+
+    /**
+     * Creates a new EnvironmentFogUpdate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns EnvironmentFogUpdate instance
+     */
+    public static create(properties?: IEnvironmentFogUpdate): EnvironmentFogUpdate;
+
+    /**
+     * Encodes the specified EnvironmentFogUpdate message. Does not implicitly {@link EnvironmentFogUpdate.verify|verify} messages.
+     * @param message EnvironmentFogUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IEnvironmentFogUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified EnvironmentFogUpdate message, length delimited. Does not implicitly {@link EnvironmentFogUpdate.verify|verify} messages.
+     * @param message EnvironmentFogUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IEnvironmentFogUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an EnvironmentFogUpdate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns EnvironmentFogUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EnvironmentFogUpdate;
+
+    /**
+     * Decodes an EnvironmentFogUpdate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns EnvironmentFogUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EnvironmentFogUpdate;
+
+    /**
+     * Verifies an EnvironmentFogUpdate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an EnvironmentFogUpdate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns EnvironmentFogUpdate
+     */
+    public static fromObject(object: { [k: string]: any }): EnvironmentFogUpdate;
+
+    /**
+     * Creates a plain object from an EnvironmentFogUpdate message. Also converts values to other types if specified.
+     * @param message EnvironmentFogUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: EnvironmentFogUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this EnvironmentFogUpdate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an EnvironmentSkyUpdate. */
+export interface IEnvironmentSkyUpdate {
+
+    /** EnvironmentSkyUpdate clouds */
+    clouds?: (boolean|null);
+
+    /** EnvironmentSkyUpdate colorRed */
+    colorRed?: (number|null);
+
+    /** EnvironmentSkyUpdate colorGreen */
+    colorGreen?: (number|null);
+
+    /** EnvironmentSkyUpdate colorBlue */
+    colorBlue?: (number|null);
+}
+
+/** Represents an EnvironmentSkyUpdate. */
+export class EnvironmentSkyUpdate implements IEnvironmentSkyUpdate {
+
+    /**
+     * Constructs a new EnvironmentSkyUpdate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IEnvironmentSkyUpdate);
+
+    /** EnvironmentSkyUpdate clouds. */
+    public clouds: boolean;
+
+    /** EnvironmentSkyUpdate colorRed. */
+    public colorRed: number;
+
+    /** EnvironmentSkyUpdate colorGreen. */
+    public colorGreen: number;
+
+    /** EnvironmentSkyUpdate colorBlue. */
+    public colorBlue: number;
+
+    /**
+     * Creates a new EnvironmentSkyUpdate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns EnvironmentSkyUpdate instance
+     */
+    public static create(properties?: IEnvironmentSkyUpdate): EnvironmentSkyUpdate;
+
+    /**
+     * Encodes the specified EnvironmentSkyUpdate message. Does not implicitly {@link EnvironmentSkyUpdate.verify|verify} messages.
+     * @param message EnvironmentSkyUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IEnvironmentSkyUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified EnvironmentSkyUpdate message, length delimited. Does not implicitly {@link EnvironmentSkyUpdate.verify|verify} messages.
+     * @param message EnvironmentSkyUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IEnvironmentSkyUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an EnvironmentSkyUpdate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns EnvironmentSkyUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EnvironmentSkyUpdate;
+
+    /**
+     * Decodes an EnvironmentSkyUpdate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns EnvironmentSkyUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EnvironmentSkyUpdate;
+
+    /**
+     * Verifies an EnvironmentSkyUpdate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an EnvironmentSkyUpdate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns EnvironmentSkyUpdate
+     */
+    public static fromObject(object: { [k: string]: any }): EnvironmentSkyUpdate;
+
+    /**
+     * Creates a plain object from an EnvironmentSkyUpdate message. Also converts values to other types if specified.
+     * @param message EnvironmentSkyUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: EnvironmentSkyUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this EnvironmentSkyUpdate to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

@@ -35,6 +35,15 @@ message LoginSuccess {
 }
 
 /* 
+ * Client ping message.
+*/
+
+message Ping {
+	uint64 time = 1;
+}
+
+
+/* 
  * PlayerKick is used to set reason of connection close
 */
 
@@ -288,10 +297,39 @@ message RegistryUpdate {
 */
 
 
-message UpdateGameplaySetting {
+message GameplaySettingUpdate {
 	string key = 1;
 	string value = 2;
 }
+
+
+/*
+ * Updates settings of fog
+*/
+
+
+message EnvironmentFogUpdate {
+	int32 mode = 1;
+	float density = 2;
+	float start = 3;
+	float end = 4;
+	float color_red = 5;
+	float color_green = 6;
+	float color_blue = 7;
+}
+
+/*
+ * Updates clear color
+*/
+
+message EnvironmentSkyUpdate {
+	bool clouds = 1;
+	float color_red = 2;
+	float color_green = 3;
+	float color_blue = 4;
+}
+
+
 
 /*
  * Message for custom/plugin data
