@@ -2690,6 +2690,7 @@
          * @exports IPlayerHealth
          * @interface IPlayerHealth
          * @property {number|null} [value] PlayerHealth value
+         * @property {number|null} [max] PlayerHealth max
          */
     
         /**
@@ -2714,6 +2715,14 @@
          * @instance
          */
         PlayerHealth.prototype.value = 0;
+    
+        /**
+         * PlayerHealth max.
+         * @member {number} max
+         * @memberof PlayerHealth
+         * @instance
+         */
+        PlayerHealth.prototype.max = 0;
     
         /**
          * Creates a new PlayerHealth instance using the specified properties.
@@ -2741,6 +2750,8 @@
                 writer = $Writer.create();
             if (message.value != null && Object.hasOwnProperty.call(message, "value"))
                 writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.value);
+            if (message.max != null && Object.hasOwnProperty.call(message, "max"))
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.max);
             return writer;
         };
     
@@ -2777,6 +2788,9 @@
                 switch (tag >>> 3) {
                 case 1:
                     message.value = reader.sint32();
+                    break;
+                case 2:
+                    message.max = reader.sint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2816,6 +2830,9 @@
             if (message.value != null && message.hasOwnProperty("value"))
                 if (!$util.isInteger(message.value))
                     return "value: integer expected";
+            if (message.max != null && message.hasOwnProperty("max"))
+                if (!$util.isInteger(message.max))
+                    return "max: integer expected";
             return null;
         };
     
@@ -2833,6 +2850,8 @@
             var message = new $root.PlayerHealth();
             if (object.value != null)
                 message.value = object.value | 0;
+            if (object.max != null)
+                message.max = object.max | 0;
             return message;
         };
     
@@ -2849,10 +2868,14 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.value = 0;
+                object.max = 0;
+            }
             if (message.value != null && message.hasOwnProperty("value"))
                 object.value = message.value;
+            if (message.max != null && message.hasOwnProperty("max"))
+                object.max = message.max;
             return object;
         };
     
@@ -5905,6 +5928,239 @@
         return WorldBlockUpdate;
     })();
     
+    $root.WorldMultiBlockUpdate = (function() {
+    
+        /**
+         * Properties of a WorldMultiBlockUpdate.
+         * @exports IWorldMultiBlockUpdate
+         * @interface IWorldMultiBlockUpdate
+         * @property {Object.<string,IWorldBlockUpdate>|null} [blocks] WorldMultiBlockUpdate blocks
+         */
+    
+        /**
+         * Constructs a new WorldMultiBlockUpdate.
+         * @exports WorldMultiBlockUpdate
+         * @classdesc Represents a WorldMultiBlockUpdate.
+         * @implements IWorldMultiBlockUpdate
+         * @constructor
+         * @param {IWorldMultiBlockUpdate=} [properties] Properties to set
+         */
+        function WorldMultiBlockUpdate(properties) {
+            this.blocks = {};
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * WorldMultiBlockUpdate blocks.
+         * @member {Object.<string,IWorldBlockUpdate>} blocks
+         * @memberof WorldMultiBlockUpdate
+         * @instance
+         */
+        WorldMultiBlockUpdate.prototype.blocks = $util.emptyObject;
+    
+        /**
+         * Creates a new WorldMultiBlockUpdate instance using the specified properties.
+         * @function create
+         * @memberof WorldMultiBlockUpdate
+         * @static
+         * @param {IWorldMultiBlockUpdate=} [properties] Properties to set
+         * @returns {WorldMultiBlockUpdate} WorldMultiBlockUpdate instance
+         */
+        WorldMultiBlockUpdate.create = function create(properties) {
+            return new WorldMultiBlockUpdate(properties);
+        };
+    
+        /**
+         * Encodes the specified WorldMultiBlockUpdate message. Does not implicitly {@link WorldMultiBlockUpdate.verify|verify} messages.
+         * @function encode
+         * @memberof WorldMultiBlockUpdate
+         * @static
+         * @param {IWorldMultiBlockUpdate} message WorldMultiBlockUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        WorldMultiBlockUpdate.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.blocks != null && Object.hasOwnProperty.call(message, "blocks"))
+                for (var keys = Object.keys(message.blocks), i = 0; i < keys.length; ++i) {
+                    writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).int32(keys[i]);
+                    $root.WorldBlockUpdate.encode(message.blocks[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                }
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified WorldMultiBlockUpdate message, length delimited. Does not implicitly {@link WorldMultiBlockUpdate.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof WorldMultiBlockUpdate
+         * @static
+         * @param {IWorldMultiBlockUpdate} message WorldMultiBlockUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        WorldMultiBlockUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a WorldMultiBlockUpdate message from the specified reader or buffer.
+         * @function decode
+         * @memberof WorldMultiBlockUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {WorldMultiBlockUpdate} WorldMultiBlockUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        WorldMultiBlockUpdate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.WorldMultiBlockUpdate(), key, value;
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (message.blocks === $util.emptyObject)
+                        message.blocks = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = 0;
+                    value = null;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.int32();
+                            break;
+                        case 2:
+                            value = $root.WorldBlockUpdate.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.blocks[key] = value;
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a WorldMultiBlockUpdate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof WorldMultiBlockUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {WorldMultiBlockUpdate} WorldMultiBlockUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        WorldMultiBlockUpdate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a WorldMultiBlockUpdate message.
+         * @function verify
+         * @memberof WorldMultiBlockUpdate
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        WorldMultiBlockUpdate.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.blocks != null && message.hasOwnProperty("blocks")) {
+                if (!$util.isObject(message.blocks))
+                    return "blocks: object expected";
+                var key = Object.keys(message.blocks);
+                for (var i = 0; i < key.length; ++i) {
+                    if (!$util.key32Re.test(key[i]))
+                        return "blocks: integer key{k:int32} expected";
+                    {
+                        var error = $root.WorldBlockUpdate.verify(message.blocks[key[i]]);
+                        if (error)
+                            return "blocks." + error;
+                    }
+                }
+            }
+            return null;
+        };
+    
+        /**
+         * Creates a WorldMultiBlockUpdate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof WorldMultiBlockUpdate
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {WorldMultiBlockUpdate} WorldMultiBlockUpdate
+         */
+        WorldMultiBlockUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.WorldMultiBlockUpdate)
+                return object;
+            var message = new $root.WorldMultiBlockUpdate();
+            if (object.blocks) {
+                if (typeof object.blocks !== "object")
+                    throw TypeError(".WorldMultiBlockUpdate.blocks: object expected");
+                message.blocks = {};
+                for (var keys = Object.keys(object.blocks), i = 0; i < keys.length; ++i) {
+                    if (typeof object.blocks[keys[i]] !== "object")
+                        throw TypeError(".WorldMultiBlockUpdate.blocks: object expected");
+                    message.blocks[keys[i]] = $root.WorldBlockUpdate.fromObject(object.blocks[keys[i]]);
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a WorldMultiBlockUpdate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof WorldMultiBlockUpdate
+         * @static
+         * @param {WorldMultiBlockUpdate} message WorldMultiBlockUpdate
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        WorldMultiBlockUpdate.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.objects || options.defaults)
+                object.blocks = {};
+            var keys2;
+            if (message.blocks && (keys2 = Object.keys(message.blocks)).length) {
+                object.blocks = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.blocks[keys2[j]] = $root.WorldBlockUpdate.toObject(message.blocks[keys2[j]], options);
+            }
+            return object;
+        };
+    
+        /**
+         * Converts this WorldMultiBlockUpdate to JSON.
+         * @function toJSON
+         * @memberof WorldMultiBlockUpdate
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        WorldMultiBlockUpdate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return WorldMultiBlockUpdate;
+    })();
+    
     $root.WorldChunkLoad = (function() {
     
         /**
@@ -7468,7 +7724,7 @@
          * @interface IPluginMessage
          * @property {string|null} [key] PluginMessage key
          * @property {number|null} [version] PluginMessage version
-         * @property {string|null} [value] PluginMessage value
+         * @property {Uint8Array|null} [value] PluginMessage value
          */
     
         /**
@@ -7504,11 +7760,11 @@
     
         /**
          * PluginMessage value.
-         * @member {string} value
+         * @member {Uint8Array} value
          * @memberof PluginMessage
          * @instance
          */
-        PluginMessage.prototype.value = "";
+        PluginMessage.prototype.value = $util.newBuffer([]);
     
         /**
          * Creates a new PluginMessage instance using the specified properties.
@@ -7539,7 +7795,7 @@
             if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.version);
             if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.value);
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.value);
             return writer;
         };
     
@@ -7581,7 +7837,7 @@
                     message.version = reader.uint32();
                     break;
                 case 3:
-                    message.value = reader.string();
+                    message.value = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -7625,8 +7881,8 @@
                 if (!$util.isInteger(message.version))
                     return "version: integer expected";
             if (message.value != null && message.hasOwnProperty("value"))
-                if (!$util.isString(message.value))
-                    return "value: string expected";
+                if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                    return "value: buffer expected";
             return null;
         };
     
@@ -7647,7 +7903,10 @@
             if (object.version != null)
                 message.version = object.version >>> 0;
             if (object.value != null)
-                message.value = String(object.value);
+                if (typeof object.value === "string")
+                    $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                else if (object.value.length)
+                    message.value = object.value;
             return message;
         };
     
@@ -7667,14 +7926,20 @@
             if (options.defaults) {
                 object.key = "";
                 object.version = 0;
-                object.value = "";
+                if (options.bytes === String)
+                    object.value = "";
+                else {
+                    object.value = [];
+                    if (options.bytes !== Array)
+                        object.value = $util.newBuffer(object.value);
+                }
             }
             if (message.key != null && message.hasOwnProperty("key"))
                 object.key = message.key;
             if (message.version != null && message.hasOwnProperty("version"))
                 object.version = message.version;
             if (message.value != null && message.hasOwnProperty("value"))
-                object.value = message.value;
+                object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
             return object;
         };
     

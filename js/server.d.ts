@@ -1150,6 +1150,9 @@ export interface IPlayerHealth {
 
     /** PlayerHealth value */
     value?: (number|null);
+
+    /** PlayerHealth max */
+    max?: (number|null);
 }
 
 /** Represents a PlayerHealth. */
@@ -1163,6 +1166,9 @@ export class PlayerHealth implements IPlayerHealth {
 
     /** PlayerHealth value. */
     public value: number;
+
+    /** PlayerHealth max. */
+    public max: number;
 
     /**
      * Creates a new PlayerHealth instance using the specified properties.
@@ -2501,6 +2507,96 @@ export class WorldBlockUpdate implements IWorldBlockUpdate {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a WorldMultiBlockUpdate. */
+export interface IWorldMultiBlockUpdate {
+
+    /** WorldMultiBlockUpdate blocks */
+    blocks?: ({ [k: string]: IWorldBlockUpdate }|null);
+}
+
+/** Represents a WorldMultiBlockUpdate. */
+export class WorldMultiBlockUpdate implements IWorldMultiBlockUpdate {
+
+    /**
+     * Constructs a new WorldMultiBlockUpdate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IWorldMultiBlockUpdate);
+
+    /** WorldMultiBlockUpdate blocks. */
+    public blocks: { [k: string]: IWorldBlockUpdate };
+
+    /**
+     * Creates a new WorldMultiBlockUpdate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns WorldMultiBlockUpdate instance
+     */
+    public static create(properties?: IWorldMultiBlockUpdate): WorldMultiBlockUpdate;
+
+    /**
+     * Encodes the specified WorldMultiBlockUpdate message. Does not implicitly {@link WorldMultiBlockUpdate.verify|verify} messages.
+     * @param message WorldMultiBlockUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IWorldMultiBlockUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified WorldMultiBlockUpdate message, length delimited. Does not implicitly {@link WorldMultiBlockUpdate.verify|verify} messages.
+     * @param message WorldMultiBlockUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IWorldMultiBlockUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a WorldMultiBlockUpdate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns WorldMultiBlockUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): WorldMultiBlockUpdate;
+
+    /**
+     * Decodes a WorldMultiBlockUpdate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns WorldMultiBlockUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): WorldMultiBlockUpdate;
+
+    /**
+     * Verifies a WorldMultiBlockUpdate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a WorldMultiBlockUpdate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns WorldMultiBlockUpdate
+     */
+    public static fromObject(object: { [k: string]: any }): WorldMultiBlockUpdate;
+
+    /**
+     * Creates a plain object from a WorldMultiBlockUpdate message. Also converts values to other types if specified.
+     * @param message WorldMultiBlockUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: WorldMultiBlockUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this WorldMultiBlockUpdate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a WorldChunkLoad. */
 export interface IWorldChunkLoad {
 
@@ -3165,7 +3261,7 @@ export interface IPluginMessage {
     version?: (number|null);
 
     /** PluginMessage value */
-    value?: (string|null);
+    value?: (Uint8Array|null);
 }
 
 /** Represents a PluginMessage. */
@@ -3184,7 +3280,7 @@ export class PluginMessage implements IPluginMessage {
     public version: number;
 
     /** PluginMessage value. */
-    public value: string;
+    public value: Uint8Array;
 
     /**
      * Creates a new PluginMessage instance using the specified properties.

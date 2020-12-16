@@ -220,6 +220,18 @@
         }
       }
     },
+    "ActionKeyPress": {
+      "fields": {
+        "key": {
+          "type": "string",
+          "id": 1
+        },
+        "type": {
+          "type": "bool",
+          "id": 2
+        }
+      }
+    },
     "PluginMessage": {
       "fields": {
         "key": {
@@ -231,7 +243,7 @@
           "id": 2
         },
         "value": {
-          "type": "string",
+          "type": "bytes",
           "id": 3
         }
       }

@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+
 /* 
  * LoginRequest is send to player after connection.
 */
@@ -129,6 +130,7 @@ message PlayerUpdatePhysics {
 
 message PlayerHealth {
 	sint32 value = 1;
+	sint32 max = 2;
 }
 
 /* 
@@ -221,13 +223,40 @@ message EntityMove {
 }
 
 /* 
- * entityUpdate updates data of entity
+ * Updates entity's model/texture
 */
 
-message EntityUpdate {
-	string uuid = 1;
-	string key = 2;
-	string value = 3;
+message EntityModelUpdate {
+	string model = 1;
+	string texture = 2;
+}
+
+/* 
+ * Updates entity's name/nametag visibility
+*/
+
+message EntityNameUpdate {
+	string name = 1;
+	bool visible = 2;
+}
+
+
+/* 
+ * Changes item held by entity.
+*/
+
+message EntityHeldItem {
+	string id = 1;
+}
+
+
+/* 
+ * Changes entity's armor
+*/
+
+message EntityArmor {
+	int32 type = 1;
+	string id = 2;
 }
 
 /* 
@@ -250,6 +279,14 @@ message WorldBlockUpdate {
 	sint32 y = 2;
 	sint32 z = 3;
 	uint32 id = 4;
+}
+
+/* 
+ * WorldBlockUpdate in one message
+*/
+
+message WorldMultiBlockUpdate {
+	map<int32, WorldBlockUpdate> blocks = 1;
 }
 
 /* 
@@ -340,5 +377,5 @@ message EnvironmentSkyUpdate {
 message PluginMessage {
 	string key = 1;
 	uint32 version = 2;
-	string value = 3;
+	bytes value = 3;
 }

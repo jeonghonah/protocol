@@ -1343,6 +1343,102 @@ export class ActionClickEntity implements IActionClickEntity {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of an ActionKeyPress. */
+export interface IActionKeyPress {
+
+    /** ActionKeyPress key */
+    key?: (string|null);
+
+    /** ActionKeyPress type */
+    type?: (boolean|null);
+}
+
+/** Represents an ActionKeyPress. */
+export class ActionKeyPress implements IActionKeyPress {
+
+    /**
+     * Constructs a new ActionKeyPress.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IActionKeyPress);
+
+    /** ActionKeyPress key. */
+    public key: string;
+
+    /** ActionKeyPress type. */
+    public type: boolean;
+
+    /**
+     * Creates a new ActionKeyPress instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ActionKeyPress instance
+     */
+    public static create(properties?: IActionKeyPress): ActionKeyPress;
+
+    /**
+     * Encodes the specified ActionKeyPress message. Does not implicitly {@link ActionKeyPress.verify|verify} messages.
+     * @param message ActionKeyPress message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IActionKeyPress, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ActionKeyPress message, length delimited. Does not implicitly {@link ActionKeyPress.verify|verify} messages.
+     * @param message ActionKeyPress message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IActionKeyPress, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an ActionKeyPress message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ActionKeyPress
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionKeyPress;
+
+    /**
+     * Decodes an ActionKeyPress message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ActionKeyPress
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionKeyPress;
+
+    /**
+     * Verifies an ActionKeyPress message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an ActionKeyPress message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ActionKeyPress
+     */
+    public static fromObject(object: { [k: string]: any }): ActionKeyPress;
+
+    /**
+     * Creates a plain object from an ActionKeyPress message. Also converts values to other types if specified.
+     * @param message ActionKeyPress
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ActionKeyPress, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ActionKeyPress to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PluginMessage. */
 export interface IPluginMessage {
 
@@ -1353,7 +1449,7 @@ export interface IPluginMessage {
     version?: (number|null);
 
     /** PluginMessage value */
-    value?: (string|null);
+    value?: (Uint8Array|null);
 }
 
 /** Represents a PluginMessage. */
@@ -1372,7 +1468,7 @@ export class PluginMessage implements IPluginMessage {
     public version: number;
 
     /** PluginMessage value. */
-    public value: string;
+    public value: Uint8Array;
 
     /**
      * Creates a new PluginMessage instance using the specified properties.

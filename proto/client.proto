@@ -103,7 +103,7 @@ message ActionInventoryClick {
 	sint32 slot = 1;
 	string type = 2;
 	string inventory = 3;
-	optional sint32 slot2 = 4;
+	sint32 slot2 = 4;
 }
 
 /* 
@@ -136,13 +136,22 @@ message ActionClick {
 }
 
 /* 
- * actionClick is send after clicking an entity
+ * ActionClickEntity is send after clicking an entity
 */
 
 message ActionClickEntity {
 	string uuid = 1;
 	string type = 2;
 	float distance = 3;
+}
+
+/* 
+ * ActionKeyPress is send after pressing movement keys
+*/
+
+message ActionKeyPress {
+	string key = 1;
+	bool type = 2;
 }
 
 
@@ -155,5 +164,5 @@ message ActionClickEntity {
 message PluginMessage {
 	string key = 1;
 	uint32 version = 2;
-	string value = 3;
+	bytes value = 3;
 }

@@ -1,0 +1,32 @@
+{
+  "nested": {
+    "AuthRequest": {
+      "fields": {
+        "username": {
+          "type": "string",
+          "id": 1
+        },
+        "protocol": {
+          "type": "uint32",
+          "id": 2
+        },
+        "mobile": {
+          "type": "bool",
+          "id": 3
+        },
+        "client": {
+          "type": "string",
+          "id": 4
+        },
+        "uuid": {
+          "type": "string",
+          "id": 5
+        },
+        "secret": {
+          "type": "string",
+          "id": 6
+        }
+      }
+    }
+  }
+}

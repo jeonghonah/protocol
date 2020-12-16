@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message AuthResponce {
+	int32 responce = 1;
+	string message = 2;
+}
+
+message Data {
+	bytes message = 1;
+}

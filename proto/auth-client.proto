@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message AuthRequest {
+	string username = 1;
+	uint32 protocol = 2;
+	string client = 3;
+	string uuid = 4;
+	string secret = 5;
+	string serverId = 6;
+}
+
+message Data {
+	bytes message = 1;
+}

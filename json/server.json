@@ -197,6 +197,10 @@
         "value": {
           "type": "sint32",
           "id": 1
+        },
+        "max": {
+          "type": "sint32",
+          "id": 2
         }
       }
     },
@@ -422,6 +426,15 @@
         }
       }
     },
+    "WorldMultiBlockUpdate": {
+      "fields": {
+        "blocks": {
+          "keyType": "int32",
+          "type": "WorldBlockUpdate",
+          "id": 1
+        }
+      }
+    },
     "WorldChunkLoad": {
       "fields": {
         "x": {
@@ -557,7 +570,7 @@
           "id": 2
         },
         "value": {
-          "type": "string",
+          "type": "bytes",
           "id": 3
         }
       }

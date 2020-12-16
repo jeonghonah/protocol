@@ -3108,6 +3108,216 @@
         return ActionClickEntity;
     })();
     
+    $root.ActionKeyPress = (function() {
+    
+        /**
+         * Properties of an ActionKeyPress.
+         * @exports IActionKeyPress
+         * @interface IActionKeyPress
+         * @property {string|null} [key] ActionKeyPress key
+         * @property {boolean|null} [type] ActionKeyPress type
+         */
+    
+        /**
+         * Constructs a new ActionKeyPress.
+         * @exports ActionKeyPress
+         * @classdesc Represents an ActionKeyPress.
+         * @implements IActionKeyPress
+         * @constructor
+         * @param {IActionKeyPress=} [properties] Properties to set
+         */
+        function ActionKeyPress(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * ActionKeyPress key.
+         * @member {string} key
+         * @memberof ActionKeyPress
+         * @instance
+         */
+        ActionKeyPress.prototype.key = "";
+    
+        /**
+         * ActionKeyPress type.
+         * @member {boolean} type
+         * @memberof ActionKeyPress
+         * @instance
+         */
+        ActionKeyPress.prototype.type = false;
+    
+        /**
+         * Creates a new ActionKeyPress instance using the specified properties.
+         * @function create
+         * @memberof ActionKeyPress
+         * @static
+         * @param {IActionKeyPress=} [properties] Properties to set
+         * @returns {ActionKeyPress} ActionKeyPress instance
+         */
+        ActionKeyPress.create = function create(properties) {
+            return new ActionKeyPress(properties);
+        };
+    
+        /**
+         * Encodes the specified ActionKeyPress message. Does not implicitly {@link ActionKeyPress.verify|verify} messages.
+         * @function encode
+         * @memberof ActionKeyPress
+         * @static
+         * @param {IActionKeyPress} message ActionKeyPress message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionKeyPress.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.key);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.type);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified ActionKeyPress message, length delimited. Does not implicitly {@link ActionKeyPress.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ActionKeyPress
+         * @static
+         * @param {IActionKeyPress} message ActionKeyPress message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionKeyPress.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an ActionKeyPress message from the specified reader or buffer.
+         * @function decode
+         * @memberof ActionKeyPress
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ActionKeyPress} ActionKeyPress
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionKeyPress.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionKeyPress();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.key = reader.string();
+                    break;
+                case 2:
+                    message.type = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an ActionKeyPress message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ActionKeyPress
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ActionKeyPress} ActionKeyPress
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionKeyPress.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an ActionKeyPress message.
+         * @function verify
+         * @memberof ActionKeyPress
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ActionKeyPress.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.key != null && message.hasOwnProperty("key"))
+                if (!$util.isString(message.key))
+                    return "key: string expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                if (typeof message.type !== "boolean")
+                    return "type: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates an ActionKeyPress message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ActionKeyPress
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ActionKeyPress} ActionKeyPress
+         */
+        ActionKeyPress.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionKeyPress)
+                return object;
+            var message = new $root.ActionKeyPress();
+            if (object.key != null)
+                message.key = String(object.key);
+            if (object.type != null)
+                message.type = Boolean(object.type);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an ActionKeyPress message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ActionKeyPress
+         * @static
+         * @param {ActionKeyPress} message ActionKeyPress
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ActionKeyPress.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.key = "";
+                object.type = false;
+            }
+            if (message.key != null && message.hasOwnProperty("key"))
+                object.key = message.key;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = message.type;
+            return object;
+        };
+    
+        /**
+         * Converts this ActionKeyPress to JSON.
+         * @function toJSON
+         * @memberof ActionKeyPress
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ActionKeyPress.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return ActionKeyPress;
+    })();
+    
     $root.PluginMessage = (function() {
     
         /**
@@ -3116,7 +3326,7 @@
          * @interface IPluginMessage
          * @property {string|null} [key] PluginMessage key
          * @property {number|null} [version] PluginMessage version
-         * @property {string|null} [value] PluginMessage value
+         * @property {Uint8Array|null} [value] PluginMessage value
          */
     
         /**
@@ -3152,11 +3362,11 @@
     
         /**
          * PluginMessage value.
-         * @member {string} value
+         * @member {Uint8Array} value
          * @memberof PluginMessage
          * @instance
          */
-        PluginMessage.prototype.value = "";
+        PluginMessage.prototype.value = $util.newBuffer([]);
     
         /**
          * Creates a new PluginMessage instance using the specified properties.
@@ -3187,7 +3397,7 @@
             if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.version);
             if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.value);
+                writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.value);
             return writer;
         };
     
@@ -3229,7 +3439,7 @@
                     message.version = reader.uint32();
                     break;
                 case 3:
-                    message.value = reader.string();
+                    message.value = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3273,8 +3483,8 @@
                 if (!$util.isInteger(message.version))
                     return "version: integer expected";
             if (message.value != null && message.hasOwnProperty("value"))
-                if (!$util.isString(message.value))
-                    return "value: string expected";
+                if (!(message.value && typeof message.value.length === "number" || $util.isString(message.value)))
+                    return "value: buffer expected";
             return null;
         };
     
@@ -3295,7 +3505,10 @@
             if (object.version != null)
                 message.version = object.version >>> 0;
             if (object.value != null)
-                message.value = String(object.value);
+                if (typeof object.value === "string")
+                    $util.base64.decode(object.value, message.value = $util.newBuffer($util.base64.length(object.value)), 0);
+                else if (object.value.length)
+                    message.value = object.value;
             return message;
         };
     
@@ -3315,14 +3528,20 @@
             if (options.defaults) {
                 object.key = "";
                 object.version = 0;
-                object.value = "";
+                if (options.bytes === String)
+                    object.value = "";
+                else {
+                    object.value = [];
+                    if (options.bytes !== Array)
+                        object.value = $util.newBuffer(object.value);
+                }
             }
             if (message.key != null && message.hasOwnProperty("key"))
                 object.key = message.key;
             if (message.version != null && message.hasOwnProperty("version"))
                 object.version = message.version;
             if (message.value != null && message.hasOwnProperty("value"))
-                object.value = message.value;
+                object.value = options.bytes === String ? $util.base64.encode(message.value, 0, message.value.length) : options.bytes === Array ? Array.prototype.slice.call(message.value) : message.value;
             return object;
         };
     
