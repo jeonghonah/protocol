@@ -223,21 +223,13 @@ message EntityMove {
 }
 
 /* 
- * Updates entity's model/texture
-*/
-
-message EntityModelUpdate {
-	string model = 1;
-	string texture = 2;
-}
-
-/* 
  * Updates entity's name/nametag visibility
 */
 
 message EntityNameUpdate {
-	string name = 1;
-	bool visible = 2;
+	string uuid = 1;
+	string name = 2;
+	bool visible = 3;
 }
 
 
@@ -246,7 +238,8 @@ message EntityNameUpdate {
 */
 
 message EntityHeldItem {
-	string id = 1;
+	string uuid = 1;
+	string id = 2;
 }
 
 
@@ -255,8 +248,9 @@ message EntityHeldItem {
 */
 
 message EntityArmor {
-	int32 type = 1;
-	string id = 2;
+	string uuid = 1;
+	int32 type = 2;
+	string id = 3;
 }
 
 /* 

@@ -5188,222 +5188,13 @@
         return EntityMove;
     })();
     
-    $root.EntityModelUpdate = (function() {
-    
-        /**
-         * Properties of an EntityModelUpdate.
-         * @exports IEntityModelUpdate
-         * @interface IEntityModelUpdate
-         * @property {string|null} [model] EntityModelUpdate model
-         * @property {string|null} [texture] EntityModelUpdate texture
-         */
-    
-        /**
-         * Constructs a new EntityModelUpdate.
-         * @exports EntityModelUpdate
-         * @classdesc Represents an EntityModelUpdate.
-         * @implements IEntityModelUpdate
-         * @constructor
-         * @param {IEntityModelUpdate=} [properties] Properties to set
-         */
-        function EntityModelUpdate(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-    
-        /**
-         * EntityModelUpdate model.
-         * @member {string} model
-         * @memberof EntityModelUpdate
-         * @instance
-         */
-        EntityModelUpdate.prototype.model = "";
-    
-        /**
-         * EntityModelUpdate texture.
-         * @member {string} texture
-         * @memberof EntityModelUpdate
-         * @instance
-         */
-        EntityModelUpdate.prototype.texture = "";
-    
-        /**
-         * Creates a new EntityModelUpdate instance using the specified properties.
-         * @function create
-         * @memberof EntityModelUpdate
-         * @static
-         * @param {IEntityModelUpdate=} [properties] Properties to set
-         * @returns {EntityModelUpdate} EntityModelUpdate instance
-         */
-        EntityModelUpdate.create = function create(properties) {
-            return new EntityModelUpdate(properties);
-        };
-    
-        /**
-         * Encodes the specified EntityModelUpdate message. Does not implicitly {@link EntityModelUpdate.verify|verify} messages.
-         * @function encode
-         * @memberof EntityModelUpdate
-         * @static
-         * @param {IEntityModelUpdate} message EntityModelUpdate message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        EntityModelUpdate.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.model);
-            if (message.texture != null && Object.hasOwnProperty.call(message, "texture"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.texture);
-            return writer;
-        };
-    
-        /**
-         * Encodes the specified EntityModelUpdate message, length delimited. Does not implicitly {@link EntityModelUpdate.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof EntityModelUpdate
-         * @static
-         * @param {IEntityModelUpdate} message EntityModelUpdate message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        EntityModelUpdate.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-    
-        /**
-         * Decodes an EntityModelUpdate message from the specified reader or buffer.
-         * @function decode
-         * @memberof EntityModelUpdate
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {EntityModelUpdate} EntityModelUpdate
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        EntityModelUpdate.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityModelUpdate();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.model = reader.string();
-                    break;
-                case 2:
-                    message.texture = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-    
-        /**
-         * Decodes an EntityModelUpdate message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof EntityModelUpdate
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {EntityModelUpdate} EntityModelUpdate
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        EntityModelUpdate.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-    
-        /**
-         * Verifies an EntityModelUpdate message.
-         * @function verify
-         * @memberof EntityModelUpdate
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        EntityModelUpdate.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.model != null && message.hasOwnProperty("model"))
-                if (!$util.isString(message.model))
-                    return "model: string expected";
-            if (message.texture != null && message.hasOwnProperty("texture"))
-                if (!$util.isString(message.texture))
-                    return "texture: string expected";
-            return null;
-        };
-    
-        /**
-         * Creates an EntityModelUpdate message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof EntityModelUpdate
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {EntityModelUpdate} EntityModelUpdate
-         */
-        EntityModelUpdate.fromObject = function fromObject(object) {
-            if (object instanceof $root.EntityModelUpdate)
-                return object;
-            var message = new $root.EntityModelUpdate();
-            if (object.model != null)
-                message.model = String(object.model);
-            if (object.texture != null)
-                message.texture = String(object.texture);
-            return message;
-        };
-    
-        /**
-         * Creates a plain object from an EntityModelUpdate message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof EntityModelUpdate
-         * @static
-         * @param {EntityModelUpdate} message EntityModelUpdate
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        EntityModelUpdate.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.model = "";
-                object.texture = "";
-            }
-            if (message.model != null && message.hasOwnProperty("model"))
-                object.model = message.model;
-            if (message.texture != null && message.hasOwnProperty("texture"))
-                object.texture = message.texture;
-            return object;
-        };
-    
-        /**
-         * Converts this EntityModelUpdate to JSON.
-         * @function toJSON
-         * @memberof EntityModelUpdate
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        EntityModelUpdate.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-    
-        return EntityModelUpdate;
-    })();
-    
     $root.EntityNameUpdate = (function() {
     
         /**
          * Properties of an EntityNameUpdate.
          * @exports IEntityNameUpdate
          * @interface IEntityNameUpdate
+         * @property {string|null} [uuid] EntityNameUpdate uuid
          * @property {string|null} [name] EntityNameUpdate name
          * @property {boolean|null} [visible] EntityNameUpdate visible
          */
@@ -5422,6 +5213,14 @@
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+    
+        /**
+         * EntityNameUpdate uuid.
+         * @member {string} uuid
+         * @memberof EntityNameUpdate
+         * @instance
+         */
+        EntityNameUpdate.prototype.uuid = "";
     
         /**
          * EntityNameUpdate name.
@@ -5463,10 +5262,12 @@
         EntityNameUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
             if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
             if (message.visible != null && Object.hasOwnProperty.call(message, "visible"))
-                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.visible);
+                writer.uint32(/* id 3, wireType 0 =*/24).bool(message.visible);
             return writer;
         };
     
@@ -5502,9 +5303,12 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.name = reader.string();
+                    message.uuid = reader.string();
                     break;
                 case 2:
+                    message.name = reader.string();
+                    break;
+                case 3:
                     message.visible = reader.bool();
                     break;
                 default:
@@ -5542,6 +5346,9 @@
         EntityNameUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
             if (message.name != null && message.hasOwnProperty("name"))
                 if (!$util.isString(message.name))
                     return "name: string expected";
@@ -5563,6 +5370,8 @@
             if (object instanceof $root.EntityNameUpdate)
                 return object;
             var message = new $root.EntityNameUpdate();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
             if (object.name != null)
                 message.name = String(object.name);
             if (object.visible != null)
@@ -5584,9 +5393,12 @@
                 options = {};
             var object = {};
             if (options.defaults) {
+                object.uuid = "";
                 object.name = "";
                 object.visible = false;
             }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
             if (message.visible != null && message.hasOwnProperty("visible"))
@@ -5614,6 +5426,7 @@
          * Properties of an EntityHeldItem.
          * @exports IEntityHeldItem
          * @interface IEntityHeldItem
+         * @property {string|null} [uuid] EntityHeldItem uuid
          * @property {string|null} [id] EntityHeldItem id
          */
     
@@ -5631,6 +5444,14 @@
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+    
+        /**
+         * EntityHeldItem uuid.
+         * @member {string} uuid
+         * @memberof EntityHeldItem
+         * @instance
+         */
+        EntityHeldItem.prototype.uuid = "";
     
         /**
          * EntityHeldItem id.
@@ -5664,8 +5485,10 @@
         EntityHeldItem.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.id);
             return writer;
         };
     
@@ -5701,6 +5524,9 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
+                    message.uuid = reader.string();
+                    break;
+                case 2:
                     message.id = reader.string();
                     break;
                 default:
@@ -5738,6 +5564,9 @@
         EntityHeldItem.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
             if (message.id != null && message.hasOwnProperty("id"))
                 if (!$util.isString(message.id))
                     return "id: string expected";
@@ -5756,6 +5585,8 @@
             if (object instanceof $root.EntityHeldItem)
                 return object;
             var message = new $root.EntityHeldItem();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
             if (object.id != null)
                 message.id = String(object.id);
             return message;
@@ -5774,8 +5605,12 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
+                object.uuid = "";
                 object.id = "";
+            }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
             return object;
@@ -5801,6 +5636,7 @@
          * Properties of an EntityArmor.
          * @exports IEntityArmor
          * @interface IEntityArmor
+         * @property {string|null} [uuid] EntityArmor uuid
          * @property {number|null} [type] EntityArmor type
          * @property {string|null} [id] EntityArmor id
          */
@@ -5819,6 +5655,14 @@
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+    
+        /**
+         * EntityArmor uuid.
+         * @member {string} uuid
+         * @memberof EntityArmor
+         * @instance
+         */
+        EntityArmor.prototype.uuid = "";
     
         /**
          * EntityArmor type.
@@ -5860,10 +5704,12 @@
         EntityArmor.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.id);
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.id);
             return writer;
         };
     
@@ -5899,9 +5745,12 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.type = reader.int32();
+                    message.uuid = reader.string();
                     break;
                 case 2:
+                    message.type = reader.int32();
+                    break;
+                case 3:
                     message.id = reader.string();
                     break;
                 default:
@@ -5939,6 +5788,9 @@
         EntityArmor.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
             if (message.type != null && message.hasOwnProperty("type"))
                 if (!$util.isInteger(message.type))
                     return "type: integer expected";
@@ -5960,6 +5812,8 @@
             if (object instanceof $root.EntityArmor)
                 return object;
             var message = new $root.EntityArmor();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
             if (object.type != null)
                 message.type = object.type | 0;
             if (object.id != null)
@@ -5981,9 +5835,12 @@
                 options = {};
             var object = {};
             if (options.defaults) {
+                object.uuid = "";
                 object.type = 0;
                 object.id = "";
             }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = message.type;
             if (message.id != null && message.hasOwnProperty("id"))

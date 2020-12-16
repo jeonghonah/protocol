@@ -2189,104 +2189,11 @@ export class EntityMove implements IEntityMove {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an EntityModelUpdate. */
-export interface IEntityModelUpdate {
-
-    /** EntityModelUpdate model */
-    model?: (string|null);
-
-    /** EntityModelUpdate texture */
-    texture?: (string|null);
-}
-
-/** Represents an EntityModelUpdate. */
-export class EntityModelUpdate implements IEntityModelUpdate {
-
-    /**
-     * Constructs a new EntityModelUpdate.
-     * @param [properties] Properties to set
-     */
-    constructor(properties?: IEntityModelUpdate);
-
-    /** EntityModelUpdate model. */
-    public model: string;
-
-    /** EntityModelUpdate texture. */
-    public texture: string;
-
-    /**
-     * Creates a new EntityModelUpdate instance using the specified properties.
-     * @param [properties] Properties to set
-     * @returns EntityModelUpdate instance
-     */
-    public static create(properties?: IEntityModelUpdate): EntityModelUpdate;
-
-    /**
-     * Encodes the specified EntityModelUpdate message. Does not implicitly {@link EntityModelUpdate.verify|verify} messages.
-     * @param message EntityModelUpdate message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encode(message: IEntityModelUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Encodes the specified EntityModelUpdate message, length delimited. Does not implicitly {@link EntityModelUpdate.verify|verify} messages.
-     * @param message EntityModelUpdate message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encodeDelimited(message: IEntityModelUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Decodes an EntityModelUpdate message from the specified reader or buffer.
-     * @param reader Reader or buffer to decode from
-     * @param [length] Message length if known beforehand
-     * @returns EntityModelUpdate
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EntityModelUpdate;
-
-    /**
-     * Decodes an EntityModelUpdate message from the specified reader or buffer, length delimited.
-     * @param reader Reader or buffer to decode from
-     * @returns EntityModelUpdate
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EntityModelUpdate;
-
-    /**
-     * Verifies an EntityModelUpdate message.
-     * @param message Plain object to verify
-     * @returns `null` if valid, otherwise the reason why it is not
-     */
-    public static verify(message: { [k: string]: any }): (string|null);
-
-    /**
-     * Creates an EntityModelUpdate message from a plain object. Also converts values to their respective internal types.
-     * @param object Plain object
-     * @returns EntityModelUpdate
-     */
-    public static fromObject(object: { [k: string]: any }): EntityModelUpdate;
-
-    /**
-     * Creates a plain object from an EntityModelUpdate message. Also converts values to other types if specified.
-     * @param message EntityModelUpdate
-     * @param [options] Conversion options
-     * @returns Plain object
-     */
-    public static toObject(message: EntityModelUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-    /**
-     * Converts this EntityModelUpdate to JSON.
-     * @returns JSON object
-     */
-    public toJSON(): { [k: string]: any };
-}
-
 /** Properties of an EntityNameUpdate. */
 export interface IEntityNameUpdate {
+
+    /** EntityNameUpdate uuid */
+    uuid?: (string|null);
 
     /** EntityNameUpdate name */
     name?: (string|null);
@@ -2303,6 +2210,9 @@ export class EntityNameUpdate implements IEntityNameUpdate {
      * @param [properties] Properties to set
      */
     constructor(properties?: IEntityNameUpdate);
+
+    /** EntityNameUpdate uuid. */
+    public uuid: string;
 
     /** EntityNameUpdate name. */
     public name: string;
@@ -2384,6 +2294,9 @@ export class EntityNameUpdate implements IEntityNameUpdate {
 /** Properties of an EntityHeldItem. */
 export interface IEntityHeldItem {
 
+    /** EntityHeldItem uuid */
+    uuid?: (string|null);
+
     /** EntityHeldItem id */
     id?: (string|null);
 }
@@ -2396,6 +2309,9 @@ export class EntityHeldItem implements IEntityHeldItem {
      * @param [properties] Properties to set
      */
     constructor(properties?: IEntityHeldItem);
+
+    /** EntityHeldItem uuid. */
+    public uuid: string;
 
     /** EntityHeldItem id. */
     public id: string;
@@ -2474,6 +2390,9 @@ export class EntityHeldItem implements IEntityHeldItem {
 /** Properties of an EntityArmor. */
 export interface IEntityArmor {
 
+    /** EntityArmor uuid */
+    uuid?: (string|null);
+
     /** EntityArmor type */
     type?: (number|null);
 
@@ -2489,6 +2408,9 @@ export class EntityArmor implements IEntityArmor {
      * @param [properties] Properties to set
      */
     constructor(properties?: IEntityArmor);
+
+    /** EntityArmor uuid. */
+    public uuid: string;
 
     /** EntityArmor type. */
     public type: number;
