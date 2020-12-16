@@ -370,19 +370,47 @@
         }
       }
     },
-    "EntityUpdate": {
+    "EntityModelUpdate": {
       "fields": {
-        "uuid": {
+        "model": {
           "type": "string",
           "id": 1
         },
-        "key": {
+        "texture": {
           "type": "string",
           "id": 2
-        },
-        "value": {
+        }
+      }
+    },
+    "EntityNameUpdate": {
+      "fields": {
+        "name": {
           "type": "string",
-          "id": 3
+          "id": 1
+        },
+        "visible": {
+          "type": "bool",
+          "id": 2
+        }
+      }
+    },
+    "EntityHeldItem": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "id": 1
+        }
+      }
+    },
+    "EntityArmor": {
+      "fields": {
+        "type": {
+          "type": "int32",
+          "id": 1
+        },
+        "id": {
+          "type": "string",
+          "id": 2
         }
       }
     },

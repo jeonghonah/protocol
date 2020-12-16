@@ -35,50 +35,52 @@ public final class AuthClient {
     int getProtocol();
 
     /**
-     * <pre>
-     * Is set to true, if player is using mobile device
-     * </pre>
-     *
-     * <code>bool mobile = 3;</code>
-     * @return The mobile.
-     */
-    boolean getMobile();
-
-    /**
-     * <code>string client = 4;</code>
+     * <code>string client = 3;</code>
      * @return The client.
      */
     java.lang.String getClient();
     /**
-     * <code>string client = 4;</code>
+     * <code>string client = 3;</code>
      * @return The bytes for client.
      */
     com.google.protobuf.ByteString
         getClientBytes();
 
     /**
-     * <code>string uuid = 5;</code>
+     * <code>string uuid = 4;</code>
      * @return The uuid.
      */
     java.lang.String getUuid();
     /**
-     * <code>string uuid = 5;</code>
+     * <code>string uuid = 4;</code>
      * @return The bytes for uuid.
      */
     com.google.protobuf.ByteString
         getUuidBytes();
 
     /**
-     * <code>string secret = 6;</code>
+     * <code>string secret = 5;</code>
      * @return The secret.
      */
     java.lang.String getSecret();
     /**
-     * <code>string secret = 6;</code>
+     * <code>string secret = 5;</code>
      * @return The bytes for secret.
      */
     com.google.protobuf.ByteString
         getSecretBytes();
+
+    /**
+     * <code>string serverId = 6;</code>
+     * @return The serverId.
+     */
+    java.lang.String getServerId();
+    /**
+     * <code>string serverId = 6;</code>
+     * @return The bytes for serverId.
+     */
+    com.google.protobuf.ByteString
+        getServerIdBytes();
   }
   /**
    * Protobuf type {@code AuthRequest}
@@ -97,6 +99,7 @@ public final class AuthClient {
       client_ = "";
       uuid_ = "";
       secret_ = "";
+      serverId_ = "";
     }
 
     @java.lang.Override
@@ -140,27 +143,28 @@ public final class AuthClient {
               protocol_ = input.readUInt32();
               break;
             }
-            case 24: {
-
-              mobile_ = input.readBool();
-              break;
-            }
-            case 34: {
+            case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
               client_ = s;
               break;
             }
-            case 42: {
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
               uuid_ = s;
               break;
             }
-            case 50: {
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
               secret_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serverId_ = s;
               break;
             }
             default: {
@@ -244,25 +248,10 @@ public final class AuthClient {
       return protocol_;
     }
 
-    public static final int MOBILE_FIELD_NUMBER = 3;
-    private boolean mobile_;
-    /**
-     * <pre>
-     * Is set to true, if player is using mobile device
-     * </pre>
-     *
-     * <code>bool mobile = 3;</code>
-     * @return The mobile.
-     */
-    @java.lang.Override
-    public boolean getMobile() {
-      return mobile_;
-    }
-
-    public static final int CLIENT_FIELD_NUMBER = 4;
+    public static final int CLIENT_FIELD_NUMBER = 3;
     private volatile java.lang.Object client_;
     /**
-     * <code>string client = 4;</code>
+     * <code>string client = 3;</code>
      * @return The client.
      */
     @java.lang.Override
@@ -279,7 +268,7 @@ public final class AuthClient {
       }
     }
     /**
-     * <code>string client = 4;</code>
+     * <code>string client = 3;</code>
      * @return The bytes for client.
      */
     @java.lang.Override
@@ -297,10 +286,10 @@ public final class AuthClient {
       }
     }
 
-    public static final int UUID_FIELD_NUMBER = 5;
+    public static final int UUID_FIELD_NUMBER = 4;
     private volatile java.lang.Object uuid_;
     /**
-     * <code>string uuid = 5;</code>
+     * <code>string uuid = 4;</code>
      * @return The uuid.
      */
     @java.lang.Override
@@ -317,7 +306,7 @@ public final class AuthClient {
       }
     }
     /**
-     * <code>string uuid = 5;</code>
+     * <code>string uuid = 4;</code>
      * @return The bytes for uuid.
      */
     @java.lang.Override
@@ -335,10 +324,10 @@ public final class AuthClient {
       }
     }
 
-    public static final int SECRET_FIELD_NUMBER = 6;
+    public static final int SECRET_FIELD_NUMBER = 5;
     private volatile java.lang.Object secret_;
     /**
-     * <code>string secret = 6;</code>
+     * <code>string secret = 5;</code>
      * @return The secret.
      */
     @java.lang.Override
@@ -355,7 +344,7 @@ public final class AuthClient {
       }
     }
     /**
-     * <code>string secret = 6;</code>
+     * <code>string secret = 5;</code>
      * @return The bytes for secret.
      */
     @java.lang.Override
@@ -367,6 +356,44 @@ public final class AuthClient {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         secret_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SERVERID_FIELD_NUMBER = 6;
+    private volatile java.lang.Object serverId_;
+    /**
+     * <code>string serverId = 6;</code>
+     * @return The serverId.
+     */
+    @java.lang.Override
+    public java.lang.String getServerId() {
+      java.lang.Object ref = serverId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serverId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string serverId = 6;</code>
+     * @return The bytes for serverId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getServerIdBytes() {
+      java.lang.Object ref = serverId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serverId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -393,17 +420,17 @@ public final class AuthClient {
       if (protocol_ != 0) {
         output.writeUInt32(2, protocol_);
       }
-      if (mobile_ != false) {
-        output.writeBool(3, mobile_);
-      }
       if (!getClientBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, client_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, client_);
       }
       if (!getUuidBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, uuid_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, uuid_);
       }
       if (!getSecretBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, secret_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, secret_);
+      }
+      if (!getServerIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, serverId_);
       }
       unknownFields.writeTo(output);
     }
@@ -421,18 +448,17 @@ public final class AuthClient {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, protocol_);
       }
-      if (mobile_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, mobile_);
-      }
       if (!getClientBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, client_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, client_);
       }
       if (!getUuidBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, uuid_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, uuid_);
       }
       if (!getSecretBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, secret_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, secret_);
+      }
+      if (!getServerIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, serverId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -453,14 +479,14 @@ public final class AuthClient {
           .equals(other.getUsername())) return false;
       if (getProtocol()
           != other.getProtocol()) return false;
-      if (getMobile()
-          != other.getMobile()) return false;
       if (!getClient()
           .equals(other.getClient())) return false;
       if (!getUuid()
           .equals(other.getUuid())) return false;
       if (!getSecret()
           .equals(other.getSecret())) return false;
+      if (!getServerId()
+          .equals(other.getServerId())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -476,15 +502,14 @@ public final class AuthClient {
       hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + PROTOCOL_FIELD_NUMBER;
       hash = (53 * hash) + getProtocol();
-      hash = (37 * hash) + MOBILE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getMobile());
       hash = (37 * hash) + CLIENT_FIELD_NUMBER;
       hash = (53 * hash) + getClient().hashCode();
       hash = (37 * hash) + UUID_FIELD_NUMBER;
       hash = (53 * hash) + getUuid().hashCode();
       hash = (37 * hash) + SECRET_FIELD_NUMBER;
       hash = (53 * hash) + getSecret().hashCode();
+      hash = (37 * hash) + SERVERID_FIELD_NUMBER;
+      hash = (53 * hash) + getServerId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -622,13 +647,13 @@ public final class AuthClient {
 
         protocol_ = 0;
 
-        mobile_ = false;
-
         client_ = "";
 
         uuid_ = "";
 
         secret_ = "";
+
+        serverId_ = "";
 
         return this;
       }
@@ -658,10 +683,10 @@ public final class AuthClient {
         AuthClient.AuthRequest result = new AuthClient.AuthRequest(this);
         result.username_ = username_;
         result.protocol_ = protocol_;
-        result.mobile_ = mobile_;
         result.client_ = client_;
         result.uuid_ = uuid_;
         result.secret_ = secret_;
+        result.serverId_ = serverId_;
         onBuilt();
         return result;
       }
@@ -717,9 +742,6 @@ public final class AuthClient {
         if (other.getProtocol() != 0) {
           setProtocol(other.getProtocol());
         }
-        if (other.getMobile() != false) {
-          setMobile(other.getMobile());
-        }
         if (!other.getClient().isEmpty()) {
           client_ = other.client_;
           onChanged();
@@ -730,6 +752,10 @@ public final class AuthClient {
         }
         if (!other.getSecret().isEmpty()) {
           secret_ = other.secret_;
+          onChanged();
+        }
+        if (!other.getServerId().isEmpty()) {
+          serverId_ = other.serverId_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -868,52 +894,9 @@ public final class AuthClient {
         return this;
       }
 
-      private boolean mobile_ ;
-      /**
-       * <pre>
-       * Is set to true, if player is using mobile device
-       * </pre>
-       *
-       * <code>bool mobile = 3;</code>
-       * @return The mobile.
-       */
-      @java.lang.Override
-      public boolean getMobile() {
-        return mobile_;
-      }
-      /**
-       * <pre>
-       * Is set to true, if player is using mobile device
-       * </pre>
-       *
-       * <code>bool mobile = 3;</code>
-       * @param value The mobile to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMobile(boolean value) {
-        
-        mobile_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Is set to true, if player is using mobile device
-       * </pre>
-       *
-       * <code>bool mobile = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMobile() {
-        
-        mobile_ = false;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object client_ = "";
       /**
-       * <code>string client = 4;</code>
+       * <code>string client = 3;</code>
        * @return The client.
        */
       public java.lang.String getClient() {
@@ -929,7 +912,7 @@ public final class AuthClient {
         }
       }
       /**
-       * <code>string client = 4;</code>
+       * <code>string client = 3;</code>
        * @return The bytes for client.
        */
       public com.google.protobuf.ByteString
@@ -946,7 +929,7 @@ public final class AuthClient {
         }
       }
       /**
-       * <code>string client = 4;</code>
+       * <code>string client = 3;</code>
        * @param value The client to set.
        * @return This builder for chaining.
        */
@@ -961,7 +944,7 @@ public final class AuthClient {
         return this;
       }
       /**
-       * <code>string client = 4;</code>
+       * <code>string client = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearClient() {
@@ -971,7 +954,7 @@ public final class AuthClient {
         return this;
       }
       /**
-       * <code>string client = 4;</code>
+       * <code>string client = 3;</code>
        * @param value The bytes for client to set.
        * @return This builder for chaining.
        */
@@ -989,7 +972,7 @@ public final class AuthClient {
 
       private java.lang.Object uuid_ = "";
       /**
-       * <code>string uuid = 5;</code>
+       * <code>string uuid = 4;</code>
        * @return The uuid.
        */
       public java.lang.String getUuid() {
@@ -1005,7 +988,7 @@ public final class AuthClient {
         }
       }
       /**
-       * <code>string uuid = 5;</code>
+       * <code>string uuid = 4;</code>
        * @return The bytes for uuid.
        */
       public com.google.protobuf.ByteString
@@ -1022,7 +1005,7 @@ public final class AuthClient {
         }
       }
       /**
-       * <code>string uuid = 5;</code>
+       * <code>string uuid = 4;</code>
        * @param value The uuid to set.
        * @return This builder for chaining.
        */
@@ -1037,7 +1020,7 @@ public final class AuthClient {
         return this;
       }
       /**
-       * <code>string uuid = 5;</code>
+       * <code>string uuid = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearUuid() {
@@ -1047,7 +1030,7 @@ public final class AuthClient {
         return this;
       }
       /**
-       * <code>string uuid = 5;</code>
+       * <code>string uuid = 4;</code>
        * @param value The bytes for uuid to set.
        * @return This builder for chaining.
        */
@@ -1065,7 +1048,7 @@ public final class AuthClient {
 
       private java.lang.Object secret_ = "";
       /**
-       * <code>string secret = 6;</code>
+       * <code>string secret = 5;</code>
        * @return The secret.
        */
       public java.lang.String getSecret() {
@@ -1081,7 +1064,7 @@ public final class AuthClient {
         }
       }
       /**
-       * <code>string secret = 6;</code>
+       * <code>string secret = 5;</code>
        * @return The bytes for secret.
        */
       public com.google.protobuf.ByteString
@@ -1098,7 +1081,7 @@ public final class AuthClient {
         }
       }
       /**
-       * <code>string secret = 6;</code>
+       * <code>string secret = 5;</code>
        * @param value The secret to set.
        * @return This builder for chaining.
        */
@@ -1113,7 +1096,7 @@ public final class AuthClient {
         return this;
       }
       /**
-       * <code>string secret = 6;</code>
+       * <code>string secret = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearSecret() {
@@ -1123,7 +1106,7 @@ public final class AuthClient {
         return this;
       }
       /**
-       * <code>string secret = 6;</code>
+       * <code>string secret = 5;</code>
        * @param value The bytes for secret to set.
        * @return This builder for chaining.
        */
@@ -1135,6 +1118,82 @@ public final class AuthClient {
   checkByteStringIsUtf8(value);
         
         secret_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object serverId_ = "";
+      /**
+       * <code>string serverId = 6;</code>
+       * @return The serverId.
+       */
+      public java.lang.String getServerId() {
+        java.lang.Object ref = serverId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serverId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string serverId = 6;</code>
+       * @return The bytes for serverId.
+       */
+      public com.google.protobuf.ByteString
+          getServerIdBytes() {
+        java.lang.Object ref = serverId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serverId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string serverId = 6;</code>
+       * @param value The serverId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serverId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string serverId = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearServerId() {
+        
+        serverId_ = getDefaultInstance().getServerId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string serverId = 6;</code>
+       * @param value The bytes for serverId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serverId_ = value;
         onChanged();
         return this;
       }
@@ -1191,11 +1250,508 @@ public final class AuthClient {
 
   }
 
+  public interface DataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Data)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes message = 1;</code>
+     * @return The message.
+     */
+    com.google.protobuf.ByteString getMessage();
+  }
+  /**
+   * Protobuf type {@code Data}
+   */
+  public static final class Data extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Data)
+      DataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Data.newBuilder() to construct.
+    private Data(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Data() {
+      message_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Data();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Data(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              message_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return AuthClient.internal_static_Data_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return AuthClient.internal_static_Data_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              AuthClient.Data.class, AuthClient.Data.Builder.class);
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString message_;
+    /**
+     * <code>bytes message = 1;</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getMessage() {
+      return message_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!message_.isEmpty()) {
+        output.writeBytes(1, message_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!message_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, message_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof AuthClient.Data)) {
+        return super.equals(obj);
+      }
+      AuthClient.Data other = (AuthClient.Data) obj;
+
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static AuthClient.Data parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AuthClient.Data parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AuthClient.Data parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AuthClient.Data parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AuthClient.Data parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AuthClient.Data parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AuthClient.Data parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AuthClient.Data parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AuthClient.Data parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static AuthClient.Data parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AuthClient.Data parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AuthClient.Data parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(AuthClient.Data prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Data}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Data)
+        AuthClient.DataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return AuthClient.internal_static_Data_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return AuthClient.internal_static_Data_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                AuthClient.Data.class, AuthClient.Data.Builder.class);
+      }
+
+      // Construct using AuthClient.Data.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        message_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return AuthClient.internal_static_Data_descriptor;
+      }
+
+      @java.lang.Override
+      public AuthClient.Data getDefaultInstanceForType() {
+        return AuthClient.Data.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public AuthClient.Data build() {
+        AuthClient.Data result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public AuthClient.Data buildPartial() {
+        AuthClient.Data result = new AuthClient.Data(this);
+        result.message_ = message_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof AuthClient.Data) {
+          return mergeFrom((AuthClient.Data)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(AuthClient.Data other) {
+        if (other == AuthClient.Data.getDefaultInstance()) return this;
+        if (other.getMessage() != com.google.protobuf.ByteString.EMPTY) {
+          setMessage(other.getMessage());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        AuthClient.Data parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (AuthClient.Data) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString message_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes message = 1;</code>
+       * @return The message.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getMessage() {
+        return message_;
+      }
+      /**
+       * <code>bytes message = 1;</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes message = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Data)
+    }
+
+    // @@protoc_insertion_point(class_scope:Data)
+    private static final AuthClient.Data DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new AuthClient.Data();
+    }
+
+    public static AuthClient.Data getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Data>
+        PARSER = new com.google.protobuf.AbstractParser<Data>() {
+      @java.lang.Override
+      public Data parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Data(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Data> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Data> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public AuthClient.Data getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_AuthRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_AuthRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Data_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Data_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1205,10 +1761,11 @@ public final class AuthClient {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027proto/auth-client.proto\"o\n\013AuthRequest" +
+      "\n\027proto/auth-client.proto\"q\n\013AuthRequest" +
       "\022\020\n\010username\030\001 \001(\t\022\020\n\010protocol\030\002 \001(\r\022\016\n\006" +
-      "mobile\030\003 \001(\010\022\016\n\006client\030\004 \001(\t\022\014\n\004uuid\030\005 \001" +
-      "(\t\022\016\n\006secret\030\006 \001(\tb\006proto3"
+      "client\030\003 \001(\t\022\014\n\004uuid\030\004 \001(\t\022\016\n\006secret\030\005 \001" +
+      "(\t\022\020\n\010serverId\030\006 \001(\t\"\027\n\004Data\022\017\n\007message\030" +
+      "\001 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1219,7 +1776,13 @@ public final class AuthClient {
     internal_static_AuthRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AuthRequest_descriptor,
-        new java.lang.String[] { "Username", "Protocol", "Mobile", "Client", "Uuid", "Secret", });
+        new java.lang.String[] { "Username", "Protocol", "Client", "Uuid", "Secret", "ServerId", });
+    internal_static_Data_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_Data_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Data_descriptor,
+        new java.lang.String[] { "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

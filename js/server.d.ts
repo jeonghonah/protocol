@@ -2189,103 +2189,379 @@ export class EntityMove implements IEntityMove {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of an EntityUpdate. */
-export interface IEntityUpdate {
+/** Properties of an EntityModelUpdate. */
+export interface IEntityModelUpdate {
 
-    /** EntityUpdate uuid */
-    uuid?: (string|null);
+    /** EntityModelUpdate model */
+    model?: (string|null);
 
-    /** EntityUpdate key */
-    key?: (string|null);
-
-    /** EntityUpdate value */
-    value?: (string|null);
+    /** EntityModelUpdate texture */
+    texture?: (string|null);
 }
 
-/** Represents an EntityUpdate. */
-export class EntityUpdate implements IEntityUpdate {
+/** Represents an EntityModelUpdate. */
+export class EntityModelUpdate implements IEntityModelUpdate {
 
     /**
-     * Constructs a new EntityUpdate.
+     * Constructs a new EntityModelUpdate.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IEntityUpdate);
+    constructor(properties?: IEntityModelUpdate);
 
-    /** EntityUpdate uuid. */
-    public uuid: string;
+    /** EntityModelUpdate model. */
+    public model: string;
 
-    /** EntityUpdate key. */
-    public key: string;
-
-    /** EntityUpdate value. */
-    public value: string;
+    /** EntityModelUpdate texture. */
+    public texture: string;
 
     /**
-     * Creates a new EntityUpdate instance using the specified properties.
+     * Creates a new EntityModelUpdate instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns EntityUpdate instance
+     * @returns EntityModelUpdate instance
      */
-    public static create(properties?: IEntityUpdate): EntityUpdate;
+    public static create(properties?: IEntityModelUpdate): EntityModelUpdate;
 
     /**
-     * Encodes the specified EntityUpdate message. Does not implicitly {@link EntityUpdate.verify|verify} messages.
-     * @param message EntityUpdate message or plain object to encode
+     * Encodes the specified EntityModelUpdate message. Does not implicitly {@link EntityModelUpdate.verify|verify} messages.
+     * @param message EntityModelUpdate message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IEntityUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IEntityModelUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified EntityUpdate message, length delimited. Does not implicitly {@link EntityUpdate.verify|verify} messages.
-     * @param message EntityUpdate message or plain object to encode
+     * Encodes the specified EntityModelUpdate message, length delimited. Does not implicitly {@link EntityModelUpdate.verify|verify} messages.
+     * @param message EntityModelUpdate message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IEntityUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IEntityModelUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes an EntityUpdate message from the specified reader or buffer.
+     * Decodes an EntityModelUpdate message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns EntityUpdate
+     * @returns EntityModelUpdate
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EntityUpdate;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EntityModelUpdate;
 
     /**
-     * Decodes an EntityUpdate message from the specified reader or buffer, length delimited.
+     * Decodes an EntityModelUpdate message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns EntityUpdate
+     * @returns EntityModelUpdate
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EntityUpdate;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EntityModelUpdate;
 
     /**
-     * Verifies an EntityUpdate message.
+     * Verifies an EntityModelUpdate message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates an EntityUpdate message from a plain object. Also converts values to their respective internal types.
+     * Creates an EntityModelUpdate message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns EntityUpdate
+     * @returns EntityModelUpdate
      */
-    public static fromObject(object: { [k: string]: any }): EntityUpdate;
+    public static fromObject(object: { [k: string]: any }): EntityModelUpdate;
 
     /**
-     * Creates a plain object from an EntityUpdate message. Also converts values to other types if specified.
-     * @param message EntityUpdate
+     * Creates a plain object from an EntityModelUpdate message. Also converts values to other types if specified.
+     * @param message EntityModelUpdate
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: EntityUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: EntityModelUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this EntityUpdate to JSON.
+     * Converts this EntityModelUpdate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an EntityNameUpdate. */
+export interface IEntityNameUpdate {
+
+    /** EntityNameUpdate name */
+    name?: (string|null);
+
+    /** EntityNameUpdate visible */
+    visible?: (boolean|null);
+}
+
+/** Represents an EntityNameUpdate. */
+export class EntityNameUpdate implements IEntityNameUpdate {
+
+    /**
+     * Constructs a new EntityNameUpdate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IEntityNameUpdate);
+
+    /** EntityNameUpdate name. */
+    public name: string;
+
+    /** EntityNameUpdate visible. */
+    public visible: boolean;
+
+    /**
+     * Creates a new EntityNameUpdate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns EntityNameUpdate instance
+     */
+    public static create(properties?: IEntityNameUpdate): EntityNameUpdate;
+
+    /**
+     * Encodes the specified EntityNameUpdate message. Does not implicitly {@link EntityNameUpdate.verify|verify} messages.
+     * @param message EntityNameUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IEntityNameUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified EntityNameUpdate message, length delimited. Does not implicitly {@link EntityNameUpdate.verify|verify} messages.
+     * @param message EntityNameUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IEntityNameUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an EntityNameUpdate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns EntityNameUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EntityNameUpdate;
+
+    /**
+     * Decodes an EntityNameUpdate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns EntityNameUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EntityNameUpdate;
+
+    /**
+     * Verifies an EntityNameUpdate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an EntityNameUpdate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns EntityNameUpdate
+     */
+    public static fromObject(object: { [k: string]: any }): EntityNameUpdate;
+
+    /**
+     * Creates a plain object from an EntityNameUpdate message. Also converts values to other types if specified.
+     * @param message EntityNameUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: EntityNameUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this EntityNameUpdate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an EntityHeldItem. */
+export interface IEntityHeldItem {
+
+    /** EntityHeldItem id */
+    id?: (string|null);
+}
+
+/** Represents an EntityHeldItem. */
+export class EntityHeldItem implements IEntityHeldItem {
+
+    /**
+     * Constructs a new EntityHeldItem.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IEntityHeldItem);
+
+    /** EntityHeldItem id. */
+    public id: string;
+
+    /**
+     * Creates a new EntityHeldItem instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns EntityHeldItem instance
+     */
+    public static create(properties?: IEntityHeldItem): EntityHeldItem;
+
+    /**
+     * Encodes the specified EntityHeldItem message. Does not implicitly {@link EntityHeldItem.verify|verify} messages.
+     * @param message EntityHeldItem message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IEntityHeldItem, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified EntityHeldItem message, length delimited. Does not implicitly {@link EntityHeldItem.verify|verify} messages.
+     * @param message EntityHeldItem message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IEntityHeldItem, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an EntityHeldItem message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns EntityHeldItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EntityHeldItem;
+
+    /**
+     * Decodes an EntityHeldItem message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns EntityHeldItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EntityHeldItem;
+
+    /**
+     * Verifies an EntityHeldItem message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an EntityHeldItem message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns EntityHeldItem
+     */
+    public static fromObject(object: { [k: string]: any }): EntityHeldItem;
+
+    /**
+     * Creates a plain object from an EntityHeldItem message. Also converts values to other types if specified.
+     * @param message EntityHeldItem
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: EntityHeldItem, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this EntityHeldItem to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an EntityArmor. */
+export interface IEntityArmor {
+
+    /** EntityArmor type */
+    type?: (number|null);
+
+    /** EntityArmor id */
+    id?: (string|null);
+}
+
+/** Represents an EntityArmor. */
+export class EntityArmor implements IEntityArmor {
+
+    /**
+     * Constructs a new EntityArmor.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IEntityArmor);
+
+    /** EntityArmor type. */
+    public type: number;
+
+    /** EntityArmor id. */
+    public id: string;
+
+    /**
+     * Creates a new EntityArmor instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns EntityArmor instance
+     */
+    public static create(properties?: IEntityArmor): EntityArmor;
+
+    /**
+     * Encodes the specified EntityArmor message. Does not implicitly {@link EntityArmor.verify|verify} messages.
+     * @param message EntityArmor message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IEntityArmor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified EntityArmor message, length delimited. Does not implicitly {@link EntityArmor.verify|verify} messages.
+     * @param message EntityArmor message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IEntityArmor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an EntityArmor message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns EntityArmor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EntityArmor;
+
+    /**
+     * Decodes an EntityArmor message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns EntityArmor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EntityArmor;
+
+    /**
+     * Verifies an EntityArmor message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an EntityArmor message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns EntityArmor
+     */
+    public static fromObject(object: { [k: string]: any }): EntityArmor;
+
+    /**
+     * Creates a plain object from an EntityArmor message. Also converts values to other types if specified.
+     * @param message EntityArmor
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: EntityArmor, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this EntityArmor to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

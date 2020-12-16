@@ -2,29 +2,21 @@
   "nested": {
     "AuthResponce": {
       "fields": {
-        "username": {
-          "type": "string",
+        "responce": {
+          "type": "int32",
           "id": 1
         },
-        "protocol": {
-          "type": "uint32",
+        "message": {
+          "type": "string",
           "id": 2
-        },
-        "mobile": {
-          "type": "bool",
-          "id": 3
-        },
-        "client": {
-          "type": "string",
-          "id": 4
-        },
-        "uuid": {
-          "type": "string",
-          "id": 5
-        },
-        "secret": {
-          "type": "string",
-          "id": 6
+        }
+      }
+    },
+    "Data": {
+      "fields": {
+        "message": {
+          "type": "bytes",
+          "id": 1
         }
       }
     }

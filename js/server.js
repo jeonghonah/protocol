@@ -5188,26 +5188,25 @@
         return EntityMove;
     })();
     
-    $root.EntityUpdate = (function() {
+    $root.EntityModelUpdate = (function() {
     
         /**
-         * Properties of an EntityUpdate.
-         * @exports IEntityUpdate
-         * @interface IEntityUpdate
-         * @property {string|null} [uuid] EntityUpdate uuid
-         * @property {string|null} [key] EntityUpdate key
-         * @property {string|null} [value] EntityUpdate value
+         * Properties of an EntityModelUpdate.
+         * @exports IEntityModelUpdate
+         * @interface IEntityModelUpdate
+         * @property {string|null} [model] EntityModelUpdate model
+         * @property {string|null} [texture] EntityModelUpdate texture
          */
     
         /**
-         * Constructs a new EntityUpdate.
-         * @exports EntityUpdate
-         * @classdesc Represents an EntityUpdate.
-         * @implements IEntityUpdate
+         * Constructs a new EntityModelUpdate.
+         * @exports EntityModelUpdate
+         * @classdesc Represents an EntityModelUpdate.
+         * @implements IEntityModelUpdate
          * @constructor
-         * @param {IEntityUpdate=} [properties] Properties to set
+         * @param {IEntityModelUpdate=} [properties] Properties to set
          */
-        function EntityUpdate(properties) {
+        function EntityModelUpdate(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -5215,101 +5214,88 @@
         }
     
         /**
-         * EntityUpdate uuid.
-         * @member {string} uuid
-         * @memberof EntityUpdate
+         * EntityModelUpdate model.
+         * @member {string} model
+         * @memberof EntityModelUpdate
          * @instance
          */
-        EntityUpdate.prototype.uuid = "";
+        EntityModelUpdate.prototype.model = "";
     
         /**
-         * EntityUpdate key.
-         * @member {string} key
-         * @memberof EntityUpdate
+         * EntityModelUpdate texture.
+         * @member {string} texture
+         * @memberof EntityModelUpdate
          * @instance
          */
-        EntityUpdate.prototype.key = "";
+        EntityModelUpdate.prototype.texture = "";
     
         /**
-         * EntityUpdate value.
-         * @member {string} value
-         * @memberof EntityUpdate
-         * @instance
-         */
-        EntityUpdate.prototype.value = "";
-    
-        /**
-         * Creates a new EntityUpdate instance using the specified properties.
+         * Creates a new EntityModelUpdate instance using the specified properties.
          * @function create
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @static
-         * @param {IEntityUpdate=} [properties] Properties to set
-         * @returns {EntityUpdate} EntityUpdate instance
+         * @param {IEntityModelUpdate=} [properties] Properties to set
+         * @returns {EntityModelUpdate} EntityModelUpdate instance
          */
-        EntityUpdate.create = function create(properties) {
-            return new EntityUpdate(properties);
+        EntityModelUpdate.create = function create(properties) {
+            return new EntityModelUpdate(properties);
         };
     
         /**
-         * Encodes the specified EntityUpdate message. Does not implicitly {@link EntityUpdate.verify|verify} messages.
+         * Encodes the specified EntityModelUpdate message. Does not implicitly {@link EntityModelUpdate.verify|verify} messages.
          * @function encode
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @static
-         * @param {IEntityUpdate} message EntityUpdate message or plain object to encode
+         * @param {IEntityModelUpdate} message EntityModelUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        EntityUpdate.encode = function encode(message, writer) {
+        EntityModelUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
-            if (message.key != null && Object.hasOwnProperty.call(message, "key"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.key);
-            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.value);
+            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.model);
+            if (message.texture != null && Object.hasOwnProperty.call(message, "texture"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.texture);
             return writer;
         };
     
         /**
-         * Encodes the specified EntityUpdate message, length delimited. Does not implicitly {@link EntityUpdate.verify|verify} messages.
+         * Encodes the specified EntityModelUpdate message, length delimited. Does not implicitly {@link EntityModelUpdate.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @static
-         * @param {IEntityUpdate} message EntityUpdate message or plain object to encode
+         * @param {IEntityModelUpdate} message EntityModelUpdate message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        EntityUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+        EntityModelUpdate.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes an EntityUpdate message from the specified reader or buffer.
+         * Decodes an EntityModelUpdate message from the specified reader or buffer.
          * @function decode
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {EntityUpdate} EntityUpdate
+         * @returns {EntityModelUpdate} EntityModelUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        EntityUpdate.decode = function decode(reader, length) {
+        EntityModelUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityUpdate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityModelUpdate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.uuid = reader.string();
+                    message.model = reader.string();
                     break;
                 case 2:
-                    message.key = reader.string();
-                    break;
-                case 3:
-                    message.value = reader.string();
+                    message.texture = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5320,104 +5306,703 @@
         };
     
         /**
-         * Decodes an EntityUpdate message from the specified reader or buffer, length delimited.
+         * Decodes an EntityModelUpdate message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {EntityUpdate} EntityUpdate
+         * @returns {EntityModelUpdate} EntityModelUpdate
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        EntityUpdate.decodeDelimited = function decodeDelimited(reader) {
+        EntityModelUpdate.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies an EntityUpdate message.
+         * Verifies an EntityModelUpdate message.
          * @function verify
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        EntityUpdate.verify = function verify(message) {
+        EntityModelUpdate.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.uuid != null && message.hasOwnProperty("uuid"))
-                if (!$util.isString(message.uuid))
-                    return "uuid: string expected";
-            if (message.key != null && message.hasOwnProperty("key"))
-                if (!$util.isString(message.key))
-                    return "key: string expected";
-            if (message.value != null && message.hasOwnProperty("value"))
-                if (!$util.isString(message.value))
-                    return "value: string expected";
+            if (message.model != null && message.hasOwnProperty("model"))
+                if (!$util.isString(message.model))
+                    return "model: string expected";
+            if (message.texture != null && message.hasOwnProperty("texture"))
+                if (!$util.isString(message.texture))
+                    return "texture: string expected";
             return null;
         };
     
         /**
-         * Creates an EntityUpdate message from a plain object. Also converts values to their respective internal types.
+         * Creates an EntityModelUpdate message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {EntityUpdate} EntityUpdate
+         * @returns {EntityModelUpdate} EntityModelUpdate
          */
-        EntityUpdate.fromObject = function fromObject(object) {
-            if (object instanceof $root.EntityUpdate)
+        EntityModelUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.EntityModelUpdate)
                 return object;
-            var message = new $root.EntityUpdate();
-            if (object.uuid != null)
-                message.uuid = String(object.uuid);
-            if (object.key != null)
-                message.key = String(object.key);
-            if (object.value != null)
-                message.value = String(object.value);
+            var message = new $root.EntityModelUpdate();
+            if (object.model != null)
+                message.model = String(object.model);
+            if (object.texture != null)
+                message.texture = String(object.texture);
             return message;
         };
     
         /**
-         * Creates a plain object from an EntityUpdate message. Also converts values to other types if specified.
+         * Creates a plain object from an EntityModelUpdate message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @static
-         * @param {EntityUpdate} message EntityUpdate
+         * @param {EntityModelUpdate} message EntityModelUpdate
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        EntityUpdate.toObject = function toObject(message, options) {
+        EntityModelUpdate.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.uuid = "";
-                object.key = "";
-                object.value = "";
+                object.model = "";
+                object.texture = "";
             }
-            if (message.uuid != null && message.hasOwnProperty("uuid"))
-                object.uuid = message.uuid;
-            if (message.key != null && message.hasOwnProperty("key"))
-                object.key = message.key;
-            if (message.value != null && message.hasOwnProperty("value"))
-                object.value = message.value;
+            if (message.model != null && message.hasOwnProperty("model"))
+                object.model = message.model;
+            if (message.texture != null && message.hasOwnProperty("texture"))
+                object.texture = message.texture;
             return object;
         };
     
         /**
-         * Converts this EntityUpdate to JSON.
+         * Converts this EntityModelUpdate to JSON.
          * @function toJSON
-         * @memberof EntityUpdate
+         * @memberof EntityModelUpdate
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        EntityUpdate.prototype.toJSON = function toJSON() {
+        EntityModelUpdate.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return EntityUpdate;
+        return EntityModelUpdate;
+    })();
+    
+    $root.EntityNameUpdate = (function() {
+    
+        /**
+         * Properties of an EntityNameUpdate.
+         * @exports IEntityNameUpdate
+         * @interface IEntityNameUpdate
+         * @property {string|null} [name] EntityNameUpdate name
+         * @property {boolean|null} [visible] EntityNameUpdate visible
+         */
+    
+        /**
+         * Constructs a new EntityNameUpdate.
+         * @exports EntityNameUpdate
+         * @classdesc Represents an EntityNameUpdate.
+         * @implements IEntityNameUpdate
+         * @constructor
+         * @param {IEntityNameUpdate=} [properties] Properties to set
+         */
+        function EntityNameUpdate(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * EntityNameUpdate name.
+         * @member {string} name
+         * @memberof EntityNameUpdate
+         * @instance
+         */
+        EntityNameUpdate.prototype.name = "";
+    
+        /**
+         * EntityNameUpdate visible.
+         * @member {boolean} visible
+         * @memberof EntityNameUpdate
+         * @instance
+         */
+        EntityNameUpdate.prototype.visible = false;
+    
+        /**
+         * Creates a new EntityNameUpdate instance using the specified properties.
+         * @function create
+         * @memberof EntityNameUpdate
+         * @static
+         * @param {IEntityNameUpdate=} [properties] Properties to set
+         * @returns {EntityNameUpdate} EntityNameUpdate instance
+         */
+        EntityNameUpdate.create = function create(properties) {
+            return new EntityNameUpdate(properties);
+        };
+    
+        /**
+         * Encodes the specified EntityNameUpdate message. Does not implicitly {@link EntityNameUpdate.verify|verify} messages.
+         * @function encode
+         * @memberof EntityNameUpdate
+         * @static
+         * @param {IEntityNameUpdate} message EntityNameUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EntityNameUpdate.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            if (message.visible != null && Object.hasOwnProperty.call(message, "visible"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.visible);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified EntityNameUpdate message, length delimited. Does not implicitly {@link EntityNameUpdate.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof EntityNameUpdate
+         * @static
+         * @param {IEntityNameUpdate} message EntityNameUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EntityNameUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an EntityNameUpdate message from the specified reader or buffer.
+         * @function decode
+         * @memberof EntityNameUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {EntityNameUpdate} EntityNameUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EntityNameUpdate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityNameUpdate();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                case 2:
+                    message.visible = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an EntityNameUpdate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof EntityNameUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {EntityNameUpdate} EntityNameUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EntityNameUpdate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an EntityNameUpdate message.
+         * @function verify
+         * @memberof EntityNameUpdate
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        EntityNameUpdate.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            if (message.visible != null && message.hasOwnProperty("visible"))
+                if (typeof message.visible !== "boolean")
+                    return "visible: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates an EntityNameUpdate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof EntityNameUpdate
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {EntityNameUpdate} EntityNameUpdate
+         */
+        EntityNameUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.EntityNameUpdate)
+                return object;
+            var message = new $root.EntityNameUpdate();
+            if (object.name != null)
+                message.name = String(object.name);
+            if (object.visible != null)
+                message.visible = Boolean(object.visible);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an EntityNameUpdate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof EntityNameUpdate
+         * @static
+         * @param {EntityNameUpdate} message EntityNameUpdate
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EntityNameUpdate.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.name = "";
+                object.visible = false;
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.visible != null && message.hasOwnProperty("visible"))
+                object.visible = message.visible;
+            return object;
+        };
+    
+        /**
+         * Converts this EntityNameUpdate to JSON.
+         * @function toJSON
+         * @memberof EntityNameUpdate
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EntityNameUpdate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return EntityNameUpdate;
+    })();
+    
+    $root.EntityHeldItem = (function() {
+    
+        /**
+         * Properties of an EntityHeldItem.
+         * @exports IEntityHeldItem
+         * @interface IEntityHeldItem
+         * @property {string|null} [id] EntityHeldItem id
+         */
+    
+        /**
+         * Constructs a new EntityHeldItem.
+         * @exports EntityHeldItem
+         * @classdesc Represents an EntityHeldItem.
+         * @implements IEntityHeldItem
+         * @constructor
+         * @param {IEntityHeldItem=} [properties] Properties to set
+         */
+        function EntityHeldItem(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * EntityHeldItem id.
+         * @member {string} id
+         * @memberof EntityHeldItem
+         * @instance
+         */
+        EntityHeldItem.prototype.id = "";
+    
+        /**
+         * Creates a new EntityHeldItem instance using the specified properties.
+         * @function create
+         * @memberof EntityHeldItem
+         * @static
+         * @param {IEntityHeldItem=} [properties] Properties to set
+         * @returns {EntityHeldItem} EntityHeldItem instance
+         */
+        EntityHeldItem.create = function create(properties) {
+            return new EntityHeldItem(properties);
+        };
+    
+        /**
+         * Encodes the specified EntityHeldItem message. Does not implicitly {@link EntityHeldItem.verify|verify} messages.
+         * @function encode
+         * @memberof EntityHeldItem
+         * @static
+         * @param {IEntityHeldItem} message EntityHeldItem message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EntityHeldItem.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified EntityHeldItem message, length delimited. Does not implicitly {@link EntityHeldItem.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof EntityHeldItem
+         * @static
+         * @param {IEntityHeldItem} message EntityHeldItem message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EntityHeldItem.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an EntityHeldItem message from the specified reader or buffer.
+         * @function decode
+         * @memberof EntityHeldItem
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {EntityHeldItem} EntityHeldItem
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EntityHeldItem.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityHeldItem();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an EntityHeldItem message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof EntityHeldItem
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {EntityHeldItem} EntityHeldItem
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EntityHeldItem.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an EntityHeldItem message.
+         * @function verify
+         * @memberof EntityHeldItem
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        EntityHeldItem.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an EntityHeldItem message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof EntityHeldItem
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {EntityHeldItem} EntityHeldItem
+         */
+        EntityHeldItem.fromObject = function fromObject(object) {
+            if (object instanceof $root.EntityHeldItem)
+                return object;
+            var message = new $root.EntityHeldItem();
+            if (object.id != null)
+                message.id = String(object.id);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an EntityHeldItem message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof EntityHeldItem
+         * @static
+         * @param {EntityHeldItem} message EntityHeldItem
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EntityHeldItem.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.id = "";
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            return object;
+        };
+    
+        /**
+         * Converts this EntityHeldItem to JSON.
+         * @function toJSON
+         * @memberof EntityHeldItem
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EntityHeldItem.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return EntityHeldItem;
+    })();
+    
+    $root.EntityArmor = (function() {
+    
+        /**
+         * Properties of an EntityArmor.
+         * @exports IEntityArmor
+         * @interface IEntityArmor
+         * @property {number|null} [type] EntityArmor type
+         * @property {string|null} [id] EntityArmor id
+         */
+    
+        /**
+         * Constructs a new EntityArmor.
+         * @exports EntityArmor
+         * @classdesc Represents an EntityArmor.
+         * @implements IEntityArmor
+         * @constructor
+         * @param {IEntityArmor=} [properties] Properties to set
+         */
+        function EntityArmor(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * EntityArmor type.
+         * @member {number} type
+         * @memberof EntityArmor
+         * @instance
+         */
+        EntityArmor.prototype.type = 0;
+    
+        /**
+         * EntityArmor id.
+         * @member {string} id
+         * @memberof EntityArmor
+         * @instance
+         */
+        EntityArmor.prototype.id = "";
+    
+        /**
+         * Creates a new EntityArmor instance using the specified properties.
+         * @function create
+         * @memberof EntityArmor
+         * @static
+         * @param {IEntityArmor=} [properties] Properties to set
+         * @returns {EntityArmor} EntityArmor instance
+         */
+        EntityArmor.create = function create(properties) {
+            return new EntityArmor(properties);
+        };
+    
+        /**
+         * Encodes the specified EntityArmor message. Does not implicitly {@link EntityArmor.verify|verify} messages.
+         * @function encode
+         * @memberof EntityArmor
+         * @static
+         * @param {IEntityArmor} message EntityArmor message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EntityArmor.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.id);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified EntityArmor message, length delimited. Does not implicitly {@link EntityArmor.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof EntityArmor
+         * @static
+         * @param {IEntityArmor} message EntityArmor message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EntityArmor.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an EntityArmor message from the specified reader or buffer.
+         * @function decode
+         * @memberof EntityArmor
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {EntityArmor} EntityArmor
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EntityArmor.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityArmor();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.type = reader.int32();
+                    break;
+                case 2:
+                    message.id = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an EntityArmor message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof EntityArmor
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {EntityArmor} EntityArmor
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EntityArmor.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an EntityArmor message.
+         * @function verify
+         * @memberof EntityArmor
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        EntityArmor.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                if (!$util.isInteger(message.type))
+                    return "type: integer expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an EntityArmor message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof EntityArmor
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {EntityArmor} EntityArmor
+         */
+        EntityArmor.fromObject = function fromObject(object) {
+            if (object instanceof $root.EntityArmor)
+                return object;
+            var message = new $root.EntityArmor();
+            if (object.type != null)
+                message.type = object.type | 0;
+            if (object.id != null)
+                message.id = String(object.id);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an EntityArmor message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof EntityArmor
+         * @static
+         * @param {EntityArmor} message EntityArmor
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EntityArmor.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.type = 0;
+                object.id = "";
+            }
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = message.type;
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            return object;
+        };
+    
+        /**
+         * Converts this EntityArmor to JSON.
+         * @function toJSON
+         * @memberof EntityArmor
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EntityArmor.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return EntityArmor;
     })();
     
     $root.EntityAnimate = (function() {

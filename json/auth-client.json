@@ -10,21 +10,29 @@
           "type": "uint32",
           "id": 2
         },
-        "mobile": {
-          "type": "bool",
-          "id": 3
-        },
         "client": {
           "type": "string",
-          "id": 4
+          "id": 3
         },
         "uuid": {
           "type": "string",
-          "id": 5
+          "id": 4
         },
         "secret": {
           "type": "string",
+          "id": 5
+        },
+        "serverId": {
+          "type": "string",
           "id": 6
+        }
+      }
+    },
+    "Data": {
+      "fields": {
+        "message": {
+          "type": "bytes",
+          "id": 1
         }
       }
     }
