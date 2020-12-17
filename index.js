@@ -3,8 +3,12 @@ exports.__esModule = true;
 exports.parseToMessage = exports.parseToObject = void 0;
 var client = require("./js/client");
 var server = require("./js/server");
+var authClient = require("./js/auth-client");
+var authServer = require("./js/auth-server");
 var mapClient = require("./idmap/client.json");
 var mapServer = require("./idmap/server.json");
+var mapAuthClient = require("./idmap/auth-client.json");
+var mapAuthServer = require("./idmap/auth-server.json");
 var revMapServer = {};
 var revMapClient = {};
 mapClient.forEach(function (x, i) { return (revMapClient[x] = i); });
@@ -12,19 +16,28 @@ mapServer.forEach(function (x, i) { return (revMapServer[x] = i); });
 function parseToObject(pType, data) {
     var type = '';
     var packet;
-    if (pType == 'server') {
-        type = mapServer[data[0]];
-        if (type == undefined)
+    switch (pType) {
+        case 'server':
+            type = mapServer[data[0]];
+            packet = server[type];
+            break;
+        case 'client':
+            type = mapClient[data[0]];
+            packet = client[type];
+            break;
+        case 'auth-server':
+            type = mapAuthServer[data[0]];
+            packet = authServer[type];
+            break;
+        case 'auth-client':
+            type = mapAuthClient[data[0]];
+            packet = authClient[type];
+            break;
+        default:
             return null;
-        packet = server[type];
     }
-    else {
-        type = mapClient[data[0]];
-        if (type == undefined)
-            return null;
-        packet = client[type];
-        pType = 'client';
-    }
+    if (type == undefined)
+        return null;
     var rawData = data.slice(1);
     var message = packet.decode(rawData);
     var error = null;
@@ -36,7 +49,7 @@ function parseToObject(pType, data) {
         console.error('Invalid ' + pType + ' packet! Type: ' + type, error);
         return null;
     }
-    return { data: packet.toObject(message), type: type };
+    return { data: packet.toObject(message, { defaults: true }), type: type };
 }
 exports.parseToObject = parseToObject;
 function parseToMessage(pType, type, data) {

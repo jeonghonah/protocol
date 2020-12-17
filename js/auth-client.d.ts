@@ -208,3 +208,93 @@ export class Data implements IData {
      */
     public toJSON(): { [k: string]: any };
 }
+
+/** Properties of a VoxelSrvMessage. */
+export interface IVoxelSrvMessage {
+
+    /** VoxelSrvMessage message */
+    message?: (Uint8Array|null);
+}
+
+/** Represents a VoxelSrvMessage. */
+export class VoxelSrvMessage implements IVoxelSrvMessage {
+
+    /**
+     * Constructs a new VoxelSrvMessage.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IVoxelSrvMessage);
+
+    /** VoxelSrvMessage message. */
+    public message: Uint8Array;
+
+    /**
+     * Creates a new VoxelSrvMessage instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns VoxelSrvMessage instance
+     */
+    public static create(properties?: IVoxelSrvMessage): VoxelSrvMessage;
+
+    /**
+     * Encodes the specified VoxelSrvMessage message. Does not implicitly {@link VoxelSrvMessage.verify|verify} messages.
+     * @param message VoxelSrvMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IVoxelSrvMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified VoxelSrvMessage message, length delimited. Does not implicitly {@link VoxelSrvMessage.verify|verify} messages.
+     * @param message VoxelSrvMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IVoxelSrvMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a VoxelSrvMessage message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns VoxelSrvMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): VoxelSrvMessage;
+
+    /**
+     * Decodes a VoxelSrvMessage message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns VoxelSrvMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): VoxelSrvMessage;
+
+    /**
+     * Verifies a VoxelSrvMessage message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a VoxelSrvMessage message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns VoxelSrvMessage
+     */
+    public static fromObject(object: { [k: string]: any }): VoxelSrvMessage;
+
+    /**
+     * Creates a plain object from a VoxelSrvMessage message. Also converts values to other types if specified.
+     * @param message VoxelSrvMessage
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: VoxelSrvMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this VoxelSrvMessage to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}

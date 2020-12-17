@@ -8,3 +8,7 @@ message AuthResponce {
 message Data {
 	bytes message = 1;
 }
+
+message VoxelSrvMessage {
+	bytes message = 1;
+}

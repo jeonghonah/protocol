@@ -10,11 +10,11 @@
           "type": "uint32",
           "id": 2
         },
-        "maxplayers": {
+        "onlinePlayers": {
           "type": "uint32",
           "id": 3
         },
-        "numberplayers": {
+        "maxPlayers": {
           "type": "uint32",
           "id": 4
         },
@@ -33,6 +33,22 @@
         "secret": {
           "type": "string",
           "id": 8
+        }
+      }
+    },
+    "LoginAccepted": {
+      "fields": {
+        "accepted": {
+          "type": "bool",
+          "id": 1
+        },
+        "time": {
+          "type": "uint64",
+          "id": 2
+        },
+        "reason": {
+          "type": "string",
+          "id": 3
         }
       }
     },

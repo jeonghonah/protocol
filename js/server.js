@@ -24,8 +24,8 @@
          * @interface ILoginRequest
          * @property {string|null} [name] LoginRequest name
          * @property {number|null} [protocol] LoginRequest protocol
-         * @property {number|null} [maxplayers] LoginRequest maxplayers
-         * @property {number|null} [numberplayers] LoginRequest numberplayers
+         * @property {number|null} [onlinePlayers] LoginRequest onlinePlayers
+         * @property {number|null} [maxPlayers] LoginRequest maxPlayers
          * @property {string|null} [motd] LoginRequest motd
          * @property {string|null} [software] LoginRequest software
          * @property {boolean|null} [auth] LoginRequest auth
@@ -64,20 +64,20 @@
         LoginRequest.prototype.protocol = 0;
     
         /**
-         * LoginRequest maxplayers.
-         * @member {number} maxplayers
+         * LoginRequest onlinePlayers.
+         * @member {number} onlinePlayers
          * @memberof LoginRequest
          * @instance
          */
-        LoginRequest.prototype.maxplayers = 0;
+        LoginRequest.prototype.onlinePlayers = 0;
     
         /**
-         * LoginRequest numberplayers.
-         * @member {number} numberplayers
+         * LoginRequest maxPlayers.
+         * @member {number} maxPlayers
          * @memberof LoginRequest
          * @instance
          */
-        LoginRequest.prototype.numberplayers = 0;
+        LoginRequest.prototype.maxPlayers = 0;
     
         /**
          * LoginRequest motd.
@@ -139,10 +139,10 @@
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
             if (message.protocol != null && Object.hasOwnProperty.call(message, "protocol"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.protocol);
-            if (message.maxplayers != null && Object.hasOwnProperty.call(message, "maxplayers"))
-                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.maxplayers);
-            if (message.numberplayers != null && Object.hasOwnProperty.call(message, "numberplayers"))
-                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.numberplayers);
+            if (message.onlinePlayers != null && Object.hasOwnProperty.call(message, "onlinePlayers"))
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.onlinePlayers);
+            if (message.maxPlayers != null && Object.hasOwnProperty.call(message, "maxPlayers"))
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.maxPlayers);
             if (message.motd != null && Object.hasOwnProperty.call(message, "motd"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.motd);
             if (message.software != null && Object.hasOwnProperty.call(message, "software"))
@@ -192,10 +192,10 @@
                     message.protocol = reader.uint32();
                     break;
                 case 3:
-                    message.maxplayers = reader.uint32();
+                    message.onlinePlayers = reader.uint32();
                     break;
                 case 4:
-                    message.numberplayers = reader.uint32();
+                    message.maxPlayers = reader.uint32();
                     break;
                 case 5:
                     message.motd = reader.string();
@@ -250,12 +250,12 @@
             if (message.protocol != null && message.hasOwnProperty("protocol"))
                 if (!$util.isInteger(message.protocol))
                     return "protocol: integer expected";
-            if (message.maxplayers != null && message.hasOwnProperty("maxplayers"))
-                if (!$util.isInteger(message.maxplayers))
-                    return "maxplayers: integer expected";
-            if (message.numberplayers != null && message.hasOwnProperty("numberplayers"))
-                if (!$util.isInteger(message.numberplayers))
-                    return "numberplayers: integer expected";
+            if (message.onlinePlayers != null && message.hasOwnProperty("onlinePlayers"))
+                if (!$util.isInteger(message.onlinePlayers))
+                    return "onlinePlayers: integer expected";
+            if (message.maxPlayers != null && message.hasOwnProperty("maxPlayers"))
+                if (!$util.isInteger(message.maxPlayers))
+                    return "maxPlayers: integer expected";
             if (message.motd != null && message.hasOwnProperty("motd"))
                 if (!$util.isString(message.motd))
                     return "motd: string expected";
@@ -287,10 +287,10 @@
                 message.name = String(object.name);
             if (object.protocol != null)
                 message.protocol = object.protocol >>> 0;
-            if (object.maxplayers != null)
-                message.maxplayers = object.maxplayers >>> 0;
-            if (object.numberplayers != null)
-                message.numberplayers = object.numberplayers >>> 0;
+            if (object.onlinePlayers != null)
+                message.onlinePlayers = object.onlinePlayers >>> 0;
+            if (object.maxPlayers != null)
+                message.maxPlayers = object.maxPlayers >>> 0;
             if (object.motd != null)
                 message.motd = String(object.motd);
             if (object.software != null)
@@ -318,8 +318,8 @@
             if (options.defaults) {
                 object.name = "";
                 object.protocol = 0;
-                object.maxplayers = 0;
-                object.numberplayers = 0;
+                object.onlinePlayers = 0;
+                object.maxPlayers = 0;
                 object.motd = "";
                 object.software = "";
                 object.auth = false;
@@ -329,10 +329,10 @@
                 object.name = message.name;
             if (message.protocol != null && message.hasOwnProperty("protocol"))
                 object.protocol = message.protocol;
-            if (message.maxplayers != null && message.hasOwnProperty("maxplayers"))
-                object.maxplayers = message.maxplayers;
-            if (message.numberplayers != null && message.hasOwnProperty("numberplayers"))
-                object.numberplayers = message.numberplayers;
+            if (message.onlinePlayers != null && message.hasOwnProperty("onlinePlayers"))
+                object.onlinePlayers = message.onlinePlayers;
+            if (message.maxPlayers != null && message.hasOwnProperty("maxPlayers"))
+                object.maxPlayers = message.maxPlayers;
             if (message.motd != null && message.hasOwnProperty("motd"))
                 object.motd = message.motd;
             if (message.software != null && message.hasOwnProperty("software"))
@@ -356,6 +356,252 @@
         };
     
         return LoginRequest;
+    })();
+    
+    $root.LoginAccepted = (function() {
+    
+        /**
+         * Properties of a LoginAccepted.
+         * @exports ILoginAccepted
+         * @interface ILoginAccepted
+         * @property {boolean|null} [accepted] LoginAccepted accepted
+         * @property {number|Long|null} [time] LoginAccepted time
+         * @property {string|null} [reason] LoginAccepted reason
+         */
+    
+        /**
+         * Constructs a new LoginAccepted.
+         * @exports LoginAccepted
+         * @classdesc Represents a LoginAccepted.
+         * @implements ILoginAccepted
+         * @constructor
+         * @param {ILoginAccepted=} [properties] Properties to set
+         */
+        function LoginAccepted(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * LoginAccepted accepted.
+         * @member {boolean} accepted
+         * @memberof LoginAccepted
+         * @instance
+         */
+        LoginAccepted.prototype.accepted = false;
+    
+        /**
+         * LoginAccepted time.
+         * @member {number|Long} time
+         * @memberof LoginAccepted
+         * @instance
+         */
+        LoginAccepted.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+    
+        /**
+         * LoginAccepted reason.
+         * @member {string} reason
+         * @memberof LoginAccepted
+         * @instance
+         */
+        LoginAccepted.prototype.reason = "";
+    
+        /**
+         * Creates a new LoginAccepted instance using the specified properties.
+         * @function create
+         * @memberof LoginAccepted
+         * @static
+         * @param {ILoginAccepted=} [properties] Properties to set
+         * @returns {LoginAccepted} LoginAccepted instance
+         */
+        LoginAccepted.create = function create(properties) {
+            return new LoginAccepted(properties);
+        };
+    
+        /**
+         * Encodes the specified LoginAccepted message. Does not implicitly {@link LoginAccepted.verify|verify} messages.
+         * @function encode
+         * @memberof LoginAccepted
+         * @static
+         * @param {ILoginAccepted} message LoginAccepted message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LoginAccepted.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.accepted != null && Object.hasOwnProperty.call(message, "accepted"))
+                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.accepted);
+            if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
+            if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.reason);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified LoginAccepted message, length delimited. Does not implicitly {@link LoginAccepted.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof LoginAccepted
+         * @static
+         * @param {ILoginAccepted} message LoginAccepted message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        LoginAccepted.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a LoginAccepted message from the specified reader or buffer.
+         * @function decode
+         * @memberof LoginAccepted
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {LoginAccepted} LoginAccepted
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LoginAccepted.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginAccepted();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.accepted = reader.bool();
+                    break;
+                case 2:
+                    message.time = reader.uint64();
+                    break;
+                case 3:
+                    message.reason = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a LoginAccepted message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof LoginAccepted
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {LoginAccepted} LoginAccepted
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        LoginAccepted.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a LoginAccepted message.
+         * @function verify
+         * @memberof LoginAccepted
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        LoginAccepted.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.accepted != null && message.hasOwnProperty("accepted"))
+                if (typeof message.accepted !== "boolean")
+                    return "accepted: boolean expected";
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                    return "time: integer|Long expected";
+            if (message.reason != null && message.hasOwnProperty("reason"))
+                if (!$util.isString(message.reason))
+                    return "reason: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a LoginAccepted message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof LoginAccepted
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {LoginAccepted} LoginAccepted
+         */
+        LoginAccepted.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginAccepted)
+                return object;
+            var message = new $root.LoginAccepted();
+            if (object.accepted != null)
+                message.accepted = Boolean(object.accepted);
+            if (object.time != null)
+                if ($util.Long)
+                    (message.time = $util.Long.fromValue(object.time)).unsigned = true;
+                else if (typeof object.time === "string")
+                    message.time = parseInt(object.time, 10);
+                else if (typeof object.time === "number")
+                    message.time = object.time;
+                else if (typeof object.time === "object")
+                    message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber(true);
+            if (object.reason != null)
+                message.reason = String(object.reason);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a LoginAccepted message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof LoginAccepted
+         * @static
+         * @param {LoginAccepted} message LoginAccepted
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        LoginAccepted.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.accepted = false;
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.time = options.longs === String ? "0" : 0;
+                object.reason = "";
+            }
+            if (message.accepted != null && message.hasOwnProperty("accepted"))
+                object.accepted = message.accepted;
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (typeof message.time === "number")
+                    object.time = options.longs === String ? String(message.time) : message.time;
+                else
+                    object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber(true) : message.time;
+            if (message.reason != null && message.hasOwnProperty("reason"))
+                object.reason = message.reason;
+            return object;
+        };
+    
+        /**
+         * Converts this LoginAccepted to JSON.
+         * @function toJSON
+         * @memberof LoginAccepted
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        LoginAccepted.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return LoginAccepted;
     })();
     
     $root.LoginSuccess = (function() {

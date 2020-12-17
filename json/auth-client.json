@@ -35,6 +35,14 @@
           "id": 1
         }
       }
+    },
+    "VoxelSrvMessage": {
+      "fields": {
+        "message": {
+          "type": "bytes",
+          "id": 1
+        }
+      }
     }
   }
 }

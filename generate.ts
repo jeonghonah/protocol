@@ -4,6 +4,7 @@ import * as fs from 'fs';
 fs.readdir('proto', (err, data) => {
 	data.forEach((x) => {
 		if (!x.endsWith('.proto')) return;
+		console.log(x);
 		pbjs.main(['--target', 'static-module', `./proto/${x}`], function (err, output) {
 			if (err) throw err;
 

@@ -43,16 +43,16 @@ public final class Server {
     int getProtocol();
 
     /**
-     * <code>uint32 maxplayers = 3;</code>
-     * @return The maxplayers.
+     * <code>uint32 online_players = 3;</code>
+     * @return The onlinePlayers.
      */
-    int getMaxplayers();
+    int getOnlinePlayers();
 
     /**
-     * <code>uint32 numberplayers = 4;</code>
-     * @return The numberplayers.
+     * <code>uint32 max_players = 4;</code>
+     * @return The maxPlayers.
      */
-    int getNumberplayers();
+    int getMaxPlayers();
 
     /**
      * <code>string motd = 5;</code>
@@ -158,12 +158,12 @@ public final class Server {
             }
             case 24: {
 
-              maxplayers_ = input.readUInt32();
+              onlinePlayers_ = input.readUInt32();
               break;
             }
             case 32: {
 
-              numberplayers_ = input.readUInt32();
+              maxPlayers_ = input.readUInt32();
               break;
             }
             case 42: {
@@ -278,26 +278,26 @@ public final class Server {
       return protocol_;
     }
 
-    public static final int MAXPLAYERS_FIELD_NUMBER = 3;
-    private int maxplayers_;
+    public static final int ONLINE_PLAYERS_FIELD_NUMBER = 3;
+    private int onlinePlayers_;
     /**
-     * <code>uint32 maxplayers = 3;</code>
-     * @return The maxplayers.
+     * <code>uint32 online_players = 3;</code>
+     * @return The onlinePlayers.
      */
     @java.lang.Override
-    public int getMaxplayers() {
-      return maxplayers_;
+    public int getOnlinePlayers() {
+      return onlinePlayers_;
     }
 
-    public static final int NUMBERPLAYERS_FIELD_NUMBER = 4;
-    private int numberplayers_;
+    public static final int MAX_PLAYERS_FIELD_NUMBER = 4;
+    private int maxPlayers_;
     /**
-     * <code>uint32 numberplayers = 4;</code>
-     * @return The numberplayers.
+     * <code>uint32 max_players = 4;</code>
+     * @return The maxPlayers.
      */
     @java.lang.Override
-    public int getNumberplayers() {
-      return numberplayers_;
+    public int getMaxPlayers() {
+      return maxPlayers_;
     }
 
     public static final int MOTD_FIELD_NUMBER = 5;
@@ -445,11 +445,11 @@ public final class Server {
       if (protocol_ != 0) {
         output.writeUInt32(2, protocol_);
       }
-      if (maxplayers_ != 0) {
-        output.writeUInt32(3, maxplayers_);
+      if (onlinePlayers_ != 0) {
+        output.writeUInt32(3, onlinePlayers_);
       }
-      if (numberplayers_ != 0) {
-        output.writeUInt32(4, numberplayers_);
+      if (maxPlayers_ != 0) {
+        output.writeUInt32(4, maxPlayers_);
       }
       if (!getMotdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, motd_);
@@ -479,13 +479,13 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, protocol_);
       }
-      if (maxplayers_ != 0) {
+      if (onlinePlayers_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, maxplayers_);
+          .computeUInt32Size(3, onlinePlayers_);
       }
-      if (numberplayers_ != 0) {
+      if (maxPlayers_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(4, numberplayers_);
+          .computeUInt32Size(4, maxPlayers_);
       }
       if (!getMotdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, motd_);
@@ -519,10 +519,10 @@ public final class Server {
           .equals(other.getName())) return false;
       if (getProtocol()
           != other.getProtocol()) return false;
-      if (getMaxplayers()
-          != other.getMaxplayers()) return false;
-      if (getNumberplayers()
-          != other.getNumberplayers()) return false;
+      if (getOnlinePlayers()
+          != other.getOnlinePlayers()) return false;
+      if (getMaxPlayers()
+          != other.getMaxPlayers()) return false;
       if (!getMotd()
           .equals(other.getMotd())) return false;
       if (!getSoftware()
@@ -546,10 +546,10 @@ public final class Server {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + PROTOCOL_FIELD_NUMBER;
       hash = (53 * hash) + getProtocol();
-      hash = (37 * hash) + MAXPLAYERS_FIELD_NUMBER;
-      hash = (53 * hash) + getMaxplayers();
-      hash = (37 * hash) + NUMBERPLAYERS_FIELD_NUMBER;
-      hash = (53 * hash) + getNumberplayers();
+      hash = (37 * hash) + ONLINE_PLAYERS_FIELD_NUMBER;
+      hash = (53 * hash) + getOnlinePlayers();
+      hash = (37 * hash) + MAX_PLAYERS_FIELD_NUMBER;
+      hash = (53 * hash) + getMaxPlayers();
       hash = (37 * hash) + MOTD_FIELD_NUMBER;
       hash = (53 * hash) + getMotd().hashCode();
       hash = (37 * hash) + SOFTWARE_FIELD_NUMBER;
@@ -696,9 +696,9 @@ public final class Server {
 
         protocol_ = 0;
 
-        maxplayers_ = 0;
+        onlinePlayers_ = 0;
 
-        numberplayers_ = 0;
+        maxPlayers_ = 0;
 
         motd_ = "";
 
@@ -736,8 +736,8 @@ public final class Server {
         Server.LoginRequest result = new Server.LoginRequest(this);
         result.name_ = name_;
         result.protocol_ = protocol_;
-        result.maxplayers_ = maxplayers_;
-        result.numberplayers_ = numberplayers_;
+        result.onlinePlayers_ = onlinePlayers_;
+        result.maxPlayers_ = maxPlayers_;
         result.motd_ = motd_;
         result.software_ = software_;
         result.auth_ = auth_;
@@ -797,11 +797,11 @@ public final class Server {
         if (other.getProtocol() != 0) {
           setProtocol(other.getProtocol());
         }
-        if (other.getMaxplayers() != 0) {
-          setMaxplayers(other.getMaxplayers());
+        if (other.getOnlinePlayers() != 0) {
+          setOnlinePlayers(other.getOnlinePlayers());
         }
-        if (other.getNumberplayers() != 0) {
-          setNumberplayers(other.getNumberplayers());
+        if (other.getMaxPlayers() != 0) {
+          setMaxPlayers(other.getMaxPlayers());
         }
         if (!other.getMotd().isEmpty()) {
           motd_ = other.motd_;
@@ -974,64 +974,64 @@ public final class Server {
         return this;
       }
 
-      private int maxplayers_ ;
+      private int onlinePlayers_ ;
       /**
-       * <code>uint32 maxplayers = 3;</code>
-       * @return The maxplayers.
+       * <code>uint32 online_players = 3;</code>
+       * @return The onlinePlayers.
        */
       @java.lang.Override
-      public int getMaxplayers() {
-        return maxplayers_;
+      public int getOnlinePlayers() {
+        return onlinePlayers_;
       }
       /**
-       * <code>uint32 maxplayers = 3;</code>
-       * @param value The maxplayers to set.
+       * <code>uint32 online_players = 3;</code>
+       * @param value The onlinePlayers to set.
        * @return This builder for chaining.
        */
-      public Builder setMaxplayers(int value) {
+      public Builder setOnlinePlayers(int value) {
         
-        maxplayers_ = value;
+        onlinePlayers_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 maxplayers = 3;</code>
+       * <code>uint32 online_players = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearMaxplayers() {
+      public Builder clearOnlinePlayers() {
         
-        maxplayers_ = 0;
+        onlinePlayers_ = 0;
         onChanged();
         return this;
       }
 
-      private int numberplayers_ ;
+      private int maxPlayers_ ;
       /**
-       * <code>uint32 numberplayers = 4;</code>
-       * @return The numberplayers.
+       * <code>uint32 max_players = 4;</code>
+       * @return The maxPlayers.
        */
       @java.lang.Override
-      public int getNumberplayers() {
-        return numberplayers_;
+      public int getMaxPlayers() {
+        return maxPlayers_;
       }
       /**
-       * <code>uint32 numberplayers = 4;</code>
-       * @param value The numberplayers to set.
+       * <code>uint32 max_players = 4;</code>
+       * @param value The maxPlayers to set.
        * @return This builder for chaining.
        */
-      public Builder setNumberplayers(int value) {
+      public Builder setMaxPlayers(int value) {
         
-        numberplayers_ = value;
+        maxPlayers_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 numberplayers = 4;</code>
+       * <code>uint32 max_players = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearNumberplayers() {
+      public Builder clearMaxPlayers() {
         
-        numberplayers_ = 0;
+        maxPlayers_ = 0;
         onChanged();
         return this;
       }
@@ -1342,6 +1342,716 @@ public final class Server {
 
     @java.lang.Override
     public Server.LoginRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LoginAcceptedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:LoginAccepted)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool accepted = 1;</code>
+     * @return The accepted.
+     */
+    boolean getAccepted();
+
+    /**
+     * <code>uint64 time = 2;</code>
+     * @return The time.
+     */
+    long getTime();
+
+    /**
+     * <code>string reason = 3;</code>
+     * @return The reason.
+     */
+    java.lang.String getReason();
+    /**
+     * <code>string reason = 3;</code>
+     * @return The bytes for reason.
+     */
+    com.google.protobuf.ByteString
+        getReasonBytes();
+  }
+  /**
+   * Protobuf type {@code LoginAccepted}
+   */
+  public static final class LoginAccepted extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:LoginAccepted)
+      LoginAcceptedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LoginAccepted.newBuilder() to construct.
+    private LoginAccepted(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LoginAccepted() {
+      reason_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LoginAccepted();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LoginAccepted(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              accepted_ = input.readBool();
+              break;
+            }
+            case 16: {
+
+              time_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              reason_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Server.internal_static_LoginAccepted_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Server.internal_static_LoginAccepted_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Server.LoginAccepted.class, Server.LoginAccepted.Builder.class);
+    }
+
+    public static final int ACCEPTED_FIELD_NUMBER = 1;
+    private boolean accepted_;
+    /**
+     * <code>bool accepted = 1;</code>
+     * @return The accepted.
+     */
+    @java.lang.Override
+    public boolean getAccepted() {
+      return accepted_;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 2;
+    private long time_;
+    /**
+     * <code>uint64 time = 2;</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public long getTime() {
+      return time_;
+    }
+
+    public static final int REASON_FIELD_NUMBER = 3;
+    private volatile java.lang.Object reason_;
+    /**
+     * <code>string reason = 3;</code>
+     * @return The reason.
+     */
+    @java.lang.Override
+    public java.lang.String getReason() {
+      java.lang.Object ref = reason_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reason_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string reason = 3;</code>
+     * @return The bytes for reason.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReasonBytes() {
+      java.lang.Object ref = reason_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (accepted_ != false) {
+        output.writeBool(1, accepted_);
+      }
+      if (time_ != 0L) {
+        output.writeUInt64(2, time_);
+      }
+      if (!getReasonBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, reason_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (accepted_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, accepted_);
+      }
+      if (time_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, time_);
+      }
+      if (!getReasonBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, reason_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Server.LoginAccepted)) {
+        return super.equals(obj);
+      }
+      Server.LoginAccepted other = (Server.LoginAccepted) obj;
+
+      if (getAccepted()
+          != other.getAccepted()) return false;
+      if (getTime()
+          != other.getTime()) return false;
+      if (!getReason()
+          .equals(other.getReason())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ACCEPTED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAccepted());
+      hash = (37 * hash) + TIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTime());
+      hash = (37 * hash) + REASON_FIELD_NUMBER;
+      hash = (53 * hash) + getReason().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Server.LoginAccepted parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.LoginAccepted parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.LoginAccepted parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.LoginAccepted parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.LoginAccepted parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.LoginAccepted parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.LoginAccepted parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Server.LoginAccepted parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Server.LoginAccepted parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Server.LoginAccepted parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Server.LoginAccepted parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Server.LoginAccepted parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Server.LoginAccepted prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code LoginAccepted}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:LoginAccepted)
+        Server.LoginAcceptedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Server.internal_static_LoginAccepted_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Server.internal_static_LoginAccepted_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Server.LoginAccepted.class, Server.LoginAccepted.Builder.class);
+      }
+
+      // Construct using Server.LoginAccepted.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        accepted_ = false;
+
+        time_ = 0L;
+
+        reason_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Server.internal_static_LoginAccepted_descriptor;
+      }
+
+      @java.lang.Override
+      public Server.LoginAccepted getDefaultInstanceForType() {
+        return Server.LoginAccepted.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Server.LoginAccepted build() {
+        Server.LoginAccepted result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Server.LoginAccepted buildPartial() {
+        Server.LoginAccepted result = new Server.LoginAccepted(this);
+        result.accepted_ = accepted_;
+        result.time_ = time_;
+        result.reason_ = reason_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Server.LoginAccepted) {
+          return mergeFrom((Server.LoginAccepted)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Server.LoginAccepted other) {
+        if (other == Server.LoginAccepted.getDefaultInstance()) return this;
+        if (other.getAccepted() != false) {
+          setAccepted(other.getAccepted());
+        }
+        if (other.getTime() != 0L) {
+          setTime(other.getTime());
+        }
+        if (!other.getReason().isEmpty()) {
+          reason_ = other.reason_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Server.LoginAccepted parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Server.LoginAccepted) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean accepted_ ;
+      /**
+       * <code>bool accepted = 1;</code>
+       * @return The accepted.
+       */
+      @java.lang.Override
+      public boolean getAccepted() {
+        return accepted_;
+      }
+      /**
+       * <code>bool accepted = 1;</code>
+       * @param value The accepted to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccepted(boolean value) {
+        
+        accepted_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool accepted = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccepted() {
+        
+        accepted_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long time_ ;
+      /**
+       * <code>uint64 time = 2;</code>
+       * @return The time.
+       */
+      @java.lang.Override
+      public long getTime() {
+        return time_;
+      }
+      /**
+       * <code>uint64 time = 2;</code>
+       * @param value The time to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTime(long value) {
+        
+        time_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 time = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTime() {
+        
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object reason_ = "";
+      /**
+       * <code>string reason = 3;</code>
+       * @return The reason.
+       */
+      public java.lang.String getReason() {
+        java.lang.Object ref = reason_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reason_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string reason = 3;</code>
+       * @return The bytes for reason.
+       */
+      public com.google.protobuf.ByteString
+          getReasonBytes() {
+        java.lang.Object ref = reason_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reason_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string reason = 3;</code>
+       * @param value The reason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReason(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        reason_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string reason = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReason() {
+        
+        reason_ = getDefaultInstance().getReason();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string reason = 3;</code>
+       * @param value The bytes for reason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReasonBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reason_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:LoginAccepted)
+    }
+
+    // @@protoc_insertion_point(class_scope:LoginAccepted)
+    private static final Server.LoginAccepted DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Server.LoginAccepted();
+    }
+
+    public static Server.LoginAccepted getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LoginAccepted>
+        PARSER = new com.google.protobuf.AbstractParser<LoginAccepted>() {
+      @java.lang.Override
+      public LoginAccepted parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LoginAccepted(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LoginAccepted> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LoginAccepted> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Server.LoginAccepted getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -26825,6 +27535,11 @@ public final class Server {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_LoginRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_LoginAccepted_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_LoginAccepted_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_LoginSuccess_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -27013,73 +27728,75 @@ public final class Server {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022proto/server.proto\"\227\001\n\014LoginRequest\022\014\n" +
-      "\004name\030\001 \001(\t\022\020\n\010protocol\030\002 \001(\r\022\022\n\nmaxplay" +
-      "ers\030\003 \001(\r\022\025\n\rnumberplayers\030\004 \001(\r\022\014\n\004motd" +
-      "\030\005 \001(\t\022\020\n\010software\030\006 \001(\t\022\014\n\004auth\030\007 \001(\010\022\016" +
-      "\n\006secret\030\010 \001(\t\"\226\001\n\014LoginSuccess\022\r\n\005x_pos" +
-      "\030\001 \001(\001\022\r\n\005y_pos\030\002 \001(\001\022\r\n\005z_pos\030\003 \001(\001\022\021\n\t" +
-      "items_def\030\004 \001(\t\022\022\n\nblocks_def\030\005 \001(\t\022\021\n\ti" +
-      "nventory\030\006 \001(\t\022\r\n\005armor\030\007 \001(\t\022\020\n\010movemen" +
-      "t\030\010 \001(\t\"\024\n\004Ping\022\014\n\004time\030\001 \001(\004\"*\n\nPlayerK" +
-      "ick\022\016\n\006reason\030\001 \001(\t\022\014\n\004time\030\002 \001(\004\"<\n\014Pla" +
-      "yerEntity\022\014\n\004uuid\030\001 \001(\t\022\r\n\005model\030\002 \001(\t\022\017" +
-      "\n\007texture\030\003 \001(\t\"1\n\016PlayerTeleport\022\t\n\001x\030\001" +
-      " \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\"2\n\017PlayerInve" +
-      "ntory\022\014\n\004type\030\001 \001(\t\022\021\n\tinventory\030\002 \001(\t\"<" +
-      "\n\020PlayerSlotUpdate\022\014\n\004slot\030\001 \001(\r\022\014\n\004type" +
-      "\030\002 \001(\t\022\014\n\004data\030\003 \001(\t\"5\n\022PlayerApplyImpul" +
-      "se\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"2\n\024P" +
-      "layerUpdateMovement\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\001\"1\n\023PlayerUpdatePhysics\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\001\"*\n\014PlayerHealth\022\r\n\005va" +
-      "lue\030\001 \001(\021\022\013\n\003max\030\002 \001(\021\"?\n\023PlayerOpenInve" +
-      "ntory\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\014\n\004dat" +
-      "a\030\003 \001(\t\"K\n\tSoundPlay\022\r\n\005sound\030\001 \001(\t\022\016\n\006v" +
-      "olume\030\002 \001(\r\022\t\n\001x\030\003 \001(\001\022\t\n\001y\030\004 \001(\001\022\t\n\001z\030\005" +
-      " \001(\001\"\367\001\n\013ChatMessage\022*\n\007message\030\001 \003(\0132\031." +
-      "ChatMessage.MessageEntry\022\014\n\004time\030\002 \001(\004\032b" +
-      "\n\rChatComponent\022\014\n\004text\030\001 \001(\t\022\014\n\004font\030\002 " +
-      "\001(\t\022\r\n\005color\030\003 \001(\t\022\023\n\013linethrough\030\004 \001(\010\022" +
-      "\021\n\tunderline\030\005 \001(\010\032J\n\014MessageEntry\022\013\n\003ke" +
-      "y\030\001 \001(\r\022)\n\005value\030\002 \001(\0132\032.ChatMessage.Cha" +
-      "tComponent:\0028\001\"\361\001\n\tTabUpdate\022(\n\007message\030" +
-      "\001 \003(\0132\027.TabUpdate.MessageEntry\022\014\n\004time\030\002" +
-      " \001(\004\032b\n\rChatComponent\022\014\n\004text\030\001 \001(\t\022\014\n\004f" +
-      "ont\030\002 \001(\t\022\r\n\005color\030\003 \001(\t\022\023\n\013linethrough\030" +
-      "\004 \001(\010\022\021\n\tunderline\030\005 \001(\010\032H\n\014MessageEntry" +
-      "\022\013\n\003key\030\001 \001(\r\022\'\n\005value\030\002 \001(\0132\030.TabUpdate" +
-      ".ChatComponent:\0028\001\"*\n\014EntityCreate\022\014\n\004uu" +
-      "id\030\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\034\n\014EntityRemove\022\014" +
-      "\n\004uuid\030\001 \001(\t\"\\\n\nEntityMove\022\014\n\004uuid\030\001 \001(\t" +
-      "\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t\n\001z\030\004 \001(\001\022\020\n\010rot" +
-      "ation\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\"?\n\020EntityName" +
-      "Update\022\014\n\004uuid\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007vi" +
-      "sible\030\003 \001(\010\"*\n\016EntityHeldItem\022\014\n\004uuid\030\001 " +
-      "\001(\t\022\n\n\002id\030\002 \001(\t\"5\n\013EntityArmor\022\014\n\004uuid\030\001" +
-      " \001(\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\t\"O\n\rEntity" +
-      "Animate\022\014\n\004uuid\030\001 \001(\t\022\021\n\tanimation\030\002 \001(\t" +
-      "\022\014\n\004time\030\003 \001(\r\022\017\n\007replace\030\004 \001(\010\"?\n\020World" +
-      "BlockUpdate\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003" +
-      " \001(\021\022\n\n\002id\030\004 \001(\r\"\215\001\n\025WorldMultiBlockUpda" +
-      "te\0222\n\006blocks\030\001 \003(\0132\".WorldMultiBlockUpda" +
-      "te.BlocksEntry\032@\n\013BlocksEntry\022\013\n\003key\030\001 \001" +
-      "(\005\022 \n\005value\030\002 \001(\0132\021.WorldBlockUpdate:\0028\001" +
-      "\"a\n\016WorldChunkLoad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021" +
-      "\022\t\n\001z\030\003 \001(\021\022\014\n\004data\030\004 \001(\014\022\014\n\004type\030\005 \001(\010\022" +
-      "\022\n\ncompressed\030\006 \001(\010\"A\n\020WorldChunkUnload\022" +
-      "\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type" +
-      "\030\004 \001(\010\"7\n\016RegistryUpdate\022\021\n\titems_def\030\001 " +
-      "\001(\t\022\022\n\nblocks_def\030\002 \001(\t\"3\n\025GameplaySetti" +
-      "ngUpdate\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\215\001\n" +
-      "\024EnvironmentFogUpdate\022\014\n\004mode\030\001 \001(\005\022\017\n\007d" +
-      "ensity\030\002 \001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(\002" +
-      "\022\021\n\tcolor_red\030\005 \001(\002\022\023\n\013color_green\030\006 \001(\002" +
-      "\022\022\n\ncolor_blue\030\007 \001(\002\"b\n\024EnvironmentSkyUp" +
-      "date\022\016\n\006clouds\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(\002\022" +
-      "\023\n\013color_green\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001(\002" +
-      "\"<\n\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007versio" +
-      "n\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
+      "\n\022proto/server.proto\"\231\001\n\014LoginRequest\022\014\n" +
+      "\004name\030\001 \001(\t\022\020\n\010protocol\030\002 \001(\r\022\026\n\016online_" +
+      "players\030\003 \001(\r\022\023\n\013max_players\030\004 \001(\r\022\014\n\004mo" +
+      "td\030\005 \001(\t\022\020\n\010software\030\006 \001(\t\022\014\n\004auth\030\007 \001(\010" +
+      "\022\016\n\006secret\030\010 \001(\t\"?\n\rLoginAccepted\022\020\n\010acc" +
+      "epted\030\001 \001(\010\022\014\n\004time\030\002 \001(\004\022\016\n\006reason\030\003 \001(" +
+      "\t\"\226\001\n\014LoginSuccess\022\r\n\005x_pos\030\001 \001(\001\022\r\n\005y_p" +
+      "os\030\002 \001(\001\022\r\n\005z_pos\030\003 \001(\001\022\021\n\titems_def\030\004 \001" +
+      "(\t\022\022\n\nblocks_def\030\005 \001(\t\022\021\n\tinventory\030\006 \001(" +
+      "\t\022\r\n\005armor\030\007 \001(\t\022\020\n\010movement\030\010 \001(\t\"\024\n\004Pi" +
+      "ng\022\014\n\004time\030\001 \001(\004\"*\n\nPlayerKick\022\016\n\006reason" +
+      "\030\001 \001(\t\022\014\n\004time\030\002 \001(\004\"<\n\014PlayerEntity\022\014\n\004" +
+      "uuid\030\001 \001(\t\022\r\n\005model\030\002 \001(\t\022\017\n\007texture\030\003 \001" +
+      "(\t\"1\n\016PlayerTeleport\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001" +
+      "(\001\022\t\n\001z\030\003 \001(\001\"2\n\017PlayerInventory\022\014\n\004type" +
+      "\030\001 \001(\t\022\021\n\tinventory\030\002 \001(\t\"<\n\020PlayerSlotU" +
+      "pdate\022\014\n\004slot\030\001 \001(\r\022\014\n\004type\030\002 \001(\t\022\014\n\004dat" +
+      "a\030\003 \001(\t\"5\n\022PlayerApplyImpulse\022\t\n\001x\030\001 \001(\002" +
+      "\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"2\n\024PlayerUpdateMo" +
+      "vement\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"1\n\023Pl" +
+      "ayerUpdatePhysics\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\001\"*\n\014PlayerHealth\022\r\n\005value\030\001 \001(\021\022\013\n\003" +
+      "max\030\002 \001(\021\"?\n\023PlayerOpenInventory\022\014\n\004name" +
+      "\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\014\n\004data\030\003 \001(\t\"K\n\tSo" +
+      "undPlay\022\r\n\005sound\030\001 \001(\t\022\016\n\006volume\030\002 \001(\r\022\t" +
+      "\n\001x\030\003 \001(\001\022\t\n\001y\030\004 \001(\001\022\t\n\001z\030\005 \001(\001\"\367\001\n\013Chat" +
+      "Message\022*\n\007message\030\001 \003(\0132\031.ChatMessage.M" +
+      "essageEntry\022\014\n\004time\030\002 \001(\004\032b\n\rChatCompone" +
+      "nt\022\014\n\004text\030\001 \001(\t\022\014\n\004font\030\002 \001(\t\022\r\n\005color\030" +
+      "\003 \001(\t\022\023\n\013linethrough\030\004 \001(\010\022\021\n\tunderline\030" +
+      "\005 \001(\010\032J\n\014MessageEntry\022\013\n\003key\030\001 \001(\r\022)\n\005va" +
+      "lue\030\002 \001(\0132\032.ChatMessage.ChatComponent:\0028" +
+      "\001\"\361\001\n\tTabUpdate\022(\n\007message\030\001 \003(\0132\027.TabUp" +
+      "date.MessageEntry\022\014\n\004time\030\002 \001(\004\032b\n\rChatC" +
+      "omponent\022\014\n\004text\030\001 \001(\t\022\014\n\004font\030\002 \001(\t\022\r\n\005" +
+      "color\030\003 \001(\t\022\023\n\013linethrough\030\004 \001(\010\022\021\n\tunde" +
+      "rline\030\005 \001(\010\032H\n\014MessageEntry\022\013\n\003key\030\001 \001(\r" +
+      "\022\'\n\005value\030\002 \001(\0132\030.TabUpdate.ChatComponen" +
+      "t:\0028\001\"*\n\014EntityCreate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004d" +
+      "ata\030\002 \001(\t\"\034\n\014EntityRemove\022\014\n\004uuid\030\001 \001(\t\"" +
+      "\\\n\nEntityMove\022\014\n\004uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t" +
+      "\n\001y\030\003 \001(\001\022\t\n\001z\030\004 \001(\001\022\020\n\010rotation\030\005 \001(\002\022\r" +
+      "\n\005pitch\030\006 \001(\002\"?\n\020EntityNameUpdate\022\014\n\004uui" +
+      "d\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007visible\030\003 \001(\010\"*" +
+      "\n\016EntityHeldItem\022\014\n\004uuid\030\001 \001(\t\022\n\n\002id\030\002 \001" +
+      "(\t\"5\n\013EntityArmor\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030" +
+      "\002 \001(\005\022\n\n\002id\030\003 \001(\t\"O\n\rEntityAnimate\022\014\n\004uu" +
+      "id\030\001 \001(\t\022\021\n\tanimation\030\002 \001(\t\022\014\n\004time\030\003 \001(" +
+      "\r\022\017\n\007replace\030\004 \001(\010\"?\n\020WorldBlockUpdate\022\t" +
+      "\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 " +
+      "\001(\r\"\215\001\n\025WorldMultiBlockUpdate\0222\n\006blocks\030" +
+      "\001 \003(\0132\".WorldMultiBlockUpdate.BlocksEntr" +
+      "y\032@\n\013BlocksEntry\022\013\n\003key\030\001 \001(\005\022 \n\005value\030\002" +
+      " \001(\0132\021.WorldBlockUpdate:\0028\001\"a\n\016WorldChun" +
+      "kLoad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014" +
+      "\n\004data\030\004 \001(\014\022\014\n\004type\030\005 \001(\010\022\022\n\ncompressed" +
+      "\030\006 \001(\010\"A\n\020WorldChunkUnload\022\t\n\001x\030\001 \001(\021\022\t\n" +
+      "\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001(\010\"7\n\016Reg" +
+      "istryUpdate\022\021\n\titems_def\030\001 \001(\t\022\022\n\nblocks" +
+      "_def\030\002 \001(\t\"3\n\025GameplaySettingUpdate\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\215\001\n\024EnvironmentF" +
+      "ogUpdate\022\014\n\004mode\030\001 \001(\005\022\017\n\007density\030\002 \001(\002\022" +
+      "\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(\002\022\021\n\tcolor_red" +
+      "\030\005 \001(\002\022\023\n\013color_green\030\006 \001(\002\022\022\n\ncolor_blu" +
+      "e\030\007 \001(\002\"b\n\024EnvironmentSkyUpdate\022\016\n\006cloud" +
+      "s\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013color_gree" +
+      "n\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001(\002\"<\n\rPluginMes" +
+      "sage\022\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005va" +
+      "lue\030\003 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27090,87 +27807,93 @@ public final class Server {
     internal_static_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoginRequest_descriptor,
-        new java.lang.String[] { "Name", "Protocol", "Maxplayers", "Numberplayers", "Motd", "Software", "Auth", "Secret", });
-    internal_static_LoginSuccess_descriptor =
+        new java.lang.String[] { "Name", "Protocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "Secret", });
+    internal_static_LoginAccepted_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_LoginAccepted_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_LoginAccepted_descriptor,
+        new java.lang.String[] { "Accepted", "Time", "Reason", });
+    internal_static_LoginSuccess_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_LoginSuccess_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoginSuccess_descriptor,
         new java.lang.String[] { "XPos", "YPos", "ZPos", "ItemsDef", "BlocksDef", "Inventory", "Armor", "Movement", });
     internal_static_Ping_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_Ping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Ping_descriptor,
         new java.lang.String[] { "Time", });
     internal_static_PlayerKick_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_PlayerKick_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerKick_descriptor,
         new java.lang.String[] { "Reason", "Time", });
     internal_static_PlayerEntity_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_PlayerEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerEntity_descriptor,
         new java.lang.String[] { "Uuid", "Model", "Texture", });
     internal_static_PlayerTeleport_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_PlayerTeleport_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerTeleport_descriptor,
         new java.lang.String[] { "X", "Y", "Z", });
     internal_static_PlayerInventory_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_PlayerInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerInventory_descriptor,
         new java.lang.String[] { "Type", "Inventory", });
     internal_static_PlayerSlotUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_PlayerSlotUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerSlotUpdate_descriptor,
         new java.lang.String[] { "Slot", "Type", "Data", });
     internal_static_PlayerApplyImpulse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_PlayerApplyImpulse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerApplyImpulse_descriptor,
         new java.lang.String[] { "X", "Y", "Z", });
     internal_static_PlayerUpdateMovement_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_PlayerUpdateMovement_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerUpdateMovement_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_PlayerUpdatePhysics_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_PlayerUpdatePhysics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerUpdatePhysics_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_PlayerHealth_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_PlayerHealth_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerHealth_descriptor,
         new java.lang.String[] { "Value", "Max", });
     internal_static_PlayerOpenInventory_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_PlayerOpenInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerOpenInventory_descriptor,
         new java.lang.String[] { "Name", "Type", "Data", });
     internal_static_SoundPlay_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_SoundPlay_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SoundPlay_descriptor,
         new java.lang.String[] { "Sound", "Volume", "X", "Y", "Z", });
     internal_static_ChatMessage_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_ChatMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatMessage_descriptor,
@@ -27188,7 +27911,7 @@ public final class Server {
         internal_static_ChatMessage_MessageEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_TabUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_TabUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TabUpdate_descriptor,
@@ -27206,55 +27929,55 @@ public final class Server {
         internal_static_TabUpdate_MessageEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_EntityCreate_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_EntityCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityCreate_descriptor,
         new java.lang.String[] { "Uuid", "Data", });
     internal_static_EntityRemove_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_EntityRemove_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityRemove_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_EntityMove_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_EntityMove_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityMove_descriptor,
         new java.lang.String[] { "Uuid", "X", "Y", "Z", "Rotation", "Pitch", });
     internal_static_EntityNameUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_EntityNameUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityNameUpdate_descriptor,
         new java.lang.String[] { "Uuid", "Name", "Visible", });
     internal_static_EntityHeldItem_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_EntityHeldItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityHeldItem_descriptor,
         new java.lang.String[] { "Uuid", "Id", });
     internal_static_EntityArmor_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_EntityArmor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityArmor_descriptor,
         new java.lang.String[] { "Uuid", "Type", "Id", });
     internal_static_EntityAnimate_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_EntityAnimate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityAnimate_descriptor,
         new java.lang.String[] { "Uuid", "Animation", "Time", "Replace", });
     internal_static_WorldBlockUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_WorldBlockUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldBlockUpdate_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Id", });
     internal_static_WorldMultiBlockUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_WorldMultiBlockUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldMultiBlockUpdate_descriptor,
@@ -27266,43 +27989,43 @@ public final class Server {
         internal_static_WorldMultiBlockUpdate_BlocksEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_WorldChunkLoad_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_WorldChunkLoad_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunkLoad_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Data", "Type", "Compressed", });
     internal_static_WorldChunkUnload_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_WorldChunkUnload_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunkUnload_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Type", });
     internal_static_RegistryUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_RegistryUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RegistryUpdate_descriptor,
         new java.lang.String[] { "ItemsDef", "BlocksDef", });
     internal_static_GameplaySettingUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_GameplaySettingUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GameplaySettingUpdate_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_EnvironmentFogUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_EnvironmentFogUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentFogUpdate_descriptor,
         new java.lang.String[] { "Mode", "Density", "Start", "End", "ColorRed", "ColorGreen", "ColorBlue", });
     internal_static_EnvironmentSkyUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_EnvironmentSkyUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentSkyUpdate_descriptor,
         new java.lang.String[] { "Clouds", "ColorRed", "ColorGreen", "ColorBlue", });
     internal_static_PluginMessage_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_PluginMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PluginMessage_descriptor,

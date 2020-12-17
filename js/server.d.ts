@@ -8,11 +8,11 @@ export interface ILoginRequest {
     /** LoginRequest protocol */
     protocol?: (number|null);
 
-    /** LoginRequest maxplayers */
-    maxplayers?: (number|null);
+    /** LoginRequest onlinePlayers */
+    onlinePlayers?: (number|null);
 
-    /** LoginRequest numberplayers */
-    numberplayers?: (number|null);
+    /** LoginRequest maxPlayers */
+    maxPlayers?: (number|null);
 
     /** LoginRequest motd */
     motd?: (string|null);
@@ -42,11 +42,11 @@ export class LoginRequest implements ILoginRequest {
     /** LoginRequest protocol. */
     public protocol: number;
 
-    /** LoginRequest maxplayers. */
-    public maxplayers: number;
+    /** LoginRequest onlinePlayers. */
+    public onlinePlayers: number;
 
-    /** LoginRequest numberplayers. */
-    public numberplayers: number;
+    /** LoginRequest maxPlayers. */
+    public maxPlayers: number;
 
     /** LoginRequest motd. */
     public motd: string;
@@ -126,6 +126,108 @@ export class LoginRequest implements ILoginRequest {
 
     /**
      * Converts this LoginRequest to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a LoginAccepted. */
+export interface ILoginAccepted {
+
+    /** LoginAccepted accepted */
+    accepted?: (boolean|null);
+
+    /** LoginAccepted time */
+    time?: (number|Long|null);
+
+    /** LoginAccepted reason */
+    reason?: (string|null);
+}
+
+/** Represents a LoginAccepted. */
+export class LoginAccepted implements ILoginAccepted {
+
+    /**
+     * Constructs a new LoginAccepted.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ILoginAccepted);
+
+    /** LoginAccepted accepted. */
+    public accepted: boolean;
+
+    /** LoginAccepted time. */
+    public time: (number|Long);
+
+    /** LoginAccepted reason. */
+    public reason: string;
+
+    /**
+     * Creates a new LoginAccepted instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns LoginAccepted instance
+     */
+    public static create(properties?: ILoginAccepted): LoginAccepted;
+
+    /**
+     * Encodes the specified LoginAccepted message. Does not implicitly {@link LoginAccepted.verify|verify} messages.
+     * @param message LoginAccepted message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ILoginAccepted, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified LoginAccepted message, length delimited. Does not implicitly {@link LoginAccepted.verify|verify} messages.
+     * @param message LoginAccepted message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ILoginAccepted, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a LoginAccepted message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns LoginAccepted
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): LoginAccepted;
+
+    /**
+     * Decodes a LoginAccepted message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns LoginAccepted
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): LoginAccepted;
+
+    /**
+     * Verifies a LoginAccepted message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a LoginAccepted message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns LoginAccepted
+     */
+    public static fromObject(object: { [k: string]: any }): LoginAccepted;
+
+    /**
+     * Creates a plain object from a LoginAccepted message. Also converts values to other types if specified.
+     * @param message LoginAccepted
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: LoginAccepted, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this LoginAccepted to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
