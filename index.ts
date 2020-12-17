@@ -11,9 +11,14 @@ import * as mapAuthServer from './idmap/auth-server.json';
 
 let revMapServer = {};
 let revMapClient = {};
+let revMapAuthServer = {};
+let revMapAuthClient = {};
 
 mapClient.forEach((x, i) => (revMapClient[x] = i));
 mapServer.forEach((x, i) => (revMapServer[x] = i));
+
+mapAuthClient.forEach((x, i) => (revMapAuthClient[x] = i));
+mapAuthServer.forEach((x, i) => (revMapAuthServer[x] = i));
 
 export function parseToObject(pType, data) {
 	let type = '';
@@ -63,7 +68,6 @@ export function parseToMessage(pType, type, data) {
 	let packet: any;
 	let typeRaw: number = 0;
 	if (pType == 'server') {
-		typeRaw = revMapServer[type];
 		if (typeRaw == undefined) return null;
 		packet = server[type];
 	} else {
@@ -71,6 +75,27 @@ export function parseToMessage(pType, type, data) {
 		if (typeRaw == undefined) return null;
 		packet = client[type];
 		pType = 'client';
+	}
+
+	switch (pType) {
+		case 'server':
+			typeRaw = revMapServer[type];
+			packet = server[type];
+			break;
+		case 'client':
+			typeRaw = revMapClient[type];
+			packet = client[type];
+			break;
+		case 'auth-server':
+			typeRaw = revMapAuthServer[type];
+			packet = authServer[type];
+			break;
+		case 'auth-client':
+			typeRaw = revMapAuthClient[type];
+			packet = authClient[type];
+			break;
+		default:
+			return null;
 	}
 
 	let error: string | null = null;
