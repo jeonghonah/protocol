@@ -3,11 +3,11 @@ import * as server from './js/server';
 import * as authClient from './js/auth-client';
 import * as authServer from './js/auth-server';
 
-import * as mapClient from './idmap/client.json';
-import * as mapServer from './idmap/server.json';
+import mapClient from './idmap/client.json';
+import mapServer from './idmap/server.json';
 
-import * as mapAuthClient from './idmap/auth-client.json';
-import * as mapAuthServer from './idmap/auth-server.json';
+import mapAuthClient from './idmap/auth-client.json';
+import mapAuthServer from './idmap/auth-server.json';
 
 let revMapServer = {};
 let revMapClient = {};

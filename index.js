@@ -18,42 +18,45 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 exports.__esModule = true;
 exports.parseToMessage = exports.parseToObject = void 0;
 var client = __importStar(require("./js/client"));
 var server = __importStar(require("./js/server"));
 var authClient = __importStar(require("./js/auth-client"));
 var authServer = __importStar(require("./js/auth-server"));
-var mapClient = __importStar(require("./idmap/client.json"));
-var mapServer = __importStar(require("./idmap/server.json"));
-var mapAuthClient = __importStar(require("./idmap/auth-client.json"));
-var mapAuthServer = __importStar(require("./idmap/auth-server.json"));
+var client_json_1 = __importDefault(require("./idmap/client.json"));
+var server_json_1 = __importDefault(require("./idmap/server.json"));
+var auth_client_json_1 = __importDefault(require("./idmap/auth-client.json"));
+var auth_server_json_1 = __importDefault(require("./idmap/auth-server.json"));
 var revMapServer = {};
 var revMapClient = {};
 var revMapAuthServer = {};
 var revMapAuthClient = {};
-mapClient.forEach(function (x, i) { return (revMapClient[x] = i); });
-mapServer.forEach(function (x, i) { return (revMapServer[x] = i); });
-mapAuthClient.forEach(function (x, i) { return (revMapAuthClient[x] = i); });
-mapAuthServer.forEach(function (x, i) { return (revMapAuthServer[x] = i); });
+client_json_1["default"].forEach(function (x, i) { return (revMapClient[x] = i); });
+server_json_1["default"].forEach(function (x, i) { return (revMapServer[x] = i); });
+auth_client_json_1["default"].forEach(function (x, i) { return (revMapAuthClient[x] = i); });
+auth_server_json_1["default"].forEach(function (x, i) { return (revMapAuthServer[x] = i); });
 function parseToObject(pType, data) {
     var type = '';
     var packet;
     switch (pType) {
         case 'server':
-            type = mapServer[data[0]];
+            type = server_json_1["default"][data[0]];
             packet = server[type];
             break;
         case 'client':
-            type = mapClient[data[0]];
+            type = client_json_1["default"][data[0]];
             packet = client[type];
             break;
         case 'auth-server':
-            type = mapAuthServer[data[0]];
+            type = auth_server_json_1["default"][data[0]];
             packet = authServer[type];
             break;
         case 'auth-client':
-            type = mapAuthClient[data[0]];
+            type = auth_client_json_1["default"][data[0]];
             packet = authClient[type];
             break;
         default:
