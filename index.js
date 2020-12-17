@@ -81,18 +81,6 @@ exports.parseToObject = parseToObject;
 function parseToMessage(pType, type, data) {
     var packet;
     var typeRaw = 0;
-    if (pType == 'server') {
-        if (typeRaw == undefined)
-            return null;
-        packet = server[type];
-    }
-    else {
-        typeRaw = revMapClient[type];
-        if (typeRaw == undefined)
-            return null;
-        packet = client[type];
-        pType = 'client';
-    }
     switch (pType) {
         case 'server':
             typeRaw = revMapServer[type];

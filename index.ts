@@ -67,15 +67,6 @@ export function parseToObject(pType, data) {
 export function parseToMessage(pType, type, data) {
 	let packet: any;
 	let typeRaw: number = 0;
-	if (pType == 'server') {
-		if (typeRaw == undefined) return null;
-		packet = server[type];
-	} else {
-		typeRaw = revMapClient[type];
-		if (typeRaw == undefined) return null;
-		packet = client[type];
-		pType = 'client';
-	}
 
 	switch (pType) {
 		case 'server':
