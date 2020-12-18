@@ -358,26 +358,25 @@
         return LoginRequest;
     })();
     
-    $root.LoginAccepted = (function() {
+    $root.LoginStatus = (function() {
     
         /**
-         * Properties of a LoginAccepted.
-         * @exports ILoginAccepted
-         * @interface ILoginAccepted
-         * @property {boolean|null} [accepted] LoginAccepted accepted
-         * @property {number|Long|null} [time] LoginAccepted time
-         * @property {string|null} [reason] LoginAccepted reason
+         * Properties of a LoginStatus.
+         * @exports ILoginStatus
+         * @interface ILoginStatus
+         * @property {string|null} [message] LoginStatus message
+         * @property {number|Long|null} [time] LoginStatus time
          */
     
         /**
-         * Constructs a new LoginAccepted.
-         * @exports LoginAccepted
-         * @classdesc Represents a LoginAccepted.
-         * @implements ILoginAccepted
+         * Constructs a new LoginStatus.
+         * @exports LoginStatus
+         * @classdesc Represents a LoginStatus.
+         * @implements ILoginStatus
          * @constructor
-         * @param {ILoginAccepted=} [properties] Properties to set
+         * @param {ILoginStatus=} [properties] Properties to set
          */
-        function LoginAccepted(properties) {
+        function LoginStatus(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -385,101 +384,88 @@
         }
     
         /**
-         * LoginAccepted accepted.
-         * @member {boolean} accepted
-         * @memberof LoginAccepted
+         * LoginStatus message.
+         * @member {string} message
+         * @memberof LoginStatus
          * @instance
          */
-        LoginAccepted.prototype.accepted = false;
+        LoginStatus.prototype.message = "";
     
         /**
-         * LoginAccepted time.
+         * LoginStatus time.
          * @member {number|Long} time
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @instance
          */
-        LoginAccepted.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        LoginStatus.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
     
         /**
-         * LoginAccepted reason.
-         * @member {string} reason
-         * @memberof LoginAccepted
-         * @instance
-         */
-        LoginAccepted.prototype.reason = "";
-    
-        /**
-         * Creates a new LoginAccepted instance using the specified properties.
+         * Creates a new LoginStatus instance using the specified properties.
          * @function create
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @static
-         * @param {ILoginAccepted=} [properties] Properties to set
-         * @returns {LoginAccepted} LoginAccepted instance
+         * @param {ILoginStatus=} [properties] Properties to set
+         * @returns {LoginStatus} LoginStatus instance
          */
-        LoginAccepted.create = function create(properties) {
-            return new LoginAccepted(properties);
+        LoginStatus.create = function create(properties) {
+            return new LoginStatus(properties);
         };
     
         /**
-         * Encodes the specified LoginAccepted message. Does not implicitly {@link LoginAccepted.verify|verify} messages.
+         * Encodes the specified LoginStatus message. Does not implicitly {@link LoginStatus.verify|verify} messages.
          * @function encode
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @static
-         * @param {ILoginAccepted} message LoginAccepted message or plain object to encode
+         * @param {ILoginStatus} message LoginStatus message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LoginAccepted.encode = function encode(message, writer) {
+        LoginStatus.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.accepted != null && Object.hasOwnProperty.call(message, "accepted"))
-                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.accepted);
+            if (message.message != null && Object.hasOwnProperty.call(message, "message"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.message);
             if (message.time != null && Object.hasOwnProperty.call(message, "time"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
-            if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.reason);
             return writer;
         };
     
         /**
-         * Encodes the specified LoginAccepted message, length delimited. Does not implicitly {@link LoginAccepted.verify|verify} messages.
+         * Encodes the specified LoginStatus message, length delimited. Does not implicitly {@link LoginStatus.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @static
-         * @param {ILoginAccepted} message LoginAccepted message or plain object to encode
+         * @param {ILoginStatus} message LoginStatus message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LoginAccepted.encodeDelimited = function encodeDelimited(message, writer) {
+        LoginStatus.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
     
         /**
-         * Decodes a LoginAccepted message from the specified reader or buffer.
+         * Decodes a LoginStatus message from the specified reader or buffer.
          * @function decode
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {LoginAccepted} LoginAccepted
+         * @returns {LoginStatus} LoginStatus
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LoginAccepted.decode = function decode(reader, length) {
+        LoginStatus.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginAccepted();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginStatus();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.accepted = reader.bool();
+                    message.message = reader.string();
                     break;
                 case 2:
                     message.time = reader.uint64();
-                    break;
-                case 3:
-                    message.reason = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -490,58 +476,55 @@
         };
     
         /**
-         * Decodes a LoginAccepted message from the specified reader or buffer, length delimited.
+         * Decodes a LoginStatus message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {LoginAccepted} LoginAccepted
+         * @returns {LoginStatus} LoginStatus
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LoginAccepted.decodeDelimited = function decodeDelimited(reader) {
+        LoginStatus.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
     
         /**
-         * Verifies a LoginAccepted message.
+         * Verifies a LoginStatus message.
          * @function verify
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        LoginAccepted.verify = function verify(message) {
+        LoginStatus.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.accepted != null && message.hasOwnProperty("accepted"))
-                if (typeof message.accepted !== "boolean")
-                    return "accepted: boolean expected";
+            if (message.message != null && message.hasOwnProperty("message"))
+                if (!$util.isString(message.message))
+                    return "message: string expected";
             if (message.time != null && message.hasOwnProperty("time"))
                 if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
                     return "time: integer|Long expected";
-            if (message.reason != null && message.hasOwnProperty("reason"))
-                if (!$util.isString(message.reason))
-                    return "reason: string expected";
             return null;
         };
     
         /**
-         * Creates a LoginAccepted message from a plain object. Also converts values to their respective internal types.
+         * Creates a LoginStatus message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {LoginAccepted} LoginAccepted
+         * @returns {LoginStatus} LoginStatus
          */
-        LoginAccepted.fromObject = function fromObject(object) {
-            if (object instanceof $root.LoginAccepted)
+        LoginStatus.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginStatus)
                 return object;
-            var message = new $root.LoginAccepted();
-            if (object.accepted != null)
-                message.accepted = Boolean(object.accepted);
+            var message = new $root.LoginStatus();
+            if (object.message != null)
+                message.message = String(object.message);
             if (object.time != null)
                 if ($util.Long)
                     (message.time = $util.Long.fromValue(object.time)).unsigned = true;
@@ -551,57 +534,52 @@
                     message.time = object.time;
                 else if (typeof object.time === "object")
                     message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber(true);
-            if (object.reason != null)
-                message.reason = String(object.reason);
             return message;
         };
     
         /**
-         * Creates a plain object from a LoginAccepted message. Also converts values to other types if specified.
+         * Creates a plain object from a LoginStatus message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @static
-         * @param {LoginAccepted} message LoginAccepted
+         * @param {LoginStatus} message LoginStatus
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LoginAccepted.toObject = function toObject(message, options) {
+        LoginStatus.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.accepted = false;
+                object.message = "";
                 if ($util.Long) {
                     var long = new $util.Long(0, 0, true);
                     object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.time = options.longs === String ? "0" : 0;
-                object.reason = "";
             }
-            if (message.accepted != null && message.hasOwnProperty("accepted"))
-                object.accepted = message.accepted;
+            if (message.message != null && message.hasOwnProperty("message"))
+                object.message = message.message;
             if (message.time != null && message.hasOwnProperty("time"))
                 if (typeof message.time === "number")
                     object.time = options.longs === String ? String(message.time) : message.time;
                 else
                     object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber(true) : message.time;
-            if (message.reason != null && message.hasOwnProperty("reason"))
-                object.reason = message.reason;
             return object;
         };
     
         /**
-         * Converts this LoginAccepted to JSON.
+         * Converts this LoginStatus to JSON.
          * @function toJSON
-         * @memberof LoginAccepted
+         * @memberof LoginStatus
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        LoginAccepted.prototype.toJSON = function toJSON() {
+        LoginStatus.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        return LoginAccepted;
+        return LoginStatus;
     })();
     
     $root.LoginSuccess = (function() {

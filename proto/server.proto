@@ -18,13 +18,12 @@ message LoginRequest {
 
 
 /* 
- * LoginAccepted is send after acceptation of login.
+ * LoginStatus changes text while logging in.
 */
 
-message LoginAccepted {
-	bool accepted = 1;
+message LoginStatus {
+	string message = 1;
 	uint64 time = 2;
-	string reason = 3;
 }
 
 /* 

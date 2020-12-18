@@ -1347,55 +1347,49 @@ public final class Server {
 
   }
 
-  public interface LoginAcceptedOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:LoginAccepted)
+  public interface LoginStatusOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:LoginStatus)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bool accepted = 1;</code>
-     * @return The accepted.
+     * <code>string message = 1;</code>
+     * @return The message.
      */
-    boolean getAccepted();
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
 
     /**
      * <code>uint64 time = 2;</code>
      * @return The time.
      */
     long getTime();
-
-    /**
-     * <code>string reason = 3;</code>
-     * @return The reason.
-     */
-    java.lang.String getReason();
-    /**
-     * <code>string reason = 3;</code>
-     * @return The bytes for reason.
-     */
-    com.google.protobuf.ByteString
-        getReasonBytes();
   }
   /**
-   * Protobuf type {@code LoginAccepted}
+   * Protobuf type {@code LoginStatus}
    */
-  public static final class LoginAccepted extends
+  public static final class LoginStatus extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:LoginAccepted)
-      LoginAcceptedOrBuilder {
+      // @@protoc_insertion_point(message_implements:LoginStatus)
+      LoginStatusOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use LoginAccepted.newBuilder() to construct.
-    private LoginAccepted(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use LoginStatus.newBuilder() to construct.
+    private LoginStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private LoginAccepted() {
-      reason_ = "";
+    private LoginStatus() {
+      message_ = "";
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new LoginAccepted();
+      return new LoginStatus();
     }
 
     @java.lang.Override
@@ -1403,7 +1397,7 @@ public final class Server {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LoginAccepted(
+    private LoginStatus(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1421,20 +1415,15 @@ public final class Server {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              accepted_ = input.readBool();
+              message_ = s;
               break;
             }
             case 16: {
 
               time_ = input.readUInt64();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              reason_ = s;
               break;
             }
             default: {
@@ -1458,26 +1447,53 @@ public final class Server {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Server.internal_static_LoginAccepted_descriptor;
+      return Server.internal_static_LoginStatus_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Server.internal_static_LoginAccepted_fieldAccessorTable
+      return Server.internal_static_LoginStatus_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Server.LoginAccepted.class, Server.LoginAccepted.Builder.class);
+              Server.LoginStatus.class, Server.LoginStatus.Builder.class);
     }
 
-    public static final int ACCEPTED_FIELD_NUMBER = 1;
-    private boolean accepted_;
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object message_;
     /**
-     * <code>bool accepted = 1;</code>
-     * @return The accepted.
+     * <code>string message = 1;</code>
+     * @return The message.
      */
     @java.lang.Override
-    public boolean getAccepted() {
-      return accepted_;
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int TIME_FIELD_NUMBER = 2;
@@ -1489,44 +1505,6 @@ public final class Server {
     @java.lang.Override
     public long getTime() {
       return time_;
-    }
-
-    public static final int REASON_FIELD_NUMBER = 3;
-    private volatile java.lang.Object reason_;
-    /**
-     * <code>string reason = 3;</code>
-     * @return The reason.
-     */
-    @java.lang.Override
-    public java.lang.String getReason() {
-      java.lang.Object ref = reason_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        reason_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string reason = 3;</code>
-     * @return The bytes for reason.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getReasonBytes() {
-      java.lang.Object ref = reason_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        reason_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1543,14 +1521,11 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (accepted_ != false) {
-        output.writeBool(1, accepted_);
+      if (!getMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
       if (time_ != 0L) {
         output.writeUInt64(2, time_);
-      }
-      if (!getReasonBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, reason_);
       }
       unknownFields.writeTo(output);
     }
@@ -1561,16 +1536,12 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
-      if (accepted_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, accepted_);
+      if (!getMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
       }
       if (time_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, time_);
-      }
-      if (!getReasonBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, reason_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1582,17 +1553,15 @@ public final class Server {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof Server.LoginAccepted)) {
+      if (!(obj instanceof Server.LoginStatus)) {
         return super.equals(obj);
       }
-      Server.LoginAccepted other = (Server.LoginAccepted) obj;
+      Server.LoginStatus other = (Server.LoginStatus) obj;
 
-      if (getAccepted()
-          != other.getAccepted()) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
       if (getTime()
           != other.getTime()) return false;
-      if (!getReason()
-          .equals(other.getReason())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1604,82 +1573,79 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ACCEPTED_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getAccepted());
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTime());
-      hash = (37 * hash) + REASON_FIELD_NUMBER;
-      hash = (53 * hash) + getReason().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static Server.LoginAccepted parseFrom(
+    public static Server.LoginStatus parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Server.LoginAccepted parseFrom(
+    public static Server.LoginStatus parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Server.LoginAccepted parseFrom(
+    public static Server.LoginStatus parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Server.LoginAccepted parseFrom(
+    public static Server.LoginStatus parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Server.LoginAccepted parseFrom(byte[] data)
+    public static Server.LoginStatus parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Server.LoginAccepted parseFrom(
+    public static Server.LoginStatus parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Server.LoginAccepted parseFrom(java.io.InputStream input)
+    public static Server.LoginStatus parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Server.LoginAccepted parseFrom(
+    public static Server.LoginStatus parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Server.LoginAccepted parseDelimitedFrom(java.io.InputStream input)
+    public static Server.LoginStatus parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static Server.LoginAccepted parseDelimitedFrom(
+    public static Server.LoginStatus parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Server.LoginAccepted parseFrom(
+    public static Server.LoginStatus parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Server.LoginAccepted parseFrom(
+    public static Server.LoginStatus parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1692,7 +1658,7 @@ public final class Server {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Server.LoginAccepted prototype) {
+    public static Builder newBuilder(Server.LoginStatus prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -1708,26 +1674,26 @@ public final class Server {
       return builder;
     }
     /**
-     * Protobuf type {@code LoginAccepted}
+     * Protobuf type {@code LoginStatus}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:LoginAccepted)
-        Server.LoginAcceptedOrBuilder {
+        // @@protoc_insertion_point(builder_implements:LoginStatus)
+        Server.LoginStatusOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Server.internal_static_LoginAccepted_descriptor;
+        return Server.internal_static_LoginStatus_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Server.internal_static_LoginAccepted_fieldAccessorTable
+        return Server.internal_static_LoginStatus_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Server.LoginAccepted.class, Server.LoginAccepted.Builder.class);
+                Server.LoginStatus.class, Server.LoginStatus.Builder.class);
       }
 
-      // Construct using Server.LoginAccepted.newBuilder()
+      // Construct using Server.LoginStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1745,11 +1711,9 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        accepted_ = false;
+        message_ = "";
 
         time_ = 0L;
-
-        reason_ = "";
 
         return this;
       }
@@ -1757,17 +1721,17 @@ public final class Server {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Server.internal_static_LoginAccepted_descriptor;
+        return Server.internal_static_LoginStatus_descriptor;
       }
 
       @java.lang.Override
-      public Server.LoginAccepted getDefaultInstanceForType() {
-        return Server.LoginAccepted.getDefaultInstance();
+      public Server.LoginStatus getDefaultInstanceForType() {
+        return Server.LoginStatus.getDefaultInstance();
       }
 
       @java.lang.Override
-      public Server.LoginAccepted build() {
-        Server.LoginAccepted result = buildPartial();
+      public Server.LoginStatus build() {
+        Server.LoginStatus result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1775,11 +1739,10 @@ public final class Server {
       }
 
       @java.lang.Override
-      public Server.LoginAccepted buildPartial() {
-        Server.LoginAccepted result = new Server.LoginAccepted(this);
-        result.accepted_ = accepted_;
+      public Server.LoginStatus buildPartial() {
+        Server.LoginStatus result = new Server.LoginStatus(this);
+        result.message_ = message_;
         result.time_ = time_;
-        result.reason_ = reason_;
         onBuilt();
         return result;
       }
@@ -1818,25 +1781,22 @@ public final class Server {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Server.LoginAccepted) {
-          return mergeFrom((Server.LoginAccepted)other);
+        if (other instanceof Server.LoginStatus) {
+          return mergeFrom((Server.LoginStatus)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Server.LoginAccepted other) {
-        if (other == Server.LoginAccepted.getDefaultInstance()) return this;
-        if (other.getAccepted() != false) {
-          setAccepted(other.getAccepted());
+      public Builder mergeFrom(Server.LoginStatus other) {
+        if (other == Server.LoginStatus.getDefaultInstance()) return this;
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
         }
         if (other.getTime() != 0L) {
           setTime(other.getTime());
-        }
-        if (!other.getReason().isEmpty()) {
-          reason_ = other.reason_;
-          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1853,11 +1813,11 @@ public final class Server {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Server.LoginAccepted parsedMessage = null;
+        Server.LoginStatus parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Server.LoginAccepted) e.getUnfinishedMessage();
+          parsedMessage = (Server.LoginStatus) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1867,33 +1827,78 @@ public final class Server {
         return this;
       }
 
-      private boolean accepted_ ;
+      private java.lang.Object message_ = "";
       /**
-       * <code>bool accepted = 1;</code>
-       * @return The accepted.
+       * <code>string message = 1;</code>
+       * @return The message.
        */
-      @java.lang.Override
-      public boolean getAccepted() {
-        return accepted_;
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bool accepted = 1;</code>
-       * @param value The accepted to set.
+       * <code>string message = 1;</code>
+       * @return The bytes for message.
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @param value The message to set.
        * @return This builder for chaining.
        */
-      public Builder setAccepted(boolean value) {
-        
-        accepted_ = value;
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool accepted = 1;</code>
+       * <code>string message = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearAccepted() {
+      public Builder clearMessage() {
         
-        accepted_ = false;
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
         onChanged();
         return this;
       }
@@ -1928,82 +1933,6 @@ public final class Server {
         onChanged();
         return this;
       }
-
-      private java.lang.Object reason_ = "";
-      /**
-       * <code>string reason = 3;</code>
-       * @return The reason.
-       */
-      public java.lang.String getReason() {
-        java.lang.Object ref = reason_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          reason_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string reason = 3;</code>
-       * @return The bytes for reason.
-       */
-      public com.google.protobuf.ByteString
-          getReasonBytes() {
-        java.lang.Object ref = reason_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          reason_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string reason = 3;</code>
-       * @param value The reason to set.
-       * @return This builder for chaining.
-       */
-      public Builder setReason(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        reason_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string reason = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearReason() {
-        
-        reason_ = getDefaultInstance().getReason();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string reason = 3;</code>
-       * @param value The bytes for reason to set.
-       * @return This builder for chaining.
-       */
-      public Builder setReasonBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        reason_ = value;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2017,41 +1946,41 @@ public final class Server {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:LoginAccepted)
+      // @@protoc_insertion_point(builder_scope:LoginStatus)
     }
 
-    // @@protoc_insertion_point(class_scope:LoginAccepted)
-    private static final Server.LoginAccepted DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:LoginStatus)
+    private static final Server.LoginStatus DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Server.LoginAccepted();
+      DEFAULT_INSTANCE = new Server.LoginStatus();
     }
 
-    public static Server.LoginAccepted getDefaultInstance() {
+    public static Server.LoginStatus getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<LoginAccepted>
-        PARSER = new com.google.protobuf.AbstractParser<LoginAccepted>() {
+    private static final com.google.protobuf.Parser<LoginStatus>
+        PARSER = new com.google.protobuf.AbstractParser<LoginStatus>() {
       @java.lang.Override
-      public LoginAccepted parsePartialFrom(
+      public LoginStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginAccepted(input, extensionRegistry);
+        return new LoginStatus(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<LoginAccepted> parser() {
+    public static com.google.protobuf.Parser<LoginStatus> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<LoginAccepted> getParserForType() {
+    public com.google.protobuf.Parser<LoginStatus> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public Server.LoginAccepted getDefaultInstanceForType() {
+    public Server.LoginStatus getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -27535,10 +27464,10 @@ public final class Server {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_LoginRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LoginAccepted_descriptor;
+    internal_static_LoginStatus_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LoginAccepted_fieldAccessorTable;
+      internal_static_LoginStatus_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_LoginSuccess_descriptor;
   private static final 
@@ -27732,71 +27661,70 @@ public final class Server {
       "\004name\030\001 \001(\t\022\020\n\010protocol\030\002 \001(\r\022\026\n\016online_" +
       "players\030\003 \001(\r\022\023\n\013max_players\030\004 \001(\r\022\014\n\004mo" +
       "td\030\005 \001(\t\022\020\n\010software\030\006 \001(\t\022\014\n\004auth\030\007 \001(\010" +
-      "\022\016\n\006secret\030\010 \001(\t\"?\n\rLoginAccepted\022\020\n\010acc" +
-      "epted\030\001 \001(\010\022\014\n\004time\030\002 \001(\004\022\016\n\006reason\030\003 \001(" +
-      "\t\"\226\001\n\014LoginSuccess\022\r\n\005x_pos\030\001 \001(\001\022\r\n\005y_p" +
-      "os\030\002 \001(\001\022\r\n\005z_pos\030\003 \001(\001\022\021\n\titems_def\030\004 \001" +
-      "(\t\022\022\n\nblocks_def\030\005 \001(\t\022\021\n\tinventory\030\006 \001(" +
-      "\t\022\r\n\005armor\030\007 \001(\t\022\020\n\010movement\030\010 \001(\t\"\024\n\004Pi" +
-      "ng\022\014\n\004time\030\001 \001(\004\"*\n\nPlayerKick\022\016\n\006reason" +
-      "\030\001 \001(\t\022\014\n\004time\030\002 \001(\004\"<\n\014PlayerEntity\022\014\n\004" +
-      "uuid\030\001 \001(\t\022\r\n\005model\030\002 \001(\t\022\017\n\007texture\030\003 \001" +
-      "(\t\"1\n\016PlayerTeleport\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001" +
-      "(\001\022\t\n\001z\030\003 \001(\001\"2\n\017PlayerInventory\022\014\n\004type" +
-      "\030\001 \001(\t\022\021\n\tinventory\030\002 \001(\t\"<\n\020PlayerSlotU" +
-      "pdate\022\014\n\004slot\030\001 \001(\r\022\014\n\004type\030\002 \001(\t\022\014\n\004dat" +
-      "a\030\003 \001(\t\"5\n\022PlayerApplyImpulse\022\t\n\001x\030\001 \001(\002" +
-      "\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"2\n\024PlayerUpdateMo" +
-      "vement\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"1\n\023Pl" +
-      "ayerUpdatePhysics\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\001\"*\n\014PlayerHealth\022\r\n\005value\030\001 \001(\021\022\013\n\003" +
-      "max\030\002 \001(\021\"?\n\023PlayerOpenInventory\022\014\n\004name" +
-      "\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\014\n\004data\030\003 \001(\t\"K\n\tSo" +
-      "undPlay\022\r\n\005sound\030\001 \001(\t\022\016\n\006volume\030\002 \001(\r\022\t" +
-      "\n\001x\030\003 \001(\001\022\t\n\001y\030\004 \001(\001\022\t\n\001z\030\005 \001(\001\"\367\001\n\013Chat" +
-      "Message\022*\n\007message\030\001 \003(\0132\031.ChatMessage.M" +
-      "essageEntry\022\014\n\004time\030\002 \001(\004\032b\n\rChatCompone" +
-      "nt\022\014\n\004text\030\001 \001(\t\022\014\n\004font\030\002 \001(\t\022\r\n\005color\030" +
-      "\003 \001(\t\022\023\n\013linethrough\030\004 \001(\010\022\021\n\tunderline\030" +
-      "\005 \001(\010\032J\n\014MessageEntry\022\013\n\003key\030\001 \001(\r\022)\n\005va" +
-      "lue\030\002 \001(\0132\032.ChatMessage.ChatComponent:\0028" +
-      "\001\"\361\001\n\tTabUpdate\022(\n\007message\030\001 \003(\0132\027.TabUp" +
-      "date.MessageEntry\022\014\n\004time\030\002 \001(\004\032b\n\rChatC" +
-      "omponent\022\014\n\004text\030\001 \001(\t\022\014\n\004font\030\002 \001(\t\022\r\n\005" +
-      "color\030\003 \001(\t\022\023\n\013linethrough\030\004 \001(\010\022\021\n\tunde" +
-      "rline\030\005 \001(\010\032H\n\014MessageEntry\022\013\n\003key\030\001 \001(\r" +
-      "\022\'\n\005value\030\002 \001(\0132\030.TabUpdate.ChatComponen" +
-      "t:\0028\001\"*\n\014EntityCreate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004d" +
-      "ata\030\002 \001(\t\"\034\n\014EntityRemove\022\014\n\004uuid\030\001 \001(\t\"" +
-      "\\\n\nEntityMove\022\014\n\004uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t" +
-      "\n\001y\030\003 \001(\001\022\t\n\001z\030\004 \001(\001\022\020\n\010rotation\030\005 \001(\002\022\r" +
-      "\n\005pitch\030\006 \001(\002\"?\n\020EntityNameUpdate\022\014\n\004uui" +
-      "d\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007visible\030\003 \001(\010\"*" +
-      "\n\016EntityHeldItem\022\014\n\004uuid\030\001 \001(\t\022\n\n\002id\030\002 \001" +
-      "(\t\"5\n\013EntityArmor\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030" +
-      "\002 \001(\005\022\n\n\002id\030\003 \001(\t\"O\n\rEntityAnimate\022\014\n\004uu" +
-      "id\030\001 \001(\t\022\021\n\tanimation\030\002 \001(\t\022\014\n\004time\030\003 \001(" +
-      "\r\022\017\n\007replace\030\004 \001(\010\"?\n\020WorldBlockUpdate\022\t" +
-      "\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 " +
-      "\001(\r\"\215\001\n\025WorldMultiBlockUpdate\0222\n\006blocks\030" +
-      "\001 \003(\0132\".WorldMultiBlockUpdate.BlocksEntr" +
-      "y\032@\n\013BlocksEntry\022\013\n\003key\030\001 \001(\005\022 \n\005value\030\002" +
-      " \001(\0132\021.WorldBlockUpdate:\0028\001\"a\n\016WorldChun" +
-      "kLoad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014" +
-      "\n\004data\030\004 \001(\014\022\014\n\004type\030\005 \001(\010\022\022\n\ncompressed" +
-      "\030\006 \001(\010\"A\n\020WorldChunkUnload\022\t\n\001x\030\001 \001(\021\022\t\n" +
-      "\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001(\010\"7\n\016Reg" +
-      "istryUpdate\022\021\n\titems_def\030\001 \001(\t\022\022\n\nblocks" +
-      "_def\030\002 \001(\t\"3\n\025GameplaySettingUpdate\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\215\001\n\024EnvironmentF" +
-      "ogUpdate\022\014\n\004mode\030\001 \001(\005\022\017\n\007density\030\002 \001(\002\022" +
-      "\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(\002\022\021\n\tcolor_red" +
-      "\030\005 \001(\002\022\023\n\013color_green\030\006 \001(\002\022\022\n\ncolor_blu" +
-      "e\030\007 \001(\002\"b\n\024EnvironmentSkyUpdate\022\016\n\006cloud" +
-      "s\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013color_gree" +
-      "n\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001(\002\"<\n\rPluginMes" +
-      "sage\022\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005va" +
-      "lue\030\003 \001(\014b\006proto3"
+      "\022\016\n\006secret\030\010 \001(\t\",\n\013LoginStatus\022\017\n\007messa" +
+      "ge\030\001 \001(\t\022\014\n\004time\030\002 \001(\004\"\226\001\n\014LoginSuccess\022" +
+      "\r\n\005x_pos\030\001 \001(\001\022\r\n\005y_pos\030\002 \001(\001\022\r\n\005z_pos\030\003" +
+      " \001(\001\022\021\n\titems_def\030\004 \001(\t\022\022\n\nblocks_def\030\005 " +
+      "\001(\t\022\021\n\tinventory\030\006 \001(\t\022\r\n\005armor\030\007 \001(\t\022\020\n" +
+      "\010movement\030\010 \001(\t\"\024\n\004Ping\022\014\n\004time\030\001 \001(\004\"*\n" +
+      "\nPlayerKick\022\016\n\006reason\030\001 \001(\t\022\014\n\004time\030\002 \001(" +
+      "\004\"<\n\014PlayerEntity\022\014\n\004uuid\030\001 \001(\t\022\r\n\005model" +
+      "\030\002 \001(\t\022\017\n\007texture\030\003 \001(\t\"1\n\016PlayerTelepor" +
+      "t\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\"2\n\017Pl" +
+      "ayerInventory\022\014\n\004type\030\001 \001(\t\022\021\n\tinventory" +
+      "\030\002 \001(\t\"<\n\020PlayerSlotUpdate\022\014\n\004slot\030\001 \001(\r" +
+      "\022\014\n\004type\030\002 \001(\t\022\014\n\004data\030\003 \001(\t\"5\n\022PlayerAp" +
+      "plyImpulse\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 " +
+      "\001(\002\"2\n\024PlayerUpdateMovement\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\001\"1\n\023PlayerUpdatePhysics\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"*\n\014PlayerHeal" +
+      "th\022\r\n\005value\030\001 \001(\021\022\013\n\003max\030\002 \001(\021\"?\n\023Player" +
+      "OpenInventory\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(" +
+      "\t\022\014\n\004data\030\003 \001(\t\"K\n\tSoundPlay\022\r\n\005sound\030\001 " +
+      "\001(\t\022\016\n\006volume\030\002 \001(\r\022\t\n\001x\030\003 \001(\001\022\t\n\001y\030\004 \001(" +
+      "\001\022\t\n\001z\030\005 \001(\001\"\367\001\n\013ChatMessage\022*\n\007message\030" +
+      "\001 \003(\0132\031.ChatMessage.MessageEntry\022\014\n\004time" +
+      "\030\002 \001(\004\032b\n\rChatComponent\022\014\n\004text\030\001 \001(\t\022\014\n" +
+      "\004font\030\002 \001(\t\022\r\n\005color\030\003 \001(\t\022\023\n\013linethroug" +
+      "h\030\004 \001(\010\022\021\n\tunderline\030\005 \001(\010\032J\n\014MessageEnt" +
+      "ry\022\013\n\003key\030\001 \001(\r\022)\n\005value\030\002 \001(\0132\032.ChatMes" +
+      "sage.ChatComponent:\0028\001\"\361\001\n\tTabUpdate\022(\n\007" +
+      "message\030\001 \003(\0132\027.TabUpdate.MessageEntry\022\014" +
+      "\n\004time\030\002 \001(\004\032b\n\rChatComponent\022\014\n\004text\030\001 " +
+      "\001(\t\022\014\n\004font\030\002 \001(\t\022\r\n\005color\030\003 \001(\t\022\023\n\013line" +
+      "through\030\004 \001(\010\022\021\n\tunderline\030\005 \001(\010\032H\n\014Mess" +
+      "ageEntry\022\013\n\003key\030\001 \001(\r\022\'\n\005value\030\002 \001(\0132\030.T" +
+      "abUpdate.ChatComponent:\0028\001\"*\n\014EntityCrea" +
+      "te\022\014\n\004uuid\030\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\034\n\014Entity" +
+      "Remove\022\014\n\004uuid\030\001 \001(\t\"\\\n\nEntityMove\022\014\n\004uu" +
+      "id\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t\n\001z\030\004 \001(" +
+      "\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\"?\n\020En" +
+      "tityNameUpdate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004name\030\002 \001" +
+      "(\t\022\017\n\007visible\030\003 \001(\010\"*\n\016EntityHeldItem\022\014\n" +
+      "\004uuid\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\"5\n\013EntityArmor\022\014" +
+      "\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\t\"O" +
+      "\n\rEntityAnimate\022\014\n\004uuid\030\001 \001(\t\022\021\n\tanimati" +
+      "on\030\002 \001(\t\022\014\n\004time\030\003 \001(\r\022\017\n\007replace\030\004 \001(\010\"" +
+      "?\n\020WorldBlockUpdate\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(" +
+      "\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 \001(\r\"\215\001\n\025WorldMultiB" +
+      "lockUpdate\0222\n\006blocks\030\001 \003(\0132\".WorldMultiB" +
+      "lockUpdate.BlocksEntry\032@\n\013BlocksEntry\022\013\n" +
+      "\003key\030\001 \001(\005\022 \n\005value\030\002 \001(\0132\021.WorldBlockUp" +
+      "date:\0028\001\"a\n\016WorldChunkLoad\022\t\n\001x\030\001 \001(\021\022\t\n" +
+      "\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004data\030\004 \001(\014\022\014\n\004typ" +
+      "e\030\005 \001(\010\022\022\n\ncompressed\030\006 \001(\010\"A\n\020WorldChun" +
+      "kUnload\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021" +
+      "\022\014\n\004type\030\004 \001(\010\"7\n\016RegistryUpdate\022\021\n\titem" +
+      "s_def\030\001 \001(\t\022\022\n\nblocks_def\030\002 \001(\t\"3\n\025Gamep" +
+      "laySettingUpdate\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t\"\215\001\n\024EnvironmentFogUpdate\022\014\n\004mode\030\001 " +
+      "\001(\005\022\017\n\007density\030\002 \001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003e" +
+      "nd\030\004 \001(\002\022\021\n\tcolor_red\030\005 \001(\002\022\023\n\013color_gre" +
+      "en\030\006 \001(\002\022\022\n\ncolor_blue\030\007 \001(\002\"b\n\024Environm" +
+      "entSkyUpdate\022\016\n\006clouds\030\001 \001(\010\022\021\n\tcolor_re" +
+      "d\030\002 \001(\002\022\023\n\013color_green\030\003 \001(\002\022\022\n\ncolor_bl" +
+      "ue\030\004 \001(\002\"<\n\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017" +
+      "\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27808,12 +27736,12 @@ public final class Server {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoginRequest_descriptor,
         new java.lang.String[] { "Name", "Protocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "Secret", });
-    internal_static_LoginAccepted_descriptor =
+    internal_static_LoginStatus_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_LoginAccepted_fieldAccessorTable = new
+    internal_static_LoginStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LoginAccepted_descriptor,
-        new java.lang.String[] { "Accepted", "Time", "Reason", });
+        internal_static_LoginStatus_descriptor,
+        new java.lang.String[] { "Message", "Time", });
     internal_static_LoginSuccess_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_LoginSuccess_fieldAccessorTable = new

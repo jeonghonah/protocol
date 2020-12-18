@@ -27,6 +27,14 @@
           "id": 1
         }
       }
+    },
+    "Disconnect": {
+      "fields": {
+        "message": {
+          "type": "bytes",
+          "id": 1
+        }
+      }
     }
   }
 }

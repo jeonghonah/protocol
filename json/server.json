@@ -36,19 +36,15 @@
         }
       }
     },
-    "LoginAccepted": {
+    "LoginStatus": {
       "fields": {
-        "accepted": {
-          "type": "bool",
+        "message": {
+          "type": "string",
           "id": 1
         },
         "time": {
           "type": "uint64",
           "id": 2
-        },
-        "reason": {
-          "type": "string",
-          "id": 3
         }
       }
     },

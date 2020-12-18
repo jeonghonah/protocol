@@ -131,103 +131,97 @@ export class LoginRequest implements ILoginRequest {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of a LoginAccepted. */
-export interface ILoginAccepted {
+/** Properties of a LoginStatus. */
+export interface ILoginStatus {
 
-    /** LoginAccepted accepted */
-    accepted?: (boolean|null);
+    /** LoginStatus message */
+    message?: (string|null);
 
-    /** LoginAccepted time */
+    /** LoginStatus time */
     time?: (number|Long|null);
-
-    /** LoginAccepted reason */
-    reason?: (string|null);
 }
 
-/** Represents a LoginAccepted. */
-export class LoginAccepted implements ILoginAccepted {
+/** Represents a LoginStatus. */
+export class LoginStatus implements ILoginStatus {
 
     /**
-     * Constructs a new LoginAccepted.
+     * Constructs a new LoginStatus.
      * @param [properties] Properties to set
      */
-    constructor(properties?: ILoginAccepted);
+    constructor(properties?: ILoginStatus);
 
-    /** LoginAccepted accepted. */
-    public accepted: boolean;
+    /** LoginStatus message. */
+    public message: string;
 
-    /** LoginAccepted time. */
+    /** LoginStatus time. */
     public time: (number|Long);
 
-    /** LoginAccepted reason. */
-    public reason: string;
-
     /**
-     * Creates a new LoginAccepted instance using the specified properties.
+     * Creates a new LoginStatus instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns LoginAccepted instance
+     * @returns LoginStatus instance
      */
-    public static create(properties?: ILoginAccepted): LoginAccepted;
+    public static create(properties?: ILoginStatus): LoginStatus;
 
     /**
-     * Encodes the specified LoginAccepted message. Does not implicitly {@link LoginAccepted.verify|verify} messages.
-     * @param message LoginAccepted message or plain object to encode
+     * Encodes the specified LoginStatus message. Does not implicitly {@link LoginStatus.verify|verify} messages.
+     * @param message LoginStatus message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: ILoginAccepted, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: ILoginStatus, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified LoginAccepted message, length delimited. Does not implicitly {@link LoginAccepted.verify|verify} messages.
-     * @param message LoginAccepted message or plain object to encode
+     * Encodes the specified LoginStatus message, length delimited. Does not implicitly {@link LoginStatus.verify|verify} messages.
+     * @param message LoginStatus message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: ILoginAccepted, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: ILoginStatus, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a LoginAccepted message from the specified reader or buffer.
+     * Decodes a LoginStatus message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns LoginAccepted
+     * @returns LoginStatus
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): LoginAccepted;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): LoginStatus;
 
     /**
-     * Decodes a LoginAccepted message from the specified reader or buffer, length delimited.
+     * Decodes a LoginStatus message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns LoginAccepted
+     * @returns LoginStatus
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): LoginAccepted;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): LoginStatus;
 
     /**
-     * Verifies a LoginAccepted message.
+     * Verifies a LoginStatus message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a LoginAccepted message from a plain object. Also converts values to their respective internal types.
+     * Creates a LoginStatus message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns LoginAccepted
+     * @returns LoginStatus
      */
-    public static fromObject(object: { [k: string]: any }): LoginAccepted;
+    public static fromObject(object: { [k: string]: any }): LoginStatus;
 
     /**
-     * Creates a plain object from a LoginAccepted message. Also converts values to other types if specified.
-     * @param message LoginAccepted
+     * Creates a plain object from a LoginStatus message. Also converts values to other types if specified.
+     * @param message LoginStatus
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: LoginAccepted, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: LoginStatus, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this LoginAccepted to JSON.
+     * Converts this LoginStatus to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

@@ -12,3 +12,8 @@ message Data {
 message VoxelSrvMessage {
 	bytes message = 1;
 }
+
+
+message Disconnect {
+	bytes message = 1;
+}
