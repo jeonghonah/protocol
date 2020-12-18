@@ -25,20 +25,20 @@ exports.__esModule = true;
 exports.parseToMessage = exports.parseToObject = void 0;
 var client = __importStar(require("./js/client"));
 var server = __importStar(require("./js/server"));
-var authClient = __importStar(require("./js/auth-client"));
-var authServer = __importStar(require("./js/auth-server"));
+var proxyClient = __importStar(require("./js/proxy-client"));
+var proxyServer = __importStar(require("./js/proxy-server"));
 var client_json_1 = __importDefault(require("./idmap/client.json"));
 var server_json_1 = __importDefault(require("./idmap/server.json"));
-var auth_client_json_1 = __importDefault(require("./idmap/auth-client.json"));
-var auth_server_json_1 = __importDefault(require("./idmap/auth-server.json"));
+var proxy_client_json_1 = __importDefault(require("./idmap/proxy-client.json"));
+var proxy_server_json_1 = __importDefault(require("./idmap/proxy-server.json"));
 var revMapServer = {};
 var revMapClient = {};
-var revMapAuthServer = {};
-var revMapAuthClient = {};
+var revMapProxyServer = {};
+var revMapProxyClient = {};
 client_json_1["default"].forEach(function (x, i) { return (revMapClient[x] = i); });
 server_json_1["default"].forEach(function (x, i) { return (revMapServer[x] = i); });
-auth_client_json_1["default"].forEach(function (x, i) { return (revMapAuthClient[x] = i); });
-auth_server_json_1["default"].forEach(function (x, i) { return (revMapAuthServer[x] = i); });
+proxy_client_json_1["default"].forEach(function (x, i) { return (revMapProxyClient[x] = i); });
+proxy_server_json_1["default"].forEach(function (x, i) { return (revMapProxyServer[x] = i); });
 function parseToObject(pType, data) {
     var type = '';
     var packet;
@@ -51,13 +51,13 @@ function parseToObject(pType, data) {
             type = client_json_1["default"][data[0]];
             packet = client[type];
             break;
-        case 'auth-server':
-            type = auth_server_json_1["default"][data[0]];
-            packet = authServer[type];
+        case 'proxy-server':
+            type = proxy_server_json_1["default"][data[0]];
+            packet = proxyServer[type];
             break;
-        case 'auth-client':
-            type = auth_client_json_1["default"][data[0]];
-            packet = authClient[type];
+        case 'proxy-client':
+            type = proxy_client_json_1["default"][data[0]];
+            packet = proxyClient[type];
             break;
         default:
             return null;
@@ -90,13 +90,13 @@ function parseToMessage(pType, type, data) {
             typeRaw = revMapClient[type];
             packet = client[type];
             break;
-        case 'auth-server':
-            typeRaw = revMapAuthServer[type];
-            packet = authServer[type];
+        case 'proxy-server':
+            typeRaw = revMapProxyServer[type];
+            packet = proxyServer[type];
             break;
-        case 'auth-client':
-            typeRaw = revMapAuthClient[type];
-            packet = authClient[type];
+        case 'proxy-client':
+            typeRaw = revMapProxyClient[type];
+            packet = proxyClient[type];
             break;
         default:
             return null;
