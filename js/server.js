@@ -6350,6 +6350,7 @@
          * @property {number|null} [y] WorldBlockUpdate y
          * @property {number|null} [z] WorldBlockUpdate z
          * @property {number|null} [id] WorldBlockUpdate id
+         * @property {boolean|null} [particles] WorldBlockUpdate particles
          */
     
         /**
@@ -6400,6 +6401,14 @@
         WorldBlockUpdate.prototype.id = 0;
     
         /**
+         * WorldBlockUpdate particles.
+         * @member {boolean} particles
+         * @memberof WorldBlockUpdate
+         * @instance
+         */
+        WorldBlockUpdate.prototype.particles = false;
+    
+        /**
          * Creates a new WorldBlockUpdate instance using the specified properties.
          * @function create
          * @memberof WorldBlockUpdate
@@ -6431,6 +6440,8 @@
                 writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             if (message.id != null && Object.hasOwnProperty.call(message, "id"))
                 writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.id);
+            if (message.particles != null && Object.hasOwnProperty.call(message, "particles"))
+                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.particles);
             return writer;
         };
     
@@ -6476,6 +6487,9 @@
                     break;
                 case 4:
                     message.id = reader.uint32();
+                    break;
+                case 5:
+                    message.particles = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -6524,6 +6538,9 @@
             if (message.id != null && message.hasOwnProperty("id"))
                 if (!$util.isInteger(message.id))
                     return "id: integer expected";
+            if (message.particles != null && message.hasOwnProperty("particles"))
+                if (typeof message.particles !== "boolean")
+                    return "particles: boolean expected";
             return null;
         };
     
@@ -6547,6 +6564,8 @@
                 message.z = object.z | 0;
             if (object.id != null)
                 message.id = object.id >>> 0;
+            if (object.particles != null)
+                message.particles = Boolean(object.particles);
             return message;
         };
     
@@ -6568,6 +6587,7 @@
                 object.y = 0;
                 object.z = 0;
                 object.id = 0;
+                object.particles = false;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = message.x;
@@ -6577,6 +6597,8 @@
                 object.z = message.z;
             if (message.id != null && message.hasOwnProperty("id"))
                 object.id = message.id;
+            if (message.particles != null && message.hasOwnProperty("particles"))
+                object.particles = message.particles;
             return object;
         };
     
@@ -6837,7 +6859,7 @@
          * @property {number|null} [y] WorldChunkLoad y
          * @property {number|null} [z] WorldChunkLoad z
          * @property {Uint8Array|null} [data] WorldChunkLoad data
-         * @property {boolean|null} [type] WorldChunkLoad type
+         * @property {number|null} [height] WorldChunkLoad height
          * @property {boolean|null} [compressed] WorldChunkLoad compressed
          */
     
@@ -6889,12 +6911,12 @@
         WorldChunkLoad.prototype.data = $util.newBuffer([]);
     
         /**
-         * WorldChunkLoad type.
-         * @member {boolean} type
+         * WorldChunkLoad height.
+         * @member {number} height
          * @memberof WorldChunkLoad
          * @instance
          */
-        WorldChunkLoad.prototype.type = false;
+        WorldChunkLoad.prototype.height = 0;
     
         /**
          * WorldChunkLoad compressed.
@@ -6936,8 +6958,8 @@
                 writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             if (message.data != null && Object.hasOwnProperty.call(message, "data"))
                 writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.data);
-            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.type);
+            if (message.height != null && Object.hasOwnProperty.call(message, "height"))
+                writer.uint32(/* id 5, wireType 0 =*/40).sint32(message.height);
             if (message.compressed != null && Object.hasOwnProperty.call(message, "compressed"))
                 writer.uint32(/* id 6, wireType 0 =*/48).bool(message.compressed);
             return writer;
@@ -6987,7 +7009,7 @@
                     message.data = reader.bytes();
                     break;
                 case 5:
-                    message.type = reader.bool();
+                    message.height = reader.sint32();
                     break;
                 case 6:
                     message.compressed = reader.bool();
@@ -7039,9 +7061,9 @@
             if (message.data != null && message.hasOwnProperty("data"))
                 if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
                     return "data: buffer expected";
-            if (message.type != null && message.hasOwnProperty("type"))
-                if (typeof message.type !== "boolean")
-                    return "type: boolean expected";
+            if (message.height != null && message.hasOwnProperty("height"))
+                if (!$util.isInteger(message.height))
+                    return "height: integer expected";
             if (message.compressed != null && message.hasOwnProperty("compressed"))
                 if (typeof message.compressed !== "boolean")
                     return "compressed: boolean expected";
@@ -7071,8 +7093,8 @@
                     $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
                 else if (object.data.length)
                     message.data = object.data;
-            if (object.type != null)
-                message.type = Boolean(object.type);
+            if (object.height != null)
+                message.height = object.height | 0;
             if (object.compressed != null)
                 message.compressed = Boolean(object.compressed);
             return message;
@@ -7102,7 +7124,7 @@
                     if (options.bytes !== Array)
                         object.data = $util.newBuffer(object.data);
                 }
-                object.type = false;
+                object.height = 0;
                 object.compressed = false;
             }
             if (message.x != null && message.hasOwnProperty("x"))
@@ -7113,8 +7135,8 @@
                 object.z = message.z;
             if (message.data != null && message.hasOwnProperty("data"))
                 object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
-            if (message.type != null && message.hasOwnProperty("type"))
-                object.type = message.type;
+            if (message.height != null && message.hasOwnProperty("height"))
+                object.height = message.height;
             if (message.compressed != null && message.hasOwnProperty("compressed"))
                 object.compressed = message.compressed;
             return object;
@@ -7143,7 +7165,7 @@
          * @property {number|null} [x] WorldChunkUnload x
          * @property {number|null} [y] WorldChunkUnload y
          * @property {number|null} [z] WorldChunkUnload z
-         * @property {boolean|null} [type] WorldChunkUnload type
+         * @property {number|null} [height] WorldChunkUnload height
          */
     
         /**
@@ -7186,12 +7208,12 @@
         WorldChunkUnload.prototype.z = 0;
     
         /**
-         * WorldChunkUnload type.
-         * @member {boolean} type
+         * WorldChunkUnload height.
+         * @member {number} height
          * @memberof WorldChunkUnload
          * @instance
          */
-        WorldChunkUnload.prototype.type = false;
+        WorldChunkUnload.prototype.height = 0;
     
         /**
          * Creates a new WorldChunkUnload instance using the specified properties.
@@ -7223,8 +7245,8 @@
                 writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
                 writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
-            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.type);
+            if (message.height != null && Object.hasOwnProperty.call(message, "height"))
+                writer.uint32(/* id 4, wireType 0 =*/32).sint32(message.height);
             return writer;
         };
     
@@ -7269,7 +7291,7 @@
                     message.z = reader.sint32();
                     break;
                 case 4:
-                    message.type = reader.bool();
+                    message.height = reader.sint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -7315,9 +7337,9 @@
             if (message.z != null && message.hasOwnProperty("z"))
                 if (!$util.isInteger(message.z))
                     return "z: integer expected";
-            if (message.type != null && message.hasOwnProperty("type"))
-                if (typeof message.type !== "boolean")
-                    return "type: boolean expected";
+            if (message.height != null && message.hasOwnProperty("height"))
+                if (!$util.isInteger(message.height))
+                    return "height: integer expected";
             return null;
         };
     
@@ -7339,8 +7361,8 @@
                 message.y = object.y | 0;
             if (object.z != null)
                 message.z = object.z | 0;
-            if (object.type != null)
-                message.type = Boolean(object.type);
+            if (object.height != null)
+                message.height = object.height | 0;
             return message;
         };
     
@@ -7361,7 +7383,7 @@
                 object.x = 0;
                 object.y = 0;
                 object.z = 0;
-                object.type = false;
+                object.height = 0;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = message.x;
@@ -7369,8 +7391,8 @@
                 object.y = message.y;
             if (message.z != null && message.hasOwnProperty("z"))
                 object.z = message.z;
-            if (message.type != null && message.hasOwnProperty("type"))
-                object.type = message.type;
+            if (message.height != null && message.hasOwnProperty("height"))
+                object.height = message.height;
             return object;
         };
     

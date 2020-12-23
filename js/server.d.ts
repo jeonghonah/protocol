@@ -2707,6 +2707,9 @@ export interface IWorldBlockUpdate {
 
     /** WorldBlockUpdate id */
     id?: (number|null);
+
+    /** WorldBlockUpdate particles */
+    particles?: (boolean|null);
 }
 
 /** Represents a WorldBlockUpdate. */
@@ -2729,6 +2732,9 @@ export class WorldBlockUpdate implements IWorldBlockUpdate {
 
     /** WorldBlockUpdate id. */
     public id: number;
+
+    /** WorldBlockUpdate particles. */
+    public particles: boolean;
 
     /**
      * Creates a new WorldBlockUpdate instance using the specified properties.
@@ -2906,8 +2912,8 @@ export interface IWorldChunkLoad {
     /** WorldChunkLoad data */
     data?: (Uint8Array|null);
 
-    /** WorldChunkLoad type */
-    type?: (boolean|null);
+    /** WorldChunkLoad height */
+    height?: (number|null);
 
     /** WorldChunkLoad compressed */
     compressed?: (boolean|null);
@@ -2934,8 +2940,8 @@ export class WorldChunkLoad implements IWorldChunkLoad {
     /** WorldChunkLoad data. */
     public data: Uint8Array;
 
-    /** WorldChunkLoad type. */
-    public type: boolean;
+    /** WorldChunkLoad height. */
+    public height: number;
 
     /** WorldChunkLoad compressed. */
     public compressed: boolean;
@@ -3023,8 +3029,8 @@ export interface IWorldChunkUnload {
     /** WorldChunkUnload z */
     z?: (number|null);
 
-    /** WorldChunkUnload type */
-    type?: (boolean|null);
+    /** WorldChunkUnload height */
+    height?: (number|null);
 }
 
 /** Represents a WorldChunkUnload. */
@@ -3045,8 +3051,8 @@ export class WorldChunkUnload implements IWorldChunkUnload {
     /** WorldChunkUnload z. */
     public z: number;
 
-    /** WorldChunkUnload type. */
-    public type: boolean;
+    /** WorldChunkUnload height. */
+    public height: number;
 
     /**
      * Creates a new WorldChunkUnload instance using the specified properties.

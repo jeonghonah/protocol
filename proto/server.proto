@@ -282,6 +282,7 @@ message WorldBlockUpdate {
 	sint32 y = 2;
 	sint32 z = 3;
 	uint32 id = 4;
+	bool particles = 5;
 }
 
 /* 
@@ -304,7 +305,7 @@ message WorldChunkLoad {
 	sint32 y = 2;
 	sint32 z = 3;
 	bytes data = 4;
-	bool type = 5;
+	sint32 height = 5;
 	bool compressed = 6;
 }
 
@@ -319,7 +320,7 @@ message WorldChunkUnload {
 	sint32 x = 1;
 	sint32 y = 2;
 	sint32 z = 3;
-	bool type = 4;
+	sint32 height = 4;
 }
 
 /* 

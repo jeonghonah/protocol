@@ -463,6 +463,10 @@
         "id": {
           "type": "uint32",
           "id": 4
+        },
+        "particles": {
+          "type": "bool",
+          "id": 5
         }
       }
     },
@@ -493,8 +497,8 @@
           "type": "bytes",
           "id": 4
         },
-        "type": {
-          "type": "bool",
+        "height": {
+          "type": "sint32",
           "id": 5
         },
         "compressed": {
@@ -517,8 +521,8 @@
           "type": "sint32",
           "id": 3
         },
-        "type": {
-          "type": "bool",
+        "height": {
+          "type": "sint32",
           "id": 4
         }
       }

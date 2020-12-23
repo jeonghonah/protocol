@@ -20733,6 +20733,12 @@ public final class Server {
      * @return The id.
      */
     int getId();
+
+    /**
+     * <code>bool particles = 5;</code>
+     * @return The particles.
+     */
+    boolean getParticles();
   }
   /**
    * Protobuf type {@code WorldBlockUpdate}
@@ -20797,6 +20803,11 @@ public final class Server {
             case 32: {
 
               id_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              particles_ = input.readBool();
               break;
             }
             default: {
@@ -20875,6 +20886,17 @@ public final class Server {
       return id_;
     }
 
+    public static final int PARTICLES_FIELD_NUMBER = 5;
+    private boolean particles_;
+    /**
+     * <code>bool particles = 5;</code>
+     * @return The particles.
+     */
+    @java.lang.Override
+    public boolean getParticles() {
+      return particles_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -20901,6 +20923,9 @@ public final class Server {
       if (id_ != 0) {
         output.writeUInt32(4, id_);
       }
+      if (particles_ != false) {
+        output.writeBool(5, particles_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -20926,6 +20951,10 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, id_);
       }
+      if (particles_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, particles_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -20949,6 +20978,8 @@ public final class Server {
           != other.getZ()) return false;
       if (getId()
           != other.getId()) return false;
+      if (getParticles()
+          != other.getParticles()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -20968,6 +20999,9 @@ public final class Server {
       hash = (53 * hash) + getZ();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId();
+      hash = (37 * hash) + PARTICLES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getParticles());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -21109,6 +21143,8 @@ public final class Server {
 
         id_ = 0;
 
+        particles_ = false;
+
         return this;
       }
 
@@ -21139,6 +21175,7 @@ public final class Server {
         result.y_ = y_;
         result.z_ = z_;
         result.id_ = id_;
+        result.particles_ = particles_;
         onBuilt();
         return result;
       }
@@ -21198,6 +21235,9 @@ public final class Server {
         }
         if (other.getId() != 0) {
           setId(other.getId());
+        }
+        if (other.getParticles() != false) {
+          setParticles(other.getParticles());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -21348,6 +21388,37 @@ public final class Server {
       public Builder clearId() {
         
         id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean particles_ ;
+      /**
+       * <code>bool particles = 5;</code>
+       * @return The particles.
+       */
+      @java.lang.Override
+      public boolean getParticles() {
+        return particles_;
+      }
+      /**
+       * <code>bool particles = 5;</code>
+       * @param value The particles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setParticles(boolean value) {
+        
+        particles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool particles = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearParticles() {
+        
+        particles_ = false;
         onChanged();
         return this;
       }
@@ -22171,10 +22242,10 @@ public final class Server {
     com.google.protobuf.ByteString getData();
 
     /**
-     * <code>bool type = 5;</code>
-     * @return The type.
+     * <code>sint32 height = 5;</code>
+     * @return The height.
      */
-    boolean getType();
+    int getHeight();
 
     /**
      * <code>bool compressed = 6;</code>
@@ -22250,7 +22321,7 @@ public final class Server {
             }
             case 40: {
 
-              type_ = input.readBool();
+              height_ = input.readSInt32();
               break;
             }
             case 48: {
@@ -22334,15 +22405,15 @@ public final class Server {
       return data_;
     }
 
-    public static final int TYPE_FIELD_NUMBER = 5;
-    private boolean type_;
+    public static final int HEIGHT_FIELD_NUMBER = 5;
+    private int height_;
     /**
-     * <code>bool type = 5;</code>
-     * @return The type.
+     * <code>sint32 height = 5;</code>
+     * @return The height.
      */
     @java.lang.Override
-    public boolean getType() {
-      return type_;
+    public int getHeight() {
+      return height_;
     }
 
     public static final int COMPRESSED_FIELD_NUMBER = 6;
@@ -22382,8 +22453,8 @@ public final class Server {
       if (!data_.isEmpty()) {
         output.writeBytes(4, data_);
       }
-      if (type_ != false) {
-        output.writeBool(5, type_);
+      if (height_ != 0) {
+        output.writeSInt32(5, height_);
       }
       if (compressed_ != false) {
         output.writeBool(6, compressed_);
@@ -22413,9 +22484,9 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, data_);
       }
-      if (type_ != false) {
+      if (height_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, type_);
+          .computeSInt32Size(5, height_);
       }
       if (compressed_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -22444,8 +22515,8 @@ public final class Server {
           != other.getZ()) return false;
       if (!getData()
           .equals(other.getData())) return false;
-      if (getType()
-          != other.getType()) return false;
+      if (getHeight()
+          != other.getHeight()) return false;
       if (getCompressed()
           != other.getCompressed()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -22467,9 +22538,8 @@ public final class Server {
       hash = (53 * hash) + getZ();
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getType());
+      hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
+      hash = (53 * hash) + getHeight();
       hash = (37 * hash) + COMPRESSED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getCompressed());
@@ -22614,7 +22684,7 @@ public final class Server {
 
         data_ = com.google.protobuf.ByteString.EMPTY;
 
-        type_ = false;
+        height_ = 0;
 
         compressed_ = false;
 
@@ -22648,7 +22718,7 @@ public final class Server {
         result.y_ = y_;
         result.z_ = z_;
         result.data_ = data_;
-        result.type_ = type_;
+        result.height_ = height_;
         result.compressed_ = compressed_;
         onBuilt();
         return result;
@@ -22710,8 +22780,8 @@ public final class Server {
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
           setData(other.getData());
         }
-        if (other.getType() != false) {
-          setType(other.getType());
+        if (other.getHeight() != 0) {
+          setHeight(other.getHeight());
         }
         if (other.getCompressed() != false) {
           setCompressed(other.getCompressed());
@@ -22872,33 +22942,33 @@ public final class Server {
         return this;
       }
 
-      private boolean type_ ;
+      private int height_ ;
       /**
-       * <code>bool type = 5;</code>
-       * @return The type.
+       * <code>sint32 height = 5;</code>
+       * @return The height.
        */
       @java.lang.Override
-      public boolean getType() {
-        return type_;
+      public int getHeight() {
+        return height_;
       }
       /**
-       * <code>bool type = 5;</code>
-       * @param value The type to set.
+       * <code>sint32 height = 5;</code>
+       * @param value The height to set.
        * @return This builder for chaining.
        */
-      public Builder setType(boolean value) {
+      public Builder setHeight(int value) {
         
-        type_ = value;
+        height_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool type = 5;</code>
+       * <code>sint32 height = 5;</code>
        * @return This builder for chaining.
        */
-      public Builder clearType() {
+      public Builder clearHeight() {
         
-        type_ = false;
+        height_ = 0;
         onChanged();
         return this;
       }
@@ -23009,10 +23079,10 @@ public final class Server {
     int getZ();
 
     /**
-     * <code>bool type = 4;</code>
-     * @return The type.
+     * <code>sint32 height = 4;</code>
+     * @return The height.
      */
-    boolean getType();
+    int getHeight();
   }
   /**
    * Protobuf type {@code WorldChunkUnload}
@@ -23076,7 +23146,7 @@ public final class Server {
             }
             case 32: {
 
-              type_ = input.readBool();
+              height_ = input.readSInt32();
               break;
             }
             default: {
@@ -23144,15 +23214,15 @@ public final class Server {
       return z_;
     }
 
-    public static final int TYPE_FIELD_NUMBER = 4;
-    private boolean type_;
+    public static final int HEIGHT_FIELD_NUMBER = 4;
+    private int height_;
     /**
-     * <code>bool type = 4;</code>
-     * @return The type.
+     * <code>sint32 height = 4;</code>
+     * @return The height.
      */
     @java.lang.Override
-    public boolean getType() {
-      return type_;
+    public int getHeight() {
+      return height_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -23178,8 +23248,8 @@ public final class Server {
       if (z_ != 0) {
         output.writeSInt32(3, z_);
       }
-      if (type_ != false) {
-        output.writeBool(4, type_);
+      if (height_ != 0) {
+        output.writeSInt32(4, height_);
       }
       unknownFields.writeTo(output);
     }
@@ -23202,9 +23272,9 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeSInt32Size(3, z_);
       }
-      if (type_ != false) {
+      if (height_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, type_);
+          .computeSInt32Size(4, height_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -23227,8 +23297,8 @@ public final class Server {
           != other.getY()) return false;
       if (getZ()
           != other.getZ()) return false;
-      if (getType()
-          != other.getType()) return false;
+      if (getHeight()
+          != other.getHeight()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -23246,9 +23316,8 @@ public final class Server {
       hash = (53 * hash) + getY();
       hash = (37 * hash) + Z_FIELD_NUMBER;
       hash = (53 * hash) + getZ();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getType());
+      hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
+      hash = (53 * hash) + getHeight();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -23388,7 +23457,7 @@ public final class Server {
 
         z_ = 0;
 
-        type_ = false;
+        height_ = 0;
 
         return this;
       }
@@ -23419,7 +23488,7 @@ public final class Server {
         result.x_ = x_;
         result.y_ = y_;
         result.z_ = z_;
-        result.type_ = type_;
+        result.height_ = height_;
         onBuilt();
         return result;
       }
@@ -23477,8 +23546,8 @@ public final class Server {
         if (other.getZ() != 0) {
           setZ(other.getZ());
         }
-        if (other.getType() != false) {
-          setType(other.getType());
+        if (other.getHeight() != 0) {
+          setHeight(other.getHeight());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -23602,33 +23671,33 @@ public final class Server {
         return this;
       }
 
-      private boolean type_ ;
+      private int height_ ;
       /**
-       * <code>bool type = 4;</code>
-       * @return The type.
+       * <code>sint32 height = 4;</code>
+       * @return The height.
        */
       @java.lang.Override
-      public boolean getType() {
-        return type_;
+      public int getHeight() {
+        return height_;
       }
       /**
-       * <code>bool type = 4;</code>
-       * @param value The type to set.
+       * <code>sint32 height = 4;</code>
+       * @param value The height to set.
        * @return This builder for chaining.
        */
-      public Builder setType(boolean value) {
+      public Builder setHeight(int value) {
         
-        type_ = value;
+        height_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool type = 4;</code>
+       * <code>sint32 height = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearType() {
+      public Builder clearHeight() {
         
-        type_ = false;
+        height_ = 0;
         onChanged();
         return this;
       }
@@ -27705,26 +27774,27 @@ public final class Server {
       "\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\t\"O" +
       "\n\rEntityAnimate\022\014\n\004uuid\030\001 \001(\t\022\021\n\tanimati" +
       "on\030\002 \001(\t\022\014\n\004time\030\003 \001(\r\022\017\n\007replace\030\004 \001(\010\"" +
-      "?\n\020WorldBlockUpdate\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(" +
-      "\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 \001(\r\"\215\001\n\025WorldMultiB" +
-      "lockUpdate\0222\n\006blocks\030\001 \003(\0132\".WorldMultiB" +
-      "lockUpdate.BlocksEntry\032@\n\013BlocksEntry\022\013\n" +
-      "\003key\030\001 \001(\005\022 \n\005value\030\002 \001(\0132\021.WorldBlockUp" +
-      "date:\0028\001\"a\n\016WorldChunkLoad\022\t\n\001x\030\001 \001(\021\022\t\n" +
-      "\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004data\030\004 \001(\014\022\014\n\004typ" +
-      "e\030\005 \001(\010\022\022\n\ncompressed\030\006 \001(\010\"A\n\020WorldChun" +
-      "kUnload\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021" +
-      "\022\014\n\004type\030\004 \001(\010\"7\n\016RegistryUpdate\022\021\n\titem" +
-      "s_def\030\001 \001(\t\022\022\n\nblocks_def\030\002 \001(\t\"3\n\025Gamep" +
-      "laySettingUpdate\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
-      " \001(\t\"\215\001\n\024EnvironmentFogUpdate\022\014\n\004mode\030\001 " +
-      "\001(\005\022\017\n\007density\030\002 \001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003e" +
-      "nd\030\004 \001(\002\022\021\n\tcolor_red\030\005 \001(\002\022\023\n\013color_gre" +
-      "en\030\006 \001(\002\022\022\n\ncolor_blue\030\007 \001(\002\"b\n\024Environm" +
-      "entSkyUpdate\022\016\n\006clouds\030\001 \001(\010\022\021\n\tcolor_re" +
-      "d\030\002 \001(\002\022\023\n\013color_green\030\003 \001(\002\022\022\n\ncolor_bl" +
-      "ue\030\004 \001(\002\"<\n\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017" +
-      "\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
+      "R\n\020WorldBlockUpdate\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(" +
+      "\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 \001(\r\022\021\n\tparticles\030\005 " +
+      "\001(\010\"\215\001\n\025WorldMultiBlockUpdate\0222\n\006blocks\030" +
+      "\001 \003(\0132\".WorldMultiBlockUpdate.BlocksEntr" +
+      "y\032@\n\013BlocksEntry\022\013\n\003key\030\001 \001(\005\022 \n\005value\030\002" +
+      " \001(\0132\021.WorldBlockUpdate:\0028\001\"c\n\016WorldChun" +
+      "kLoad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014" +
+      "\n\004data\030\004 \001(\014\022\016\n\006height\030\005 \001(\021\022\022\n\ncompress" +
+      "ed\030\006 \001(\010\"C\n\020WorldChunkUnload\022\t\n\001x\030\001 \001(\021\022" +
+      "\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006height\030\004 \001(\021\"7\n" +
+      "\016RegistryUpdate\022\021\n\titems_def\030\001 \001(\t\022\022\n\nbl" +
+      "ocks_def\030\002 \001(\t\"3\n\025GameplaySettingUpdate\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\215\001\n\024Environm" +
+      "entFogUpdate\022\014\n\004mode\030\001 \001(\005\022\017\n\007density\030\002 " +
+      "\001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(\002\022\021\n\tcolor" +
+      "_red\030\005 \001(\002\022\023\n\013color_green\030\006 \001(\002\022\022\n\ncolor" +
+      "_blue\030\007 \001(\002\"b\n\024EnvironmentSkyUpdate\022\016\n\006c" +
+      "louds\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013color_" +
+      "green\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001(\002\"<\n\rPlugi" +
+      "nMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r" +
+      "\n\005value\030\003 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -27903,7 +27973,7 @@ public final class Server {
     internal_static_WorldBlockUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldBlockUpdate_descriptor,
-        new java.lang.String[] { "X", "Y", "Z", "Id", });
+        new java.lang.String[] { "X", "Y", "Z", "Id", "Particles", });
     internal_static_WorldMultiBlockUpdate_descriptor =
       getDescriptor().getMessageTypes().get(25);
     internal_static_WorldMultiBlockUpdate_fieldAccessorTable = new
@@ -27921,13 +27991,13 @@ public final class Server {
     internal_static_WorldChunkLoad_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunkLoad_descriptor,
-        new java.lang.String[] { "X", "Y", "Z", "Data", "Type", "Compressed", });
+        new java.lang.String[] { "X", "Y", "Z", "Data", "Height", "Compressed", });
     internal_static_WorldChunkUnload_descriptor =
       getDescriptor().getMessageTypes().get(27);
     internal_static_WorldChunkUnload_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunkUnload_descriptor,
-        new java.lang.String[] { "X", "Y", "Z", "Type", });
+        new java.lang.String[] { "X", "Y", "Z", "Height", });
     internal_static_RegistryUpdate_descriptor =
       getDescriptor().getMessageTypes().get(28);
     internal_static_RegistryUpdate_fieldAccessorTable = new
