@@ -100,10 +100,25 @@ message ActionBlockBreak {
 */
 
 message ActionInventoryClick {
+	enum Type {
+		LEFT = 0;
+		RIGHT = 1;
+		MIDDLE = 2;
+	}
+
 	sint32 slot = 1;
-	string type = 2;
+	Type type = 2;
 	string inventory = 3;
-	sint32 slot2 = 4;
+}
+
+/* 
+ * ActionInventoryPick is send after block pick.
+*/
+
+message ActionInventoryPick {
+	sint32 slot = 1;
+	sint32 slot2 = 2;
+	sint32 block = 3;
 }
 
 /* 
@@ -112,7 +127,14 @@ message ActionInventoryClick {
 */
 
 message ActionInventoryOpen {
-	string inventory = 1;
+	enum Type {
+		MAIN = 0;
+		CHEST = 1;
+		CRAFTING = 2;
+		FURNACE = 3;
+	}
+
+	Type inventory = 1;
 }
 
 /* 
@@ -120,6 +142,13 @@ message ActionInventoryOpen {
 */
 
 message ActionInventoryClose {
+	enum Type {
+		MAIN = 0;
+		CHEST = 1;
+		CRAFTING = 2;
+		FURNACE = 3;
+	}
+
 	string inventory = 1;
 }
 
@@ -152,6 +181,17 @@ message ActionClickEntity {
 message ActionKeyPress {
 	string key = 1;
 	bool type = 2;
+}
+
+/* 
+ * WorldChunkIsLoadedResponce is send as answer to WorldChunkIsLoaded
+*/
+
+message WorldChunkIsLoadedResponce {
+	sint32 x = 1;
+	sint32 y = 2;
+	sint32 z = 3;
+	bool loaded = 4;
 }
 
 

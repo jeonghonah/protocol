@@ -5770,16 +5770,15 @@ public final class Client {
     int getSlot();
 
     /**
-     * <code>string type = 2;</code>
+     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.ActionInventoryClick.Type type = 2;</code>
      * @return The type.
      */
-    java.lang.String getType();
-    /**
-     * <code>string type = 2;</code>
-     * @return The bytes for type.
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    Client.ActionInventoryClick.Type getType();
 
     /**
      * <code>string inventory = 3;</code>
@@ -5792,12 +5791,6 @@ public final class Client {
      */
     com.google.protobuf.ByteString
         getInventoryBytes();
-
-    /**
-     * <code>sint32 slot2 = 4;</code>
-     * @return The slot2.
-     */
-    int getSlot2();
   }
   /**
    * Protobuf type {@code ActionInventoryClick}
@@ -5812,7 +5805,7 @@ public final class Client {
       super(builder);
     }
     private ActionInventoryClick() {
-      type_ = "";
+      type_ = 0;
       inventory_ = "";
     }
 
@@ -5851,21 +5844,16 @@ public final class Client {
               slot_ = input.readSInt32();
               break;
             }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 16: {
+              int rawValue = input.readEnum();
 
-              type_ = s;
+              type_ = rawValue;
               break;
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
               inventory_ = s;
-              break;
-            }
-            case 32: {
-
-              slot2_ = input.readSInt32();
               break;
             }
             default: {
@@ -5900,6 +5888,123 @@ public final class Client {
               Client.ActionInventoryClick.class, Client.ActionInventoryClick.Builder.class);
     }
 
+    /**
+     * Protobuf enum {@code ActionInventoryClick.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>LEFT = 0;</code>
+       */
+      LEFT(0),
+      /**
+       * <code>RIGHT = 1;</code>
+       */
+      RIGHT(1),
+      /**
+       * <code>MIDDLE = 2;</code>
+       */
+      MIDDLE(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>LEFT = 0;</code>
+       */
+      public static final int LEFT_VALUE = 0;
+      /**
+       * <code>RIGHT = 1;</code>
+       */
+      public static final int RIGHT_VALUE = 1;
+      /**
+       * <code>MIDDLE = 2;</code>
+       */
+      public static final int MIDDLE_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return LEFT;
+          case 1: return RIGHT;
+          case 2: return MIDDLE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Client.ActionInventoryClick.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:ActionInventoryClick.Type)
+    }
+
     public static final int SLOT_FIELD_NUMBER = 1;
     private int slot_;
     /**
@@ -5912,41 +6017,22 @@ public final class Client {
     }
 
     public static final int TYPE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object type_;
+    private int type_;
     /**
-     * <code>string type = 2;</code>
-     * @return The type.
+     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    @java.lang.Override
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        type_ = s;
-        return s;
-      }
+    @java.lang.Override public int getTypeValue() {
+      return type_;
     }
     /**
-     * <code>string type = 2;</code>
-     * @return The bytes for type.
+     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * @return The type.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    @java.lang.Override public Client.ActionInventoryClick.Type getType() {
+      @SuppressWarnings("deprecation")
+      Client.ActionInventoryClick.Type result = Client.ActionInventoryClick.Type.valueOf(type_);
+      return result == null ? Client.ActionInventoryClick.Type.UNRECOGNIZED : result;
     }
 
     public static final int INVENTORY_FIELD_NUMBER = 3;
@@ -5987,17 +6073,6 @@ public final class Client {
       }
     }
 
-    public static final int SLOT2_FIELD_NUMBER = 4;
-    private int slot2_;
-    /**
-     * <code>sint32 slot2 = 4;</code>
-     * @return The slot2.
-     */
-    @java.lang.Override
-    public int getSlot2() {
-      return slot2_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6015,14 +6090,11 @@ public final class Client {
       if (slot_ != 0) {
         output.writeSInt32(1, slot_);
       }
-      if (!getTypeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, type_);
+      if (type_ != Client.ActionInventoryClick.Type.LEFT.getNumber()) {
+        output.writeEnum(2, type_);
       }
       if (!getInventoryBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, inventory_);
-      }
-      if (slot2_ != 0) {
-        output.writeSInt32(4, slot2_);
       }
       unknownFields.writeTo(output);
     }
@@ -6037,15 +6109,12 @@ public final class Client {
         size += com.google.protobuf.CodedOutputStream
           .computeSInt32Size(1, slot_);
       }
-      if (!getTypeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, type_);
+      if (type_ != Client.ActionInventoryClick.Type.LEFT.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, type_);
       }
       if (!getInventoryBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, inventory_);
-      }
-      if (slot2_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeSInt32Size(4, slot2_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6064,12 +6133,9 @@ public final class Client {
 
       if (getSlot()
           != other.getSlot()) return false;
-      if (!getType()
-          .equals(other.getType())) return false;
+      if (type_ != other.type_) return false;
       if (!getInventory()
           .equals(other.getInventory())) return false;
-      if (getSlot2()
-          != other.getSlot2()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6084,11 +6150,9 @@ public final class Client {
       hash = (37 * hash) + SLOT_FIELD_NUMBER;
       hash = (53 * hash) + getSlot();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getType().hashCode();
+      hash = (53 * hash) + type_;
       hash = (37 * hash) + INVENTORY_FIELD_NUMBER;
       hash = (53 * hash) + getInventory().hashCode();
-      hash = (37 * hash) + SLOT2_FIELD_NUMBER;
-      hash = (53 * hash) + getSlot2();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6224,11 +6288,9 @@ public final class Client {
         super.clear();
         slot_ = 0;
 
-        type_ = "";
+        type_ = 0;
 
         inventory_ = "";
-
-        slot2_ = 0;
 
         return this;
       }
@@ -6259,7 +6321,6 @@ public final class Client {
         result.slot_ = slot_;
         result.type_ = type_;
         result.inventory_ = inventory_;
-        result.slot2_ = slot2_;
         onBuilt();
         return result;
       }
@@ -6311,16 +6372,12 @@ public final class Client {
         if (other.getSlot() != 0) {
           setSlot(other.getSlot());
         }
-        if (!other.getType().isEmpty()) {
-          type_ = other.type_;
-          onChanged();
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         if (!other.getInventory().isEmpty()) {
           inventory_ = other.inventory_;
           onChanged();
-        }
-        if (other.getSlot2() != 0) {
-          setSlot2(other.getSlot2());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6382,78 +6439,56 @@ public final class Client {
         return this;
       }
 
-      private java.lang.Object type_ = "";
+      private int type_ = 0;
       /**
-       * <code>string type = 2;</code>
-       * @return The type.
+       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          type_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override public int getTypeValue() {
+        return type_;
       }
       /**
-       * <code>string type = 2;</code>
-       * @return The bytes for type.
-       */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string type = 2;</code>
-       * @param value The type to set.
+       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setTypeValue(int value) {
+        
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string type = 2;</code>
+       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public Client.ActionInventoryClick.Type getType() {
+        @SuppressWarnings("deprecation")
+        Client.ActionInventoryClick.Type result = Client.ActionInventoryClick.Type.valueOf(type_);
+        return result == null ? Client.ActionInventoryClick.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(Client.ActionInventoryClick.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.ActionInventoryClick.Type type = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
         
-        type_ = getDefaultInstance().getType();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string type = 2;</code>
-       * @param value The bytes for type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        type_ = value;
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -6533,37 +6568,6 @@ public final class Client {
         onChanged();
         return this;
       }
-
-      private int slot2_ ;
-      /**
-       * <code>sint32 slot2 = 4;</code>
-       * @return The slot2.
-       */
-      @java.lang.Override
-      public int getSlot2() {
-        return slot2_;
-      }
-      /**
-       * <code>sint32 slot2 = 4;</code>
-       * @param value The slot2 to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSlot2(int value) {
-        
-        slot2_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>sint32 slot2 = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSlot2() {
-        
-        slot2_ = 0;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6617,21 +6621,648 @@ public final class Client {
 
   }
 
+  public interface ActionInventoryPickOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ActionInventoryPick)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>sint32 slot = 1;</code>
+     * @return The slot.
+     */
+    int getSlot();
+
+    /**
+     * <code>sint32 slot2 = 2;</code>
+     * @return The slot2.
+     */
+    int getSlot2();
+
+    /**
+     * <code>sint32 block = 3;</code>
+     * @return The block.
+     */
+    int getBlock();
+  }
+  /**
+   * Protobuf type {@code ActionInventoryPick}
+   */
+  public static final class ActionInventoryPick extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ActionInventoryPick)
+      ActionInventoryPickOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ActionInventoryPick.newBuilder() to construct.
+    private ActionInventoryPick(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ActionInventoryPick() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ActionInventoryPick();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ActionInventoryPick(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              slot_ = input.readSInt32();
+              break;
+            }
+            case 16: {
+
+              slot2_ = input.readSInt32();
+              break;
+            }
+            case 24: {
+
+              block_ = input.readSInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Client.internal_static_ActionInventoryPick_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Client.internal_static_ActionInventoryPick_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Client.ActionInventoryPick.class, Client.ActionInventoryPick.Builder.class);
+    }
+
+    public static final int SLOT_FIELD_NUMBER = 1;
+    private int slot_;
+    /**
+     * <code>sint32 slot = 1;</code>
+     * @return The slot.
+     */
+    @java.lang.Override
+    public int getSlot() {
+      return slot_;
+    }
+
+    public static final int SLOT2_FIELD_NUMBER = 2;
+    private int slot2_;
+    /**
+     * <code>sint32 slot2 = 2;</code>
+     * @return The slot2.
+     */
+    @java.lang.Override
+    public int getSlot2() {
+      return slot2_;
+    }
+
+    public static final int BLOCK_FIELD_NUMBER = 3;
+    private int block_;
+    /**
+     * <code>sint32 block = 3;</code>
+     * @return The block.
+     */
+    @java.lang.Override
+    public int getBlock() {
+      return block_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (slot_ != 0) {
+        output.writeSInt32(1, slot_);
+      }
+      if (slot2_ != 0) {
+        output.writeSInt32(2, slot2_);
+      }
+      if (block_ != 0) {
+        output.writeSInt32(3, block_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (slot_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(1, slot_);
+      }
+      if (slot2_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(2, slot2_);
+      }
+      if (block_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(3, block_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Client.ActionInventoryPick)) {
+        return super.equals(obj);
+      }
+      Client.ActionInventoryPick other = (Client.ActionInventoryPick) obj;
+
+      if (getSlot()
+          != other.getSlot()) return false;
+      if (getSlot2()
+          != other.getSlot2()) return false;
+      if (getBlock()
+          != other.getBlock()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SLOT_FIELD_NUMBER;
+      hash = (53 * hash) + getSlot();
+      hash = (37 * hash) + SLOT2_FIELD_NUMBER;
+      hash = (53 * hash) + getSlot2();
+      hash = (37 * hash) + BLOCK_FIELD_NUMBER;
+      hash = (53 * hash) + getBlock();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Client.ActionInventoryPick parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.ActionInventoryPick parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.ActionInventoryPick parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.ActionInventoryPick parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.ActionInventoryPick parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.ActionInventoryPick parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.ActionInventoryPick parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Client.ActionInventoryPick parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Client.ActionInventoryPick parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Client.ActionInventoryPick parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Client.ActionInventoryPick parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Client.ActionInventoryPick parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Client.ActionInventoryPick prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ActionInventoryPick}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ActionInventoryPick)
+        Client.ActionInventoryPickOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Client.internal_static_ActionInventoryPick_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Client.internal_static_ActionInventoryPick_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Client.ActionInventoryPick.class, Client.ActionInventoryPick.Builder.class);
+      }
+
+      // Construct using Client.ActionInventoryPick.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        slot_ = 0;
+
+        slot2_ = 0;
+
+        block_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Client.internal_static_ActionInventoryPick_descriptor;
+      }
+
+      @java.lang.Override
+      public Client.ActionInventoryPick getDefaultInstanceForType() {
+        return Client.ActionInventoryPick.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Client.ActionInventoryPick build() {
+        Client.ActionInventoryPick result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Client.ActionInventoryPick buildPartial() {
+        Client.ActionInventoryPick result = new Client.ActionInventoryPick(this);
+        result.slot_ = slot_;
+        result.slot2_ = slot2_;
+        result.block_ = block_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Client.ActionInventoryPick) {
+          return mergeFrom((Client.ActionInventoryPick)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Client.ActionInventoryPick other) {
+        if (other == Client.ActionInventoryPick.getDefaultInstance()) return this;
+        if (other.getSlot() != 0) {
+          setSlot(other.getSlot());
+        }
+        if (other.getSlot2() != 0) {
+          setSlot2(other.getSlot2());
+        }
+        if (other.getBlock() != 0) {
+          setBlock(other.getBlock());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Client.ActionInventoryPick parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Client.ActionInventoryPick) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int slot_ ;
+      /**
+       * <code>sint32 slot = 1;</code>
+       * @return The slot.
+       */
+      @java.lang.Override
+      public int getSlot() {
+        return slot_;
+      }
+      /**
+       * <code>sint32 slot = 1;</code>
+       * @param value The slot to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSlot(int value) {
+        
+        slot_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>sint32 slot = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSlot() {
+        
+        slot_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int slot2_ ;
+      /**
+       * <code>sint32 slot2 = 2;</code>
+       * @return The slot2.
+       */
+      @java.lang.Override
+      public int getSlot2() {
+        return slot2_;
+      }
+      /**
+       * <code>sint32 slot2 = 2;</code>
+       * @param value The slot2 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSlot2(int value) {
+        
+        slot2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>sint32 slot2 = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSlot2() {
+        
+        slot2_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int block_ ;
+      /**
+       * <code>sint32 block = 3;</code>
+       * @return The block.
+       */
+      @java.lang.Override
+      public int getBlock() {
+        return block_;
+      }
+      /**
+       * <code>sint32 block = 3;</code>
+       * @param value The block to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBlock(int value) {
+        
+        block_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>sint32 block = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBlock() {
+        
+        block_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ActionInventoryPick)
+    }
+
+    // @@protoc_insertion_point(class_scope:ActionInventoryPick)
+    private static final Client.ActionInventoryPick DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Client.ActionInventoryPick();
+    }
+
+    public static Client.ActionInventoryPick getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ActionInventoryPick>
+        PARSER = new com.google.protobuf.AbstractParser<ActionInventoryPick>() {
+      @java.lang.Override
+      public ActionInventoryPick parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ActionInventoryPick(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ActionInventoryPick> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ActionInventoryPick> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Client.ActionInventoryPick getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ActionInventoryOpenOrBuilder extends
       // @@protoc_insertion_point(interface_extends:ActionInventoryOpen)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string inventory = 1;</code>
+     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * @return The enum numeric value on the wire for inventory.
+     */
+    int getInventoryValue();
+    /**
+     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
      * @return The inventory.
      */
-    java.lang.String getInventory();
-    /**
-     * <code>string inventory = 1;</code>
-     * @return The bytes for inventory.
-     */
-    com.google.protobuf.ByteString
-        getInventoryBytes();
+    Client.ActionInventoryOpen.Type getInventory();
   }
   /**
    * Protobuf type {@code ActionInventoryOpen}
@@ -6646,7 +7277,7 @@ public final class Client {
       super(builder);
     }
     private ActionInventoryOpen() {
-      inventory_ = "";
+      inventory_ = 0;
     }
 
     @java.lang.Override
@@ -6679,10 +7310,10 @@ public final class Client {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
+              int rawValue = input.readEnum();
 
-              inventory_ = s;
+              inventory_ = rawValue;
               break;
             }
             default: {
@@ -6717,42 +7348,149 @@ public final class Client {
               Client.ActionInventoryOpen.class, Client.ActionInventoryOpen.Builder.class);
     }
 
-    public static final int INVENTORY_FIELD_NUMBER = 1;
-    private volatile java.lang.Object inventory_;
     /**
-     * <code>string inventory = 1;</code>
-     * @return The inventory.
+     * Protobuf enum {@code ActionInventoryOpen.Type}
      */
-    @java.lang.Override
-    public java.lang.String getInventory() {
-      java.lang.Object ref = inventory_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        inventory_ = s;
-        return s;
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>MAIN = 0;</code>
+       */
+      MAIN(0),
+      /**
+       * <code>CHEST = 1;</code>
+       */
+      CHEST(1),
+      /**
+       * <code>CRAFTING = 2;</code>
+       */
+      CRAFTING(2),
+      /**
+       * <code>FURNACE = 3;</code>
+       */
+      FURNACE(3),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>MAIN = 0;</code>
+       */
+      public static final int MAIN_VALUE = 0;
+      /**
+       * <code>CHEST = 1;</code>
+       */
+      public static final int CHEST_VALUE = 1;
+      /**
+       * <code>CRAFTING = 2;</code>
+       */
+      public static final int CRAFTING_VALUE = 2;
+      /**
+       * <code>FURNACE = 3;</code>
+       */
+      public static final int FURNACE_VALUE = 3;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
       }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return MAIN;
+          case 1: return CHEST;
+          case 2: return CRAFTING;
+          case 3: return FURNACE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Client.ActionInventoryOpen.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:ActionInventoryOpen.Type)
+    }
+
+    public static final int INVENTORY_FIELD_NUMBER = 1;
+    private int inventory_;
+    /**
+     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * @return The enum numeric value on the wire for inventory.
+     */
+    @java.lang.Override public int getInventoryValue() {
+      return inventory_;
     }
     /**
-     * <code>string inventory = 1;</code>
-     * @return The bytes for inventory.
+     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * @return The inventory.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getInventoryBytes() {
-      java.lang.Object ref = inventory_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        inventory_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    @java.lang.Override public Client.ActionInventoryOpen.Type getInventory() {
+      @SuppressWarnings("deprecation")
+      Client.ActionInventoryOpen.Type result = Client.ActionInventoryOpen.Type.valueOf(inventory_);
+      return result == null ? Client.ActionInventoryOpen.Type.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6769,8 +7507,8 @@ public final class Client {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getInventoryBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, inventory_);
+      if (inventory_ != Client.ActionInventoryOpen.Type.MAIN.getNumber()) {
+        output.writeEnum(1, inventory_);
       }
       unknownFields.writeTo(output);
     }
@@ -6781,8 +7519,9 @@ public final class Client {
       if (size != -1) return size;
 
       size = 0;
-      if (!getInventoryBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, inventory_);
+      if (inventory_ != Client.ActionInventoryOpen.Type.MAIN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, inventory_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6799,8 +7538,7 @@ public final class Client {
       }
       Client.ActionInventoryOpen other = (Client.ActionInventoryOpen) obj;
 
-      if (!getInventory()
-          .equals(other.getInventory())) return false;
+      if (inventory_ != other.inventory_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6813,7 +7551,7 @@ public final class Client {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + INVENTORY_FIELD_NUMBER;
-      hash = (53 * hash) + getInventory().hashCode();
+      hash = (53 * hash) + inventory_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6947,7 +7685,7 @@ public final class Client {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        inventory_ = "";
+        inventory_ = 0;
 
         return this;
       }
@@ -7024,9 +7762,8 @@ public final class Client {
 
       public Builder mergeFrom(Client.ActionInventoryOpen other) {
         if (other == Client.ActionInventoryOpen.getDefaultInstance()) return this;
-        if (!other.getInventory().isEmpty()) {
-          inventory_ = other.inventory_;
-          onChanged();
+        if (other.inventory_ != 0) {
+          setInventoryValue(other.getInventoryValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7057,78 +7794,56 @@ public final class Client {
         return this;
       }
 
-      private java.lang.Object inventory_ = "";
+      private int inventory_ = 0;
       /**
-       * <code>string inventory = 1;</code>
-       * @return The inventory.
+       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * @return The enum numeric value on the wire for inventory.
        */
-      public java.lang.String getInventory() {
-        java.lang.Object ref = inventory_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          inventory_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override public int getInventoryValue() {
+        return inventory_;
       }
       /**
-       * <code>string inventory = 1;</code>
-       * @return The bytes for inventory.
-       */
-      public com.google.protobuf.ByteString
-          getInventoryBytes() {
-        java.lang.Object ref = inventory_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          inventory_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string inventory = 1;</code>
-       * @param value The inventory to set.
+       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * @param value The enum numeric value on the wire for inventory to set.
        * @return This builder for chaining.
        */
-      public Builder setInventory(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setInventoryValue(int value) {
+        
         inventory_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string inventory = 1;</code>
+       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * @return The inventory.
+       */
+      @java.lang.Override
+      public Client.ActionInventoryOpen.Type getInventory() {
+        @SuppressWarnings("deprecation")
+        Client.ActionInventoryOpen.Type result = Client.ActionInventoryOpen.Type.valueOf(inventory_);
+        return result == null ? Client.ActionInventoryOpen.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * @param value The inventory to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInventory(Client.ActionInventoryOpen.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        inventory_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearInventory() {
         
-        inventory_ = getDefaultInstance().getInventory();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string inventory = 1;</code>
-       * @param value The bytes for inventory to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInventoryBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        inventory_ = value;
+        inventory_ = 0;
         onChanged();
         return this;
       }
@@ -7283,6 +7998,132 @@ public final class Client {
       return Client.internal_static_ActionInventoryClose_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               Client.ActionInventoryClose.class, Client.ActionInventoryClose.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code ActionInventoryClose.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>MAIN = 0;</code>
+       */
+      MAIN(0),
+      /**
+       * <code>CHEST = 1;</code>
+       */
+      CHEST(1),
+      /**
+       * <code>CRAFTING = 2;</code>
+       */
+      CRAFTING(2),
+      /**
+       * <code>FURNACE = 3;</code>
+       */
+      FURNACE(3),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>MAIN = 0;</code>
+       */
+      public static final int MAIN_VALUE = 0;
+      /**
+       * <code>CHEST = 1;</code>
+       */
+      public static final int CHEST_VALUE = 1;
+      /**
+       * <code>CRAFTING = 2;</code>
+       */
+      public static final int CRAFTING_VALUE = 2;
+      /**
+       * <code>FURNACE = 3;</code>
+       */
+      public static final int FURNACE_VALUE = 3;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return MAIN;
+          case 1: return CHEST;
+          case 2: return CRAFTING;
+          case 3: return FURNACE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Client.ActionInventoryClose.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:ActionInventoryClose.Type)
     }
 
     public static final int INVENTORY_FIELD_NUMBER = 1;
@@ -10031,6 +10872,705 @@ public final class Client {
 
   }
 
+  public interface WorldChunkIsLoadedResponceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:WorldChunkIsLoadedResponce)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>sint32 x = 1;</code>
+     * @return The x.
+     */
+    int getX();
+
+    /**
+     * <code>sint32 y = 2;</code>
+     * @return The y.
+     */
+    int getY();
+
+    /**
+     * <code>sint32 z = 3;</code>
+     * @return The z.
+     */
+    int getZ();
+
+    /**
+     * <code>bool loaded = 4;</code>
+     * @return The loaded.
+     */
+    boolean getLoaded();
+  }
+  /**
+   * Protobuf type {@code WorldChunkIsLoadedResponce}
+   */
+  public static final class WorldChunkIsLoadedResponce extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:WorldChunkIsLoadedResponce)
+      WorldChunkIsLoadedResponceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use WorldChunkIsLoadedResponce.newBuilder() to construct.
+    private WorldChunkIsLoadedResponce(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private WorldChunkIsLoadedResponce() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new WorldChunkIsLoadedResponce();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WorldChunkIsLoadedResponce(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              x_ = input.readSInt32();
+              break;
+            }
+            case 16: {
+
+              y_ = input.readSInt32();
+              break;
+            }
+            case 24: {
+
+              z_ = input.readSInt32();
+              break;
+            }
+            case 32: {
+
+              loaded_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Client.internal_static_WorldChunkIsLoadedResponce_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Client.internal_static_WorldChunkIsLoadedResponce_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Client.WorldChunkIsLoadedResponce.class, Client.WorldChunkIsLoadedResponce.Builder.class);
+    }
+
+    public static final int X_FIELD_NUMBER = 1;
+    private int x_;
+    /**
+     * <code>sint32 x = 1;</code>
+     * @return The x.
+     */
+    @java.lang.Override
+    public int getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 2;
+    private int y_;
+    /**
+     * <code>sint32 y = 2;</code>
+     * @return The y.
+     */
+    @java.lang.Override
+    public int getY() {
+      return y_;
+    }
+
+    public static final int Z_FIELD_NUMBER = 3;
+    private int z_;
+    /**
+     * <code>sint32 z = 3;</code>
+     * @return The z.
+     */
+    @java.lang.Override
+    public int getZ() {
+      return z_;
+    }
+
+    public static final int LOADED_FIELD_NUMBER = 4;
+    private boolean loaded_;
+    /**
+     * <code>bool loaded = 4;</code>
+     * @return The loaded.
+     */
+    @java.lang.Override
+    public boolean getLoaded() {
+      return loaded_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (x_ != 0) {
+        output.writeSInt32(1, x_);
+      }
+      if (y_ != 0) {
+        output.writeSInt32(2, y_);
+      }
+      if (z_ != 0) {
+        output.writeSInt32(3, z_);
+      }
+      if (loaded_ != false) {
+        output.writeBool(4, loaded_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (x_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(1, x_);
+      }
+      if (y_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(2, y_);
+      }
+      if (z_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(3, z_);
+      }
+      if (loaded_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, loaded_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Client.WorldChunkIsLoadedResponce)) {
+        return super.equals(obj);
+      }
+      Client.WorldChunkIsLoadedResponce other = (Client.WorldChunkIsLoadedResponce) obj;
+
+      if (getX()
+          != other.getX()) return false;
+      if (getY()
+          != other.getY()) return false;
+      if (getZ()
+          != other.getZ()) return false;
+      if (getLoaded()
+          != other.getLoaded()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + X_FIELD_NUMBER;
+      hash = (53 * hash) + getX();
+      hash = (37 * hash) + Y_FIELD_NUMBER;
+      hash = (53 * hash) + getY();
+      hash = (37 * hash) + Z_FIELD_NUMBER;
+      hash = (53 * hash) + getZ();
+      hash = (37 * hash) + LOADED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getLoaded());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Client.WorldChunkIsLoadedResponce parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Client.WorldChunkIsLoadedResponce parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Client.WorldChunkIsLoadedResponce prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code WorldChunkIsLoadedResponce}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:WorldChunkIsLoadedResponce)
+        Client.WorldChunkIsLoadedResponceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Client.internal_static_WorldChunkIsLoadedResponce_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Client.internal_static_WorldChunkIsLoadedResponce_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Client.WorldChunkIsLoadedResponce.class, Client.WorldChunkIsLoadedResponce.Builder.class);
+      }
+
+      // Construct using Client.WorldChunkIsLoadedResponce.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        x_ = 0;
+
+        y_ = 0;
+
+        z_ = 0;
+
+        loaded_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Client.internal_static_WorldChunkIsLoadedResponce_descriptor;
+      }
+
+      @java.lang.Override
+      public Client.WorldChunkIsLoadedResponce getDefaultInstanceForType() {
+        return Client.WorldChunkIsLoadedResponce.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Client.WorldChunkIsLoadedResponce build() {
+        Client.WorldChunkIsLoadedResponce result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Client.WorldChunkIsLoadedResponce buildPartial() {
+        Client.WorldChunkIsLoadedResponce result = new Client.WorldChunkIsLoadedResponce(this);
+        result.x_ = x_;
+        result.y_ = y_;
+        result.z_ = z_;
+        result.loaded_ = loaded_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Client.WorldChunkIsLoadedResponce) {
+          return mergeFrom((Client.WorldChunkIsLoadedResponce)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Client.WorldChunkIsLoadedResponce other) {
+        if (other == Client.WorldChunkIsLoadedResponce.getDefaultInstance()) return this;
+        if (other.getX() != 0) {
+          setX(other.getX());
+        }
+        if (other.getY() != 0) {
+          setY(other.getY());
+        }
+        if (other.getZ() != 0) {
+          setZ(other.getZ());
+        }
+        if (other.getLoaded() != false) {
+          setLoaded(other.getLoaded());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Client.WorldChunkIsLoadedResponce parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Client.WorldChunkIsLoadedResponce) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int x_ ;
+      /**
+       * <code>sint32 x = 1;</code>
+       * @return The x.
+       */
+      @java.lang.Override
+      public int getX() {
+        return x_;
+      }
+      /**
+       * <code>sint32 x = 1;</code>
+       * @param value The x to set.
+       * @return This builder for chaining.
+       */
+      public Builder setX(int value) {
+        
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>sint32 x = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearX() {
+        
+        x_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int y_ ;
+      /**
+       * <code>sint32 y = 2;</code>
+       * @return The y.
+       */
+      @java.lang.Override
+      public int getY() {
+        return y_;
+      }
+      /**
+       * <code>sint32 y = 2;</code>
+       * @param value The y to set.
+       * @return This builder for chaining.
+       */
+      public Builder setY(int value) {
+        
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>sint32 y = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearY() {
+        
+        y_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int z_ ;
+      /**
+       * <code>sint32 z = 3;</code>
+       * @return The z.
+       */
+      @java.lang.Override
+      public int getZ() {
+        return z_;
+      }
+      /**
+       * <code>sint32 z = 3;</code>
+       * @param value The z to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZ(int value) {
+        
+        z_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>sint32 z = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZ() {
+        
+        z_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean loaded_ ;
+      /**
+       * <code>bool loaded = 4;</code>
+       * @return The loaded.
+       */
+      @java.lang.Override
+      public boolean getLoaded() {
+        return loaded_;
+      }
+      /**
+       * <code>bool loaded = 4;</code>
+       * @param value The loaded to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLoaded(boolean value) {
+        
+        loaded_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool loaded = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLoaded() {
+        
+        loaded_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:WorldChunkIsLoadedResponce)
+    }
+
+    // @@protoc_insertion_point(class_scope:WorldChunkIsLoadedResponce)
+    private static final Client.WorldChunkIsLoadedResponce DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Client.WorldChunkIsLoadedResponce();
+    }
+
+    public static Client.WorldChunkIsLoadedResponce getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<WorldChunkIsLoadedResponce>
+        PARSER = new com.google.protobuf.AbstractParser<WorldChunkIsLoadedResponce>() {
+      @java.lang.Override
+      public WorldChunkIsLoadedResponce parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WorldChunkIsLoadedResponce(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<WorldChunkIsLoadedResponce> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WorldChunkIsLoadedResponce> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Client.WorldChunkIsLoadedResponce getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PluginMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:PluginMessage)
       com.google.protobuf.MessageOrBuilder {
@@ -10789,6 +12329,11 @@ public final class Client {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ActionInventoryClick_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ActionInventoryPick_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ActionInventoryPick_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ActionInventoryOpen_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10813,6 +12358,11 @@ public final class Client {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ActionKeyPress_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_WorldChunkIsLoadedResponce_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_WorldChunkIsLoadedResponce_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PluginMessage_descriptor;
   private static final 
@@ -10840,18 +12390,26 @@ public final class Client {
       "\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002x2\030\004 \001(\021\022\n\n\002y2" +
       "\030\005 \001(\021\022\n\n\002z2\030\006 \001(\021\"E\n\020ActionBlockBreak\022\t" +
       "\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\020\n\010finis" +
-      "hed\030\004 \001(\010\"T\n\024ActionInventoryClick\022\014\n\004slo" +
-      "t\030\001 \001(\021\022\014\n\004type\030\002 \001(\t\022\021\n\tinventory\030\003 \001(\t" +
-      "\022\r\n\005slot2\030\004 \001(\021\"(\n\023ActionInventoryOpen\022\021" +
-      "\n\tinventory\030\001 \001(\t\")\n\024ActionInventoryClos" +
-      "e\022\021\n\tinventory\030\001 \001(\t\"N\n\013ActionClick\022\t\n\001x" +
-      "\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001" +
-      "(\t\022\020\n\010on_block\030\005 \001(\010\"A\n\021ActionClickEntit" +
-      "y\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\020\n\010distanc" +
-      "e\030\003 \001(\002\"+\n\016ActionKeyPress\022\013\n\003key\030\001 \001(\t\022\014" +
-      "\n\004type\030\002 \001(\010\"<\n\rPluginMessage\022\013\n\003key\030\001 \001" +
-      "(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006prot" +
-      "o3"
+      "hed\030\004 \001(\010\"\212\001\n\024ActionInventoryClick\022\014\n\004sl" +
+      "ot\030\001 \001(\021\022(\n\004type\030\002 \001(\0162\032.ActionInventory" +
+      "Click.Type\022\021\n\tinventory\030\003 \001(\t\"\'\n\004Type\022\010\n" +
+      "\004LEFT\020\000\022\t\n\005RIGHT\020\001\022\n\n\006MIDDLE\020\002\"A\n\023Action" +
+      "InventoryPick\022\014\n\004slot\030\001 \001(\021\022\r\n\005slot2\030\002 \001" +
+      "(\021\022\r\n\005block\030\003 \001(\021\"{\n\023ActionInventoryOpen" +
+      "\022,\n\tinventory\030\001 \001(\0162\031.ActionInventoryOpe" +
+      "n.Type\"6\n\004Type\022\010\n\004MAIN\020\000\022\t\n\005CHEST\020\001\022\014\n\010C" +
+      "RAFTING\020\002\022\013\n\007FURNACE\020\003\"a\n\024ActionInventor" +
+      "yClose\022\021\n\tinventory\030\001 \001(\t\"6\n\004Type\022\010\n\004MAI" +
+      "N\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007FURNACE\020" +
+      "\003\"N\n\013ActionClick\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t" +
+      "\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001(\t\022\020\n\010on_block\030\005 \001(" +
+      "\010\"A\n\021ActionClickEntity\022\014\n\004uuid\030\001 \001(\t\022\014\n\004" +
+      "type\030\002 \001(\t\022\020\n\010distance\030\003 \001(\002\"+\n\016ActionKe" +
+      "yPress\022\013\n\003key\030\001 \001(\t\022\014\n\004type\030\002 \001(\010\"M\n\032Wor" +
+      "ldChunkIsLoadedResponce\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030" +
+      "\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006loaded\030\004 \001(\010\"<\n\rPlug" +
+      "inMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022" +
+      "\r\n\005value\030\003 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10910,39 +12468,51 @@ public final class Client {
     internal_static_ActionInventoryClick_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionInventoryClick_descriptor,
-        new java.lang.String[] { "Slot", "Type", "Inventory", "Slot2", });
-    internal_static_ActionInventoryOpen_descriptor =
+        new java.lang.String[] { "Slot", "Type", "Inventory", });
+    internal_static_ActionInventoryPick_descriptor =
       getDescriptor().getMessageTypes().get(9);
+    internal_static_ActionInventoryPick_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ActionInventoryPick_descriptor,
+        new java.lang.String[] { "Slot", "Slot2", "Block", });
+    internal_static_ActionInventoryOpen_descriptor =
+      getDescriptor().getMessageTypes().get(10);
     internal_static_ActionInventoryOpen_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionInventoryOpen_descriptor,
         new java.lang.String[] { "Inventory", });
     internal_static_ActionInventoryClose_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_ActionInventoryClose_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionInventoryClose_descriptor,
         new java.lang.String[] { "Inventory", });
     internal_static_ActionClick_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_ActionClick_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionClick_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Type", "OnBlock", });
     internal_static_ActionClickEntity_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_ActionClickEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionClickEntity_descriptor,
         new java.lang.String[] { "Uuid", "Type", "Distance", });
     internal_static_ActionKeyPress_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_ActionKeyPress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionKeyPress_descriptor,
         new java.lang.String[] { "Key", "Type", });
+    internal_static_WorldChunkIsLoadedResponce_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_WorldChunkIsLoadedResponce_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_WorldChunkIsLoadedResponce_descriptor,
+        new java.lang.String[] { "X", "Y", "Z", "Loaded", });
     internal_static_PluginMessage_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_PluginMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PluginMessage_descriptor,

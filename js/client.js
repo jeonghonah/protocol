@@ -1979,9 +1979,8 @@
          * @exports IActionInventoryClick
          * @interface IActionInventoryClick
          * @property {number|null} [slot] ActionInventoryClick slot
-         * @property {string|null} [type] ActionInventoryClick type
+         * @property {ActionInventoryClick.Type|null} [type] ActionInventoryClick type
          * @property {string|null} [inventory] ActionInventoryClick inventory
-         * @property {number|null} [slot2] ActionInventoryClick slot2
          */
     
         /**
@@ -2009,11 +2008,11 @@
     
         /**
          * ActionInventoryClick type.
-         * @member {string} type
+         * @member {ActionInventoryClick.Type} type
          * @memberof ActionInventoryClick
          * @instance
          */
-        ActionInventoryClick.prototype.type = "";
+        ActionInventoryClick.prototype.type = 0;
     
         /**
          * ActionInventoryClick inventory.
@@ -2022,14 +2021,6 @@
          * @instance
          */
         ActionInventoryClick.prototype.inventory = "";
-    
-        /**
-         * ActionInventoryClick slot2.
-         * @member {number} slot2
-         * @memberof ActionInventoryClick
-         * @instance
-         */
-        ActionInventoryClick.prototype.slot2 = 0;
     
         /**
          * Creates a new ActionInventoryClick instance using the specified properties.
@@ -2058,11 +2049,9 @@
             if (message.slot != null && Object.hasOwnProperty.call(message, "slot"))
                 writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.slot);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.inventory);
-            if (message.slot2 != null && Object.hasOwnProperty.call(message, "slot2"))
-                writer.uint32(/* id 4, wireType 0 =*/32).sint32(message.slot2);
             return writer;
         };
     
@@ -2101,13 +2090,10 @@
                     message.slot = reader.sint32();
                     break;
                 case 2:
-                    message.type = reader.string();
+                    message.type = reader.int32();
                     break;
                 case 3:
                     message.inventory = reader.string();
-                    break;
-                case 4:
-                    message.slot2 = reader.sint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2148,14 +2134,17 @@
                 if (!$util.isInteger(message.slot))
                     return "slot: integer expected";
             if (message.type != null && message.hasOwnProperty("type"))
-                if (!$util.isString(message.type))
-                    return "type: string expected";
+                switch (message.type) {
+                default:
+                    return "type: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                    break;
+                }
             if (message.inventory != null && message.hasOwnProperty("inventory"))
                 if (!$util.isString(message.inventory))
                     return "inventory: string expected";
-            if (message.slot2 != null && message.hasOwnProperty("slot2"))
-                if (!$util.isInteger(message.slot2))
-                    return "slot2: integer expected";
             return null;
         };
     
@@ -2173,12 +2162,22 @@
             var message = new $root.ActionInventoryClick();
             if (object.slot != null)
                 message.slot = object.slot | 0;
-            if (object.type != null)
-                message.type = String(object.type);
+            switch (object.type) {
+            case "LEFT":
+            case 0:
+                message.type = 0;
+                break;
+            case "RIGHT":
+            case 1:
+                message.type = 1;
+                break;
+            case "MIDDLE":
+            case 2:
+                message.type = 2;
+                break;
+            }
             if (object.inventory != null)
                 message.inventory = String(object.inventory);
-            if (object.slot2 != null)
-                message.slot2 = object.slot2 | 0;
             return message;
         };
     
@@ -2197,18 +2196,15 @@
             var object = {};
             if (options.defaults) {
                 object.slot = 0;
-                object.type = "";
+                object.type = options.enums === String ? "LEFT" : 0;
                 object.inventory = "";
-                object.slot2 = 0;
             }
             if (message.slot != null && message.hasOwnProperty("slot"))
                 object.slot = message.slot;
             if (message.type != null && message.hasOwnProperty("type"))
-                object.type = message.type;
+                object.type = options.enums === String ? $root.ActionInventoryClick.Type[message.type] : message.type;
             if (message.inventory != null && message.hasOwnProperty("inventory"))
                 object.inventory = message.inventory;
-            if (message.slot2 != null && message.hasOwnProperty("slot2"))
-                object.slot2 = message.slot2;
             return object;
         };
     
@@ -2223,7 +2219,255 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
+        /**
+         * Type enum.
+         * @name ActionInventoryClick.Type
+         * @enum {number}
+         * @property {number} LEFT=0 LEFT value
+         * @property {number} RIGHT=1 RIGHT value
+         * @property {number} MIDDLE=2 MIDDLE value
+         */
+        ActionInventoryClick.Type = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "LEFT"] = 0;
+            values[valuesById[1] = "RIGHT"] = 1;
+            values[valuesById[2] = "MIDDLE"] = 2;
+            return values;
+        })();
+    
         return ActionInventoryClick;
+    })();
+    
+    $root.ActionInventoryPick = (function() {
+    
+        /**
+         * Properties of an ActionInventoryPick.
+         * @exports IActionInventoryPick
+         * @interface IActionInventoryPick
+         * @property {number|null} [slot] ActionInventoryPick slot
+         * @property {number|null} [slot2] ActionInventoryPick slot2
+         * @property {number|null} [block] ActionInventoryPick block
+         */
+    
+        /**
+         * Constructs a new ActionInventoryPick.
+         * @exports ActionInventoryPick
+         * @classdesc Represents an ActionInventoryPick.
+         * @implements IActionInventoryPick
+         * @constructor
+         * @param {IActionInventoryPick=} [properties] Properties to set
+         */
+        function ActionInventoryPick(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * ActionInventoryPick slot.
+         * @member {number} slot
+         * @memberof ActionInventoryPick
+         * @instance
+         */
+        ActionInventoryPick.prototype.slot = 0;
+    
+        /**
+         * ActionInventoryPick slot2.
+         * @member {number} slot2
+         * @memberof ActionInventoryPick
+         * @instance
+         */
+        ActionInventoryPick.prototype.slot2 = 0;
+    
+        /**
+         * ActionInventoryPick block.
+         * @member {number} block
+         * @memberof ActionInventoryPick
+         * @instance
+         */
+        ActionInventoryPick.prototype.block = 0;
+    
+        /**
+         * Creates a new ActionInventoryPick instance using the specified properties.
+         * @function create
+         * @memberof ActionInventoryPick
+         * @static
+         * @param {IActionInventoryPick=} [properties] Properties to set
+         * @returns {ActionInventoryPick} ActionInventoryPick instance
+         */
+        ActionInventoryPick.create = function create(properties) {
+            return new ActionInventoryPick(properties);
+        };
+    
+        /**
+         * Encodes the specified ActionInventoryPick message. Does not implicitly {@link ActionInventoryPick.verify|verify} messages.
+         * @function encode
+         * @memberof ActionInventoryPick
+         * @static
+         * @param {IActionInventoryPick} message ActionInventoryPick message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionInventoryPick.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.slot != null && Object.hasOwnProperty.call(message, "slot"))
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.slot);
+            if (message.slot2 != null && Object.hasOwnProperty.call(message, "slot2"))
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.slot2);
+            if (message.block != null && Object.hasOwnProperty.call(message, "block"))
+                writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.block);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified ActionInventoryPick message, length delimited. Does not implicitly {@link ActionInventoryPick.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ActionInventoryPick
+         * @static
+         * @param {IActionInventoryPick} message ActionInventoryPick message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionInventoryPick.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an ActionInventoryPick message from the specified reader or buffer.
+         * @function decode
+         * @memberof ActionInventoryPick
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ActionInventoryPick} ActionInventoryPick
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionInventoryPick.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionInventoryPick();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.slot = reader.sint32();
+                    break;
+                case 2:
+                    message.slot2 = reader.sint32();
+                    break;
+                case 3:
+                    message.block = reader.sint32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an ActionInventoryPick message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ActionInventoryPick
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ActionInventoryPick} ActionInventoryPick
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionInventoryPick.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an ActionInventoryPick message.
+         * @function verify
+         * @memberof ActionInventoryPick
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ActionInventoryPick.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.slot != null && message.hasOwnProperty("slot"))
+                if (!$util.isInteger(message.slot))
+                    return "slot: integer expected";
+            if (message.slot2 != null && message.hasOwnProperty("slot2"))
+                if (!$util.isInteger(message.slot2))
+                    return "slot2: integer expected";
+            if (message.block != null && message.hasOwnProperty("block"))
+                if (!$util.isInteger(message.block))
+                    return "block: integer expected";
+            return null;
+        };
+    
+        /**
+         * Creates an ActionInventoryPick message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ActionInventoryPick
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ActionInventoryPick} ActionInventoryPick
+         */
+        ActionInventoryPick.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionInventoryPick)
+                return object;
+            var message = new $root.ActionInventoryPick();
+            if (object.slot != null)
+                message.slot = object.slot | 0;
+            if (object.slot2 != null)
+                message.slot2 = object.slot2 | 0;
+            if (object.block != null)
+                message.block = object.block | 0;
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an ActionInventoryPick message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ActionInventoryPick
+         * @static
+         * @param {ActionInventoryPick} message ActionInventoryPick
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ActionInventoryPick.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.slot = 0;
+                object.slot2 = 0;
+                object.block = 0;
+            }
+            if (message.slot != null && message.hasOwnProperty("slot"))
+                object.slot = message.slot;
+            if (message.slot2 != null && message.hasOwnProperty("slot2"))
+                object.slot2 = message.slot2;
+            if (message.block != null && message.hasOwnProperty("block"))
+                object.block = message.block;
+            return object;
+        };
+    
+        /**
+         * Converts this ActionInventoryPick to JSON.
+         * @function toJSON
+         * @memberof ActionInventoryPick
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ActionInventoryPick.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return ActionInventoryPick;
     })();
     
     $root.ActionInventoryOpen = (function() {
@@ -2232,7 +2476,7 @@
          * Properties of an ActionInventoryOpen.
          * @exports IActionInventoryOpen
          * @interface IActionInventoryOpen
-         * @property {string|null} [inventory] ActionInventoryOpen inventory
+         * @property {ActionInventoryOpen.Type|null} [inventory] ActionInventoryOpen inventory
          */
     
         /**
@@ -2252,11 +2496,11 @@
     
         /**
          * ActionInventoryOpen inventory.
-         * @member {string} inventory
+         * @member {ActionInventoryOpen.Type} inventory
          * @memberof ActionInventoryOpen
          * @instance
          */
-        ActionInventoryOpen.prototype.inventory = "";
+        ActionInventoryOpen.prototype.inventory = 0;
     
         /**
          * Creates a new ActionInventoryOpen instance using the specified properties.
@@ -2283,7 +2527,7 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.inventory);
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.inventory);
             return writer;
         };
     
@@ -2319,7 +2563,7 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.inventory = reader.string();
+                    message.inventory = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2357,8 +2601,15 @@
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.inventory != null && message.hasOwnProperty("inventory"))
-                if (!$util.isString(message.inventory))
-                    return "inventory: string expected";
+                switch (message.inventory) {
+                default:
+                    return "inventory: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
             return null;
         };
     
@@ -2374,8 +2625,24 @@
             if (object instanceof $root.ActionInventoryOpen)
                 return object;
             var message = new $root.ActionInventoryOpen();
-            if (object.inventory != null)
-                message.inventory = String(object.inventory);
+            switch (object.inventory) {
+            case "MAIN":
+            case 0:
+                message.inventory = 0;
+                break;
+            case "CHEST":
+            case 1:
+                message.inventory = 1;
+                break;
+            case "CRAFTING":
+            case 2:
+                message.inventory = 2;
+                break;
+            case "FURNACE":
+            case 3:
+                message.inventory = 3;
+                break;
+            }
             return message;
         };
     
@@ -2393,9 +2660,9 @@
                 options = {};
             var object = {};
             if (options.defaults)
-                object.inventory = "";
+                object.inventory = options.enums === String ? "MAIN" : 0;
             if (message.inventory != null && message.hasOwnProperty("inventory"))
-                object.inventory = message.inventory;
+                object.inventory = options.enums === String ? $root.ActionInventoryOpen.Type[message.inventory] : message.inventory;
             return object;
         };
     
@@ -2409,6 +2676,24 @@
         ActionInventoryOpen.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
+    
+        /**
+         * Type enum.
+         * @name ActionInventoryOpen.Type
+         * @enum {number}
+         * @property {number} MAIN=0 MAIN value
+         * @property {number} CHEST=1 CHEST value
+         * @property {number} CRAFTING=2 CRAFTING value
+         * @property {number} FURNACE=3 FURNACE value
+         */
+        ActionInventoryOpen.Type = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "MAIN"] = 0;
+            values[valuesById[1] = "CHEST"] = 1;
+            values[valuesById[2] = "CRAFTING"] = 2;
+            values[valuesById[3] = "FURNACE"] = 3;
+            return values;
+        })();
     
         return ActionInventoryOpen;
     })();
@@ -2596,6 +2881,24 @@
         ActionInventoryClose.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
+    
+        /**
+         * Type enum.
+         * @name ActionInventoryClose.Type
+         * @enum {number}
+         * @property {number} MAIN=0 MAIN value
+         * @property {number} CHEST=1 CHEST value
+         * @property {number} CRAFTING=2 CRAFTING value
+         * @property {number} FURNACE=3 FURNACE value
+         */
+        ActionInventoryClose.Type = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "MAIN"] = 0;
+            values[valuesById[1] = "CHEST"] = 1;
+            values[valuesById[2] = "CRAFTING"] = 2;
+            values[valuesById[3] = "FURNACE"] = 3;
+            return values;
+        })();
     
         return ActionInventoryClose;
     })();
@@ -3316,6 +3619,260 @@
         };
     
         return ActionKeyPress;
+    })();
+    
+    $root.WorldChunkIsLoadedResponce = (function() {
+    
+        /**
+         * Properties of a WorldChunkIsLoadedResponce.
+         * @exports IWorldChunkIsLoadedResponce
+         * @interface IWorldChunkIsLoadedResponce
+         * @property {number|null} [x] WorldChunkIsLoadedResponce x
+         * @property {number|null} [y] WorldChunkIsLoadedResponce y
+         * @property {number|null} [z] WorldChunkIsLoadedResponce z
+         * @property {boolean|null} [loaded] WorldChunkIsLoadedResponce loaded
+         */
+    
+        /**
+         * Constructs a new WorldChunkIsLoadedResponce.
+         * @exports WorldChunkIsLoadedResponce
+         * @classdesc Represents a WorldChunkIsLoadedResponce.
+         * @implements IWorldChunkIsLoadedResponce
+         * @constructor
+         * @param {IWorldChunkIsLoadedResponce=} [properties] Properties to set
+         */
+        function WorldChunkIsLoadedResponce(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * WorldChunkIsLoadedResponce x.
+         * @member {number} x
+         * @memberof WorldChunkIsLoadedResponce
+         * @instance
+         */
+        WorldChunkIsLoadedResponce.prototype.x = 0;
+    
+        /**
+         * WorldChunkIsLoadedResponce y.
+         * @member {number} y
+         * @memberof WorldChunkIsLoadedResponce
+         * @instance
+         */
+        WorldChunkIsLoadedResponce.prototype.y = 0;
+    
+        /**
+         * WorldChunkIsLoadedResponce z.
+         * @member {number} z
+         * @memberof WorldChunkIsLoadedResponce
+         * @instance
+         */
+        WorldChunkIsLoadedResponce.prototype.z = 0;
+    
+        /**
+         * WorldChunkIsLoadedResponce loaded.
+         * @member {boolean} loaded
+         * @memberof WorldChunkIsLoadedResponce
+         * @instance
+         */
+        WorldChunkIsLoadedResponce.prototype.loaded = false;
+    
+        /**
+         * Creates a new WorldChunkIsLoadedResponce instance using the specified properties.
+         * @function create
+         * @memberof WorldChunkIsLoadedResponce
+         * @static
+         * @param {IWorldChunkIsLoadedResponce=} [properties] Properties to set
+         * @returns {WorldChunkIsLoadedResponce} WorldChunkIsLoadedResponce instance
+         */
+        WorldChunkIsLoadedResponce.create = function create(properties) {
+            return new WorldChunkIsLoadedResponce(properties);
+        };
+    
+        /**
+         * Encodes the specified WorldChunkIsLoadedResponce message. Does not implicitly {@link WorldChunkIsLoadedResponce.verify|verify} messages.
+         * @function encode
+         * @memberof WorldChunkIsLoadedResponce
+         * @static
+         * @param {IWorldChunkIsLoadedResponce} message WorldChunkIsLoadedResponce message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        WorldChunkIsLoadedResponce.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.x != null && Object.hasOwnProperty.call(message, "x"))
+                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.x);
+            if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
+            if (message.z != null && Object.hasOwnProperty.call(message, "z"))
+                writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
+            if (message.loaded != null && Object.hasOwnProperty.call(message, "loaded"))
+                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.loaded);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified WorldChunkIsLoadedResponce message, length delimited. Does not implicitly {@link WorldChunkIsLoadedResponce.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof WorldChunkIsLoadedResponce
+         * @static
+         * @param {IWorldChunkIsLoadedResponce} message WorldChunkIsLoadedResponce message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        WorldChunkIsLoadedResponce.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a WorldChunkIsLoadedResponce message from the specified reader or buffer.
+         * @function decode
+         * @memberof WorldChunkIsLoadedResponce
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {WorldChunkIsLoadedResponce} WorldChunkIsLoadedResponce
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        WorldChunkIsLoadedResponce.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.WorldChunkIsLoadedResponce();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.x = reader.sint32();
+                    break;
+                case 2:
+                    message.y = reader.sint32();
+                    break;
+                case 3:
+                    message.z = reader.sint32();
+                    break;
+                case 4:
+                    message.loaded = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a WorldChunkIsLoadedResponce message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof WorldChunkIsLoadedResponce
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {WorldChunkIsLoadedResponce} WorldChunkIsLoadedResponce
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        WorldChunkIsLoadedResponce.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a WorldChunkIsLoadedResponce message.
+         * @function verify
+         * @memberof WorldChunkIsLoadedResponce
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        WorldChunkIsLoadedResponce.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.x != null && message.hasOwnProperty("x"))
+                if (!$util.isInteger(message.x))
+                    return "x: integer expected";
+            if (message.y != null && message.hasOwnProperty("y"))
+                if (!$util.isInteger(message.y))
+                    return "y: integer expected";
+            if (message.z != null && message.hasOwnProperty("z"))
+                if (!$util.isInteger(message.z))
+                    return "z: integer expected";
+            if (message.loaded != null && message.hasOwnProperty("loaded"))
+                if (typeof message.loaded !== "boolean")
+                    return "loaded: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates a WorldChunkIsLoadedResponce message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof WorldChunkIsLoadedResponce
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {WorldChunkIsLoadedResponce} WorldChunkIsLoadedResponce
+         */
+        WorldChunkIsLoadedResponce.fromObject = function fromObject(object) {
+            if (object instanceof $root.WorldChunkIsLoadedResponce)
+                return object;
+            var message = new $root.WorldChunkIsLoadedResponce();
+            if (object.x != null)
+                message.x = object.x | 0;
+            if (object.y != null)
+                message.y = object.y | 0;
+            if (object.z != null)
+                message.z = object.z | 0;
+            if (object.loaded != null)
+                message.loaded = Boolean(object.loaded);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a WorldChunkIsLoadedResponce message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof WorldChunkIsLoadedResponce
+         * @static
+         * @param {WorldChunkIsLoadedResponce} message WorldChunkIsLoadedResponce
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        WorldChunkIsLoadedResponce.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.x = 0;
+                object.y = 0;
+                object.z = 0;
+                object.loaded = false;
+            }
+            if (message.x != null && message.hasOwnProperty("x"))
+                object.x = message.x;
+            if (message.y != null && message.hasOwnProperty("y"))
+                object.y = message.y;
+            if (message.z != null && message.hasOwnProperty("z"))
+                object.z = message.z;
+            if (message.loaded != null && message.hasOwnProperty("loaded"))
+                object.loaded = message.loaded;
+            return object;
+        };
+    
+        /**
+         * Converts this WorldChunkIsLoadedResponce to JSON.
+         * @function toJSON
+         * @memberof WorldChunkIsLoadedResponce
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        WorldChunkIsLoadedResponce.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return WorldChunkIsLoadedResponce;
     })();
     
     $root.PluginMessage = (function() {

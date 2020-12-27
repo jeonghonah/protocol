@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-
 /* 
  * LoginRequest is send to player after connection.
 */
@@ -143,12 +142,27 @@ message PlayerHealth {
 }
 
 /* 
- * PlayerOpenInventory opens inventory to player.
+ * PlayerSetBlockReach sets maximum distance client can click blocks
+*/
+
+message PlayerSetBlockReach {
+	float value = 1;
+}
+
+/* 
+ * PlayerOpenInventory opens inventory to player. If type is MAIN, data and name is ignored.
 */
 
 message PlayerOpenInventory {
-	string name = 1;
-	string type = 2;
+	enum Type {
+		MAIN = 0;
+		CHEST = 1;
+		CRAFTING = 2;
+		FURNACE = 3;
+	}
+
+	Type type = 1;
+	string name = 2;
 	string data = 3;
 }
 
@@ -183,11 +197,14 @@ message ChatMessage {
 	uint64 time = 2;
 }
 
-/* 
- * TabUpdate updates tab...
-*/
+message UpdateTextBoard {
+	enum Type {
+		TAB = 0;
+		SIDE = 1;
+		CENTER = 2;
+		HOTBAR = 3;
+	}
 
-message TabUpdate {
 	message ChatComponent {
 		string text = 1;
 		string font = 2;
@@ -196,8 +213,9 @@ message TabUpdate {
 		bool underline = 5;
 	}
 
-	map<uint32, ChatComponent> message = 1;
-	uint64 time = 2;
+	Type type = 1;
+	map<uint32, ChatComponent> message = 2;
+	uint64 time = 3;
 }
 
 /* 
@@ -324,6 +342,25 @@ message WorldChunkUnload {
 }
 
 /* 
+ * WorldChunkIsLoaded can be send to check if selected chunk is loaded in client
+*/
+
+message WorldChunkIsLoaded {
+	sint32 x = 1;
+	sint32 y = 2;
+	sint32 z = 3;
+}
+
+/* 
+ * WorldChunksRemoveAll removes/unloads all chunks.
+*/
+
+message WorldChunksRemoveAll {
+	bool confirm = 1;
+}
+
+
+/* 
  * RegistryUpdate updates client-side registry
  * Warning! It can create bugs!
 */
@@ -333,24 +370,13 @@ message RegistryUpdate {
 	string blocks_def = 2;
 }
 
-/*
- * Updates some gameplay settings of client
-*/
-
-
-message GameplaySettingUpdate {
-	string key = 1;
-	string value = 2;
-}
-
 
 /*
  * Updates settings of fog
 */
 
-
 message EnvironmentFogUpdate {
-	int32 mode = 1;
+	uint32 mode = 1;
 	float density = 2;
 	float start = 3;
 	float end = 4;
@@ -369,7 +395,6 @@ message EnvironmentSkyUpdate {
 	float color_green = 3;
 	float color_blue = 4;
 }
-
 
 
 /*

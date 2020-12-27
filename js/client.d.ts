@@ -846,13 +846,10 @@ export interface IActionInventoryClick {
     slot?: (number|null);
 
     /** ActionInventoryClick type */
-    type?: (string|null);
+    type?: (ActionInventoryClick.Type|null);
 
     /** ActionInventoryClick inventory */
     inventory?: (string|null);
-
-    /** ActionInventoryClick slot2 */
-    slot2?: (number|null);
 }
 
 /** Represents an ActionInventoryClick. */
@@ -868,13 +865,10 @@ export class ActionInventoryClick implements IActionInventoryClick {
     public slot: number;
 
     /** ActionInventoryClick type. */
-    public type: string;
+    public type: ActionInventoryClick.Type;
 
     /** ActionInventoryClick inventory. */
     public inventory: string;
-
-    /** ActionInventoryClick slot2. */
-    public slot2: number;
 
     /**
      * Creates a new ActionInventoryClick instance using the specified properties.
@@ -947,11 +941,123 @@ export class ActionInventoryClick implements IActionInventoryClick {
     public toJSON(): { [k: string]: any };
 }
 
+export namespace ActionInventoryClick {
+
+    /** Type enum. */
+    enum Type {
+        LEFT = 0,
+        RIGHT = 1,
+        MIDDLE = 2
+    }
+}
+
+/** Properties of an ActionInventoryPick. */
+export interface IActionInventoryPick {
+
+    /** ActionInventoryPick slot */
+    slot?: (number|null);
+
+    /** ActionInventoryPick slot2 */
+    slot2?: (number|null);
+
+    /** ActionInventoryPick block */
+    block?: (number|null);
+}
+
+/** Represents an ActionInventoryPick. */
+export class ActionInventoryPick implements IActionInventoryPick {
+
+    /**
+     * Constructs a new ActionInventoryPick.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IActionInventoryPick);
+
+    /** ActionInventoryPick slot. */
+    public slot: number;
+
+    /** ActionInventoryPick slot2. */
+    public slot2: number;
+
+    /** ActionInventoryPick block. */
+    public block: number;
+
+    /**
+     * Creates a new ActionInventoryPick instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ActionInventoryPick instance
+     */
+    public static create(properties?: IActionInventoryPick): ActionInventoryPick;
+
+    /**
+     * Encodes the specified ActionInventoryPick message. Does not implicitly {@link ActionInventoryPick.verify|verify} messages.
+     * @param message ActionInventoryPick message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IActionInventoryPick, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ActionInventoryPick message, length delimited. Does not implicitly {@link ActionInventoryPick.verify|verify} messages.
+     * @param message ActionInventoryPick message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IActionInventoryPick, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an ActionInventoryPick message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ActionInventoryPick
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionInventoryPick;
+
+    /**
+     * Decodes an ActionInventoryPick message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ActionInventoryPick
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionInventoryPick;
+
+    /**
+     * Verifies an ActionInventoryPick message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an ActionInventoryPick message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ActionInventoryPick
+     */
+    public static fromObject(object: { [k: string]: any }): ActionInventoryPick;
+
+    /**
+     * Creates a plain object from an ActionInventoryPick message. Also converts values to other types if specified.
+     * @param message ActionInventoryPick
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ActionInventoryPick, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ActionInventoryPick to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of an ActionInventoryOpen. */
 export interface IActionInventoryOpen {
 
     /** ActionInventoryOpen inventory */
-    inventory?: (string|null);
+    inventory?: (ActionInventoryOpen.Type|null);
 }
 
 /** Represents an ActionInventoryOpen. */
@@ -964,7 +1070,7 @@ export class ActionInventoryOpen implements IActionInventoryOpen {
     constructor(properties?: IActionInventoryOpen);
 
     /** ActionInventoryOpen inventory. */
-    public inventory: string;
+    public inventory: ActionInventoryOpen.Type;
 
     /**
      * Creates a new ActionInventoryOpen instance using the specified properties.
@@ -1035,6 +1141,17 @@ export class ActionInventoryOpen implements IActionInventoryOpen {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+}
+
+export namespace ActionInventoryOpen {
+
+    /** Type enum. */
+    enum Type {
+        MAIN = 0,
+        CHEST = 1,
+        CRAFTING = 2,
+        FURNACE = 3
+    }
 }
 
 /** Properties of an ActionInventoryClose. */
@@ -1125,6 +1242,17 @@ export class ActionInventoryClose implements IActionInventoryClose {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+}
+
+export namespace ActionInventoryClose {
+
+    /** Type enum. */
+    enum Type {
+        MAIN = 0,
+        CHEST = 1,
+        CRAFTING = 2,
+        FURNACE = 3
+    }
 }
 
 /** Properties of an ActionClick. */
@@ -1434,6 +1562,114 @@ export class ActionKeyPress implements IActionKeyPress {
 
     /**
      * Converts this ActionKeyPress to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a WorldChunkIsLoadedResponce. */
+export interface IWorldChunkIsLoadedResponce {
+
+    /** WorldChunkIsLoadedResponce x */
+    x?: (number|null);
+
+    /** WorldChunkIsLoadedResponce y */
+    y?: (number|null);
+
+    /** WorldChunkIsLoadedResponce z */
+    z?: (number|null);
+
+    /** WorldChunkIsLoadedResponce loaded */
+    loaded?: (boolean|null);
+}
+
+/** Represents a WorldChunkIsLoadedResponce. */
+export class WorldChunkIsLoadedResponce implements IWorldChunkIsLoadedResponce {
+
+    /**
+     * Constructs a new WorldChunkIsLoadedResponce.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IWorldChunkIsLoadedResponce);
+
+    /** WorldChunkIsLoadedResponce x. */
+    public x: number;
+
+    /** WorldChunkIsLoadedResponce y. */
+    public y: number;
+
+    /** WorldChunkIsLoadedResponce z. */
+    public z: number;
+
+    /** WorldChunkIsLoadedResponce loaded. */
+    public loaded: boolean;
+
+    /**
+     * Creates a new WorldChunkIsLoadedResponce instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns WorldChunkIsLoadedResponce instance
+     */
+    public static create(properties?: IWorldChunkIsLoadedResponce): WorldChunkIsLoadedResponce;
+
+    /**
+     * Encodes the specified WorldChunkIsLoadedResponce message. Does not implicitly {@link WorldChunkIsLoadedResponce.verify|verify} messages.
+     * @param message WorldChunkIsLoadedResponce message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IWorldChunkIsLoadedResponce, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified WorldChunkIsLoadedResponce message, length delimited. Does not implicitly {@link WorldChunkIsLoadedResponce.verify|verify} messages.
+     * @param message WorldChunkIsLoadedResponce message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IWorldChunkIsLoadedResponce, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a WorldChunkIsLoadedResponce message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns WorldChunkIsLoadedResponce
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): WorldChunkIsLoadedResponce;
+
+    /**
+     * Decodes a WorldChunkIsLoadedResponce message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns WorldChunkIsLoadedResponce
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): WorldChunkIsLoadedResponce;
+
+    /**
+     * Verifies a WorldChunkIsLoadedResponce message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a WorldChunkIsLoadedResponce message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns WorldChunkIsLoadedResponce
+     */
+    public static fromObject(object: { [k: string]: any }): WorldChunkIsLoadedResponce;
+
+    /**
+     * Creates a plain object from a WorldChunkIsLoadedResponce message. Also converts values to other types if specified.
+     * @param message WorldChunkIsLoadedResponce
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: WorldChunkIsLoadedResponce, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this WorldChunkIsLoadedResponce to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

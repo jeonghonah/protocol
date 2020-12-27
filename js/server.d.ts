@@ -1337,14 +1337,104 @@ export class PlayerHealth implements IPlayerHealth {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a PlayerSetBlockReach. */
+export interface IPlayerSetBlockReach {
+
+    /** PlayerSetBlockReach value */
+    value?: (number|null);
+}
+
+/** Represents a PlayerSetBlockReach. */
+export class PlayerSetBlockReach implements IPlayerSetBlockReach {
+
+    /**
+     * Constructs a new PlayerSetBlockReach.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerSetBlockReach);
+
+    /** PlayerSetBlockReach value. */
+    public value: number;
+
+    /**
+     * Creates a new PlayerSetBlockReach instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerSetBlockReach instance
+     */
+    public static create(properties?: IPlayerSetBlockReach): PlayerSetBlockReach;
+
+    /**
+     * Encodes the specified PlayerSetBlockReach message. Does not implicitly {@link PlayerSetBlockReach.verify|verify} messages.
+     * @param message PlayerSetBlockReach message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerSetBlockReach, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerSetBlockReach message, length delimited. Does not implicitly {@link PlayerSetBlockReach.verify|verify} messages.
+     * @param message PlayerSetBlockReach message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerSetBlockReach, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerSetBlockReach message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerSetBlockReach
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerSetBlockReach;
+
+    /**
+     * Decodes a PlayerSetBlockReach message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerSetBlockReach
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerSetBlockReach;
+
+    /**
+     * Verifies a PlayerSetBlockReach message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerSetBlockReach message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerSetBlockReach
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerSetBlockReach;
+
+    /**
+     * Creates a plain object from a PlayerSetBlockReach message. Also converts values to other types if specified.
+     * @param message PlayerSetBlockReach
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerSetBlockReach, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerSetBlockReach to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PlayerOpenInventory. */
 export interface IPlayerOpenInventory {
 
+    /** PlayerOpenInventory type */
+    type?: (PlayerOpenInventory.Type|null);
+
     /** PlayerOpenInventory name */
     name?: (string|null);
-
-    /** PlayerOpenInventory type */
-    type?: (string|null);
 
     /** PlayerOpenInventory data */
     data?: (string|null);
@@ -1359,11 +1449,11 @@ export class PlayerOpenInventory implements IPlayerOpenInventory {
      */
     constructor(properties?: IPlayerOpenInventory);
 
+    /** PlayerOpenInventory type. */
+    public type: PlayerOpenInventory.Type;
+
     /** PlayerOpenInventory name. */
     public name: string;
-
-    /** PlayerOpenInventory type. */
-    public type: string;
 
     /** PlayerOpenInventory data. */
     public data: string;
@@ -1437,6 +1527,17 @@ export class PlayerOpenInventory implements IPlayerOpenInventory {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+}
+
+export namespace PlayerOpenInventory {
+
+    /** Type enum. */
+    enum Type {
+        MAIN = 0,
+        CHEST = 1,
+        CRAFTING = 2,
+        FURNACE = 3
+    }
 }
 
 /** Properties of a SoundPlay. */
@@ -1766,103 +1867,117 @@ export namespace ChatMessage {
     }
 }
 
-/** Properties of a TabUpdate. */
-export interface ITabUpdate {
+/** Properties of an UpdateTextBoard. */
+export interface IUpdateTextBoard {
 
-    /** TabUpdate message */
-    message?: ({ [k: string]: TabUpdate.IChatComponent }|null);
+    /** UpdateTextBoard type */
+    type?: (UpdateTextBoard.Type|null);
 
-    /** TabUpdate time */
+    /** UpdateTextBoard message */
+    message?: ({ [k: string]: UpdateTextBoard.IChatComponent }|null);
+
+    /** UpdateTextBoard time */
     time?: (number|Long|null);
 }
 
-/** Represents a TabUpdate. */
-export class TabUpdate implements ITabUpdate {
+/** Represents an UpdateTextBoard. */
+export class UpdateTextBoard implements IUpdateTextBoard {
 
     /**
-     * Constructs a new TabUpdate.
+     * Constructs a new UpdateTextBoard.
      * @param [properties] Properties to set
      */
-    constructor(properties?: ITabUpdate);
+    constructor(properties?: IUpdateTextBoard);
 
-    /** TabUpdate message. */
-    public message: { [k: string]: TabUpdate.IChatComponent };
+    /** UpdateTextBoard type. */
+    public type: UpdateTextBoard.Type;
 
-    /** TabUpdate time. */
+    /** UpdateTextBoard message. */
+    public message: { [k: string]: UpdateTextBoard.IChatComponent };
+
+    /** UpdateTextBoard time. */
     public time: (number|Long);
 
     /**
-     * Creates a new TabUpdate instance using the specified properties.
+     * Creates a new UpdateTextBoard instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns TabUpdate instance
+     * @returns UpdateTextBoard instance
      */
-    public static create(properties?: ITabUpdate): TabUpdate;
+    public static create(properties?: IUpdateTextBoard): UpdateTextBoard;
 
     /**
-     * Encodes the specified TabUpdate message. Does not implicitly {@link TabUpdate.verify|verify} messages.
-     * @param message TabUpdate message or plain object to encode
+     * Encodes the specified UpdateTextBoard message. Does not implicitly {@link UpdateTextBoard.verify|verify} messages.
+     * @param message UpdateTextBoard message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: ITabUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IUpdateTextBoard, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified TabUpdate message, length delimited. Does not implicitly {@link TabUpdate.verify|verify} messages.
-     * @param message TabUpdate message or plain object to encode
+     * Encodes the specified UpdateTextBoard message, length delimited. Does not implicitly {@link UpdateTextBoard.verify|verify} messages.
+     * @param message UpdateTextBoard message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: ITabUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IUpdateTextBoard, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a TabUpdate message from the specified reader or buffer.
+     * Decodes an UpdateTextBoard message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns TabUpdate
+     * @returns UpdateTextBoard
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): TabUpdate;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UpdateTextBoard;
 
     /**
-     * Decodes a TabUpdate message from the specified reader or buffer, length delimited.
+     * Decodes an UpdateTextBoard message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns TabUpdate
+     * @returns UpdateTextBoard
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): TabUpdate;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UpdateTextBoard;
 
     /**
-     * Verifies a TabUpdate message.
+     * Verifies an UpdateTextBoard message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a TabUpdate message from a plain object. Also converts values to their respective internal types.
+     * Creates an UpdateTextBoard message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns TabUpdate
+     * @returns UpdateTextBoard
      */
-    public static fromObject(object: { [k: string]: any }): TabUpdate;
+    public static fromObject(object: { [k: string]: any }): UpdateTextBoard;
 
     /**
-     * Creates a plain object from a TabUpdate message. Also converts values to other types if specified.
-     * @param message TabUpdate
+     * Creates a plain object from an UpdateTextBoard message. Also converts values to other types if specified.
+     * @param message UpdateTextBoard
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: TabUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: UpdateTextBoard, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this TabUpdate to JSON.
+     * Converts this UpdateTextBoard to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
 }
 
-export namespace TabUpdate {
+export namespace UpdateTextBoard {
+
+    /** Type enum. */
+    enum Type {
+        TAB = 0,
+        SIDE = 1,
+        CENTER = 2,
+        HOTBAR = 3
+    }
 
     /** Properties of a ChatComponent. */
     interface IChatComponent {
@@ -1890,7 +2005,7 @@ export namespace TabUpdate {
          * Constructs a new ChatComponent.
          * @param [properties] Properties to set
          */
-        constructor(properties?: TabUpdate.IChatComponent);
+        constructor(properties?: UpdateTextBoard.IChatComponent);
 
         /** ChatComponent text. */
         public text: string;
@@ -1912,23 +2027,23 @@ export namespace TabUpdate {
          * @param [properties] Properties to set
          * @returns ChatComponent instance
          */
-        public static create(properties?: TabUpdate.IChatComponent): TabUpdate.ChatComponent;
+        public static create(properties?: UpdateTextBoard.IChatComponent): UpdateTextBoard.ChatComponent;
 
         /**
-         * Encodes the specified ChatComponent message. Does not implicitly {@link TabUpdate.ChatComponent.verify|verify} messages.
+         * Encodes the specified ChatComponent message. Does not implicitly {@link UpdateTextBoard.ChatComponent.verify|verify} messages.
          * @param message ChatComponent message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: TabUpdate.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: UpdateTextBoard.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified ChatComponent message, length delimited. Does not implicitly {@link TabUpdate.ChatComponent.verify|verify} messages.
+         * Encodes the specified ChatComponent message, length delimited. Does not implicitly {@link UpdateTextBoard.ChatComponent.verify|verify} messages.
          * @param message ChatComponent message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: TabUpdate.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: UpdateTextBoard.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
          * Decodes a ChatComponent message from the specified reader or buffer.
@@ -1938,7 +2053,7 @@ export namespace TabUpdate {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): TabUpdate.ChatComponent;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UpdateTextBoard.ChatComponent;
 
         /**
          * Decodes a ChatComponent message from the specified reader or buffer, length delimited.
@@ -1947,7 +2062,7 @@ export namespace TabUpdate {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): TabUpdate.ChatComponent;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UpdateTextBoard.ChatComponent;
 
         /**
          * Verifies a ChatComponent message.
@@ -1961,7 +2076,7 @@ export namespace TabUpdate {
          * @param object Plain object
          * @returns ChatComponent
          */
-        public static fromObject(object: { [k: string]: any }): TabUpdate.ChatComponent;
+        public static fromObject(object: { [k: string]: any }): UpdateTextBoard.ChatComponent;
 
         /**
          * Creates a plain object from a ChatComponent message. Also converts values to other types if specified.
@@ -1969,7 +2084,7 @@ export namespace TabUpdate {
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: TabUpdate.ChatComponent, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: UpdateTextBoard.ChatComponent, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this ChatComponent to JSON.
@@ -3125,6 +3240,198 @@ export class WorldChunkUnload implements IWorldChunkUnload {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a WorldChunkIsLoaded. */
+export interface IWorldChunkIsLoaded {
+
+    /** WorldChunkIsLoaded x */
+    x?: (number|null);
+
+    /** WorldChunkIsLoaded y */
+    y?: (number|null);
+
+    /** WorldChunkIsLoaded z */
+    z?: (number|null);
+}
+
+/** Represents a WorldChunkIsLoaded. */
+export class WorldChunkIsLoaded implements IWorldChunkIsLoaded {
+
+    /**
+     * Constructs a new WorldChunkIsLoaded.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IWorldChunkIsLoaded);
+
+    /** WorldChunkIsLoaded x. */
+    public x: number;
+
+    /** WorldChunkIsLoaded y. */
+    public y: number;
+
+    /** WorldChunkIsLoaded z. */
+    public z: number;
+
+    /**
+     * Creates a new WorldChunkIsLoaded instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns WorldChunkIsLoaded instance
+     */
+    public static create(properties?: IWorldChunkIsLoaded): WorldChunkIsLoaded;
+
+    /**
+     * Encodes the specified WorldChunkIsLoaded message. Does not implicitly {@link WorldChunkIsLoaded.verify|verify} messages.
+     * @param message WorldChunkIsLoaded message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IWorldChunkIsLoaded, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified WorldChunkIsLoaded message, length delimited. Does not implicitly {@link WorldChunkIsLoaded.verify|verify} messages.
+     * @param message WorldChunkIsLoaded message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IWorldChunkIsLoaded, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a WorldChunkIsLoaded message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns WorldChunkIsLoaded
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): WorldChunkIsLoaded;
+
+    /**
+     * Decodes a WorldChunkIsLoaded message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns WorldChunkIsLoaded
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): WorldChunkIsLoaded;
+
+    /**
+     * Verifies a WorldChunkIsLoaded message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a WorldChunkIsLoaded message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns WorldChunkIsLoaded
+     */
+    public static fromObject(object: { [k: string]: any }): WorldChunkIsLoaded;
+
+    /**
+     * Creates a plain object from a WorldChunkIsLoaded message. Also converts values to other types if specified.
+     * @param message WorldChunkIsLoaded
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: WorldChunkIsLoaded, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this WorldChunkIsLoaded to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a WorldChunksRemoveAll. */
+export interface IWorldChunksRemoveAll {
+
+    /** WorldChunksRemoveAll confirm */
+    confirm?: (boolean|null);
+}
+
+/** Represents a WorldChunksRemoveAll. */
+export class WorldChunksRemoveAll implements IWorldChunksRemoveAll {
+
+    /**
+     * Constructs a new WorldChunksRemoveAll.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IWorldChunksRemoveAll);
+
+    /** WorldChunksRemoveAll confirm. */
+    public confirm: boolean;
+
+    /**
+     * Creates a new WorldChunksRemoveAll instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns WorldChunksRemoveAll instance
+     */
+    public static create(properties?: IWorldChunksRemoveAll): WorldChunksRemoveAll;
+
+    /**
+     * Encodes the specified WorldChunksRemoveAll message. Does not implicitly {@link WorldChunksRemoveAll.verify|verify} messages.
+     * @param message WorldChunksRemoveAll message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IWorldChunksRemoveAll, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified WorldChunksRemoveAll message, length delimited. Does not implicitly {@link WorldChunksRemoveAll.verify|verify} messages.
+     * @param message WorldChunksRemoveAll message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IWorldChunksRemoveAll, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a WorldChunksRemoveAll message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns WorldChunksRemoveAll
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): WorldChunksRemoveAll;
+
+    /**
+     * Decodes a WorldChunksRemoveAll message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns WorldChunksRemoveAll
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): WorldChunksRemoveAll;
+
+    /**
+     * Verifies a WorldChunksRemoveAll message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a WorldChunksRemoveAll message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns WorldChunksRemoveAll
+     */
+    public static fromObject(object: { [k: string]: any }): WorldChunksRemoveAll;
+
+    /**
+     * Creates a plain object from a WorldChunksRemoveAll message. Also converts values to other types if specified.
+     * @param message WorldChunksRemoveAll
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: WorldChunksRemoveAll, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this WorldChunksRemoveAll to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a RegistryUpdate. */
 export interface IRegistryUpdate {
 
@@ -3216,102 +3523,6 @@ export class RegistryUpdate implements IRegistryUpdate {
 
     /**
      * Converts this RegistryUpdate to JSON.
-     * @returns JSON object
-     */
-    public toJSON(): { [k: string]: any };
-}
-
-/** Properties of a GameplaySettingUpdate. */
-export interface IGameplaySettingUpdate {
-
-    /** GameplaySettingUpdate key */
-    key?: (string|null);
-
-    /** GameplaySettingUpdate value */
-    value?: (string|null);
-}
-
-/** Represents a GameplaySettingUpdate. */
-export class GameplaySettingUpdate implements IGameplaySettingUpdate {
-
-    /**
-     * Constructs a new GameplaySettingUpdate.
-     * @param [properties] Properties to set
-     */
-    constructor(properties?: IGameplaySettingUpdate);
-
-    /** GameplaySettingUpdate key. */
-    public key: string;
-
-    /** GameplaySettingUpdate value. */
-    public value: string;
-
-    /**
-     * Creates a new GameplaySettingUpdate instance using the specified properties.
-     * @param [properties] Properties to set
-     * @returns GameplaySettingUpdate instance
-     */
-    public static create(properties?: IGameplaySettingUpdate): GameplaySettingUpdate;
-
-    /**
-     * Encodes the specified GameplaySettingUpdate message. Does not implicitly {@link GameplaySettingUpdate.verify|verify} messages.
-     * @param message GameplaySettingUpdate message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encode(message: IGameplaySettingUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Encodes the specified GameplaySettingUpdate message, length delimited. Does not implicitly {@link GameplaySettingUpdate.verify|verify} messages.
-     * @param message GameplaySettingUpdate message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encodeDelimited(message: IGameplaySettingUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Decodes a GameplaySettingUpdate message from the specified reader or buffer.
-     * @param reader Reader or buffer to decode from
-     * @param [length] Message length if known beforehand
-     * @returns GameplaySettingUpdate
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): GameplaySettingUpdate;
-
-    /**
-     * Decodes a GameplaySettingUpdate message from the specified reader or buffer, length delimited.
-     * @param reader Reader or buffer to decode from
-     * @returns GameplaySettingUpdate
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): GameplaySettingUpdate;
-
-    /**
-     * Verifies a GameplaySettingUpdate message.
-     * @param message Plain object to verify
-     * @returns `null` if valid, otherwise the reason why it is not
-     */
-    public static verify(message: { [k: string]: any }): (string|null);
-
-    /**
-     * Creates a GameplaySettingUpdate message from a plain object. Also converts values to their respective internal types.
-     * @param object Plain object
-     * @returns GameplaySettingUpdate
-     */
-    public static fromObject(object: { [k: string]: any }): GameplaySettingUpdate;
-
-    /**
-     * Creates a plain object from a GameplaySettingUpdate message. Also converts values to other types if specified.
-     * @param message GameplaySettingUpdate
-     * @param [options] Conversion options
-     * @returns Plain object
-     */
-    public static toObject(message: GameplaySettingUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-    /**
-     * Converts this GameplaySettingUpdate to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

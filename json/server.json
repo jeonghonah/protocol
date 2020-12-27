@@ -216,19 +216,37 @@
         }
       }
     },
+    "PlayerSetBlockReach": {
+      "fields": {
+        "value": {
+          "type": "float",
+          "id": 1
+        }
+      }
+    },
     "PlayerOpenInventory": {
       "fields": {
-        "name": {
-          "type": "string",
+        "type": {
+          "type": "Type",
           "id": 1
         },
-        "type": {
+        "name": {
           "type": "string",
           "id": 2
         },
         "data": {
           "type": "string",
           "id": 3
+        }
+      },
+      "nested": {
+        "Type": {
+          "values": {
+            "MAIN": 0,
+            "CHEST": 1,
+            "CRAFTING": 2,
+            "FURNACE": 3
+          }
         }
       }
     },
@@ -295,19 +313,31 @@
         }
       }
     },
-    "TabUpdate": {
+    "UpdateTextBoard": {
       "fields": {
+        "type": {
+          "type": "Type",
+          "id": 1
+        },
         "message": {
           "keyType": "uint32",
           "type": "ChatComponent",
-          "id": 1
+          "id": 2
         },
         "time": {
           "type": "uint64",
-          "id": 2
+          "id": 3
         }
       },
       "nested": {
+        "Type": {
+          "values": {
+            "TAB": 0,
+            "SIDE": 1,
+            "CENTER": 2,
+            "HOTBAR": 3
+          }
+        },
         "ChatComponent": {
           "fields": {
             "text": {
@@ -527,6 +557,30 @@
         }
       }
     },
+    "WorldChunkIsLoaded": {
+      "fields": {
+        "x": {
+          "type": "sint32",
+          "id": 1
+        },
+        "y": {
+          "type": "sint32",
+          "id": 2
+        },
+        "z": {
+          "type": "sint32",
+          "id": 3
+        }
+      }
+    },
+    "WorldChunksRemoveAll": {
+      "fields": {
+        "confirm": {
+          "type": "bool",
+          "id": 1
+        }
+      }
+    },
     "RegistryUpdate": {
       "fields": {
         "itemsDef": {
@@ -539,22 +593,10 @@
         }
       }
     },
-    "GameplaySettingUpdate": {
-      "fields": {
-        "key": {
-          "type": "string",
-          "id": 1
-        },
-        "value": {
-          "type": "string",
-          "id": 2
-        }
-      }
-    },
     "EnvironmentFogUpdate": {
       "fields": {
         "mode": {
-          "type": "int32",
+          "type": "uint32",
           "id": 1
         },
         "density": {
