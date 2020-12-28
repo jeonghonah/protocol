@@ -2140,6 +2140,7 @@
                 case 0:
                 case 1:
                 case 2:
+                case 3:
                     break;
                 }
             if (message.inventory != null && message.hasOwnProperty("inventory"))
@@ -2181,6 +2182,10 @@
             case "MIDDLE":
             case 2:
                 message.type = 2;
+                break;
+            case "SELECT":
+            case 3:
+                message.type = 3;
                 break;
             }
             switch (object.inventory) {
@@ -2249,12 +2254,14 @@
          * @property {number} LEFT=0 LEFT value
          * @property {number} RIGHT=1 RIGHT value
          * @property {number} MIDDLE=2 MIDDLE value
+         * @property {number} SELECT=3 SELECT value
          */
         ActionInventoryClick.Type = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "LEFT"] = 0;
             values[valuesById[1] = "RIGHT"] = 1;
             values[valuesById[2] = "MIDDLE"] = 2;
+            values[valuesById[3] = "SELECT"] = 3;
             return values;
         })();
     

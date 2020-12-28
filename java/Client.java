@@ -5904,6 +5904,10 @@ public final class Client {
        * <code>MIDDLE = 2;</code>
        */
       MIDDLE(2),
+      /**
+       * <code>SELECT = 3;</code>
+       */
+      SELECT(3),
       UNRECOGNIZED(-1),
       ;
 
@@ -5919,6 +5923,10 @@ public final class Client {
        * <code>MIDDLE = 2;</code>
        */
       public static final int MIDDLE_VALUE = 2;
+      /**
+       * <code>SELECT = 3;</code>
+       */
+      public static final int SELECT_VALUE = 3;
 
 
       public final int getNumber() {
@@ -5948,6 +5956,7 @@ public final class Client {
           case 0: return LEFT;
           case 1: return RIGHT;
           case 2: return MIDDLE;
+          case 3: return SELECT;
           default: return null;
         }
       }
@@ -12473,28 +12482,29 @@ public final class Client {
       "\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002x2\030\004 \001(\021\022\n\n\002y2" +
       "\030\005 \001(\021\022\n\n\002z2\030\006 \001(\021\"E\n\020ActionBlockBreak\022\t" +
       "\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\020\n\010finis" +
-      "hed\030\004 \001(\010\"\341\001\n\024ActionInventoryClick\022\014\n\004sl" +
+      "hed\030\004 \001(\010\"\355\001\n\024ActionInventoryClick\022\014\n\004sl" +
       "ot\030\001 \001(\021\022(\n\004type\030\002 \001(\0162\032.ActionInventory" +
       "Click.Type\0220\n\tinventory\030\003 \001(\0162\035.ActionIn" +
-      "ventoryClick.TypeInv\"\'\n\004Type\022\010\n\004LEFT\020\000\022\t" +
-      "\n\005RIGHT\020\001\022\n\n\006MIDDLE\020\002\"6\n\007TypeInv\022\010\n\004MAIN" +
-      "\020\000\022\t\n\005ARMOR\020\001\022\014\n\010CRAFTING\020\002\022\010\n\004HOOK\020\003\"A\n" +
-      "\023ActionInventoryPick\022\014\n\004slot\030\001 \001(\021\022\r\n\005sl" +
-      "ot2\030\002 \001(\021\022\r\n\005block\030\003 \001(\021\"{\n\023ActionInvent" +
-      "oryOpen\022,\n\tinventory\030\001 \001(\0162\031.ActionInven" +
-      "toryOpen.Type\"6\n\004Type\022\010\n\004MAIN\020\000\022\t\n\005CHEST" +
-      "\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007FURNACE\020\003\"a\n\024ActionI" +
-      "nventoryClose\022\021\n\tinventory\030\001 \001(\t\"6\n\004Type" +
-      "\022\010\n\004MAIN\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007F" +
-      "URNACE\020\003\"N\n\013ActionClick\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030" +
-      "\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001(\t\022\020\n\010on_blo" +
-      "ck\030\005 \001(\010\"A\n\021ActionClickEntity\022\014\n\004uuid\030\001 " +
-      "\001(\t\022\014\n\004type\030\002 \001(\t\022\020\n\010distance\030\003 \001(\002\"+\n\016A" +
-      "ctionKeyPress\022\013\n\003key\030\001 \001(\t\022\014\n\004type\030\002 \001(\010" +
-      "\"M\n\032WorldChunkIsLoadedResponce\022\t\n\001x\030\001 \001(" +
-      "\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006loaded\030\004 \001(\010\"" +
-      "<\n\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007version" +
-      "\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
+      "ventoryClick.TypeInv\"3\n\004Type\022\010\n\004LEFT\020\000\022\t" +
+      "\n\005RIGHT\020\001\022\n\n\006MIDDLE\020\002\022\n\n\006SELECT\020\003\"6\n\007Typ" +
+      "eInv\022\010\n\004MAIN\020\000\022\t\n\005ARMOR\020\001\022\014\n\010CRAFTING\020\002\022" +
+      "\010\n\004HOOK\020\003\"A\n\023ActionInventoryPick\022\014\n\004slot" +
+      "\030\001 \001(\021\022\r\n\005slot2\030\002 \001(\021\022\r\n\005block\030\003 \001(\021\"{\n\023" +
+      "ActionInventoryOpen\022,\n\tinventory\030\001 \001(\0162\031" +
+      ".ActionInventoryOpen.Type\"6\n\004Type\022\010\n\004MAI" +
+      "N\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007FURNACE\020" +
+      "\003\"a\n\024ActionInventoryClose\022\021\n\tinventory\030\001" +
+      " \001(\t\"6\n\004Type\022\010\n\004MAIN\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRA" +
+      "FTING\020\002\022\013\n\007FURNACE\020\003\"N\n\013ActionClick\022\t\n\001x" +
+      "\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001" +
+      "(\t\022\020\n\010on_block\030\005 \001(\010\"A\n\021ActionClickEntit" +
+      "y\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\020\n\010distanc" +
+      "e\030\003 \001(\002\"+\n\016ActionKeyPress\022\013\n\003key\030\001 \001(\t\022\014" +
+      "\n\004type\030\002 \001(\010\"M\n\032WorldChunkIsLoadedRespon" +
+      "ce\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006l" +
+      "oaded\030\004 \001(\010\"<\n\rPluginMessage\022\013\n\003key\030\001 \001(" +
+      "\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

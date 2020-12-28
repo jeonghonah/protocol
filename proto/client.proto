@@ -104,6 +104,7 @@ message ActionInventoryClick {
 		LEFT = 0;
 		RIGHT = 1;
 		MIDDLE = 2;
+		SELECT = 3;
 	}
 
 	enum TypeInv {

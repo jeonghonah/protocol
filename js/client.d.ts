@@ -947,7 +947,8 @@ export namespace ActionInventoryClick {
     enum Type {
         LEFT = 0,
         RIGHT = 1,
-        MIDDLE = 2
+        MIDDLE = 2,
+        SELECT = 3
     }
 
     /** TypeInv enum. */
