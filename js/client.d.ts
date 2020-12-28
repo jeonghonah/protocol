@@ -849,7 +849,7 @@ export interface IActionInventoryClick {
     type?: (ActionInventoryClick.Type|null);
 
     /** ActionInventoryClick inventory */
-    inventory?: (string|null);
+    inventory?: (ActionInventoryClick.TypeInv|null);
 }
 
 /** Represents an ActionInventoryClick. */
@@ -868,7 +868,7 @@ export class ActionInventoryClick implements IActionInventoryClick {
     public type: ActionInventoryClick.Type;
 
     /** ActionInventoryClick inventory. */
-    public inventory: string;
+    public inventory: ActionInventoryClick.TypeInv;
 
     /**
      * Creates a new ActionInventoryClick instance using the specified properties.
@@ -948,6 +948,14 @@ export namespace ActionInventoryClick {
         LEFT = 0,
         RIGHT = 1,
         MIDDLE = 2
+    }
+
+    /** TypeInv enum. */
+    enum TypeInv {
+        MAIN = 0,
+        ARMOR = 1,
+        CRAFTING = 2,
+        HOOK = 3
     }
 }
 

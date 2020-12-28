@@ -106,9 +106,16 @@ message ActionInventoryClick {
 		MIDDLE = 2;
 	}
 
+	enum TypeInv {
+		MAIN = 0;
+		ARMOR = 1;
+		CRAFTING = 2;
+		HOOK = 3;
+	}
+
 	sint32 slot = 1;
 	Type type = 2;
-	string inventory = 3;
+	TypeInv inventory = 3;
 }
 
 /* 

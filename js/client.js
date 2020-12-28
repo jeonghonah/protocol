@@ -1980,7 +1980,7 @@
          * @interface IActionInventoryClick
          * @property {number|null} [slot] ActionInventoryClick slot
          * @property {ActionInventoryClick.Type|null} [type] ActionInventoryClick type
-         * @property {string|null} [inventory] ActionInventoryClick inventory
+         * @property {ActionInventoryClick.TypeInv|null} [inventory] ActionInventoryClick inventory
          */
     
         /**
@@ -2016,11 +2016,11 @@
     
         /**
          * ActionInventoryClick inventory.
-         * @member {string} inventory
+         * @member {ActionInventoryClick.TypeInv} inventory
          * @memberof ActionInventoryClick
          * @instance
          */
-        ActionInventoryClick.prototype.inventory = "";
+        ActionInventoryClick.prototype.inventory = 0;
     
         /**
          * Creates a new ActionInventoryClick instance using the specified properties.
@@ -2051,7 +2051,7 @@
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.inventory);
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.inventory);
             return writer;
         };
     
@@ -2093,7 +2093,7 @@
                     message.type = reader.int32();
                     break;
                 case 3:
-                    message.inventory = reader.string();
+                    message.inventory = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2143,8 +2143,15 @@
                     break;
                 }
             if (message.inventory != null && message.hasOwnProperty("inventory"))
-                if (!$util.isString(message.inventory))
-                    return "inventory: string expected";
+                switch (message.inventory) {
+                default:
+                    return "inventory: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
             return null;
         };
     
@@ -2176,8 +2183,24 @@
                 message.type = 2;
                 break;
             }
-            if (object.inventory != null)
-                message.inventory = String(object.inventory);
+            switch (object.inventory) {
+            case "MAIN":
+            case 0:
+                message.inventory = 0;
+                break;
+            case "ARMOR":
+            case 1:
+                message.inventory = 1;
+                break;
+            case "CRAFTING":
+            case 2:
+                message.inventory = 2;
+                break;
+            case "HOOK":
+            case 3:
+                message.inventory = 3;
+                break;
+            }
             return message;
         };
     
@@ -2197,14 +2220,14 @@
             if (options.defaults) {
                 object.slot = 0;
                 object.type = options.enums === String ? "LEFT" : 0;
-                object.inventory = "";
+                object.inventory = options.enums === String ? "MAIN" : 0;
             }
             if (message.slot != null && message.hasOwnProperty("slot"))
                 object.slot = message.slot;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = options.enums === String ? $root.ActionInventoryClick.Type[message.type] : message.type;
             if (message.inventory != null && message.hasOwnProperty("inventory"))
-                object.inventory = message.inventory;
+                object.inventory = options.enums === String ? $root.ActionInventoryClick.TypeInv[message.inventory] : message.inventory;
             return object;
         };
     
@@ -2232,6 +2255,24 @@
             values[valuesById[0] = "LEFT"] = 0;
             values[valuesById[1] = "RIGHT"] = 1;
             values[valuesById[2] = "MIDDLE"] = 2;
+            return values;
+        })();
+    
+        /**
+         * TypeInv enum.
+         * @name ActionInventoryClick.TypeInv
+         * @enum {number}
+         * @property {number} MAIN=0 MAIN value
+         * @property {number} ARMOR=1 ARMOR value
+         * @property {number} CRAFTING=2 CRAFTING value
+         * @property {number} HOOK=3 HOOK value
+         */
+        ActionInventoryClick.TypeInv = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "MAIN"] = 0;
+            values[valuesById[1] = "ARMOR"] = 1;
+            values[valuesById[2] = "CRAFTING"] = 2;
+            values[valuesById[3] = "HOOK"] = 3;
             return values;
         })();
     

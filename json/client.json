@@ -155,7 +155,7 @@
           "id": 2
         },
         "inventory": {
-          "type": "string",
+          "type": "TypeInv",
           "id": 3
         }
       },
@@ -165,6 +165,14 @@
             "LEFT": 0,
             "RIGHT": 1,
             "MIDDLE": 2
+          }
+        },
+        "TypeInv": {
+          "values": {
+            "MAIN": 0,
+            "ARMOR": 1,
+            "CRAFTING": 2,
+            "HOOK": 3
           }
         }
       }
