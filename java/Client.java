@@ -7997,16 +7997,15 @@ public final class Client {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string inventory = 1;</code>
+     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * @return The enum numeric value on the wire for inventory.
+     */
+    int getInventoryValue();
+    /**
+     * <code>.ActionInventoryClose.Type inventory = 1;</code>
      * @return The inventory.
      */
-    java.lang.String getInventory();
-    /**
-     * <code>string inventory = 1;</code>
-     * @return The bytes for inventory.
-     */
-    com.google.protobuf.ByteString
-        getInventoryBytes();
+    Client.ActionInventoryClose.Type getInventory();
   }
   /**
    * Protobuf type {@code ActionInventoryClose}
@@ -8021,7 +8020,7 @@ public final class Client {
       super(builder);
     }
     private ActionInventoryClose() {
-      inventory_ = "";
+      inventory_ = 0;
     }
 
     @java.lang.Override
@@ -8054,10 +8053,10 @@ public final class Client {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
+              int rawValue = input.readEnum();
 
-              inventory_ = s;
+              inventory_ = rawValue;
               break;
             }
             default: {
@@ -8219,41 +8218,22 @@ public final class Client {
     }
 
     public static final int INVENTORY_FIELD_NUMBER = 1;
-    private volatile java.lang.Object inventory_;
+    private int inventory_;
     /**
-     * <code>string inventory = 1;</code>
-     * @return The inventory.
+     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * @return The enum numeric value on the wire for inventory.
      */
-    @java.lang.Override
-    public java.lang.String getInventory() {
-      java.lang.Object ref = inventory_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        inventory_ = s;
-        return s;
-      }
+    @java.lang.Override public int getInventoryValue() {
+      return inventory_;
     }
     /**
-     * <code>string inventory = 1;</code>
-     * @return The bytes for inventory.
+     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * @return The inventory.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getInventoryBytes() {
-      java.lang.Object ref = inventory_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        inventory_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    @java.lang.Override public Client.ActionInventoryClose.Type getInventory() {
+      @SuppressWarnings("deprecation")
+      Client.ActionInventoryClose.Type result = Client.ActionInventoryClose.Type.valueOf(inventory_);
+      return result == null ? Client.ActionInventoryClose.Type.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8270,8 +8250,8 @@ public final class Client {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getInventoryBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, inventory_);
+      if (inventory_ != Client.ActionInventoryClose.Type.MAIN.getNumber()) {
+        output.writeEnum(1, inventory_);
       }
       unknownFields.writeTo(output);
     }
@@ -8282,8 +8262,9 @@ public final class Client {
       if (size != -1) return size;
 
       size = 0;
-      if (!getInventoryBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, inventory_);
+      if (inventory_ != Client.ActionInventoryClose.Type.MAIN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, inventory_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8300,8 +8281,7 @@ public final class Client {
       }
       Client.ActionInventoryClose other = (Client.ActionInventoryClose) obj;
 
-      if (!getInventory()
-          .equals(other.getInventory())) return false;
+      if (inventory_ != other.inventory_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8314,7 +8294,7 @@ public final class Client {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + INVENTORY_FIELD_NUMBER;
-      hash = (53 * hash) + getInventory().hashCode();
+      hash = (53 * hash) + inventory_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8448,7 +8428,7 @@ public final class Client {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        inventory_ = "";
+        inventory_ = 0;
 
         return this;
       }
@@ -8525,9 +8505,8 @@ public final class Client {
 
       public Builder mergeFrom(Client.ActionInventoryClose other) {
         if (other == Client.ActionInventoryClose.getDefaultInstance()) return this;
-        if (!other.getInventory().isEmpty()) {
-          inventory_ = other.inventory_;
-          onChanged();
+        if (other.inventory_ != 0) {
+          setInventoryValue(other.getInventoryValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -8558,78 +8537,56 @@ public final class Client {
         return this;
       }
 
-      private java.lang.Object inventory_ = "";
+      private int inventory_ = 0;
       /**
-       * <code>string inventory = 1;</code>
-       * @return The inventory.
+       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * @return The enum numeric value on the wire for inventory.
        */
-      public java.lang.String getInventory() {
-        java.lang.Object ref = inventory_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          inventory_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override public int getInventoryValue() {
+        return inventory_;
       }
       /**
-       * <code>string inventory = 1;</code>
-       * @return The bytes for inventory.
-       */
-      public com.google.protobuf.ByteString
-          getInventoryBytes() {
-        java.lang.Object ref = inventory_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          inventory_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string inventory = 1;</code>
-       * @param value The inventory to set.
+       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * @param value The enum numeric value on the wire for inventory to set.
        * @return This builder for chaining.
        */
-      public Builder setInventory(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setInventoryValue(int value) {
+        
         inventory_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string inventory = 1;</code>
+       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * @return The inventory.
+       */
+      @java.lang.Override
+      public Client.ActionInventoryClose.Type getInventory() {
+        @SuppressWarnings("deprecation")
+        Client.ActionInventoryClose.Type result = Client.ActionInventoryClose.Type.valueOf(inventory_);
+        return result == null ? Client.ActionInventoryClose.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * @param value The inventory to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInventory(Client.ActionInventoryClose.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        inventory_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.ActionInventoryClose.Type inventory = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearInventory() {
         
-        inventory_ = getDefaultInstance().getInventory();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string inventory = 1;</code>
-       * @param value The bytes for inventory to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInventoryBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        inventory_ = value;
+        inventory_ = 0;
         onChanged();
         return this;
       }
@@ -12493,18 +12450,18 @@ public final class Client {
       "ActionInventoryOpen\022,\n\tinventory\030\001 \001(\0162\031" +
       ".ActionInventoryOpen.Type\"6\n\004Type\022\010\n\004MAI" +
       "N\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007FURNACE\020" +
-      "\003\"a\n\024ActionInventoryClose\022\021\n\tinventory\030\001" +
-      " \001(\t\"6\n\004Type\022\010\n\004MAIN\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRA" +
-      "FTING\020\002\022\013\n\007FURNACE\020\003\"N\n\013ActionClick\022\t\n\001x" +
-      "\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001" +
-      "(\t\022\020\n\010on_block\030\005 \001(\010\"A\n\021ActionClickEntit" +
-      "y\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\020\n\010distanc" +
-      "e\030\003 \001(\002\"+\n\016ActionKeyPress\022\013\n\003key\030\001 \001(\t\022\014" +
-      "\n\004type\030\002 \001(\010\"M\n\032WorldChunkIsLoadedRespon" +
-      "ce\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006l" +
-      "oaded\030\004 \001(\010\"<\n\rPluginMessage\022\013\n\003key\030\001 \001(" +
-      "\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto" +
-      "3"
+      "\003\"}\n\024ActionInventoryClose\022-\n\tinventory\030\001" +
+      " \001(\0162\032.ActionInventoryClose.Type\"6\n\004Type" +
+      "\022\010\n\004MAIN\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007F" +
+      "URNACE\020\003\"N\n\013ActionClick\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030" +
+      "\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001(\t\022\020\n\010on_blo" +
+      "ck\030\005 \001(\010\"A\n\021ActionClickEntity\022\014\n\004uuid\030\001 " +
+      "\001(\t\022\014\n\004type\030\002 \001(\t\022\020\n\010distance\030\003 \001(\002\"+\n\016A" +
+      "ctionKeyPress\022\013\n\003key\030\001 \001(\t\022\014\n\004type\030\002 \001(\010" +
+      "\"M\n\032WorldChunkIsLoadedResponce\022\t\n\001x\030\001 \001(" +
+      "\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006loaded\030\004 \001(\010\"" +
+      "<\n\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007version" +
+      "\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

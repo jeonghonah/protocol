@@ -2752,7 +2752,7 @@
          * Properties of an ActionInventoryClose.
          * @exports IActionInventoryClose
          * @interface IActionInventoryClose
-         * @property {string|null} [inventory] ActionInventoryClose inventory
+         * @property {ActionInventoryClose.Type|null} [inventory] ActionInventoryClose inventory
          */
     
         /**
@@ -2772,11 +2772,11 @@
     
         /**
          * ActionInventoryClose inventory.
-         * @member {string} inventory
+         * @member {ActionInventoryClose.Type} inventory
          * @memberof ActionInventoryClose
          * @instance
          */
-        ActionInventoryClose.prototype.inventory = "";
+        ActionInventoryClose.prototype.inventory = 0;
     
         /**
          * Creates a new ActionInventoryClose instance using the specified properties.
@@ -2803,7 +2803,7 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.inventory);
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.inventory);
             return writer;
         };
     
@@ -2839,7 +2839,7 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.inventory = reader.string();
+                    message.inventory = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2877,8 +2877,15 @@
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.inventory != null && message.hasOwnProperty("inventory"))
-                if (!$util.isString(message.inventory))
-                    return "inventory: string expected";
+                switch (message.inventory) {
+                default:
+                    return "inventory: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
             return null;
         };
     
@@ -2894,8 +2901,24 @@
             if (object instanceof $root.ActionInventoryClose)
                 return object;
             var message = new $root.ActionInventoryClose();
-            if (object.inventory != null)
-                message.inventory = String(object.inventory);
+            switch (object.inventory) {
+            case "MAIN":
+            case 0:
+                message.inventory = 0;
+                break;
+            case "CHEST":
+            case 1:
+                message.inventory = 1;
+                break;
+            case "CRAFTING":
+            case 2:
+                message.inventory = 2;
+                break;
+            case "FURNACE":
+            case 3:
+                message.inventory = 3;
+                break;
+            }
             return message;
         };
     
@@ -2913,9 +2936,9 @@
                 options = {};
             var object = {};
             if (options.defaults)
-                object.inventory = "";
+                object.inventory = options.enums === String ? "MAIN" : 0;
             if (message.inventory != null && message.hasOwnProperty("inventory"))
-                object.inventory = message.inventory;
+                object.inventory = options.enums === String ? $root.ActionInventoryClose.Type[message.inventory] : message.inventory;
             return object;
         };
     

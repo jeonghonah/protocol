@@ -1167,7 +1167,7 @@ export namespace ActionInventoryOpen {
 export interface IActionInventoryClose {
 
     /** ActionInventoryClose inventory */
-    inventory?: (string|null);
+    inventory?: (ActionInventoryClose.Type|null);
 }
 
 /** Represents an ActionInventoryClose. */
@@ -1180,7 +1180,7 @@ export class ActionInventoryClose implements IActionInventoryClose {
     constructor(properties?: IActionInventoryClose);
 
     /** ActionInventoryClose inventory. */
-    public inventory: string;
+    public inventory: ActionInventoryClose.Type;
 
     /**
      * Creates a new ActionInventoryClose instance using the specified properties.

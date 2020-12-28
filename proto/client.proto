@@ -157,7 +157,7 @@ message ActionInventoryClose {
 		FURNACE = 3;
 	}
 
-	string inventory = 1;
+	Type inventory = 1;
 }
 
 /* 

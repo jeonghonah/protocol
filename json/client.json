@@ -215,7 +215,7 @@
     "ActionInventoryClose": {
       "fields": {
         "inventory": {
-          "type": "string",
+          "type": "Type",
           "id": 1
         }
       },
