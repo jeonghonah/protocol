@@ -642,6 +642,18 @@
         "colorBlue": {
           "type": "float",
           "id": 4
+        },
+        "colorRedTop": {
+          "type": "float",
+          "id": 5
+        },
+        "colorGreenTop": {
+          "type": "float",
+          "id": 6
+        },
+        "colorBlueTop": {
+          "type": "float",
+          "id": 7
         }
       }
     },

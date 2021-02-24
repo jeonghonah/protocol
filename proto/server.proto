@@ -315,7 +315,7 @@ message WorldMultiBlockUpdate {
  * WorldChunkLoad updates chunk for player. x, y and z changes chunk's location. 
  * type changes, how chunks are used. If true, chunks are 32x256x32 and y is ignored.
  * Else (type = false), chunks are 32x32x32.
- * Data is buffer with all blocks. Compressed bool is set to true, if data is compressed with zlib.
+ * Data is LittleEndian buffer with all blocks. Compressed bool is set to true, if data is compressed with zlib.
 */
 
 message WorldChunkLoad {
@@ -394,6 +394,10 @@ message EnvironmentSkyUpdate {
 	float color_red = 2;
 	float color_green = 3;
 	float color_blue = 4;
+
+	float color_red_top = 5;
+	float color_green_top = 6;
+	float color_blue_top = 7;
 }
 
 

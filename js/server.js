@@ -8661,6 +8661,9 @@
          * @property {number|null} [colorRed] EnvironmentSkyUpdate colorRed
          * @property {number|null} [colorGreen] EnvironmentSkyUpdate colorGreen
          * @property {number|null} [colorBlue] EnvironmentSkyUpdate colorBlue
+         * @property {number|null} [colorRedTop] EnvironmentSkyUpdate colorRedTop
+         * @property {number|null} [colorGreenTop] EnvironmentSkyUpdate colorGreenTop
+         * @property {number|null} [colorBlueTop] EnvironmentSkyUpdate colorBlueTop
          */
     
         /**
@@ -8711,6 +8714,30 @@
         EnvironmentSkyUpdate.prototype.colorBlue = 0;
     
         /**
+         * EnvironmentSkyUpdate colorRedTop.
+         * @member {number} colorRedTop
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorRedTop = 0;
+    
+        /**
+         * EnvironmentSkyUpdate colorGreenTop.
+         * @member {number} colorGreenTop
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorGreenTop = 0;
+    
+        /**
+         * EnvironmentSkyUpdate colorBlueTop.
+         * @member {number} colorBlueTop
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorBlueTop = 0;
+    
+        /**
          * Creates a new EnvironmentSkyUpdate instance using the specified properties.
          * @function create
          * @memberof EnvironmentSkyUpdate
@@ -8742,6 +8769,12 @@
                 writer.uint32(/* id 3, wireType 5 =*/29).float(message.colorGreen);
             if (message.colorBlue != null && Object.hasOwnProperty.call(message, "colorBlue"))
                 writer.uint32(/* id 4, wireType 5 =*/37).float(message.colorBlue);
+            if (message.colorRedTop != null && Object.hasOwnProperty.call(message, "colorRedTop"))
+                writer.uint32(/* id 5, wireType 5 =*/45).float(message.colorRedTop);
+            if (message.colorGreenTop != null && Object.hasOwnProperty.call(message, "colorGreenTop"))
+                writer.uint32(/* id 6, wireType 5 =*/53).float(message.colorGreenTop);
+            if (message.colorBlueTop != null && Object.hasOwnProperty.call(message, "colorBlueTop"))
+                writer.uint32(/* id 7, wireType 5 =*/61).float(message.colorBlueTop);
             return writer;
         };
     
@@ -8787,6 +8820,15 @@
                     break;
                 case 4:
                     message.colorBlue = reader.float();
+                    break;
+                case 5:
+                    message.colorRedTop = reader.float();
+                    break;
+                case 6:
+                    message.colorGreenTop = reader.float();
+                    break;
+                case 7:
+                    message.colorBlueTop = reader.float();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -8835,6 +8877,15 @@
             if (message.colorBlue != null && message.hasOwnProperty("colorBlue"))
                 if (typeof message.colorBlue !== "number")
                     return "colorBlue: number expected";
+            if (message.colorRedTop != null && message.hasOwnProperty("colorRedTop"))
+                if (typeof message.colorRedTop !== "number")
+                    return "colorRedTop: number expected";
+            if (message.colorGreenTop != null && message.hasOwnProperty("colorGreenTop"))
+                if (typeof message.colorGreenTop !== "number")
+                    return "colorGreenTop: number expected";
+            if (message.colorBlueTop != null && message.hasOwnProperty("colorBlueTop"))
+                if (typeof message.colorBlueTop !== "number")
+                    return "colorBlueTop: number expected";
             return null;
         };
     
@@ -8858,6 +8909,12 @@
                 message.colorGreen = Number(object.colorGreen);
             if (object.colorBlue != null)
                 message.colorBlue = Number(object.colorBlue);
+            if (object.colorRedTop != null)
+                message.colorRedTop = Number(object.colorRedTop);
+            if (object.colorGreenTop != null)
+                message.colorGreenTop = Number(object.colorGreenTop);
+            if (object.colorBlueTop != null)
+                message.colorBlueTop = Number(object.colorBlueTop);
             return message;
         };
     
@@ -8879,6 +8936,9 @@
                 object.colorRed = 0;
                 object.colorGreen = 0;
                 object.colorBlue = 0;
+                object.colorRedTop = 0;
+                object.colorGreenTop = 0;
+                object.colorBlueTop = 0;
             }
             if (message.clouds != null && message.hasOwnProperty("clouds"))
                 object.clouds = message.clouds;
@@ -8888,6 +8948,12 @@
                 object.colorGreen = options.json && !isFinite(message.colorGreen) ? String(message.colorGreen) : message.colorGreen;
             if (message.colorBlue != null && message.hasOwnProperty("colorBlue"))
                 object.colorBlue = options.json && !isFinite(message.colorBlue) ? String(message.colorBlue) : message.colorBlue;
+            if (message.colorRedTop != null && message.hasOwnProperty("colorRedTop"))
+                object.colorRedTop = options.json && !isFinite(message.colorRedTop) ? String(message.colorRedTop) : message.colorRedTop;
+            if (message.colorGreenTop != null && message.hasOwnProperty("colorGreenTop"))
+                object.colorGreenTop = options.json && !isFinite(message.colorGreenTop) ? String(message.colorGreenTop) : message.colorGreenTop;
+            if (message.colorBlueTop != null && message.hasOwnProperty("colorBlueTop"))
+                object.colorBlueTop = options.json && !isFinite(message.colorBlueTop) ? String(message.colorBlueTop) : message.colorBlueTop;
             return object;
         };
     

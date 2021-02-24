@@ -3668,6 +3668,15 @@ export interface IEnvironmentSkyUpdate {
 
     /** EnvironmentSkyUpdate colorBlue */
     colorBlue?: (number|null);
+
+    /** EnvironmentSkyUpdate colorRedTop */
+    colorRedTop?: (number|null);
+
+    /** EnvironmentSkyUpdate colorGreenTop */
+    colorGreenTop?: (number|null);
+
+    /** EnvironmentSkyUpdate colorBlueTop */
+    colorBlueTop?: (number|null);
 }
 
 /** Represents an EnvironmentSkyUpdate. */
@@ -3690,6 +3699,15 @@ export class EnvironmentSkyUpdate implements IEnvironmentSkyUpdate {
 
     /** EnvironmentSkyUpdate colorBlue. */
     public colorBlue: number;
+
+    /** EnvironmentSkyUpdate colorRedTop. */
+    public colorRedTop: number;
+
+    /** EnvironmentSkyUpdate colorGreenTop. */
+    public colorGreenTop: number;
+
+    /** EnvironmentSkyUpdate colorBlueTop. */
+    public colorBlueTop: number;
 
     /**
      * Creates a new EnvironmentSkyUpdate instance using the specified properties.

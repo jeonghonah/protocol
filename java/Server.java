@@ -27342,6 +27342,24 @@ public final class Server {
      * @return The colorBlue.
      */
     float getColorBlue();
+
+    /**
+     * <code>float color_red_top = 5;</code>
+     * @return The colorRedTop.
+     */
+    float getColorRedTop();
+
+    /**
+     * <code>float color_green_top = 6;</code>
+     * @return The colorGreenTop.
+     */
+    float getColorGreenTop();
+
+    /**
+     * <code>float color_blue_top = 7;</code>
+     * @return The colorBlueTop.
+     */
+    float getColorBlueTop();
   }
   /**
    * Protobuf type {@code EnvironmentSkyUpdate}
@@ -27406,6 +27424,21 @@ public final class Server {
             case 37: {
 
               colorBlue_ = input.readFloat();
+              break;
+            }
+            case 45: {
+
+              colorRedTop_ = input.readFloat();
+              break;
+            }
+            case 53: {
+
+              colorGreenTop_ = input.readFloat();
+              break;
+            }
+            case 61: {
+
+              colorBlueTop_ = input.readFloat();
               break;
             }
             default: {
@@ -27484,6 +27517,39 @@ public final class Server {
       return colorBlue_;
     }
 
+    public static final int COLOR_RED_TOP_FIELD_NUMBER = 5;
+    private float colorRedTop_;
+    /**
+     * <code>float color_red_top = 5;</code>
+     * @return The colorRedTop.
+     */
+    @java.lang.Override
+    public float getColorRedTop() {
+      return colorRedTop_;
+    }
+
+    public static final int COLOR_GREEN_TOP_FIELD_NUMBER = 6;
+    private float colorGreenTop_;
+    /**
+     * <code>float color_green_top = 6;</code>
+     * @return The colorGreenTop.
+     */
+    @java.lang.Override
+    public float getColorGreenTop() {
+      return colorGreenTop_;
+    }
+
+    public static final int COLOR_BLUE_TOP_FIELD_NUMBER = 7;
+    private float colorBlueTop_;
+    /**
+     * <code>float color_blue_top = 7;</code>
+     * @return The colorBlueTop.
+     */
+    @java.lang.Override
+    public float getColorBlueTop() {
+      return colorBlueTop_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -27510,6 +27576,15 @@ public final class Server {
       if (colorBlue_ != 0F) {
         output.writeFloat(4, colorBlue_);
       }
+      if (colorRedTop_ != 0F) {
+        output.writeFloat(5, colorRedTop_);
+      }
+      if (colorGreenTop_ != 0F) {
+        output.writeFloat(6, colorGreenTop_);
+      }
+      if (colorBlueTop_ != 0F) {
+        output.writeFloat(7, colorBlueTop_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -27534,6 +27609,18 @@ public final class Server {
       if (colorBlue_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(4, colorBlue_);
+      }
+      if (colorRedTop_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(5, colorRedTop_);
+      }
+      if (colorGreenTop_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(6, colorGreenTop_);
+      }
+      if (colorBlueTop_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(7, colorBlueTop_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -27561,6 +27648,15 @@ public final class Server {
       if (java.lang.Float.floatToIntBits(getColorBlue())
           != java.lang.Float.floatToIntBits(
               other.getColorBlue())) return false;
+      if (java.lang.Float.floatToIntBits(getColorRedTop())
+          != java.lang.Float.floatToIntBits(
+              other.getColorRedTop())) return false;
+      if (java.lang.Float.floatToIntBits(getColorGreenTop())
+          != java.lang.Float.floatToIntBits(
+              other.getColorGreenTop())) return false;
+      if (java.lang.Float.floatToIntBits(getColorBlueTop())
+          != java.lang.Float.floatToIntBits(
+              other.getColorBlueTop())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -27584,6 +27680,15 @@ public final class Server {
       hash = (37 * hash) + COLOR_BLUE_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getColorBlue());
+      hash = (37 * hash) + COLOR_RED_TOP_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getColorRedTop());
+      hash = (37 * hash) + COLOR_GREEN_TOP_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getColorGreenTop());
+      hash = (37 * hash) + COLOR_BLUE_TOP_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getColorBlueTop());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -27725,6 +27830,12 @@ public final class Server {
 
         colorBlue_ = 0F;
 
+        colorRedTop_ = 0F;
+
+        colorGreenTop_ = 0F;
+
+        colorBlueTop_ = 0F;
+
         return this;
       }
 
@@ -27755,6 +27866,9 @@ public final class Server {
         result.colorRed_ = colorRed_;
         result.colorGreen_ = colorGreen_;
         result.colorBlue_ = colorBlue_;
+        result.colorRedTop_ = colorRedTop_;
+        result.colorGreenTop_ = colorGreenTop_;
+        result.colorBlueTop_ = colorBlueTop_;
         onBuilt();
         return result;
       }
@@ -27814,6 +27928,15 @@ public final class Server {
         }
         if (other.getColorBlue() != 0F) {
           setColorBlue(other.getColorBlue());
+        }
+        if (other.getColorRedTop() != 0F) {
+          setColorRedTop(other.getColorRedTop());
+        }
+        if (other.getColorGreenTop() != 0F) {
+          setColorGreenTop(other.getColorGreenTop());
+        }
+        if (other.getColorBlueTop() != 0F) {
+          setColorBlueTop(other.getColorBlueTop());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -27964,6 +28087,99 @@ public final class Server {
       public Builder clearColorBlue() {
         
         colorBlue_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float colorRedTop_ ;
+      /**
+       * <code>float color_red_top = 5;</code>
+       * @return The colorRedTop.
+       */
+      @java.lang.Override
+      public float getColorRedTop() {
+        return colorRedTop_;
+      }
+      /**
+       * <code>float color_red_top = 5;</code>
+       * @param value The colorRedTop to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColorRedTop(float value) {
+        
+        colorRedTop_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float color_red_top = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColorRedTop() {
+        
+        colorRedTop_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float colorGreenTop_ ;
+      /**
+       * <code>float color_green_top = 6;</code>
+       * @return The colorGreenTop.
+       */
+      @java.lang.Override
+      public float getColorGreenTop() {
+        return colorGreenTop_;
+      }
+      /**
+       * <code>float color_green_top = 6;</code>
+       * @param value The colorGreenTop to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColorGreenTop(float value) {
+        
+        colorGreenTop_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float color_green_top = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColorGreenTop() {
+        
+        colorGreenTop_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float colorBlueTop_ ;
+      /**
+       * <code>float color_blue_top = 7;</code>
+       * @return The colorBlueTop.
+       */
+      @java.lang.Override
+      public float getColorBlueTop() {
+        return colorBlueTop_;
+      }
+      /**
+       * <code>float color_blue_top = 7;</code>
+       * @param value The colorBlueTop to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColorBlueTop(float value) {
+        
+        colorBlueTop_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float color_blue_top = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColorBlueTop() {
+        
+        colorBlueTop_ = 0F;
         onChanged();
         return this;
       }
@@ -29012,11 +29228,13 @@ public final class Server {
       "ate\022\014\n\004mode\030\001 \001(\r\022\017\n\007density\030\002 \001(\002\022\r\n\005st" +
       "art\030\003 \001(\002\022\013\n\003end\030\004 \001(\002\022\021\n\tcolor_red\030\005 \001(" +
       "\002\022\023\n\013color_green\030\006 \001(\002\022\022\n\ncolor_blue\030\007 \001" +
-      "(\002\"b\n\024EnvironmentSkyUpdate\022\016\n\006clouds\030\001 \001" +
-      "(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013color_green\030\003 \001" +
-      "(\002\022\022\n\ncolor_blue\030\004 \001(\002\"<\n\rPluginMessage\022" +
-      "\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003" +
-      " \001(\014b\006proto3"
+      "(\002\"\252\001\n\024EnvironmentSkyUpdate\022\016\n\006clouds\030\001 " +
+      "\001(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013color_green\030\003 " +
+      "\001(\002\022\022\n\ncolor_blue\030\004 \001(\002\022\025\n\rcolor_red_top" +
+      "\030\005 \001(\002\022\027\n\017color_green_top\030\006 \001(\002\022\026\n\016color" +
+      "_blue_top\030\007 \001(\002\"<\n\rPluginMessage\022\013\n\003key\030" +
+      "\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -29255,7 +29473,7 @@ public final class Server {
     internal_static_EnvironmentSkyUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentSkyUpdate_descriptor,
-        new java.lang.String[] { "Clouds", "ColorRed", "ColorGreen", "ColorBlue", });
+        new java.lang.String[] { "Clouds", "ColorRed", "ColorGreen", "ColorBlue", "ColorRedTop", "ColorGreenTop", "ColorBlueTop", });
     internal_static_PluginMessage_descriptor =
       getDescriptor().getMessageTypes().get(34);
     internal_static_PluginMessage_fieldAccessorTable = new
