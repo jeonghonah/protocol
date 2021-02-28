@@ -446,8 +446,8 @@ export class VoxelSrvMessage implements IVoxelSrvMessage {
 /** Properties of a Disconnect. */
 export interface IDisconnect {
 
-    /** Disconnect message */
-    message?: (Uint8Array|null);
+    /** Disconnect reason */
+    reason?: (string|null);
 }
 
 /** Represents a Disconnect. */
@@ -459,8 +459,8 @@ export class Disconnect implements IDisconnect {
      */
     constructor(properties?: IDisconnect);
 
-    /** Disconnect message. */
-    public message: Uint8Array;
+    /** Disconnect reason. */
+    public reason: string;
 
     /**
      * Creates a new Disconnect instance using the specified properties.

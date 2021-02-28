@@ -1098,7 +1098,7 @@
          * Properties of a Disconnect.
          * @exports IDisconnect
          * @interface IDisconnect
-         * @property {Uint8Array|null} [message] Disconnect message
+         * @property {string|null} [reason] Disconnect reason
          */
     
         /**
@@ -1117,12 +1117,12 @@
         }
     
         /**
-         * Disconnect message.
-         * @member {Uint8Array} message
+         * Disconnect reason.
+         * @member {string} reason
          * @memberof Disconnect
          * @instance
          */
-        Disconnect.prototype.message = $util.newBuffer([]);
+        Disconnect.prototype.reason = "";
     
         /**
          * Creates a new Disconnect instance using the specified properties.
@@ -1148,8 +1148,8 @@
         Disconnect.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.message != null && Object.hasOwnProperty.call(message, "message"))
-                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.message);
+            if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.reason);
             return writer;
         };
     
@@ -1185,7 +1185,7 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.message = reader.bytes();
+                    message.reason = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1222,9 +1222,9 @@
         Disconnect.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.message != null && message.hasOwnProperty("message"))
-                if (!(message.message && typeof message.message.length === "number" || $util.isString(message.message)))
-                    return "message: buffer expected";
+            if (message.reason != null && message.hasOwnProperty("reason"))
+                if (!$util.isString(message.reason))
+                    return "reason: string expected";
             return null;
         };
     
@@ -1240,11 +1240,8 @@
             if (object instanceof $root.Disconnect)
                 return object;
             var message = new $root.Disconnect();
-            if (object.message != null)
-                if (typeof object.message === "string")
-                    $util.base64.decode(object.message, message.message = $util.newBuffer($util.base64.length(object.message)), 0);
-                else if (object.message.length)
-                    message.message = object.message;
+            if (object.reason != null)
+                message.reason = String(object.reason);
             return message;
         };
     
@@ -1262,15 +1259,9 @@
                 options = {};
             var object = {};
             if (options.defaults)
-                if (options.bytes === String)
-                    object.message = "";
-                else {
-                    object.message = [];
-                    if (options.bytes !== Array)
-                        object.message = $util.newBuffer(object.message);
-                }
-            if (message.message != null && message.hasOwnProperty("message"))
-                object.message = options.bytes === String ? $util.base64.encode(message.message, 0, message.message.length) : options.bytes === Array ? Array.prototype.slice.call(message.message) : message.message;
+                object.reason = "";
+            if (message.reason != null && message.hasOwnProperty("reason"))
+                object.reason = message.reason;
             return object;
         };
     

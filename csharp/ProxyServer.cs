@@ -31,9 +31,9 @@ public static partial class ProxyServerReflection {
           "b24YAyABKA0SGQoRcHJveHlfdmVyc2lvbl9yZXYYBCABKA0SEAoIcHJvdG9j",
           "b2wYBSABKA0SHgoWdXNlX3BhY2tldF90cmFuc2xhdGlvbhgGIAEoCBIMCgR0",
           "eXBlGAcgASgJIhcKBERhdGESDwoHbWVzc2FnZRgBIAEoDCIiCg9Wb3hlbFNy",
-          "dk1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoDCIdCgpEaXNjb25uZWN0Eg8KB21l",
-          "c3NhZ2UYASABKAwiHwoMUHJveHlNZXNzYWdlEg8KB21lc3NhZ2UYASABKAxi",
-          "BnByb3RvMw=="));
+          "dk1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoDCIcCgpEaXNjb25uZWN0Eg4KBnJl",
+          "YXNvbhgBIAEoCSIfCgxQcm94eU1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoDGIG",
+          "cHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -41,7 +41,7 @@ public static partial class ProxyServerReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::AuthResponce), global::AuthResponce.Parser, new[]{ "Responce", "Message", "ProxyVersion", "ProxyVersionRev", "Protocol", "UsePacketTranslation", "Type" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Data), global::Data.Parser, new[]{ "Message" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::VoxelSrvMessage), global::VoxelSrvMessage.Parser, new[]{ "Message" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::Disconnect), global::Disconnect.Parser, new[]{ "Message" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::Disconnect), global::Disconnect.Parser, new[]{ "Reason" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ProxyMessage), global::ProxyMessage.Parser, new[]{ "Message" }, null, null, null, null)
         }));
   }
@@ -1270,7 +1270,7 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public Disconnect(Disconnect other) : this() {
-    message_ = other.message_;
+    reason_ = other.reason_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -1279,14 +1279,14 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
     return new Disconnect(this);
   }
 
-  /// <summary>Field number for the "message" field.</summary>
-  public const int MessageFieldNumber = 1;
-  private pb::ByteString message_ = pb::ByteString.Empty;
+  /// <summary>Field number for the "reason" field.</summary>
+  public const int ReasonFieldNumber = 1;
+  private string reason_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pb::ByteString Message {
-    get { return message_; }
+  public string Reason {
+    get { return reason_; }
     set {
-      message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      reason_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
@@ -1303,14 +1303,14 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
     if (ReferenceEquals(other, this)) {
       return true;
     }
-    if (Message != other.Message) return false;
+    if (Reason != other.Reason) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (Message.Length != 0) hash ^= Message.GetHashCode();
+    if (Reason.Length != 0) hash ^= Reason.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -1327,9 +1327,9 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (Message.Length != 0) {
+    if (Reason.Length != 0) {
       output.WriteRawTag(10);
-      output.WriteBytes(Message);
+      output.WriteString(Reason);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -1340,9 +1340,9 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (Message.Length != 0) {
+    if (Reason.Length != 0) {
       output.WriteRawTag(10);
-      output.WriteBytes(Message);
+      output.WriteString(Reason);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -1353,8 +1353,8 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (Message.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeBytesSize(Message);
+    if (Reason.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Reason);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -1367,8 +1367,8 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
     if (other == null) {
       return;
     }
-    if (other.Message.Length != 0) {
-      Message = other.Message;
+    if (other.Reason.Length != 0) {
+      Reason = other.Reason;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -1385,7 +1385,7 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 10: {
-          Message = input.ReadBytes();
+          Reason = input.ReadString();
           break;
         }
       }
@@ -1403,7 +1403,7 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 10: {
-          Message = input.ReadBytes();
+          Reason = input.ReadString();
           break;
         }
       }

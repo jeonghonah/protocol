@@ -90,8 +90,8 @@
     },
     "Disconnect": {
       "fields": {
-        "message": {
-          "type": "bytes",
+        "reason": {
+          "type": "string",
           "id": 1
         }
       }

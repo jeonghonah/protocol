@@ -3440,10 +3440,16 @@ public final class ProxyServer {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes message = 1;</code>
-     * @return The message.
+     * <code>string reason = 1;</code>
+     * @return The reason.
      */
-    com.google.protobuf.ByteString getMessage();
+    java.lang.String getReason();
+    /**
+     * <code>string reason = 1;</code>
+     * @return The bytes for reason.
+     */
+    com.google.protobuf.ByteString
+        getReasonBytes();
   }
   /**
    * Protobuf type {@code Disconnect}
@@ -3458,7 +3464,7 @@ public final class ProxyServer {
       super(builder);
     }
     private Disconnect() {
-      message_ = com.google.protobuf.ByteString.EMPTY;
+      reason_ = "";
     }
 
     @java.lang.Override
@@ -3492,8 +3498,9 @@ public final class ProxyServer {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              message_ = input.readBytes();
+              reason_ = s;
               break;
             }
             default: {
@@ -3528,15 +3535,42 @@ public final class ProxyServer {
               ProxyServer.Disconnect.class, ProxyServer.Disconnect.Builder.class);
     }
 
-    public static final int MESSAGE_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString message_;
+    public static final int REASON_FIELD_NUMBER = 1;
+    private volatile java.lang.Object reason_;
     /**
-     * <code>bytes message = 1;</code>
-     * @return The message.
+     * <code>string reason = 1;</code>
+     * @return The reason.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getMessage() {
-      return message_;
+    public java.lang.String getReason() {
+      java.lang.Object ref = reason_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reason_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string reason = 1;</code>
+     * @return The bytes for reason.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReasonBytes() {
+      java.lang.Object ref = reason_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3553,8 +3587,8 @@ public final class ProxyServer {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!message_.isEmpty()) {
-        output.writeBytes(1, message_);
+      if (!getReasonBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, reason_);
       }
       unknownFields.writeTo(output);
     }
@@ -3565,9 +3599,8 @@ public final class ProxyServer {
       if (size != -1) return size;
 
       size = 0;
-      if (!message_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, message_);
+      if (!getReasonBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, reason_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3584,8 +3617,8 @@ public final class ProxyServer {
       }
       ProxyServer.Disconnect other = (ProxyServer.Disconnect) obj;
 
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
+      if (!getReason()
+          .equals(other.getReason())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3597,8 +3630,8 @@ public final class ProxyServer {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + REASON_FIELD_NUMBER;
+      hash = (53 * hash) + getReason().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3732,7 +3765,7 @@ public final class ProxyServer {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        message_ = com.google.protobuf.ByteString.EMPTY;
+        reason_ = "";
 
         return this;
       }
@@ -3760,7 +3793,7 @@ public final class ProxyServer {
       @java.lang.Override
       public ProxyServer.Disconnect buildPartial() {
         ProxyServer.Disconnect result = new ProxyServer.Disconnect(this);
-        result.message_ = message_;
+        result.reason_ = reason_;
         onBuilt();
         return result;
       }
@@ -3809,8 +3842,9 @@ public final class ProxyServer {
 
       public Builder mergeFrom(ProxyServer.Disconnect other) {
         if (other == ProxyServer.Disconnect.getDefaultInstance()) return this;
-        if (other.getMessage() != com.google.protobuf.ByteString.EMPTY) {
-          setMessage(other.getMessage());
+        if (!other.getReason().isEmpty()) {
+          reason_ = other.reason_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3841,36 +3875,78 @@ public final class ProxyServer {
         return this;
       }
 
-      private com.google.protobuf.ByteString message_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object reason_ = "";
       /**
-       * <code>bytes message = 1;</code>
-       * @return The message.
+       * <code>string reason = 1;</code>
+       * @return The reason.
        */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getMessage() {
-        return message_;
+      public java.lang.String getReason() {
+        java.lang.Object ref = reason_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reason_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bytes message = 1;</code>
-       * @param value The message to set.
+       * <code>string reason = 1;</code>
+       * @return The bytes for reason.
+       */
+      public com.google.protobuf.ByteString
+          getReasonBytes() {
+        java.lang.Object ref = reason_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reason_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string reason = 1;</code>
+       * @param value The reason to set.
        * @return This builder for chaining.
        */
-      public Builder setMessage(com.google.protobuf.ByteString value) {
+      public Builder setReason(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        message_ = value;
+        reason_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes message = 1;</code>
+       * <code>string reason = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearMessage() {
+      public Builder clearReason() {
         
-        message_ = getDefaultInstance().getMessage();
+        reason_ = getDefaultInstance().getReason();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string reason = 1;</code>
+       * @param value The bytes for reason to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReasonBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        reason_ = value;
         onChanged();
         return this;
       }
@@ -4468,9 +4544,9 @@ public final class ProxyServer {
       "\n\021proxy_version_rev\030\004 \001(\r\022\020\n\010protocol\030\005 " +
       "\001(\r\022\036\n\026use_packet_translation\030\006 \001(\010\022\014\n\004t" +
       "ype\030\007 \001(\t\"\027\n\004Data\022\017\n\007message\030\001 \001(\014\"\"\n\017Vo" +
-      "xelSrvMessage\022\017\n\007message\030\001 \001(\014\"\035\n\nDiscon" +
-      "nect\022\017\n\007message\030\001 \001(\014\"\037\n\014ProxyMessage\022\017\n" +
-      "\007message\030\001 \001(\014b\006proto3"
+      "xelSrvMessage\022\017\n\007message\030\001 \001(\014\"\034\n\nDiscon" +
+      "nect\022\016\n\006reason\030\001 \001(\t\"\037\n\014ProxyMessage\022\017\n\007" +
+      "message\030\001 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4505,7 +4581,7 @@ public final class ProxyServer {
     internal_static_Disconnect_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Disconnect_descriptor,
-        new java.lang.String[] { "Message", });
+        new java.lang.String[] { "Reason", });
     internal_static_ProxyMessage_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_ProxyMessage_fieldAccessorTable = new

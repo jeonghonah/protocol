@@ -31,7 +31,7 @@ message VoxelSrvMessage {
 }
 
 message Disconnect {
-	bytes message = 1;
+	string reason = 1;
 }
 
 message ProxyMessage {
