@@ -22,17 +22,21 @@ public static partial class ProxyServerReflection {
   static ProxyServerReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Chhwcm90by9wcm94eS1zZXJ2ZXIucHJvdG8iowEKDEF1dGhSZXNwb25jZRIQ",
-          "CghyZXNwb25jZRgBIAEoBRIPCgdtZXNzYWdlGAIgASgJEhUKDXByb3h5X3Zl",
-          "cnNpb24YAyABKA0SGQoRcHJveHlfdmVyc2lvbl9yZXYYBCABKA0SEAoIcHJv",
-          "dG9jb2wYBSABKA0SHgoWdXNlX3BhY2tldF90cmFuc2xhdGlvbhgGIAEoCBIM",
-          "CgR0eXBlGAcgASgJIhcKBERhdGESDwoHbWVzc2FnZRgBIAEoDCIiCg9Wb3hl",
-          "bFNydk1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoDCIdCgpEaXNjb25uZWN0Eg8K",
-          "B21lc3NhZ2UYASABKAwiHwoMUHJveHlNZXNzYWdlEg8KB21lc3NhZ2UYASAB",
-          "KAxiBnByb3RvMw=="));
+          "Chhwcm90by9wcm94eS1zZXJ2ZXIucHJvdG8ingEKCVByb3h5SW5mbxIMCgRu",
+          "YW1lGAEgASgJEhYKDnByb3h5X3Byb3RvY29sGAIgASgNEhYKDm9ubGluZV9w",
+          "bGF5ZXJzGAMgASgNEhMKC21heF9wbGF5ZXJzGAQgASgNEgwKBG1vdGQYBSAB",
+          "KAkSEAoIc29mdHdhcmUYBiABKAkSDAoEYXV0aBgHIAEoCBIQCghpc19wcm94",
+          "eRgJIAEoCCKjAQoMQXV0aFJlc3BvbmNlEhAKCHJlc3BvbmNlGAEgASgFEg8K",
+          "B21lc3NhZ2UYAiABKAkSFQoNcHJveHlfdmVyc2lvbhgDIAEoDRIZChFwcm94",
+          "eV92ZXJzaW9uX3JldhgEIAEoDRIQCghwcm90b2NvbBgFIAEoDRIeChZ1c2Vf",
+          "cGFja2V0X3RyYW5zbGF0aW9uGAYgASgIEgwKBHR5cGUYByABKAkiFwoERGF0",
+          "YRIPCgdtZXNzYWdlGAEgASgMIiIKD1ZveGVsU3J2TWVzc2FnZRIPCgdtZXNz",
+          "YWdlGAEgASgMIh0KCkRpc2Nvbm5lY3QSDwoHbWVzc2FnZRgBIAEoDCIfCgxQ",
+          "cm94eU1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoDGIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(typeof(global::ProxyInfo), global::ProxyInfo.Parser, new[]{ "Name", "ProxyProtocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "IsProxy" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::AuthResponce), global::AuthResponce.Parser, new[]{ "Responce", "Message", "ProxyVersion", "ProxyVersionRev", "Protocol", "UsePacketTranslation", "Type" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Data), global::Data.Parser, new[]{ "Message" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::VoxelSrvMessage), global::VoxelSrvMessage.Parser, new[]{ "Message" }, null, null, null, null),
@@ -44,6 +48,430 @@ public static partial class ProxyServerReflection {
 
 }
 #region Messages
+public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<ProxyInfo> _parser = new pb::MessageParser<ProxyInfo>(() => new ProxyInfo());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<ProxyInfo> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::ProxyServerReflection.Descriptor.MessageTypes[0]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ProxyInfo() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ProxyInfo(ProxyInfo other) : this() {
+    name_ = other.name_;
+    proxyProtocol_ = other.proxyProtocol_;
+    onlinePlayers_ = other.onlinePlayers_;
+    maxPlayers_ = other.maxPlayers_;
+    motd_ = other.motd_;
+    software_ = other.software_;
+    auth_ = other.auth_;
+    isProxy_ = other.isProxy_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ProxyInfo Clone() {
+    return new ProxyInfo(this);
+  }
+
+  /// <summary>Field number for the "name" field.</summary>
+  public const int NameFieldNumber = 1;
+  private string name_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Name {
+    get { return name_; }
+    set {
+      name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "proxy_protocol" field.</summary>
+  public const int ProxyProtocolFieldNumber = 2;
+  private uint proxyProtocol_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public uint ProxyProtocol {
+    get { return proxyProtocol_; }
+    set {
+      proxyProtocol_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "online_players" field.</summary>
+  public const int OnlinePlayersFieldNumber = 3;
+  private uint onlinePlayers_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public uint OnlinePlayers {
+    get { return onlinePlayers_; }
+    set {
+      onlinePlayers_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "max_players" field.</summary>
+  public const int MaxPlayersFieldNumber = 4;
+  private uint maxPlayers_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public uint MaxPlayers {
+    get { return maxPlayers_; }
+    set {
+      maxPlayers_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "motd" field.</summary>
+  public const int MotdFieldNumber = 5;
+  private string motd_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Motd {
+    get { return motd_; }
+    set {
+      motd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "software" field.</summary>
+  public const int SoftwareFieldNumber = 6;
+  private string software_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Software {
+    get { return software_; }
+    set {
+      software_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "auth" field.</summary>
+  public const int AuthFieldNumber = 7;
+  private bool auth_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Auth {
+    get { return auth_; }
+    set {
+      auth_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "is_proxy" field.</summary>
+  public const int IsProxyFieldNumber = 9;
+  private bool isProxy_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool IsProxy {
+    get { return isProxy_; }
+    set {
+      isProxy_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as ProxyInfo);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(ProxyInfo other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Name != other.Name) return false;
+    if (ProxyProtocol != other.ProxyProtocol) return false;
+    if (OnlinePlayers != other.OnlinePlayers) return false;
+    if (MaxPlayers != other.MaxPlayers) return false;
+    if (Motd != other.Motd) return false;
+    if (Software != other.Software) return false;
+    if (Auth != other.Auth) return false;
+    if (IsProxy != other.IsProxy) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Name.Length != 0) hash ^= Name.GetHashCode();
+    if (ProxyProtocol != 0) hash ^= ProxyProtocol.GetHashCode();
+    if (OnlinePlayers != 0) hash ^= OnlinePlayers.GetHashCode();
+    if (MaxPlayers != 0) hash ^= MaxPlayers.GetHashCode();
+    if (Motd.Length != 0) hash ^= Motd.GetHashCode();
+    if (Software.Length != 0) hash ^= Software.GetHashCode();
+    if (Auth != false) hash ^= Auth.GetHashCode();
+    if (IsProxy != false) hash ^= IsProxy.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Name.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Name);
+    }
+    if (ProxyProtocol != 0) {
+      output.WriteRawTag(16);
+      output.WriteUInt32(ProxyProtocol);
+    }
+    if (OnlinePlayers != 0) {
+      output.WriteRawTag(24);
+      output.WriteUInt32(OnlinePlayers);
+    }
+    if (MaxPlayers != 0) {
+      output.WriteRawTag(32);
+      output.WriteUInt32(MaxPlayers);
+    }
+    if (Motd.Length != 0) {
+      output.WriteRawTag(42);
+      output.WriteString(Motd);
+    }
+    if (Software.Length != 0) {
+      output.WriteRawTag(50);
+      output.WriteString(Software);
+    }
+    if (Auth != false) {
+      output.WriteRawTag(56);
+      output.WriteBool(Auth);
+    }
+    if (IsProxy != false) {
+      output.WriteRawTag(72);
+      output.WriteBool(IsProxy);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Name.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Name);
+    }
+    if (ProxyProtocol != 0) {
+      output.WriteRawTag(16);
+      output.WriteUInt32(ProxyProtocol);
+    }
+    if (OnlinePlayers != 0) {
+      output.WriteRawTag(24);
+      output.WriteUInt32(OnlinePlayers);
+    }
+    if (MaxPlayers != 0) {
+      output.WriteRawTag(32);
+      output.WriteUInt32(MaxPlayers);
+    }
+    if (Motd.Length != 0) {
+      output.WriteRawTag(42);
+      output.WriteString(Motd);
+    }
+    if (Software.Length != 0) {
+      output.WriteRawTag(50);
+      output.WriteString(Software);
+    }
+    if (Auth != false) {
+      output.WriteRawTag(56);
+      output.WriteBool(Auth);
+    }
+    if (IsProxy != false) {
+      output.WriteRawTag(72);
+      output.WriteBool(IsProxy);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Name.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+    }
+    if (ProxyProtocol != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ProxyProtocol);
+    }
+    if (OnlinePlayers != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OnlinePlayers);
+    }
+    if (MaxPlayers != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxPlayers);
+    }
+    if (Motd.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Motd);
+    }
+    if (Software.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Software);
+    }
+    if (Auth != false) {
+      size += 1 + 1;
+    }
+    if (IsProxy != false) {
+      size += 1 + 1;
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(ProxyInfo other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Name.Length != 0) {
+      Name = other.Name;
+    }
+    if (other.ProxyProtocol != 0) {
+      ProxyProtocol = other.ProxyProtocol;
+    }
+    if (other.OnlinePlayers != 0) {
+      OnlinePlayers = other.OnlinePlayers;
+    }
+    if (other.MaxPlayers != 0) {
+      MaxPlayers = other.MaxPlayers;
+    }
+    if (other.Motd.Length != 0) {
+      Motd = other.Motd;
+    }
+    if (other.Software.Length != 0) {
+      Software = other.Software;
+    }
+    if (other.Auth != false) {
+      Auth = other.Auth;
+    }
+    if (other.IsProxy != false) {
+      IsProxy = other.IsProxy;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          Name = input.ReadString();
+          break;
+        }
+        case 16: {
+          ProxyProtocol = input.ReadUInt32();
+          break;
+        }
+        case 24: {
+          OnlinePlayers = input.ReadUInt32();
+          break;
+        }
+        case 32: {
+          MaxPlayers = input.ReadUInt32();
+          break;
+        }
+        case 42: {
+          Motd = input.ReadString();
+          break;
+        }
+        case 50: {
+          Software = input.ReadString();
+          break;
+        }
+        case 56: {
+          Auth = input.ReadBool();
+          break;
+        }
+        case 72: {
+          IsProxy = input.ReadBool();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          Name = input.ReadString();
+          break;
+        }
+        case 16: {
+          ProxyProtocol = input.ReadUInt32();
+          break;
+        }
+        case 24: {
+          OnlinePlayers = input.ReadUInt32();
+          break;
+        }
+        case 32: {
+          MaxPlayers = input.ReadUInt32();
+          break;
+        }
+        case 42: {
+          Motd = input.ReadString();
+          break;
+        }
+        case 50: {
+          Software = input.ReadString();
+          break;
+        }
+        case 56: {
+          Auth = input.ReadBool();
+          break;
+        }
+        case 72: {
+          IsProxy = input.ReadBool();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
 public sealed partial class AuthResponce : pb::IMessage<AuthResponce>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
@@ -56,7 +484,7 @@ public sealed partial class AuthResponce : pb::IMessage<AuthResponce>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ProxyServerReflection.Descriptor.MessageTypes[0]; }
+    get { return global::ProxyServerReflection.Descriptor.MessageTypes[1]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -444,7 +872,7 @@ public sealed partial class Data : pb::IMessage<Data>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ProxyServerReflection.Descriptor.MessageTypes[1]; }
+    get { return global::ProxyServerReflection.Descriptor.MessageTypes[2]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -616,7 +1044,7 @@ public sealed partial class VoxelSrvMessage : pb::IMessage<VoxelSrvMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ProxyServerReflection.Descriptor.MessageTypes[2]; }
+    get { return global::ProxyServerReflection.Descriptor.MessageTypes[3]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -788,7 +1216,7 @@ public sealed partial class Disconnect : pb::IMessage<Disconnect>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ProxyServerReflection.Descriptor.MessageTypes[3]; }
+    get { return global::ProxyServerReflection.Descriptor.MessageTypes[4]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -960,7 +1388,7 @@ public sealed partial class ProxyMessage : pb::IMessage<ProxyMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ProxyServerReflection.Descriptor.MessageTypes[4]; }
+    get { return global::ProxyServerReflection.Descriptor.MessageTypes[5]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -1,5 +1,41 @@
 {
   "nested": {
+    "ProxyInfo": {
+      "fields": {
+        "name": {
+          "type": "string",
+          "id": 1
+        },
+        "proxyProtocol": {
+          "type": "uint32",
+          "id": 2
+        },
+        "onlinePlayers": {
+          "type": "uint32",
+          "id": 3
+        },
+        "maxPlayers": {
+          "type": "uint32",
+          "id": 4
+        },
+        "motd": {
+          "type": "string",
+          "id": 5
+        },
+        "software": {
+          "type": "string",
+          "id": 6
+        },
+        "auth": {
+          "type": "bool",
+          "id": 7
+        },
+        "isProxy": {
+          "type": "bool",
+          "id": 9
+        }
+      }
+    },
     "AuthResponce": {
       "fields": {
         "responce": {

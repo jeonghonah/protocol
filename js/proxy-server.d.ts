@@ -1,4 +1,136 @@
 import * as $protobuf from "protobufjs";
+/** Properties of a ProxyInfo. */
+export interface IProxyInfo {
+
+    /** ProxyInfo name */
+    name?: (string|null);
+
+    /** ProxyInfo proxyProtocol */
+    proxyProtocol?: (number|null);
+
+    /** ProxyInfo onlinePlayers */
+    onlinePlayers?: (number|null);
+
+    /** ProxyInfo maxPlayers */
+    maxPlayers?: (number|null);
+
+    /** ProxyInfo motd */
+    motd?: (string|null);
+
+    /** ProxyInfo software */
+    software?: (string|null);
+
+    /** ProxyInfo auth */
+    auth?: (boolean|null);
+
+    /** ProxyInfo isProxy */
+    isProxy?: (boolean|null);
+}
+
+/** Represents a ProxyInfo. */
+export class ProxyInfo implements IProxyInfo {
+
+    /**
+     * Constructs a new ProxyInfo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IProxyInfo);
+
+    /** ProxyInfo name. */
+    public name: string;
+
+    /** ProxyInfo proxyProtocol. */
+    public proxyProtocol: number;
+
+    /** ProxyInfo onlinePlayers. */
+    public onlinePlayers: number;
+
+    /** ProxyInfo maxPlayers. */
+    public maxPlayers: number;
+
+    /** ProxyInfo motd. */
+    public motd: string;
+
+    /** ProxyInfo software. */
+    public software: string;
+
+    /** ProxyInfo auth. */
+    public auth: boolean;
+
+    /** ProxyInfo isProxy. */
+    public isProxy: boolean;
+
+    /**
+     * Creates a new ProxyInfo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ProxyInfo instance
+     */
+    public static create(properties?: IProxyInfo): ProxyInfo;
+
+    /**
+     * Encodes the specified ProxyInfo message. Does not implicitly {@link ProxyInfo.verify|verify} messages.
+     * @param message ProxyInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IProxyInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ProxyInfo message, length delimited. Does not implicitly {@link ProxyInfo.verify|verify} messages.
+     * @param message ProxyInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IProxyInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ProxyInfo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ProxyInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ProxyInfo;
+
+    /**
+     * Decodes a ProxyInfo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ProxyInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ProxyInfo;
+
+    /**
+     * Verifies a ProxyInfo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ProxyInfo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ProxyInfo
+     */
+    public static fromObject(object: { [k: string]: any }): ProxyInfo;
+
+    /**
+     * Creates a plain object from a ProxyInfo message. Also converts values to other types if specified.
+     * @param message ProxyInfo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ProxyInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ProxyInfo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of an AuthResponce. */
 export interface IAuthResponce {
 
