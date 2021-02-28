@@ -29,6 +29,7 @@
          * @property {string|null} [motd] ProxyInfo motd
          * @property {string|null} [software] ProxyInfo software
          * @property {boolean|null} [auth] ProxyInfo auth
+         * @property {string|null} [secret] ProxyInfo secret
          * @property {boolean|null} [isProxy] ProxyInfo isProxy
          */
     
@@ -104,6 +105,14 @@
         ProxyInfo.prototype.auth = false;
     
         /**
+         * ProxyInfo secret.
+         * @member {string} secret
+         * @memberof ProxyInfo
+         * @instance
+         */
+        ProxyInfo.prototype.secret = "";
+    
+        /**
          * ProxyInfo isProxy.
          * @member {boolean} isProxy
          * @memberof ProxyInfo
@@ -149,6 +158,8 @@
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.software);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 writer.uint32(/* id 7, wireType 0 =*/56).bool(message.auth);
+            if (message.secret != null && Object.hasOwnProperty.call(message, "secret"))
+                writer.uint32(/* id 8, wireType 2 =*/66).string(message.secret);
             if (message.isProxy != null && Object.hasOwnProperty.call(message, "isProxy"))
                 writer.uint32(/* id 9, wireType 0 =*/72).bool(message.isProxy);
             return writer;
@@ -205,6 +216,9 @@
                     break;
                 case 7:
                     message.auth = reader.bool();
+                    break;
+                case 8:
+                    message.secret = reader.string();
                     break;
                 case 9:
                     message.isProxy = reader.bool();
@@ -265,6 +279,9 @@
             if (message.auth != null && message.hasOwnProperty("auth"))
                 if (typeof message.auth !== "boolean")
                     return "auth: boolean expected";
+            if (message.secret != null && message.hasOwnProperty("secret"))
+                if (!$util.isString(message.secret))
+                    return "secret: string expected";
             if (message.isProxy != null && message.hasOwnProperty("isProxy"))
                 if (typeof message.isProxy !== "boolean")
                     return "isProxy: boolean expected";
@@ -297,6 +314,8 @@
                 message.software = String(object.software);
             if (object.auth != null)
                 message.auth = Boolean(object.auth);
+            if (object.secret != null)
+                message.secret = String(object.secret);
             if (object.isProxy != null)
                 message.isProxy = Boolean(object.isProxy);
             return message;
@@ -323,6 +342,7 @@
                 object.motd = "";
                 object.software = "";
                 object.auth = false;
+                object.secret = "";
                 object.isProxy = false;
             }
             if (message.name != null && message.hasOwnProperty("name"))
@@ -339,6 +359,8 @@
                 object.software = message.software;
             if (message.auth != null && message.hasOwnProperty("auth"))
                 object.auth = message.auth;
+            if (message.secret != null && message.hasOwnProperty("secret"))
+                object.secret = message.secret;
             if (message.isProxy != null && message.hasOwnProperty("isProxy"))
                 object.isProxy = message.isProxy;
             return object;

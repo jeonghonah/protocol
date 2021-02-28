@@ -30,6 +30,10 @@
           "type": "bool",
           "id": 7
         },
+        "secret": {
+          "type": "string",
+          "id": 8
+        },
         "isProxy": {
           "type": "bool",
           "id": 9

@@ -77,6 +77,18 @@ public final class ProxyServer {
     boolean getAuth();
 
     /**
+     * <code>string secret = 8;</code>
+     * @return The secret.
+     */
+    java.lang.String getSecret();
+    /**
+     * <code>string secret = 8;</code>
+     * @return The bytes for secret.
+     */
+    com.google.protobuf.ByteString
+        getSecretBytes();
+
+    /**
      * <code>bool is_proxy = 9;</code>
      * @return The isProxy.
      */
@@ -98,6 +110,7 @@ public final class ProxyServer {
       name_ = "";
       motd_ = "";
       software_ = "";
+      secret_ = "";
     }
 
     @java.lang.Override
@@ -166,6 +179,12 @@ public final class ProxyServer {
             case 56: {
 
               auth_ = input.readBool();
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              secret_ = s;
               break;
             }
             case 72: {
@@ -363,6 +382,44 @@ public final class ProxyServer {
       return auth_;
     }
 
+    public static final int SECRET_FIELD_NUMBER = 8;
+    private volatile java.lang.Object secret_;
+    /**
+     * <code>string secret = 8;</code>
+     * @return The secret.
+     */
+    @java.lang.Override
+    public java.lang.String getSecret() {
+      java.lang.Object ref = secret_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        secret_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string secret = 8;</code>
+     * @return The bytes for secret.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSecretBytes() {
+      java.lang.Object ref = secret_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        secret_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int IS_PROXY_FIELD_NUMBER = 9;
     private boolean isProxy_;
     /**
@@ -409,6 +466,9 @@ public final class ProxyServer {
       if (auth_ != false) {
         output.writeBool(7, auth_);
       }
+      if (!getSecretBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, secret_);
+      }
       if (isProxy_ != false) {
         output.writeBool(9, isProxy_);
       }
@@ -446,6 +506,9 @@ public final class ProxyServer {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(7, auth_);
       }
+      if (!getSecretBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, secret_);
+      }
       if (isProxy_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(9, isProxy_);
@@ -479,6 +542,8 @@ public final class ProxyServer {
           .equals(other.getSoftware())) return false;
       if (getAuth()
           != other.getAuth()) return false;
+      if (!getSecret()
+          .equals(other.getSecret())) return false;
       if (getIsProxy()
           != other.getIsProxy()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -507,6 +572,8 @@ public final class ProxyServer {
       hash = (37 * hash) + AUTH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAuth());
+      hash = (37 * hash) + SECRET_FIELD_NUMBER;
+      hash = (53 * hash) + getSecret().hashCode();
       hash = (37 * hash) + IS_PROXY_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsProxy());
@@ -657,6 +724,8 @@ public final class ProxyServer {
 
         auth_ = false;
 
+        secret_ = "";
+
         isProxy_ = false;
 
         return this;
@@ -692,6 +761,7 @@ public final class ProxyServer {
         result.motd_ = motd_;
         result.software_ = software_;
         result.auth_ = auth_;
+        result.secret_ = secret_;
         result.isProxy_ = isProxy_;
         onBuilt();
         return result;
@@ -764,6 +834,10 @@ public final class ProxyServer {
         }
         if (other.getAuth() != false) {
           setAuth(other.getAuth());
+        }
+        if (!other.getSecret().isEmpty()) {
+          secret_ = other.secret_;
+          onChanged();
         }
         if (other.getIsProxy() != false) {
           setIsProxy(other.getIsProxy());
@@ -1145,6 +1219,82 @@ public final class ProxyServer {
       public Builder clearAuth() {
         
         auth_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object secret_ = "";
+      /**
+       * <code>string secret = 8;</code>
+       * @return The secret.
+       */
+      public java.lang.String getSecret() {
+        java.lang.Object ref = secret_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          secret_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string secret = 8;</code>
+       * @return The bytes for secret.
+       */
+      public com.google.protobuf.ByteString
+          getSecretBytes() {
+        java.lang.Object ref = secret_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          secret_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string secret = 8;</code>
+       * @param value The secret to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSecret(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        secret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string secret = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSecret() {
+        
+        secret_ = getDefaultInstance().getSecret();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string secret = 8;</code>
+       * @param value The bytes for secret to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSecretBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        secret_ = value;
         onChanged();
         return this;
       }
@@ -4308,19 +4458,19 @@ public final class ProxyServer {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030proto/proxy-server.proto\"\236\001\n\tProxyInfo" +
+      "\n\030proto/proxy-server.proto\"\256\001\n\tProxyInfo" +
       "\022\014\n\004name\030\001 \001(\t\022\026\n\016proxy_protocol\030\002 \001(\r\022\026" +
       "\n\016online_players\030\003 \001(\r\022\023\n\013max_players\030\004 " +
       "\001(\r\022\014\n\004motd\030\005 \001(\t\022\020\n\010software\030\006 \001(\t\022\014\n\004a" +
-      "uth\030\007 \001(\010\022\020\n\010is_proxy\030\t \001(\010\"\243\001\n\014AuthResp" +
-      "once\022\020\n\010responce\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022" +
-      "\025\n\rproxy_version\030\003 \001(\r\022\031\n\021proxy_version_" +
-      "rev\030\004 \001(\r\022\020\n\010protocol\030\005 \001(\r\022\036\n\026use_packe" +
-      "t_translation\030\006 \001(\010\022\014\n\004type\030\007 \001(\t\"\027\n\004Dat" +
-      "a\022\017\n\007message\030\001 \001(\014\"\"\n\017VoxelSrvMessage\022\017\n" +
-      "\007message\030\001 \001(\014\"\035\n\nDisconnect\022\017\n\007message\030" +
-      "\001 \001(\014\"\037\n\014ProxyMessage\022\017\n\007message\030\001 \001(\014b\006" +
-      "proto3"
+      "uth\030\007 \001(\010\022\016\n\006secret\030\010 \001(\t\022\020\n\010is_proxy\030\t " +
+      "\001(\010\"\243\001\n\014AuthResponce\022\020\n\010responce\030\001 \001(\005\022\017" +
+      "\n\007message\030\002 \001(\t\022\025\n\rproxy_version\030\003 \001(\r\022\031" +
+      "\n\021proxy_version_rev\030\004 \001(\r\022\020\n\010protocol\030\005 " +
+      "\001(\r\022\036\n\026use_packet_translation\030\006 \001(\010\022\014\n\004t" +
+      "ype\030\007 \001(\t\"\027\n\004Data\022\017\n\007message\030\001 \001(\014\"\"\n\017Vo" +
+      "xelSrvMessage\022\017\n\007message\030\001 \001(\014\"\035\n\nDiscon" +
+      "nect\022\017\n\007message\030\001 \001(\014\"\037\n\014ProxyMessage\022\017\n" +
+      "\007message\030\001 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4331,7 +4481,7 @@ public final class ProxyServer {
     internal_static_ProxyInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProxyInfo_descriptor,
-        new java.lang.String[] { "Name", "ProxyProtocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "IsProxy", });
+        new java.lang.String[] { "Name", "ProxyProtocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "Secret", "IsProxy", });
     internal_static_AuthResponce_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_AuthResponce_fieldAccessorTable = new

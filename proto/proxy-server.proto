@@ -8,6 +8,7 @@ message ProxyInfo {
 	string motd = 5;
 	string software = 6;
 	bool auth = 7;
+	string secret = 8;
 	bool is_proxy = 9;
 }
 

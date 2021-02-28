@@ -23,6 +23,9 @@ export interface IProxyInfo {
     /** ProxyInfo auth */
     auth?: (boolean|null);
 
+    /** ProxyInfo secret */
+    secret?: (string|null);
+
     /** ProxyInfo isProxy */
     isProxy?: (boolean|null);
 }
@@ -56,6 +59,9 @@ export class ProxyInfo implements IProxyInfo {
 
     /** ProxyInfo auth. */
     public auth: boolean;
+
+    /** ProxyInfo secret. */
+    public secret: string;
 
     /** ProxyInfo isProxy. */
     public isProxy: boolean;
