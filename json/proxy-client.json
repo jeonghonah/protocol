@@ -25,6 +25,18 @@
         "serverId": {
           "type": "string",
           "id": 6
+        },
+        "proxySupportedVersion": {
+          "type": "uint32",
+          "id": 7
+        }
+      }
+    },
+    "Ready": {
+      "fields": {
+        "ready": {
+          "type": "bool",
+          "id": 1
         }
       }
     },
@@ -37,6 +49,14 @@
       }
     },
     "VoxelSrvMessage": {
+      "fields": {
+        "message": {
+          "type": "bytes",
+          "id": 1
+        }
+      }
+    },
+    "ProxyMessage": {
       "fields": {
         "message": {
           "type": "bytes",

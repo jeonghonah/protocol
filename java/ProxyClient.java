@@ -81,6 +81,12 @@ public final class ProxyClient {
      */
     com.google.protobuf.ByteString
         getServerIdBytes();
+
+    /**
+     * <code>uint32 proxy_supported_version = 7;</code>
+     * @return The proxySupportedVersion.
+     */
+    int getProxySupportedVersion();
   }
   /**
    * Protobuf type {@code AuthRequest}
@@ -165,6 +171,11 @@ public final class ProxyClient {
               java.lang.String s = input.readStringRequireUtf8();
 
               serverId_ = s;
+              break;
+            }
+            case 56: {
+
+              proxySupportedVersion_ = input.readUInt32();
               break;
             }
             default: {
@@ -400,6 +411,17 @@ public final class ProxyClient {
       }
     }
 
+    public static final int PROXY_SUPPORTED_VERSION_FIELD_NUMBER = 7;
+    private int proxySupportedVersion_;
+    /**
+     * <code>uint32 proxy_supported_version = 7;</code>
+     * @return The proxySupportedVersion.
+     */
+    @java.lang.Override
+    public int getProxySupportedVersion() {
+      return proxySupportedVersion_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -432,6 +454,9 @@ public final class ProxyClient {
       if (!getServerIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, serverId_);
       }
+      if (proxySupportedVersion_ != 0) {
+        output.writeUInt32(7, proxySupportedVersion_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -460,6 +485,10 @@ public final class ProxyClient {
       if (!getServerIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, serverId_);
       }
+      if (proxySupportedVersion_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(7, proxySupportedVersion_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -487,6 +516,8 @@ public final class ProxyClient {
           .equals(other.getSecret())) return false;
       if (!getServerId()
           .equals(other.getServerId())) return false;
+      if (getProxySupportedVersion()
+          != other.getProxySupportedVersion()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -510,6 +541,8 @@ public final class ProxyClient {
       hash = (53 * hash) + getSecret().hashCode();
       hash = (37 * hash) + SERVERID_FIELD_NUMBER;
       hash = (53 * hash) + getServerId().hashCode();
+      hash = (37 * hash) + PROXY_SUPPORTED_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getProxySupportedVersion();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -655,6 +688,8 @@ public final class ProxyClient {
 
         serverId_ = "";
 
+        proxySupportedVersion_ = 0;
+
         return this;
       }
 
@@ -687,6 +722,7 @@ public final class ProxyClient {
         result.uuid_ = uuid_;
         result.secret_ = secret_;
         result.serverId_ = serverId_;
+        result.proxySupportedVersion_ = proxySupportedVersion_;
         onBuilt();
         return result;
       }
@@ -757,6 +793,9 @@ public final class ProxyClient {
         if (!other.getServerId().isEmpty()) {
           serverId_ = other.serverId_;
           onChanged();
+        }
+        if (other.getProxySupportedVersion() != 0) {
+          setProxySupportedVersion(other.getProxySupportedVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1197,6 +1236,37 @@ public final class ProxyClient {
         onChanged();
         return this;
       }
+
+      private int proxySupportedVersion_ ;
+      /**
+       * <code>uint32 proxy_supported_version = 7;</code>
+       * @return The proxySupportedVersion.
+       */
+      @java.lang.Override
+      public int getProxySupportedVersion() {
+        return proxySupportedVersion_;
+      }
+      /**
+       * <code>uint32 proxy_supported_version = 7;</code>
+       * @param value The proxySupportedVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProxySupportedVersion(int value) {
+        
+        proxySupportedVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 proxy_supported_version = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProxySupportedVersion() {
+        
+        proxySupportedVersion_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1245,6 +1315,495 @@ public final class ProxyClient {
 
     @java.lang.Override
     public ProxyClient.AuthRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReadyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Ready)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool ready = 1;</code>
+     * @return The ready.
+     */
+    boolean getReady();
+  }
+  /**
+   * Protobuf type {@code Ready}
+   */
+  public static final class Ready extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Ready)
+      ReadyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Ready.newBuilder() to construct.
+    private Ready(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Ready() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Ready();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Ready(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              ready_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return ProxyClient.internal_static_Ready_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return ProxyClient.internal_static_Ready_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              ProxyClient.Ready.class, ProxyClient.Ready.Builder.class);
+    }
+
+    public static final int READY_FIELD_NUMBER = 1;
+    private boolean ready_;
+    /**
+     * <code>bool ready = 1;</code>
+     * @return The ready.
+     */
+    @java.lang.Override
+    public boolean getReady() {
+      return ready_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (ready_ != false) {
+        output.writeBool(1, ready_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (ready_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, ready_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof ProxyClient.Ready)) {
+        return super.equals(obj);
+      }
+      ProxyClient.Ready other = (ProxyClient.Ready) obj;
+
+      if (getReady()
+          != other.getReady()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + READY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getReady());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static ProxyClient.Ready parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ProxyClient.Ready parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ProxyClient.Ready parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ProxyClient.Ready parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ProxyClient.Ready parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ProxyClient.Ready parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ProxyClient.Ready parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ProxyClient.Ready parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ProxyClient.Ready parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static ProxyClient.Ready parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ProxyClient.Ready parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ProxyClient.Ready parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(ProxyClient.Ready prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Ready}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Ready)
+        ProxyClient.ReadyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return ProxyClient.internal_static_Ready_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return ProxyClient.internal_static_Ready_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                ProxyClient.Ready.class, ProxyClient.Ready.Builder.class);
+      }
+
+      // Construct using ProxyClient.Ready.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        ready_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return ProxyClient.internal_static_Ready_descriptor;
+      }
+
+      @java.lang.Override
+      public ProxyClient.Ready getDefaultInstanceForType() {
+        return ProxyClient.Ready.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public ProxyClient.Ready build() {
+        ProxyClient.Ready result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public ProxyClient.Ready buildPartial() {
+        ProxyClient.Ready result = new ProxyClient.Ready(this);
+        result.ready_ = ready_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof ProxyClient.Ready) {
+          return mergeFrom((ProxyClient.Ready)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(ProxyClient.Ready other) {
+        if (other == ProxyClient.Ready.getDefaultInstance()) return this;
+        if (other.getReady() != false) {
+          setReady(other.getReady());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        ProxyClient.Ready parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ProxyClient.Ready) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean ready_ ;
+      /**
+       * <code>bool ready = 1;</code>
+       * @return The ready.
+       */
+      @java.lang.Override
+      public boolean getReady() {
+        return ready_;
+      }
+      /**
+       * <code>bool ready = 1;</code>
+       * @param value The ready to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReady(boolean value) {
+        
+        ready_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool ready = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReady() {
+        
+        ready_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Ready)
+    }
+
+    // @@protoc_insertion_point(class_scope:Ready)
+    private static final ProxyClient.Ready DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new ProxyClient.Ready();
+    }
+
+    public static ProxyClient.Ready getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Ready>
+        PARSER = new com.google.protobuf.AbstractParser<Ready>() {
+      @java.lang.Override
+      public Ready parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Ready(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Ready> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Ready> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public ProxyClient.Ready getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2234,11 +2793,508 @@ public final class ProxyClient {
 
   }
 
+  public interface ProxyMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ProxyMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes message = 1;</code>
+     * @return The message.
+     */
+    com.google.protobuf.ByteString getMessage();
+  }
+  /**
+   * Protobuf type {@code ProxyMessage}
+   */
+  public static final class ProxyMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ProxyMessage)
+      ProxyMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ProxyMessage.newBuilder() to construct.
+    private ProxyMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ProxyMessage() {
+      message_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ProxyMessage();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ProxyMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              message_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return ProxyClient.internal_static_ProxyMessage_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return ProxyClient.internal_static_ProxyMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              ProxyClient.ProxyMessage.class, ProxyClient.ProxyMessage.Builder.class);
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString message_;
+    /**
+     * <code>bytes message = 1;</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getMessage() {
+      return message_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!message_.isEmpty()) {
+        output.writeBytes(1, message_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!message_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, message_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof ProxyClient.ProxyMessage)) {
+        return super.equals(obj);
+      }
+      ProxyClient.ProxyMessage other = (ProxyClient.ProxyMessage) obj;
+
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static ProxyClient.ProxyMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ProxyClient.ProxyMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static ProxyClient.ProxyMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ProxyClient.ProxyMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(ProxyClient.ProxyMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ProxyMessage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ProxyMessage)
+        ProxyClient.ProxyMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return ProxyClient.internal_static_ProxyMessage_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return ProxyClient.internal_static_ProxyMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                ProxyClient.ProxyMessage.class, ProxyClient.ProxyMessage.Builder.class);
+      }
+
+      // Construct using ProxyClient.ProxyMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        message_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return ProxyClient.internal_static_ProxyMessage_descriptor;
+      }
+
+      @java.lang.Override
+      public ProxyClient.ProxyMessage getDefaultInstanceForType() {
+        return ProxyClient.ProxyMessage.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public ProxyClient.ProxyMessage build() {
+        ProxyClient.ProxyMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public ProxyClient.ProxyMessage buildPartial() {
+        ProxyClient.ProxyMessage result = new ProxyClient.ProxyMessage(this);
+        result.message_ = message_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof ProxyClient.ProxyMessage) {
+          return mergeFrom((ProxyClient.ProxyMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(ProxyClient.ProxyMessage other) {
+        if (other == ProxyClient.ProxyMessage.getDefaultInstance()) return this;
+        if (other.getMessage() != com.google.protobuf.ByteString.EMPTY) {
+          setMessage(other.getMessage());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        ProxyClient.ProxyMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ProxyClient.ProxyMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString message_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes message = 1;</code>
+       * @return The message.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getMessage() {
+        return message_;
+      }
+      /**
+       * <code>bytes message = 1;</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes message = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ProxyMessage)
+    }
+
+    // @@protoc_insertion_point(class_scope:ProxyMessage)
+    private static final ProxyClient.ProxyMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new ProxyClient.ProxyMessage();
+    }
+
+    public static ProxyClient.ProxyMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ProxyMessage>
+        PARSER = new com.google.protobuf.AbstractParser<ProxyMessage>() {
+      @java.lang.Override
+      public ProxyMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProxyMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProxyMessage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProxyMessage> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public ProxyClient.ProxyMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_AuthRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_AuthRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Ready_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Ready_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Data_descriptor;
   private static final 
@@ -2249,6 +3305,11 @@ public final class ProxyClient {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_VoxelSrvMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ProxyMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ProxyMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2258,12 +3319,14 @@ public final class ProxyClient {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030proto/proxy-client.proto\"q\n\013AuthReques" +
-      "t\022\020\n\010username\030\001 \001(\t\022\020\n\010protocol\030\002 \001(\r\022\016\n" +
-      "\006client\030\003 \001(\t\022\014\n\004uuid\030\004 \001(\t\022\016\n\006secret\030\005 " +
-      "\001(\t\022\020\n\010serverId\030\006 \001(\t\"\027\n\004Data\022\017\n\007message" +
-      "\030\001 \001(\014\"\"\n\017VoxelSrvMessage\022\017\n\007message\030\001 \001" +
-      "(\014b\006proto3"
+      "\n\030proto/proxy-client.proto\"\222\001\n\013AuthReque" +
+      "st\022\020\n\010username\030\001 \001(\t\022\020\n\010protocol\030\002 \001(\r\022\016" +
+      "\n\006client\030\003 \001(\t\022\014\n\004uuid\030\004 \001(\t\022\016\n\006secret\030\005" +
+      " \001(\t\022\020\n\010serverId\030\006 \001(\t\022\037\n\027proxy_supporte" +
+      "d_version\030\007 \001(\r\"\026\n\005Ready\022\r\n\005ready\030\001 \001(\010\"" +
+      "\027\n\004Data\022\017\n\007message\030\001 \001(\014\"\"\n\017VoxelSrvMess" +
+      "age\022\017\n\007message\030\001 \001(\014\"\037\n\014ProxyMessage\022\017\n\007" +
+      "message\030\001 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2274,18 +3337,30 @@ public final class ProxyClient {
     internal_static_AuthRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AuthRequest_descriptor,
-        new java.lang.String[] { "Username", "Protocol", "Client", "Uuid", "Secret", "ServerId", });
-    internal_static_Data_descriptor =
+        new java.lang.String[] { "Username", "Protocol", "Client", "Uuid", "Secret", "ServerId", "ProxySupportedVersion", });
+    internal_static_Ready_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_Ready_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Ready_descriptor,
+        new java.lang.String[] { "Ready", });
+    internal_static_Data_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_Data_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Data_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_VoxelSrvMessage_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_VoxelSrvMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_VoxelSrvMessage_descriptor,
+        new java.lang.String[] { "Message", });
+    internal_static_ProxyMessage_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_ProxyMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ProxyMessage_descriptor,
         new java.lang.String[] { "Message", });
   }
 

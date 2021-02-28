@@ -1,1 +1,1 @@
-["AuthRequest","Data","VoxelSrvMessage"]
+["AuthRequest","Ready","Data","VoxelSrvMessage","ProxyMessage"]

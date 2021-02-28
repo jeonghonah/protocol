@@ -7,6 +7,21 @@ export interface IAuthResponce {
 
     /** AuthResponce message */
     message?: (string|null);
+
+    /** AuthResponce proxyVersion */
+    proxyVersion?: (number|null);
+
+    /** AuthResponce proxyVersionRev */
+    proxyVersionRev?: (number|null);
+
+    /** AuthResponce protocol */
+    protocol?: (number|null);
+
+    /** AuthResponce usePacketTranslation */
+    usePacketTranslation?: (boolean|null);
+
+    /** AuthResponce type */
+    type?: (string|null);
 }
 
 /** Represents an AuthResponce. */
@@ -23,6 +38,21 @@ export class AuthResponce implements IAuthResponce {
 
     /** AuthResponce message. */
     public message: string;
+
+    /** AuthResponce proxyVersion. */
+    public proxyVersion: number;
+
+    /** AuthResponce proxyVersionRev. */
+    public proxyVersionRev: number;
+
+    /** AuthResponce protocol. */
+    public protocol: number;
+
+    /** AuthResponce usePacketTranslation. */
+    public usePacketTranslation: boolean;
+
+    /** AuthResponce type. */
+    public type: string;
 
     /**
      * Creates a new AuthResponce instance using the specified properties.
@@ -360,6 +390,96 @@ export class Disconnect implements IDisconnect {
 
     /**
      * Converts this Disconnect to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a ProxyMessage. */
+export interface IProxyMessage {
+
+    /** ProxyMessage message */
+    message?: (Uint8Array|null);
+}
+
+/** Represents a ProxyMessage. */
+export class ProxyMessage implements IProxyMessage {
+
+    /**
+     * Constructs a new ProxyMessage.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IProxyMessage);
+
+    /** ProxyMessage message. */
+    public message: Uint8Array;
+
+    /**
+     * Creates a new ProxyMessage instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ProxyMessage instance
+     */
+    public static create(properties?: IProxyMessage): ProxyMessage;
+
+    /**
+     * Encodes the specified ProxyMessage message. Does not implicitly {@link ProxyMessage.verify|verify} messages.
+     * @param message ProxyMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IProxyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ProxyMessage message, length delimited. Does not implicitly {@link ProxyMessage.verify|verify} messages.
+     * @param message ProxyMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IProxyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ProxyMessage message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ProxyMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ProxyMessage;
+
+    /**
+     * Decodes a ProxyMessage message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ProxyMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ProxyMessage;
+
+    /**
+     * Verifies a ProxyMessage message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ProxyMessage message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ProxyMessage
+     */
+    public static fromObject(object: { [k: string]: any }): ProxyMessage;
+
+    /**
+     * Creates a plain object from a ProxyMessage message. Also converts values to other types if specified.
+     * @param message ProxyMessage
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ProxyMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ProxyMessage to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

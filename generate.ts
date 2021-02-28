@@ -27,7 +27,14 @@ fs.readdir('proto', (err, data) => {
 
 			const obj = JSON.parse(output);
 
-			fs.writeFileSync(`./idmap/${name}.json`, JSON.stringify(Object.keys(obj.nested)));
+			const keys = Object.keys(obj.nested);
+
+			const byname = {};
+
+			keys.forEach((v, i) =>  byname[v] = i)
+			fs.writeFileSync(`./idmap/${name}.json`, JSON.stringify(keys));
+			fs.writeFileSync(`./idmap/${name}-byname.json`, JSON.stringify(byname));
+
 		});
 	});
 });

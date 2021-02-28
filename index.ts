@@ -5,14 +5,14 @@ import * as proxyServer from './js/proxy-server';
 
 import mapClient from './idmap/client.json';
 import mapServer from './idmap/server.json';
+import revMapClient from './idmap/client-byname.json';
+import revMapServer from './idmap/server-byname.json';
 
 import mapProxyClient from './idmap/proxy-client.json';
 import mapProxyServer from './idmap/proxy-server.json';
-
-let revMapServer = {};
-let revMapClient = {};
-let revMapProxyServer = {};
-let revMapProxyClient = {};
+import revMapProxyClient from './idmap/proxy-client-byname.json';
+import revMapProxyServer from './idmap/proxy-server-byname.json';
+export { protocolVersion, protocolVersionRevision, proxyVersion, proxyVersionRevision } from './const.json';
 
 mapClient.forEach((x, i) => (revMapClient[x] = i));
 mapServer.forEach((x, i) => (revMapServer[x] = i));

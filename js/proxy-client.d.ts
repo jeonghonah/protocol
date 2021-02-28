@@ -19,6 +19,9 @@ export interface IAuthRequest {
 
     /** AuthRequest serverId */
     serverId?: (string|null);
+
+    /** AuthRequest proxySupportedVersion */
+    proxySupportedVersion?: (number|null);
 }
 
 /** Represents an AuthRequest. */
@@ -47,6 +50,9 @@ export class AuthRequest implements IAuthRequest {
 
     /** AuthRequest serverId. */
     public serverId: string;
+
+    /** AuthRequest proxySupportedVersion. */
+    public proxySupportedVersion: number;
 
     /**
      * Creates a new AuthRequest instance using the specified properties.
@@ -114,6 +120,96 @@ export class AuthRequest implements IAuthRequest {
 
     /**
      * Converts this AuthRequest to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a Ready. */
+export interface IReady {
+
+    /** Ready ready */
+    ready?: (boolean|null);
+}
+
+/** Represents a Ready. */
+export class Ready implements IReady {
+
+    /**
+     * Constructs a new Ready.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReady);
+
+    /** Ready ready. */
+    public ready: boolean;
+
+    /**
+     * Creates a new Ready instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns Ready instance
+     */
+    public static create(properties?: IReady): Ready;
+
+    /**
+     * Encodes the specified Ready message. Does not implicitly {@link Ready.verify|verify} messages.
+     * @param message Ready message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReady, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified Ready message, length delimited. Does not implicitly {@link Ready.verify|verify} messages.
+     * @param message Ready message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReady, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a Ready message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Ready
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Ready;
+
+    /**
+     * Decodes a Ready message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns Ready
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Ready;
+
+    /**
+     * Verifies a Ready message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a Ready message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns Ready
+     */
+    public static fromObject(object: { [k: string]: any }): Ready;
+
+    /**
+     * Creates a plain object from a Ready message. Also converts values to other types if specified.
+     * @param message Ready
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: Ready, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this Ready to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
@@ -294,6 +390,96 @@ export class VoxelSrvMessage implements IVoxelSrvMessage {
 
     /**
      * Converts this VoxelSrvMessage to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a ProxyMessage. */
+export interface IProxyMessage {
+
+    /** ProxyMessage message */
+    message?: (Uint8Array|null);
+}
+
+/** Represents a ProxyMessage. */
+export class ProxyMessage implements IProxyMessage {
+
+    /**
+     * Constructs a new ProxyMessage.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IProxyMessage);
+
+    /** ProxyMessage message. */
+    public message: Uint8Array;
+
+    /**
+     * Creates a new ProxyMessage instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ProxyMessage instance
+     */
+    public static create(properties?: IProxyMessage): ProxyMessage;
+
+    /**
+     * Encodes the specified ProxyMessage message. Does not implicitly {@link ProxyMessage.verify|verify} messages.
+     * @param message ProxyMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IProxyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ProxyMessage message, length delimited. Does not implicitly {@link ProxyMessage.verify|verify} messages.
+     * @param message ProxyMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IProxyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ProxyMessage message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ProxyMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ProxyMessage;
+
+    /**
+     * Decodes a ProxyMessage message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ProxyMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ProxyMessage;
+
+    /**
+     * Verifies a ProxyMessage message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ProxyMessage message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ProxyMessage
+     */
+    public static fromObject(object: { [k: string]: any }): ProxyMessage;
+
+    /**
+     * Creates a plain object from a ProxyMessage message. Also converts values to other types if specified.
+     * @param message ProxyMessage
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ProxyMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ProxyMessage to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };

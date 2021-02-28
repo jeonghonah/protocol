@@ -43,7 +43,11 @@ fs.readdir('proto', function (err, data) {
             var name = x.replace('.proto', '');
             fs.writeFileSync("./json/" + name + ".json", output);
             var obj = JSON.parse(output);
-            fs.writeFileSync("./idmap/" + name + ".json", JSON.stringify(Object.keys(obj.nested)));
+            var keys = Object.keys(obj.nested);
+            var byname = {};
+            keys.forEach(function (v, i) { return byname[v] = i; });
+            fs.writeFileSync("./idmap/" + name + ".json", JSON.stringify(keys));
+            fs.writeFileSync("./idmap/" + name + "-byname.json", JSON.stringify(byname));
         });
     });
 });

@@ -9,6 +9,26 @@
         "message": {
           "type": "string",
           "id": 2
+        },
+        "proxyVersion": {
+          "type": "uint32",
+          "id": 3
+        },
+        "proxyVersionRev": {
+          "type": "uint32",
+          "id": 4
+        },
+        "protocol": {
+          "type": "uint32",
+          "id": 5
+        },
+        "usePacketTranslation": {
+          "type": "bool",
+          "id": 6
+        },
+        "type": {
+          "type": "string",
+          "id": 7
         }
       }
     },
@@ -29,6 +49,14 @@
       }
     },
     "Disconnect": {
+      "fields": {
+        "message": {
+          "type": "bytes",
+          "id": 1
+        }
+      }
+    },
+    "ProxyMessage": {
       "fields": {
         "message": {
           "type": "bytes",

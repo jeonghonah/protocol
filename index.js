@@ -22,23 +22,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.parseToMessage = exports.parseToObject = void 0;
+exports.parseToMessage = exports.parseToObject = exports.proxyVersionRevision = exports.proxyVersion = exports.protocolVersionRevision = exports.protocolVersion = void 0;
 var client = __importStar(require("./js/client"));
 var server = __importStar(require("./js/server"));
 var proxyClient = __importStar(require("./js/proxy-client"));
 var proxyServer = __importStar(require("./js/proxy-server"));
 var client_json_1 = __importDefault(require("./idmap/client.json"));
 var server_json_1 = __importDefault(require("./idmap/server.json"));
+var client_byname_json_1 = __importDefault(require("./idmap/client-byname.json"));
+var server_byname_json_1 = __importDefault(require("./idmap/server-byname.json"));
 var proxy_client_json_1 = __importDefault(require("./idmap/proxy-client.json"));
 var proxy_server_json_1 = __importDefault(require("./idmap/proxy-server.json"));
-var revMapServer = {};
-var revMapClient = {};
-var revMapProxyServer = {};
-var revMapProxyClient = {};
-client_json_1["default"].forEach(function (x, i) { return (revMapClient[x] = i); });
-server_json_1["default"].forEach(function (x, i) { return (revMapServer[x] = i); });
-proxy_client_json_1["default"].forEach(function (x, i) { return (revMapProxyClient[x] = i); });
-proxy_server_json_1["default"].forEach(function (x, i) { return (revMapProxyServer[x] = i); });
+var proxy_client_byname_json_1 = __importDefault(require("./idmap/proxy-client-byname.json"));
+var proxy_server_byname_json_1 = __importDefault(require("./idmap/proxy-server-byname.json"));
+var const_json_1 = require("./const.json");
+__createBinding(exports, const_json_1, "protocolVersion");
+__createBinding(exports, const_json_1, "protocolVersionRevision");
+__createBinding(exports, const_json_1, "proxyVersion");
+__createBinding(exports, const_json_1, "proxyVersionRevision");
+client_json_1["default"].forEach(function (x, i) { return (client_byname_json_1["default"][x] = i); });
+server_json_1["default"].forEach(function (x, i) { return (server_byname_json_1["default"][x] = i); });
+proxy_client_json_1["default"].forEach(function (x, i) { return (proxy_client_byname_json_1["default"][x] = i); });
+proxy_server_json_1["default"].forEach(function (x, i) { return (proxy_server_byname_json_1["default"][x] = i); });
 function parseToObject(pType, data) {
     var type = '';
     var packet;
@@ -83,19 +88,19 @@ function parseToMessage(pType, type, data) {
     var typeRaw = 0;
     switch (pType) {
         case 'server':
-            typeRaw = revMapServer[type];
+            typeRaw = server_byname_json_1["default"][type];
             packet = server[type];
             break;
         case 'client':
-            typeRaw = revMapClient[type];
+            typeRaw = client_byname_json_1["default"][type];
             packet = client[type];
             break;
         case 'proxy-server':
-            typeRaw = revMapProxyServer[type];
+            typeRaw = proxy_server_byname_json_1["default"][type];
             packet = proxyServer[type];
             break;
         case 'proxy-client':
-            typeRaw = revMapProxyClient[type];
+            typeRaw = proxy_client_byname_json_1["default"][type];
             packet = proxyClient[type];
             break;
         default:

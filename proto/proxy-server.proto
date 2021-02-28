@@ -3,6 +3,11 @@ syntax = "proto3";
 message AuthResponce {
 	int32 responce = 1;
 	string message = 2;
+	uint32 proxy_version = 3;
+	uint32 proxy_version_rev = 4;
+	uint32 protocol = 5;
+	bool use_packet_translation = 6;
+	string type = 7;
 }
 
 message Data {
@@ -13,7 +18,10 @@ message VoxelSrvMessage {
 	bytes message = 1;
 }
 
-
 message Disconnect {
+	bytes message = 1;
+}
+
+message ProxyMessage {
 	bytes message = 1;
 }

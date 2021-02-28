@@ -1,9 +1,9 @@
 {
 	"name": "voxelsrv-protocol",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"description": "",
 	"scripts": {
-		"start": "ts-node generate.ts && sh buildJava.sh"
+		"start": "ts-node generate.ts && sh buildOther.sh"
 	},
 	"keywords": [
 		"voxel",
