@@ -7,10 +7,11 @@ IDmap can be also found in idmap folder as a JSON array. Data itself is send via
 
 If you need files for other languages than provided, you can copy `proto` folder and use any protocol buffer 3 implementation.
 
-Server.\* and client.\* files are most likely ones you need. Proxy-* is only used for connecting to non-websocket based servers with main (or any other) proxy. Mostly used for mc0.30c support
+Server.\* and client.\* files are most likely ones you need. Proxy-* is only used for connecting to non-websocket based servers with main (or any other) proxy. Mostly used for mc0.30c/etc support
 
 If you want to use it, you should check:
 - [Protocol buffer definition files](https://github.com/VoxelSrv/protocol/tree/v3/proto)
 - General documentation [Protocol Buffers](https://developers.google.com/protocol-buffers)
 - Example VoxelSrv server (Typescript): [voxelsrv-server](https://github.com/VoxelSrv/voxelsrv-server/)
 - [Javascript implementation of Protocol Buffers](https://www.npmjs.com/package/protobufjs)
+- [About java-lite files](https://github.com/protocolbuffers/protobuf/blob/master/java/lite.md)
