@@ -1,3 +1,5 @@
+# This branch is used for prototyping! Don't use it yet!
+
 For client, see [VoxelSrv/voxelsrv](https://github.com/VoxelSrv/voxelsrv)
 For server, see [VoxelSrv/voxelsrv-server](https://github.com/VoxelSrv/voxelsrv-server)
 

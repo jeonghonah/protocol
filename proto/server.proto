@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+
+import "proto/types.proto";
+
 /* 
  * LoginRequest is send to player after connection.
 */
@@ -13,6 +16,8 @@ message LoginRequest {
 	string software = 6;
 	bool auth = 7;
 	string secret = 8;
+	bool is_proxy = 9;
+	int32 protocol_rev = 10;
 }
 
 
@@ -27,20 +32,15 @@ message LoginStatus {
 
 /* 
  * LoginSuccess is send after successful login.
- * x/y/z_pos corresponds player's position
  * items/blocksare stringified copies of servers block/item registry
- * inventory is stringified copy of player's inventory object
 */
 
 message LoginSuccess {
-	double x_pos = 1;
-	double y_pos = 2;
-	double z_pos = 3;
+	string message = 1;
+	uint64 time = 2;
+	string assets = 3;
 	string items_def = 4;
 	string blocks_def = 5;
-	string inventory = 6;
-	string armor = 7;
-	string movement = 8;
 }
 
 /* 
@@ -51,6 +51,22 @@ message Ping {
 	uint64 time = 1;
 }
 
+/* 
+ * PlayerSpawn should be send after player joins/changes world. It also hides login status
+ * x/y/z_pos corresponds player's position
+ * inventory is the same as PlayerInventory message
+*/
+
+message PlayerSpawn {
+	double x_pos = 1;
+	double y_pos = 2;
+	double z_pos = 3;
+	float rotation = 4;
+	float pitch = 5;
+	map<string, double> movement = 6;
+	PlayerInventory inventory = 7;
+	PlayerEntity entity = 8;
+}
 
 /* 
  * PlayerKick is used to set reason of connection close
@@ -62,14 +78,15 @@ message PlayerKick {
 }
 
 /* 
- * PlayerEntity is send to make client ignore actions of player's entity
- * Also sets player's model and texture
+ * PlayerEntity is send to change player's entity information
 */
 
 message PlayerEntity {
 	string uuid = 1;
 	string model = 2;
 	string texture = 3;
+	float height = 4;
+	float witdh = 5;
 }
 
 /* 
@@ -81,6 +98,8 @@ message PlayerTeleport {
 	double x = 1;
 	double y = 2;
 	double z = 3;
+	float rotation = 4;
+	float pitch = 5;
 }
 
 /* 
@@ -89,8 +108,10 @@ message PlayerTeleport {
 */
 
 message PlayerInventory {
-	string type = 1;
-	string inventory = 2;
+	uint32 size = 1;
+	map<uint32, Item> main = 2;
+	map<uint32, Item> armor = 3;
+	map<uint32, Item> crafting = 4;
 }
 
 /* 
@@ -99,9 +120,9 @@ message PlayerInventory {
 */
 
 message PlayerSlotUpdate {
-	uint32 slot = 1;
-	string type = 2;
-	string data = 3;
+	int32 slot = 1;
+	InventoryType type = 2;
+	Item item = 3;
 }
 
 /* 
@@ -137,8 +158,8 @@ message PlayerUpdatePhysics {
 */
 
 message PlayerHealth {
-	sint32 value = 1;
-	sint32 max = 2;
+	float value = 1;
+	float max = 2;
 }
 
 /* 
@@ -154,16 +175,19 @@ message PlayerSetBlockReach {
 */
 
 message PlayerOpenInventory {
-	enum Type {
-		MAIN = 0;
-		CHEST = 1;
-		CRAFTING = 2;
-		FURNACE = 3;
-	}
-
-	Type type = 1;
+	ContainerType type = 1;
 	string name = 2;
-	string data = 3;
+	uint32 size = 3;
+	map<uint32, Item> items = 4;
+}
+
+/* 
+ * PlayerUpdateOpenInventory updates items in inventory opened by player (chest/furnace/crafting table)
+*/
+
+message PlayerUpdateOpenInventory {
+	string name = 1;
+	map<uint32, Item> items = 2;
 }
 
 /* 
@@ -185,15 +209,7 @@ message SoundPlay {
 */
 
 message ChatMessage {
-	message ChatComponent {
-		string text = 1;
-		string font = 2;
-		string color = 3;
-		bool linethrough = 4;
-		bool underline = 5;
-	}
-
-	map<uint32, ChatComponent> message = 1;
+	map<uint32, ChatComponentType> message = 1;
 	uint64 time = 2;
 }
 
@@ -205,16 +221,8 @@ message UpdateTextBoard {
 		HOTBAR = 3;
 	}
 
-	message ChatComponent {
-		string text = 1;
-		string font = 2;
-		string color = 3;
-		bool linethrough = 4;
-		bool underline = 5;
-	}
-
 	Type type = 1;
-	map<uint32, ChatComponent> message = 2;
+	map<uint32, BasicChatComponentType> message = 2;
 	uint64 time = 3;
 }
 
@@ -322,9 +330,10 @@ message WorldChunkLoad {
 	sint32 x = 1;
 	sint32 y = 2;
 	sint32 z = 3;
-	bytes data = 4;
-	sint32 height = 5;
-	bool compressed = 6;
+	sint32 height = 4;
+	bool compressed = 5;
+	bytes block_data = 6;
+	bytes light_data = 7;
 }
 
 /* 
@@ -359,18 +368,6 @@ message WorldChunksRemoveAll {
 	bool confirm = 1;
 }
 
-
-/* 
- * RegistryUpdate updates client-side registry
- * Warning! It can create bugs!
-*/
-
-message RegistryUpdate {
-	string items_def = 1;
-	string blocks_def = 2;
-}
-
-
 /*
  * Updates settings of fog
 */
@@ -398,6 +395,14 @@ message EnvironmentSkyUpdate {
 	float color_red_top = 5;
 	float color_green_top = 6;
 	float color_blue_top = 7;
+}
+
+/*
+ * Sets skybox
+*/
+
+message EnvironmentSetSkybox {
+	string texture = 1;
 }
 
 

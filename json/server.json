@@ -33,6 +33,14 @@
         "secret": {
           "type": "string",
           "id": 8
+        },
+        "isProxy": {
+          "type": "bool",
+          "id": 9
+        },
+        "protocolRev": {
+          "type": "int32",
+          "id": 10
         }
       }
     },
@@ -50,6 +58,38 @@
     },
     "LoginSuccess": {
       "fields": {
+        "message": {
+          "type": "string",
+          "id": 1
+        },
+        "time": {
+          "type": "uint64",
+          "id": 2
+        },
+        "assets": {
+          "type": "string",
+          "id": 3
+        },
+        "itemsDef": {
+          "type": "string",
+          "id": 4
+        },
+        "blocksDef": {
+          "type": "string",
+          "id": 5
+        }
+      }
+    },
+    "Ping": {
+      "fields": {
+        "time": {
+          "type": "uint64",
+          "id": 1
+        }
+      }
+    },
+    "PlayerSpawn": {
+      "fields": {
         "xPos": {
           "type": "double",
           "id": 1
@@ -62,33 +102,26 @@
           "type": "double",
           "id": 3
         },
-        "itemsDef": {
-          "type": "string",
+        "rotation": {
+          "type": "float",
           "id": 4
         },
-        "blocksDef": {
-          "type": "string",
+        "pitch": {
+          "type": "float",
           "id": 5
         },
-        "inventory": {
-          "type": "string",
+        "movement": {
+          "keyType": "string",
+          "type": "double",
           "id": 6
         },
-        "armor": {
-          "type": "string",
+        "inventory": {
+          "type": "PlayerInventory",
           "id": 7
         },
-        "movement": {
-          "type": "string",
+        "entity": {
+          "type": "PlayerEntity",
           "id": 8
-        }
-      }
-    },
-    "Ping": {
-      "fields": {
-        "time": {
-          "type": "uint64",
-          "id": 1
         }
       }
     },
@@ -117,6 +150,14 @@
         "texture": {
           "type": "string",
           "id": 3
+        },
+        "height": {
+          "type": "float",
+          "id": 4
+        },
+        "witdh": {
+          "type": "float",
+          "id": 5
         }
       }
     },
@@ -133,33 +174,52 @@
         "z": {
           "type": "double",
           "id": 3
+        },
+        "rotation": {
+          "type": "float",
+          "id": 4
+        },
+        "pitch": {
+          "type": "float",
+          "id": 5
         }
       }
     },
     "PlayerInventory": {
       "fields": {
-        "type": {
-          "type": "string",
+        "size": {
+          "type": "uint32",
           "id": 1
         },
-        "inventory": {
-          "type": "string",
+        "main": {
+          "keyType": "uint32",
+          "type": "Item",
           "id": 2
+        },
+        "armor": {
+          "keyType": "uint32",
+          "type": "Item",
+          "id": 3
+        },
+        "crafting": {
+          "keyType": "uint32",
+          "type": "Item",
+          "id": 4
         }
       }
     },
     "PlayerSlotUpdate": {
       "fields": {
         "slot": {
-          "type": "uint32",
+          "type": "int32",
           "id": 1
         },
         "type": {
-          "type": "string",
+          "type": "InventoryType",
           "id": 2
         },
-        "data": {
-          "type": "string",
+        "item": {
+          "type": "Item",
           "id": 3
         }
       }
@@ -207,11 +267,11 @@
     "PlayerHealth": {
       "fields": {
         "value": {
-          "type": "sint32",
+          "type": "float",
           "id": 1
         },
         "max": {
-          "type": "sint32",
+          "type": "float",
           "id": 2
         }
       }
@@ -227,26 +287,34 @@
     "PlayerOpenInventory": {
       "fields": {
         "type": {
-          "type": "Type",
+          "type": "ContainerType",
           "id": 1
         },
         "name": {
           "type": "string",
           "id": 2
         },
-        "data": {
-          "type": "string",
+        "size": {
+          "type": "uint32",
           "id": 3
+        },
+        "items": {
+          "keyType": "uint32",
+          "type": "Item",
+          "id": 4
         }
-      },
-      "nested": {
-        "Type": {
-          "values": {
-            "MAIN": 0,
-            "CHEST": 1,
-            "CRAFTING": 2,
-            "FURNACE": 3
-          }
+      }
+    },
+    "PlayerUpdateOpenInventory": {
+      "fields": {
+        "name": {
+          "type": "string",
+          "id": 1
+        },
+        "items": {
+          "keyType": "uint32",
+          "type": "Item",
+          "id": 2
         }
       }
     },
@@ -278,38 +346,12 @@
       "fields": {
         "message": {
           "keyType": "uint32",
-          "type": "ChatComponent",
+          "type": "ChatComponentType",
           "id": 1
         },
         "time": {
           "type": "uint64",
           "id": 2
-        }
-      },
-      "nested": {
-        "ChatComponent": {
-          "fields": {
-            "text": {
-              "type": "string",
-              "id": 1
-            },
-            "font": {
-              "type": "string",
-              "id": 2
-            },
-            "color": {
-              "type": "string",
-              "id": 3
-            },
-            "linethrough": {
-              "type": "bool",
-              "id": 4
-            },
-            "underline": {
-              "type": "bool",
-              "id": 5
-            }
-          }
         }
       }
     },
@@ -321,7 +363,7 @@
         },
         "message": {
           "keyType": "uint32",
-          "type": "ChatComponent",
+          "type": "BasicChatComponentType",
           "id": 2
         },
         "time": {
@@ -336,30 +378,6 @@
             "SIDE": 1,
             "CENTER": 2,
             "HOTBAR": 3
-          }
-        },
-        "ChatComponent": {
-          "fields": {
-            "text": {
-              "type": "string",
-              "id": 1
-            },
-            "font": {
-              "type": "string",
-              "id": 2
-            },
-            "color": {
-              "type": "string",
-              "id": 3
-            },
-            "linethrough": {
-              "type": "bool",
-              "id": 4
-            },
-            "underline": {
-              "type": "bool",
-              "id": 5
-            }
           }
         }
       }
@@ -523,17 +541,21 @@
           "type": "sint32",
           "id": 3
         },
-        "data": {
-          "type": "bytes",
-          "id": 4
-        },
         "height": {
           "type": "sint32",
-          "id": 5
+          "id": 4
         },
         "compressed": {
           "type": "bool",
+          "id": 5
+        },
+        "blockData": {
+          "type": "bytes",
           "id": 6
+        },
+        "lightData": {
+          "type": "bytes",
+          "id": 7
         }
       }
     },
@@ -578,18 +600,6 @@
         "confirm": {
           "type": "bool",
           "id": 1
-        }
-      }
-    },
-    "RegistryUpdate": {
-      "fields": {
-        "itemsDef": {
-          "type": "string",
-          "id": 1
-        },
-        "blocksDef": {
-          "type": "string",
-          "id": 2
         }
       }
     },
@@ -657,6 +667,14 @@
         }
       }
     },
+    "EnvironmentSetSkybox": {
+      "fields": {
+        "texture": {
+          "type": "string",
+          "id": 1
+        }
+      }
+    },
     "PluginMessage": {
       "fields": {
         "key": {
@@ -671,6 +689,103 @@
           "type": "bytes",
           "id": 3
         }
+      }
+    },
+    "ChatComponentType": {
+      "fields": {
+        "text": {
+          "type": "string",
+          "id": 1
+        },
+        "font": {
+          "type": "string",
+          "id": 2
+        },
+        "color": {
+          "type": "string",
+          "id": 3
+        },
+        "linethrough": {
+          "type": "bool",
+          "id": 4
+        },
+        "underline": {
+          "type": "bool",
+          "id": 5
+        },
+        "url": {
+          "type": "string",
+          "id": 6
+        }
+      }
+    },
+    "BasicChatComponentType": {
+      "fields": {
+        "text": {
+          "type": "string",
+          "id": 1
+        },
+        "font": {
+          "type": "string",
+          "id": 2
+        },
+        "color": {
+          "type": "string",
+          "id": 3
+        },
+        "linethrough": {
+          "type": "bool",
+          "id": 4
+        },
+        "underline": {
+          "type": "bool",
+          "id": 5
+        }
+      }
+    },
+    "Item": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "id": 1
+        },
+        "count": {
+          "type": "int32",
+          "id": 2
+        },
+        "damage": {
+          "type": "float",
+          "id": 3
+        },
+        "name": {
+          "keyType": "uint32",
+          "type": "BasicChatComponentType",
+          "id": 4
+        }
+      }
+    },
+    "InventoryType": {
+      "values": {
+        "MAIN": 0,
+        "ARMOR": 1,
+        "CRAFT": 2,
+        "HOOK": 3
+      }
+    },
+    "ContainerType": {
+      "values": {
+        "PLAYER": 0,
+        "CHEST": 1,
+        "CRAFTING": 2,
+        "FURNACE": 3
+      }
+    },
+    "MouseClickType": {
+      "values": {
+        "LEFT": 0,
+        "RIGHT": 1,
+        "MIDDLE": 2,
+        "SELECT": 3
       }
     }
   }

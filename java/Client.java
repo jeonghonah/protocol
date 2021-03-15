@@ -79,6 +79,12 @@ public final class Client {
      */
     com.google.protobuf.ByteString
         getSecretBytes();
+
+    /**
+     * <code>int32 protocol_rev = 7;</code>
+     * @return The protocolRev.
+     */
+    int getProtocolRev();
   }
   /**
    * Protobuf type {@code LoginResponse}
@@ -161,6 +167,11 @@ public final class Client {
               java.lang.String s = input.readStringRequireUtf8();
 
               secret_ = s;
+              break;
+            }
+            case 56: {
+
+              protocolRev_ = input.readInt32();
               break;
             }
             default: {
@@ -373,6 +384,17 @@ public final class Client {
       }
     }
 
+    public static final int PROTOCOL_REV_FIELD_NUMBER = 7;
+    private int protocolRev_;
+    /**
+     * <code>int32 protocol_rev = 7;</code>
+     * @return The protocolRev.
+     */
+    @java.lang.Override
+    public int getProtocolRev() {
+      return protocolRev_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -405,6 +427,9 @@ public final class Client {
       if (!getSecretBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, secret_);
       }
+      if (protocolRev_ != 0) {
+        output.writeInt32(7, protocolRev_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -434,6 +459,10 @@ public final class Client {
       if (!getSecretBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, secret_);
       }
+      if (protocolRev_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, protocolRev_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -461,6 +490,8 @@ public final class Client {
           .equals(other.getUuid())) return false;
       if (!getSecret()
           .equals(other.getSecret())) return false;
+      if (getProtocolRev()
+          != other.getProtocolRev()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -485,6 +516,8 @@ public final class Client {
       hash = (53 * hash) + getUuid().hashCode();
       hash = (37 * hash) + SECRET_FIELD_NUMBER;
       hash = (53 * hash) + getSecret().hashCode();
+      hash = (37 * hash) + PROTOCOL_REV_FIELD_NUMBER;
+      hash = (53 * hash) + getProtocolRev();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -630,6 +663,8 @@ public final class Client {
 
         secret_ = "";
 
+        protocolRev_ = 0;
+
         return this;
       }
 
@@ -662,6 +697,7 @@ public final class Client {
         result.client_ = client_;
         result.uuid_ = uuid_;
         result.secret_ = secret_;
+        result.protocolRev_ = protocolRev_;
         onBuilt();
         return result;
       }
@@ -731,6 +767,9 @@ public final class Client {
         if (!other.getSecret().isEmpty()) {
           secret_ = other.secret_;
           onChanged();
+        }
+        if (other.getProtocolRev() != 0) {
+          setProtocolRev(other.getProtocolRev());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1135,6 +1174,37 @@ public final class Client {
   checkByteStringIsUtf8(value);
         
         secret_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int protocolRev_ ;
+      /**
+       * <code>int32 protocol_rev = 7;</code>
+       * @return The protocolRev.
+       */
+      @java.lang.Override
+      public int getProtocolRev() {
+        return protocolRev_;
+      }
+      /**
+       * <code>int32 protocol_rev = 7;</code>
+       * @param value The protocolRev to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolRev(int value) {
+        
+        protocolRev_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 protocol_rev = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProtocolRev() {
+        
+        protocolRev_ = 0;
         onChanged();
         return this;
       }
@@ -5083,10 +5153,10 @@ public final class Client {
     int getZ();
 
     /**
-     * <code>bool finished = 4;</code>
-     * @return The finished.
+     * <code>float status = 4;</code>
+     * @return The status.
      */
-    boolean getFinished();
+    float getStatus();
   }
   /**
    * Protobuf type {@code ActionBlockBreak}
@@ -5148,9 +5218,9 @@ public final class Client {
               z_ = input.readSInt32();
               break;
             }
-            case 32: {
+            case 37: {
 
-              finished_ = input.readBool();
+              status_ = input.readFloat();
               break;
             }
             default: {
@@ -5218,15 +5288,15 @@ public final class Client {
       return z_;
     }
 
-    public static final int FINISHED_FIELD_NUMBER = 4;
-    private boolean finished_;
+    public static final int STATUS_FIELD_NUMBER = 4;
+    private float status_;
     /**
-     * <code>bool finished = 4;</code>
-     * @return The finished.
+     * <code>float status = 4;</code>
+     * @return The status.
      */
     @java.lang.Override
-    public boolean getFinished() {
-      return finished_;
+    public float getStatus() {
+      return status_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5252,8 +5322,8 @@ public final class Client {
       if (z_ != 0) {
         output.writeSInt32(3, z_);
       }
-      if (finished_ != false) {
-        output.writeBool(4, finished_);
+      if (status_ != 0F) {
+        output.writeFloat(4, status_);
       }
       unknownFields.writeTo(output);
     }
@@ -5276,9 +5346,9 @@ public final class Client {
         size += com.google.protobuf.CodedOutputStream
           .computeSInt32Size(3, z_);
       }
-      if (finished_ != false) {
+      if (status_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, finished_);
+          .computeFloatSize(4, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5301,8 +5371,9 @@ public final class Client {
           != other.getY()) return false;
       if (getZ()
           != other.getZ()) return false;
-      if (getFinished()
-          != other.getFinished()) return false;
+      if (java.lang.Float.floatToIntBits(getStatus())
+          != java.lang.Float.floatToIntBits(
+              other.getStatus())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5320,9 +5391,9 @@ public final class Client {
       hash = (53 * hash) + getY();
       hash = (37 * hash) + Z_FIELD_NUMBER;
       hash = (53 * hash) + getZ();
-      hash = (37 * hash) + FINISHED_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getFinished());
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getStatus());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5462,7 +5533,7 @@ public final class Client {
 
         z_ = 0;
 
-        finished_ = false;
+        status_ = 0F;
 
         return this;
       }
@@ -5493,7 +5564,7 @@ public final class Client {
         result.x_ = x_;
         result.y_ = y_;
         result.z_ = z_;
-        result.finished_ = finished_;
+        result.status_ = status_;
         onBuilt();
         return result;
       }
@@ -5551,8 +5622,8 @@ public final class Client {
         if (other.getZ() != 0) {
           setZ(other.getZ());
         }
-        if (other.getFinished() != false) {
-          setFinished(other.getFinished());
+        if (other.getStatus() != 0F) {
+          setStatus(other.getStatus());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5676,33 +5747,33 @@ public final class Client {
         return this;
       }
 
-      private boolean finished_ ;
+      private float status_ ;
       /**
-       * <code>bool finished = 4;</code>
-       * @return The finished.
+       * <code>float status = 4;</code>
+       * @return The status.
        */
       @java.lang.Override
-      public boolean getFinished() {
-        return finished_;
+      public float getStatus() {
+        return status_;
       }
       /**
-       * <code>bool finished = 4;</code>
-       * @param value The finished to set.
+       * <code>float status = 4;</code>
+       * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setFinished(boolean value) {
+      public Builder setStatus(float value) {
         
-        finished_ = value;
+        status_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool finished = 4;</code>
+       * <code>float status = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearFinished() {
+      public Builder clearStatus() {
         
-        finished_ = false;
+        status_ = 0F;
         onChanged();
         return this;
       }
@@ -5764,32 +5835,32 @@ public final class Client {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     int getSlot();
 
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @return The type.
      */
-    Client.ActionInventoryClick.Type getType();
+    Types.MouseClickType getType();
 
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     int getInventoryValue();
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @return The inventory.
      */
-    Client.ActionInventoryClick.TypeInv getInventory();
+    Types.InventoryType getInventory();
   }
   /**
    * Protobuf type {@code ActionInventoryClick}
@@ -5840,7 +5911,7 @@ public final class Client {
               break;
             case 8: {
 
-              slot_ = input.readSInt32();
+              slot_ = input.readInt32();
               break;
             }
             case 16: {
@@ -5887,262 +5958,10 @@ public final class Client {
               Client.ActionInventoryClick.class, Client.ActionInventoryClick.Builder.class);
     }
 
-    /**
-     * Protobuf enum {@code ActionInventoryClick.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>LEFT = 0;</code>
-       */
-      LEFT(0),
-      /**
-       * <code>RIGHT = 1;</code>
-       */
-      RIGHT(1),
-      /**
-       * <code>MIDDLE = 2;</code>
-       */
-      MIDDLE(2),
-      /**
-       * <code>SELECT = 3;</code>
-       */
-      SELECT(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>LEFT = 0;</code>
-       */
-      public static final int LEFT_VALUE = 0;
-      /**
-       * <code>RIGHT = 1;</code>
-       */
-      public static final int RIGHT_VALUE = 1;
-      /**
-       * <code>MIDDLE = 2;</code>
-       */
-      public static final int MIDDLE_VALUE = 2;
-      /**
-       * <code>SELECT = 3;</code>
-       */
-      public static final int SELECT_VALUE = 3;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return LEFT;
-          case 1: return RIGHT;
-          case 2: return MIDDLE;
-          case 3: return SELECT;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return Client.ActionInventoryClick.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final Type[] VALUES = values();
-
-      public static Type valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private Type(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ActionInventoryClick.Type)
-    }
-
-    /**
-     * Protobuf enum {@code ActionInventoryClick.TypeInv}
-     */
-    public enum TypeInv
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      MAIN(0),
-      /**
-       * <code>ARMOR = 1;</code>
-       */
-      ARMOR(1),
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      CRAFTING(2),
-      /**
-       * <code>HOOK = 3;</code>
-       */
-      HOOK(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      public static final int MAIN_VALUE = 0;
-      /**
-       * <code>ARMOR = 1;</code>
-       */
-      public static final int ARMOR_VALUE = 1;
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      public static final int CRAFTING_VALUE = 2;
-      /**
-       * <code>HOOK = 3;</code>
-       */
-      public static final int HOOK_VALUE = 3;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static TypeInv valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static TypeInv forNumber(int value) {
-        switch (value) {
-          case 0: return MAIN;
-          case 1: return ARMOR;
-          case 2: return CRAFTING;
-          case 3: return HOOK;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<TypeInv>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          TypeInv> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<TypeInv>() {
-              public TypeInv findValueByNumber(int number) {
-                return TypeInv.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return Client.ActionInventoryClick.getDescriptor().getEnumTypes().get(1);
-      }
-
-      private static final TypeInv[] VALUES = values();
-
-      public static TypeInv valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private TypeInv(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ActionInventoryClick.TypeInv)
-    }
-
     public static final int SLOT_FIELD_NUMBER = 1;
     private int slot_;
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     @java.lang.Override
@@ -6153,39 +5972,39 @@ public final class Client {
     public static final int TYPE_FIELD_NUMBER = 2;
     private int type_;
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @return The type.
      */
-    @java.lang.Override public Client.ActionInventoryClick.Type getType() {
+    @java.lang.Override public Types.MouseClickType getType() {
       @SuppressWarnings("deprecation")
-      Client.ActionInventoryClick.Type result = Client.ActionInventoryClick.Type.valueOf(type_);
-      return result == null ? Client.ActionInventoryClick.Type.UNRECOGNIZED : result;
+      Types.MouseClickType result = Types.MouseClickType.valueOf(type_);
+      return result == null ? Types.MouseClickType.UNRECOGNIZED : result;
     }
 
     public static final int INVENTORY_FIELD_NUMBER = 3;
     private int inventory_;
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     @java.lang.Override public int getInventoryValue() {
       return inventory_;
     }
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @return The inventory.
      */
-    @java.lang.Override public Client.ActionInventoryClick.TypeInv getInventory() {
+    @java.lang.Override public Types.InventoryType getInventory() {
       @SuppressWarnings("deprecation")
-      Client.ActionInventoryClick.TypeInv result = Client.ActionInventoryClick.TypeInv.valueOf(inventory_);
-      return result == null ? Client.ActionInventoryClick.TypeInv.UNRECOGNIZED : result;
+      Types.InventoryType result = Types.InventoryType.valueOf(inventory_);
+      return result == null ? Types.InventoryType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6203,12 +6022,12 @@ public final class Client {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (slot_ != 0) {
-        output.writeSInt32(1, slot_);
+        output.writeInt32(1, slot_);
       }
-      if (type_ != Client.ActionInventoryClick.Type.LEFT.getNumber()) {
+      if (type_ != Types.MouseClickType.LEFT.getNumber()) {
         output.writeEnum(2, type_);
       }
-      if (inventory_ != Client.ActionInventoryClick.TypeInv.MAIN.getNumber()) {
+      if (inventory_ != Types.InventoryType.MAIN.getNumber()) {
         output.writeEnum(3, inventory_);
       }
       unknownFields.writeTo(output);
@@ -6222,13 +6041,13 @@ public final class Client {
       size = 0;
       if (slot_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt32Size(1, slot_);
+          .computeInt32Size(1, slot_);
       }
-      if (type_ != Client.ActionInventoryClick.Type.LEFT.getNumber()) {
+      if (type_ != Types.MouseClickType.LEFT.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, type_);
       }
-      if (inventory_ != Client.ActionInventoryClick.TypeInv.MAIN.getNumber()) {
+      if (inventory_ != Types.InventoryType.MAIN.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, inventory_);
       }
@@ -6524,7 +6343,7 @@ public final class Client {
 
       private int slot_ ;
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return The slot.
        */
       @java.lang.Override
@@ -6532,7 +6351,7 @@ public final class Client {
         return slot_;
       }
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @param value The slot to set.
        * @return This builder for chaining.
        */
@@ -6543,7 +6362,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSlot() {
@@ -6555,14 +6374,14 @@ public final class Client {
 
       private int type_ = 0;
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
@@ -6573,21 +6392,21 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @return The type.
        */
       @java.lang.Override
-      public Client.ActionInventoryClick.Type getType() {
+      public Types.MouseClickType getType() {
         @SuppressWarnings("deprecation")
-        Client.ActionInventoryClick.Type result = Client.ActionInventoryClick.Type.valueOf(type_);
-        return result == null ? Client.ActionInventoryClick.Type.UNRECOGNIZED : result;
+        Types.MouseClickType result = Types.MouseClickType.valueOf(type_);
+        return result == null ? Types.MouseClickType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(Client.ActionInventoryClick.Type value) {
+      public Builder setType(Types.MouseClickType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -6597,7 +6416,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -6609,14 +6428,14 @@ public final class Client {
 
       private int inventory_ = 0;
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @return The enum numeric value on the wire for inventory.
        */
       @java.lang.Override public int getInventoryValue() {
         return inventory_;
       }
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @param value The enum numeric value on the wire for inventory to set.
        * @return This builder for chaining.
        */
@@ -6627,21 +6446,21 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @return The inventory.
        */
       @java.lang.Override
-      public Client.ActionInventoryClick.TypeInv getInventory() {
+      public Types.InventoryType getInventory() {
         @SuppressWarnings("deprecation")
-        Client.ActionInventoryClick.TypeInv result = Client.ActionInventoryClick.TypeInv.valueOf(inventory_);
-        return result == null ? Client.ActionInventoryClick.TypeInv.UNRECOGNIZED : result;
+        Types.InventoryType result = Types.InventoryType.valueOf(inventory_);
+        return result == null ? Types.InventoryType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @param value The inventory to set.
        * @return This builder for chaining.
        */
-      public Builder setInventory(Client.ActionInventoryClick.TypeInv value) {
+      public Builder setInventory(Types.InventoryType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -6651,7 +6470,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearInventory() {
@@ -6718,13 +6537,13 @@ public final class Client {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     int getSlot();
 
     /**
-     * <code>sint32 slot2 = 2;</code>
+     * <code>int32 slot2 = 2;</code>
      * @return The slot2.
      */
     int getSlot2();
@@ -6782,12 +6601,12 @@ public final class Client {
               break;
             case 8: {
 
-              slot_ = input.readSInt32();
+              slot_ = input.readInt32();
               break;
             }
             case 16: {
 
-              slot2_ = input.readSInt32();
+              slot2_ = input.readInt32();
               break;
             }
             case 24: {
@@ -6830,7 +6649,7 @@ public final class Client {
     public static final int SLOT_FIELD_NUMBER = 1;
     private int slot_;
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     @java.lang.Override
@@ -6841,7 +6660,7 @@ public final class Client {
     public static final int SLOT2_FIELD_NUMBER = 2;
     private int slot2_;
     /**
-     * <code>sint32 slot2 = 2;</code>
+     * <code>int32 slot2 = 2;</code>
      * @return The slot2.
      */
     @java.lang.Override
@@ -6875,10 +6694,10 @@ public final class Client {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (slot_ != 0) {
-        output.writeSInt32(1, slot_);
+        output.writeInt32(1, slot_);
       }
       if (slot2_ != 0) {
-        output.writeSInt32(2, slot2_);
+        output.writeInt32(2, slot2_);
       }
       if (block_ != 0) {
         output.writeSInt32(3, block_);
@@ -6894,11 +6713,11 @@ public final class Client {
       size = 0;
       if (slot_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt32Size(1, slot_);
+          .computeInt32Size(1, slot_);
       }
       if (slot2_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeSInt32Size(2, slot2_);
+          .computeInt32Size(2, slot2_);
       }
       if (block_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -7198,7 +7017,7 @@ public final class Client {
 
       private int slot_ ;
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return The slot.
        */
       @java.lang.Override
@@ -7206,7 +7025,7 @@ public final class Client {
         return slot_;
       }
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @param value The slot to set.
        * @return This builder for chaining.
        */
@@ -7217,7 +7036,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSlot() {
@@ -7229,7 +7048,7 @@ public final class Client {
 
       private int slot2_ ;
       /**
-       * <code>sint32 slot2 = 2;</code>
+       * <code>int32 slot2 = 2;</code>
        * @return The slot2.
        */
       @java.lang.Override
@@ -7237,7 +7056,7 @@ public final class Client {
         return slot2_;
       }
       /**
-       * <code>sint32 slot2 = 2;</code>
+       * <code>int32 slot2 = 2;</code>
        * @param value The slot2 to set.
        * @return This builder for chaining.
        */
@@ -7248,7 +7067,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>sint32 slot2 = 2;</code>
+       * <code>int32 slot2 = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearSlot2() {
@@ -7346,15 +7165,15 @@ public final class Client {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     int getInventoryValue();
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The inventory.
      */
-    Client.ActionInventoryOpen.Type getInventory();
+    Types.ContainerType getInventory();
   }
   /**
    * Protobuf type {@code ActionInventoryOpen}
@@ -7440,149 +7259,23 @@ public final class Client {
               Client.ActionInventoryOpen.class, Client.ActionInventoryOpen.Builder.class);
     }
 
-    /**
-     * Protobuf enum {@code ActionInventoryOpen.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      MAIN(0),
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      CHEST(1),
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      CRAFTING(2),
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      FURNACE(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      public static final int MAIN_VALUE = 0;
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      public static final int CHEST_VALUE = 1;
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      public static final int CRAFTING_VALUE = 2;
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      public static final int FURNACE_VALUE = 3;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return MAIN;
-          case 1: return CHEST;
-          case 2: return CRAFTING;
-          case 3: return FURNACE;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return Client.ActionInventoryOpen.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final Type[] VALUES = values();
-
-      public static Type valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private Type(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ActionInventoryOpen.Type)
-    }
-
     public static final int INVENTORY_FIELD_NUMBER = 1;
     private int inventory_;
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     @java.lang.Override public int getInventoryValue() {
       return inventory_;
     }
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The inventory.
      */
-    @java.lang.Override public Client.ActionInventoryOpen.Type getInventory() {
+    @java.lang.Override public Types.ContainerType getInventory() {
       @SuppressWarnings("deprecation")
-      Client.ActionInventoryOpen.Type result = Client.ActionInventoryOpen.Type.valueOf(inventory_);
-      return result == null ? Client.ActionInventoryOpen.Type.UNRECOGNIZED : result;
+      Types.ContainerType result = Types.ContainerType.valueOf(inventory_);
+      return result == null ? Types.ContainerType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7599,7 +7292,7 @@ public final class Client {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (inventory_ != Client.ActionInventoryOpen.Type.MAIN.getNumber()) {
+      if (inventory_ != Types.ContainerType.PLAYER.getNumber()) {
         output.writeEnum(1, inventory_);
       }
       unknownFields.writeTo(output);
@@ -7611,7 +7304,7 @@ public final class Client {
       if (size != -1) return size;
 
       size = 0;
-      if (inventory_ != Client.ActionInventoryOpen.Type.MAIN.getNumber()) {
+      if (inventory_ != Types.ContainerType.PLAYER.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, inventory_);
       }
@@ -7888,14 +7581,14 @@ public final class Client {
 
       private int inventory_ = 0;
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return The enum numeric value on the wire for inventory.
        */
       @java.lang.Override public int getInventoryValue() {
         return inventory_;
       }
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @param value The enum numeric value on the wire for inventory to set.
        * @return This builder for chaining.
        */
@@ -7906,21 +7599,21 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return The inventory.
        */
       @java.lang.Override
-      public Client.ActionInventoryOpen.Type getInventory() {
+      public Types.ContainerType getInventory() {
         @SuppressWarnings("deprecation")
-        Client.ActionInventoryOpen.Type result = Client.ActionInventoryOpen.Type.valueOf(inventory_);
-        return result == null ? Client.ActionInventoryOpen.Type.UNRECOGNIZED : result;
+        Types.ContainerType result = Types.ContainerType.valueOf(inventory_);
+        return result == null ? Types.ContainerType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @param value The inventory to set.
        * @return This builder for chaining.
        */
-      public Builder setInventory(Client.ActionInventoryOpen.Type value) {
+      public Builder setInventory(Types.ContainerType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -7930,7 +7623,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearInventory() {
@@ -7997,15 +7690,15 @@ public final class Client {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     int getInventoryValue();
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The inventory.
      */
-    Client.ActionInventoryClose.Type getInventory();
+    Types.ContainerType getInventory();
   }
   /**
    * Protobuf type {@code ActionInventoryClose}
@@ -8091,149 +7784,23 @@ public final class Client {
               Client.ActionInventoryClose.class, Client.ActionInventoryClose.Builder.class);
     }
 
-    /**
-     * Protobuf enum {@code ActionInventoryClose.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      MAIN(0),
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      CHEST(1),
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      CRAFTING(2),
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      FURNACE(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      public static final int MAIN_VALUE = 0;
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      public static final int CHEST_VALUE = 1;
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      public static final int CRAFTING_VALUE = 2;
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      public static final int FURNACE_VALUE = 3;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value.
-       */
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return MAIN;
-          case 1: return CHEST;
-          case 2: return CRAFTING;
-          case 3: return FURNACE;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalStateException(
-              "Can't get the descriptor of an unrecognized enum value.");
-        }
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return Client.ActionInventoryClose.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final Type[] VALUES = values();
-
-      public static Type valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private Type(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ActionInventoryClose.Type)
-    }
-
     public static final int INVENTORY_FIELD_NUMBER = 1;
     private int inventory_;
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     @java.lang.Override public int getInventoryValue() {
       return inventory_;
     }
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The inventory.
      */
-    @java.lang.Override public Client.ActionInventoryClose.Type getInventory() {
+    @java.lang.Override public Types.ContainerType getInventory() {
       @SuppressWarnings("deprecation")
-      Client.ActionInventoryClose.Type result = Client.ActionInventoryClose.Type.valueOf(inventory_);
-      return result == null ? Client.ActionInventoryClose.Type.UNRECOGNIZED : result;
+      Types.ContainerType result = Types.ContainerType.valueOf(inventory_);
+      return result == null ? Types.ContainerType.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8250,7 +7817,7 @@ public final class Client {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (inventory_ != Client.ActionInventoryClose.Type.MAIN.getNumber()) {
+      if (inventory_ != Types.ContainerType.PLAYER.getNumber()) {
         output.writeEnum(1, inventory_);
       }
       unknownFields.writeTo(output);
@@ -8262,7 +7829,7 @@ public final class Client {
       if (size != -1) return size;
 
       size = 0;
-      if (inventory_ != Client.ActionInventoryClose.Type.MAIN.getNumber()) {
+      if (inventory_ != Types.ContainerType.PLAYER.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, inventory_);
       }
@@ -8539,14 +8106,14 @@ public final class Client {
 
       private int inventory_ = 0;
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return The enum numeric value on the wire for inventory.
        */
       @java.lang.Override public int getInventoryValue() {
         return inventory_;
       }
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @param value The enum numeric value on the wire for inventory to set.
        * @return This builder for chaining.
        */
@@ -8557,21 +8124,21 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return The inventory.
        */
       @java.lang.Override
-      public Client.ActionInventoryClose.Type getInventory() {
+      public Types.ContainerType getInventory() {
         @SuppressWarnings("deprecation")
-        Client.ActionInventoryClose.Type result = Client.ActionInventoryClose.Type.valueOf(inventory_);
-        return result == null ? Client.ActionInventoryClose.Type.UNRECOGNIZED : result;
+        Types.ContainerType result = Types.ContainerType.valueOf(inventory_);
+        return result == null ? Types.ContainerType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @param value The inventory to set.
        * @return This builder for chaining.
        */
-      public Builder setInventory(Client.ActionInventoryClose.Type value) {
+      public Builder setInventory(Types.ContainerType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -8581,7 +8148,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearInventory() {
@@ -8666,16 +8233,15 @@ public final class Client {
     int getZ();
 
     /**
-     * <code>string type = 4;</code>
+     * <code>.MouseClickType type = 4;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.MouseClickType type = 4;</code>
      * @return The type.
      */
-    java.lang.String getType();
-    /**
-     * <code>string type = 4;</code>
-     * @return The bytes for type.
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    Types.MouseClickType getType();
 
     /**
      * <code>bool on_block = 5;</code>
@@ -8696,7 +8262,7 @@ public final class Client {
       super(builder);
     }
     private ActionClick() {
-      type_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -8744,10 +8310,10 @@ public final class Client {
               z_ = input.readSInt32();
               break;
             }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 32: {
+              int rawValue = input.readEnum();
 
-              type_ = s;
+              type_ = rawValue;
               break;
             }
             case 40: {
@@ -8821,41 +8387,22 @@ public final class Client {
     }
 
     public static final int TYPE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object type_;
+    private int type_;
     /**
-     * <code>string type = 4;</code>
-     * @return The type.
+     * <code>.MouseClickType type = 4;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    @java.lang.Override
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        type_ = s;
-        return s;
-      }
+    @java.lang.Override public int getTypeValue() {
+      return type_;
     }
     /**
-     * <code>string type = 4;</code>
-     * @return The bytes for type.
+     * <code>.MouseClickType type = 4;</code>
+     * @return The type.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    @java.lang.Override public Types.MouseClickType getType() {
+      @SuppressWarnings("deprecation")
+      Types.MouseClickType result = Types.MouseClickType.valueOf(type_);
+      return result == null ? Types.MouseClickType.UNRECOGNIZED : result;
     }
 
     public static final int ON_BLOCK_FIELD_NUMBER = 5;
@@ -8892,8 +8439,8 @@ public final class Client {
       if (z_ != 0) {
         output.writeSInt32(3, z_);
       }
-      if (!getTypeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, type_);
+      if (type_ != Types.MouseClickType.LEFT.getNumber()) {
+        output.writeEnum(4, type_);
       }
       if (onBlock_ != false) {
         output.writeBool(5, onBlock_);
@@ -8919,8 +8466,9 @@ public final class Client {
         size += com.google.protobuf.CodedOutputStream
           .computeSInt32Size(3, z_);
       }
-      if (!getTypeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, type_);
+      if (type_ != Types.MouseClickType.LEFT.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, type_);
       }
       if (onBlock_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -8947,8 +8495,7 @@ public final class Client {
           != other.getY()) return false;
       if (getZ()
           != other.getZ()) return false;
-      if (!getType()
-          .equals(other.getType())) return false;
+      if (type_ != other.type_) return false;
       if (getOnBlock()
           != other.getOnBlock()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -8969,7 +8516,7 @@ public final class Client {
       hash = (37 * hash) + Z_FIELD_NUMBER;
       hash = (53 * hash) + getZ();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getType().hashCode();
+      hash = (53 * hash) + type_;
       hash = (37 * hash) + ON_BLOCK_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getOnBlock());
@@ -9112,7 +8659,7 @@ public final class Client {
 
         z_ = 0;
 
-        type_ = "";
+        type_ = 0;
 
         onBlock_ = false;
 
@@ -9204,9 +8751,8 @@ public final class Client {
         if (other.getZ() != 0) {
           setZ(other.getZ());
         }
-        if (!other.getType().isEmpty()) {
-          type_ = other.type_;
-          onChanged();
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         if (other.getOnBlock() != false) {
           setOnBlock(other.getOnBlock());
@@ -9333,78 +8879,56 @@ public final class Client {
         return this;
       }
 
-      private java.lang.Object type_ = "";
+      private int type_ = 0;
       /**
-       * <code>string type = 4;</code>
-       * @return The type.
+       * <code>.MouseClickType type = 4;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          type_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override public int getTypeValue() {
+        return type_;
       }
       /**
-       * <code>string type = 4;</code>
-       * @return The bytes for type.
-       */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string type = 4;</code>
-       * @param value The type to set.
+       * <code>.MouseClickType type = 4;</code>
+       * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setTypeValue(int value) {
+        
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string type = 4;</code>
+       * <code>.MouseClickType type = 4;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public Types.MouseClickType getType() {
+        @SuppressWarnings("deprecation")
+        Types.MouseClickType result = Types.MouseClickType.valueOf(type_);
+        return result == null ? Types.MouseClickType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.MouseClickType type = 4;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(Types.MouseClickType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.MouseClickType type = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
         
-        type_ = getDefaultInstance().getType();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string type = 4;</code>
-       * @param value The bytes for type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        type_ = value;
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -12426,53 +11950,49 @@ public final class Client {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022proto/client.proto\"q\n\rLoginResponse\022\020\n" +
-      "\010username\030\001 \001(\t\022\020\n\010protocol\030\002 \001(\r\022\016\n\006mob" +
-      "ile\030\003 \001(\010\022\016\n\006client\030\004 \001(\t\022\014\n\004uuid\030\005 \001(\t\022" +
-      "\016\n\006secret\030\006 \001(\t\"\024\n\004Ping\022\014\n\004time\030\001 \001(\004\"-\n" +
-      "\nActionMove\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003" +
-      " \001(\001\"-\n\nActionLook\022\020\n\010rotation\030\001 \001(\002\022\r\n\005" +
-      "pitch\030\002 \001(\002\"R\n\016ActionMoveLook\022\t\n\001x\030\001 \001(\001" +
-      "\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\020\n\010rotation\030\004 \001(\002" +
-      "\022\r\n\005pitch\030\005 \001(\002\" \n\rActionMessage\022\017\n\007mess" +
-      "age\030\001 \001(\t\"W\n\020ActionBlockPlace\022\t\n\001x\030\001 \001(\021" +
-      "\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002x2\030\004 \001(\021\022\n\n\002y2" +
-      "\030\005 \001(\021\022\n\n\002z2\030\006 \001(\021\"E\n\020ActionBlockBreak\022\t" +
-      "\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\020\n\010finis" +
-      "hed\030\004 \001(\010\"\355\001\n\024ActionInventoryClick\022\014\n\004sl" +
-      "ot\030\001 \001(\021\022(\n\004type\030\002 \001(\0162\032.ActionInventory" +
-      "Click.Type\0220\n\tinventory\030\003 \001(\0162\035.ActionIn" +
-      "ventoryClick.TypeInv\"3\n\004Type\022\010\n\004LEFT\020\000\022\t" +
-      "\n\005RIGHT\020\001\022\n\n\006MIDDLE\020\002\022\n\n\006SELECT\020\003\"6\n\007Typ" +
-      "eInv\022\010\n\004MAIN\020\000\022\t\n\005ARMOR\020\001\022\014\n\010CRAFTING\020\002\022" +
-      "\010\n\004HOOK\020\003\"A\n\023ActionInventoryPick\022\014\n\004slot" +
-      "\030\001 \001(\021\022\r\n\005slot2\030\002 \001(\021\022\r\n\005block\030\003 \001(\021\"{\n\023" +
-      "ActionInventoryOpen\022,\n\tinventory\030\001 \001(\0162\031" +
-      ".ActionInventoryOpen.Type\"6\n\004Type\022\010\n\004MAI" +
-      "N\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007FURNACE\020" +
-      "\003\"}\n\024ActionInventoryClose\022-\n\tinventory\030\001" +
-      " \001(\0162\032.ActionInventoryClose.Type\"6\n\004Type" +
-      "\022\010\n\004MAIN\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007F" +
-      "URNACE\020\003\"N\n\013ActionClick\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030" +
-      "\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\014\n\004type\030\004 \001(\t\022\020\n\010on_blo" +
-      "ck\030\005 \001(\010\"A\n\021ActionClickEntity\022\014\n\004uuid\030\001 " +
-      "\001(\t\022\014\n\004type\030\002 \001(\t\022\020\n\010distance\030\003 \001(\002\"+\n\016A" +
-      "ctionKeyPress\022\013\n\003key\030\001 \001(\t\022\014\n\004type\030\002 \001(\010" +
-      "\"M\n\032WorldChunkIsLoadedResponce\022\t\n\001x\030\001 \001(" +
-      "\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006loaded\030\004 \001(\010\"" +
-      "<\n\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007version" +
-      "\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
+      "\n\022proto/client.proto\032\021proto/types.proto\"" +
+      "\207\001\n\rLoginResponse\022\020\n\010username\030\001 \001(\t\022\020\n\010p" +
+      "rotocol\030\002 \001(\r\022\016\n\006mobile\030\003 \001(\010\022\016\n\006client\030" +
+      "\004 \001(\t\022\014\n\004uuid\030\005 \001(\t\022\016\n\006secret\030\006 \001(\t\022\024\n\014p" +
+      "rotocol_rev\030\007 \001(\005\"\024\n\004Ping\022\014\n\004time\030\001 \001(\004\"" +
+      "-\n\nActionMove\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z" +
+      "\030\003 \001(\001\"-\n\nActionLook\022\020\n\010rotation\030\001 \001(\002\022\r" +
+      "\n\005pitch\030\002 \001(\002\"R\n\016ActionMoveLook\022\t\n\001x\030\001 \001" +
+      "(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\020\n\010rotation\030\004 \001" +
+      "(\002\022\r\n\005pitch\030\005 \001(\002\" \n\rActionMessage\022\017\n\007me" +
+      "ssage\030\001 \001(\t\"W\n\020ActionBlockPlace\022\t\n\001x\030\001 \001" +
+      "(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002x2\030\004 \001(\021\022\n\n\002" +
+      "y2\030\005 \001(\021\022\n\n\002z2\030\006 \001(\021\"C\n\020ActionBlockBreak" +
+      "\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006sta" +
+      "tus\030\004 \001(\002\"f\n\024ActionInventoryClick\022\014\n\004slo" +
+      "t\030\001 \001(\005\022\035\n\004type\030\002 \001(\0162\017.MouseClickType\022!" +
+      "\n\tinventory\030\003 \001(\0162\016.InventoryType\"A\n\023Act" +
+      "ionInventoryPick\022\014\n\004slot\030\001 \001(\005\022\r\n\005slot2\030" +
+      "\002 \001(\005\022\r\n\005block\030\003 \001(\021\"8\n\023ActionInventoryO" +
+      "pen\022!\n\tinventory\030\001 \001(\0162\016.ContainerType\"9" +
+      "\n\024ActionInventoryClose\022!\n\tinventory\030\001 \001(" +
+      "\0162\016.ContainerType\"_\n\013ActionClick\022\t\n\001x\030\001 " +
+      "\001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\035\n\004type\030\004 \001(\0162" +
+      "\017.MouseClickType\022\020\n\010on_block\030\005 \001(\010\"A\n\021Ac" +
+      "tionClickEntity\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 " +
+      "\001(\t\022\020\n\010distance\030\003 \001(\002\"+\n\016ActionKeyPress\022" +
+      "\013\n\003key\030\001 \001(\t\022\014\n\004type\030\002 \001(\010\"M\n\032WorldChunk" +
+      "IsLoadedResponce\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t" +
+      "\n\001z\030\003 \001(\021\022\016\n\006loaded\030\004 \001(\010\"<\n\rPluginMessa" +
+      "ge\022\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005valu" +
+      "e\030\003 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          Types.getDescriptor(),
         });
     internal_static_LoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_LoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoginResponse_descriptor,
-        new java.lang.String[] { "Username", "Protocol", "Mobile", "Client", "Uuid", "Secret", });
+        new java.lang.String[] { "Username", "Protocol", "Mobile", "Client", "Uuid", "Secret", "ProtocolRev", });
     internal_static_Ping_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Ping_fieldAccessorTable = new
@@ -12514,7 +12034,7 @@ public final class Client {
     internal_static_ActionBlockBreak_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionBlockBreak_descriptor,
-        new java.lang.String[] { "X", "Y", "Z", "Finished", });
+        new java.lang.String[] { "X", "Y", "Z", "Status", });
     internal_static_ActionInventoryClick_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_ActionInventoryClick_fieldAccessorTable = new
@@ -12569,6 +12089,7 @@ public final class Client {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PluginMessage_descriptor,
         new java.lang.String[] { "Key", "Version", "Value", });
+    Types.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

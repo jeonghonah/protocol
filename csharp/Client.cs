@@ -22,53 +22,48 @@ public static partial class ClientReflection {
   static ClientReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChJwcm90by9jbGllbnQucHJvdG8icQoNTG9naW5SZXNwb25zZRIQCgh1c2Vy",
-          "bmFtZRgBIAEoCRIQCghwcm90b2NvbBgCIAEoDRIOCgZtb2JpbGUYAyABKAgS",
-          "DgoGY2xpZW50GAQgASgJEgwKBHV1aWQYBSABKAkSDgoGc2VjcmV0GAYgASgJ",
-          "IhQKBFBpbmcSDAoEdGltZRgBIAEoBCItCgpBY3Rpb25Nb3ZlEgkKAXgYASAB",
-          "KAESCQoBeRgCIAEoARIJCgF6GAMgASgBIi0KCkFjdGlvbkxvb2sSEAoIcm90",
-          "YXRpb24YASABKAISDQoFcGl0Y2gYAiABKAIiUgoOQWN0aW9uTW92ZUxvb2sS",
-          "CQoBeBgBIAEoARIJCgF5GAIgASgBEgkKAXoYAyABKAESEAoIcm90YXRpb24Y",
-          "BCABKAISDQoFcGl0Y2gYBSABKAIiIAoNQWN0aW9uTWVzc2FnZRIPCgdtZXNz",
-          "YWdlGAEgASgJIlcKEEFjdGlvbkJsb2NrUGxhY2USCQoBeBgBIAEoERIJCgF5",
-          "GAIgASgREgkKAXoYAyABKBESCgoCeDIYBCABKBESCgoCeTIYBSABKBESCgoC",
-          "ejIYBiABKBEiRQoQQWN0aW9uQmxvY2tCcmVhaxIJCgF4GAEgASgREgkKAXkY",
-          "AiABKBESCQoBehgDIAEoERIQCghmaW5pc2hlZBgEIAEoCCLtAQoUQWN0aW9u",
-          "SW52ZW50b3J5Q2xpY2sSDAoEc2xvdBgBIAEoERIoCgR0eXBlGAIgASgOMhou",
-          "QWN0aW9uSW52ZW50b3J5Q2xpY2suVHlwZRIwCglpbnZlbnRvcnkYAyABKA4y",
-          "HS5BY3Rpb25JbnZlbnRvcnlDbGljay5UeXBlSW52IjMKBFR5cGUSCAoETEVG",
-          "VBAAEgkKBVJJR0hUEAESCgoGTUlERExFEAISCgoGU0VMRUNUEAMiNgoHVHlw",
-          "ZUludhIICgRNQUlOEAASCQoFQVJNT1IQARIMCghDUkFGVElORxACEggKBEhP",
-          "T0sQAyJBChNBY3Rpb25JbnZlbnRvcnlQaWNrEgwKBHNsb3QYASABKBESDQoF",
-          "c2xvdDIYAiABKBESDQoFYmxvY2sYAyABKBEiewoTQWN0aW9uSW52ZW50b3J5",
-          "T3BlbhIsCglpbnZlbnRvcnkYASABKA4yGS5BY3Rpb25JbnZlbnRvcnlPcGVu",
-          "LlR5cGUiNgoEVHlwZRIICgRNQUlOEAASCQoFQ0hFU1QQARIMCghDUkFGVElO",
-          "RxACEgsKB0ZVUk5BQ0UQAyJ9ChRBY3Rpb25JbnZlbnRvcnlDbG9zZRItCglp",
-          "bnZlbnRvcnkYASABKA4yGi5BY3Rpb25JbnZlbnRvcnlDbG9zZS5UeXBlIjYK",
-          "BFR5cGUSCAoETUFJThAAEgkKBUNIRVNUEAESDAoIQ1JBRlRJTkcQAhILCgdG",
-          "VVJOQUNFEAMiTgoLQWN0aW9uQ2xpY2sSCQoBeBgBIAEoERIJCgF5GAIgASgR",
-          "EgkKAXoYAyABKBESDAoEdHlwZRgEIAEoCRIQCghvbl9ibG9jaxgFIAEoCCJB",
-          "ChFBY3Rpb25DbGlja0VudGl0eRIMCgR1dWlkGAEgASgJEgwKBHR5cGUYAiAB",
-          "KAkSEAoIZGlzdGFuY2UYAyABKAIiKwoOQWN0aW9uS2V5UHJlc3MSCwoDa2V5",
-          "GAEgASgJEgwKBHR5cGUYAiABKAgiTQoaV29ybGRDaHVua0lzTG9hZGVkUmVz",
-          "cG9uY2USCQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoYAyABKBESDgoGbG9h",
-          "ZGVkGAQgASgIIjwKDVBsdWdpbk1lc3NhZ2USCwoDa2V5GAEgASgJEg8KB3Zl",
-          "cnNpb24YAiABKA0SDQoFdmFsdWUYAyABKAxiBnByb3RvMw=="));
+          "ChJwcm90by9jbGllbnQucHJvdG8aEXByb3RvL3R5cGVzLnByb3RvIocBCg1M",
+          "b2dpblJlc3BvbnNlEhAKCHVzZXJuYW1lGAEgASgJEhAKCHByb3RvY29sGAIg",
+          "ASgNEg4KBm1vYmlsZRgDIAEoCBIOCgZjbGllbnQYBCABKAkSDAoEdXVpZBgF",
+          "IAEoCRIOCgZzZWNyZXQYBiABKAkSFAoMcHJvdG9jb2xfcmV2GAcgASgFIhQK",
+          "BFBpbmcSDAoEdGltZRgBIAEoBCItCgpBY3Rpb25Nb3ZlEgkKAXgYASABKAES",
+          "CQoBeRgCIAEoARIJCgF6GAMgASgBIi0KCkFjdGlvbkxvb2sSEAoIcm90YXRp",
+          "b24YASABKAISDQoFcGl0Y2gYAiABKAIiUgoOQWN0aW9uTW92ZUxvb2sSCQoB",
+          "eBgBIAEoARIJCgF5GAIgASgBEgkKAXoYAyABKAESEAoIcm90YXRpb24YBCAB",
+          "KAISDQoFcGl0Y2gYBSABKAIiIAoNQWN0aW9uTWVzc2FnZRIPCgdtZXNzYWdl",
+          "GAEgASgJIlcKEEFjdGlvbkJsb2NrUGxhY2USCQoBeBgBIAEoERIJCgF5GAIg",
+          "ASgREgkKAXoYAyABKBESCgoCeDIYBCABKBESCgoCeTIYBSABKBESCgoCejIY",
+          "BiABKBEiQwoQQWN0aW9uQmxvY2tCcmVhaxIJCgF4GAEgASgREgkKAXkYAiAB",
+          "KBESCQoBehgDIAEoERIOCgZzdGF0dXMYBCABKAIiZgoUQWN0aW9uSW52ZW50",
+          "b3J5Q2xpY2sSDAoEc2xvdBgBIAEoBRIdCgR0eXBlGAIgASgOMg8uTW91c2VD",
+          "bGlja1R5cGUSIQoJaW52ZW50b3J5GAMgASgOMg4uSW52ZW50b3J5VHlwZSJB",
+          "ChNBY3Rpb25JbnZlbnRvcnlQaWNrEgwKBHNsb3QYASABKAUSDQoFc2xvdDIY",
+          "AiABKAUSDQoFYmxvY2sYAyABKBEiOAoTQWN0aW9uSW52ZW50b3J5T3BlbhIh",
+          "CglpbnZlbnRvcnkYASABKA4yDi5Db250YWluZXJUeXBlIjkKFEFjdGlvbklu",
+          "dmVudG9yeUNsb3NlEiEKCWludmVudG9yeRgBIAEoDjIOLkNvbnRhaW5lclR5",
+          "cGUiXwoLQWN0aW9uQ2xpY2sSCQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoY",
+          "AyABKBESHQoEdHlwZRgEIAEoDjIPLk1vdXNlQ2xpY2tUeXBlEhAKCG9uX2Js",
+          "b2NrGAUgASgIIkEKEUFjdGlvbkNsaWNrRW50aXR5EgwKBHV1aWQYASABKAkS",
+          "DAoEdHlwZRgCIAEoCRIQCghkaXN0YW5jZRgDIAEoAiIrCg5BY3Rpb25LZXlQ",
+          "cmVzcxILCgNrZXkYASABKAkSDAoEdHlwZRgCIAEoCCJNChpXb3JsZENodW5r",
+          "SXNMb2FkZWRSZXNwb25jZRIJCgF4GAEgASgREgkKAXkYAiABKBESCQoBehgD",
+          "IAEoERIOCgZsb2FkZWQYBCABKAgiPAoNUGx1Z2luTWVzc2FnZRILCgNrZXkY",
+          "ASABKAkSDwoHdmVyc2lvbhgCIAEoDRINCgV2YWx1ZRgDIAEoDGIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-        new pbr::FileDescriptor[] { },
+        new pbr::FileDescriptor[] { global::TypesReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::LoginResponse), global::LoginResponse.Parser, new[]{ "Username", "Protocol", "Mobile", "Client", "Uuid", "Secret" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::LoginResponse), global::LoginResponse.Parser, new[]{ "Username", "Protocol", "Mobile", "Client", "Uuid", "Secret", "ProtocolRev" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Ping), global::Ping.Parser, new[]{ "Time" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionMove), global::ActionMove.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionLook), global::ActionLook.Parser, new[]{ "Rotation", "Pitch" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionMoveLook), global::ActionMoveLook.Parser, new[]{ "X", "Y", "Z", "Rotation", "Pitch" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionMessage), global::ActionMessage.Parser, new[]{ "Message" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionBlockPlace), global::ActionBlockPlace.Parser, new[]{ "X", "Y", "Z", "X2", "Y2", "Z2" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ActionBlockBreak), global::ActionBlockBreak.Parser, new[]{ "X", "Y", "Z", "Finished" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryClick), global::ActionInventoryClick.Parser, new[]{ "Slot", "Type", "Inventory" }, null, new[]{ typeof(global::ActionInventoryClick.Types.Type), typeof(global::ActionInventoryClick.Types.TypeInv) }, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ActionBlockBreak), global::ActionBlockBreak.Parser, new[]{ "X", "Y", "Z", "Status" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryClick), global::ActionInventoryClick.Parser, new[]{ "Slot", "Type", "Inventory" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryPick), global::ActionInventoryPick.Parser, new[]{ "Slot", "Slot2", "Block" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryOpen), global::ActionInventoryOpen.Parser, new[]{ "Inventory" }, null, new[]{ typeof(global::ActionInventoryOpen.Types.Type) }, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryClose), global::ActionInventoryClose.Parser, new[]{ "Inventory" }, null, new[]{ typeof(global::ActionInventoryClose.Types.Type) }, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryOpen), global::ActionInventoryOpen.Parser, new[]{ "Inventory" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryClose), global::ActionInventoryClose.Parser, new[]{ "Inventory" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionClick), global::ActionClick.Parser, new[]{ "X", "Y", "Z", "Type", "OnBlock" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionClickEntity), global::ActionClickEntity.Parser, new[]{ "Uuid", "Type", "Distance" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionKeyPress), global::ActionKeyPress.Parser, new[]{ "Key", "Type" }, null, null, null, null),
@@ -115,6 +110,7 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
     client_ = other.client_;
     uuid_ = other.uuid_;
     secret_ = other.secret_;
+    protocolRev_ = other.protocolRev_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -192,6 +188,17 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
     }
   }
 
+  /// <summary>Field number for the "protocol_rev" field.</summary>
+  public const int ProtocolRevFieldNumber = 7;
+  private int protocolRev_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int ProtocolRev {
+    get { return protocolRev_; }
+    set {
+      protocolRev_ = value;
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as LoginResponse);
@@ -211,6 +218,7 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
     if (Client != other.Client) return false;
     if (Uuid != other.Uuid) return false;
     if (Secret != other.Secret) return false;
+    if (ProtocolRev != other.ProtocolRev) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -223,6 +231,7 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
     if (Client.Length != 0) hash ^= Client.GetHashCode();
     if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
     if (Secret.Length != 0) hash ^= Secret.GetHashCode();
+    if (ProtocolRev != 0) hash ^= ProtocolRev.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -263,6 +272,10 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
       output.WriteRawTag(50);
       output.WriteString(Secret);
     }
+    if (ProtocolRev != 0) {
+      output.WriteRawTag(56);
+      output.WriteInt32(ProtocolRev);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -296,6 +309,10 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
       output.WriteRawTag(50);
       output.WriteString(Secret);
     }
+    if (ProtocolRev != 0) {
+      output.WriteRawTag(56);
+      output.WriteInt32(ProtocolRev);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -322,6 +339,9 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
     }
     if (Secret.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Secret);
+    }
+    if (ProtocolRev != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ProtocolRev);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -351,6 +371,9 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
     }
     if (other.Secret.Length != 0) {
       Secret = other.Secret;
+    }
+    if (other.ProtocolRev != 0) {
+      ProtocolRev = other.ProtocolRev;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -390,6 +413,10 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
           Secret = input.ReadString();
           break;
         }
+        case 56: {
+          ProtocolRev = input.ReadInt32();
+          break;
+        }
       }
     }
   #endif
@@ -426,6 +453,10 @@ public sealed partial class LoginResponse : pb::IMessage<LoginResponse>
         }
         case 50: {
           Secret = input.ReadString();
+          break;
+        }
+        case 56: {
+          ProtocolRev = input.ReadInt32();
           break;
         }
       }
@@ -1931,7 +1962,7 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     x_ = other.x_;
     y_ = other.y_;
     z_ = other.z_;
-    finished_ = other.finished_;
+    status_ = other.status_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -1973,14 +2004,14 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     }
   }
 
-  /// <summary>Field number for the "finished" field.</summary>
-  public const int FinishedFieldNumber = 4;
-  private bool finished_;
+  /// <summary>Field number for the "status" field.</summary>
+  public const int StatusFieldNumber = 4;
+  private float status_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Finished {
-    get { return finished_; }
+  public float Status {
+    get { return status_; }
     set {
-      finished_ = value;
+      status_ = value;
     }
   }
 
@@ -2000,7 +2031,7 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     if (X != other.X) return false;
     if (Y != other.Y) return false;
     if (Z != other.Z) return false;
-    if (Finished != other.Finished) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Status, other.Status)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -2010,7 +2041,7 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     if (X != 0) hash ^= X.GetHashCode();
     if (Y != 0) hash ^= Y.GetHashCode();
     if (Z != 0) hash ^= Z.GetHashCode();
-    if (Finished != false) hash ^= Finished.GetHashCode();
+    if (Status != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Status);
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -2039,9 +2070,9 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
       output.WriteRawTag(24);
       output.WriteSInt32(Z);
     }
-    if (Finished != false) {
-      output.WriteRawTag(32);
-      output.WriteBool(Finished);
+    if (Status != 0F) {
+      output.WriteRawTag(37);
+      output.WriteFloat(Status);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -2064,9 +2095,9 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
       output.WriteRawTag(24);
       output.WriteSInt32(Z);
     }
-    if (Finished != false) {
-      output.WriteRawTag(32);
-      output.WriteBool(Finished);
+    if (Status != 0F) {
+      output.WriteRawTag(37);
+      output.WriteFloat(Status);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -2086,8 +2117,8 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     if (Z != 0) {
       size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Z);
     }
-    if (Finished != false) {
-      size += 1 + 1;
+    if (Status != 0F) {
+      size += 1 + 4;
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -2109,8 +2140,8 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     if (other.Z != 0) {
       Z = other.Z;
     }
-    if (other.Finished != false) {
-      Finished = other.Finished;
+    if (other.Status != 0F) {
+      Status = other.Status;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -2138,8 +2169,8 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
           Z = input.ReadSInt32();
           break;
         }
-        case 32: {
-          Finished = input.ReadBool();
+        case 37: {
+          Status = input.ReadFloat();
           break;
         }
       }
@@ -2168,8 +2199,8 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
           Z = input.ReadSInt32();
           break;
         }
-        case 32: {
-          Finished = input.ReadBool();
+        case 37: {
+          Status = input.ReadFloat();
           break;
         }
       }
@@ -2232,9 +2263,9 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
 
   /// <summary>Field number for the "type" field.</summary>
   public const int TypeFieldNumber = 2;
-  private global::ActionInventoryClick.Types.Type type_ = global::ActionInventoryClick.Types.Type.Left;
+  private global::MouseClickType type_ = global::MouseClickType.Left;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::ActionInventoryClick.Types.Type Type {
+  public global::MouseClickType Type {
     get { return type_; }
     set {
       type_ = value;
@@ -2243,9 +2274,9 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
 
   /// <summary>Field number for the "inventory" field.</summary>
   public const int InventoryFieldNumber = 3;
-  private global::ActionInventoryClick.Types.TypeInv inventory_ = global::ActionInventoryClick.Types.TypeInv.Main;
+  private global::InventoryType inventory_ = global::InventoryType.Main;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::ActionInventoryClick.Types.TypeInv Inventory {
+  public global::InventoryType Inventory {
     get { return inventory_; }
     set {
       inventory_ = value;
@@ -2275,8 +2306,8 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
   public override int GetHashCode() {
     int hash = 1;
     if (Slot != 0) hash ^= Slot.GetHashCode();
-    if (Type != global::ActionInventoryClick.Types.Type.Left) hash ^= Type.GetHashCode();
-    if (Inventory != global::ActionInventoryClick.Types.TypeInv.Main) hash ^= Inventory.GetHashCode();
+    if (Type != global::MouseClickType.Left) hash ^= Type.GetHashCode();
+    if (Inventory != global::InventoryType.Main) hash ^= Inventory.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -2295,13 +2326,13 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
   #else
     if (Slot != 0) {
       output.WriteRawTag(8);
-      output.WriteSInt32(Slot);
+      output.WriteInt32(Slot);
     }
-    if (Type != global::ActionInventoryClick.Types.Type.Left) {
+    if (Type != global::MouseClickType.Left) {
       output.WriteRawTag(16);
       output.WriteEnum((int) Type);
     }
-    if (Inventory != global::ActionInventoryClick.Types.TypeInv.Main) {
+    if (Inventory != global::InventoryType.Main) {
       output.WriteRawTag(24);
       output.WriteEnum((int) Inventory);
     }
@@ -2316,13 +2347,13 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
     if (Slot != 0) {
       output.WriteRawTag(8);
-      output.WriteSInt32(Slot);
+      output.WriteInt32(Slot);
     }
-    if (Type != global::ActionInventoryClick.Types.Type.Left) {
+    if (Type != global::MouseClickType.Left) {
       output.WriteRawTag(16);
       output.WriteEnum((int) Type);
     }
-    if (Inventory != global::ActionInventoryClick.Types.TypeInv.Main) {
+    if (Inventory != global::InventoryType.Main) {
       output.WriteRawTag(24);
       output.WriteEnum((int) Inventory);
     }
@@ -2336,12 +2367,12 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
   public int CalculateSize() {
     int size = 0;
     if (Slot != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Slot);
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Slot);
     }
-    if (Type != global::ActionInventoryClick.Types.Type.Left) {
+    if (Type != global::MouseClickType.Left) {
       size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
     }
-    if (Inventory != global::ActionInventoryClick.Types.TypeInv.Main) {
+    if (Inventory != global::InventoryType.Main) {
       size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Inventory);
     }
     if (_unknownFields != null) {
@@ -2358,10 +2389,10 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
     if (other.Slot != 0) {
       Slot = other.Slot;
     }
-    if (other.Type != global::ActionInventoryClick.Types.Type.Left) {
+    if (other.Type != global::MouseClickType.Left) {
       Type = other.Type;
     }
-    if (other.Inventory != global::ActionInventoryClick.Types.TypeInv.Main) {
+    if (other.Inventory != global::InventoryType.Main) {
       Inventory = other.Inventory;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2379,15 +2410,15 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          Slot = input.ReadSInt32();
+          Slot = input.ReadInt32();
           break;
         }
         case 16: {
-          Type = (global::ActionInventoryClick.Types.Type) input.ReadEnum();
+          Type = (global::MouseClickType) input.ReadEnum();
           break;
         }
         case 24: {
-          Inventory = (global::ActionInventoryClick.Types.TypeInv) input.ReadEnum();
+          Inventory = (global::InventoryType) input.ReadEnum();
           break;
         }
       }
@@ -2405,42 +2436,21 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          Slot = input.ReadSInt32();
+          Slot = input.ReadInt32();
           break;
         }
         case 16: {
-          Type = (global::ActionInventoryClick.Types.Type) input.ReadEnum();
+          Type = (global::MouseClickType) input.ReadEnum();
           break;
         }
         case 24: {
-          Inventory = (global::ActionInventoryClick.Types.TypeInv) input.ReadEnum();
+          Inventory = (global::InventoryType) input.ReadEnum();
           break;
         }
       }
     }
   }
   #endif
-
-  #region Nested types
-  /// <summary>Container for nested types declared in the ActionInventoryClick message type.</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static partial class Types {
-    public enum Type {
-      [pbr::OriginalName("LEFT")] Left = 0,
-      [pbr::OriginalName("RIGHT")] Right = 1,
-      [pbr::OriginalName("MIDDLE")] Middle = 2,
-      [pbr::OriginalName("SELECT")] Select = 3,
-    }
-
-    public enum TypeInv {
-      [pbr::OriginalName("MAIN")] Main = 0,
-      [pbr::OriginalName("ARMOR")] Armor = 1,
-      [pbr::OriginalName("CRAFTING")] Crafting = 2,
-      [pbr::OriginalName("HOOK")] Hook = 3,
-    }
-
-  }
-  #endregion
 
 }
 
@@ -2560,11 +2570,11 @@ public sealed partial class ActionInventoryPick : pb::IMessage<ActionInventoryPi
   #else
     if (Slot != 0) {
       output.WriteRawTag(8);
-      output.WriteSInt32(Slot);
+      output.WriteInt32(Slot);
     }
     if (Slot2 != 0) {
       output.WriteRawTag(16);
-      output.WriteSInt32(Slot2);
+      output.WriteInt32(Slot2);
     }
     if (Block != 0) {
       output.WriteRawTag(24);
@@ -2581,11 +2591,11 @@ public sealed partial class ActionInventoryPick : pb::IMessage<ActionInventoryPi
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
     if (Slot != 0) {
       output.WriteRawTag(8);
-      output.WriteSInt32(Slot);
+      output.WriteInt32(Slot);
     }
     if (Slot2 != 0) {
       output.WriteRawTag(16);
-      output.WriteSInt32(Slot2);
+      output.WriteInt32(Slot2);
     }
     if (Block != 0) {
       output.WriteRawTag(24);
@@ -2601,10 +2611,10 @@ public sealed partial class ActionInventoryPick : pb::IMessage<ActionInventoryPi
   public int CalculateSize() {
     int size = 0;
     if (Slot != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Slot);
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Slot);
     }
     if (Slot2 != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Slot2);
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Slot2);
     }
     if (Block != 0) {
       size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Block);
@@ -2644,11 +2654,11 @@ public sealed partial class ActionInventoryPick : pb::IMessage<ActionInventoryPi
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          Slot = input.ReadSInt32();
+          Slot = input.ReadInt32();
           break;
         }
         case 16: {
-          Slot2 = input.ReadSInt32();
+          Slot2 = input.ReadInt32();
           break;
         }
         case 24: {
@@ -2670,11 +2680,11 @@ public sealed partial class ActionInventoryPick : pb::IMessage<ActionInventoryPi
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          Slot = input.ReadSInt32();
+          Slot = input.ReadInt32();
           break;
         }
         case 16: {
-          Slot2 = input.ReadSInt32();
+          Slot2 = input.ReadInt32();
           break;
         }
         case 24: {
@@ -2728,9 +2738,9 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
 
   /// <summary>Field number for the "inventory" field.</summary>
   public const int InventoryFieldNumber = 1;
-  private global::ActionInventoryOpen.Types.Type inventory_ = global::ActionInventoryOpen.Types.Type.Main;
+  private global::ContainerType inventory_ = global::ContainerType.Player;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::ActionInventoryOpen.Types.Type Inventory {
+  public global::ContainerType Inventory {
     get { return inventory_; }
     set {
       inventory_ = value;
@@ -2757,7 +2767,7 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (Inventory != global::ActionInventoryOpen.Types.Type.Main) hash ^= Inventory.GetHashCode();
+    if (Inventory != global::ContainerType.Player) hash ^= Inventory.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -2774,7 +2784,7 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (Inventory != global::ActionInventoryOpen.Types.Type.Main) {
+    if (Inventory != global::ContainerType.Player) {
       output.WriteRawTag(8);
       output.WriteEnum((int) Inventory);
     }
@@ -2787,7 +2797,7 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (Inventory != global::ActionInventoryOpen.Types.Type.Main) {
+    if (Inventory != global::ContainerType.Player) {
       output.WriteRawTag(8);
       output.WriteEnum((int) Inventory);
     }
@@ -2800,7 +2810,7 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (Inventory != global::ActionInventoryOpen.Types.Type.Main) {
+    if (Inventory != global::ContainerType.Player) {
       size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Inventory);
     }
     if (_unknownFields != null) {
@@ -2814,7 +2824,7 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
     if (other == null) {
       return;
     }
-    if (other.Inventory != global::ActionInventoryOpen.Types.Type.Main) {
+    if (other.Inventory != global::ContainerType.Player) {
       Inventory = other.Inventory;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2832,7 +2842,7 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          Inventory = (global::ActionInventoryOpen.Types.Type) input.ReadEnum();
+          Inventory = (global::ContainerType) input.ReadEnum();
           break;
         }
       }
@@ -2850,27 +2860,13 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          Inventory = (global::ActionInventoryOpen.Types.Type) input.ReadEnum();
+          Inventory = (global::ContainerType) input.ReadEnum();
           break;
         }
       }
     }
   }
   #endif
-
-  #region Nested types
-  /// <summary>Container for nested types declared in the ActionInventoryOpen message type.</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static partial class Types {
-    public enum Type {
-      [pbr::OriginalName("MAIN")] Main = 0,
-      [pbr::OriginalName("CHEST")] Chest = 1,
-      [pbr::OriginalName("CRAFTING")] Crafting = 2,
-      [pbr::OriginalName("FURNACE")] Furnace = 3,
-    }
-
-  }
-  #endregion
 
 }
 
@@ -2914,9 +2910,9 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
 
   /// <summary>Field number for the "inventory" field.</summary>
   public const int InventoryFieldNumber = 1;
-  private global::ActionInventoryClose.Types.Type inventory_ = global::ActionInventoryClose.Types.Type.Main;
+  private global::ContainerType inventory_ = global::ContainerType.Player;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::ActionInventoryClose.Types.Type Inventory {
+  public global::ContainerType Inventory {
     get { return inventory_; }
     set {
       inventory_ = value;
@@ -2943,7 +2939,7 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
-    if (Inventory != global::ActionInventoryClose.Types.Type.Main) hash ^= Inventory.GetHashCode();
+    if (Inventory != global::ContainerType.Player) hash ^= Inventory.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -2960,7 +2956,7 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
-    if (Inventory != global::ActionInventoryClose.Types.Type.Main) {
+    if (Inventory != global::ContainerType.Player) {
       output.WriteRawTag(8);
       output.WriteEnum((int) Inventory);
     }
@@ -2973,7 +2969,7 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-    if (Inventory != global::ActionInventoryClose.Types.Type.Main) {
+    if (Inventory != global::ContainerType.Player) {
       output.WriteRawTag(8);
       output.WriteEnum((int) Inventory);
     }
@@ -2986,7 +2982,7 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
-    if (Inventory != global::ActionInventoryClose.Types.Type.Main) {
+    if (Inventory != global::ContainerType.Player) {
       size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Inventory);
     }
     if (_unknownFields != null) {
@@ -3000,7 +2996,7 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
     if (other == null) {
       return;
     }
-    if (other.Inventory != global::ActionInventoryClose.Types.Type.Main) {
+    if (other.Inventory != global::ContainerType.Player) {
       Inventory = other.Inventory;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -3018,7 +3014,7 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
         case 8: {
-          Inventory = (global::ActionInventoryClose.Types.Type) input.ReadEnum();
+          Inventory = (global::ContainerType) input.ReadEnum();
           break;
         }
       }
@@ -3036,27 +3032,13 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
         case 8: {
-          Inventory = (global::ActionInventoryClose.Types.Type) input.ReadEnum();
+          Inventory = (global::ContainerType) input.ReadEnum();
           break;
         }
       }
     }
   }
   #endif
-
-  #region Nested types
-  /// <summary>Container for nested types declared in the ActionInventoryClose message type.</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static partial class Types {
-    public enum Type {
-      [pbr::OriginalName("MAIN")] Main = 0,
-      [pbr::OriginalName("CHEST")] Chest = 1,
-      [pbr::OriginalName("CRAFTING")] Crafting = 2,
-      [pbr::OriginalName("FURNACE")] Furnace = 3,
-    }
-
-  }
-  #endregion
 
 }
 
@@ -3137,12 +3119,12 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
 
   /// <summary>Field number for the "type" field.</summary>
   public const int TypeFieldNumber = 4;
-  private string type_ = "";
+  private global::MouseClickType type_ = global::MouseClickType.Left;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Type {
+  public global::MouseClickType Type {
     get { return type_; }
     set {
-      type_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      type_ = value;
     }
   }
 
@@ -3184,7 +3166,7 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
     if (X != 0) hash ^= X.GetHashCode();
     if (Y != 0) hash ^= Y.GetHashCode();
     if (Z != 0) hash ^= Z.GetHashCode();
-    if (Type.Length != 0) hash ^= Type.GetHashCode();
+    if (Type != global::MouseClickType.Left) hash ^= Type.GetHashCode();
     if (OnBlock != false) hash ^= OnBlock.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
@@ -3214,9 +3196,9 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
       output.WriteRawTag(24);
       output.WriteSInt32(Z);
     }
-    if (Type.Length != 0) {
-      output.WriteRawTag(34);
-      output.WriteString(Type);
+    if (Type != global::MouseClickType.Left) {
+      output.WriteRawTag(32);
+      output.WriteEnum((int) Type);
     }
     if (OnBlock != false) {
       output.WriteRawTag(40);
@@ -3243,9 +3225,9 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
       output.WriteRawTag(24);
       output.WriteSInt32(Z);
     }
-    if (Type.Length != 0) {
-      output.WriteRawTag(34);
-      output.WriteString(Type);
+    if (Type != global::MouseClickType.Left) {
+      output.WriteRawTag(32);
+      output.WriteEnum((int) Type);
     }
     if (OnBlock != false) {
       output.WriteRawTag(40);
@@ -3269,8 +3251,8 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
     if (Z != 0) {
       size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Z);
     }
-    if (Type.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Type);
+    if (Type != global::MouseClickType.Left) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
     }
     if (OnBlock != false) {
       size += 1 + 1;
@@ -3295,7 +3277,7 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
     if (other.Z != 0) {
       Z = other.Z;
     }
-    if (other.Type.Length != 0) {
+    if (other.Type != global::MouseClickType.Left) {
       Type = other.Type;
     }
     if (other.OnBlock != false) {
@@ -3327,8 +3309,8 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
           Z = input.ReadSInt32();
           break;
         }
-        case 34: {
-          Type = input.ReadString();
+        case 32: {
+          Type = (global::MouseClickType) input.ReadEnum();
           break;
         }
         case 40: {
@@ -3361,8 +3343,8 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
           Z = input.ReadSInt32();
           break;
         }
-        case 34: {
-          Type = input.ReadString();
+        case 32: {
+          Type = (global::MouseClickType) input.ReadEnum();
           break;
         }
         case 40: {

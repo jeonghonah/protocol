@@ -73,6 +73,12 @@ public final class Client {
      */
     com.google.protobuf.ByteString
         getSecretBytes();
+
+    /**
+     * <code>int32 protocol_rev = 7;</code>
+     * @return The protocolRev.
+     */
+    int getProtocolRev();
   }
   /**
    * Protobuf type {@code LoginResponse}
@@ -338,6 +344,32 @@ public final class Client {
       checkByteStringIsUtf8(value);
       secret_ = value.toStringUtf8();
       
+    }
+
+    public static final int PROTOCOL_REV_FIELD_NUMBER = 7;
+    private int protocolRev_;
+    /**
+     * <code>int32 protocol_rev = 7;</code>
+     * @return The protocolRev.
+     */
+    @java.lang.Override
+    public int getProtocolRev() {
+      return protocolRev_;
+    }
+    /**
+     * <code>int32 protocol_rev = 7;</code>
+     * @param value The protocolRev to set.
+     */
+    private void setProtocolRev(int value) {
+      
+      protocolRev_ = value;
+    }
+    /**
+     * <code>int32 protocol_rev = 7;</code>
+     */
+    private void clearProtocolRev() {
+      
+      protocolRev_ = 0;
     }
 
     public static Client.LoginResponse parseFrom(
@@ -699,6 +731,34 @@ public final class Client {
         return this;
       }
 
+      /**
+       * <code>int32 protocol_rev = 7;</code>
+       * @return The protocolRev.
+       */
+      @java.lang.Override
+      public int getProtocolRev() {
+        return instance.getProtocolRev();
+      }
+      /**
+       * <code>int32 protocol_rev = 7;</code>
+       * @param value The protocolRev to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolRev(int value) {
+        copyOnWrite();
+        instance.setProtocolRev(value);
+        return this;
+      }
+      /**
+       * <code>int32 protocol_rev = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProtocolRev() {
+        copyOnWrite();
+        instance.clearProtocolRev();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:LoginResponse)
     }
     @java.lang.Override
@@ -721,10 +781,11 @@ public final class Client {
               "client_",
               "uuid_",
               "secret_",
+              "protocolRev_",
             };
             java.lang.String info =
-                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u0208\u0002\u000b" +
-                "\u0003\u0007\u0004\u0208\u0005\u0208\u0006\u0208";
+                "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0000\u0000\u0001\u0208\u0002\u000b" +
+                "\u0003\u0007\u0004\u0208\u0005\u0208\u0006\u0208\u0007\u0004";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -3045,10 +3106,10 @@ public final class Client {
     int getZ();
 
     /**
-     * <code>bool finished = 4;</code>
-     * @return The finished.
+     * <code>float status = 4;</code>
+     * @return The status.
      */
-    boolean getFinished();
+    float getStatus();
   }
   /**
    * Protobuf type {@code ActionBlockBreak}
@@ -3138,30 +3199,30 @@ public final class Client {
       z_ = 0;
     }
 
-    public static final int FINISHED_FIELD_NUMBER = 4;
-    private boolean finished_;
+    public static final int STATUS_FIELD_NUMBER = 4;
+    private float status_;
     /**
-     * <code>bool finished = 4;</code>
-     * @return The finished.
+     * <code>float status = 4;</code>
+     * @return The status.
      */
     @java.lang.Override
-    public boolean getFinished() {
-      return finished_;
+    public float getStatus() {
+      return status_;
     }
     /**
-     * <code>bool finished = 4;</code>
-     * @param value The finished to set.
+     * <code>float status = 4;</code>
+     * @param value The status to set.
      */
-    private void setFinished(boolean value) {
+    private void setStatus(float value) {
       
-      finished_ = value;
+      status_ = value;
     }
     /**
-     * <code>bool finished = 4;</code>
+     * <code>float status = 4;</code>
      */
-    private void clearFinished() {
+    private void clearStatus() {
       
-      finished_ = false;
+      status_ = 0F;
     }
 
     public static Client.ActionBlockBreak parseFrom(
@@ -3344,30 +3405,30 @@ public final class Client {
       }
 
       /**
-       * <code>bool finished = 4;</code>
-       * @return The finished.
+       * <code>float status = 4;</code>
+       * @return The status.
        */
       @java.lang.Override
-      public boolean getFinished() {
-        return instance.getFinished();
+      public float getStatus() {
+        return instance.getStatus();
       }
       /**
-       * <code>bool finished = 4;</code>
-       * @param value The finished to set.
+       * <code>float status = 4;</code>
+       * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setFinished(boolean value) {
+      public Builder setStatus(float value) {
         copyOnWrite();
-        instance.setFinished(value);
+        instance.setStatus(value);
         return this;
       }
       /**
-       * <code>bool finished = 4;</code>
+       * <code>float status = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearFinished() {
+      public Builder clearStatus() {
         copyOnWrite();
-        instance.clearFinished();
+        instance.clearStatus();
         return this;
       }
 
@@ -3390,11 +3451,11 @@ public final class Client {
               "x_",
               "y_",
               "z_",
-              "finished_",
+              "status_",
             };
             java.lang.String info =
                 "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u000f\u0002\u000f" +
-                "\u0003\u000f\u0004\u0007";
+                "\u0003\u000f\u0004\u0001";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -3454,32 +3515,32 @@ public final class Client {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     int getSlot();
 
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @return The type.
      */
-    Client.ActionInventoryClick.Type getType();
+    Types.MouseClickType getType();
 
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     int getInventoryValue();
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @return The inventory.
      */
-    Client.ActionInventoryClick.TypeInv getInventory();
+    Types.InventoryType getInventory();
   }
   /**
    * Protobuf type {@code ActionInventoryClick}
@@ -3491,224 +3552,10 @@ public final class Client {
       ActionInventoryClickOrBuilder {
     private ActionInventoryClick() {
     }
-    /**
-     * Protobuf enum {@code ActionInventoryClick.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.Internal.EnumLite {
-      /**
-       * <code>LEFT = 0;</code>
-       */
-      LEFT(0),
-      /**
-       * <code>RIGHT = 1;</code>
-       */
-      RIGHT(1),
-      /**
-       * <code>MIDDLE = 2;</code>
-       */
-      MIDDLE(2),
-      /**
-       * <code>SELECT = 3;</code>
-       */
-      SELECT(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>LEFT = 0;</code>
-       */
-      public static final int LEFT_VALUE = 0;
-      /**
-       * <code>RIGHT = 1;</code>
-       */
-      public static final int RIGHT_VALUE = 1;
-      /**
-       * <code>MIDDLE = 2;</code>
-       */
-      public static final int MIDDLE_VALUE = 2;
-      /**
-       * <code>SELECT = 3;</code>
-       */
-      public static final int SELECT_VALUE = 3;
-
-
-      @java.lang.Override
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return LEFT;
-          case 1: return RIGHT;
-          case 2: return MIDDLE;
-          case 3: return SELECT;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              @java.lang.Override
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public static com.google.protobuf.Internal.EnumVerifier 
-          internalGetVerifier() {
-        return TypeVerifier.INSTANCE;
-      }
-
-      private static final class TypeVerifier implements 
-           com.google.protobuf.Internal.EnumVerifier { 
-              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeVerifier();
-              @java.lang.Override
-              public boolean isInRange(int number) {
-                return Type.forNumber(number) != null;
-              }
-            };
-
-      private final int value;
-
-      private Type(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ActionInventoryClick.Type)
-    }
-
-    /**
-     * Protobuf enum {@code ActionInventoryClick.TypeInv}
-     */
-    public enum TypeInv
-        implements com.google.protobuf.Internal.EnumLite {
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      MAIN(0),
-      /**
-       * <code>ARMOR = 1;</code>
-       */
-      ARMOR(1),
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      CRAFTING(2),
-      /**
-       * <code>HOOK = 3;</code>
-       */
-      HOOK(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      public static final int MAIN_VALUE = 0;
-      /**
-       * <code>ARMOR = 1;</code>
-       */
-      public static final int ARMOR_VALUE = 1;
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      public static final int CRAFTING_VALUE = 2;
-      /**
-       * <code>HOOK = 3;</code>
-       */
-      public static final int HOOK_VALUE = 3;
-
-
-      @java.lang.Override
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static TypeInv valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static TypeInv forNumber(int value) {
-        switch (value) {
-          case 0: return MAIN;
-          case 1: return ARMOR;
-          case 2: return CRAFTING;
-          case 3: return HOOK;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<TypeInv>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          TypeInv> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<TypeInv>() {
-              @java.lang.Override
-              public TypeInv findValueByNumber(int number) {
-                return TypeInv.forNumber(number);
-              }
-            };
-
-      public static com.google.protobuf.Internal.EnumVerifier 
-          internalGetVerifier() {
-        return TypeInvVerifier.INSTANCE;
-      }
-
-      private static final class TypeInvVerifier implements 
-           com.google.protobuf.Internal.EnumVerifier { 
-              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeInvVerifier();
-              @java.lang.Override
-              public boolean isInRange(int number) {
-                return TypeInv.forNumber(number) != null;
-              }
-            };
-
-      private final int value;
-
-      private TypeInv(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ActionInventoryClick.TypeInv)
-    }
-
     public static final int SLOT_FIELD_NUMBER = 1;
     private int slot_;
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     @java.lang.Override
@@ -3716,7 +3563,7 @@ public final class Client {
       return slot_;
     }
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @param value The slot to set.
      */
     private void setSlot(int value) {
@@ -3724,7 +3571,7 @@ public final class Client {
       slot_ = value;
     }
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      */
     private void clearSlot() {
       
@@ -3734,7 +3581,7 @@ public final class Client {
     public static final int TYPE_FIELD_NUMBER = 2;
     private int type_;
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override
@@ -3742,31 +3589,31 @@ public final class Client {
       return type_;
     }
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @return The type.
      */
     @java.lang.Override
-    public Client.ActionInventoryClick.Type getType() {
-      Client.ActionInventoryClick.Type result = Client.ActionInventoryClick.Type.forNumber(type_);
-      return result == null ? Client.ActionInventoryClick.Type.UNRECOGNIZED : result;
+    public Types.MouseClickType getType() {
+      Types.MouseClickType result = Types.MouseClickType.forNumber(type_);
+      return result == null ? Types.MouseClickType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @param value The enum numeric value on the wire for type to set.
      */
     private void setTypeValue(int value) {
         type_ = value;
     }
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      * @param value The type to set.
      */
-    private void setType(Client.ActionInventoryClick.Type value) {
+    private void setType(Types.MouseClickType value) {
       type_ = value.getNumber();
       
     }
     /**
-     * <code>.ActionInventoryClick.Type type = 2;</code>
+     * <code>.MouseClickType type = 2;</code>
      */
     private void clearType() {
       
@@ -3776,7 +3623,7 @@ public final class Client {
     public static final int INVENTORY_FIELD_NUMBER = 3;
     private int inventory_;
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     @java.lang.Override
@@ -3784,31 +3631,31 @@ public final class Client {
       return inventory_;
     }
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @return The inventory.
      */
     @java.lang.Override
-    public Client.ActionInventoryClick.TypeInv getInventory() {
-      Client.ActionInventoryClick.TypeInv result = Client.ActionInventoryClick.TypeInv.forNumber(inventory_);
-      return result == null ? Client.ActionInventoryClick.TypeInv.UNRECOGNIZED : result;
+    public Types.InventoryType getInventory() {
+      Types.InventoryType result = Types.InventoryType.forNumber(inventory_);
+      return result == null ? Types.InventoryType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @param value The enum numeric value on the wire for inventory to set.
      */
     private void setInventoryValue(int value) {
         inventory_ = value;
     }
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      * @param value The inventory to set.
      */
-    private void setInventory(Client.ActionInventoryClick.TypeInv value) {
+    private void setInventory(Types.InventoryType value) {
       inventory_ = value.getNumber();
       
     }
     /**
-     * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+     * <code>.InventoryType inventory = 3;</code>
      */
     private void clearInventory() {
       
@@ -3911,7 +3758,7 @@ public final class Client {
 
 
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return The slot.
        */
       @java.lang.Override
@@ -3919,7 +3766,7 @@ public final class Client {
         return instance.getSlot();
       }
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @param value The slot to set.
        * @return This builder for chaining.
        */
@@ -3929,7 +3776,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSlot() {
@@ -3939,7 +3786,7 @@ public final class Client {
       }
 
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override
@@ -3947,7 +3794,7 @@ public final class Client {
         return instance.getTypeValue();
       }
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -3957,25 +3804,25 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @return The type.
        */
       @java.lang.Override
-      public Client.ActionInventoryClick.Type getType() {
+      public Types.MouseClickType getType() {
         return instance.getType();
       }
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(Client.ActionInventoryClick.Type value) {
+      public Builder setType(Types.MouseClickType value) {
         copyOnWrite();
         instance.setType(value);
         return this;
       }
       /**
-       * <code>.ActionInventoryClick.Type type = 2;</code>
+       * <code>.MouseClickType type = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -3985,7 +3832,7 @@ public final class Client {
       }
 
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @return The enum numeric value on the wire for inventory.
        */
       @java.lang.Override
@@ -3993,7 +3840,7 @@ public final class Client {
         return instance.getInventoryValue();
       }
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @param value The inventory to set.
        * @return This builder for chaining.
        */
@@ -4003,25 +3850,25 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @return The inventory.
        */
       @java.lang.Override
-      public Client.ActionInventoryClick.TypeInv getInventory() {
+      public Types.InventoryType getInventory() {
         return instance.getInventory();
       }
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @param value The enum numeric value on the wire for inventory to set.
        * @return This builder for chaining.
        */
-      public Builder setInventory(Client.ActionInventoryClick.TypeInv value) {
+      public Builder setInventory(Types.InventoryType value) {
         copyOnWrite();
         instance.setInventory(value);
         return this;
       }
       /**
-       * <code>.ActionInventoryClick.TypeInv inventory = 3;</code>
+       * <code>.InventoryType inventory = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearInventory() {
@@ -4051,7 +3898,7 @@ public final class Client {
               "inventory_",
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u000f\u0002\f" +
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0004\u0002\f" +
                 "\u0003\f";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
@@ -4112,13 +3959,13 @@ public final class Client {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     int getSlot();
 
     /**
-     * <code>sint32 slot2 = 2;</code>
+     * <code>int32 slot2 = 2;</code>
      * @return The slot2.
      */
     int getSlot2();
@@ -4142,7 +3989,7 @@ public final class Client {
     public static final int SLOT_FIELD_NUMBER = 1;
     private int slot_;
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     @java.lang.Override
@@ -4150,7 +3997,7 @@ public final class Client {
       return slot_;
     }
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @param value The slot to set.
      */
     private void setSlot(int value) {
@@ -4158,7 +4005,7 @@ public final class Client {
       slot_ = value;
     }
     /**
-     * <code>sint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      */
     private void clearSlot() {
       
@@ -4168,7 +4015,7 @@ public final class Client {
     public static final int SLOT2_FIELD_NUMBER = 2;
     private int slot2_;
     /**
-     * <code>sint32 slot2 = 2;</code>
+     * <code>int32 slot2 = 2;</code>
      * @return The slot2.
      */
     @java.lang.Override
@@ -4176,7 +4023,7 @@ public final class Client {
       return slot2_;
     }
     /**
-     * <code>sint32 slot2 = 2;</code>
+     * <code>int32 slot2 = 2;</code>
      * @param value The slot2 to set.
      */
     private void setSlot2(int value) {
@@ -4184,7 +4031,7 @@ public final class Client {
       slot2_ = value;
     }
     /**
-     * <code>sint32 slot2 = 2;</code>
+     * <code>int32 slot2 = 2;</code>
      */
     private void clearSlot2() {
       
@@ -4313,7 +4160,7 @@ public final class Client {
 
 
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return The slot.
        */
       @java.lang.Override
@@ -4321,7 +4168,7 @@ public final class Client {
         return instance.getSlot();
       }
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @param value The slot to set.
        * @return This builder for chaining.
        */
@@ -4331,7 +4178,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>sint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSlot() {
@@ -4341,7 +4188,7 @@ public final class Client {
       }
 
       /**
-       * <code>sint32 slot2 = 2;</code>
+       * <code>int32 slot2 = 2;</code>
        * @return The slot2.
        */
       @java.lang.Override
@@ -4349,7 +4196,7 @@ public final class Client {
         return instance.getSlot2();
       }
       /**
-       * <code>sint32 slot2 = 2;</code>
+       * <code>int32 slot2 = 2;</code>
        * @param value The slot2 to set.
        * @return This builder for chaining.
        */
@@ -4359,7 +4206,7 @@ public final class Client {
         return this;
       }
       /**
-       * <code>sint32 slot2 = 2;</code>
+       * <code>int32 slot2 = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearSlot2() {
@@ -4417,7 +4264,7 @@ public final class Client {
               "block_",
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u000f\u0002\u000f" +
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0004\u0002\u0004" +
                 "\u0003\u000f";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
@@ -4478,15 +4325,15 @@ public final class Client {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     int getInventoryValue();
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The inventory.
      */
-    Client.ActionInventoryOpen.Type getInventory();
+    Types.ContainerType getInventory();
   }
   /**
    * Protobuf type {@code ActionInventoryOpen}
@@ -4498,117 +4345,10 @@ public final class Client {
       ActionInventoryOpenOrBuilder {
     private ActionInventoryOpen() {
     }
-    /**
-     * Protobuf enum {@code ActionInventoryOpen.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.Internal.EnumLite {
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      MAIN(0),
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      CHEST(1),
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      CRAFTING(2),
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      FURNACE(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      public static final int MAIN_VALUE = 0;
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      public static final int CHEST_VALUE = 1;
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      public static final int CRAFTING_VALUE = 2;
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      public static final int FURNACE_VALUE = 3;
-
-
-      @java.lang.Override
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return MAIN;
-          case 1: return CHEST;
-          case 2: return CRAFTING;
-          case 3: return FURNACE;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              @java.lang.Override
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public static com.google.protobuf.Internal.EnumVerifier 
-          internalGetVerifier() {
-        return TypeVerifier.INSTANCE;
-      }
-
-      private static final class TypeVerifier implements 
-           com.google.protobuf.Internal.EnumVerifier { 
-              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeVerifier();
-              @java.lang.Override
-              public boolean isInRange(int number) {
-                return Type.forNumber(number) != null;
-              }
-            };
-
-      private final int value;
-
-      private Type(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ActionInventoryOpen.Type)
-    }
-
     public static final int INVENTORY_FIELD_NUMBER = 1;
     private int inventory_;
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     @java.lang.Override
@@ -4616,31 +4356,31 @@ public final class Client {
       return inventory_;
     }
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The inventory.
      */
     @java.lang.Override
-    public Client.ActionInventoryOpen.Type getInventory() {
-      Client.ActionInventoryOpen.Type result = Client.ActionInventoryOpen.Type.forNumber(inventory_);
-      return result == null ? Client.ActionInventoryOpen.Type.UNRECOGNIZED : result;
+    public Types.ContainerType getInventory() {
+      Types.ContainerType result = Types.ContainerType.forNumber(inventory_);
+      return result == null ? Types.ContainerType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @param value The enum numeric value on the wire for inventory to set.
      */
     private void setInventoryValue(int value) {
         inventory_ = value;
     }
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @param value The inventory to set.
      */
-    private void setInventory(Client.ActionInventoryOpen.Type value) {
+    private void setInventory(Types.ContainerType value) {
       inventory_ = value.getNumber();
       
     }
     /**
-     * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      */
     private void clearInventory() {
       
@@ -4743,7 +4483,7 @@ public final class Client {
 
 
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return The enum numeric value on the wire for inventory.
        */
       @java.lang.Override
@@ -4751,7 +4491,7 @@ public final class Client {
         return instance.getInventoryValue();
       }
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @param value The inventory to set.
        * @return This builder for chaining.
        */
@@ -4761,25 +4501,25 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return The inventory.
        */
       @java.lang.Override
-      public Client.ActionInventoryOpen.Type getInventory() {
+      public Types.ContainerType getInventory() {
         return instance.getInventory();
       }
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @param value The enum numeric value on the wire for inventory to set.
        * @return This builder for chaining.
        */
-      public Builder setInventory(Client.ActionInventoryOpen.Type value) {
+      public Builder setInventory(Types.ContainerType value) {
         copyOnWrite();
         instance.setInventory(value);
         return this;
       }
       /**
-       * <code>.ActionInventoryOpen.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearInventory() {
@@ -4867,15 +4607,15 @@ public final class Client {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     int getInventoryValue();
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The inventory.
      */
-    Client.ActionInventoryClose.Type getInventory();
+    Types.ContainerType getInventory();
   }
   /**
    * Protobuf type {@code ActionInventoryClose}
@@ -4887,117 +4627,10 @@ public final class Client {
       ActionInventoryCloseOrBuilder {
     private ActionInventoryClose() {
     }
-    /**
-     * Protobuf enum {@code ActionInventoryClose.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.Internal.EnumLite {
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      MAIN(0),
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      CHEST(1),
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      CRAFTING(2),
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      FURNACE(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      public static final int MAIN_VALUE = 0;
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      public static final int CHEST_VALUE = 1;
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      public static final int CRAFTING_VALUE = 2;
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      public static final int FURNACE_VALUE = 3;
-
-
-      @java.lang.Override
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return MAIN;
-          case 1: return CHEST;
-          case 2: return CRAFTING;
-          case 3: return FURNACE;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              @java.lang.Override
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public static com.google.protobuf.Internal.EnumVerifier 
-          internalGetVerifier() {
-        return TypeVerifier.INSTANCE;
-      }
-
-      private static final class TypeVerifier implements 
-           com.google.protobuf.Internal.EnumVerifier { 
-              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeVerifier();
-              @java.lang.Override
-              public boolean isInRange(int number) {
-                return Type.forNumber(number) != null;
-              }
-            };
-
-      private final int value;
-
-      private Type(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:ActionInventoryClose.Type)
-    }
-
     public static final int INVENTORY_FIELD_NUMBER = 1;
     private int inventory_;
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The enum numeric value on the wire for inventory.
      */
     @java.lang.Override
@@ -5005,31 +4638,31 @@ public final class Client {
       return inventory_;
     }
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @return The inventory.
      */
     @java.lang.Override
-    public Client.ActionInventoryClose.Type getInventory() {
-      Client.ActionInventoryClose.Type result = Client.ActionInventoryClose.Type.forNumber(inventory_);
-      return result == null ? Client.ActionInventoryClose.Type.UNRECOGNIZED : result;
+    public Types.ContainerType getInventory() {
+      Types.ContainerType result = Types.ContainerType.forNumber(inventory_);
+      return result == null ? Types.ContainerType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @param value The enum numeric value on the wire for inventory to set.
      */
     private void setInventoryValue(int value) {
         inventory_ = value;
     }
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      * @param value The inventory to set.
      */
-    private void setInventory(Client.ActionInventoryClose.Type value) {
+    private void setInventory(Types.ContainerType value) {
       inventory_ = value.getNumber();
       
     }
     /**
-     * <code>.ActionInventoryClose.Type inventory = 1;</code>
+     * <code>.ContainerType inventory = 1;</code>
      */
     private void clearInventory() {
       
@@ -5132,7 +4765,7 @@ public final class Client {
 
 
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return The enum numeric value on the wire for inventory.
        */
       @java.lang.Override
@@ -5140,7 +4773,7 @@ public final class Client {
         return instance.getInventoryValue();
       }
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @param value The inventory to set.
        * @return This builder for chaining.
        */
@@ -5150,25 +4783,25 @@ public final class Client {
         return this;
       }
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return The inventory.
        */
       @java.lang.Override
-      public Client.ActionInventoryClose.Type getInventory() {
+      public Types.ContainerType getInventory() {
         return instance.getInventory();
       }
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @param value The enum numeric value on the wire for inventory to set.
        * @return This builder for chaining.
        */
-      public Builder setInventory(Client.ActionInventoryClose.Type value) {
+      public Builder setInventory(Types.ContainerType value) {
         copyOnWrite();
         instance.setInventory(value);
         return this;
       }
       /**
-       * <code>.ActionInventoryClose.Type inventory = 1;</code>
+       * <code>.ContainerType inventory = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearInventory() {
@@ -5274,16 +4907,15 @@ public final class Client {
     int getZ();
 
     /**
-     * <code>string type = 4;</code>
+     * <code>.MouseClickType type = 4;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.MouseClickType type = 4;</code>
      * @return The type.
      */
-    java.lang.String getType();
-    /**
-     * <code>string type = 4;</code>
-     * @return The bytes for type.
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    Types.MouseClickType getType();
 
     /**
      * <code>bool on_block = 5;</code>
@@ -5300,7 +4932,6 @@ public final class Client {
       // @@protoc_insertion_point(message_implements:ActionClick)
       ActionClickOrBuilder {
     private ActionClick() {
-      type_ = "";
     }
     public static final int X_FIELD_NUMBER = 1;
     private int x_;
@@ -5381,50 +5012,45 @@ public final class Client {
     }
 
     public static final int TYPE_FIELD_NUMBER = 4;
-    private java.lang.String type_;
+    private int type_;
     /**
-     * <code>string type = 4;</code>
-     * @return The type.
+     * <code>.MouseClickType type = 4;</code>
+     * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override
-    public java.lang.String getType() {
+    public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>string type = 4;</code>
-     * @return The bytes for type.
+     * <code>.MouseClickType type = 4;</code>
+     * @return The type.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(type_);
+    public Types.MouseClickType getType() {
+      Types.MouseClickType result = Types.MouseClickType.forNumber(type_);
+      return result == null ? Types.MouseClickType.UNRECOGNIZED : result;
     }
     /**
-     * <code>string type = 4;</code>
+     * <code>.MouseClickType type = 4;</code>
+     * @param value The enum numeric value on the wire for type to set.
+     */
+    private void setTypeValue(int value) {
+        type_ = value;
+    }
+    /**
+     * <code>.MouseClickType type = 4;</code>
      * @param value The type to set.
      */
-    private void setType(
-        java.lang.String value) {
-      value.getClass();
-  
-      type_ = value;
+    private void setType(Types.MouseClickType value) {
+      type_ = value.getNumber();
+      
     }
     /**
-     * <code>string type = 4;</code>
+     * <code>.MouseClickType type = 4;</code>
      */
     private void clearType() {
       
-      type_ = getDefaultInstance().getType();
-    }
-    /**
-     * <code>string type = 4;</code>
-     * @param value The bytes for type to set.
-     */
-    private void setTypeBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      type_ = value.toStringUtf8();
-      
+      type_ = 0;
     }
 
     public static final int ON_BLOCK_FIELD_NUMBER = 5;
@@ -5633,51 +5259,48 @@ public final class Client {
       }
 
       /**
-       * <code>string type = 4;</code>
-       * @return The type.
+       * <code>.MouseClickType type = 4;</code>
+       * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override
-      public java.lang.String getType() {
-        return instance.getType();
+      public int getTypeValue() {
+        return instance.getTypeValue();
       }
       /**
-       * <code>string type = 4;</code>
-       * @return The bytes for type.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        return instance.getTypeBytes();
-      }
-      /**
-       * <code>string type = 4;</code>
+       * <code>.MouseClickType type = 4;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(
-          java.lang.String value) {
+      public Builder setTypeValue(int value) {
+        copyOnWrite();
+        instance.setTypeValue(value);
+        return this;
+      }
+      /**
+       * <code>.MouseClickType type = 4;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public Types.MouseClickType getType() {
+        return instance.getType();
+      }
+      /**
+       * <code>.MouseClickType type = 4;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(Types.MouseClickType value) {
         copyOnWrite();
         instance.setType(value);
         return this;
       }
       /**
-       * <code>string type = 4;</code>
+       * <code>.MouseClickType type = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
         copyOnWrite();
         instance.clearType();
-        return this;
-      }
-      /**
-       * <code>string type = 4;</code>
-       * @param value The bytes for type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setTypeBytes(value);
         return this;
       }
 
@@ -5733,7 +5356,7 @@ public final class Client {
             };
             java.lang.String info =
                 "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u000f\u0002\u000f" +
-                "\u0003\u000f\u0004\u0208\u0005\u0007";
+                "\u0003\u000f\u0004\f\u0005\u0007";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

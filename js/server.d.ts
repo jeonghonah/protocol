@@ -25,6 +25,12 @@ export interface ILoginRequest {
 
     /** LoginRequest secret */
     secret?: (string|null);
+
+    /** LoginRequest isProxy */
+    isProxy?: (boolean|null);
+
+    /** LoginRequest protocolRev */
+    protocolRev?: (number|null);
 }
 
 /** Represents a LoginRequest. */
@@ -59,6 +65,12 @@ export class LoginRequest implements ILoginRequest {
 
     /** LoginRequest secret. */
     public secret: string;
+
+    /** LoginRequest isProxy. */
+    public isProxy: boolean;
+
+    /** LoginRequest protocolRev. */
+    public protocolRev: number;
 
     /**
      * Creates a new LoginRequest instance using the specified properties.
@@ -230,29 +242,20 @@ export class LoginStatus implements ILoginStatus {
 /** Properties of a LoginSuccess. */
 export interface ILoginSuccess {
 
-    /** LoginSuccess xPos */
-    xPos?: (number|null);
+    /** LoginSuccess message */
+    message?: (string|null);
 
-    /** LoginSuccess yPos */
-    yPos?: (number|null);
+    /** LoginSuccess time */
+    time?: (number|Long|null);
 
-    /** LoginSuccess zPos */
-    zPos?: (number|null);
+    /** LoginSuccess assets */
+    assets?: (string|null);
 
     /** LoginSuccess itemsDef */
     itemsDef?: (string|null);
 
     /** LoginSuccess blocksDef */
     blocksDef?: (string|null);
-
-    /** LoginSuccess inventory */
-    inventory?: (string|null);
-
-    /** LoginSuccess armor */
-    armor?: (string|null);
-
-    /** LoginSuccess movement */
-    movement?: (string|null);
 }
 
 /** Represents a LoginSuccess. */
@@ -264,29 +267,20 @@ export class LoginSuccess implements ILoginSuccess {
      */
     constructor(properties?: ILoginSuccess);
 
-    /** LoginSuccess xPos. */
-    public xPos: number;
+    /** LoginSuccess message. */
+    public message: string;
 
-    /** LoginSuccess yPos. */
-    public yPos: number;
+    /** LoginSuccess time. */
+    public time: (number|Long);
 
-    /** LoginSuccess zPos. */
-    public zPos: number;
+    /** LoginSuccess assets. */
+    public assets: string;
 
     /** LoginSuccess itemsDef. */
     public itemsDef: string;
 
     /** LoginSuccess blocksDef. */
     public blocksDef: string;
-
-    /** LoginSuccess inventory. */
-    public inventory: string;
-
-    /** LoginSuccess armor. */
-    public armor: string;
-
-    /** LoginSuccess movement. */
-    public movement: string;
 
     /**
      * Creates a new LoginSuccess instance using the specified properties.
@@ -449,6 +443,138 @@ export class Ping implements IPing {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a PlayerSpawn. */
+export interface IPlayerSpawn {
+
+    /** PlayerSpawn xPos */
+    xPos?: (number|null);
+
+    /** PlayerSpawn yPos */
+    yPos?: (number|null);
+
+    /** PlayerSpawn zPos */
+    zPos?: (number|null);
+
+    /** PlayerSpawn rotation */
+    rotation?: (number|null);
+
+    /** PlayerSpawn pitch */
+    pitch?: (number|null);
+
+    /** PlayerSpawn movement */
+    movement?: ({ [k: string]: number }|null);
+
+    /** PlayerSpawn inventory */
+    inventory?: (IPlayerInventory|null);
+
+    /** PlayerSpawn entity */
+    entity?: (IPlayerEntity|null);
+}
+
+/** Represents a PlayerSpawn. */
+export class PlayerSpawn implements IPlayerSpawn {
+
+    /**
+     * Constructs a new PlayerSpawn.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerSpawn);
+
+    /** PlayerSpawn xPos. */
+    public xPos: number;
+
+    /** PlayerSpawn yPos. */
+    public yPos: number;
+
+    /** PlayerSpawn zPos. */
+    public zPos: number;
+
+    /** PlayerSpawn rotation. */
+    public rotation: number;
+
+    /** PlayerSpawn pitch. */
+    public pitch: number;
+
+    /** PlayerSpawn movement. */
+    public movement: { [k: string]: number };
+
+    /** PlayerSpawn inventory. */
+    public inventory?: (IPlayerInventory|null);
+
+    /** PlayerSpawn entity. */
+    public entity?: (IPlayerEntity|null);
+
+    /**
+     * Creates a new PlayerSpawn instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerSpawn instance
+     */
+    public static create(properties?: IPlayerSpawn): PlayerSpawn;
+
+    /**
+     * Encodes the specified PlayerSpawn message. Does not implicitly {@link PlayerSpawn.verify|verify} messages.
+     * @param message PlayerSpawn message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerSpawn, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerSpawn message, length delimited. Does not implicitly {@link PlayerSpawn.verify|verify} messages.
+     * @param message PlayerSpawn message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerSpawn, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerSpawn message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerSpawn
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerSpawn;
+
+    /**
+     * Decodes a PlayerSpawn message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerSpawn
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerSpawn;
+
+    /**
+     * Verifies a PlayerSpawn message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerSpawn message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerSpawn
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerSpawn;
+
+    /**
+     * Creates a plain object from a PlayerSpawn message. Also converts values to other types if specified.
+     * @param message PlayerSpawn
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerSpawn, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerSpawn to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PlayerKick. */
 export interface IPlayerKick {
 
@@ -556,6 +682,12 @@ export interface IPlayerEntity {
 
     /** PlayerEntity texture */
     texture?: (string|null);
+
+    /** PlayerEntity height */
+    height?: (number|null);
+
+    /** PlayerEntity witdh */
+    witdh?: (number|null);
 }
 
 /** Represents a PlayerEntity. */
@@ -575,6 +707,12 @@ export class PlayerEntity implements IPlayerEntity {
 
     /** PlayerEntity texture. */
     public texture: string;
+
+    /** PlayerEntity height. */
+    public height: number;
+
+    /** PlayerEntity witdh. */
+    public witdh: number;
 
     /**
      * Creates a new PlayerEntity instance using the specified properties.
@@ -658,6 +796,12 @@ export interface IPlayerTeleport {
 
     /** PlayerTeleport z */
     z?: (number|null);
+
+    /** PlayerTeleport rotation */
+    rotation?: (number|null);
+
+    /** PlayerTeleport pitch */
+    pitch?: (number|null);
 }
 
 /** Represents a PlayerTeleport. */
@@ -677,6 +821,12 @@ export class PlayerTeleport implements IPlayerTeleport {
 
     /** PlayerTeleport z. */
     public z: number;
+
+    /** PlayerTeleport rotation. */
+    public rotation: number;
+
+    /** PlayerTeleport pitch. */
+    public pitch: number;
 
     /**
      * Creates a new PlayerTeleport instance using the specified properties.
@@ -752,11 +902,17 @@ export class PlayerTeleport implements IPlayerTeleport {
 /** Properties of a PlayerInventory. */
 export interface IPlayerInventory {
 
-    /** PlayerInventory type */
-    type?: (string|null);
+    /** PlayerInventory size */
+    size?: (number|null);
 
-    /** PlayerInventory inventory */
-    inventory?: (string|null);
+    /** PlayerInventory main */
+    main?: ({ [k: string]: IItem }|null);
+
+    /** PlayerInventory armor */
+    armor?: ({ [k: string]: IItem }|null);
+
+    /** PlayerInventory crafting */
+    crafting?: ({ [k: string]: IItem }|null);
 }
 
 /** Represents a PlayerInventory. */
@@ -768,11 +924,17 @@ export class PlayerInventory implements IPlayerInventory {
      */
     constructor(properties?: IPlayerInventory);
 
-    /** PlayerInventory type. */
-    public type: string;
+    /** PlayerInventory size. */
+    public size: number;
 
-    /** PlayerInventory inventory. */
-    public inventory: string;
+    /** PlayerInventory main. */
+    public main: { [k: string]: IItem };
+
+    /** PlayerInventory armor. */
+    public armor: { [k: string]: IItem };
+
+    /** PlayerInventory crafting. */
+    public crafting: { [k: string]: IItem };
 
     /**
      * Creates a new PlayerInventory instance using the specified properties.
@@ -852,10 +1014,10 @@ export interface IPlayerSlotUpdate {
     slot?: (number|null);
 
     /** PlayerSlotUpdate type */
-    type?: (string|null);
+    type?: (InventoryType|null);
 
-    /** PlayerSlotUpdate data */
-    data?: (string|null);
+    /** PlayerSlotUpdate item */
+    item?: (IItem|null);
 }
 
 /** Represents a PlayerSlotUpdate. */
@@ -871,10 +1033,10 @@ export class PlayerSlotUpdate implements IPlayerSlotUpdate {
     public slot: number;
 
     /** PlayerSlotUpdate type. */
-    public type: string;
+    public type: InventoryType;
 
-    /** PlayerSlotUpdate data. */
-    public data: string;
+    /** PlayerSlotUpdate item. */
+    public item?: (IItem|null);
 
     /**
      * Creates a new PlayerSlotUpdate instance using the specified properties.
@@ -1431,13 +1593,16 @@ export class PlayerSetBlockReach implements IPlayerSetBlockReach {
 export interface IPlayerOpenInventory {
 
     /** PlayerOpenInventory type */
-    type?: (PlayerOpenInventory.Type|null);
+    type?: (ContainerType|null);
 
     /** PlayerOpenInventory name */
     name?: (string|null);
 
-    /** PlayerOpenInventory data */
-    data?: (string|null);
+    /** PlayerOpenInventory size */
+    size?: (number|null);
+
+    /** PlayerOpenInventory items */
+    items?: ({ [k: string]: IItem }|null);
 }
 
 /** Represents a PlayerOpenInventory. */
@@ -1450,13 +1615,16 @@ export class PlayerOpenInventory implements IPlayerOpenInventory {
     constructor(properties?: IPlayerOpenInventory);
 
     /** PlayerOpenInventory type. */
-    public type: PlayerOpenInventory.Type;
+    public type: ContainerType;
 
     /** PlayerOpenInventory name. */
     public name: string;
 
-    /** PlayerOpenInventory data. */
-    public data: string;
+    /** PlayerOpenInventory size. */
+    public size: number;
+
+    /** PlayerOpenInventory items. */
+    public items: { [k: string]: IItem };
 
     /**
      * Creates a new PlayerOpenInventory instance using the specified properties.
@@ -1529,15 +1697,100 @@ export class PlayerOpenInventory implements IPlayerOpenInventory {
     public toJSON(): { [k: string]: any };
 }
 
-export namespace PlayerOpenInventory {
+/** Properties of a PlayerUpdateOpenInventory. */
+export interface IPlayerUpdateOpenInventory {
 
-    /** Type enum. */
-    enum Type {
-        MAIN = 0,
-        CHEST = 1,
-        CRAFTING = 2,
-        FURNACE = 3
-    }
+    /** PlayerUpdateOpenInventory name */
+    name?: (string|null);
+
+    /** PlayerUpdateOpenInventory items */
+    items?: ({ [k: string]: IItem }|null);
+}
+
+/** Represents a PlayerUpdateOpenInventory. */
+export class PlayerUpdateOpenInventory implements IPlayerUpdateOpenInventory {
+
+    /**
+     * Constructs a new PlayerUpdateOpenInventory.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerUpdateOpenInventory);
+
+    /** PlayerUpdateOpenInventory name. */
+    public name: string;
+
+    /** PlayerUpdateOpenInventory items. */
+    public items: { [k: string]: IItem };
+
+    /**
+     * Creates a new PlayerUpdateOpenInventory instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerUpdateOpenInventory instance
+     */
+    public static create(properties?: IPlayerUpdateOpenInventory): PlayerUpdateOpenInventory;
+
+    /**
+     * Encodes the specified PlayerUpdateOpenInventory message. Does not implicitly {@link PlayerUpdateOpenInventory.verify|verify} messages.
+     * @param message PlayerUpdateOpenInventory message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerUpdateOpenInventory, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerUpdateOpenInventory message, length delimited. Does not implicitly {@link PlayerUpdateOpenInventory.verify|verify} messages.
+     * @param message PlayerUpdateOpenInventory message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerUpdateOpenInventory, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerUpdateOpenInventory message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerUpdateOpenInventory
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerUpdateOpenInventory;
+
+    /**
+     * Decodes a PlayerUpdateOpenInventory message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerUpdateOpenInventory
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerUpdateOpenInventory;
+
+    /**
+     * Verifies a PlayerUpdateOpenInventory message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerUpdateOpenInventory message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerUpdateOpenInventory
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerUpdateOpenInventory;
+
+    /**
+     * Creates a plain object from a PlayerUpdateOpenInventory message. Also converts values to other types if specified.
+     * @param message PlayerUpdateOpenInventory
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerUpdateOpenInventory, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerUpdateOpenInventory to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a SoundPlay. */
@@ -1658,7 +1911,7 @@ export class SoundPlay implements ISoundPlay {
 export interface IChatMessage {
 
     /** ChatMessage message */
-    message?: ({ [k: string]: ChatMessage.IChatComponent }|null);
+    message?: ({ [k: string]: IChatComponentType }|null);
 
     /** ChatMessage time */
     time?: (number|Long|null);
@@ -1674,7 +1927,7 @@ export class ChatMessage implements IChatMessage {
     constructor(properties?: IChatMessage);
 
     /** ChatMessage message. */
-    public message: { [k: string]: ChatMessage.IChatComponent };
+    public message: { [k: string]: IChatComponentType };
 
     /** ChatMessage time. */
     public time: (number|Long);
@@ -1750,123 +2003,6 @@ export class ChatMessage implements IChatMessage {
     public toJSON(): { [k: string]: any };
 }
 
-export namespace ChatMessage {
-
-    /** Properties of a ChatComponent. */
-    interface IChatComponent {
-
-        /** ChatComponent text */
-        text?: (string|null);
-
-        /** ChatComponent font */
-        font?: (string|null);
-
-        /** ChatComponent color */
-        color?: (string|null);
-
-        /** ChatComponent linethrough */
-        linethrough?: (boolean|null);
-
-        /** ChatComponent underline */
-        underline?: (boolean|null);
-    }
-
-    /** Represents a ChatComponent. */
-    class ChatComponent implements IChatComponent {
-
-        /**
-         * Constructs a new ChatComponent.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: ChatMessage.IChatComponent);
-
-        /** ChatComponent text. */
-        public text: string;
-
-        /** ChatComponent font. */
-        public font: string;
-
-        /** ChatComponent color. */
-        public color: string;
-
-        /** ChatComponent linethrough. */
-        public linethrough: boolean;
-
-        /** ChatComponent underline. */
-        public underline: boolean;
-
-        /**
-         * Creates a new ChatComponent instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ChatComponent instance
-         */
-        public static create(properties?: ChatMessage.IChatComponent): ChatMessage.ChatComponent;
-
-        /**
-         * Encodes the specified ChatComponent message. Does not implicitly {@link ChatMessage.ChatComponent.verify|verify} messages.
-         * @param message ChatComponent message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: ChatMessage.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified ChatComponent message, length delimited. Does not implicitly {@link ChatMessage.ChatComponent.verify|verify} messages.
-         * @param message ChatComponent message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: ChatMessage.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a ChatComponent message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ChatComponent
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChatMessage.ChatComponent;
-
-        /**
-         * Decodes a ChatComponent message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ChatComponent
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChatMessage.ChatComponent;
-
-        /**
-         * Verifies a ChatComponent message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a ChatComponent message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns ChatComponent
-         */
-        public static fromObject(object: { [k: string]: any }): ChatMessage.ChatComponent;
-
-        /**
-         * Creates a plain object from a ChatComponent message. Also converts values to other types if specified.
-         * @param message ChatComponent
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: ChatMessage.ChatComponent, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this ChatComponent to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-    }
-}
-
 /** Properties of an UpdateTextBoard. */
 export interface IUpdateTextBoard {
 
@@ -1874,7 +2010,7 @@ export interface IUpdateTextBoard {
     type?: (UpdateTextBoard.Type|null);
 
     /** UpdateTextBoard message */
-    message?: ({ [k: string]: UpdateTextBoard.IChatComponent }|null);
+    message?: ({ [k: string]: IBasicChatComponentType }|null);
 
     /** UpdateTextBoard time */
     time?: (number|Long|null);
@@ -1893,7 +2029,7 @@ export class UpdateTextBoard implements IUpdateTextBoard {
     public type: UpdateTextBoard.Type;
 
     /** UpdateTextBoard message. */
-    public message: { [k: string]: UpdateTextBoard.IChatComponent };
+    public message: { [k: string]: IBasicChatComponentType };
 
     /** UpdateTextBoard time. */
     public time: (number|Long);
@@ -1977,120 +2113,6 @@ export namespace UpdateTextBoard {
         SIDE = 1,
         CENTER = 2,
         HOTBAR = 3
-    }
-
-    /** Properties of a ChatComponent. */
-    interface IChatComponent {
-
-        /** ChatComponent text */
-        text?: (string|null);
-
-        /** ChatComponent font */
-        font?: (string|null);
-
-        /** ChatComponent color */
-        color?: (string|null);
-
-        /** ChatComponent linethrough */
-        linethrough?: (boolean|null);
-
-        /** ChatComponent underline */
-        underline?: (boolean|null);
-    }
-
-    /** Represents a ChatComponent. */
-    class ChatComponent implements IChatComponent {
-
-        /**
-         * Constructs a new ChatComponent.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: UpdateTextBoard.IChatComponent);
-
-        /** ChatComponent text. */
-        public text: string;
-
-        /** ChatComponent font. */
-        public font: string;
-
-        /** ChatComponent color. */
-        public color: string;
-
-        /** ChatComponent linethrough. */
-        public linethrough: boolean;
-
-        /** ChatComponent underline. */
-        public underline: boolean;
-
-        /**
-         * Creates a new ChatComponent instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ChatComponent instance
-         */
-        public static create(properties?: UpdateTextBoard.IChatComponent): UpdateTextBoard.ChatComponent;
-
-        /**
-         * Encodes the specified ChatComponent message. Does not implicitly {@link UpdateTextBoard.ChatComponent.verify|verify} messages.
-         * @param message ChatComponent message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: UpdateTextBoard.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified ChatComponent message, length delimited. Does not implicitly {@link UpdateTextBoard.ChatComponent.verify|verify} messages.
-         * @param message ChatComponent message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: UpdateTextBoard.IChatComponent, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a ChatComponent message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ChatComponent
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UpdateTextBoard.ChatComponent;
-
-        /**
-         * Decodes a ChatComponent message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ChatComponent
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UpdateTextBoard.ChatComponent;
-
-        /**
-         * Verifies a ChatComponent message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a ChatComponent message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns ChatComponent
-         */
-        public static fromObject(object: { [k: string]: any }): UpdateTextBoard.ChatComponent;
-
-        /**
-         * Creates a plain object from a ChatComponent message. Also converts values to other types if specified.
-         * @param message ChatComponent
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: UpdateTextBoard.ChatComponent, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this ChatComponent to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
     }
 }
 
@@ -3024,14 +3046,17 @@ export interface IWorldChunkLoad {
     /** WorldChunkLoad z */
     z?: (number|null);
 
-    /** WorldChunkLoad data */
-    data?: (Uint8Array|null);
-
     /** WorldChunkLoad height */
     height?: (number|null);
 
     /** WorldChunkLoad compressed */
     compressed?: (boolean|null);
+
+    /** WorldChunkLoad blockData */
+    blockData?: (Uint8Array|null);
+
+    /** WorldChunkLoad lightData */
+    lightData?: (Uint8Array|null);
 }
 
 /** Represents a WorldChunkLoad. */
@@ -3052,14 +3077,17 @@ export class WorldChunkLoad implements IWorldChunkLoad {
     /** WorldChunkLoad z. */
     public z: number;
 
-    /** WorldChunkLoad data. */
-    public data: Uint8Array;
-
     /** WorldChunkLoad height. */
     public height: number;
 
     /** WorldChunkLoad compressed. */
     public compressed: boolean;
+
+    /** WorldChunkLoad blockData. */
+    public blockData: Uint8Array;
+
+    /** WorldChunkLoad lightData. */
+    public lightData: Uint8Array;
 
     /**
      * Creates a new WorldChunkLoad instance using the specified properties.
@@ -3432,102 +3460,6 @@ export class WorldChunksRemoveAll implements IWorldChunksRemoveAll {
     public toJSON(): { [k: string]: any };
 }
 
-/** Properties of a RegistryUpdate. */
-export interface IRegistryUpdate {
-
-    /** RegistryUpdate itemsDef */
-    itemsDef?: (string|null);
-
-    /** RegistryUpdate blocksDef */
-    blocksDef?: (string|null);
-}
-
-/** Represents a RegistryUpdate. */
-export class RegistryUpdate implements IRegistryUpdate {
-
-    /**
-     * Constructs a new RegistryUpdate.
-     * @param [properties] Properties to set
-     */
-    constructor(properties?: IRegistryUpdate);
-
-    /** RegistryUpdate itemsDef. */
-    public itemsDef: string;
-
-    /** RegistryUpdate blocksDef. */
-    public blocksDef: string;
-
-    /**
-     * Creates a new RegistryUpdate instance using the specified properties.
-     * @param [properties] Properties to set
-     * @returns RegistryUpdate instance
-     */
-    public static create(properties?: IRegistryUpdate): RegistryUpdate;
-
-    /**
-     * Encodes the specified RegistryUpdate message. Does not implicitly {@link RegistryUpdate.verify|verify} messages.
-     * @param message RegistryUpdate message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encode(message: IRegistryUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Encodes the specified RegistryUpdate message, length delimited. Does not implicitly {@link RegistryUpdate.verify|verify} messages.
-     * @param message RegistryUpdate message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encodeDelimited(message: IRegistryUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Decodes a RegistryUpdate message from the specified reader or buffer.
-     * @param reader Reader or buffer to decode from
-     * @param [length] Message length if known beforehand
-     * @returns RegistryUpdate
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RegistryUpdate;
-
-    /**
-     * Decodes a RegistryUpdate message from the specified reader or buffer, length delimited.
-     * @param reader Reader or buffer to decode from
-     * @returns RegistryUpdate
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RegistryUpdate;
-
-    /**
-     * Verifies a RegistryUpdate message.
-     * @param message Plain object to verify
-     * @returns `null` if valid, otherwise the reason why it is not
-     */
-    public static verify(message: { [k: string]: any }): (string|null);
-
-    /**
-     * Creates a RegistryUpdate message from a plain object. Also converts values to their respective internal types.
-     * @param object Plain object
-     * @returns RegistryUpdate
-     */
-    public static fromObject(object: { [k: string]: any }): RegistryUpdate;
-
-    /**
-     * Creates a plain object from a RegistryUpdate message. Also converts values to other types if specified.
-     * @param message RegistryUpdate
-     * @param [options] Conversion options
-     * @returns Plain object
-     */
-    public static toObject(message: RegistryUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-    /**
-     * Converts this RegistryUpdate to JSON.
-     * @returns JSON object
-     */
-    public toJSON(): { [k: string]: any };
-}
-
 /** Properties of an EnvironmentFogUpdate. */
 export interface IEnvironmentFogUpdate {
 
@@ -3780,6 +3712,96 @@ export class EnvironmentSkyUpdate implements IEnvironmentSkyUpdate {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of an EnvironmentSetSkybox. */
+export interface IEnvironmentSetSkybox {
+
+    /** EnvironmentSetSkybox texture */
+    texture?: (string|null);
+}
+
+/** Represents an EnvironmentSetSkybox. */
+export class EnvironmentSetSkybox implements IEnvironmentSetSkybox {
+
+    /**
+     * Constructs a new EnvironmentSetSkybox.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IEnvironmentSetSkybox);
+
+    /** EnvironmentSetSkybox texture. */
+    public texture: string;
+
+    /**
+     * Creates a new EnvironmentSetSkybox instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns EnvironmentSetSkybox instance
+     */
+    public static create(properties?: IEnvironmentSetSkybox): EnvironmentSetSkybox;
+
+    /**
+     * Encodes the specified EnvironmentSetSkybox message. Does not implicitly {@link EnvironmentSetSkybox.verify|verify} messages.
+     * @param message EnvironmentSetSkybox message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IEnvironmentSetSkybox, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified EnvironmentSetSkybox message, length delimited. Does not implicitly {@link EnvironmentSetSkybox.verify|verify} messages.
+     * @param message EnvironmentSetSkybox message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IEnvironmentSetSkybox, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an EnvironmentSetSkybox message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns EnvironmentSetSkybox
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EnvironmentSetSkybox;
+
+    /**
+     * Decodes an EnvironmentSetSkybox message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns EnvironmentSetSkybox
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EnvironmentSetSkybox;
+
+    /**
+     * Verifies an EnvironmentSetSkybox message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an EnvironmentSetSkybox message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns EnvironmentSetSkybox
+     */
+    public static fromObject(object: { [k: string]: any }): EnvironmentSetSkybox;
+
+    /**
+     * Creates a plain object from an EnvironmentSetSkybox message. Also converts values to other types if specified.
+     * @param message EnvironmentSetSkybox
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: EnvironmentSetSkybox, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this EnvironmentSetSkybox to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PluginMessage. */
 export interface IPluginMessage {
 
@@ -3880,4 +3902,370 @@ export class PluginMessage implements IPluginMessage {
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a ChatComponentType. */
+export interface IChatComponentType {
+
+    /** ChatComponentType text */
+    text?: (string|null);
+
+    /** ChatComponentType font */
+    font?: (string|null);
+
+    /** ChatComponentType color */
+    color?: (string|null);
+
+    /** ChatComponentType linethrough */
+    linethrough?: (boolean|null);
+
+    /** ChatComponentType underline */
+    underline?: (boolean|null);
+
+    /** ChatComponentType url */
+    url?: (string|null);
+}
+
+/** Represents a ChatComponentType. */
+export class ChatComponentType implements IChatComponentType {
+
+    /**
+     * Constructs a new ChatComponentType.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IChatComponentType);
+
+    /** ChatComponentType text. */
+    public text: string;
+
+    /** ChatComponentType font. */
+    public font: string;
+
+    /** ChatComponentType color. */
+    public color: string;
+
+    /** ChatComponentType linethrough. */
+    public linethrough: boolean;
+
+    /** ChatComponentType underline. */
+    public underline: boolean;
+
+    /** ChatComponentType url. */
+    public url: string;
+
+    /**
+     * Creates a new ChatComponentType instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ChatComponentType instance
+     */
+    public static create(properties?: IChatComponentType): ChatComponentType;
+
+    /**
+     * Encodes the specified ChatComponentType message. Does not implicitly {@link ChatComponentType.verify|verify} messages.
+     * @param message ChatComponentType message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IChatComponentType, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ChatComponentType message, length delimited. Does not implicitly {@link ChatComponentType.verify|verify} messages.
+     * @param message ChatComponentType message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IChatComponentType, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ChatComponentType message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ChatComponentType
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChatComponentType;
+
+    /**
+     * Decodes a ChatComponentType message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ChatComponentType
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChatComponentType;
+
+    /**
+     * Verifies a ChatComponentType message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ChatComponentType message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ChatComponentType
+     */
+    public static fromObject(object: { [k: string]: any }): ChatComponentType;
+
+    /**
+     * Creates a plain object from a ChatComponentType message. Also converts values to other types if specified.
+     * @param message ChatComponentType
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ChatComponentType, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ChatComponentType to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a BasicChatComponentType. */
+export interface IBasicChatComponentType {
+
+    /** BasicChatComponentType text */
+    text?: (string|null);
+
+    /** BasicChatComponentType font */
+    font?: (string|null);
+
+    /** BasicChatComponentType color */
+    color?: (string|null);
+
+    /** BasicChatComponentType linethrough */
+    linethrough?: (boolean|null);
+
+    /** BasicChatComponentType underline */
+    underline?: (boolean|null);
+}
+
+/** Represents a BasicChatComponentType. */
+export class BasicChatComponentType implements IBasicChatComponentType {
+
+    /**
+     * Constructs a new BasicChatComponentType.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IBasicChatComponentType);
+
+    /** BasicChatComponentType text. */
+    public text: string;
+
+    /** BasicChatComponentType font. */
+    public font: string;
+
+    /** BasicChatComponentType color. */
+    public color: string;
+
+    /** BasicChatComponentType linethrough. */
+    public linethrough: boolean;
+
+    /** BasicChatComponentType underline. */
+    public underline: boolean;
+
+    /**
+     * Creates a new BasicChatComponentType instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns BasicChatComponentType instance
+     */
+    public static create(properties?: IBasicChatComponentType): BasicChatComponentType;
+
+    /**
+     * Encodes the specified BasicChatComponentType message. Does not implicitly {@link BasicChatComponentType.verify|verify} messages.
+     * @param message BasicChatComponentType message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IBasicChatComponentType, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified BasicChatComponentType message, length delimited. Does not implicitly {@link BasicChatComponentType.verify|verify} messages.
+     * @param message BasicChatComponentType message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IBasicChatComponentType, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a BasicChatComponentType message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns BasicChatComponentType
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): BasicChatComponentType;
+
+    /**
+     * Decodes a BasicChatComponentType message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns BasicChatComponentType
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): BasicChatComponentType;
+
+    /**
+     * Verifies a BasicChatComponentType message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a BasicChatComponentType message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns BasicChatComponentType
+     */
+    public static fromObject(object: { [k: string]: any }): BasicChatComponentType;
+
+    /**
+     * Creates a plain object from a BasicChatComponentType message. Also converts values to other types if specified.
+     * @param message BasicChatComponentType
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: BasicChatComponentType, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this BasicChatComponentType to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an Item. */
+export interface IItem {
+
+    /** Item id */
+    id?: (string|null);
+
+    /** Item count */
+    count?: (number|null);
+
+    /** Item damage */
+    damage?: (number|null);
+
+    /** Item name */
+    name?: ({ [k: string]: IBasicChatComponentType }|null);
+}
+
+/** Represents an Item. */
+export class Item implements IItem {
+
+    /**
+     * Constructs a new Item.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IItem);
+
+    /** Item id. */
+    public id: string;
+
+    /** Item count. */
+    public count: number;
+
+    /** Item damage. */
+    public damage: number;
+
+    /** Item name. */
+    public name: { [k: string]: IBasicChatComponentType };
+
+    /**
+     * Creates a new Item instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns Item instance
+     */
+    public static create(properties?: IItem): Item;
+
+    /**
+     * Encodes the specified Item message. Does not implicitly {@link Item.verify|verify} messages.
+     * @param message Item message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IItem, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified Item message, length delimited. Does not implicitly {@link Item.verify|verify} messages.
+     * @param message Item message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IItem, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an Item message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Item
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Item;
+
+    /**
+     * Decodes an Item message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns Item
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Item;
+
+    /**
+     * Verifies an Item message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an Item message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns Item
+     */
+    public static fromObject(object: { [k: string]: any }): Item;
+
+    /**
+     * Creates a plain object from an Item message. Also converts values to other types if specified.
+     * @param message Item
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: Item, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this Item to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** InventoryType enum. */
+export enum InventoryType {
+    MAIN = 0,
+    ARMOR = 1,
+    CRAFT = 2,
+    HOOK = 3
+}
+
+/** ContainerType enum. */
+export enum ContainerType {
+    PLAYER = 0,
+    CHEST = 1,
+    CRAFTING = 2,
+    FURNACE = 3
+}
+
+/** MouseClickType enum. */
+export enum MouseClickType {
+    LEFT = 0,
+    RIGHT = 1,
+    MIDDLE = 2,
+    SELECT = 3
 }

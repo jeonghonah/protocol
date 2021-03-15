@@ -25,6 +25,10 @@
         "secret": {
           "type": "string",
           "id": 6
+        },
+        "protocolRev": {
+          "type": "int32",
+          "id": 7
         }
       }
     },
@@ -138,8 +142,8 @@
           "type": "sint32",
           "id": 3
         },
-        "finished": {
-          "type": "bool",
+        "status": {
+          "type": "float",
           "id": 4
         }
       }
@@ -147,45 +151,27 @@
     "ActionInventoryClick": {
       "fields": {
         "slot": {
-          "type": "sint32",
+          "type": "int32",
           "id": 1
         },
         "type": {
-          "type": "Type",
+          "type": "MouseClickType",
           "id": 2
         },
         "inventory": {
-          "type": "TypeInv",
+          "type": "InventoryType",
           "id": 3
-        }
-      },
-      "nested": {
-        "Type": {
-          "values": {
-            "LEFT": 0,
-            "RIGHT": 1,
-            "MIDDLE": 2,
-            "SELECT": 3
-          }
-        },
-        "TypeInv": {
-          "values": {
-            "MAIN": 0,
-            "ARMOR": 1,
-            "CRAFTING": 2,
-            "HOOK": 3
-          }
         }
       }
     },
     "ActionInventoryPick": {
       "fields": {
         "slot": {
-          "type": "sint32",
+          "type": "int32",
           "id": 1
         },
         "slot2": {
-          "type": "sint32",
+          "type": "int32",
           "id": 2
         },
         "block": {
@@ -197,36 +183,16 @@
     "ActionInventoryOpen": {
       "fields": {
         "inventory": {
-          "type": "Type",
+          "type": "ContainerType",
           "id": 1
-        }
-      },
-      "nested": {
-        "Type": {
-          "values": {
-            "MAIN": 0,
-            "CHEST": 1,
-            "CRAFTING": 2,
-            "FURNACE": 3
-          }
         }
       }
     },
     "ActionInventoryClose": {
       "fields": {
         "inventory": {
-          "type": "Type",
+          "type": "ContainerType",
           "id": 1
-        }
-      },
-      "nested": {
-        "Type": {
-          "values": {
-            "MAIN": 0,
-            "CHEST": 1,
-            "CRAFTING": 2,
-            "FURNACE": 3
-          }
         }
       }
     },
@@ -245,7 +211,7 @@
           "id": 3
         },
         "type": {
-          "type": "string",
+          "type": "MouseClickType",
           "id": 4
         },
         "onBlock": {
@@ -316,6 +282,103 @@
           "type": "bytes",
           "id": 3
         }
+      }
+    },
+    "ChatComponentType": {
+      "fields": {
+        "text": {
+          "type": "string",
+          "id": 1
+        },
+        "font": {
+          "type": "string",
+          "id": 2
+        },
+        "color": {
+          "type": "string",
+          "id": 3
+        },
+        "linethrough": {
+          "type": "bool",
+          "id": 4
+        },
+        "underline": {
+          "type": "bool",
+          "id": 5
+        },
+        "url": {
+          "type": "string",
+          "id": 6
+        }
+      }
+    },
+    "BasicChatComponentType": {
+      "fields": {
+        "text": {
+          "type": "string",
+          "id": 1
+        },
+        "font": {
+          "type": "string",
+          "id": 2
+        },
+        "color": {
+          "type": "string",
+          "id": 3
+        },
+        "linethrough": {
+          "type": "bool",
+          "id": 4
+        },
+        "underline": {
+          "type": "bool",
+          "id": 5
+        }
+      }
+    },
+    "Item": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "id": 1
+        },
+        "count": {
+          "type": "int32",
+          "id": 2
+        },
+        "damage": {
+          "type": "float",
+          "id": 3
+        },
+        "name": {
+          "keyType": "uint32",
+          "type": "BasicChatComponentType",
+          "id": 4
+        }
+      }
+    },
+    "InventoryType": {
+      "values": {
+        "MAIN": 0,
+        "ARMOR": 1,
+        "CRAFT": 2,
+        "HOOK": 3
+      }
+    },
+    "ContainerType": {
+      "values": {
+        "PLAYER": 0,
+        "CHEST": 1,
+        "CRAFTING": 2,
+        "FURNACE": 3
+      }
+    },
+    "MouseClickType": {
+      "values": {
+        "LEFT": 0,
+        "RIGHT": 1,
+        "MIDDLE": 2,
+        "SELECT": 3
       }
     }
   }

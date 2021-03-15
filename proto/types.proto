@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+message ChatComponentType {
+	string text = 1;
+	string font = 2;
+	string color = 3;
+	bool linethrough = 4;
+	bool underline = 5;
+	string url = 6;
+}
+
+message BasicChatComponentType {
+	string text = 1;
+	string font = 2;
+	string color = 3;
+	bool linethrough = 4;
+	bool underline = 5;
+}
+
+message Item {
+	string id = 1;
+	int32 count = 2;
+	float damage = 3;
+	map<uint32, BasicChatComponentType> name = 4;
+}
+
+enum InventoryType {
+	MAIN = 0;
+	ARMOR = 1;
+	CRAFT = 2;
+	HOOK = 3;
+}
+
+enum ContainerType {
+	PLAYER = 0;
+	CHEST = 1;
+	CRAFTING = 2;
+	FURNACE = 3;
+}
+
+enum MouseClickType {
+	LEFT = 0;
+	RIGHT = 1;
+	MIDDLE = 2;
+	SELECT = 3;
+}

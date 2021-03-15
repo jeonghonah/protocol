@@ -23,10 +23,10 @@ var cli_1 = require("protobufjs/cli");
 var fs = __importStar(require("fs"));
 fs.readdir('proto', function (err, data) {
     data.forEach(function (x) {
-        if (!x.endsWith('.proto'))
+        if (!x.endsWith('.proto') || x == 'types.proto')
             return;
         console.log(x);
-        cli_1.pbjs.main(['--target', 'static-module', "./proto/" + x], function (err, output) {
+        cli_1.pbjs.main(['--target', 'static-module', "./proto/" + x, "./proto/types.proto"], function (err, output) {
             if (err)
                 throw err;
             var name = x.replace('.proto', '');
@@ -37,7 +37,7 @@ fs.readdir('proto', function (err, data) {
                 fs.writeFileSync("./js/" + name + ".d.ts", output);
             });
         });
-        cli_1.pbjs.main(['--target', 'json', "./proto/" + x], function (err, output) {
+        cli_1.pbjs.main(['--target', 'json', "./proto/" + x, "./proto/types.proto"], function (err, output) {
             if (err)
                 throw err;
             var name = x.replace('.proto', '');

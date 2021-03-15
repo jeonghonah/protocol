@@ -89,6 +89,18 @@ public final class Server {
      */
     com.google.protobuf.ByteString
         getSecretBytes();
+
+    /**
+     * <code>bool is_proxy = 9;</code>
+     * @return The isProxy.
+     */
+    boolean getIsProxy();
+
+    /**
+     * <code>int32 protocol_rev = 10;</code>
+     * @return The protocolRev.
+     */
+    int getProtocolRev();
   }
   /**
    * Protobuf type {@code LoginRequest}
@@ -414,6 +426,58 @@ public final class Server {
       checkByteStringIsUtf8(value);
       secret_ = value.toStringUtf8();
       
+    }
+
+    public static final int IS_PROXY_FIELD_NUMBER = 9;
+    private boolean isProxy_;
+    /**
+     * <code>bool is_proxy = 9;</code>
+     * @return The isProxy.
+     */
+    @java.lang.Override
+    public boolean getIsProxy() {
+      return isProxy_;
+    }
+    /**
+     * <code>bool is_proxy = 9;</code>
+     * @param value The isProxy to set.
+     */
+    private void setIsProxy(boolean value) {
+      
+      isProxy_ = value;
+    }
+    /**
+     * <code>bool is_proxy = 9;</code>
+     */
+    private void clearIsProxy() {
+      
+      isProxy_ = false;
+    }
+
+    public static final int PROTOCOL_REV_FIELD_NUMBER = 10;
+    private int protocolRev_;
+    /**
+     * <code>int32 protocol_rev = 10;</code>
+     * @return The protocolRev.
+     */
+    @java.lang.Override
+    public int getProtocolRev() {
+      return protocolRev_;
+    }
+    /**
+     * <code>int32 protocol_rev = 10;</code>
+     * @param value The protocolRev to set.
+     */
+    private void setProtocolRev(int value) {
+      
+      protocolRev_ = value;
+    }
+    /**
+     * <code>int32 protocol_rev = 10;</code>
+     */
+    private void clearProtocolRev() {
+      
+      protocolRev_ = 0;
     }
 
     public static Server.LoginRequest parseFrom(
@@ -839,6 +903,62 @@ public final class Server {
         return this;
       }
 
+      /**
+       * <code>bool is_proxy = 9;</code>
+       * @return The isProxy.
+       */
+      @java.lang.Override
+      public boolean getIsProxy() {
+        return instance.getIsProxy();
+      }
+      /**
+       * <code>bool is_proxy = 9;</code>
+       * @param value The isProxy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsProxy(boolean value) {
+        copyOnWrite();
+        instance.setIsProxy(value);
+        return this;
+      }
+      /**
+       * <code>bool is_proxy = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsProxy() {
+        copyOnWrite();
+        instance.clearIsProxy();
+        return this;
+      }
+
+      /**
+       * <code>int32 protocol_rev = 10;</code>
+       * @return The protocolRev.
+       */
+      @java.lang.Override
+      public int getProtocolRev() {
+        return instance.getProtocolRev();
+      }
+      /**
+       * <code>int32 protocol_rev = 10;</code>
+       * @param value The protocolRev to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolRev(int value) {
+        copyOnWrite();
+        instance.setProtocolRev(value);
+        return this;
+      }
+      /**
+       * <code>int32 protocol_rev = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProtocolRev() {
+        copyOnWrite();
+        instance.clearProtocolRev();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:LoginRequest)
     }
     @java.lang.Override
@@ -863,10 +983,12 @@ public final class Server {
               "software_",
               "auth_",
               "secret_",
+              "isProxy_",
+              "protocolRev_",
             };
             java.lang.String info =
-                "\u0000\b\u0000\u0000\u0001\b\b\u0000\u0000\u0000\u0001\u0208\u0002\u000b\u0003\u000b" +
-                "\u0004\u000b\u0005\u0208\u0006\u0208\u0007\u0007\b\u0208";
+                "\u0000\n\u0000\u0000\u0001\n\n\u0000\u0000\u0000\u0001\u0208\u0002\u000b\u0003\u000b" +
+                "\u0004\u000b\u0005\u0208\u0006\u0208\u0007\u0007\b\u0208\t\u0007\n\u0004";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -1280,22 +1402,34 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>double x_pos = 1;</code>
-     * @return The xPos.
+     * <code>string message = 1;</code>
+     * @return The message.
      */
-    double getXPos();
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
 
     /**
-     * <code>double y_pos = 2;</code>
-     * @return The yPos.
+     * <code>uint64 time = 2;</code>
+     * @return The time.
      */
-    double getYPos();
+    long getTime();
 
     /**
-     * <code>double z_pos = 3;</code>
-     * @return The zPos.
+     * <code>string assets = 3;</code>
+     * @return The assets.
      */
-    double getZPos();
+    java.lang.String getAssets();
+    /**
+     * <code>string assets = 3;</code>
+     * @return The bytes for assets.
+     */
+    com.google.protobuf.ByteString
+        getAssetsBytes();
 
     /**
      * <code>string items_def = 4;</code>
@@ -1320,42 +1454,6 @@ public final class Server {
      */
     com.google.protobuf.ByteString
         getBlocksDefBytes();
-
-    /**
-     * <code>string inventory = 6;</code>
-     * @return The inventory.
-     */
-    java.lang.String getInventory();
-    /**
-     * <code>string inventory = 6;</code>
-     * @return The bytes for inventory.
-     */
-    com.google.protobuf.ByteString
-        getInventoryBytes();
-
-    /**
-     * <code>string armor = 7;</code>
-     * @return The armor.
-     */
-    java.lang.String getArmor();
-    /**
-     * <code>string armor = 7;</code>
-     * @return The bytes for armor.
-     */
-    com.google.protobuf.ByteString
-        getArmorBytes();
-
-    /**
-     * <code>string movement = 8;</code>
-     * @return The movement.
-     */
-    java.lang.String getMovement();
-    /**
-     * <code>string movement = 8;</code>
-     * @return The bytes for movement.
-     */
-    com.google.protobuf.ByteString
-        getMovementBytes();
   }
   /**
    * Protobuf type {@code LoginSuccess}
@@ -1366,88 +1464,129 @@ public final class Server {
       // @@protoc_insertion_point(message_implements:LoginSuccess)
       LoginSuccessOrBuilder {
     private LoginSuccess() {
+      message_ = "";
+      assets_ = "";
       itemsDef_ = "";
       blocksDef_ = "";
-      inventory_ = "";
-      armor_ = "";
-      movement_ = "";
     }
-    public static final int X_POS_FIELD_NUMBER = 1;
-    private double xPos_;
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    private java.lang.String message_;
     /**
-     * <code>double x_pos = 1;</code>
-     * @return The xPos.
+     * <code>string message = 1;</code>
+     * @return The message.
      */
     @java.lang.Override
-    public double getXPos() {
-      return xPos_;
+    public java.lang.String getMessage() {
+      return message_;
     }
     /**
-     * <code>double x_pos = 1;</code>
-     * @param value The xPos to set.
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
      */
-    private void setXPos(double value) {
-      
-      xPos_ = value;
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(message_);
     }
     /**
-     * <code>double x_pos = 1;</code>
+     * <code>string message = 1;</code>
+     * @param value The message to set.
      */
-    private void clearXPos() {
+    private void setMessage(
+        java.lang.String value) {
+      value.getClass();
+  
+      message_ = value;
+    }
+    /**
+     * <code>string message = 1;</code>
+     */
+    private void clearMessage() {
       
-      xPos_ = 0D;
+      message_ = getDefaultInstance().getMessage();
+    }
+    /**
+     * <code>string message = 1;</code>
+     * @param value The bytes for message to set.
+     */
+    private void setMessageBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      message_ = value.toStringUtf8();
+      
     }
 
-    public static final int Y_POS_FIELD_NUMBER = 2;
-    private double yPos_;
+    public static final int TIME_FIELD_NUMBER = 2;
+    private long time_;
     /**
-     * <code>double y_pos = 2;</code>
-     * @return The yPos.
+     * <code>uint64 time = 2;</code>
+     * @return The time.
      */
     @java.lang.Override
-    public double getYPos() {
-      return yPos_;
+    public long getTime() {
+      return time_;
     }
     /**
-     * <code>double y_pos = 2;</code>
-     * @param value The yPos to set.
+     * <code>uint64 time = 2;</code>
+     * @param value The time to set.
      */
-    private void setYPos(double value) {
+    private void setTime(long value) {
       
-      yPos_ = value;
+      time_ = value;
     }
     /**
-     * <code>double y_pos = 2;</code>
+     * <code>uint64 time = 2;</code>
      */
-    private void clearYPos() {
+    private void clearTime() {
       
-      yPos_ = 0D;
+      time_ = 0L;
     }
 
-    public static final int Z_POS_FIELD_NUMBER = 3;
-    private double zPos_;
+    public static final int ASSETS_FIELD_NUMBER = 3;
+    private java.lang.String assets_;
     /**
-     * <code>double z_pos = 3;</code>
-     * @return The zPos.
+     * <code>string assets = 3;</code>
+     * @return The assets.
      */
     @java.lang.Override
-    public double getZPos() {
-      return zPos_;
+    public java.lang.String getAssets() {
+      return assets_;
     }
     /**
-     * <code>double z_pos = 3;</code>
-     * @param value The zPos to set.
+     * <code>string assets = 3;</code>
+     * @return The bytes for assets.
      */
-    private void setZPos(double value) {
-      
-      zPos_ = value;
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAssetsBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(assets_);
     }
     /**
-     * <code>double z_pos = 3;</code>
+     * <code>string assets = 3;</code>
+     * @param value The assets to set.
      */
-    private void clearZPos() {
+    private void setAssets(
+        java.lang.String value) {
+      value.getClass();
+  
+      assets_ = value;
+    }
+    /**
+     * <code>string assets = 3;</code>
+     */
+    private void clearAssets() {
       
-      zPos_ = 0D;
+      assets_ = getDefaultInstance().getAssets();
+    }
+    /**
+     * <code>string assets = 3;</code>
+     * @param value The bytes for assets to set.
+     */
+    private void setAssetsBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      assets_ = value.toStringUtf8();
+      
     }
 
     public static final int ITEMS_DEF_FIELD_NUMBER = 4;
@@ -1541,147 +1680,6 @@ public final class Server {
         com.google.protobuf.ByteString value) {
       checkByteStringIsUtf8(value);
       blocksDef_ = value.toStringUtf8();
-      
-    }
-
-    public static final int INVENTORY_FIELD_NUMBER = 6;
-    private java.lang.String inventory_;
-    /**
-     * <code>string inventory = 6;</code>
-     * @return The inventory.
-     */
-    @java.lang.Override
-    public java.lang.String getInventory() {
-      return inventory_;
-    }
-    /**
-     * <code>string inventory = 6;</code>
-     * @return The bytes for inventory.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getInventoryBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(inventory_);
-    }
-    /**
-     * <code>string inventory = 6;</code>
-     * @param value The inventory to set.
-     */
-    private void setInventory(
-        java.lang.String value) {
-      value.getClass();
-  
-      inventory_ = value;
-    }
-    /**
-     * <code>string inventory = 6;</code>
-     */
-    private void clearInventory() {
-      
-      inventory_ = getDefaultInstance().getInventory();
-    }
-    /**
-     * <code>string inventory = 6;</code>
-     * @param value The bytes for inventory to set.
-     */
-    private void setInventoryBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      inventory_ = value.toStringUtf8();
-      
-    }
-
-    public static final int ARMOR_FIELD_NUMBER = 7;
-    private java.lang.String armor_;
-    /**
-     * <code>string armor = 7;</code>
-     * @return The armor.
-     */
-    @java.lang.Override
-    public java.lang.String getArmor() {
-      return armor_;
-    }
-    /**
-     * <code>string armor = 7;</code>
-     * @return The bytes for armor.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getArmorBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(armor_);
-    }
-    /**
-     * <code>string armor = 7;</code>
-     * @param value The armor to set.
-     */
-    private void setArmor(
-        java.lang.String value) {
-      value.getClass();
-  
-      armor_ = value;
-    }
-    /**
-     * <code>string armor = 7;</code>
-     */
-    private void clearArmor() {
-      
-      armor_ = getDefaultInstance().getArmor();
-    }
-    /**
-     * <code>string armor = 7;</code>
-     * @param value The bytes for armor to set.
-     */
-    private void setArmorBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      armor_ = value.toStringUtf8();
-      
-    }
-
-    public static final int MOVEMENT_FIELD_NUMBER = 8;
-    private java.lang.String movement_;
-    /**
-     * <code>string movement = 8;</code>
-     * @return The movement.
-     */
-    @java.lang.Override
-    public java.lang.String getMovement() {
-      return movement_;
-    }
-    /**
-     * <code>string movement = 8;</code>
-     * @return The bytes for movement.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMovementBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(movement_);
-    }
-    /**
-     * <code>string movement = 8;</code>
-     * @param value The movement to set.
-     */
-    private void setMovement(
-        java.lang.String value) {
-      value.getClass();
-  
-      movement_ = value;
-    }
-    /**
-     * <code>string movement = 8;</code>
-     */
-    private void clearMovement() {
-      
-      movement_ = getDefaultInstance().getMovement();
-    }
-    /**
-     * <code>string movement = 8;</code>
-     * @param value The bytes for movement to set.
-     */
-    private void setMovementBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      movement_ = value.toStringUtf8();
       
     }
 
@@ -1781,86 +1779,128 @@ public final class Server {
 
 
       /**
-       * <code>double x_pos = 1;</code>
-       * @return The xPos.
+       * <code>string message = 1;</code>
+       * @return The message.
        */
       @java.lang.Override
-      public double getXPos() {
-        return instance.getXPos();
+      public java.lang.String getMessage() {
+        return instance.getMessage();
       }
       /**
-       * <code>double x_pos = 1;</code>
-       * @param value The xPos to set.
+       * <code>string message = 1;</code>
+       * @return The bytes for message.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        return instance.getMessageBytes();
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @param value The message to set.
        * @return This builder for chaining.
        */
-      public Builder setXPos(double value) {
+      public Builder setMessage(
+          java.lang.String value) {
         copyOnWrite();
-        instance.setXPos(value);
+        instance.setMessage(value);
         return this;
       }
       /**
-       * <code>double x_pos = 1;</code>
+       * <code>string message = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearXPos() {
+      public Builder clearMessage() {
         copyOnWrite();
-        instance.clearXPos();
+        instance.clearMessage();
+        return this;
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setMessageBytes(value);
         return this;
       }
 
       /**
-       * <code>double y_pos = 2;</code>
-       * @return The yPos.
+       * <code>uint64 time = 2;</code>
+       * @return The time.
        */
       @java.lang.Override
-      public double getYPos() {
-        return instance.getYPos();
+      public long getTime() {
+        return instance.getTime();
       }
       /**
-       * <code>double y_pos = 2;</code>
-       * @param value The yPos to set.
+       * <code>uint64 time = 2;</code>
+       * @param value The time to set.
        * @return This builder for chaining.
        */
-      public Builder setYPos(double value) {
+      public Builder setTime(long value) {
         copyOnWrite();
-        instance.setYPos(value);
+        instance.setTime(value);
         return this;
       }
       /**
-       * <code>double y_pos = 2;</code>
+       * <code>uint64 time = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearYPos() {
+      public Builder clearTime() {
         copyOnWrite();
-        instance.clearYPos();
+        instance.clearTime();
         return this;
       }
 
       /**
-       * <code>double z_pos = 3;</code>
-       * @return The zPos.
+       * <code>string assets = 3;</code>
+       * @return The assets.
        */
       @java.lang.Override
-      public double getZPos() {
-        return instance.getZPos();
+      public java.lang.String getAssets() {
+        return instance.getAssets();
       }
       /**
-       * <code>double z_pos = 3;</code>
-       * @param value The zPos to set.
+       * <code>string assets = 3;</code>
+       * @return The bytes for assets.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getAssetsBytes() {
+        return instance.getAssetsBytes();
+      }
+      /**
+       * <code>string assets = 3;</code>
+       * @param value The assets to set.
        * @return This builder for chaining.
        */
-      public Builder setZPos(double value) {
+      public Builder setAssets(
+          java.lang.String value) {
         copyOnWrite();
-        instance.setZPos(value);
+        instance.setAssets(value);
         return this;
       }
       /**
-       * <code>double z_pos = 3;</code>
+       * <code>string assets = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearZPos() {
+      public Builder clearAssets() {
         copyOnWrite();
-        instance.clearZPos();
+        instance.clearAssets();
+        return this;
+      }
+      /**
+       * <code>string assets = 3;</code>
+       * @param value The bytes for assets to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAssetsBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setAssetsBytes(value);
         return this;
       }
 
@@ -1962,153 +2002,6 @@ public final class Server {
         return this;
       }
 
-      /**
-       * <code>string inventory = 6;</code>
-       * @return The inventory.
-       */
-      @java.lang.Override
-      public java.lang.String getInventory() {
-        return instance.getInventory();
-      }
-      /**
-       * <code>string inventory = 6;</code>
-       * @return The bytes for inventory.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getInventoryBytes() {
-        return instance.getInventoryBytes();
-      }
-      /**
-       * <code>string inventory = 6;</code>
-       * @param value The inventory to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInventory(
-          java.lang.String value) {
-        copyOnWrite();
-        instance.setInventory(value);
-        return this;
-      }
-      /**
-       * <code>string inventory = 6;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearInventory() {
-        copyOnWrite();
-        instance.clearInventory();
-        return this;
-      }
-      /**
-       * <code>string inventory = 6;</code>
-       * @param value The bytes for inventory to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInventoryBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setInventoryBytes(value);
-        return this;
-      }
-
-      /**
-       * <code>string armor = 7;</code>
-       * @return The armor.
-       */
-      @java.lang.Override
-      public java.lang.String getArmor() {
-        return instance.getArmor();
-      }
-      /**
-       * <code>string armor = 7;</code>
-       * @return The bytes for armor.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getArmorBytes() {
-        return instance.getArmorBytes();
-      }
-      /**
-       * <code>string armor = 7;</code>
-       * @param value The armor to set.
-       * @return This builder for chaining.
-       */
-      public Builder setArmor(
-          java.lang.String value) {
-        copyOnWrite();
-        instance.setArmor(value);
-        return this;
-      }
-      /**
-       * <code>string armor = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearArmor() {
-        copyOnWrite();
-        instance.clearArmor();
-        return this;
-      }
-      /**
-       * <code>string armor = 7;</code>
-       * @param value The bytes for armor to set.
-       * @return This builder for chaining.
-       */
-      public Builder setArmorBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setArmorBytes(value);
-        return this;
-      }
-
-      /**
-       * <code>string movement = 8;</code>
-       * @return The movement.
-       */
-      @java.lang.Override
-      public java.lang.String getMovement() {
-        return instance.getMovement();
-      }
-      /**
-       * <code>string movement = 8;</code>
-       * @return The bytes for movement.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getMovementBytes() {
-        return instance.getMovementBytes();
-      }
-      /**
-       * <code>string movement = 8;</code>
-       * @param value The movement to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMovement(
-          java.lang.String value) {
-        copyOnWrite();
-        instance.setMovement(value);
-        return this;
-      }
-      /**
-       * <code>string movement = 8;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMovement() {
-        copyOnWrite();
-        instance.clearMovement();
-        return this;
-      }
-      /**
-       * <code>string movement = 8;</code>
-       * @param value The bytes for movement to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMovementBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setMovementBytes(value);
-        return this;
-      }
-
       // @@protoc_insertion_point(builder_scope:LoginSuccess)
     }
     @java.lang.Override
@@ -2125,18 +2018,15 @@ public final class Server {
         }
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
-              "xPos_",
-              "yPos_",
-              "zPos_",
+              "message_",
+              "time_",
+              "assets_",
               "itemsDef_",
               "blocksDef_",
-              "inventory_",
-              "armor_",
-              "movement_",
             };
             java.lang.String info =
-                "\u0000\b\u0000\u0000\u0001\b\b\u0000\u0000\u0000\u0001\u0000\u0002\u0000\u0003\u0000" +
-                "\u0004\u0208\u0005\u0208\u0006\u0208\u0007\u0208\b\u0208";
+                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0208\u0002\u0003" +
+                "\u0003\u0208\u0004\u0208\u0005\u0208";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -2430,6 +2320,931 @@ public final class Server {
     private static volatile com.google.protobuf.Parser<Ping> PARSER;
 
     public static com.google.protobuf.Parser<Ping> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface PlayerSpawnOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PlayerSpawn)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>double x_pos = 1;</code>
+     * @return The xPos.
+     */
+    double getXPos();
+
+    /**
+     * <code>double y_pos = 2;</code>
+     * @return The yPos.
+     */
+    double getYPos();
+
+    /**
+     * <code>double z_pos = 3;</code>
+     * @return The zPos.
+     */
+    double getZPos();
+
+    /**
+     * <code>float rotation = 4;</code>
+     * @return The rotation.
+     */
+    float getRotation();
+
+    /**
+     * <code>float pitch = 5;</code>
+     * @return The pitch.
+     */
+    float getPitch();
+
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+    int getMovementCount();
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+    boolean containsMovement(
+        java.lang.String key);
+    /**
+     * Use {@link #getMovementMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.Double>
+    getMovement();
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.Double>
+    getMovementMap();
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+
+    double getMovementOrDefault(
+        java.lang.String key,
+        double defaultValue);
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+
+    double getMovementOrThrow(
+        java.lang.String key);
+
+    /**
+     * <code>.PlayerInventory inventory = 7;</code>
+     * @return Whether the inventory field is set.
+     */
+    boolean hasInventory();
+    /**
+     * <code>.PlayerInventory inventory = 7;</code>
+     * @return The inventory.
+     */
+    Server.PlayerInventory getInventory();
+
+    /**
+     * <code>.PlayerEntity entity = 8;</code>
+     * @return Whether the entity field is set.
+     */
+    boolean hasEntity();
+    /**
+     * <code>.PlayerEntity entity = 8;</code>
+     * @return The entity.
+     */
+    Server.PlayerEntity getEntity();
+  }
+  /**
+   * Protobuf type {@code PlayerSpawn}
+   */
+  public  static final class PlayerSpawn extends
+      com.google.protobuf.GeneratedMessageLite<
+          PlayerSpawn, PlayerSpawn.Builder> implements
+      // @@protoc_insertion_point(message_implements:PlayerSpawn)
+      PlayerSpawnOrBuilder {
+    private PlayerSpawn() {
+    }
+    public static final int X_POS_FIELD_NUMBER = 1;
+    private double xPos_;
+    /**
+     * <code>double x_pos = 1;</code>
+     * @return The xPos.
+     */
+    @java.lang.Override
+    public double getXPos() {
+      return xPos_;
+    }
+    /**
+     * <code>double x_pos = 1;</code>
+     * @param value The xPos to set.
+     */
+    private void setXPos(double value) {
+      
+      xPos_ = value;
+    }
+    /**
+     * <code>double x_pos = 1;</code>
+     */
+    private void clearXPos() {
+      
+      xPos_ = 0D;
+    }
+
+    public static final int Y_POS_FIELD_NUMBER = 2;
+    private double yPos_;
+    /**
+     * <code>double y_pos = 2;</code>
+     * @return The yPos.
+     */
+    @java.lang.Override
+    public double getYPos() {
+      return yPos_;
+    }
+    /**
+     * <code>double y_pos = 2;</code>
+     * @param value The yPos to set.
+     */
+    private void setYPos(double value) {
+      
+      yPos_ = value;
+    }
+    /**
+     * <code>double y_pos = 2;</code>
+     */
+    private void clearYPos() {
+      
+      yPos_ = 0D;
+    }
+
+    public static final int Z_POS_FIELD_NUMBER = 3;
+    private double zPos_;
+    /**
+     * <code>double z_pos = 3;</code>
+     * @return The zPos.
+     */
+    @java.lang.Override
+    public double getZPos() {
+      return zPos_;
+    }
+    /**
+     * <code>double z_pos = 3;</code>
+     * @param value The zPos to set.
+     */
+    private void setZPos(double value) {
+      
+      zPos_ = value;
+    }
+    /**
+     * <code>double z_pos = 3;</code>
+     */
+    private void clearZPos() {
+      
+      zPos_ = 0D;
+    }
+
+    public static final int ROTATION_FIELD_NUMBER = 4;
+    private float rotation_;
+    /**
+     * <code>float rotation = 4;</code>
+     * @return The rotation.
+     */
+    @java.lang.Override
+    public float getRotation() {
+      return rotation_;
+    }
+    /**
+     * <code>float rotation = 4;</code>
+     * @param value The rotation to set.
+     */
+    private void setRotation(float value) {
+      
+      rotation_ = value;
+    }
+    /**
+     * <code>float rotation = 4;</code>
+     */
+    private void clearRotation() {
+      
+      rotation_ = 0F;
+    }
+
+    public static final int PITCH_FIELD_NUMBER = 5;
+    private float pitch_;
+    /**
+     * <code>float pitch = 5;</code>
+     * @return The pitch.
+     */
+    @java.lang.Override
+    public float getPitch() {
+      return pitch_;
+    }
+    /**
+     * <code>float pitch = 5;</code>
+     * @param value The pitch to set.
+     */
+    private void setPitch(float value) {
+      
+      pitch_ = value;
+    }
+    /**
+     * <code>float pitch = 5;</code>
+     */
+    private void clearPitch() {
+      
+      pitch_ = 0F;
+    }
+
+    public static final int MOVEMENT_FIELD_NUMBER = 6;
+    private static final class MovementDefaultEntryHolder {
+      static final com.google.protobuf.MapEntryLite<
+          java.lang.String, java.lang.Double> defaultEntry =
+              com.google.protobuf.MapEntryLite
+              .<java.lang.String, java.lang.Double>newDefaultInstance(
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.DOUBLE,
+                  0D);
+    }
+    private com.google.protobuf.MapFieldLite<
+        java.lang.String, java.lang.Double> movement_ =
+            com.google.protobuf.MapFieldLite.emptyMapField();
+    private com.google.protobuf.MapFieldLite<java.lang.String, java.lang.Double>
+    internalGetMovement() {
+      return movement_;
+    }
+    private com.google.protobuf.MapFieldLite<java.lang.String, java.lang.Double>
+    internalGetMutableMovement() {
+      if (!movement_.isMutable()) {
+        movement_ = movement_.mutableCopy();
+      }
+      return movement_;
+    }
+    @java.lang.Override
+
+    public int getMovementCount() {
+      return internalGetMovement().size();
+    }
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+    @java.lang.Override
+
+    public boolean containsMovement(
+        java.lang.String key) {
+      key.getClass();
+      return internalGetMovement().containsKey(key);
+    }
+    /**
+     * Use {@link #getMovementMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Double> getMovement() {
+      return getMovementMap();
+    }
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.Double> getMovementMap() {
+      return java.util.Collections.unmodifiableMap(
+          internalGetMovement());
+    }
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+    @java.lang.Override
+
+    public double getMovementOrDefault(
+        java.lang.String key,
+        double defaultValue) {
+      key.getClass();
+      java.util.Map<java.lang.String, java.lang.Double> map =
+          internalGetMovement();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+    @java.lang.Override
+
+    public double getMovementOrThrow(
+        java.lang.String key) {
+      key.getClass();
+      java.util.Map<java.lang.String, java.lang.Double> map =
+          internalGetMovement();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    /**
+     * <code>map&lt;string, double&gt; movement = 6;</code>
+     */
+    private java.util.Map<java.lang.String, java.lang.Double>
+    getMutableMovementMap() {
+      return internalGetMutableMovement();
+    }
+
+    public static final int INVENTORY_FIELD_NUMBER = 7;
+    private Server.PlayerInventory inventory_;
+    /**
+     * <code>.PlayerInventory inventory = 7;</code>
+     */
+    @java.lang.Override
+    public boolean hasInventory() {
+      return inventory_ != null;
+    }
+    /**
+     * <code>.PlayerInventory inventory = 7;</code>
+     */
+    @java.lang.Override
+    public Server.PlayerInventory getInventory() {
+      return inventory_ == null ? Server.PlayerInventory.getDefaultInstance() : inventory_;
+    }
+    /**
+     * <code>.PlayerInventory inventory = 7;</code>
+     */
+    private void setInventory(Server.PlayerInventory value) {
+      value.getClass();
+  inventory_ = value;
+      
+      }
+    /**
+     * <code>.PlayerInventory inventory = 7;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeInventory(Server.PlayerInventory value) {
+      value.getClass();
+  if (inventory_ != null &&
+          inventory_ != Server.PlayerInventory.getDefaultInstance()) {
+        inventory_ =
+          Server.PlayerInventory.newBuilder(inventory_).mergeFrom(value).buildPartial();
+      } else {
+        inventory_ = value;
+      }
+      
+    }
+    /**
+     * <code>.PlayerInventory inventory = 7;</code>
+     */
+    private void clearInventory() {  inventory_ = null;
+      
+    }
+
+    public static final int ENTITY_FIELD_NUMBER = 8;
+    private Server.PlayerEntity entity_;
+    /**
+     * <code>.PlayerEntity entity = 8;</code>
+     */
+    @java.lang.Override
+    public boolean hasEntity() {
+      return entity_ != null;
+    }
+    /**
+     * <code>.PlayerEntity entity = 8;</code>
+     */
+    @java.lang.Override
+    public Server.PlayerEntity getEntity() {
+      return entity_ == null ? Server.PlayerEntity.getDefaultInstance() : entity_;
+    }
+    /**
+     * <code>.PlayerEntity entity = 8;</code>
+     */
+    private void setEntity(Server.PlayerEntity value) {
+      value.getClass();
+  entity_ = value;
+      
+      }
+    /**
+     * <code>.PlayerEntity entity = 8;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeEntity(Server.PlayerEntity value) {
+      value.getClass();
+  if (entity_ != null &&
+          entity_ != Server.PlayerEntity.getDefaultInstance()) {
+        entity_ =
+          Server.PlayerEntity.newBuilder(entity_).mergeFrom(value).buildPartial();
+      } else {
+        entity_ = value;
+      }
+      
+    }
+    /**
+     * <code>.PlayerEntity entity = 8;</code>
+     */
+    private void clearEntity() {  entity_ = null;
+      
+    }
+
+    public static Server.PlayerSpawn parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerSpawn parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerSpawn parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerSpawn parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerSpawn parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerSpawn parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerSpawn parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerSpawn parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerSpawn parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerSpawn parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerSpawn parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerSpawn parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Server.PlayerSpawn prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code PlayerSpawn}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Server.PlayerSpawn, Builder> implements
+        // @@protoc_insertion_point(builder_implements:PlayerSpawn)
+        Server.PlayerSpawnOrBuilder {
+      // Construct using Server.PlayerSpawn.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>double x_pos = 1;</code>
+       * @return The xPos.
+       */
+      @java.lang.Override
+      public double getXPos() {
+        return instance.getXPos();
+      }
+      /**
+       * <code>double x_pos = 1;</code>
+       * @param value The xPos to set.
+       * @return This builder for chaining.
+       */
+      public Builder setXPos(double value) {
+        copyOnWrite();
+        instance.setXPos(value);
+        return this;
+      }
+      /**
+       * <code>double x_pos = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearXPos() {
+        copyOnWrite();
+        instance.clearXPos();
+        return this;
+      }
+
+      /**
+       * <code>double y_pos = 2;</code>
+       * @return The yPos.
+       */
+      @java.lang.Override
+      public double getYPos() {
+        return instance.getYPos();
+      }
+      /**
+       * <code>double y_pos = 2;</code>
+       * @param value The yPos to set.
+       * @return This builder for chaining.
+       */
+      public Builder setYPos(double value) {
+        copyOnWrite();
+        instance.setYPos(value);
+        return this;
+      }
+      /**
+       * <code>double y_pos = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearYPos() {
+        copyOnWrite();
+        instance.clearYPos();
+        return this;
+      }
+
+      /**
+       * <code>double z_pos = 3;</code>
+       * @return The zPos.
+       */
+      @java.lang.Override
+      public double getZPos() {
+        return instance.getZPos();
+      }
+      /**
+       * <code>double z_pos = 3;</code>
+       * @param value The zPos to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZPos(double value) {
+        copyOnWrite();
+        instance.setZPos(value);
+        return this;
+      }
+      /**
+       * <code>double z_pos = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZPos() {
+        copyOnWrite();
+        instance.clearZPos();
+        return this;
+      }
+
+      /**
+       * <code>float rotation = 4;</code>
+       * @return The rotation.
+       */
+      @java.lang.Override
+      public float getRotation() {
+        return instance.getRotation();
+      }
+      /**
+       * <code>float rotation = 4;</code>
+       * @param value The rotation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRotation(float value) {
+        copyOnWrite();
+        instance.setRotation(value);
+        return this;
+      }
+      /**
+       * <code>float rotation = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRotation() {
+        copyOnWrite();
+        instance.clearRotation();
+        return this;
+      }
+
+      /**
+       * <code>float pitch = 5;</code>
+       * @return The pitch.
+       */
+      @java.lang.Override
+      public float getPitch() {
+        return instance.getPitch();
+      }
+      /**
+       * <code>float pitch = 5;</code>
+       * @param value The pitch to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPitch(float value) {
+        copyOnWrite();
+        instance.setPitch(value);
+        return this;
+      }
+      /**
+       * <code>float pitch = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPitch() {
+        copyOnWrite();
+        instance.clearPitch();
+        return this;
+      }
+
+      @java.lang.Override
+
+      public int getMovementCount() {
+        return instance.getMovementMap().size();
+      }
+      /**
+       * <code>map&lt;string, double&gt; movement = 6;</code>
+       */
+      @java.lang.Override
+
+      public boolean containsMovement(
+          java.lang.String key) {
+        key.getClass();
+        return instance.getMovementMap().containsKey(key);
+      }
+
+      public Builder clearMovement() {
+        copyOnWrite();
+        instance.getMutableMovementMap().clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, double&gt; movement = 6;</code>
+       */
+
+      public Builder removeMovement(
+          java.lang.String key) {
+        key.getClass();
+        copyOnWrite();
+        instance.getMutableMovementMap().remove(key);
+        return this;
+      }
+      /**
+       * Use {@link #getMovementMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.Double> getMovement() {
+        return getMovementMap();
+      }
+      /**
+       * <code>map&lt;string, double&gt; movement = 6;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.String, java.lang.Double> getMovementMap() {
+        return java.util.Collections.unmodifiableMap(
+            instance.getMovementMap());
+      }
+      /**
+       * <code>map&lt;string, double&gt; movement = 6;</code>
+       */
+      @java.lang.Override
+
+      public double getMovementOrDefault(
+          java.lang.String key,
+          double defaultValue) {
+        key.getClass();
+        java.util.Map<java.lang.String, java.lang.Double> map =
+            instance.getMovementMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, double&gt; movement = 6;</code>
+       */
+      @java.lang.Override
+
+      public double getMovementOrThrow(
+          java.lang.String key) {
+        key.getClass();
+        java.util.Map<java.lang.String, java.lang.Double> map =
+            instance.getMovementMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      /**
+       * <code>map&lt;string, double&gt; movement = 6;</code>
+       */
+      public Builder putMovement(
+          java.lang.String key,
+          double value) {
+        key.getClass();
+        
+        copyOnWrite();
+        instance.getMutableMovementMap().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, double&gt; movement = 6;</code>
+       */
+      public Builder putAllMovement(
+          java.util.Map<java.lang.String, java.lang.Double> values) {
+        copyOnWrite();
+        instance.getMutableMovementMap().putAll(values);
+        return this;
+      }
+
+      /**
+       * <code>.PlayerInventory inventory = 7;</code>
+       */
+      @java.lang.Override
+      public boolean hasInventory() {
+        return instance.hasInventory();
+      }
+      /**
+       * <code>.PlayerInventory inventory = 7;</code>
+       */
+      @java.lang.Override
+      public Server.PlayerInventory getInventory() {
+        return instance.getInventory();
+      }
+      /**
+       * <code>.PlayerInventory inventory = 7;</code>
+       */
+      public Builder setInventory(Server.PlayerInventory value) {
+        copyOnWrite();
+        instance.setInventory(value);
+        return this;
+        }
+      /**
+       * <code>.PlayerInventory inventory = 7;</code>
+       */
+      public Builder setInventory(
+          Server.PlayerInventory.Builder builderForValue) {
+        copyOnWrite();
+        instance.setInventory(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>.PlayerInventory inventory = 7;</code>
+       */
+      public Builder mergeInventory(Server.PlayerInventory value) {
+        copyOnWrite();
+        instance.mergeInventory(value);
+        return this;
+      }
+      /**
+       * <code>.PlayerInventory inventory = 7;</code>
+       */
+      public Builder clearInventory() {  copyOnWrite();
+        instance.clearInventory();
+        return this;
+      }
+
+      /**
+       * <code>.PlayerEntity entity = 8;</code>
+       */
+      @java.lang.Override
+      public boolean hasEntity() {
+        return instance.hasEntity();
+      }
+      /**
+       * <code>.PlayerEntity entity = 8;</code>
+       */
+      @java.lang.Override
+      public Server.PlayerEntity getEntity() {
+        return instance.getEntity();
+      }
+      /**
+       * <code>.PlayerEntity entity = 8;</code>
+       */
+      public Builder setEntity(Server.PlayerEntity value) {
+        copyOnWrite();
+        instance.setEntity(value);
+        return this;
+        }
+      /**
+       * <code>.PlayerEntity entity = 8;</code>
+       */
+      public Builder setEntity(
+          Server.PlayerEntity.Builder builderForValue) {
+        copyOnWrite();
+        instance.setEntity(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>.PlayerEntity entity = 8;</code>
+       */
+      public Builder mergeEntity(Server.PlayerEntity value) {
+        copyOnWrite();
+        instance.mergeEntity(value);
+        return this;
+      }
+      /**
+       * <code>.PlayerEntity entity = 8;</code>
+       */
+      public Builder clearEntity() {  copyOnWrite();
+        instance.clearEntity();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:PlayerSpawn)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Server.PlayerSpawn();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "xPos_",
+              "yPos_",
+              "zPos_",
+              "rotation_",
+              "pitch_",
+              "movement_",
+              MovementDefaultEntryHolder.defaultEntry,
+              "inventory_",
+              "entity_",
+            };
+            java.lang.String info =
+                "\u0000\b\u0000\u0000\u0001\b\b\u0001\u0000\u0000\u0001\u0000\u0002\u0000\u0003\u0000" +
+                "\u0004\u0001\u0005\u0001\u00062\u0007\t\b\t";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Server.PlayerSpawn> parser = PARSER;
+          if (parser == null) {
+            synchronized (Server.PlayerSpawn.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Server.PlayerSpawn>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:PlayerSpawn)
+    private static final Server.PlayerSpawn DEFAULT_INSTANCE;
+    static {
+      PlayerSpawn defaultInstance = new PlayerSpawn();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        PlayerSpawn.class, defaultInstance);
+    }
+
+    public static Server.PlayerSpawn getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<PlayerSpawn> PARSER;
+
+    public static com.google.protobuf.Parser<PlayerSpawn> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }
@@ -2827,6 +3642,18 @@ public final class Server {
      */
     com.google.protobuf.ByteString
         getTextureBytes();
+
+    /**
+     * <code>float height = 4;</code>
+     * @return The height.
+     */
+    float getHeight();
+
+    /**
+     * <code>float witdh = 5;</code>
+     * @return The witdh.
+     */
+    float getWitdh();
   }
   /**
    * Protobuf type {@code PlayerEntity}
@@ -2980,6 +3807,58 @@ public final class Server {
       checkByteStringIsUtf8(value);
       texture_ = value.toStringUtf8();
       
+    }
+
+    public static final int HEIGHT_FIELD_NUMBER = 4;
+    private float height_;
+    /**
+     * <code>float height = 4;</code>
+     * @return The height.
+     */
+    @java.lang.Override
+    public float getHeight() {
+      return height_;
+    }
+    /**
+     * <code>float height = 4;</code>
+     * @param value The height to set.
+     */
+    private void setHeight(float value) {
+      
+      height_ = value;
+    }
+    /**
+     * <code>float height = 4;</code>
+     */
+    private void clearHeight() {
+      
+      height_ = 0F;
+    }
+
+    public static final int WITDH_FIELD_NUMBER = 5;
+    private float witdh_;
+    /**
+     * <code>float witdh = 5;</code>
+     * @return The witdh.
+     */
+    @java.lang.Override
+    public float getWitdh() {
+      return witdh_;
+    }
+    /**
+     * <code>float witdh = 5;</code>
+     * @param value The witdh to set.
+     */
+    private void setWitdh(float value) {
+      
+      witdh_ = value;
+    }
+    /**
+     * <code>float witdh = 5;</code>
+     */
+    private void clearWitdh() {
+      
+      witdh_ = 0F;
     }
 
     public static Server.PlayerEntity parseFrom(
@@ -3224,6 +4103,62 @@ public final class Server {
         return this;
       }
 
+      /**
+       * <code>float height = 4;</code>
+       * @return The height.
+       */
+      @java.lang.Override
+      public float getHeight() {
+        return instance.getHeight();
+      }
+      /**
+       * <code>float height = 4;</code>
+       * @param value The height to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeight(float value) {
+        copyOnWrite();
+        instance.setHeight(value);
+        return this;
+      }
+      /**
+       * <code>float height = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHeight() {
+        copyOnWrite();
+        instance.clearHeight();
+        return this;
+      }
+
+      /**
+       * <code>float witdh = 5;</code>
+       * @return The witdh.
+       */
+      @java.lang.Override
+      public float getWitdh() {
+        return instance.getWitdh();
+      }
+      /**
+       * <code>float witdh = 5;</code>
+       * @param value The witdh to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWitdh(float value) {
+        copyOnWrite();
+        instance.setWitdh(value);
+        return this;
+      }
+      /**
+       * <code>float witdh = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWitdh() {
+        copyOnWrite();
+        instance.clearWitdh();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:PlayerEntity)
     }
     @java.lang.Override
@@ -3243,10 +4178,12 @@ public final class Server {
               "uuid_",
               "model_",
               "texture_",
+              "height_",
+              "witdh_",
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
-                "\u0003\u0208";
+                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
+                "\u0003\u0208\u0004\u0001\u0005\u0001";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -3322,6 +4259,18 @@ public final class Server {
      * @return The z.
      */
     double getZ();
+
+    /**
+     * <code>float rotation = 4;</code>
+     * @return The rotation.
+     */
+    float getRotation();
+
+    /**
+     * <code>float pitch = 5;</code>
+     * @return The pitch.
+     */
+    float getPitch();
   }
   /**
    * Protobuf type {@code PlayerTeleport}
@@ -3409,6 +4358,58 @@ public final class Server {
     private void clearZ() {
       
       z_ = 0D;
+    }
+
+    public static final int ROTATION_FIELD_NUMBER = 4;
+    private float rotation_;
+    /**
+     * <code>float rotation = 4;</code>
+     * @return The rotation.
+     */
+    @java.lang.Override
+    public float getRotation() {
+      return rotation_;
+    }
+    /**
+     * <code>float rotation = 4;</code>
+     * @param value The rotation to set.
+     */
+    private void setRotation(float value) {
+      
+      rotation_ = value;
+    }
+    /**
+     * <code>float rotation = 4;</code>
+     */
+    private void clearRotation() {
+      
+      rotation_ = 0F;
+    }
+
+    public static final int PITCH_FIELD_NUMBER = 5;
+    private float pitch_;
+    /**
+     * <code>float pitch = 5;</code>
+     * @return The pitch.
+     */
+    @java.lang.Override
+    public float getPitch() {
+      return pitch_;
+    }
+    /**
+     * <code>float pitch = 5;</code>
+     * @param value The pitch to set.
+     */
+    private void setPitch(float value) {
+      
+      pitch_ = value;
+    }
+    /**
+     * <code>float pitch = 5;</code>
+     */
+    private void clearPitch() {
+      
+      pitch_ = 0F;
     }
 
     public static Server.PlayerTeleport parseFrom(
@@ -3590,6 +4591,62 @@ public final class Server {
         return this;
       }
 
+      /**
+       * <code>float rotation = 4;</code>
+       * @return The rotation.
+       */
+      @java.lang.Override
+      public float getRotation() {
+        return instance.getRotation();
+      }
+      /**
+       * <code>float rotation = 4;</code>
+       * @param value The rotation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRotation(float value) {
+        copyOnWrite();
+        instance.setRotation(value);
+        return this;
+      }
+      /**
+       * <code>float rotation = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRotation() {
+        copyOnWrite();
+        instance.clearRotation();
+        return this;
+      }
+
+      /**
+       * <code>float pitch = 5;</code>
+       * @return The pitch.
+       */
+      @java.lang.Override
+      public float getPitch() {
+        return instance.getPitch();
+      }
+      /**
+       * <code>float pitch = 5;</code>
+       * @param value The pitch to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPitch(float value) {
+        copyOnWrite();
+        instance.setPitch(value);
+        return this;
+      }
+      /**
+       * <code>float pitch = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPitch() {
+        copyOnWrite();
+        instance.clearPitch();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:PlayerTeleport)
     }
     @java.lang.Override
@@ -3609,10 +4666,12 @@ public final class Server {
               "x_",
               "y_",
               "z_",
+              "rotation_",
+              "pitch_",
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0000\u0002\u0000" +
-                "\u0003\u0000";
+                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0000\u0002\u0000" +
+                "\u0003\u0000\u0004\u0001\u0005\u0001";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -3672,28 +4731,112 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string type = 1;</code>
-     * @return The type.
+     * <code>uint32 size = 1;</code>
+     * @return The size.
      */
-    java.lang.String getType();
-    /**
-     * <code>string type = 1;</code>
-     * @return The bytes for type.
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    int getSize();
 
     /**
-     * <code>string inventory = 2;</code>
-     * @return The inventory.
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
      */
-    java.lang.String getInventory();
+    int getMainCount();
     /**
-     * <code>string inventory = 2;</code>
-     * @return The bytes for inventory.
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getInventoryBytes();
+    boolean containsMain(
+        int key);
+    /**
+     * Use {@link #getMainMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, Types.Item>
+    getMain();
+    /**
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+     */
+    java.util.Map<java.lang.Integer, Types.Item>
+    getMainMap();
+    /**
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+     */
+
+    Types.Item getMainOrDefault(
+        int key,
+        Types.Item defaultValue);
+    /**
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+     */
+
+    Types.Item getMainOrThrow(
+        int key);
+
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+    int getArmorCount();
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+    boolean containsArmor(
+        int key);
+    /**
+     * Use {@link #getArmorMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, Types.Item>
+    getArmor();
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+    java.util.Map<java.lang.Integer, Types.Item>
+    getArmorMap();
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+
+    Types.Item getArmorOrDefault(
+        int key,
+        Types.Item defaultValue);
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+
+    Types.Item getArmorOrThrow(
+        int key);
+
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+    int getCraftingCount();
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+    boolean containsCrafting(
+        int key);
+    /**
+     * Use {@link #getCraftingMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, Types.Item>
+    getCrafting();
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+    java.util.Map<java.lang.Integer, Types.Item>
+    getCraftingMap();
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+
+    Types.Item getCraftingOrDefault(
+        int key,
+        Types.Item defaultValue);
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+
+    Types.Item getCraftingOrThrow(
+        int key);
   }
   /**
    * Protobuf type {@code PlayerInventory}
@@ -3704,101 +4847,310 @@ public final class Server {
       // @@protoc_insertion_point(message_implements:PlayerInventory)
       PlayerInventoryOrBuilder {
     private PlayerInventory() {
-      type_ = "";
-      inventory_ = "";
     }
-    public static final int TYPE_FIELD_NUMBER = 1;
-    private java.lang.String type_;
+    public static final int SIZE_FIELD_NUMBER = 1;
+    private int size_;
     /**
-     * <code>string type = 1;</code>
-     * @return The type.
+     * <code>uint32 size = 1;</code>
+     * @return The size.
      */
     @java.lang.Override
-    public java.lang.String getType() {
-      return type_;
+    public int getSize() {
+      return size_;
     }
     /**
-     * <code>string type = 1;</code>
-     * @return The bytes for type.
+     * <code>uint32 size = 1;</code>
+     * @param value The size to set.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(type_);
-    }
-    /**
-     * <code>string type = 1;</code>
-     * @param value The type to set.
-     */
-    private void setType(
-        java.lang.String value) {
-      value.getClass();
-  
-      type_ = value;
-    }
-    /**
-     * <code>string type = 1;</code>
-     */
-    private void clearType() {
+    private void setSize(int value) {
       
-      type_ = getDefaultInstance().getType();
+      size_ = value;
     }
     /**
-     * <code>string type = 1;</code>
-     * @param value The bytes for type to set.
+     * <code>uint32 size = 1;</code>
      */
-    private void setTypeBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      type_ = value.toStringUtf8();
+    private void clearSize() {
       
+      size_ = 0;
     }
 
-    public static final int INVENTORY_FIELD_NUMBER = 2;
-    private java.lang.String inventory_;
+    public static final int MAIN_FIELD_NUMBER = 2;
+    private static final class MainDefaultEntryHolder {
+      static final com.google.protobuf.MapEntryLite<
+          java.lang.Integer, Types.Item> defaultEntry =
+              com.google.protobuf.MapEntryLite
+              .<java.lang.Integer, Types.Item>newDefaultInstance(
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  Types.Item.getDefaultInstance());
+    }
+    private com.google.protobuf.MapFieldLite<
+        java.lang.Integer, Types.Item> main_ =
+            com.google.protobuf.MapFieldLite.emptyMapField();
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetMain() {
+      return main_;
+    }
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetMutableMain() {
+      if (!main_.isMutable()) {
+        main_ = main_.mutableCopy();
+      }
+      return main_;
+    }
+    @java.lang.Override
+
+    public int getMainCount() {
+      return internalGetMain().size();
+    }
     /**
-     * <code>string inventory = 2;</code>
-     * @return The inventory.
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
      */
     @java.lang.Override
-    public java.lang.String getInventory() {
-      return inventory_;
+
+    public boolean containsMain(
+        int key) {
+      
+      return internalGetMain().containsKey(key);
     }
     /**
-     * <code>string inventory = 2;</code>
-     * @return The bytes for inventory.
+     * Use {@link #getMainMap()} instead.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getInventoryBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(inventory_);
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, Types.Item> getMain() {
+      return getMainMap();
     }
     /**
-     * <code>string inventory = 2;</code>
-     * @param value The inventory to set.
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
      */
-    private void setInventory(
-        java.lang.String value) {
-      value.getClass();
-  
-      inventory_ = value;
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Integer, Types.Item> getMainMap() {
+      return java.util.Collections.unmodifiableMap(
+          internalGetMain());
     }
     /**
-     * <code>string inventory = 2;</code>
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
      */
-    private void clearInventory() {
+    @java.lang.Override
+
+    public Types.Item getMainOrDefault(
+        int key,
+        Types.Item defaultValue) {
       
-      inventory_ = getDefaultInstance().getInventory();
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetMain();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>string inventory = 2;</code>
-     * @param value The bytes for inventory to set.
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
      */
-    private void setInventoryBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      inventory_ = value.toStringUtf8();
+    @java.lang.Override
+
+    public Types.Item getMainOrThrow(
+        int key) {
       
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetMain();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+     */
+    private java.util.Map<java.lang.Integer, Types.Item>
+    getMutableMainMap() {
+      return internalGetMutableMain();
+    }
+
+    public static final int ARMOR_FIELD_NUMBER = 3;
+    private static final class ArmorDefaultEntryHolder {
+      static final com.google.protobuf.MapEntryLite<
+          java.lang.Integer, Types.Item> defaultEntry =
+              com.google.protobuf.MapEntryLite
+              .<java.lang.Integer, Types.Item>newDefaultInstance(
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  Types.Item.getDefaultInstance());
+    }
+    private com.google.protobuf.MapFieldLite<
+        java.lang.Integer, Types.Item> armor_ =
+            com.google.protobuf.MapFieldLite.emptyMapField();
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetArmor() {
+      return armor_;
+    }
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetMutableArmor() {
+      if (!armor_.isMutable()) {
+        armor_ = armor_.mutableCopy();
+      }
+      return armor_;
+    }
+    @java.lang.Override
+
+    public int getArmorCount() {
+      return internalGetArmor().size();
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+    @java.lang.Override
+
+    public boolean containsArmor(
+        int key) {
+      
+      return internalGetArmor().containsKey(key);
+    }
+    /**
+     * Use {@link #getArmorMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, Types.Item> getArmor() {
+      return getArmorMap();
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Integer, Types.Item> getArmorMap() {
+      return java.util.Collections.unmodifiableMap(
+          internalGetArmor());
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+    @java.lang.Override
+
+    public Types.Item getArmorOrDefault(
+        int key,
+        Types.Item defaultValue) {
+      
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetArmor();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+    @java.lang.Override
+
+    public Types.Item getArmorOrThrow(
+        int key) {
+      
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetArmor();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+     */
+    private java.util.Map<java.lang.Integer, Types.Item>
+    getMutableArmorMap() {
+      return internalGetMutableArmor();
+    }
+
+    public static final int CRAFTING_FIELD_NUMBER = 4;
+    private static final class CraftingDefaultEntryHolder {
+      static final com.google.protobuf.MapEntryLite<
+          java.lang.Integer, Types.Item> defaultEntry =
+              com.google.protobuf.MapEntryLite
+              .<java.lang.Integer, Types.Item>newDefaultInstance(
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  Types.Item.getDefaultInstance());
+    }
+    private com.google.protobuf.MapFieldLite<
+        java.lang.Integer, Types.Item> crafting_ =
+            com.google.protobuf.MapFieldLite.emptyMapField();
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetCrafting() {
+      return crafting_;
+    }
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetMutableCrafting() {
+      if (!crafting_.isMutable()) {
+        crafting_ = crafting_.mutableCopy();
+      }
+      return crafting_;
+    }
+    @java.lang.Override
+
+    public int getCraftingCount() {
+      return internalGetCrafting().size();
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+    @java.lang.Override
+
+    public boolean containsCrafting(
+        int key) {
+      
+      return internalGetCrafting().containsKey(key);
+    }
+    /**
+     * Use {@link #getCraftingMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, Types.Item> getCrafting() {
+      return getCraftingMap();
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Integer, Types.Item> getCraftingMap() {
+      return java.util.Collections.unmodifiableMap(
+          internalGetCrafting());
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+    @java.lang.Override
+
+    public Types.Item getCraftingOrDefault(
+        int key,
+        Types.Item defaultValue) {
+      
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetCrafting();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+    @java.lang.Override
+
+    public Types.Item getCraftingOrThrow(
+        int key) {
+      
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetCrafting();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+     */
+    private java.util.Map<java.lang.Integer, Types.Item>
+    getMutableCraftingMap() {
+      return internalGetMutableCrafting();
     }
 
     public static Server.PlayerInventory parseFrom(
@@ -3897,100 +5249,324 @@ public final class Server {
 
 
       /**
-       * <code>string type = 1;</code>
-       * @return The type.
+       * <code>uint32 size = 1;</code>
+       * @return The size.
        */
       @java.lang.Override
-      public java.lang.String getType() {
-        return instance.getType();
+      public int getSize() {
+        return instance.getSize();
       }
       /**
-       * <code>string type = 1;</code>
-       * @return The bytes for type.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        return instance.getTypeBytes();
-      }
-      /**
-       * <code>string type = 1;</code>
-       * @param value The type to set.
+       * <code>uint32 size = 1;</code>
+       * @param value The size to set.
        * @return This builder for chaining.
        */
-      public Builder setType(
-          java.lang.String value) {
+      public Builder setSize(int value) {
         copyOnWrite();
-        instance.setType(value);
+        instance.setSize(value);
         return this;
       }
       /**
-       * <code>string type = 1;</code>
+       * <code>uint32 size = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearType() {
+      public Builder clearSize() {
         copyOnWrite();
-        instance.clearType();
-        return this;
-      }
-      /**
-       * <code>string type = 1;</code>
-       * @param value The bytes for type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setTypeBytes(value);
+        instance.clearSize();
         return this;
       }
 
-      /**
-       * <code>string inventory = 2;</code>
-       * @return The inventory.
-       */
       @java.lang.Override
-      public java.lang.String getInventory() {
-        return instance.getInventory();
+
+      public int getMainCount() {
+        return instance.getMainMap().size();
       }
       /**
-       * <code>string inventory = 2;</code>
-       * @return The bytes for inventory.
+       * <code>map&lt;uint32, .Item&gt; main = 2;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString
-          getInventoryBytes() {
-        return instance.getInventoryBytes();
+
+      public boolean containsMain(
+          int key) {
+        
+        return instance.getMainMap().containsKey(key);
       }
-      /**
-       * <code>string inventory = 2;</code>
-       * @param value The inventory to set.
-       * @return This builder for chaining.
-       */
-      public Builder setInventory(
-          java.lang.String value) {
+
+      public Builder clearMain() {
         copyOnWrite();
-        instance.setInventory(value);
+        instance.getMutableMainMap().clear();
         return this;
       }
       /**
-       * <code>string inventory = 2;</code>
-       * @return This builder for chaining.
+       * <code>map&lt;uint32, .Item&gt; main = 2;</code>
        */
-      public Builder clearInventory() {
+
+      public Builder removeMain(
+          int key) {
+        
         copyOnWrite();
-        instance.clearInventory();
+        instance.getMutableMainMap().remove(key);
         return this;
       }
       /**
-       * <code>string inventory = 2;</code>
-       * @param value The bytes for inventory to set.
-       * @return This builder for chaining.
+       * Use {@link #getMainMap()} instead.
        */
-      public Builder setInventoryBytes(
-          com.google.protobuf.ByteString value) {
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, Types.Item> getMain() {
+        return getMainMap();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.Integer, Types.Item> getMainMap() {
+        return java.util.Collections.unmodifiableMap(
+            instance.getMainMap());
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getMainOrDefault(
+          int key,
+          Types.Item defaultValue) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getMainMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getMainOrThrow(
+          int key) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getMainMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+       */
+      public Builder putMain(
+          int key,
+          Types.Item value) {
+        
+        value.getClass();
         copyOnWrite();
-        instance.setInventoryBytes(value);
+        instance.getMutableMainMap().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; main = 2;</code>
+       */
+      public Builder putAllMain(
+          java.util.Map<java.lang.Integer, Types.Item> values) {
+        copyOnWrite();
+        instance.getMutableMainMap().putAll(values);
+        return this;
+      }
+
+      @java.lang.Override
+
+      public int getArmorCount() {
+        return instance.getArmorMap().size();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+       */
+      @java.lang.Override
+
+      public boolean containsArmor(
+          int key) {
+        
+        return instance.getArmorMap().containsKey(key);
+      }
+
+      public Builder clearArmor() {
+        copyOnWrite();
+        instance.getMutableArmorMap().clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+       */
+
+      public Builder removeArmor(
+          int key) {
+        
+        copyOnWrite();
+        instance.getMutableArmorMap().remove(key);
+        return this;
+      }
+      /**
+       * Use {@link #getArmorMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, Types.Item> getArmor() {
+        return getArmorMap();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.Integer, Types.Item> getArmorMap() {
+        return java.util.Collections.unmodifiableMap(
+            instance.getArmorMap());
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getArmorOrDefault(
+          int key,
+          Types.Item defaultValue) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getArmorMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getArmorOrThrow(
+          int key) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getArmorMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+       */
+      public Builder putArmor(
+          int key,
+          Types.Item value) {
+        
+        value.getClass();
+        copyOnWrite();
+        instance.getMutableArmorMap().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; armor = 3;</code>
+       */
+      public Builder putAllArmor(
+          java.util.Map<java.lang.Integer, Types.Item> values) {
+        copyOnWrite();
+        instance.getMutableArmorMap().putAll(values);
+        return this;
+      }
+
+      @java.lang.Override
+
+      public int getCraftingCount() {
+        return instance.getCraftingMap().size();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+       */
+      @java.lang.Override
+
+      public boolean containsCrafting(
+          int key) {
+        
+        return instance.getCraftingMap().containsKey(key);
+      }
+
+      public Builder clearCrafting() {
+        copyOnWrite();
+        instance.getMutableCraftingMap().clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+       */
+
+      public Builder removeCrafting(
+          int key) {
+        
+        copyOnWrite();
+        instance.getMutableCraftingMap().remove(key);
+        return this;
+      }
+      /**
+       * Use {@link #getCraftingMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, Types.Item> getCrafting() {
+        return getCraftingMap();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.Integer, Types.Item> getCraftingMap() {
+        return java.util.Collections.unmodifiableMap(
+            instance.getCraftingMap());
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getCraftingOrDefault(
+          int key,
+          Types.Item defaultValue) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getCraftingMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getCraftingOrThrow(
+          int key) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getCraftingMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+       */
+      public Builder putCrafting(
+          int key,
+          Types.Item value) {
+        
+        value.getClass();
+        copyOnWrite();
+        instance.getMutableCraftingMap().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; crafting = 4;</code>
+       */
+      public Builder putAllCrafting(
+          java.util.Map<java.lang.Integer, Types.Item> values) {
+        copyOnWrite();
+        instance.getMutableCraftingMap().putAll(values);
         return this;
       }
 
@@ -4010,12 +5586,17 @@ public final class Server {
         }
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
-              "type_",
-              "inventory_",
+              "size_",
+              "main_",
+              MainDefaultEntryHolder.defaultEntry,
+              "armor_",
+              ArmorDefaultEntryHolder.defaultEntry,
+              "crafting_",
+              CraftingDefaultEntryHolder.defaultEntry,
             };
             java.lang.String info =
-                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
-                "";
+                "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0003\u0000\u0000\u0001\u000b\u00022\u0003" +
+                "2\u00042";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -4075,34 +5656,32 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>uint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     int getSlot();
 
     /**
-     * <code>string type = 2;</code>
+     * <code>.InventoryType type = 2;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.InventoryType type = 2;</code>
      * @return The type.
      */
-    java.lang.String getType();
-    /**
-     * <code>string type = 2;</code>
-     * @return The bytes for type.
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    Types.InventoryType getType();
 
     /**
-     * <code>string data = 3;</code>
-     * @return The data.
+     * <code>.Item item = 3;</code>
+     * @return Whether the item field is set.
      */
-    java.lang.String getData();
+    boolean hasItem();
     /**
-     * <code>string data = 3;</code>
-     * @return The bytes for data.
+     * <code>.Item item = 3;</code>
+     * @return The item.
      */
-    com.google.protobuf.ByteString
-        getDataBytes();
+    Types.Item getItem();
   }
   /**
    * Protobuf type {@code PlayerSlotUpdate}
@@ -4113,13 +5692,11 @@ public final class Server {
       // @@protoc_insertion_point(message_implements:PlayerSlotUpdate)
       PlayerSlotUpdateOrBuilder {
     private PlayerSlotUpdate() {
-      type_ = "";
-      data_ = "";
     }
     public static final int SLOT_FIELD_NUMBER = 1;
     private int slot_;
     /**
-     * <code>uint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @return The slot.
      */
     @java.lang.Override
@@ -4127,7 +5704,7 @@ public final class Server {
       return slot_;
     }
     /**
-     * <code>uint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      * @param value The slot to set.
      */
     private void setSlot(int value) {
@@ -4135,7 +5712,7 @@ public final class Server {
       slot_ = value;
     }
     /**
-     * <code>uint32 slot = 1;</code>
+     * <code>int32 slot = 1;</code>
      */
     private void clearSlot() {
       
@@ -4143,96 +5720,90 @@ public final class Server {
     }
 
     public static final int TYPE_FIELD_NUMBER = 2;
-    private java.lang.String type_;
+    private int type_;
     /**
-     * <code>string type = 2;</code>
-     * @return The type.
+     * <code>.InventoryType type = 2;</code>
+     * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override
-    public java.lang.String getType() {
+    public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>string type = 2;</code>
-     * @return The bytes for type.
+     * <code>.InventoryType type = 2;</code>
+     * @return The type.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(type_);
+    public Types.InventoryType getType() {
+      Types.InventoryType result = Types.InventoryType.forNumber(type_);
+      return result == null ? Types.InventoryType.UNRECOGNIZED : result;
     }
     /**
-     * <code>string type = 2;</code>
+     * <code>.InventoryType type = 2;</code>
+     * @param value The enum numeric value on the wire for type to set.
+     */
+    private void setTypeValue(int value) {
+        type_ = value;
+    }
+    /**
+     * <code>.InventoryType type = 2;</code>
      * @param value The type to set.
      */
-    private void setType(
-        java.lang.String value) {
-      value.getClass();
-  
-      type_ = value;
+    private void setType(Types.InventoryType value) {
+      type_ = value.getNumber();
+      
     }
     /**
-     * <code>string type = 2;</code>
+     * <code>.InventoryType type = 2;</code>
      */
     private void clearType() {
       
-      type_ = getDefaultInstance().getType();
-    }
-    /**
-     * <code>string type = 2;</code>
-     * @param value The bytes for type to set.
-     */
-    private void setTypeBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      type_ = value.toStringUtf8();
-      
+      type_ = 0;
     }
 
-    public static final int DATA_FIELD_NUMBER = 3;
-    private java.lang.String data_;
+    public static final int ITEM_FIELD_NUMBER = 3;
+    private Types.Item item_;
     /**
-     * <code>string data = 3;</code>
-     * @return The data.
+     * <code>.Item item = 3;</code>
      */
     @java.lang.Override
-    public java.lang.String getData() {
-      return data_;
+    public boolean hasItem() {
+      return item_ != null;
     }
     /**
-     * <code>string data = 3;</code>
-     * @return The bytes for data.
+     * <code>.Item item = 3;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDataBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(data_);
+    public Types.Item getItem() {
+      return item_ == null ? Types.Item.getDefaultInstance() : item_;
     }
     /**
-     * <code>string data = 3;</code>
-     * @param value The data to set.
+     * <code>.Item item = 3;</code>
      */
-    private void setData(
-        java.lang.String value) {
+    private void setItem(Types.Item value) {
       value.getClass();
-  
-      data_ = value;
-    }
-    /**
-     * <code>string data = 3;</code>
-     */
-    private void clearData() {
+  item_ = value;
       
-      data_ = getDefaultInstance().getData();
+      }
+    /**
+     * <code>.Item item = 3;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeItem(Types.Item value) {
+      value.getClass();
+  if (item_ != null &&
+          item_ != Types.Item.getDefaultInstance()) {
+        item_ =
+          Types.Item.newBuilder(item_).mergeFrom(value).buildPartial();
+      } else {
+        item_ = value;
+      }
+      
     }
     /**
-     * <code>string data = 3;</code>
-     * @param value The bytes for data to set.
+     * <code>.Item item = 3;</code>
      */
-    private void setDataBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      data_ = value.toStringUtf8();
+    private void clearItem() {  item_ = null;
       
     }
 
@@ -4332,7 +5903,7 @@ public final class Server {
 
 
       /**
-       * <code>uint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return The slot.
        */
       @java.lang.Override
@@ -4340,7 +5911,7 @@ public final class Server {
         return instance.getSlot();
       }
       /**
-       * <code>uint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @param value The slot to set.
        * @return This builder for chaining.
        */
@@ -4350,7 +5921,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>uint32 slot = 1;</code>
+       * <code>int32 slot = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearSlot() {
@@ -4360,35 +5931,43 @@ public final class Server {
       }
 
       /**
-       * <code>string type = 2;</code>
-       * @return The type.
+       * <code>.InventoryType type = 2;</code>
+       * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override
-      public java.lang.String getType() {
-        return instance.getType();
+      public int getTypeValue() {
+        return instance.getTypeValue();
       }
       /**
-       * <code>string type = 2;</code>
-       * @return The bytes for type.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        return instance.getTypeBytes();
-      }
-      /**
-       * <code>string type = 2;</code>
+       * <code>.InventoryType type = 2;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(
-          java.lang.String value) {
+      public Builder setTypeValue(int value) {
+        copyOnWrite();
+        instance.setTypeValue(value);
+        return this;
+      }
+      /**
+       * <code>.InventoryType type = 2;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public Types.InventoryType getType() {
+        return instance.getType();
+      }
+      /**
+       * <code>.InventoryType type = 2;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(Types.InventoryType value) {
         copyOnWrite();
         instance.setType(value);
         return this;
       }
       /**
-       * <code>string type = 2;</code>
+       * <code>.InventoryType type = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -4396,64 +5975,51 @@ public final class Server {
         instance.clearType();
         return this;
       }
-      /**
-       * <code>string type = 2;</code>
-       * @param value The bytes for type to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setTypeBytes(value);
-        return this;
-      }
 
       /**
-       * <code>string data = 3;</code>
-       * @return The data.
+       * <code>.Item item = 3;</code>
        */
       @java.lang.Override
-      public java.lang.String getData() {
-        return instance.getData();
+      public boolean hasItem() {
+        return instance.hasItem();
       }
       /**
-       * <code>string data = 3;</code>
-       * @return The bytes for data.
+       * <code>.Item item = 3;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString
-          getDataBytes() {
-        return instance.getDataBytes();
+      public Types.Item getItem() {
+        return instance.getItem();
       }
       /**
-       * <code>string data = 3;</code>
-       * @param value The data to set.
-       * @return This builder for chaining.
+       * <code>.Item item = 3;</code>
        */
-      public Builder setData(
-          java.lang.String value) {
+      public Builder setItem(Types.Item value) {
         copyOnWrite();
-        instance.setData(value);
+        instance.setItem(value);
+        return this;
+        }
+      /**
+       * <code>.Item item = 3;</code>
+       */
+      public Builder setItem(
+          Types.Item.Builder builderForValue) {
+        copyOnWrite();
+        instance.setItem(builderForValue.build());
         return this;
       }
       /**
-       * <code>string data = 3;</code>
-       * @return This builder for chaining.
+       * <code>.Item item = 3;</code>
        */
-      public Builder clearData() {
+      public Builder mergeItem(Types.Item value) {
         copyOnWrite();
-        instance.clearData();
+        instance.mergeItem(value);
         return this;
       }
       /**
-       * <code>string data = 3;</code>
-       * @param value The bytes for data to set.
-       * @return This builder for chaining.
+       * <code>.Item item = 3;</code>
        */
-      public Builder setDataBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setDataBytes(value);
+      public Builder clearItem() {  copyOnWrite();
+        instance.clearItem();
         return this;
       }
 
@@ -4475,11 +6041,11 @@ public final class Server {
             java.lang.Object[] objects = new java.lang.Object[] {
               "slot_",
               "type_",
-              "data_",
+              "item_",
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u000b\u0002\u0208" +
-                "\u0003\u0208";
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0004\u0002\f" +
+                "\u0003\t";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -5613,16 +7179,16 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>sint32 value = 1;</code>
+     * <code>float value = 1;</code>
      * @return The value.
      */
-    int getValue();
+    float getValue();
 
     /**
-     * <code>sint32 max = 2;</code>
+     * <code>float max = 2;</code>
      * @return The max.
      */
-    int getMax();
+    float getMax();
   }
   /**
    * Protobuf type {@code PlayerHealth}
@@ -5635,55 +7201,55 @@ public final class Server {
     private PlayerHealth() {
     }
     public static final int VALUE_FIELD_NUMBER = 1;
-    private int value_;
+    private float value_;
     /**
-     * <code>sint32 value = 1;</code>
+     * <code>float value = 1;</code>
      * @return The value.
      */
     @java.lang.Override
-    public int getValue() {
+    public float getValue() {
       return value_;
     }
     /**
-     * <code>sint32 value = 1;</code>
+     * <code>float value = 1;</code>
      * @param value The value to set.
      */
-    private void setValue(int value) {
+    private void setValue(float value) {
       
       value_ = value;
     }
     /**
-     * <code>sint32 value = 1;</code>
+     * <code>float value = 1;</code>
      */
     private void clearValue() {
       
-      value_ = 0;
+      value_ = 0F;
     }
 
     public static final int MAX_FIELD_NUMBER = 2;
-    private int max_;
+    private float max_;
     /**
-     * <code>sint32 max = 2;</code>
+     * <code>float max = 2;</code>
      * @return The max.
      */
     @java.lang.Override
-    public int getMax() {
+    public float getMax() {
       return max_;
     }
     /**
-     * <code>sint32 max = 2;</code>
+     * <code>float max = 2;</code>
      * @param value The max to set.
      */
-    private void setMax(int value) {
+    private void setMax(float value) {
       
       max_ = value;
     }
     /**
-     * <code>sint32 max = 2;</code>
+     * <code>float max = 2;</code>
      */
     private void clearMax() {
       
-      max_ = 0;
+      max_ = 0F;
     }
 
     public static Server.PlayerHealth parseFrom(
@@ -5782,25 +7348,25 @@ public final class Server {
 
 
       /**
-       * <code>sint32 value = 1;</code>
+       * <code>float value = 1;</code>
        * @return The value.
        */
       @java.lang.Override
-      public int getValue() {
+      public float getValue() {
         return instance.getValue();
       }
       /**
-       * <code>sint32 value = 1;</code>
+       * <code>float value = 1;</code>
        * @param value The value to set.
        * @return This builder for chaining.
        */
-      public Builder setValue(int value) {
+      public Builder setValue(float value) {
         copyOnWrite();
         instance.setValue(value);
         return this;
       }
       /**
-       * <code>sint32 value = 1;</code>
+       * <code>float value = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearValue() {
@@ -5810,25 +7376,25 @@ public final class Server {
       }
 
       /**
-       * <code>sint32 max = 2;</code>
+       * <code>float max = 2;</code>
        * @return The max.
        */
       @java.lang.Override
-      public int getMax() {
+      public float getMax() {
         return instance.getMax();
       }
       /**
-       * <code>sint32 max = 2;</code>
+       * <code>float max = 2;</code>
        * @param value The max to set.
        * @return This builder for chaining.
        */
-      public Builder setMax(int value) {
+      public Builder setMax(float value) {
         copyOnWrite();
         instance.setMax(value);
         return this;
       }
       /**
-       * <code>sint32 max = 2;</code>
+       * <code>float max = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearMax() {
@@ -5857,7 +7423,7 @@ public final class Server {
               "max_",
             };
             java.lang.String info =
-                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u000f\u0002\u000f" +
+                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0001\u0002\u0001" +
                 "";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
@@ -6161,15 +7727,15 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>.PlayerOpenInventory.Type type = 1;</code>
+     * <code>.ContainerType type = 1;</code>
      * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
-     * <code>.PlayerOpenInventory.Type type = 1;</code>
+     * <code>.ContainerType type = 1;</code>
      * @return The type.
      */
-    Server.PlayerOpenInventory.Type getType();
+    Types.ContainerType getType();
 
     /**
      * <code>string name = 2;</code>
@@ -6184,16 +7750,44 @@ public final class Server {
         getNameBytes();
 
     /**
-     * <code>string data = 3;</code>
-     * @return The data.
+     * <code>uint32 size = 3;</code>
+     * @return The size.
      */
-    java.lang.String getData();
+    int getSize();
+
     /**
-     * <code>string data = 3;</code>
-     * @return The bytes for data.
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
      */
-    com.google.protobuf.ByteString
-        getDataBytes();
+    int getItemsCount();
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+     */
+    boolean containsItems(
+        int key);
+    /**
+     * Use {@link #getItemsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, Types.Item>
+    getItems();
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+     */
+    java.util.Map<java.lang.Integer, Types.Item>
+    getItemsMap();
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+     */
+
+    Types.Item getItemsOrDefault(
+        int key,
+        Types.Item defaultValue);
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+     */
+
+    Types.Item getItemsOrThrow(
+        int key);
   }
   /**
    * Protobuf type {@code PlayerOpenInventory}
@@ -6205,119 +7799,11 @@ public final class Server {
       PlayerOpenInventoryOrBuilder {
     private PlayerOpenInventory() {
       name_ = "";
-      data_ = "";
     }
-    /**
-     * Protobuf enum {@code PlayerOpenInventory.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.Internal.EnumLite {
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      MAIN(0),
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      CHEST(1),
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      CRAFTING(2),
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      FURNACE(3),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>MAIN = 0;</code>
-       */
-      public static final int MAIN_VALUE = 0;
-      /**
-       * <code>CHEST = 1;</code>
-       */
-      public static final int CHEST_VALUE = 1;
-      /**
-       * <code>CRAFTING = 2;</code>
-       */
-      public static final int CRAFTING_VALUE = 2;
-      /**
-       * <code>FURNACE = 3;</code>
-       */
-      public static final int FURNACE_VALUE = 3;
-
-
-      @java.lang.Override
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return MAIN;
-          case 1: return CHEST;
-          case 2: return CRAFTING;
-          case 3: return FURNACE;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              @java.lang.Override
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public static com.google.protobuf.Internal.EnumVerifier 
-          internalGetVerifier() {
-        return TypeVerifier.INSTANCE;
-      }
-
-      private static final class TypeVerifier implements 
-           com.google.protobuf.Internal.EnumVerifier { 
-              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeVerifier();
-              @java.lang.Override
-              public boolean isInRange(int number) {
-                return Type.forNumber(number) != null;
-              }
-            };
-
-      private final int value;
-
-      private Type(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:PlayerOpenInventory.Type)
-    }
-
     public static final int TYPE_FIELD_NUMBER = 1;
     private int type_;
     /**
-     * <code>.PlayerOpenInventory.Type type = 1;</code>
+     * <code>.ContainerType type = 1;</code>
      * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override
@@ -6325,31 +7811,31 @@ public final class Server {
       return type_;
     }
     /**
-     * <code>.PlayerOpenInventory.Type type = 1;</code>
+     * <code>.ContainerType type = 1;</code>
      * @return The type.
      */
     @java.lang.Override
-    public Server.PlayerOpenInventory.Type getType() {
-      Server.PlayerOpenInventory.Type result = Server.PlayerOpenInventory.Type.forNumber(type_);
-      return result == null ? Server.PlayerOpenInventory.Type.UNRECOGNIZED : result;
+    public Types.ContainerType getType() {
+      Types.ContainerType result = Types.ContainerType.forNumber(type_);
+      return result == null ? Types.ContainerType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.PlayerOpenInventory.Type type = 1;</code>
+     * <code>.ContainerType type = 1;</code>
      * @param value The enum numeric value on the wire for type to set.
      */
     private void setTypeValue(int value) {
         type_ = value;
     }
     /**
-     * <code>.PlayerOpenInventory.Type type = 1;</code>
+     * <code>.ContainerType type = 1;</code>
      * @param value The type to set.
      */
-    private void setType(Server.PlayerOpenInventory.Type value) {
+    private void setType(Types.ContainerType value) {
       type_ = value.getNumber();
       
     }
     /**
-     * <code>.PlayerOpenInventory.Type type = 1;</code>
+     * <code>.ContainerType type = 1;</code>
      */
     private void clearType() {
       
@@ -6403,51 +7889,123 @@ public final class Server {
       
     }
 
-    public static final int DATA_FIELD_NUMBER = 3;
-    private java.lang.String data_;
+    public static final int SIZE_FIELD_NUMBER = 3;
+    private int size_;
     /**
-     * <code>string data = 3;</code>
-     * @return The data.
+     * <code>uint32 size = 3;</code>
+     * @return The size.
      */
     @java.lang.Override
-    public java.lang.String getData() {
-      return data_;
+    public int getSize() {
+      return size_;
     }
     /**
-     * <code>string data = 3;</code>
-     * @return The bytes for data.
+     * <code>uint32 size = 3;</code>
+     * @param value The size to set.
+     */
+    private void setSize(int value) {
+      
+      size_ = value;
+    }
+    /**
+     * <code>uint32 size = 3;</code>
+     */
+    private void clearSize() {
+      
+      size_ = 0;
+    }
+
+    public static final int ITEMS_FIELD_NUMBER = 4;
+    private static final class ItemsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntryLite<
+          java.lang.Integer, Types.Item> defaultEntry =
+              com.google.protobuf.MapEntryLite
+              .<java.lang.Integer, Types.Item>newDefaultInstance(
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  Types.Item.getDefaultInstance());
+    }
+    private com.google.protobuf.MapFieldLite<
+        java.lang.Integer, Types.Item> items_ =
+            com.google.protobuf.MapFieldLite.emptyMapField();
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetItems() {
+      return items_;
+    }
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetMutableItems() {
+      if (!items_.isMutable()) {
+        items_ = items_.mutableCopy();
+      }
+      return items_;
+    }
+    @java.lang.Override
+
+    public int getItemsCount() {
+      return internalGetItems().size();
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getDataBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(data_);
-    }
-    /**
-     * <code>string data = 3;</code>
-     * @param value The data to set.
-     */
-    private void setData(
-        java.lang.String value) {
-      value.getClass();
-  
-      data_ = value;
-    }
-    /**
-     * <code>string data = 3;</code>
-     */
-    private void clearData() {
+
+    public boolean containsItems(
+        int key) {
       
-      data_ = getDefaultInstance().getData();
+      return internalGetItems().containsKey(key);
     }
     /**
-     * <code>string data = 3;</code>
-     * @param value The bytes for data to set.
+     * Use {@link #getItemsMap()} instead.
      */
-    private void setDataBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      data_ = value.toStringUtf8();
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, Types.Item> getItems() {
+      return getItemsMap();
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Integer, Types.Item> getItemsMap() {
+      return java.util.Collections.unmodifiableMap(
+          internalGetItems());
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+     */
+    @java.lang.Override
+
+    public Types.Item getItemsOrDefault(
+        int key,
+        Types.Item defaultValue) {
       
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetItems();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+     */
+    @java.lang.Override
+
+    public Types.Item getItemsOrThrow(
+        int key) {
+      
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetItems();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+     */
+    private java.util.Map<java.lang.Integer, Types.Item>
+    getMutableItemsMap() {
+      return internalGetMutableItems();
     }
 
     public static Server.PlayerOpenInventory parseFrom(
@@ -6546,7 +8104,7 @@ public final class Server {
 
 
       /**
-       * <code>.PlayerOpenInventory.Type type = 1;</code>
+       * <code>.ContainerType type = 1;</code>
        * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override
@@ -6554,7 +8112,7 @@ public final class Server {
         return instance.getTypeValue();
       }
       /**
-       * <code>.PlayerOpenInventory.Type type = 1;</code>
+       * <code>.ContainerType type = 1;</code>
        * @param value The type to set.
        * @return This builder for chaining.
        */
@@ -6564,25 +8122,25 @@ public final class Server {
         return this;
       }
       /**
-       * <code>.PlayerOpenInventory.Type type = 1;</code>
+       * <code>.ContainerType type = 1;</code>
        * @return The type.
        */
       @java.lang.Override
-      public Server.PlayerOpenInventory.Type getType() {
+      public Types.ContainerType getType() {
         return instance.getType();
       }
       /**
-       * <code>.PlayerOpenInventory.Type type = 1;</code>
+       * <code>.ContainerType type = 1;</code>
        * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
-      public Builder setType(Server.PlayerOpenInventory.Type value) {
+      public Builder setType(Types.ContainerType value) {
         copyOnWrite();
         instance.setType(value);
         return this;
       }
       /**
-       * <code>.PlayerOpenInventory.Type type = 1;</code>
+       * <code>.ContainerType type = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
@@ -6641,51 +8199,128 @@ public final class Server {
       }
 
       /**
-       * <code>string data = 3;</code>
-       * @return The data.
+       * <code>uint32 size = 3;</code>
+       * @return The size.
        */
       @java.lang.Override
-      public java.lang.String getData() {
-        return instance.getData();
+      public int getSize() {
+        return instance.getSize();
       }
       /**
-       * <code>string data = 3;</code>
-       * @return The bytes for data.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getDataBytes() {
-        return instance.getDataBytes();
-      }
-      /**
-       * <code>string data = 3;</code>
-       * @param value The data to set.
+       * <code>uint32 size = 3;</code>
+       * @param value The size to set.
        * @return This builder for chaining.
        */
-      public Builder setData(
-          java.lang.String value) {
+      public Builder setSize(int value) {
         copyOnWrite();
-        instance.setData(value);
+        instance.setSize(value);
         return this;
       }
       /**
-       * <code>string data = 3;</code>
+       * <code>uint32 size = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearData() {
+      public Builder clearSize() {
         copyOnWrite();
-        instance.clearData();
+        instance.clearSize();
+        return this;
+      }
+
+      @java.lang.Override
+
+      public int getItemsCount() {
+        return instance.getItemsMap().size();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+       */
+      @java.lang.Override
+
+      public boolean containsItems(
+          int key) {
+        
+        return instance.getItemsMap().containsKey(key);
+      }
+
+      public Builder clearItems() {
+        copyOnWrite();
+        instance.getMutableItemsMap().clear();
         return this;
       }
       /**
-       * <code>string data = 3;</code>
-       * @param value The bytes for data to set.
-       * @return This builder for chaining.
+       * <code>map&lt;uint32, .Item&gt; items = 4;</code>
        */
-      public Builder setDataBytes(
-          com.google.protobuf.ByteString value) {
+
+      public Builder removeItems(
+          int key) {
+        
         copyOnWrite();
-        instance.setDataBytes(value);
+        instance.getMutableItemsMap().remove(key);
+        return this;
+      }
+      /**
+       * Use {@link #getItemsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, Types.Item> getItems() {
+        return getItemsMap();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.Integer, Types.Item> getItemsMap() {
+        return java.util.Collections.unmodifiableMap(
+            instance.getItemsMap());
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getItemsOrDefault(
+          int key,
+          Types.Item defaultValue) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getItemsMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getItemsOrThrow(
+          int key) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getItemsMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+       */
+      public Builder putItems(
+          int key,
+          Types.Item value) {
+        
+        value.getClass();
+        copyOnWrite();
+        instance.getMutableItemsMap().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 4;</code>
+       */
+      public Builder putAllItems(
+          java.util.Map<java.lang.Integer, Types.Item> values) {
+        copyOnWrite();
+        instance.getMutableItemsMap().putAll(values);
         return this;
       }
 
@@ -6707,11 +8342,13 @@ public final class Server {
             java.lang.Object[] objects = new java.lang.Object[] {
               "type_",
               "name_",
-              "data_",
+              "size_",
+              "items_",
+              ItemsDefaultEntryHolder.defaultEntry,
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\f\u0002\u0208" +
-                "\u0003\u0208";
+                "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0001\u0000\u0000\u0001\f\u0002\u0208" +
+                "\u0003\u000b\u00042";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -6762,6 +8399,525 @@ public final class Server {
     private static volatile com.google.protobuf.Parser<PlayerOpenInventory> PARSER;
 
     public static com.google.protobuf.Parser<PlayerOpenInventory> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface PlayerUpdateOpenInventoryOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PlayerUpdateOpenInventory)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+    int getItemsCount();
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+    boolean containsItems(
+        int key);
+    /**
+     * Use {@link #getItemsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, Types.Item>
+    getItems();
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+    java.util.Map<java.lang.Integer, Types.Item>
+    getItemsMap();
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+
+    Types.Item getItemsOrDefault(
+        int key,
+        Types.Item defaultValue);
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+
+    Types.Item getItemsOrThrow(
+        int key);
+  }
+  /**
+   * Protobuf type {@code PlayerUpdateOpenInventory}
+   */
+  public  static final class PlayerUpdateOpenInventory extends
+      com.google.protobuf.GeneratedMessageLite<
+          PlayerUpdateOpenInventory, PlayerUpdateOpenInventory.Builder> implements
+      // @@protoc_insertion_point(message_implements:PlayerUpdateOpenInventory)
+      PlayerUpdateOpenInventoryOrBuilder {
+    private PlayerUpdateOpenInventory() {
+      name_ = "";
+    }
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.String name_;
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      return name_;
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(name_);
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @param value The name to set.
+     */
+    private void setName(
+        java.lang.String value) {
+      value.getClass();
+  
+      name_ = value;
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    private void clearName() {
+      
+      name_ = getDefaultInstance().getName();
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     */
+    private void setNameBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      name_ = value.toStringUtf8();
+      
+    }
+
+    public static final int ITEMS_FIELD_NUMBER = 2;
+    private static final class ItemsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntryLite<
+          java.lang.Integer, Types.Item> defaultEntry =
+              com.google.protobuf.MapEntryLite
+              .<java.lang.Integer, Types.Item>newDefaultInstance(
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  Types.Item.getDefaultInstance());
+    }
+    private com.google.protobuf.MapFieldLite<
+        java.lang.Integer, Types.Item> items_ =
+            com.google.protobuf.MapFieldLite.emptyMapField();
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetItems() {
+      return items_;
+    }
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.Item>
+    internalGetMutableItems() {
+      if (!items_.isMutable()) {
+        items_ = items_.mutableCopy();
+      }
+      return items_;
+    }
+    @java.lang.Override
+
+    public int getItemsCount() {
+      return internalGetItems().size();
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+    @java.lang.Override
+
+    public boolean containsItems(
+        int key) {
+      
+      return internalGetItems().containsKey(key);
+    }
+    /**
+     * Use {@link #getItemsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, Types.Item> getItems() {
+      return getItemsMap();
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Integer, Types.Item> getItemsMap() {
+      return java.util.Collections.unmodifiableMap(
+          internalGetItems());
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+    @java.lang.Override
+
+    public Types.Item getItemsOrDefault(
+        int key,
+        Types.Item defaultValue) {
+      
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetItems();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+    @java.lang.Override
+
+    public Types.Item getItemsOrThrow(
+        int key) {
+      
+      java.util.Map<java.lang.Integer, Types.Item> map =
+          internalGetItems();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    /**
+     * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+     */
+    private java.util.Map<java.lang.Integer, Types.Item>
+    getMutableItemsMap() {
+      return internalGetMutableItems();
+    }
+
+    public static Server.PlayerUpdateOpenInventory parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerUpdateOpenInventory parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerUpdateOpenInventory parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerUpdateOpenInventory parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Server.PlayerUpdateOpenInventory prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code PlayerUpdateOpenInventory}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Server.PlayerUpdateOpenInventory, Builder> implements
+        // @@protoc_insertion_point(builder_implements:PlayerUpdateOpenInventory)
+        Server.PlayerUpdateOpenInventoryOrBuilder {
+      // Construct using Server.PlayerUpdateOpenInventory.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      @java.lang.Override
+      public java.lang.String getName() {
+        return instance.getName();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        return instance.getNameBytes();
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setName(value);
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        copyOnWrite();
+        instance.clearName();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setNameBytes(value);
+        return this;
+      }
+
+      @java.lang.Override
+
+      public int getItemsCount() {
+        return instance.getItemsMap().size();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+       */
+      @java.lang.Override
+
+      public boolean containsItems(
+          int key) {
+        
+        return instance.getItemsMap().containsKey(key);
+      }
+
+      public Builder clearItems() {
+        copyOnWrite();
+        instance.getMutableItemsMap().clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+       */
+
+      public Builder removeItems(
+          int key) {
+        
+        copyOnWrite();
+        instance.getMutableItemsMap().remove(key);
+        return this;
+      }
+      /**
+       * Use {@link #getItemsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, Types.Item> getItems() {
+        return getItemsMap();
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.Integer, Types.Item> getItemsMap() {
+        return java.util.Collections.unmodifiableMap(
+            instance.getItemsMap());
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getItemsOrDefault(
+          int key,
+          Types.Item defaultValue) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getItemsMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+       */
+      @java.lang.Override
+
+      public Types.Item getItemsOrThrow(
+          int key) {
+        
+        java.util.Map<java.lang.Integer, Types.Item> map =
+            instance.getItemsMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+       */
+      public Builder putItems(
+          int key,
+          Types.Item value) {
+        
+        value.getClass();
+        copyOnWrite();
+        instance.getMutableItemsMap().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, .Item&gt; items = 2;</code>
+       */
+      public Builder putAllItems(
+          java.util.Map<java.lang.Integer, Types.Item> values) {
+        copyOnWrite();
+        instance.getMutableItemsMap().putAll(values);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:PlayerUpdateOpenInventory)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Server.PlayerUpdateOpenInventory();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "name_",
+              "items_",
+              ItemsDefaultEntryHolder.defaultEntry,
+            };
+            java.lang.String info =
+                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0001\u0000\u0000\u0001\u0208\u00022";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Server.PlayerUpdateOpenInventory> parser = PARSER;
+          if (parser == null) {
+            synchronized (Server.PlayerUpdateOpenInventory.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Server.PlayerUpdateOpenInventory>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:PlayerUpdateOpenInventory)
+    private static final Server.PlayerUpdateOpenInventory DEFAULT_INSTANCE;
+    static {
+      PlayerUpdateOpenInventory defaultInstance = new PlayerUpdateOpenInventory();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        PlayerUpdateOpenInventory.class, defaultInstance);
+    }
+
+    public static Server.PlayerUpdateOpenInventory getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<PlayerUpdateOpenInventory> PARSER;
+
+    public static com.google.protobuf.Parser<PlayerUpdateOpenInventory> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }
@@ -7308,11 +9464,11 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
     int getMessageCount();
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
     boolean containsMessage(
         int key);
@@ -7320,25 +9476,25 @@ public final class Server {
      * Use {@link #getMessageMap()} instead.
      */
     @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent>
+    java.util.Map<java.lang.Integer, Types.ChatComponentType>
     getMessage();
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
-    java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent>
+    java.util.Map<java.lang.Integer, Types.ChatComponentType>
     getMessageMap();
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
 
-    Server.ChatMessage.ChatComponent getMessageOrDefault(
+    Types.ChatComponentType getMessageOrDefault(
         int key,
-        Server.ChatMessage.ChatComponent defaultValue);
+        Types.ChatComponentType defaultValue);
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
 
-    Server.ChatMessage.ChatComponent getMessageOrThrow(
+    Types.ChatComponentType getMessageOrThrow(
         int key);
 
     /**
@@ -7357,660 +9513,25 @@ public final class Server {
       ChatMessageOrBuilder {
     private ChatMessage() {
     }
-    public interface ChatComponentOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:ChatMessage.ChatComponent)
-        com.google.protobuf.MessageLiteOrBuilder {
-
-      /**
-       * <code>string text = 1;</code>
-       * @return The text.
-       */
-      java.lang.String getText();
-      /**
-       * <code>string text = 1;</code>
-       * @return The bytes for text.
-       */
-      com.google.protobuf.ByteString
-          getTextBytes();
-
-      /**
-       * <code>string font = 2;</code>
-       * @return The font.
-       */
-      java.lang.String getFont();
-      /**
-       * <code>string font = 2;</code>
-       * @return The bytes for font.
-       */
-      com.google.protobuf.ByteString
-          getFontBytes();
-
-      /**
-       * <code>string color = 3;</code>
-       * @return The color.
-       */
-      java.lang.String getColor();
-      /**
-       * <code>string color = 3;</code>
-       * @return The bytes for color.
-       */
-      com.google.protobuf.ByteString
-          getColorBytes();
-
-      /**
-       * <code>bool linethrough = 4;</code>
-       * @return The linethrough.
-       */
-      boolean getLinethrough();
-
-      /**
-       * <code>bool underline = 5;</code>
-       * @return The underline.
-       */
-      boolean getUnderline();
-    }
-    /**
-     * Protobuf type {@code ChatMessage.ChatComponent}
-     */
-    public  static final class ChatComponent extends
-        com.google.protobuf.GeneratedMessageLite<
-            ChatComponent, ChatComponent.Builder> implements
-        // @@protoc_insertion_point(message_implements:ChatMessage.ChatComponent)
-        ChatComponentOrBuilder {
-      private ChatComponent() {
-        text_ = "";
-        font_ = "";
-        color_ = "";
-      }
-      public static final int TEXT_FIELD_NUMBER = 1;
-      private java.lang.String text_;
-      /**
-       * <code>string text = 1;</code>
-       * @return The text.
-       */
-      @java.lang.Override
-      public java.lang.String getText() {
-        return text_;
-      }
-      /**
-       * <code>string text = 1;</code>
-       * @return The bytes for text.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getTextBytes() {
-        return com.google.protobuf.ByteString.copyFromUtf8(text_);
-      }
-      /**
-       * <code>string text = 1;</code>
-       * @param value The text to set.
-       */
-      private void setText(
-          java.lang.String value) {
-        value.getClass();
-  
-        text_ = value;
-      }
-      /**
-       * <code>string text = 1;</code>
-       */
-      private void clearText() {
-        
-        text_ = getDefaultInstance().getText();
-      }
-      /**
-       * <code>string text = 1;</code>
-       * @param value The bytes for text to set.
-       */
-      private void setTextBytes(
-          com.google.protobuf.ByteString value) {
-        checkByteStringIsUtf8(value);
-        text_ = value.toStringUtf8();
-        
-      }
-
-      public static final int FONT_FIELD_NUMBER = 2;
-      private java.lang.String font_;
-      /**
-       * <code>string font = 2;</code>
-       * @return The font.
-       */
-      @java.lang.Override
-      public java.lang.String getFont() {
-        return font_;
-      }
-      /**
-       * <code>string font = 2;</code>
-       * @return The bytes for font.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getFontBytes() {
-        return com.google.protobuf.ByteString.copyFromUtf8(font_);
-      }
-      /**
-       * <code>string font = 2;</code>
-       * @param value The font to set.
-       */
-      private void setFont(
-          java.lang.String value) {
-        value.getClass();
-  
-        font_ = value;
-      }
-      /**
-       * <code>string font = 2;</code>
-       */
-      private void clearFont() {
-        
-        font_ = getDefaultInstance().getFont();
-      }
-      /**
-       * <code>string font = 2;</code>
-       * @param value The bytes for font to set.
-       */
-      private void setFontBytes(
-          com.google.protobuf.ByteString value) {
-        checkByteStringIsUtf8(value);
-        font_ = value.toStringUtf8();
-        
-      }
-
-      public static final int COLOR_FIELD_NUMBER = 3;
-      private java.lang.String color_;
-      /**
-       * <code>string color = 3;</code>
-       * @return The color.
-       */
-      @java.lang.Override
-      public java.lang.String getColor() {
-        return color_;
-      }
-      /**
-       * <code>string color = 3;</code>
-       * @return The bytes for color.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getColorBytes() {
-        return com.google.protobuf.ByteString.copyFromUtf8(color_);
-      }
-      /**
-       * <code>string color = 3;</code>
-       * @param value The color to set.
-       */
-      private void setColor(
-          java.lang.String value) {
-        value.getClass();
-  
-        color_ = value;
-      }
-      /**
-       * <code>string color = 3;</code>
-       */
-      private void clearColor() {
-        
-        color_ = getDefaultInstance().getColor();
-      }
-      /**
-       * <code>string color = 3;</code>
-       * @param value The bytes for color to set.
-       */
-      private void setColorBytes(
-          com.google.protobuf.ByteString value) {
-        checkByteStringIsUtf8(value);
-        color_ = value.toStringUtf8();
-        
-      }
-
-      public static final int LINETHROUGH_FIELD_NUMBER = 4;
-      private boolean linethrough_;
-      /**
-       * <code>bool linethrough = 4;</code>
-       * @return The linethrough.
-       */
-      @java.lang.Override
-      public boolean getLinethrough() {
-        return linethrough_;
-      }
-      /**
-       * <code>bool linethrough = 4;</code>
-       * @param value The linethrough to set.
-       */
-      private void setLinethrough(boolean value) {
-        
-        linethrough_ = value;
-      }
-      /**
-       * <code>bool linethrough = 4;</code>
-       */
-      private void clearLinethrough() {
-        
-        linethrough_ = false;
-      }
-
-      public static final int UNDERLINE_FIELD_NUMBER = 5;
-      private boolean underline_;
-      /**
-       * <code>bool underline = 5;</code>
-       * @return The underline.
-       */
-      @java.lang.Override
-      public boolean getUnderline() {
-        return underline_;
-      }
-      /**
-       * <code>bool underline = 5;</code>
-       * @param value The underline to set.
-       */
-      private void setUnderline(boolean value) {
-        
-        underline_ = value;
-      }
-      /**
-       * <code>bool underline = 5;</code>
-       */
-      private void clearUnderline() {
-        
-        underline_ = false;
-      }
-
-      public static Server.ChatMessage.ChatComponent parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data, extensionRegistry);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data, extensionRegistry);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data, extensionRegistry);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, input);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, input, extensionRegistry);
-      }
-      public static Server.ChatMessage.ChatComponent parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
-      }
-      public static Server.ChatMessage.ChatComponent parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, input);
-      }
-      public static Server.ChatMessage.ChatComponent parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() {
-        return (Builder) DEFAULT_INSTANCE.createBuilder();
-      }
-      public static Builder newBuilder(Server.ChatMessage.ChatComponent prototype) {
-        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
-      }
-
-      /**
-       * Protobuf type {@code ChatMessage.ChatComponent}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageLite.Builder<
-            Server.ChatMessage.ChatComponent, Builder> implements
-          // @@protoc_insertion_point(builder_implements:ChatMessage.ChatComponent)
-          Server.ChatMessage.ChatComponentOrBuilder {
-        // Construct using Server.ChatMessage.ChatComponent.newBuilder()
-        private Builder() {
-          super(DEFAULT_INSTANCE);
-        }
-
-
-        /**
-         * <code>string text = 1;</code>
-         * @return The text.
-         */
-        @java.lang.Override
-        public java.lang.String getText() {
-          return instance.getText();
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @return The bytes for text.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-            getTextBytes() {
-          return instance.getTextBytes();
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @param value The text to set.
-         * @return This builder for chaining.
-         */
-        public Builder setText(
-            java.lang.String value) {
-          copyOnWrite();
-          instance.setText(value);
-          return this;
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearText() {
-          copyOnWrite();
-          instance.clearText();
-          return this;
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @param value The bytes for text to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTextBytes(
-            com.google.protobuf.ByteString value) {
-          copyOnWrite();
-          instance.setTextBytes(value);
-          return this;
-        }
-
-        /**
-         * <code>string font = 2;</code>
-         * @return The font.
-         */
-        @java.lang.Override
-        public java.lang.String getFont() {
-          return instance.getFont();
-        }
-        /**
-         * <code>string font = 2;</code>
-         * @return The bytes for font.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-            getFontBytes() {
-          return instance.getFontBytes();
-        }
-        /**
-         * <code>string font = 2;</code>
-         * @param value The font to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFont(
-            java.lang.String value) {
-          copyOnWrite();
-          instance.setFont(value);
-          return this;
-        }
-        /**
-         * <code>string font = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFont() {
-          copyOnWrite();
-          instance.clearFont();
-          return this;
-        }
-        /**
-         * <code>string font = 2;</code>
-         * @param value The bytes for font to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFontBytes(
-            com.google.protobuf.ByteString value) {
-          copyOnWrite();
-          instance.setFontBytes(value);
-          return this;
-        }
-
-        /**
-         * <code>string color = 3;</code>
-         * @return The color.
-         */
-        @java.lang.Override
-        public java.lang.String getColor() {
-          return instance.getColor();
-        }
-        /**
-         * <code>string color = 3;</code>
-         * @return The bytes for color.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-            getColorBytes() {
-          return instance.getColorBytes();
-        }
-        /**
-         * <code>string color = 3;</code>
-         * @param value The color to set.
-         * @return This builder for chaining.
-         */
-        public Builder setColor(
-            java.lang.String value) {
-          copyOnWrite();
-          instance.setColor(value);
-          return this;
-        }
-        /**
-         * <code>string color = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearColor() {
-          copyOnWrite();
-          instance.clearColor();
-          return this;
-        }
-        /**
-         * <code>string color = 3;</code>
-         * @param value The bytes for color to set.
-         * @return This builder for chaining.
-         */
-        public Builder setColorBytes(
-            com.google.protobuf.ByteString value) {
-          copyOnWrite();
-          instance.setColorBytes(value);
-          return this;
-        }
-
-        /**
-         * <code>bool linethrough = 4;</code>
-         * @return The linethrough.
-         */
-        @java.lang.Override
-        public boolean getLinethrough() {
-          return instance.getLinethrough();
-        }
-        /**
-         * <code>bool linethrough = 4;</code>
-         * @param value The linethrough to set.
-         * @return This builder for chaining.
-         */
-        public Builder setLinethrough(boolean value) {
-          copyOnWrite();
-          instance.setLinethrough(value);
-          return this;
-        }
-        /**
-         * <code>bool linethrough = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearLinethrough() {
-          copyOnWrite();
-          instance.clearLinethrough();
-          return this;
-        }
-
-        /**
-         * <code>bool underline = 5;</code>
-         * @return The underline.
-         */
-        @java.lang.Override
-        public boolean getUnderline() {
-          return instance.getUnderline();
-        }
-        /**
-         * <code>bool underline = 5;</code>
-         * @param value The underline to set.
-         * @return This builder for chaining.
-         */
-        public Builder setUnderline(boolean value) {
-          copyOnWrite();
-          instance.setUnderline(value);
-          return this;
-        }
-        /**
-         * <code>bool underline = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearUnderline() {
-          copyOnWrite();
-          instance.clearUnderline();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:ChatMessage.ChatComponent)
-      }
-      @java.lang.Override
-      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-      protected final java.lang.Object dynamicMethod(
-          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-          java.lang.Object arg0, java.lang.Object arg1) {
-        switch (method) {
-          case NEW_MUTABLE_INSTANCE: {
-            return new Server.ChatMessage.ChatComponent();
-          }
-          case NEW_BUILDER: {
-            return new Builder();
-          }
-          case BUILD_MESSAGE_INFO: {
-              java.lang.Object[] objects = new java.lang.Object[] {
-                "text_",
-                "font_",
-                "color_",
-                "linethrough_",
-                "underline_",
-              };
-              java.lang.String info =
-                  "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
-                  "\u0003\u0208\u0004\u0007\u0005\u0007";
-              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-          }
-          // fall through
-          case GET_DEFAULT_INSTANCE: {
-            return DEFAULT_INSTANCE;
-          }
-          case GET_PARSER: {
-            com.google.protobuf.Parser<Server.ChatMessage.ChatComponent> parser = PARSER;
-            if (parser == null) {
-              synchronized (Server.ChatMessage.ChatComponent.class) {
-                parser = PARSER;
-                if (parser == null) {
-                  parser =
-                      new DefaultInstanceBasedParser<Server.ChatMessage.ChatComponent>(
-                          DEFAULT_INSTANCE);
-                  PARSER = parser;
-                }
-              }
-            }
-            return parser;
-        }
-        case GET_MEMOIZED_IS_INITIALIZED: {
-          return (byte) 1;
-        }
-        case SET_MEMOIZED_IS_INITIALIZED: {
-          return null;
-        }
-        }
-        throw new UnsupportedOperationException();
-      }
-
-
-      // @@protoc_insertion_point(class_scope:ChatMessage.ChatComponent)
-      private static final Server.ChatMessage.ChatComponent DEFAULT_INSTANCE;
-      static {
-        ChatComponent defaultInstance = new ChatComponent();
-        // New instances are implicitly immutable so no need to make
-        // immutable.
-        DEFAULT_INSTANCE = defaultInstance;
-        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-          ChatComponent.class, defaultInstance);
-      }
-
-      public static Server.ChatMessage.ChatComponent getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static volatile com.google.protobuf.Parser<ChatComponent> PARSER;
-
-      public static com.google.protobuf.Parser<ChatComponent> parser() {
-        return DEFAULT_INSTANCE.getParserForType();
-      }
-    }
-
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private static final class MessageDefaultEntryHolder {
       static final com.google.protobuf.MapEntryLite<
-          java.lang.Integer, Server.ChatMessage.ChatComponent> defaultEntry =
+          java.lang.Integer, Types.ChatComponentType> defaultEntry =
               com.google.protobuf.MapEntryLite
-              .<java.lang.Integer, Server.ChatMessage.ChatComponent>newDefaultInstance(
+              .<java.lang.Integer, Types.ChatComponentType>newDefaultInstance(
                   com.google.protobuf.WireFormat.FieldType.UINT32,
                   0,
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Server.ChatMessage.ChatComponent.getDefaultInstance());
+                  Types.ChatComponentType.getDefaultInstance());
     }
     private com.google.protobuf.MapFieldLite<
-        java.lang.Integer, Server.ChatMessage.ChatComponent> message_ =
+        java.lang.Integer, Types.ChatComponentType> message_ =
             com.google.protobuf.MapFieldLite.emptyMapField();
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Server.ChatMessage.ChatComponent>
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.ChatComponentType>
     internalGetMessage() {
       return message_;
     }
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Server.ChatMessage.ChatComponent>
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.ChatComponentType>
     internalGetMutableMessage() {
       if (!message_.isMutable()) {
         message_ = message_.mutableCopy();
@@ -8023,7 +9544,7 @@ public final class Server {
       return internalGetMessage().size();
     }
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
     @java.lang.Override
 
@@ -8037,40 +9558,40 @@ public final class Server {
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> getMessage() {
+    public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessage() {
       return getMessageMap();
     }
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> getMessageMap() {
+    public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessageMap() {
       return java.util.Collections.unmodifiableMap(
           internalGetMessage());
     }
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
     @java.lang.Override
 
-    public Server.ChatMessage.ChatComponent getMessageOrDefault(
+    public Types.ChatComponentType getMessageOrDefault(
         int key,
-        Server.ChatMessage.ChatComponent defaultValue) {
+        Types.ChatComponentType defaultValue) {
       
-      java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> map =
+      java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
           internalGetMessage();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
     @java.lang.Override
 
-    public Server.ChatMessage.ChatComponent getMessageOrThrow(
+    public Types.ChatComponentType getMessageOrThrow(
         int key) {
       
-      java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> map =
+      java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
           internalGetMessage();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
@@ -8078,9 +9599,9 @@ public final class Server {
       return map.get(key);
     }
     /**
-     * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
      */
-    private java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent>
+    private java.util.Map<java.lang.Integer, Types.ChatComponentType>
     getMutableMessageMap() {
       return internalGetMutableMessage();
     }
@@ -8212,7 +9733,7 @@ public final class Server {
         return instance.getMessageMap().size();
       }
       /**
-       * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
        */
       @java.lang.Override
 
@@ -8228,7 +9749,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
        */
 
       public Builder removeMessage(
@@ -8243,39 +9764,39 @@ public final class Server {
        */
       @java.lang.Override
       @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> getMessage() {
+      public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessage() {
         return getMessageMap();
       }
       /**
-       * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
        */
       @java.lang.Override
-      public java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> getMessageMap() {
+      public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessageMap() {
         return java.util.Collections.unmodifiableMap(
             instance.getMessageMap());
       }
       /**
-       * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
        */
       @java.lang.Override
 
-      public Server.ChatMessage.ChatComponent getMessageOrDefault(
+      public Types.ChatComponentType getMessageOrDefault(
           int key,
-          Server.ChatMessage.ChatComponent defaultValue) {
+          Types.ChatComponentType defaultValue) {
         
-        java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> map =
+        java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
             instance.getMessageMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
        */
       @java.lang.Override
 
-      public Server.ChatMessage.ChatComponent getMessageOrThrow(
+      public Types.ChatComponentType getMessageOrThrow(
           int key) {
         
-        java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> map =
+        java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
             instance.getMessageMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
@@ -8283,11 +9804,11 @@ public final class Server {
         return map.get(key);
       }
       /**
-       * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
        */
       public Builder putMessage(
           int key,
-          Server.ChatMessage.ChatComponent value) {
+          Types.ChatComponentType value) {
         
         value.getClass();
         copyOnWrite();
@@ -8295,10 +9816,10 @@ public final class Server {
         return this;
       }
       /**
-       * <code>map&lt;uint32, .ChatMessage.ChatComponent&gt; message = 1;</code>
+       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
        */
       public Builder putAllMessage(
-          java.util.Map<java.lang.Integer, Server.ChatMessage.ChatComponent> values) {
+          java.util.Map<java.lang.Integer, Types.ChatComponentType> values) {
         copyOnWrite();
         instance.getMutableMessageMap().putAll(values);
         return this;
@@ -8424,11 +9945,11 @@ public final class Server {
     Server.UpdateTextBoard.Type getType();
 
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
     int getMessageCount();
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
     boolean containsMessage(
         int key);
@@ -8436,25 +9957,25 @@ public final class Server {
      * Use {@link #getMessageMap()} instead.
      */
     @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent>
+    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
     getMessage();
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
-    java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent>
+    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
     getMessageMap();
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
 
-    Server.UpdateTextBoard.ChatComponent getMessageOrDefault(
+    Types.BasicChatComponentType getMessageOrDefault(
         int key,
-        Server.UpdateTextBoard.ChatComponent defaultValue);
+        Types.BasicChatComponentType defaultValue);
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
 
-    Server.UpdateTextBoard.ChatComponent getMessageOrThrow(
+    Types.BasicChatComponentType getMessageOrThrow(
         int key);
 
     /**
@@ -8580,641 +10101,6 @@ public final class Server {
       // @@protoc_insertion_point(enum_scope:UpdateTextBoard.Type)
     }
 
-    public interface ChatComponentOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:UpdateTextBoard.ChatComponent)
-        com.google.protobuf.MessageLiteOrBuilder {
-
-      /**
-       * <code>string text = 1;</code>
-       * @return The text.
-       */
-      java.lang.String getText();
-      /**
-       * <code>string text = 1;</code>
-       * @return The bytes for text.
-       */
-      com.google.protobuf.ByteString
-          getTextBytes();
-
-      /**
-       * <code>string font = 2;</code>
-       * @return The font.
-       */
-      java.lang.String getFont();
-      /**
-       * <code>string font = 2;</code>
-       * @return The bytes for font.
-       */
-      com.google.protobuf.ByteString
-          getFontBytes();
-
-      /**
-       * <code>string color = 3;</code>
-       * @return The color.
-       */
-      java.lang.String getColor();
-      /**
-       * <code>string color = 3;</code>
-       * @return The bytes for color.
-       */
-      com.google.protobuf.ByteString
-          getColorBytes();
-
-      /**
-       * <code>bool linethrough = 4;</code>
-       * @return The linethrough.
-       */
-      boolean getLinethrough();
-
-      /**
-       * <code>bool underline = 5;</code>
-       * @return The underline.
-       */
-      boolean getUnderline();
-    }
-    /**
-     * Protobuf type {@code UpdateTextBoard.ChatComponent}
-     */
-    public  static final class ChatComponent extends
-        com.google.protobuf.GeneratedMessageLite<
-            ChatComponent, ChatComponent.Builder> implements
-        // @@protoc_insertion_point(message_implements:UpdateTextBoard.ChatComponent)
-        ChatComponentOrBuilder {
-      private ChatComponent() {
-        text_ = "";
-        font_ = "";
-        color_ = "";
-      }
-      public static final int TEXT_FIELD_NUMBER = 1;
-      private java.lang.String text_;
-      /**
-       * <code>string text = 1;</code>
-       * @return The text.
-       */
-      @java.lang.Override
-      public java.lang.String getText() {
-        return text_;
-      }
-      /**
-       * <code>string text = 1;</code>
-       * @return The bytes for text.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getTextBytes() {
-        return com.google.protobuf.ByteString.copyFromUtf8(text_);
-      }
-      /**
-       * <code>string text = 1;</code>
-       * @param value The text to set.
-       */
-      private void setText(
-          java.lang.String value) {
-        value.getClass();
-  
-        text_ = value;
-      }
-      /**
-       * <code>string text = 1;</code>
-       */
-      private void clearText() {
-        
-        text_ = getDefaultInstance().getText();
-      }
-      /**
-       * <code>string text = 1;</code>
-       * @param value The bytes for text to set.
-       */
-      private void setTextBytes(
-          com.google.protobuf.ByteString value) {
-        checkByteStringIsUtf8(value);
-        text_ = value.toStringUtf8();
-        
-      }
-
-      public static final int FONT_FIELD_NUMBER = 2;
-      private java.lang.String font_;
-      /**
-       * <code>string font = 2;</code>
-       * @return The font.
-       */
-      @java.lang.Override
-      public java.lang.String getFont() {
-        return font_;
-      }
-      /**
-       * <code>string font = 2;</code>
-       * @return The bytes for font.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getFontBytes() {
-        return com.google.protobuf.ByteString.copyFromUtf8(font_);
-      }
-      /**
-       * <code>string font = 2;</code>
-       * @param value The font to set.
-       */
-      private void setFont(
-          java.lang.String value) {
-        value.getClass();
-  
-        font_ = value;
-      }
-      /**
-       * <code>string font = 2;</code>
-       */
-      private void clearFont() {
-        
-        font_ = getDefaultInstance().getFont();
-      }
-      /**
-       * <code>string font = 2;</code>
-       * @param value The bytes for font to set.
-       */
-      private void setFontBytes(
-          com.google.protobuf.ByteString value) {
-        checkByteStringIsUtf8(value);
-        font_ = value.toStringUtf8();
-        
-      }
-
-      public static final int COLOR_FIELD_NUMBER = 3;
-      private java.lang.String color_;
-      /**
-       * <code>string color = 3;</code>
-       * @return The color.
-       */
-      @java.lang.Override
-      public java.lang.String getColor() {
-        return color_;
-      }
-      /**
-       * <code>string color = 3;</code>
-       * @return The bytes for color.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getColorBytes() {
-        return com.google.protobuf.ByteString.copyFromUtf8(color_);
-      }
-      /**
-       * <code>string color = 3;</code>
-       * @param value The color to set.
-       */
-      private void setColor(
-          java.lang.String value) {
-        value.getClass();
-  
-        color_ = value;
-      }
-      /**
-       * <code>string color = 3;</code>
-       */
-      private void clearColor() {
-        
-        color_ = getDefaultInstance().getColor();
-      }
-      /**
-       * <code>string color = 3;</code>
-       * @param value The bytes for color to set.
-       */
-      private void setColorBytes(
-          com.google.protobuf.ByteString value) {
-        checkByteStringIsUtf8(value);
-        color_ = value.toStringUtf8();
-        
-      }
-
-      public static final int LINETHROUGH_FIELD_NUMBER = 4;
-      private boolean linethrough_;
-      /**
-       * <code>bool linethrough = 4;</code>
-       * @return The linethrough.
-       */
-      @java.lang.Override
-      public boolean getLinethrough() {
-        return linethrough_;
-      }
-      /**
-       * <code>bool linethrough = 4;</code>
-       * @param value The linethrough to set.
-       */
-      private void setLinethrough(boolean value) {
-        
-        linethrough_ = value;
-      }
-      /**
-       * <code>bool linethrough = 4;</code>
-       */
-      private void clearLinethrough() {
-        
-        linethrough_ = false;
-      }
-
-      public static final int UNDERLINE_FIELD_NUMBER = 5;
-      private boolean underline_;
-      /**
-       * <code>bool underline = 5;</code>
-       * @return The underline.
-       */
-      @java.lang.Override
-      public boolean getUnderline() {
-        return underline_;
-      }
-      /**
-       * <code>bool underline = 5;</code>
-       * @param value The underline to set.
-       */
-      private void setUnderline(boolean value) {
-        
-        underline_ = value;
-      }
-      /**
-       * <code>bool underline = 5;</code>
-       */
-      private void clearUnderline() {
-        
-        underline_ = false;
-      }
-
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data, extensionRegistry);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data, extensionRegistry);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data, extensionRegistry);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, input);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, input, extensionRegistry);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return parseDelimitedFrom(DEFAULT_INSTANCE, input);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, input);
-      }
-      public static Server.UpdateTextBoard.ChatComponent parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() {
-        return (Builder) DEFAULT_INSTANCE.createBuilder();
-      }
-      public static Builder newBuilder(Server.UpdateTextBoard.ChatComponent prototype) {
-        return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
-      }
-
-      /**
-       * Protobuf type {@code UpdateTextBoard.ChatComponent}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageLite.Builder<
-            Server.UpdateTextBoard.ChatComponent, Builder> implements
-          // @@protoc_insertion_point(builder_implements:UpdateTextBoard.ChatComponent)
-          Server.UpdateTextBoard.ChatComponentOrBuilder {
-        // Construct using Server.UpdateTextBoard.ChatComponent.newBuilder()
-        private Builder() {
-          super(DEFAULT_INSTANCE);
-        }
-
-
-        /**
-         * <code>string text = 1;</code>
-         * @return The text.
-         */
-        @java.lang.Override
-        public java.lang.String getText() {
-          return instance.getText();
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @return The bytes for text.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-            getTextBytes() {
-          return instance.getTextBytes();
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @param value The text to set.
-         * @return This builder for chaining.
-         */
-        public Builder setText(
-            java.lang.String value) {
-          copyOnWrite();
-          instance.setText(value);
-          return this;
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearText() {
-          copyOnWrite();
-          instance.clearText();
-          return this;
-        }
-        /**
-         * <code>string text = 1;</code>
-         * @param value The bytes for text to set.
-         * @return This builder for chaining.
-         */
-        public Builder setTextBytes(
-            com.google.protobuf.ByteString value) {
-          copyOnWrite();
-          instance.setTextBytes(value);
-          return this;
-        }
-
-        /**
-         * <code>string font = 2;</code>
-         * @return The font.
-         */
-        @java.lang.Override
-        public java.lang.String getFont() {
-          return instance.getFont();
-        }
-        /**
-         * <code>string font = 2;</code>
-         * @return The bytes for font.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-            getFontBytes() {
-          return instance.getFontBytes();
-        }
-        /**
-         * <code>string font = 2;</code>
-         * @param value The font to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFont(
-            java.lang.String value) {
-          copyOnWrite();
-          instance.setFont(value);
-          return this;
-        }
-        /**
-         * <code>string font = 2;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearFont() {
-          copyOnWrite();
-          instance.clearFont();
-          return this;
-        }
-        /**
-         * <code>string font = 2;</code>
-         * @param value The bytes for font to set.
-         * @return This builder for chaining.
-         */
-        public Builder setFontBytes(
-            com.google.protobuf.ByteString value) {
-          copyOnWrite();
-          instance.setFontBytes(value);
-          return this;
-        }
-
-        /**
-         * <code>string color = 3;</code>
-         * @return The color.
-         */
-        @java.lang.Override
-        public java.lang.String getColor() {
-          return instance.getColor();
-        }
-        /**
-         * <code>string color = 3;</code>
-         * @return The bytes for color.
-         */
-        @java.lang.Override
-        public com.google.protobuf.ByteString
-            getColorBytes() {
-          return instance.getColorBytes();
-        }
-        /**
-         * <code>string color = 3;</code>
-         * @param value The color to set.
-         * @return This builder for chaining.
-         */
-        public Builder setColor(
-            java.lang.String value) {
-          copyOnWrite();
-          instance.setColor(value);
-          return this;
-        }
-        /**
-         * <code>string color = 3;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearColor() {
-          copyOnWrite();
-          instance.clearColor();
-          return this;
-        }
-        /**
-         * <code>string color = 3;</code>
-         * @param value The bytes for color to set.
-         * @return This builder for chaining.
-         */
-        public Builder setColorBytes(
-            com.google.protobuf.ByteString value) {
-          copyOnWrite();
-          instance.setColorBytes(value);
-          return this;
-        }
-
-        /**
-         * <code>bool linethrough = 4;</code>
-         * @return The linethrough.
-         */
-        @java.lang.Override
-        public boolean getLinethrough() {
-          return instance.getLinethrough();
-        }
-        /**
-         * <code>bool linethrough = 4;</code>
-         * @param value The linethrough to set.
-         * @return This builder for chaining.
-         */
-        public Builder setLinethrough(boolean value) {
-          copyOnWrite();
-          instance.setLinethrough(value);
-          return this;
-        }
-        /**
-         * <code>bool linethrough = 4;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearLinethrough() {
-          copyOnWrite();
-          instance.clearLinethrough();
-          return this;
-        }
-
-        /**
-         * <code>bool underline = 5;</code>
-         * @return The underline.
-         */
-        @java.lang.Override
-        public boolean getUnderline() {
-          return instance.getUnderline();
-        }
-        /**
-         * <code>bool underline = 5;</code>
-         * @param value The underline to set.
-         * @return This builder for chaining.
-         */
-        public Builder setUnderline(boolean value) {
-          copyOnWrite();
-          instance.setUnderline(value);
-          return this;
-        }
-        /**
-         * <code>bool underline = 5;</code>
-         * @return This builder for chaining.
-         */
-        public Builder clearUnderline() {
-          copyOnWrite();
-          instance.clearUnderline();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:UpdateTextBoard.ChatComponent)
-      }
-      @java.lang.Override
-      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-      protected final java.lang.Object dynamicMethod(
-          com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-          java.lang.Object arg0, java.lang.Object arg1) {
-        switch (method) {
-          case NEW_MUTABLE_INSTANCE: {
-            return new Server.UpdateTextBoard.ChatComponent();
-          }
-          case NEW_BUILDER: {
-            return new Builder();
-          }
-          case BUILD_MESSAGE_INFO: {
-              java.lang.Object[] objects = new java.lang.Object[] {
-                "text_",
-                "font_",
-                "color_",
-                "linethrough_",
-                "underline_",
-              };
-              java.lang.String info =
-                  "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
-                  "\u0003\u0208\u0004\u0007\u0005\u0007";
-              return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-          }
-          // fall through
-          case GET_DEFAULT_INSTANCE: {
-            return DEFAULT_INSTANCE;
-          }
-          case GET_PARSER: {
-            com.google.protobuf.Parser<Server.UpdateTextBoard.ChatComponent> parser = PARSER;
-            if (parser == null) {
-              synchronized (Server.UpdateTextBoard.ChatComponent.class) {
-                parser = PARSER;
-                if (parser == null) {
-                  parser =
-                      new DefaultInstanceBasedParser<Server.UpdateTextBoard.ChatComponent>(
-                          DEFAULT_INSTANCE);
-                  PARSER = parser;
-                }
-              }
-            }
-            return parser;
-        }
-        case GET_MEMOIZED_IS_INITIALIZED: {
-          return (byte) 1;
-        }
-        case SET_MEMOIZED_IS_INITIALIZED: {
-          return null;
-        }
-        }
-        throw new UnsupportedOperationException();
-      }
-
-
-      // @@protoc_insertion_point(class_scope:UpdateTextBoard.ChatComponent)
-      private static final Server.UpdateTextBoard.ChatComponent DEFAULT_INSTANCE;
-      static {
-        ChatComponent defaultInstance = new ChatComponent();
-        // New instances are implicitly immutable so no need to make
-        // immutable.
-        DEFAULT_INSTANCE = defaultInstance;
-        com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-          ChatComponent.class, defaultInstance);
-      }
-
-      public static Server.UpdateTextBoard.ChatComponent getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static volatile com.google.protobuf.Parser<ChatComponent> PARSER;
-
-      public static com.google.protobuf.Parser<ChatComponent> parser() {
-        return DEFAULT_INSTANCE.getParserForType();
-      }
-    }
-
     public static final int TYPE_FIELD_NUMBER = 1;
     private int type_;
     /**
@@ -9260,22 +10146,22 @@ public final class Server {
     public static final int MESSAGE_FIELD_NUMBER = 2;
     private static final class MessageDefaultEntryHolder {
       static final com.google.protobuf.MapEntryLite<
-          java.lang.Integer, Server.UpdateTextBoard.ChatComponent> defaultEntry =
+          java.lang.Integer, Types.BasicChatComponentType> defaultEntry =
               com.google.protobuf.MapEntryLite
-              .<java.lang.Integer, Server.UpdateTextBoard.ChatComponent>newDefaultInstance(
+              .<java.lang.Integer, Types.BasicChatComponentType>newDefaultInstance(
                   com.google.protobuf.WireFormat.FieldType.UINT32,
                   0,
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Server.UpdateTextBoard.ChatComponent.getDefaultInstance());
+                  Types.BasicChatComponentType.getDefaultInstance());
     }
     private com.google.protobuf.MapFieldLite<
-        java.lang.Integer, Server.UpdateTextBoard.ChatComponent> message_ =
+        java.lang.Integer, Types.BasicChatComponentType> message_ =
             com.google.protobuf.MapFieldLite.emptyMapField();
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Server.UpdateTextBoard.ChatComponent>
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.BasicChatComponentType>
     internalGetMessage() {
       return message_;
     }
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Server.UpdateTextBoard.ChatComponent>
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.BasicChatComponentType>
     internalGetMutableMessage() {
       if (!message_.isMutable()) {
         message_ = message_.mutableCopy();
@@ -9288,7 +10174,7 @@ public final class Server {
       return internalGetMessage().size();
     }
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
     @java.lang.Override
 
@@ -9302,40 +10188,40 @@ public final class Server {
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> getMessage() {
+    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessage() {
       return getMessageMap();
     }
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
     @java.lang.Override
 
-    public java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> getMessageMap() {
+    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessageMap() {
       return java.util.Collections.unmodifiableMap(
           internalGetMessage());
     }
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
     @java.lang.Override
 
-    public Server.UpdateTextBoard.ChatComponent getMessageOrDefault(
+    public Types.BasicChatComponentType getMessageOrDefault(
         int key,
-        Server.UpdateTextBoard.ChatComponent defaultValue) {
+        Types.BasicChatComponentType defaultValue) {
       
-      java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> map =
+      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
           internalGetMessage();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
     @java.lang.Override
 
-    public Server.UpdateTextBoard.ChatComponent getMessageOrThrow(
+    public Types.BasicChatComponentType getMessageOrThrow(
         int key) {
       
-      java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> map =
+      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
           internalGetMessage();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
@@ -9343,9 +10229,9 @@ public final class Server {
       return map.get(key);
     }
     /**
-     * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
      */
-    private java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent>
+    private java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
     getMutableMessageMap() {
       return internalGetMutableMessage();
     }
@@ -9523,7 +10409,7 @@ public final class Server {
         return instance.getMessageMap().size();
       }
       /**
-       * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
        */
       @java.lang.Override
 
@@ -9539,7 +10425,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
        */
 
       public Builder removeMessage(
@@ -9554,39 +10440,39 @@ public final class Server {
        */
       @java.lang.Override
       @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> getMessage() {
+      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessage() {
         return getMessageMap();
       }
       /**
-       * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
        */
       @java.lang.Override
-      public java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> getMessageMap() {
+      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessageMap() {
         return java.util.Collections.unmodifiableMap(
             instance.getMessageMap());
       }
       /**
-       * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
        */
       @java.lang.Override
 
-      public Server.UpdateTextBoard.ChatComponent getMessageOrDefault(
+      public Types.BasicChatComponentType getMessageOrDefault(
           int key,
-          Server.UpdateTextBoard.ChatComponent defaultValue) {
+          Types.BasicChatComponentType defaultValue) {
         
-        java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> map =
+        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
             instance.getMessageMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
        */
       @java.lang.Override
 
-      public Server.UpdateTextBoard.ChatComponent getMessageOrThrow(
+      public Types.BasicChatComponentType getMessageOrThrow(
           int key) {
         
-        java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> map =
+        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
             instance.getMessageMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
@@ -9594,11 +10480,11 @@ public final class Server {
         return map.get(key);
       }
       /**
-       * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
        */
       public Builder putMessage(
           int key,
-          Server.UpdateTextBoard.ChatComponent value) {
+          Types.BasicChatComponentType value) {
         
         value.getClass();
         copyOnWrite();
@@ -9606,10 +10492,10 @@ public final class Server {
         return this;
       }
       /**
-       * <code>map&lt;uint32, .UpdateTextBoard.ChatComponent&gt; message = 2;</code>
+       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
        */
       public Builder putAllMessage(
-          java.util.Map<java.lang.Integer, Server.UpdateTextBoard.ChatComponent> values) {
+          java.util.Map<java.lang.Integer, Types.BasicChatComponentType> values) {
         copyOnWrite();
         instance.getMutableMessageMap().putAll(values);
         return this;
@@ -13790,22 +14676,28 @@ public final class Server {
     int getZ();
 
     /**
-     * <code>bytes data = 4;</code>
-     * @return The data.
-     */
-    com.google.protobuf.ByteString getData();
-
-    /**
-     * <code>sint32 height = 5;</code>
+     * <code>sint32 height = 4;</code>
      * @return The height.
      */
     int getHeight();
 
     /**
-     * <code>bool compressed = 6;</code>
+     * <code>bool compressed = 5;</code>
      * @return The compressed.
      */
     boolean getCompressed();
+
+    /**
+     * <code>bytes block_data = 6;</code>
+     * @return The blockData.
+     */
+    com.google.protobuf.ByteString getBlockData();
+
+    /**
+     * <code>bytes light_data = 7;</code>
+     * @return The lightData.
+     */
+    com.google.protobuf.ByteString getLightData();
   }
   /**
    * Protobuf type {@code WorldChunkLoad}
@@ -13816,7 +14708,8 @@ public final class Server {
       // @@protoc_insertion_point(message_implements:WorldChunkLoad)
       WorldChunkLoadOrBuilder {
     private WorldChunkLoad() {
-      data_ = com.google.protobuf.ByteString.EMPTY;
+      blockData_ = com.google.protobuf.ByteString.EMPTY;
+      lightData_ = com.google.protobuf.ByteString.EMPTY;
     }
     public static final int X_FIELD_NUMBER = 1;
     private int x_;
@@ -13896,37 +14789,10 @@ public final class Server {
       z_ = 0;
     }
 
-    public static final int DATA_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString data_;
-    /**
-     * <code>bytes data = 4;</code>
-     * @return The data.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getData() {
-      return data_;
-    }
-    /**
-     * <code>bytes data = 4;</code>
-     * @param value The data to set.
-     */
-    private void setData(com.google.protobuf.ByteString value) {
-      value.getClass();
-  
-      data_ = value;
-    }
-    /**
-     * <code>bytes data = 4;</code>
-     */
-    private void clearData() {
-      
-      data_ = getDefaultInstance().getData();
-    }
-
-    public static final int HEIGHT_FIELD_NUMBER = 5;
+    public static final int HEIGHT_FIELD_NUMBER = 4;
     private int height_;
     /**
-     * <code>sint32 height = 5;</code>
+     * <code>sint32 height = 4;</code>
      * @return The height.
      */
     @java.lang.Override
@@ -13934,7 +14800,7 @@ public final class Server {
       return height_;
     }
     /**
-     * <code>sint32 height = 5;</code>
+     * <code>sint32 height = 4;</code>
      * @param value The height to set.
      */
     private void setHeight(int value) {
@@ -13942,17 +14808,17 @@ public final class Server {
       height_ = value;
     }
     /**
-     * <code>sint32 height = 5;</code>
+     * <code>sint32 height = 4;</code>
      */
     private void clearHeight() {
       
       height_ = 0;
     }
 
-    public static final int COMPRESSED_FIELD_NUMBER = 6;
+    public static final int COMPRESSED_FIELD_NUMBER = 5;
     private boolean compressed_;
     /**
-     * <code>bool compressed = 6;</code>
+     * <code>bool compressed = 5;</code>
      * @return The compressed.
      */
     @java.lang.Override
@@ -13960,7 +14826,7 @@ public final class Server {
       return compressed_;
     }
     /**
-     * <code>bool compressed = 6;</code>
+     * <code>bool compressed = 5;</code>
      * @param value The compressed to set.
      */
     private void setCompressed(boolean value) {
@@ -13968,11 +14834,65 @@ public final class Server {
       compressed_ = value;
     }
     /**
-     * <code>bool compressed = 6;</code>
+     * <code>bool compressed = 5;</code>
      */
     private void clearCompressed() {
       
       compressed_ = false;
+    }
+
+    public static final int BLOCK_DATA_FIELD_NUMBER = 6;
+    private com.google.protobuf.ByteString blockData_;
+    /**
+     * <code>bytes block_data = 6;</code>
+     * @return The blockData.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getBlockData() {
+      return blockData_;
+    }
+    /**
+     * <code>bytes block_data = 6;</code>
+     * @param value The blockData to set.
+     */
+    private void setBlockData(com.google.protobuf.ByteString value) {
+      value.getClass();
+  
+      blockData_ = value;
+    }
+    /**
+     * <code>bytes block_data = 6;</code>
+     */
+    private void clearBlockData() {
+      
+      blockData_ = getDefaultInstance().getBlockData();
+    }
+
+    public static final int LIGHT_DATA_FIELD_NUMBER = 7;
+    private com.google.protobuf.ByteString lightData_;
+    /**
+     * <code>bytes light_data = 7;</code>
+     * @return The lightData.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getLightData() {
+      return lightData_;
+    }
+    /**
+     * <code>bytes light_data = 7;</code>
+     * @param value The lightData to set.
+     */
+    private void setLightData(com.google.protobuf.ByteString value) {
+      value.getClass();
+  
+      lightData_ = value;
+    }
+    /**
+     * <code>bytes light_data = 7;</code>
+     */
+    private void clearLightData() {
+      
+      lightData_ = getDefaultInstance().getLightData();
     }
 
     public static Server.WorldChunkLoad parseFrom(
@@ -14155,35 +15075,7 @@ public final class Server {
       }
 
       /**
-       * <code>bytes data = 4;</code>
-       * @return The data.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getData() {
-        return instance.getData();
-      }
-      /**
-       * <code>bytes data = 4;</code>
-       * @param value The data to set.
-       * @return This builder for chaining.
-       */
-      public Builder setData(com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setData(value);
-        return this;
-      }
-      /**
-       * <code>bytes data = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearData() {
-        copyOnWrite();
-        instance.clearData();
-        return this;
-      }
-
-      /**
-       * <code>sint32 height = 5;</code>
+       * <code>sint32 height = 4;</code>
        * @return The height.
        */
       @java.lang.Override
@@ -14191,7 +15083,7 @@ public final class Server {
         return instance.getHeight();
       }
       /**
-       * <code>sint32 height = 5;</code>
+       * <code>sint32 height = 4;</code>
        * @param value The height to set.
        * @return This builder for chaining.
        */
@@ -14201,7 +15093,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>sint32 height = 5;</code>
+       * <code>sint32 height = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
@@ -14211,7 +15103,7 @@ public final class Server {
       }
 
       /**
-       * <code>bool compressed = 6;</code>
+       * <code>bool compressed = 5;</code>
        * @return The compressed.
        */
       @java.lang.Override
@@ -14219,7 +15111,7 @@ public final class Server {
         return instance.getCompressed();
       }
       /**
-       * <code>bool compressed = 6;</code>
+       * <code>bool compressed = 5;</code>
        * @param value The compressed to set.
        * @return This builder for chaining.
        */
@@ -14229,12 +15121,68 @@ public final class Server {
         return this;
       }
       /**
-       * <code>bool compressed = 6;</code>
+       * <code>bool compressed = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearCompressed() {
         copyOnWrite();
         instance.clearCompressed();
+        return this;
+      }
+
+      /**
+       * <code>bytes block_data = 6;</code>
+       * @return The blockData.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getBlockData() {
+        return instance.getBlockData();
+      }
+      /**
+       * <code>bytes block_data = 6;</code>
+       * @param value The blockData to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBlockData(com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setBlockData(value);
+        return this;
+      }
+      /**
+       * <code>bytes block_data = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBlockData() {
+        copyOnWrite();
+        instance.clearBlockData();
+        return this;
+      }
+
+      /**
+       * <code>bytes light_data = 7;</code>
+       * @return The lightData.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getLightData() {
+        return instance.getLightData();
+      }
+      /**
+       * <code>bytes light_data = 7;</code>
+       * @param value The lightData to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLightData(com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setLightData(value);
+        return this;
+      }
+      /**
+       * <code>bytes light_data = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLightData() {
+        copyOnWrite();
+        instance.clearLightData();
         return this;
       }
 
@@ -14257,13 +15205,14 @@ public final class Server {
               "x_",
               "y_",
               "z_",
-              "data_",
               "height_",
               "compressed_",
+              "blockData_",
+              "lightData_",
             };
             java.lang.String info =
-                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u000f\u0002\u000f" +
-                "\u0003\u000f\u0004\n\u0005\u000f\u0006\u0007";
+                "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0000\u0000\u0001\u000f\u0002\u000f" +
+                "\u0003\u000f\u0004\u000f\u0005\u0007\u0006\n\u0007\n";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -15350,409 +16299,6 @@ public final class Server {
     private static volatile com.google.protobuf.Parser<WorldChunksRemoveAll> PARSER;
 
     public static com.google.protobuf.Parser<WorldChunksRemoveAll> parser() {
-      return DEFAULT_INSTANCE.getParserForType();
-    }
-  }
-
-  public interface RegistryUpdateOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:RegistryUpdate)
-      com.google.protobuf.MessageLiteOrBuilder {
-
-    /**
-     * <code>string items_def = 1;</code>
-     * @return The itemsDef.
-     */
-    java.lang.String getItemsDef();
-    /**
-     * <code>string items_def = 1;</code>
-     * @return The bytes for itemsDef.
-     */
-    com.google.protobuf.ByteString
-        getItemsDefBytes();
-
-    /**
-     * <code>string blocks_def = 2;</code>
-     * @return The blocksDef.
-     */
-    java.lang.String getBlocksDef();
-    /**
-     * <code>string blocks_def = 2;</code>
-     * @return The bytes for blocksDef.
-     */
-    com.google.protobuf.ByteString
-        getBlocksDefBytes();
-  }
-  /**
-   * Protobuf type {@code RegistryUpdate}
-   */
-  public  static final class RegistryUpdate extends
-      com.google.protobuf.GeneratedMessageLite<
-          RegistryUpdate, RegistryUpdate.Builder> implements
-      // @@protoc_insertion_point(message_implements:RegistryUpdate)
-      RegistryUpdateOrBuilder {
-    private RegistryUpdate() {
-      itemsDef_ = "";
-      blocksDef_ = "";
-    }
-    public static final int ITEMS_DEF_FIELD_NUMBER = 1;
-    private java.lang.String itemsDef_;
-    /**
-     * <code>string items_def = 1;</code>
-     * @return The itemsDef.
-     */
-    @java.lang.Override
-    public java.lang.String getItemsDef() {
-      return itemsDef_;
-    }
-    /**
-     * <code>string items_def = 1;</code>
-     * @return The bytes for itemsDef.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getItemsDefBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(itemsDef_);
-    }
-    /**
-     * <code>string items_def = 1;</code>
-     * @param value The itemsDef to set.
-     */
-    private void setItemsDef(
-        java.lang.String value) {
-      value.getClass();
-  
-      itemsDef_ = value;
-    }
-    /**
-     * <code>string items_def = 1;</code>
-     */
-    private void clearItemsDef() {
-      
-      itemsDef_ = getDefaultInstance().getItemsDef();
-    }
-    /**
-     * <code>string items_def = 1;</code>
-     * @param value The bytes for itemsDef to set.
-     */
-    private void setItemsDefBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      itemsDef_ = value.toStringUtf8();
-      
-    }
-
-    public static final int BLOCKS_DEF_FIELD_NUMBER = 2;
-    private java.lang.String blocksDef_;
-    /**
-     * <code>string blocks_def = 2;</code>
-     * @return The blocksDef.
-     */
-    @java.lang.Override
-    public java.lang.String getBlocksDef() {
-      return blocksDef_;
-    }
-    /**
-     * <code>string blocks_def = 2;</code>
-     * @return The bytes for blocksDef.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getBlocksDefBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(blocksDef_);
-    }
-    /**
-     * <code>string blocks_def = 2;</code>
-     * @param value The blocksDef to set.
-     */
-    private void setBlocksDef(
-        java.lang.String value) {
-      value.getClass();
-  
-      blocksDef_ = value;
-    }
-    /**
-     * <code>string blocks_def = 2;</code>
-     */
-    private void clearBlocksDef() {
-      
-      blocksDef_ = getDefaultInstance().getBlocksDef();
-    }
-    /**
-     * <code>string blocks_def = 2;</code>
-     * @param value The bytes for blocksDef to set.
-     */
-    private void setBlocksDefBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      blocksDef_ = value.toStringUtf8();
-      
-    }
-
-    public static Server.RegistryUpdate parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, data);
-    }
-    public static Server.RegistryUpdate parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, data, extensionRegistry);
-    }
-    public static Server.RegistryUpdate parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, data);
-    }
-    public static Server.RegistryUpdate parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, data, extensionRegistry);
-    }
-    public static Server.RegistryUpdate parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, data);
-    }
-    public static Server.RegistryUpdate parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, data, extensionRegistry);
-    }
-    public static Server.RegistryUpdate parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, input);
-    }
-    public static Server.RegistryUpdate parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, input, extensionRegistry);
-    }
-    public static Server.RegistryUpdate parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
-    }
-    public static Server.RegistryUpdate parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
-    }
-    public static Server.RegistryUpdate parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, input);
-    }
-    public static Server.RegistryUpdate parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageLite.parseFrom(
-          DEFAULT_INSTANCE, input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() {
-      return (Builder) DEFAULT_INSTANCE.createBuilder();
-    }
-    public static Builder newBuilder(Server.RegistryUpdate prototype) {
-      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
-    }
-
-    /**
-     * Protobuf type {@code RegistryUpdate}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          Server.RegistryUpdate, Builder> implements
-        // @@protoc_insertion_point(builder_implements:RegistryUpdate)
-        Server.RegistryUpdateOrBuilder {
-      // Construct using Server.RegistryUpdate.newBuilder()
-      private Builder() {
-        super(DEFAULT_INSTANCE);
-      }
-
-
-      /**
-       * <code>string items_def = 1;</code>
-       * @return The itemsDef.
-       */
-      @java.lang.Override
-      public java.lang.String getItemsDef() {
-        return instance.getItemsDef();
-      }
-      /**
-       * <code>string items_def = 1;</code>
-       * @return The bytes for itemsDef.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getItemsDefBytes() {
-        return instance.getItemsDefBytes();
-      }
-      /**
-       * <code>string items_def = 1;</code>
-       * @param value The itemsDef to set.
-       * @return This builder for chaining.
-       */
-      public Builder setItemsDef(
-          java.lang.String value) {
-        copyOnWrite();
-        instance.setItemsDef(value);
-        return this;
-      }
-      /**
-       * <code>string items_def = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearItemsDef() {
-        copyOnWrite();
-        instance.clearItemsDef();
-        return this;
-      }
-      /**
-       * <code>string items_def = 1;</code>
-       * @param value The bytes for itemsDef to set.
-       * @return This builder for chaining.
-       */
-      public Builder setItemsDefBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setItemsDefBytes(value);
-        return this;
-      }
-
-      /**
-       * <code>string blocks_def = 2;</code>
-       * @return The blocksDef.
-       */
-      @java.lang.Override
-      public java.lang.String getBlocksDef() {
-        return instance.getBlocksDef();
-      }
-      /**
-       * <code>string blocks_def = 2;</code>
-       * @return The bytes for blocksDef.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getBlocksDefBytes() {
-        return instance.getBlocksDefBytes();
-      }
-      /**
-       * <code>string blocks_def = 2;</code>
-       * @param value The blocksDef to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBlocksDef(
-          java.lang.String value) {
-        copyOnWrite();
-        instance.setBlocksDef(value);
-        return this;
-      }
-      /**
-       * <code>string blocks_def = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearBlocksDef() {
-        copyOnWrite();
-        instance.clearBlocksDef();
-        return this;
-      }
-      /**
-       * <code>string blocks_def = 2;</code>
-       * @param value The bytes for blocksDef to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBlocksDefBytes(
-          com.google.protobuf.ByteString value) {
-        copyOnWrite();
-        instance.setBlocksDefBytes(value);
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:RegistryUpdate)
-    }
-    @java.lang.Override
-    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-    protected final java.lang.Object dynamicMethod(
-        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-        java.lang.Object arg0, java.lang.Object arg1) {
-      switch (method) {
-        case NEW_MUTABLE_INSTANCE: {
-          return new Server.RegistryUpdate();
-        }
-        case NEW_BUILDER: {
-          return new Builder();
-        }
-        case BUILD_MESSAGE_INFO: {
-            java.lang.Object[] objects = new java.lang.Object[] {
-              "itemsDef_",
-              "blocksDef_",
-            };
-            java.lang.String info =
-                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
-                "";
-            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
-        }
-        // fall through
-        case GET_DEFAULT_INSTANCE: {
-          return DEFAULT_INSTANCE;
-        }
-        case GET_PARSER: {
-          com.google.protobuf.Parser<Server.RegistryUpdate> parser = PARSER;
-          if (parser == null) {
-            synchronized (Server.RegistryUpdate.class) {
-              parser = PARSER;
-              if (parser == null) {
-                parser =
-                    new DefaultInstanceBasedParser<Server.RegistryUpdate>(
-                        DEFAULT_INSTANCE);
-                PARSER = parser;
-              }
-            }
-          }
-          return parser;
-      }
-      case GET_MEMOIZED_IS_INITIALIZED: {
-        return (byte) 1;
-      }
-      case SET_MEMOIZED_IS_INITIALIZED: {
-        return null;
-      }
-      }
-      throw new UnsupportedOperationException();
-    }
-
-
-    // @@protoc_insertion_point(class_scope:RegistryUpdate)
-    private static final Server.RegistryUpdate DEFAULT_INSTANCE;
-    static {
-      RegistryUpdate defaultInstance = new RegistryUpdate();
-      // New instances are implicitly immutable so no need to make
-      // immutable.
-      DEFAULT_INSTANCE = defaultInstance;
-      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
-        RegistryUpdate.class, defaultInstance);
-    }
-
-    public static Server.RegistryUpdate getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static volatile com.google.protobuf.Parser<RegistryUpdate> PARSER;
-
-    public static com.google.protobuf.Parser<RegistryUpdate> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }
@@ -16973,6 +17519,298 @@ public final class Server {
     private static volatile com.google.protobuf.Parser<EnvironmentSkyUpdate> PARSER;
 
     public static com.google.protobuf.Parser<EnvironmentSkyUpdate> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface EnvironmentSetSkyboxOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:EnvironmentSetSkybox)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string texture = 1;</code>
+     * @return The texture.
+     */
+    java.lang.String getTexture();
+    /**
+     * <code>string texture = 1;</code>
+     * @return The bytes for texture.
+     */
+    com.google.protobuf.ByteString
+        getTextureBytes();
+  }
+  /**
+   * Protobuf type {@code EnvironmentSetSkybox}
+   */
+  public  static final class EnvironmentSetSkybox extends
+      com.google.protobuf.GeneratedMessageLite<
+          EnvironmentSetSkybox, EnvironmentSetSkybox.Builder> implements
+      // @@protoc_insertion_point(message_implements:EnvironmentSetSkybox)
+      EnvironmentSetSkyboxOrBuilder {
+    private EnvironmentSetSkybox() {
+      texture_ = "";
+    }
+    public static final int TEXTURE_FIELD_NUMBER = 1;
+    private java.lang.String texture_;
+    /**
+     * <code>string texture = 1;</code>
+     * @return The texture.
+     */
+    @java.lang.Override
+    public java.lang.String getTexture() {
+      return texture_;
+    }
+    /**
+     * <code>string texture = 1;</code>
+     * @return The bytes for texture.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTextureBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(texture_);
+    }
+    /**
+     * <code>string texture = 1;</code>
+     * @param value The texture to set.
+     */
+    private void setTexture(
+        java.lang.String value) {
+      value.getClass();
+  
+      texture_ = value;
+    }
+    /**
+     * <code>string texture = 1;</code>
+     */
+    private void clearTexture() {
+      
+      texture_ = getDefaultInstance().getTexture();
+    }
+    /**
+     * <code>string texture = 1;</code>
+     * @param value The bytes for texture to set.
+     */
+    private void setTextureBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      texture_ = value.toStringUtf8();
+      
+    }
+
+    public static Server.EnvironmentSetSkybox parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.EnvironmentSetSkybox parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Server.EnvironmentSetSkybox parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.EnvironmentSetSkybox parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Server.EnvironmentSetSkybox prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code EnvironmentSetSkybox}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Server.EnvironmentSetSkybox, Builder> implements
+        // @@protoc_insertion_point(builder_implements:EnvironmentSetSkybox)
+        Server.EnvironmentSetSkyboxOrBuilder {
+      // Construct using Server.EnvironmentSetSkybox.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string texture = 1;</code>
+       * @return The texture.
+       */
+      @java.lang.Override
+      public java.lang.String getTexture() {
+        return instance.getTexture();
+      }
+      /**
+       * <code>string texture = 1;</code>
+       * @return The bytes for texture.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getTextureBytes() {
+        return instance.getTextureBytes();
+      }
+      /**
+       * <code>string texture = 1;</code>
+       * @param value The texture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTexture(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setTexture(value);
+        return this;
+      }
+      /**
+       * <code>string texture = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTexture() {
+        copyOnWrite();
+        instance.clearTexture();
+        return this;
+      }
+      /**
+       * <code>string texture = 1;</code>
+       * @param value The bytes for texture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextureBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setTextureBytes(value);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:EnvironmentSetSkybox)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Server.EnvironmentSetSkybox();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "texture_",
+            };
+            java.lang.String info =
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0000\u0000\u0001\u0208";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Server.EnvironmentSetSkybox> parser = PARSER;
+          if (parser == null) {
+            synchronized (Server.EnvironmentSetSkybox.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Server.EnvironmentSetSkybox>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:EnvironmentSetSkybox)
+    private static final Server.EnvironmentSetSkybox DEFAULT_INSTANCE;
+    static {
+      EnvironmentSetSkybox defaultInstance = new EnvironmentSetSkybox();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        EnvironmentSetSkybox.class, defaultInstance);
+    }
+
+    public static Server.EnvironmentSetSkybox getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<EnvironmentSetSkybox> PARSER;
+
+    public static com.google.protobuf.Parser<EnvironmentSetSkybox> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }

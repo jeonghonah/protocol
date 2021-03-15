@@ -103,6 +103,103 @@
           "id": 1
         }
       }
+    },
+    "ChatComponentType": {
+      "fields": {
+        "text": {
+          "type": "string",
+          "id": 1
+        },
+        "font": {
+          "type": "string",
+          "id": 2
+        },
+        "color": {
+          "type": "string",
+          "id": 3
+        },
+        "linethrough": {
+          "type": "bool",
+          "id": 4
+        },
+        "underline": {
+          "type": "bool",
+          "id": 5
+        },
+        "url": {
+          "type": "string",
+          "id": 6
+        }
+      }
+    },
+    "BasicChatComponentType": {
+      "fields": {
+        "text": {
+          "type": "string",
+          "id": 1
+        },
+        "font": {
+          "type": "string",
+          "id": 2
+        },
+        "color": {
+          "type": "string",
+          "id": 3
+        },
+        "linethrough": {
+          "type": "bool",
+          "id": 4
+        },
+        "underline": {
+          "type": "bool",
+          "id": 5
+        }
+      }
+    },
+    "Item": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "id": 1
+        },
+        "count": {
+          "type": "int32",
+          "id": 2
+        },
+        "damage": {
+          "type": "float",
+          "id": 3
+        },
+        "name": {
+          "keyType": "uint32",
+          "type": "BasicChatComponentType",
+          "id": 4
+        }
+      }
+    },
+    "InventoryType": {
+      "values": {
+        "MAIN": 0,
+        "ARMOR": 1,
+        "CRAFT": 2,
+        "HOOK": 3
+      }
+    },
+    "ContainerType": {
+      "values": {
+        "PLAYER": 0,
+        "CHEST": 1,
+        "CRAFTING": 2,
+        "FURNACE": 3
+      }
+    },
+    "MouseClickType": {
+      "values": {
+        "LEFT": 0,
+        "RIGHT": 1,
+        "MIDDLE": 2,
+        "SELECT": 3
+      }
     }
   }
 }

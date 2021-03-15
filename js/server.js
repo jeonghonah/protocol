@@ -30,6 +30,8 @@
          * @property {string|null} [software] LoginRequest software
          * @property {boolean|null} [auth] LoginRequest auth
          * @property {string|null} [secret] LoginRequest secret
+         * @property {boolean|null} [isProxy] LoginRequest isProxy
+         * @property {number|null} [protocolRev] LoginRequest protocolRev
          */
     
         /**
@@ -112,6 +114,22 @@
         LoginRequest.prototype.secret = "";
     
         /**
+         * LoginRequest isProxy.
+         * @member {boolean} isProxy
+         * @memberof LoginRequest
+         * @instance
+         */
+        LoginRequest.prototype.isProxy = false;
+    
+        /**
+         * LoginRequest protocolRev.
+         * @member {number} protocolRev
+         * @memberof LoginRequest
+         * @instance
+         */
+        LoginRequest.prototype.protocolRev = 0;
+    
+        /**
          * Creates a new LoginRequest instance using the specified properties.
          * @function create
          * @memberof LoginRequest
@@ -151,6 +169,10 @@
                 writer.uint32(/* id 7, wireType 0 =*/56).bool(message.auth);
             if (message.secret != null && Object.hasOwnProperty.call(message, "secret"))
                 writer.uint32(/* id 8, wireType 2 =*/66).string(message.secret);
+            if (message.isProxy != null && Object.hasOwnProperty.call(message, "isProxy"))
+                writer.uint32(/* id 9, wireType 0 =*/72).bool(message.isProxy);
+            if (message.protocolRev != null && Object.hasOwnProperty.call(message, "protocolRev"))
+                writer.uint32(/* id 10, wireType 0 =*/80).int32(message.protocolRev);
             return writer;
         };
     
@@ -208,6 +230,12 @@
                     break;
                 case 8:
                     message.secret = reader.string();
+                    break;
+                case 9:
+                    message.isProxy = reader.bool();
+                    break;
+                case 10:
+                    message.protocolRev = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -268,6 +296,12 @@
             if (message.secret != null && message.hasOwnProperty("secret"))
                 if (!$util.isString(message.secret))
                     return "secret: string expected";
+            if (message.isProxy != null && message.hasOwnProperty("isProxy"))
+                if (typeof message.isProxy !== "boolean")
+                    return "isProxy: boolean expected";
+            if (message.protocolRev != null && message.hasOwnProperty("protocolRev"))
+                if (!$util.isInteger(message.protocolRev))
+                    return "protocolRev: integer expected";
             return null;
         };
     
@@ -299,6 +333,10 @@
                 message.auth = Boolean(object.auth);
             if (object.secret != null)
                 message.secret = String(object.secret);
+            if (object.isProxy != null)
+                message.isProxy = Boolean(object.isProxy);
+            if (object.protocolRev != null)
+                message.protocolRev = object.protocolRev | 0;
             return message;
         };
     
@@ -324,6 +362,8 @@
                 object.software = "";
                 object.auth = false;
                 object.secret = "";
+                object.isProxy = false;
+                object.protocolRev = 0;
             }
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
@@ -341,6 +381,10 @@
                 object.auth = message.auth;
             if (message.secret != null && message.hasOwnProperty("secret"))
                 object.secret = message.secret;
+            if (message.isProxy != null && message.hasOwnProperty("isProxy"))
+                object.isProxy = message.isProxy;
+            if (message.protocolRev != null && message.hasOwnProperty("protocolRev"))
+                object.protocolRev = message.protocolRev;
             return object;
         };
     
@@ -588,14 +632,11 @@
          * Properties of a LoginSuccess.
          * @exports ILoginSuccess
          * @interface ILoginSuccess
-         * @property {number|null} [xPos] LoginSuccess xPos
-         * @property {number|null} [yPos] LoginSuccess yPos
-         * @property {number|null} [zPos] LoginSuccess zPos
+         * @property {string|null} [message] LoginSuccess message
+         * @property {number|Long|null} [time] LoginSuccess time
+         * @property {string|null} [assets] LoginSuccess assets
          * @property {string|null} [itemsDef] LoginSuccess itemsDef
          * @property {string|null} [blocksDef] LoginSuccess blocksDef
-         * @property {string|null} [inventory] LoginSuccess inventory
-         * @property {string|null} [armor] LoginSuccess armor
-         * @property {string|null} [movement] LoginSuccess movement
          */
     
         /**
@@ -614,28 +655,28 @@
         }
     
         /**
-         * LoginSuccess xPos.
-         * @member {number} xPos
+         * LoginSuccess message.
+         * @member {string} message
          * @memberof LoginSuccess
          * @instance
          */
-        LoginSuccess.prototype.xPos = 0;
+        LoginSuccess.prototype.message = "";
     
         /**
-         * LoginSuccess yPos.
-         * @member {number} yPos
+         * LoginSuccess time.
+         * @member {number|Long} time
          * @memberof LoginSuccess
          * @instance
          */
-        LoginSuccess.prototype.yPos = 0;
+        LoginSuccess.prototype.time = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
     
         /**
-         * LoginSuccess zPos.
-         * @member {number} zPos
+         * LoginSuccess assets.
+         * @member {string} assets
          * @memberof LoginSuccess
          * @instance
          */
-        LoginSuccess.prototype.zPos = 0;
+        LoginSuccess.prototype.assets = "";
     
         /**
          * LoginSuccess itemsDef.
@@ -652,30 +693,6 @@
          * @instance
          */
         LoginSuccess.prototype.blocksDef = "";
-    
-        /**
-         * LoginSuccess inventory.
-         * @member {string} inventory
-         * @memberof LoginSuccess
-         * @instance
-         */
-        LoginSuccess.prototype.inventory = "";
-    
-        /**
-         * LoginSuccess armor.
-         * @member {string} armor
-         * @memberof LoginSuccess
-         * @instance
-         */
-        LoginSuccess.prototype.armor = "";
-    
-        /**
-         * LoginSuccess movement.
-         * @member {string} movement
-         * @memberof LoginSuccess
-         * @instance
-         */
-        LoginSuccess.prototype.movement = "";
     
         /**
          * Creates a new LoginSuccess instance using the specified properties.
@@ -701,22 +718,16 @@
         LoginSuccess.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.xPos != null && Object.hasOwnProperty.call(message, "xPos"))
-                writer.uint32(/* id 1, wireType 1 =*/9).double(message.xPos);
-            if (message.yPos != null && Object.hasOwnProperty.call(message, "yPos"))
-                writer.uint32(/* id 2, wireType 1 =*/17).double(message.yPos);
-            if (message.zPos != null && Object.hasOwnProperty.call(message, "zPos"))
-                writer.uint32(/* id 3, wireType 1 =*/25).double(message.zPos);
+            if (message.message != null && Object.hasOwnProperty.call(message, "message"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.message);
+            if (message.time != null && Object.hasOwnProperty.call(message, "time"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
+            if (message.assets != null && Object.hasOwnProperty.call(message, "assets"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.assets);
             if (message.itemsDef != null && Object.hasOwnProperty.call(message, "itemsDef"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.itemsDef);
             if (message.blocksDef != null && Object.hasOwnProperty.call(message, "blocksDef"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.blocksDef);
-            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
-                writer.uint32(/* id 6, wireType 2 =*/50).string(message.inventory);
-            if (message.armor != null && Object.hasOwnProperty.call(message, "armor"))
-                writer.uint32(/* id 7, wireType 2 =*/58).string(message.armor);
-            if (message.movement != null && Object.hasOwnProperty.call(message, "movement"))
-                writer.uint32(/* id 8, wireType 2 =*/66).string(message.movement);
             return writer;
         };
     
@@ -752,28 +763,19 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.xPos = reader.double();
+                    message.message = reader.string();
                     break;
                 case 2:
-                    message.yPos = reader.double();
+                    message.time = reader.uint64();
                     break;
                 case 3:
-                    message.zPos = reader.double();
+                    message.assets = reader.string();
                     break;
                 case 4:
                     message.itemsDef = reader.string();
                     break;
                 case 5:
                     message.blocksDef = reader.string();
-                    break;
-                case 6:
-                    message.inventory = reader.string();
-                    break;
-                case 7:
-                    message.armor = reader.string();
-                    break;
-                case 8:
-                    message.movement = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -810,30 +812,21 @@
         LoginSuccess.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.xPos != null && message.hasOwnProperty("xPos"))
-                if (typeof message.xPos !== "number")
-                    return "xPos: number expected";
-            if (message.yPos != null && message.hasOwnProperty("yPos"))
-                if (typeof message.yPos !== "number")
-                    return "yPos: number expected";
-            if (message.zPos != null && message.hasOwnProperty("zPos"))
-                if (typeof message.zPos !== "number")
-                    return "zPos: number expected";
+            if (message.message != null && message.hasOwnProperty("message"))
+                if (!$util.isString(message.message))
+                    return "message: string expected";
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
+                    return "time: integer|Long expected";
+            if (message.assets != null && message.hasOwnProperty("assets"))
+                if (!$util.isString(message.assets))
+                    return "assets: string expected";
             if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
                 if (!$util.isString(message.itemsDef))
                     return "itemsDef: string expected";
             if (message.blocksDef != null && message.hasOwnProperty("blocksDef"))
                 if (!$util.isString(message.blocksDef))
                     return "blocksDef: string expected";
-            if (message.inventory != null && message.hasOwnProperty("inventory"))
-                if (!$util.isString(message.inventory))
-                    return "inventory: string expected";
-            if (message.armor != null && message.hasOwnProperty("armor"))
-                if (!$util.isString(message.armor))
-                    return "armor: string expected";
-            if (message.movement != null && message.hasOwnProperty("movement"))
-                if (!$util.isString(message.movement))
-                    return "movement: string expected";
             return null;
         };
     
@@ -849,22 +842,23 @@
             if (object instanceof $root.LoginSuccess)
                 return object;
             var message = new $root.LoginSuccess();
-            if (object.xPos != null)
-                message.xPos = Number(object.xPos);
-            if (object.yPos != null)
-                message.yPos = Number(object.yPos);
-            if (object.zPos != null)
-                message.zPos = Number(object.zPos);
+            if (object.message != null)
+                message.message = String(object.message);
+            if (object.time != null)
+                if ($util.Long)
+                    (message.time = $util.Long.fromValue(object.time)).unsigned = true;
+                else if (typeof object.time === "string")
+                    message.time = parseInt(object.time, 10);
+                else if (typeof object.time === "number")
+                    message.time = object.time;
+                else if (typeof object.time === "object")
+                    message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber(true);
+            if (object.assets != null)
+                message.assets = String(object.assets);
             if (object.itemsDef != null)
                 message.itemsDef = String(object.itemsDef);
             if (object.blocksDef != null)
                 message.blocksDef = String(object.blocksDef);
-            if (object.inventory != null)
-                message.inventory = String(object.inventory);
-            if (object.armor != null)
-                message.armor = String(object.armor);
-            if (object.movement != null)
-                message.movement = String(object.movement);
             return message;
         };
     
@@ -882,31 +876,29 @@
                 options = {};
             var object = {};
             if (options.defaults) {
-                object.xPos = 0;
-                object.yPos = 0;
-                object.zPos = 0;
+                object.message = "";
+                if ($util.Long) {
+                    var long = new $util.Long(0, 0, true);
+                    object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                } else
+                    object.time = options.longs === String ? "0" : 0;
+                object.assets = "";
                 object.itemsDef = "";
                 object.blocksDef = "";
-                object.inventory = "";
-                object.armor = "";
-                object.movement = "";
             }
-            if (message.xPos != null && message.hasOwnProperty("xPos"))
-                object.xPos = options.json && !isFinite(message.xPos) ? String(message.xPos) : message.xPos;
-            if (message.yPos != null && message.hasOwnProperty("yPos"))
-                object.yPos = options.json && !isFinite(message.yPos) ? String(message.yPos) : message.yPos;
-            if (message.zPos != null && message.hasOwnProperty("zPos"))
-                object.zPos = options.json && !isFinite(message.zPos) ? String(message.zPos) : message.zPos;
+            if (message.message != null && message.hasOwnProperty("message"))
+                object.message = message.message;
+            if (message.time != null && message.hasOwnProperty("time"))
+                if (typeof message.time === "number")
+                    object.time = options.longs === String ? String(message.time) : message.time;
+                else
+                    object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber(true) : message.time;
+            if (message.assets != null && message.hasOwnProperty("assets"))
+                object.assets = message.assets;
             if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
                 object.itemsDef = message.itemsDef;
             if (message.blocksDef != null && message.hasOwnProperty("blocksDef"))
                 object.blocksDef = message.blocksDef;
-            if (message.inventory != null && message.hasOwnProperty("inventory"))
-                object.inventory = message.inventory;
-            if (message.armor != null && message.hasOwnProperty("armor"))
-                object.armor = message.armor;
-            if (message.movement != null && message.hasOwnProperty("movement"))
-                object.movement = message.movement;
             return object;
         };
     
@@ -1123,6 +1115,394 @@
         };
     
         return Ping;
+    })();
+    
+    $root.PlayerSpawn = (function() {
+    
+        /**
+         * Properties of a PlayerSpawn.
+         * @exports IPlayerSpawn
+         * @interface IPlayerSpawn
+         * @property {number|null} [xPos] PlayerSpawn xPos
+         * @property {number|null} [yPos] PlayerSpawn yPos
+         * @property {number|null} [zPos] PlayerSpawn zPos
+         * @property {number|null} [rotation] PlayerSpawn rotation
+         * @property {number|null} [pitch] PlayerSpawn pitch
+         * @property {Object.<string,number>|null} [movement] PlayerSpawn movement
+         * @property {IPlayerInventory|null} [inventory] PlayerSpawn inventory
+         * @property {IPlayerEntity|null} [entity] PlayerSpawn entity
+         */
+    
+        /**
+         * Constructs a new PlayerSpawn.
+         * @exports PlayerSpawn
+         * @classdesc Represents a PlayerSpawn.
+         * @implements IPlayerSpawn
+         * @constructor
+         * @param {IPlayerSpawn=} [properties] Properties to set
+         */
+        function PlayerSpawn(properties) {
+            this.movement = {};
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerSpawn xPos.
+         * @member {number} xPos
+         * @memberof PlayerSpawn
+         * @instance
+         */
+        PlayerSpawn.prototype.xPos = 0;
+    
+        /**
+         * PlayerSpawn yPos.
+         * @member {number} yPos
+         * @memberof PlayerSpawn
+         * @instance
+         */
+        PlayerSpawn.prototype.yPos = 0;
+    
+        /**
+         * PlayerSpawn zPos.
+         * @member {number} zPos
+         * @memberof PlayerSpawn
+         * @instance
+         */
+        PlayerSpawn.prototype.zPos = 0;
+    
+        /**
+         * PlayerSpawn rotation.
+         * @member {number} rotation
+         * @memberof PlayerSpawn
+         * @instance
+         */
+        PlayerSpawn.prototype.rotation = 0;
+    
+        /**
+         * PlayerSpawn pitch.
+         * @member {number} pitch
+         * @memberof PlayerSpawn
+         * @instance
+         */
+        PlayerSpawn.prototype.pitch = 0;
+    
+        /**
+         * PlayerSpawn movement.
+         * @member {Object.<string,number>} movement
+         * @memberof PlayerSpawn
+         * @instance
+         */
+        PlayerSpawn.prototype.movement = $util.emptyObject;
+    
+        /**
+         * PlayerSpawn inventory.
+         * @member {IPlayerInventory|null|undefined} inventory
+         * @memberof PlayerSpawn
+         * @instance
+         */
+        PlayerSpawn.prototype.inventory = null;
+    
+        /**
+         * PlayerSpawn entity.
+         * @member {IPlayerEntity|null|undefined} entity
+         * @memberof PlayerSpawn
+         * @instance
+         */
+        PlayerSpawn.prototype.entity = null;
+    
+        /**
+         * Creates a new PlayerSpawn instance using the specified properties.
+         * @function create
+         * @memberof PlayerSpawn
+         * @static
+         * @param {IPlayerSpawn=} [properties] Properties to set
+         * @returns {PlayerSpawn} PlayerSpawn instance
+         */
+        PlayerSpawn.create = function create(properties) {
+            return new PlayerSpawn(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerSpawn message. Does not implicitly {@link PlayerSpawn.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerSpawn
+         * @static
+         * @param {IPlayerSpawn} message PlayerSpawn message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerSpawn.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.xPos != null && Object.hasOwnProperty.call(message, "xPos"))
+                writer.uint32(/* id 1, wireType 1 =*/9).double(message.xPos);
+            if (message.yPos != null && Object.hasOwnProperty.call(message, "yPos"))
+                writer.uint32(/* id 2, wireType 1 =*/17).double(message.yPos);
+            if (message.zPos != null && Object.hasOwnProperty.call(message, "zPos"))
+                writer.uint32(/* id 3, wireType 1 =*/25).double(message.zPos);
+            if (message.rotation != null && Object.hasOwnProperty.call(message, "rotation"))
+                writer.uint32(/* id 4, wireType 5 =*/37).float(message.rotation);
+            if (message.pitch != null && Object.hasOwnProperty.call(message, "pitch"))
+                writer.uint32(/* id 5, wireType 5 =*/45).float(message.pitch);
+            if (message.movement != null && Object.hasOwnProperty.call(message, "movement"))
+                for (var keys = Object.keys(message.movement), i = 0; i < keys.length; ++i)
+                    writer.uint32(/* id 6, wireType 2 =*/50).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 1 =*/17).double(message.movement[keys[i]]).ldelim();
+            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
+                $root.PlayerInventory.encode(message.inventory, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+            if (message.entity != null && Object.hasOwnProperty.call(message, "entity"))
+                $root.PlayerEntity.encode(message.entity, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerSpawn message, length delimited. Does not implicitly {@link PlayerSpawn.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerSpawn
+         * @static
+         * @param {IPlayerSpawn} message PlayerSpawn message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerSpawn.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerSpawn message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerSpawn
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerSpawn} PlayerSpawn
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerSpawn.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerSpawn(), key, value;
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.xPos = reader.double();
+                    break;
+                case 2:
+                    message.yPos = reader.double();
+                    break;
+                case 3:
+                    message.zPos = reader.double();
+                    break;
+                case 4:
+                    message.rotation = reader.float();
+                    break;
+                case 5:
+                    message.pitch = reader.float();
+                    break;
+                case 6:
+                    if (message.movement === $util.emptyObject)
+                        message.movement = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = "";
+                    value = 0;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.string();
+                            break;
+                        case 2:
+                            value = reader.double();
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.movement[key] = value;
+                    break;
+                case 7:
+                    message.inventory = $root.PlayerInventory.decode(reader, reader.uint32());
+                    break;
+                case 8:
+                    message.entity = $root.PlayerEntity.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerSpawn message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerSpawn
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerSpawn} PlayerSpawn
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerSpawn.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerSpawn message.
+         * @function verify
+         * @memberof PlayerSpawn
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerSpawn.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.xPos != null && message.hasOwnProperty("xPos"))
+                if (typeof message.xPos !== "number")
+                    return "xPos: number expected";
+            if (message.yPos != null && message.hasOwnProperty("yPos"))
+                if (typeof message.yPos !== "number")
+                    return "yPos: number expected";
+            if (message.zPos != null && message.hasOwnProperty("zPos"))
+                if (typeof message.zPos !== "number")
+                    return "zPos: number expected";
+            if (message.rotation != null && message.hasOwnProperty("rotation"))
+                if (typeof message.rotation !== "number")
+                    return "rotation: number expected";
+            if (message.pitch != null && message.hasOwnProperty("pitch"))
+                if (typeof message.pitch !== "number")
+                    return "pitch: number expected";
+            if (message.movement != null && message.hasOwnProperty("movement")) {
+                if (!$util.isObject(message.movement))
+                    return "movement: object expected";
+                var key = Object.keys(message.movement);
+                for (var i = 0; i < key.length; ++i)
+                    if (typeof message.movement[key[i]] !== "number")
+                        return "movement: number{k:string} expected";
+            }
+            if (message.inventory != null && message.hasOwnProperty("inventory")) {
+                var error = $root.PlayerInventory.verify(message.inventory);
+                if (error)
+                    return "inventory." + error;
+            }
+            if (message.entity != null && message.hasOwnProperty("entity")) {
+                var error = $root.PlayerEntity.verify(message.entity);
+                if (error)
+                    return "entity." + error;
+            }
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerSpawn message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerSpawn
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerSpawn} PlayerSpawn
+         */
+        PlayerSpawn.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerSpawn)
+                return object;
+            var message = new $root.PlayerSpawn();
+            if (object.xPos != null)
+                message.xPos = Number(object.xPos);
+            if (object.yPos != null)
+                message.yPos = Number(object.yPos);
+            if (object.zPos != null)
+                message.zPos = Number(object.zPos);
+            if (object.rotation != null)
+                message.rotation = Number(object.rotation);
+            if (object.pitch != null)
+                message.pitch = Number(object.pitch);
+            if (object.movement) {
+                if (typeof object.movement !== "object")
+                    throw TypeError(".PlayerSpawn.movement: object expected");
+                message.movement = {};
+                for (var keys = Object.keys(object.movement), i = 0; i < keys.length; ++i)
+                    message.movement[keys[i]] = Number(object.movement[keys[i]]);
+            }
+            if (object.inventory != null) {
+                if (typeof object.inventory !== "object")
+                    throw TypeError(".PlayerSpawn.inventory: object expected");
+                message.inventory = $root.PlayerInventory.fromObject(object.inventory);
+            }
+            if (object.entity != null) {
+                if (typeof object.entity !== "object")
+                    throw TypeError(".PlayerSpawn.entity: object expected");
+                message.entity = $root.PlayerEntity.fromObject(object.entity);
+            }
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerSpawn message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerSpawn
+         * @static
+         * @param {PlayerSpawn} message PlayerSpawn
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerSpawn.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.objects || options.defaults)
+                object.movement = {};
+            if (options.defaults) {
+                object.xPos = 0;
+                object.yPos = 0;
+                object.zPos = 0;
+                object.rotation = 0;
+                object.pitch = 0;
+                object.inventory = null;
+                object.entity = null;
+            }
+            if (message.xPos != null && message.hasOwnProperty("xPos"))
+                object.xPos = options.json && !isFinite(message.xPos) ? String(message.xPos) : message.xPos;
+            if (message.yPos != null && message.hasOwnProperty("yPos"))
+                object.yPos = options.json && !isFinite(message.yPos) ? String(message.yPos) : message.yPos;
+            if (message.zPos != null && message.hasOwnProperty("zPos"))
+                object.zPos = options.json && !isFinite(message.zPos) ? String(message.zPos) : message.zPos;
+            if (message.rotation != null && message.hasOwnProperty("rotation"))
+                object.rotation = options.json && !isFinite(message.rotation) ? String(message.rotation) : message.rotation;
+            if (message.pitch != null && message.hasOwnProperty("pitch"))
+                object.pitch = options.json && !isFinite(message.pitch) ? String(message.pitch) : message.pitch;
+            var keys2;
+            if (message.movement && (keys2 = Object.keys(message.movement)).length) {
+                object.movement = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.movement[keys2[j]] = options.json && !isFinite(message.movement[keys2[j]]) ? String(message.movement[keys2[j]]) : message.movement[keys2[j]];
+            }
+            if (message.inventory != null && message.hasOwnProperty("inventory"))
+                object.inventory = $root.PlayerInventory.toObject(message.inventory, options);
+            if (message.entity != null && message.hasOwnProperty("entity"))
+                object.entity = $root.PlayerEntity.toObject(message.entity, options);
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerSpawn to JSON.
+         * @function toJSON
+         * @memberof PlayerSpawn
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerSpawn.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerSpawn;
     })();
     
     $root.PlayerKick = (function() {
@@ -1358,6 +1738,8 @@
          * @property {string|null} [uuid] PlayerEntity uuid
          * @property {string|null} [model] PlayerEntity model
          * @property {string|null} [texture] PlayerEntity texture
+         * @property {number|null} [height] PlayerEntity height
+         * @property {number|null} [witdh] PlayerEntity witdh
          */
     
         /**
@@ -1400,6 +1782,22 @@
         PlayerEntity.prototype.texture = "";
     
         /**
+         * PlayerEntity height.
+         * @member {number} height
+         * @memberof PlayerEntity
+         * @instance
+         */
+        PlayerEntity.prototype.height = 0;
+    
+        /**
+         * PlayerEntity witdh.
+         * @member {number} witdh
+         * @memberof PlayerEntity
+         * @instance
+         */
+        PlayerEntity.prototype.witdh = 0;
+    
+        /**
          * Creates a new PlayerEntity instance using the specified properties.
          * @function create
          * @memberof PlayerEntity
@@ -1429,6 +1827,10 @@
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.model);
             if (message.texture != null && Object.hasOwnProperty.call(message, "texture"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.texture);
+            if (message.height != null && Object.hasOwnProperty.call(message, "height"))
+                writer.uint32(/* id 4, wireType 5 =*/37).float(message.height);
+            if (message.witdh != null && Object.hasOwnProperty.call(message, "witdh"))
+                writer.uint32(/* id 5, wireType 5 =*/45).float(message.witdh);
             return writer;
         };
     
@@ -1471,6 +1873,12 @@
                     break;
                 case 3:
                     message.texture = reader.string();
+                    break;
+                case 4:
+                    message.height = reader.float();
+                    break;
+                case 5:
+                    message.witdh = reader.float();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1516,6 +1924,12 @@
             if (message.texture != null && message.hasOwnProperty("texture"))
                 if (!$util.isString(message.texture))
                     return "texture: string expected";
+            if (message.height != null && message.hasOwnProperty("height"))
+                if (typeof message.height !== "number")
+                    return "height: number expected";
+            if (message.witdh != null && message.hasOwnProperty("witdh"))
+                if (typeof message.witdh !== "number")
+                    return "witdh: number expected";
             return null;
         };
     
@@ -1537,6 +1951,10 @@
                 message.model = String(object.model);
             if (object.texture != null)
                 message.texture = String(object.texture);
+            if (object.height != null)
+                message.height = Number(object.height);
+            if (object.witdh != null)
+                message.witdh = Number(object.witdh);
             return message;
         };
     
@@ -1557,6 +1975,8 @@
                 object.uuid = "";
                 object.model = "";
                 object.texture = "";
+                object.height = 0;
+                object.witdh = 0;
             }
             if (message.uuid != null && message.hasOwnProperty("uuid"))
                 object.uuid = message.uuid;
@@ -1564,6 +1984,10 @@
                 object.model = message.model;
             if (message.texture != null && message.hasOwnProperty("texture"))
                 object.texture = message.texture;
+            if (message.height != null && message.hasOwnProperty("height"))
+                object.height = options.json && !isFinite(message.height) ? String(message.height) : message.height;
+            if (message.witdh != null && message.hasOwnProperty("witdh"))
+                object.witdh = options.json && !isFinite(message.witdh) ? String(message.witdh) : message.witdh;
             return object;
         };
     
@@ -1590,6 +2014,8 @@
          * @property {number|null} [x] PlayerTeleport x
          * @property {number|null} [y] PlayerTeleport y
          * @property {number|null} [z] PlayerTeleport z
+         * @property {number|null} [rotation] PlayerTeleport rotation
+         * @property {number|null} [pitch] PlayerTeleport pitch
          */
     
         /**
@@ -1632,6 +2058,22 @@
         PlayerTeleport.prototype.z = 0;
     
         /**
+         * PlayerTeleport rotation.
+         * @member {number} rotation
+         * @memberof PlayerTeleport
+         * @instance
+         */
+        PlayerTeleport.prototype.rotation = 0;
+    
+        /**
+         * PlayerTeleport pitch.
+         * @member {number} pitch
+         * @memberof PlayerTeleport
+         * @instance
+         */
+        PlayerTeleport.prototype.pitch = 0;
+    
+        /**
          * Creates a new PlayerTeleport instance using the specified properties.
          * @function create
          * @memberof PlayerTeleport
@@ -1661,6 +2103,10 @@
                 writer.uint32(/* id 2, wireType 1 =*/17).double(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
                 writer.uint32(/* id 3, wireType 1 =*/25).double(message.z);
+            if (message.rotation != null && Object.hasOwnProperty.call(message, "rotation"))
+                writer.uint32(/* id 4, wireType 5 =*/37).float(message.rotation);
+            if (message.pitch != null && Object.hasOwnProperty.call(message, "pitch"))
+                writer.uint32(/* id 5, wireType 5 =*/45).float(message.pitch);
             return writer;
         };
     
@@ -1703,6 +2149,12 @@
                     break;
                 case 3:
                     message.z = reader.double();
+                    break;
+                case 4:
+                    message.rotation = reader.float();
+                    break;
+                case 5:
+                    message.pitch = reader.float();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1748,6 +2200,12 @@
             if (message.z != null && message.hasOwnProperty("z"))
                 if (typeof message.z !== "number")
                     return "z: number expected";
+            if (message.rotation != null && message.hasOwnProperty("rotation"))
+                if (typeof message.rotation !== "number")
+                    return "rotation: number expected";
+            if (message.pitch != null && message.hasOwnProperty("pitch"))
+                if (typeof message.pitch !== "number")
+                    return "pitch: number expected";
             return null;
         };
     
@@ -1769,6 +2227,10 @@
                 message.y = Number(object.y);
             if (object.z != null)
                 message.z = Number(object.z);
+            if (object.rotation != null)
+                message.rotation = Number(object.rotation);
+            if (object.pitch != null)
+                message.pitch = Number(object.pitch);
             return message;
         };
     
@@ -1789,6 +2251,8 @@
                 object.x = 0;
                 object.y = 0;
                 object.z = 0;
+                object.rotation = 0;
+                object.pitch = 0;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = options.json && !isFinite(message.x) ? String(message.x) : message.x;
@@ -1796,6 +2260,10 @@
                 object.y = options.json && !isFinite(message.y) ? String(message.y) : message.y;
             if (message.z != null && message.hasOwnProperty("z"))
                 object.z = options.json && !isFinite(message.z) ? String(message.z) : message.z;
+            if (message.rotation != null && message.hasOwnProperty("rotation"))
+                object.rotation = options.json && !isFinite(message.rotation) ? String(message.rotation) : message.rotation;
+            if (message.pitch != null && message.hasOwnProperty("pitch"))
+                object.pitch = options.json && !isFinite(message.pitch) ? String(message.pitch) : message.pitch;
             return object;
         };
     
@@ -1819,8 +2287,10 @@
          * Properties of a PlayerInventory.
          * @exports IPlayerInventory
          * @interface IPlayerInventory
-         * @property {string|null} [type] PlayerInventory type
-         * @property {string|null} [inventory] PlayerInventory inventory
+         * @property {number|null} [size] PlayerInventory size
+         * @property {Object.<string,IItem>|null} [main] PlayerInventory main
+         * @property {Object.<string,IItem>|null} [armor] PlayerInventory armor
+         * @property {Object.<string,IItem>|null} [crafting] PlayerInventory crafting
          */
     
         /**
@@ -1832,6 +2302,9 @@
          * @param {IPlayerInventory=} [properties] Properties to set
          */
         function PlayerInventory(properties) {
+            this.main = {};
+            this.armor = {};
+            this.crafting = {};
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1839,20 +2312,36 @@
         }
     
         /**
-         * PlayerInventory type.
-         * @member {string} type
+         * PlayerInventory size.
+         * @member {number} size
          * @memberof PlayerInventory
          * @instance
          */
-        PlayerInventory.prototype.type = "";
+        PlayerInventory.prototype.size = 0;
     
         /**
-         * PlayerInventory inventory.
-         * @member {string} inventory
+         * PlayerInventory main.
+         * @member {Object.<string,IItem>} main
          * @memberof PlayerInventory
          * @instance
          */
-        PlayerInventory.prototype.inventory = "";
+        PlayerInventory.prototype.main = $util.emptyObject;
+    
+        /**
+         * PlayerInventory armor.
+         * @member {Object.<string,IItem>} armor
+         * @memberof PlayerInventory
+         * @instance
+         */
+        PlayerInventory.prototype.armor = $util.emptyObject;
+    
+        /**
+         * PlayerInventory crafting.
+         * @member {Object.<string,IItem>} crafting
+         * @memberof PlayerInventory
+         * @instance
+         */
+        PlayerInventory.prototype.crafting = $util.emptyObject;
     
         /**
          * Creates a new PlayerInventory instance using the specified properties.
@@ -1878,10 +2367,23 @@
         PlayerInventory.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.type);
-            if (message.inventory != null && Object.hasOwnProperty.call(message, "inventory"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.inventory);
+            if (message.size != null && Object.hasOwnProperty.call(message, "size"))
+                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.size);
+            if (message.main != null && Object.hasOwnProperty.call(message, "main"))
+                for (var keys = Object.keys(message.main), i = 0; i < keys.length; ++i) {
+                    writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
+                    $root.Item.encode(message.main[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                }
+            if (message.armor != null && Object.hasOwnProperty.call(message, "armor"))
+                for (var keys = Object.keys(message.armor), i = 0; i < keys.length; ++i) {
+                    writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
+                    $root.Item.encode(message.armor[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                }
+            if (message.crafting != null && Object.hasOwnProperty.call(message, "crafting"))
+                for (var keys = Object.keys(message.crafting), i = 0; i < keys.length; ++i) {
+                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
+                    $root.Item.encode(message.crafting[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                }
             return writer;
         };
     
@@ -1912,15 +2414,78 @@
         PlayerInventory.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerInventory();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerInventory(), key, value;
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.type = reader.string();
+                    message.size = reader.uint32();
                     break;
                 case 2:
-                    message.inventory = reader.string();
+                    if (message.main === $util.emptyObject)
+                        message.main = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = 0;
+                    value = null;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.uint32();
+                            break;
+                        case 2:
+                            value = $root.Item.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.main[key] = value;
+                    break;
+                case 3:
+                    if (message.armor === $util.emptyObject)
+                        message.armor = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = 0;
+                    value = null;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.uint32();
+                            break;
+                        case 2:
+                            value = $root.Item.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.armor[key] = value;
+                    break;
+                case 4:
+                    if (message.crafting === $util.emptyObject)
+                        message.crafting = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = 0;
+                    value = null;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.uint32();
+                            break;
+                        case 2:
+                            value = $root.Item.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.crafting[key] = value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1957,12 +2522,51 @@
         PlayerInventory.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.type != null && message.hasOwnProperty("type"))
-                if (!$util.isString(message.type))
-                    return "type: string expected";
-            if (message.inventory != null && message.hasOwnProperty("inventory"))
-                if (!$util.isString(message.inventory))
-                    return "inventory: string expected";
+            if (message.size != null && message.hasOwnProperty("size"))
+                if (!$util.isInteger(message.size))
+                    return "size: integer expected";
+            if (message.main != null && message.hasOwnProperty("main")) {
+                if (!$util.isObject(message.main))
+                    return "main: object expected";
+                var key = Object.keys(message.main);
+                for (var i = 0; i < key.length; ++i) {
+                    if (!$util.key32Re.test(key[i]))
+                        return "main: integer key{k:uint32} expected";
+                    {
+                        var error = $root.Item.verify(message.main[key[i]]);
+                        if (error)
+                            return "main." + error;
+                    }
+                }
+            }
+            if (message.armor != null && message.hasOwnProperty("armor")) {
+                if (!$util.isObject(message.armor))
+                    return "armor: object expected";
+                var key = Object.keys(message.armor);
+                for (var i = 0; i < key.length; ++i) {
+                    if (!$util.key32Re.test(key[i]))
+                        return "armor: integer key{k:uint32} expected";
+                    {
+                        var error = $root.Item.verify(message.armor[key[i]]);
+                        if (error)
+                            return "armor." + error;
+                    }
+                }
+            }
+            if (message.crafting != null && message.hasOwnProperty("crafting")) {
+                if (!$util.isObject(message.crafting))
+                    return "crafting: object expected";
+                var key = Object.keys(message.crafting);
+                for (var i = 0; i < key.length; ++i) {
+                    if (!$util.key32Re.test(key[i]))
+                        return "crafting: integer key{k:uint32} expected";
+                    {
+                        var error = $root.Item.verify(message.crafting[key[i]]);
+                        if (error)
+                            return "crafting." + error;
+                    }
+                }
+            }
             return null;
         };
     
@@ -1978,10 +2582,38 @@
             if (object instanceof $root.PlayerInventory)
                 return object;
             var message = new $root.PlayerInventory();
-            if (object.type != null)
-                message.type = String(object.type);
-            if (object.inventory != null)
-                message.inventory = String(object.inventory);
+            if (object.size != null)
+                message.size = object.size >>> 0;
+            if (object.main) {
+                if (typeof object.main !== "object")
+                    throw TypeError(".PlayerInventory.main: object expected");
+                message.main = {};
+                for (var keys = Object.keys(object.main), i = 0; i < keys.length; ++i) {
+                    if (typeof object.main[keys[i]] !== "object")
+                        throw TypeError(".PlayerInventory.main: object expected");
+                    message.main[keys[i]] = $root.Item.fromObject(object.main[keys[i]]);
+                }
+            }
+            if (object.armor) {
+                if (typeof object.armor !== "object")
+                    throw TypeError(".PlayerInventory.armor: object expected");
+                message.armor = {};
+                for (var keys = Object.keys(object.armor), i = 0; i < keys.length; ++i) {
+                    if (typeof object.armor[keys[i]] !== "object")
+                        throw TypeError(".PlayerInventory.armor: object expected");
+                    message.armor[keys[i]] = $root.Item.fromObject(object.armor[keys[i]]);
+                }
+            }
+            if (object.crafting) {
+                if (typeof object.crafting !== "object")
+                    throw TypeError(".PlayerInventory.crafting: object expected");
+                message.crafting = {};
+                for (var keys = Object.keys(object.crafting), i = 0; i < keys.length; ++i) {
+                    if (typeof object.crafting[keys[i]] !== "object")
+                        throw TypeError(".PlayerInventory.crafting: object expected");
+                    message.crafting[keys[i]] = $root.Item.fromObject(object.crafting[keys[i]]);
+                }
+            }
             return message;
         };
     
@@ -1998,14 +2630,31 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.type = "";
-                object.inventory = "";
+            if (options.objects || options.defaults) {
+                object.main = {};
+                object.armor = {};
+                object.crafting = {};
             }
-            if (message.type != null && message.hasOwnProperty("type"))
-                object.type = message.type;
-            if (message.inventory != null && message.hasOwnProperty("inventory"))
-                object.inventory = message.inventory;
+            if (options.defaults)
+                object.size = 0;
+            if (message.size != null && message.hasOwnProperty("size"))
+                object.size = message.size;
+            var keys2;
+            if (message.main && (keys2 = Object.keys(message.main)).length) {
+                object.main = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.main[keys2[j]] = $root.Item.toObject(message.main[keys2[j]], options);
+            }
+            if (message.armor && (keys2 = Object.keys(message.armor)).length) {
+                object.armor = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.armor[keys2[j]] = $root.Item.toObject(message.armor[keys2[j]], options);
+            }
+            if (message.crafting && (keys2 = Object.keys(message.crafting)).length) {
+                object.crafting = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.crafting[keys2[j]] = $root.Item.toObject(message.crafting[keys2[j]], options);
+            }
             return object;
         };
     
@@ -2030,8 +2679,8 @@
          * @exports IPlayerSlotUpdate
          * @interface IPlayerSlotUpdate
          * @property {number|null} [slot] PlayerSlotUpdate slot
-         * @property {string|null} [type] PlayerSlotUpdate type
-         * @property {string|null} [data] PlayerSlotUpdate data
+         * @property {InventoryType|null} [type] PlayerSlotUpdate type
+         * @property {IItem|null} [item] PlayerSlotUpdate item
          */
     
         /**
@@ -2059,19 +2708,19 @@
     
         /**
          * PlayerSlotUpdate type.
-         * @member {string} type
+         * @member {InventoryType} type
          * @memberof PlayerSlotUpdate
          * @instance
          */
-        PlayerSlotUpdate.prototype.type = "";
+        PlayerSlotUpdate.prototype.type = 0;
     
         /**
-         * PlayerSlotUpdate data.
-         * @member {string} data
+         * PlayerSlotUpdate item.
+         * @member {IItem|null|undefined} item
          * @memberof PlayerSlotUpdate
          * @instance
          */
-        PlayerSlotUpdate.prototype.data = "";
+        PlayerSlotUpdate.prototype.item = null;
     
         /**
          * Creates a new PlayerSlotUpdate instance using the specified properties.
@@ -2098,11 +2747,11 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.slot != null && Object.hasOwnProperty.call(message, "slot"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.slot);
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.slot);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
-            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.data);
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
+            if (message.item != null && Object.hasOwnProperty.call(message, "item"))
+                $root.Item.encode(message.item, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             return writer;
         };
     
@@ -2138,13 +2787,13 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.slot = reader.uint32();
+                    message.slot = reader.int32();
                     break;
                 case 2:
-                    message.type = reader.string();
+                    message.type = reader.int32();
                     break;
                 case 3:
-                    message.data = reader.string();
+                    message.item = $root.Item.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -2185,11 +2834,20 @@
                 if (!$util.isInteger(message.slot))
                     return "slot: integer expected";
             if (message.type != null && message.hasOwnProperty("type"))
-                if (!$util.isString(message.type))
-                    return "type: string expected";
-            if (message.data != null && message.hasOwnProperty("data"))
-                if (!$util.isString(message.data))
-                    return "data: string expected";
+                switch (message.type) {
+                default:
+                    return "type: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
+            if (message.item != null && message.hasOwnProperty("item")) {
+                var error = $root.Item.verify(message.item);
+                if (error)
+                    return "item." + error;
+            }
             return null;
         };
     
@@ -2206,11 +2864,30 @@
                 return object;
             var message = new $root.PlayerSlotUpdate();
             if (object.slot != null)
-                message.slot = object.slot >>> 0;
-            if (object.type != null)
-                message.type = String(object.type);
-            if (object.data != null)
-                message.data = String(object.data);
+                message.slot = object.slot | 0;
+            switch (object.type) {
+            case "MAIN":
+            case 0:
+                message.type = 0;
+                break;
+            case "ARMOR":
+            case 1:
+                message.type = 1;
+                break;
+            case "CRAFT":
+            case 2:
+                message.type = 2;
+                break;
+            case "HOOK":
+            case 3:
+                message.type = 3;
+                break;
+            }
+            if (object.item != null) {
+                if (typeof object.item !== "object")
+                    throw TypeError(".PlayerSlotUpdate.item: object expected");
+                message.item = $root.Item.fromObject(object.item);
+            }
             return message;
         };
     
@@ -2229,15 +2906,15 @@
             var object = {};
             if (options.defaults) {
                 object.slot = 0;
-                object.type = "";
-                object.data = "";
+                object.type = options.enums === String ? "MAIN" : 0;
+                object.item = null;
             }
             if (message.slot != null && message.hasOwnProperty("slot"))
                 object.slot = message.slot;
             if (message.type != null && message.hasOwnProperty("type"))
-                object.type = message.type;
-            if (message.data != null && message.hasOwnProperty("data"))
-                object.data = message.data;
+                object.type = options.enums === String ? $root.InventoryType[message.type] : message.type;
+            if (message.item != null && message.hasOwnProperty("item"))
+                object.item = $root.Item.toObject(message.item, options);
             return object;
         };
     
@@ -2973,9 +3650,9 @@
             if (!writer)
                 writer = $Writer.create();
             if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                writer.uint32(/* id 1, wireType 0 =*/8).sint32(message.value);
+                writer.uint32(/* id 1, wireType 5 =*/13).float(message.value);
             if (message.max != null && Object.hasOwnProperty.call(message, "max"))
-                writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.max);
+                writer.uint32(/* id 2, wireType 5 =*/21).float(message.max);
             return writer;
         };
     
@@ -3011,10 +3688,10 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.value = reader.sint32();
+                    message.value = reader.float();
                     break;
                 case 2:
-                    message.max = reader.sint32();
+                    message.max = reader.float();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3052,11 +3729,11 @@
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.value != null && message.hasOwnProperty("value"))
-                if (!$util.isInteger(message.value))
-                    return "value: integer expected";
+                if (typeof message.value !== "number")
+                    return "value: number expected";
             if (message.max != null && message.hasOwnProperty("max"))
-                if (!$util.isInteger(message.max))
-                    return "max: integer expected";
+                if (typeof message.max !== "number")
+                    return "max: number expected";
             return null;
         };
     
@@ -3073,9 +3750,9 @@
                 return object;
             var message = new $root.PlayerHealth();
             if (object.value != null)
-                message.value = object.value | 0;
+                message.value = Number(object.value);
             if (object.max != null)
-                message.max = object.max | 0;
+                message.max = Number(object.max);
             return message;
         };
     
@@ -3097,9 +3774,9 @@
                 object.max = 0;
             }
             if (message.value != null && message.hasOwnProperty("value"))
-                object.value = message.value;
+                object.value = options.json && !isFinite(message.value) ? String(message.value) : message.value;
             if (message.max != null && message.hasOwnProperty("max"))
-                object.max = message.max;
+                object.max = options.json && !isFinite(message.max) ? String(message.max) : message.max;
             return object;
         };
     
@@ -3310,9 +3987,10 @@
          * Properties of a PlayerOpenInventory.
          * @exports IPlayerOpenInventory
          * @interface IPlayerOpenInventory
-         * @property {PlayerOpenInventory.Type|null} [type] PlayerOpenInventory type
+         * @property {ContainerType|null} [type] PlayerOpenInventory type
          * @property {string|null} [name] PlayerOpenInventory name
-         * @property {string|null} [data] PlayerOpenInventory data
+         * @property {number|null} [size] PlayerOpenInventory size
+         * @property {Object.<string,IItem>|null} [items] PlayerOpenInventory items
          */
     
         /**
@@ -3324,6 +4002,7 @@
          * @param {IPlayerOpenInventory=} [properties] Properties to set
          */
         function PlayerOpenInventory(properties) {
+            this.items = {};
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -3332,7 +4011,7 @@
     
         /**
          * PlayerOpenInventory type.
-         * @member {PlayerOpenInventory.Type} type
+         * @member {ContainerType} type
          * @memberof PlayerOpenInventory
          * @instance
          */
@@ -3347,12 +4026,20 @@
         PlayerOpenInventory.prototype.name = "";
     
         /**
-         * PlayerOpenInventory data.
-         * @member {string} data
+         * PlayerOpenInventory size.
+         * @member {number} size
          * @memberof PlayerOpenInventory
          * @instance
          */
-        PlayerOpenInventory.prototype.data = "";
+        PlayerOpenInventory.prototype.size = 0;
+    
+        /**
+         * PlayerOpenInventory items.
+         * @member {Object.<string,IItem>} items
+         * @memberof PlayerOpenInventory
+         * @instance
+         */
+        PlayerOpenInventory.prototype.items = $util.emptyObject;
     
         /**
          * Creates a new PlayerOpenInventory instance using the specified properties.
@@ -3382,8 +4069,13 @@
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
             if (message.name != null && Object.hasOwnProperty.call(message, "name"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
-            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
-                writer.uint32(/* id 3, wireType 2 =*/26).string(message.data);
+            if (message.size != null && Object.hasOwnProperty.call(message, "size"))
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.size);
+            if (message.items != null && Object.hasOwnProperty.call(message, "items"))
+                for (var keys = Object.keys(message.items), i = 0; i < keys.length; ++i) {
+                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
+                    $root.Item.encode(message.items[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                }
             return writer;
         };
     
@@ -3414,7 +4106,7 @@
         PlayerOpenInventory.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerOpenInventory();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerOpenInventory(), key, value;
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -3425,7 +4117,29 @@
                     message.name = reader.string();
                     break;
                 case 3:
-                    message.data = reader.string();
+                    message.size = reader.uint32();
+                    break;
+                case 4:
+                    if (message.items === $util.emptyObject)
+                        message.items = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = 0;
+                    value = null;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.uint32();
+                            break;
+                        case 2:
+                            value = $root.Item.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.items[key] = value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -3475,9 +4189,23 @@
             if (message.name != null && message.hasOwnProperty("name"))
                 if (!$util.isString(message.name))
                     return "name: string expected";
-            if (message.data != null && message.hasOwnProperty("data"))
-                if (!$util.isString(message.data))
-                    return "data: string expected";
+            if (message.size != null && message.hasOwnProperty("size"))
+                if (!$util.isInteger(message.size))
+                    return "size: integer expected";
+            if (message.items != null && message.hasOwnProperty("items")) {
+                if (!$util.isObject(message.items))
+                    return "items: object expected";
+                var key = Object.keys(message.items);
+                for (var i = 0; i < key.length; ++i) {
+                    if (!$util.key32Re.test(key[i]))
+                        return "items: integer key{k:uint32} expected";
+                    {
+                        var error = $root.Item.verify(message.items[key[i]]);
+                        if (error)
+                            return "items." + error;
+                    }
+                }
+            }
             return null;
         };
     
@@ -3494,7 +4222,7 @@
                 return object;
             var message = new $root.PlayerOpenInventory();
             switch (object.type) {
-            case "MAIN":
+            case "PLAYER":
             case 0:
                 message.type = 0;
                 break;
@@ -3513,8 +4241,18 @@
             }
             if (object.name != null)
                 message.name = String(object.name);
-            if (object.data != null)
-                message.data = String(object.data);
+            if (object.size != null)
+                message.size = object.size >>> 0;
+            if (object.items) {
+                if (typeof object.items !== "object")
+                    throw TypeError(".PlayerOpenInventory.items: object expected");
+                message.items = {};
+                for (var keys = Object.keys(object.items), i = 0; i < keys.length; ++i) {
+                    if (typeof object.items[keys[i]] !== "object")
+                        throw TypeError(".PlayerOpenInventory.items: object expected");
+                    message.items[keys[i]] = $root.Item.fromObject(object.items[keys[i]]);
+                }
+            }
             return message;
         };
     
@@ -3531,17 +4269,25 @@
             if (!options)
                 options = {};
             var object = {};
+            if (options.objects || options.defaults)
+                object.items = {};
             if (options.defaults) {
-                object.type = options.enums === String ? "MAIN" : 0;
+                object.type = options.enums === String ? "PLAYER" : 0;
                 object.name = "";
-                object.data = "";
+                object.size = 0;
             }
             if (message.type != null && message.hasOwnProperty("type"))
-                object.type = options.enums === String ? $root.PlayerOpenInventory.Type[message.type] : message.type;
+                object.type = options.enums === String ? $root.ContainerType[message.type] : message.type;
             if (message.name != null && message.hasOwnProperty("name"))
                 object.name = message.name;
-            if (message.data != null && message.hasOwnProperty("data"))
-                object.data = message.data;
+            if (message.size != null && message.hasOwnProperty("size"))
+                object.size = message.size;
+            var keys2;
+            if (message.items && (keys2 = Object.keys(message.items)).length) {
+                object.items = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.items[keys2[j]] = $root.Item.toObject(message.items[keys2[j]], options);
+            }
             return object;
         };
     
@@ -3556,25 +4302,263 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        /**
-         * Type enum.
-         * @name PlayerOpenInventory.Type
-         * @enum {number}
-         * @property {number} MAIN=0 MAIN value
-         * @property {number} CHEST=1 CHEST value
-         * @property {number} CRAFTING=2 CRAFTING value
-         * @property {number} FURNACE=3 FURNACE value
-         */
-        PlayerOpenInventory.Type = (function() {
-            var valuesById = {}, values = Object.create(valuesById);
-            values[valuesById[0] = "MAIN"] = 0;
-            values[valuesById[1] = "CHEST"] = 1;
-            values[valuesById[2] = "CRAFTING"] = 2;
-            values[valuesById[3] = "FURNACE"] = 3;
-            return values;
-        })();
-    
         return PlayerOpenInventory;
+    })();
+    
+    $root.PlayerUpdateOpenInventory = (function() {
+    
+        /**
+         * Properties of a PlayerUpdateOpenInventory.
+         * @exports IPlayerUpdateOpenInventory
+         * @interface IPlayerUpdateOpenInventory
+         * @property {string|null} [name] PlayerUpdateOpenInventory name
+         * @property {Object.<string,IItem>|null} [items] PlayerUpdateOpenInventory items
+         */
+    
+        /**
+         * Constructs a new PlayerUpdateOpenInventory.
+         * @exports PlayerUpdateOpenInventory
+         * @classdesc Represents a PlayerUpdateOpenInventory.
+         * @implements IPlayerUpdateOpenInventory
+         * @constructor
+         * @param {IPlayerUpdateOpenInventory=} [properties] Properties to set
+         */
+        function PlayerUpdateOpenInventory(properties) {
+            this.items = {};
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerUpdateOpenInventory name.
+         * @member {string} name
+         * @memberof PlayerUpdateOpenInventory
+         * @instance
+         */
+        PlayerUpdateOpenInventory.prototype.name = "";
+    
+        /**
+         * PlayerUpdateOpenInventory items.
+         * @member {Object.<string,IItem>} items
+         * @memberof PlayerUpdateOpenInventory
+         * @instance
+         */
+        PlayerUpdateOpenInventory.prototype.items = $util.emptyObject;
+    
+        /**
+         * Creates a new PlayerUpdateOpenInventory instance using the specified properties.
+         * @function create
+         * @memberof PlayerUpdateOpenInventory
+         * @static
+         * @param {IPlayerUpdateOpenInventory=} [properties] Properties to set
+         * @returns {PlayerUpdateOpenInventory} PlayerUpdateOpenInventory instance
+         */
+        PlayerUpdateOpenInventory.create = function create(properties) {
+            return new PlayerUpdateOpenInventory(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerUpdateOpenInventory message. Does not implicitly {@link PlayerUpdateOpenInventory.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerUpdateOpenInventory
+         * @static
+         * @param {IPlayerUpdateOpenInventory} message PlayerUpdateOpenInventory message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerUpdateOpenInventory.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            if (message.items != null && Object.hasOwnProperty.call(message, "items"))
+                for (var keys = Object.keys(message.items), i = 0; i < keys.length; ++i) {
+                    writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
+                    $root.Item.encode(message.items[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                }
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerUpdateOpenInventory message, length delimited. Does not implicitly {@link PlayerUpdateOpenInventory.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerUpdateOpenInventory
+         * @static
+         * @param {IPlayerUpdateOpenInventory} message PlayerUpdateOpenInventory message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerUpdateOpenInventory.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerUpdateOpenInventory message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerUpdateOpenInventory
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerUpdateOpenInventory} PlayerUpdateOpenInventory
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerUpdateOpenInventory.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerUpdateOpenInventory(), key, value;
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.name = reader.string();
+                    break;
+                case 2:
+                    if (message.items === $util.emptyObject)
+                        message.items = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = 0;
+                    value = null;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.uint32();
+                            break;
+                        case 2:
+                            value = $root.Item.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.items[key] = value;
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerUpdateOpenInventory message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerUpdateOpenInventory
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerUpdateOpenInventory} PlayerUpdateOpenInventory
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerUpdateOpenInventory.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerUpdateOpenInventory message.
+         * @function verify
+         * @memberof PlayerUpdateOpenInventory
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerUpdateOpenInventory.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            if (message.items != null && message.hasOwnProperty("items")) {
+                if (!$util.isObject(message.items))
+                    return "items: object expected";
+                var key = Object.keys(message.items);
+                for (var i = 0; i < key.length; ++i) {
+                    if (!$util.key32Re.test(key[i]))
+                        return "items: integer key{k:uint32} expected";
+                    {
+                        var error = $root.Item.verify(message.items[key[i]]);
+                        if (error)
+                            return "items." + error;
+                    }
+                }
+            }
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerUpdateOpenInventory message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerUpdateOpenInventory
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerUpdateOpenInventory} PlayerUpdateOpenInventory
+         */
+        PlayerUpdateOpenInventory.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerUpdateOpenInventory)
+                return object;
+            var message = new $root.PlayerUpdateOpenInventory();
+            if (object.name != null)
+                message.name = String(object.name);
+            if (object.items) {
+                if (typeof object.items !== "object")
+                    throw TypeError(".PlayerUpdateOpenInventory.items: object expected");
+                message.items = {};
+                for (var keys = Object.keys(object.items), i = 0; i < keys.length; ++i) {
+                    if (typeof object.items[keys[i]] !== "object")
+                        throw TypeError(".PlayerUpdateOpenInventory.items: object expected");
+                    message.items[keys[i]] = $root.Item.fromObject(object.items[keys[i]]);
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerUpdateOpenInventory message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerUpdateOpenInventory
+         * @static
+         * @param {PlayerUpdateOpenInventory} message PlayerUpdateOpenInventory
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerUpdateOpenInventory.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.objects || options.defaults)
+                object.items = {};
+            if (options.defaults)
+                object.name = "";
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            var keys2;
+            if (message.items && (keys2 = Object.keys(message.items)).length) {
+                object.items = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.items[keys2[j]] = $root.Item.toObject(message.items[keys2[j]], options);
+            }
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerUpdateOpenInventory to JSON.
+         * @function toJSON
+         * @memberof PlayerUpdateOpenInventory
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerUpdateOpenInventory.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerUpdateOpenInventory;
     })();
     
     $root.SoundPlay = (function() {
@@ -3859,7 +4843,7 @@
          * Properties of a ChatMessage.
          * @exports IChatMessage
          * @interface IChatMessage
-         * @property {Object.<string,ChatMessage.IChatComponent>|null} [message] ChatMessage message
+         * @property {Object.<string,IChatComponentType>|null} [message] ChatMessage message
          * @property {number|Long|null} [time] ChatMessage time
          */
     
@@ -3881,7 +4865,7 @@
     
         /**
          * ChatMessage message.
-         * @member {Object.<string,ChatMessage.IChatComponent>} message
+         * @member {Object.<string,IChatComponentType>} message
          * @memberof ChatMessage
          * @instance
          */
@@ -3922,7 +4906,7 @@
             if (message.message != null && Object.hasOwnProperty.call(message, "message"))
                 for (var keys = Object.keys(message.message), i = 0; i < keys.length; ++i) {
                     writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
-                    $root.ChatMessage.ChatComponent.encode(message.message[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                    $root.ChatComponentType.encode(message.message[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                 }
             if (message.time != null && Object.hasOwnProperty.call(message, "time"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
@@ -3973,7 +4957,7 @@
                             key = reader.uint32();
                             break;
                         case 2:
-                            value = $root.ChatMessage.ChatComponent.decode(reader, reader.uint32());
+                            value = $root.ChatComponentType.decode(reader, reader.uint32());
                             break;
                         default:
                             reader.skipType(tag2 & 7);
@@ -4028,7 +5012,7 @@
                     if (!$util.key32Re.test(key[i]))
                         return "message: integer key{k:uint32} expected";
                     {
-                        var error = $root.ChatMessage.ChatComponent.verify(message.message[key[i]]);
+                        var error = $root.ChatComponentType.verify(message.message[key[i]]);
                         if (error)
                             return "message." + error;
                     }
@@ -4059,7 +5043,7 @@
                 for (var keys = Object.keys(object.message), i = 0; i < keys.length; ++i) {
                     if (typeof object.message[keys[i]] !== "object")
                         throw TypeError(".ChatMessage.message: object expected");
-                    message.message[keys[i]] = $root.ChatMessage.ChatComponent.fromObject(object.message[keys[i]]);
+                    message.message[keys[i]] = $root.ChatComponentType.fromObject(object.message[keys[i]]);
                 }
             }
             if (object.time != null)
@@ -4099,7 +5083,7 @@
             if (message.message && (keys2 = Object.keys(message.message)).length) {
                 object.message = {};
                 for (var j = 0; j < keys2.length; ++j)
-                    object.message[keys2[j]] = $root.ChatMessage.ChatComponent.toObject(message.message[keys2[j]], options);
+                    object.message[keys2[j]] = $root.ChatComponentType.toObject(message.message[keys2[j]], options);
             }
             if (message.time != null && message.hasOwnProperty("time"))
                 if (typeof message.time === "number")
@@ -4120,282 +5104,6 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
-        ChatMessage.ChatComponent = (function() {
-    
-            /**
-             * Properties of a ChatComponent.
-             * @memberof ChatMessage
-             * @interface IChatComponent
-             * @property {string|null} [text] ChatComponent text
-             * @property {string|null} [font] ChatComponent font
-             * @property {string|null} [color] ChatComponent color
-             * @property {boolean|null} [linethrough] ChatComponent linethrough
-             * @property {boolean|null} [underline] ChatComponent underline
-             */
-    
-            /**
-             * Constructs a new ChatComponent.
-             * @memberof ChatMessage
-             * @classdesc Represents a ChatComponent.
-             * @implements IChatComponent
-             * @constructor
-             * @param {ChatMessage.IChatComponent=} [properties] Properties to set
-             */
-            function ChatComponent(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-    
-            /**
-             * ChatComponent text.
-             * @member {string} text
-             * @memberof ChatMessage.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.text = "";
-    
-            /**
-             * ChatComponent font.
-             * @member {string} font
-             * @memberof ChatMessage.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.font = "";
-    
-            /**
-             * ChatComponent color.
-             * @member {string} color
-             * @memberof ChatMessage.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.color = "";
-    
-            /**
-             * ChatComponent linethrough.
-             * @member {boolean} linethrough
-             * @memberof ChatMessage.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.linethrough = false;
-    
-            /**
-             * ChatComponent underline.
-             * @member {boolean} underline
-             * @memberof ChatMessage.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.underline = false;
-    
-            /**
-             * Creates a new ChatComponent instance using the specified properties.
-             * @function create
-             * @memberof ChatMessage.ChatComponent
-             * @static
-             * @param {ChatMessage.IChatComponent=} [properties] Properties to set
-             * @returns {ChatMessage.ChatComponent} ChatComponent instance
-             */
-            ChatComponent.create = function create(properties) {
-                return new ChatComponent(properties);
-            };
-    
-            /**
-             * Encodes the specified ChatComponent message. Does not implicitly {@link ChatMessage.ChatComponent.verify|verify} messages.
-             * @function encode
-             * @memberof ChatMessage.ChatComponent
-             * @static
-             * @param {ChatMessage.IChatComponent} message ChatComponent message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ChatComponent.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.text != null && Object.hasOwnProperty.call(message, "text"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
-                if (message.font != null && Object.hasOwnProperty.call(message, "font"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.font);
-                if (message.color != null && Object.hasOwnProperty.call(message, "color"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.color);
-                if (message.linethrough != null && Object.hasOwnProperty.call(message, "linethrough"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.linethrough);
-                if (message.underline != null && Object.hasOwnProperty.call(message, "underline"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.underline);
-                return writer;
-            };
-    
-            /**
-             * Encodes the specified ChatComponent message, length delimited. Does not implicitly {@link ChatMessage.ChatComponent.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof ChatMessage.ChatComponent
-             * @static
-             * @param {ChatMessage.IChatComponent} message ChatComponent message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ChatComponent.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-    
-            /**
-             * Decodes a ChatComponent message from the specified reader or buffer.
-             * @function decode
-             * @memberof ChatMessage.ChatComponent
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {ChatMessage.ChatComponent} ChatComponent
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ChatComponent.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChatMessage.ChatComponent();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.text = reader.string();
-                        break;
-                    case 2:
-                        message.font = reader.string();
-                        break;
-                    case 3:
-                        message.color = reader.string();
-                        break;
-                    case 4:
-                        message.linethrough = reader.bool();
-                        break;
-                    case 5:
-                        message.underline = reader.bool();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-    
-            /**
-             * Decodes a ChatComponent message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof ChatMessage.ChatComponent
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {ChatMessage.ChatComponent} ChatComponent
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ChatComponent.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-    
-            /**
-             * Verifies a ChatComponent message.
-             * @function verify
-             * @memberof ChatMessage.ChatComponent
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            ChatComponent.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.text != null && message.hasOwnProperty("text"))
-                    if (!$util.isString(message.text))
-                        return "text: string expected";
-                if (message.font != null && message.hasOwnProperty("font"))
-                    if (!$util.isString(message.font))
-                        return "font: string expected";
-                if (message.color != null && message.hasOwnProperty("color"))
-                    if (!$util.isString(message.color))
-                        return "color: string expected";
-                if (message.linethrough != null && message.hasOwnProperty("linethrough"))
-                    if (typeof message.linethrough !== "boolean")
-                        return "linethrough: boolean expected";
-                if (message.underline != null && message.hasOwnProperty("underline"))
-                    if (typeof message.underline !== "boolean")
-                        return "underline: boolean expected";
-                return null;
-            };
-    
-            /**
-             * Creates a ChatComponent message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof ChatMessage.ChatComponent
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {ChatMessage.ChatComponent} ChatComponent
-             */
-            ChatComponent.fromObject = function fromObject(object) {
-                if (object instanceof $root.ChatMessage.ChatComponent)
-                    return object;
-                var message = new $root.ChatMessage.ChatComponent();
-                if (object.text != null)
-                    message.text = String(object.text);
-                if (object.font != null)
-                    message.font = String(object.font);
-                if (object.color != null)
-                    message.color = String(object.color);
-                if (object.linethrough != null)
-                    message.linethrough = Boolean(object.linethrough);
-                if (object.underline != null)
-                    message.underline = Boolean(object.underline);
-                return message;
-            };
-    
-            /**
-             * Creates a plain object from a ChatComponent message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof ChatMessage.ChatComponent
-             * @static
-             * @param {ChatMessage.ChatComponent} message ChatComponent
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            ChatComponent.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.text = "";
-                    object.font = "";
-                    object.color = "";
-                    object.linethrough = false;
-                    object.underline = false;
-                }
-                if (message.text != null && message.hasOwnProperty("text"))
-                    object.text = message.text;
-                if (message.font != null && message.hasOwnProperty("font"))
-                    object.font = message.font;
-                if (message.color != null && message.hasOwnProperty("color"))
-                    object.color = message.color;
-                if (message.linethrough != null && message.hasOwnProperty("linethrough"))
-                    object.linethrough = message.linethrough;
-                if (message.underline != null && message.hasOwnProperty("underline"))
-                    object.underline = message.underline;
-                return object;
-            };
-    
-            /**
-             * Converts this ChatComponent to JSON.
-             * @function toJSON
-             * @memberof ChatMessage.ChatComponent
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            ChatComponent.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-    
-            return ChatComponent;
-        })();
-    
         return ChatMessage;
     })();
     
@@ -4406,7 +5114,7 @@
          * @exports IUpdateTextBoard
          * @interface IUpdateTextBoard
          * @property {UpdateTextBoard.Type|null} [type] UpdateTextBoard type
-         * @property {Object.<string,UpdateTextBoard.IChatComponent>|null} [message] UpdateTextBoard message
+         * @property {Object.<string,IBasicChatComponentType>|null} [message] UpdateTextBoard message
          * @property {number|Long|null} [time] UpdateTextBoard time
          */
     
@@ -4436,7 +5144,7 @@
     
         /**
          * UpdateTextBoard message.
-         * @member {Object.<string,UpdateTextBoard.IChatComponent>} message
+         * @member {Object.<string,IBasicChatComponentType>} message
          * @memberof UpdateTextBoard
          * @instance
          */
@@ -4479,7 +5187,7 @@
             if (message.message != null && Object.hasOwnProperty.call(message, "message"))
                 for (var keys = Object.keys(message.message), i = 0; i < keys.length; ++i) {
                     writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
-                    $root.UpdateTextBoard.ChatComponent.encode(message.message[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                    $root.BasicChatComponentType.encode(message.message[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                 }
             if (message.time != null && Object.hasOwnProperty.call(message, "time"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.time);
@@ -4533,7 +5241,7 @@
                             key = reader.uint32();
                             break;
                         case 2:
-                            value = $root.UpdateTextBoard.ChatComponent.decode(reader, reader.uint32());
+                            value = $root.BasicChatComponentType.decode(reader, reader.uint32());
                             break;
                         default:
                             reader.skipType(tag2 & 7);
@@ -4598,7 +5306,7 @@
                     if (!$util.key32Re.test(key[i]))
                         return "message: integer key{k:uint32} expected";
                     {
-                        var error = $root.UpdateTextBoard.ChatComponent.verify(message.message[key[i]]);
+                        var error = $root.BasicChatComponentType.verify(message.message[key[i]]);
                         if (error)
                             return "message." + error;
                     }
@@ -4647,7 +5355,7 @@
                 for (var keys = Object.keys(object.message), i = 0; i < keys.length; ++i) {
                     if (typeof object.message[keys[i]] !== "object")
                         throw TypeError(".UpdateTextBoard.message: object expected");
-                    message.message[keys[i]] = $root.UpdateTextBoard.ChatComponent.fromObject(object.message[keys[i]]);
+                    message.message[keys[i]] = $root.BasicChatComponentType.fromObject(object.message[keys[i]]);
                 }
             }
             if (object.time != null)
@@ -4691,7 +5399,7 @@
             if (message.message && (keys2 = Object.keys(message.message)).length) {
                 object.message = {};
                 for (var j = 0; j < keys2.length; ++j)
-                    object.message[keys2[j]] = $root.UpdateTextBoard.ChatComponent.toObject(message.message[keys2[j]], options);
+                    object.message[keys2[j]] = $root.BasicChatComponentType.toObject(message.message[keys2[j]], options);
             }
             if (message.time != null && message.hasOwnProperty("time"))
                 if (typeof message.time === "number")
@@ -4728,282 +5436,6 @@
             values[valuesById[2] = "CENTER"] = 2;
             values[valuesById[3] = "HOTBAR"] = 3;
             return values;
-        })();
-    
-        UpdateTextBoard.ChatComponent = (function() {
-    
-            /**
-             * Properties of a ChatComponent.
-             * @memberof UpdateTextBoard
-             * @interface IChatComponent
-             * @property {string|null} [text] ChatComponent text
-             * @property {string|null} [font] ChatComponent font
-             * @property {string|null} [color] ChatComponent color
-             * @property {boolean|null} [linethrough] ChatComponent linethrough
-             * @property {boolean|null} [underline] ChatComponent underline
-             */
-    
-            /**
-             * Constructs a new ChatComponent.
-             * @memberof UpdateTextBoard
-             * @classdesc Represents a ChatComponent.
-             * @implements IChatComponent
-             * @constructor
-             * @param {UpdateTextBoard.IChatComponent=} [properties] Properties to set
-             */
-            function ChatComponent(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-    
-            /**
-             * ChatComponent text.
-             * @member {string} text
-             * @memberof UpdateTextBoard.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.text = "";
-    
-            /**
-             * ChatComponent font.
-             * @member {string} font
-             * @memberof UpdateTextBoard.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.font = "";
-    
-            /**
-             * ChatComponent color.
-             * @member {string} color
-             * @memberof UpdateTextBoard.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.color = "";
-    
-            /**
-             * ChatComponent linethrough.
-             * @member {boolean} linethrough
-             * @memberof UpdateTextBoard.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.linethrough = false;
-    
-            /**
-             * ChatComponent underline.
-             * @member {boolean} underline
-             * @memberof UpdateTextBoard.ChatComponent
-             * @instance
-             */
-            ChatComponent.prototype.underline = false;
-    
-            /**
-             * Creates a new ChatComponent instance using the specified properties.
-             * @function create
-             * @memberof UpdateTextBoard.ChatComponent
-             * @static
-             * @param {UpdateTextBoard.IChatComponent=} [properties] Properties to set
-             * @returns {UpdateTextBoard.ChatComponent} ChatComponent instance
-             */
-            ChatComponent.create = function create(properties) {
-                return new ChatComponent(properties);
-            };
-    
-            /**
-             * Encodes the specified ChatComponent message. Does not implicitly {@link UpdateTextBoard.ChatComponent.verify|verify} messages.
-             * @function encode
-             * @memberof UpdateTextBoard.ChatComponent
-             * @static
-             * @param {UpdateTextBoard.IChatComponent} message ChatComponent message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ChatComponent.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.text != null && Object.hasOwnProperty.call(message, "text"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
-                if (message.font != null && Object.hasOwnProperty.call(message, "font"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.font);
-                if (message.color != null && Object.hasOwnProperty.call(message, "color"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.color);
-                if (message.linethrough != null && Object.hasOwnProperty.call(message, "linethrough"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.linethrough);
-                if (message.underline != null && Object.hasOwnProperty.call(message, "underline"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).bool(message.underline);
-                return writer;
-            };
-    
-            /**
-             * Encodes the specified ChatComponent message, length delimited. Does not implicitly {@link UpdateTextBoard.ChatComponent.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof UpdateTextBoard.ChatComponent
-             * @static
-             * @param {UpdateTextBoard.IChatComponent} message ChatComponent message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ChatComponent.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-    
-            /**
-             * Decodes a ChatComponent message from the specified reader or buffer.
-             * @function decode
-             * @memberof UpdateTextBoard.ChatComponent
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {UpdateTextBoard.ChatComponent} ChatComponent
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ChatComponent.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UpdateTextBoard.ChatComponent();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.text = reader.string();
-                        break;
-                    case 2:
-                        message.font = reader.string();
-                        break;
-                    case 3:
-                        message.color = reader.string();
-                        break;
-                    case 4:
-                        message.linethrough = reader.bool();
-                        break;
-                    case 5:
-                        message.underline = reader.bool();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-    
-            /**
-             * Decodes a ChatComponent message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof UpdateTextBoard.ChatComponent
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {UpdateTextBoard.ChatComponent} ChatComponent
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ChatComponent.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-    
-            /**
-             * Verifies a ChatComponent message.
-             * @function verify
-             * @memberof UpdateTextBoard.ChatComponent
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            ChatComponent.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.text != null && message.hasOwnProperty("text"))
-                    if (!$util.isString(message.text))
-                        return "text: string expected";
-                if (message.font != null && message.hasOwnProperty("font"))
-                    if (!$util.isString(message.font))
-                        return "font: string expected";
-                if (message.color != null && message.hasOwnProperty("color"))
-                    if (!$util.isString(message.color))
-                        return "color: string expected";
-                if (message.linethrough != null && message.hasOwnProperty("linethrough"))
-                    if (typeof message.linethrough !== "boolean")
-                        return "linethrough: boolean expected";
-                if (message.underline != null && message.hasOwnProperty("underline"))
-                    if (typeof message.underline !== "boolean")
-                        return "underline: boolean expected";
-                return null;
-            };
-    
-            /**
-             * Creates a ChatComponent message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof UpdateTextBoard.ChatComponent
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {UpdateTextBoard.ChatComponent} ChatComponent
-             */
-            ChatComponent.fromObject = function fromObject(object) {
-                if (object instanceof $root.UpdateTextBoard.ChatComponent)
-                    return object;
-                var message = new $root.UpdateTextBoard.ChatComponent();
-                if (object.text != null)
-                    message.text = String(object.text);
-                if (object.font != null)
-                    message.font = String(object.font);
-                if (object.color != null)
-                    message.color = String(object.color);
-                if (object.linethrough != null)
-                    message.linethrough = Boolean(object.linethrough);
-                if (object.underline != null)
-                    message.underline = Boolean(object.underline);
-                return message;
-            };
-    
-            /**
-             * Creates a plain object from a ChatComponent message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof UpdateTextBoard.ChatComponent
-             * @static
-             * @param {UpdateTextBoard.ChatComponent} message ChatComponent
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            ChatComponent.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.text = "";
-                    object.font = "";
-                    object.color = "";
-                    object.linethrough = false;
-                    object.underline = false;
-                }
-                if (message.text != null && message.hasOwnProperty("text"))
-                    object.text = message.text;
-                if (message.font != null && message.hasOwnProperty("font"))
-                    object.font = message.font;
-                if (message.color != null && message.hasOwnProperty("color"))
-                    object.color = message.color;
-                if (message.linethrough != null && message.hasOwnProperty("linethrough"))
-                    object.linethrough = message.linethrough;
-                if (message.underline != null && message.hasOwnProperty("underline"))
-                    object.underline = message.underline;
-                return object;
-            };
-    
-            /**
-             * Converts this ChatComponent to JSON.
-             * @function toJSON
-             * @memberof UpdateTextBoard.ChatComponent
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            ChatComponent.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-    
-            return ChatComponent;
         })();
     
         return UpdateTextBoard;
@@ -7150,9 +7582,10 @@
          * @property {number|null} [x] WorldChunkLoad x
          * @property {number|null} [y] WorldChunkLoad y
          * @property {number|null} [z] WorldChunkLoad z
-         * @property {Uint8Array|null} [data] WorldChunkLoad data
          * @property {number|null} [height] WorldChunkLoad height
          * @property {boolean|null} [compressed] WorldChunkLoad compressed
+         * @property {Uint8Array|null} [blockData] WorldChunkLoad blockData
+         * @property {Uint8Array|null} [lightData] WorldChunkLoad lightData
          */
     
         /**
@@ -7195,14 +7628,6 @@
         WorldChunkLoad.prototype.z = 0;
     
         /**
-         * WorldChunkLoad data.
-         * @member {Uint8Array} data
-         * @memberof WorldChunkLoad
-         * @instance
-         */
-        WorldChunkLoad.prototype.data = $util.newBuffer([]);
-    
-        /**
          * WorldChunkLoad height.
          * @member {number} height
          * @memberof WorldChunkLoad
@@ -7217,6 +7642,22 @@
          * @instance
          */
         WorldChunkLoad.prototype.compressed = false;
+    
+        /**
+         * WorldChunkLoad blockData.
+         * @member {Uint8Array} blockData
+         * @memberof WorldChunkLoad
+         * @instance
+         */
+        WorldChunkLoad.prototype.blockData = $util.newBuffer([]);
+    
+        /**
+         * WorldChunkLoad lightData.
+         * @member {Uint8Array} lightData
+         * @memberof WorldChunkLoad
+         * @instance
+         */
+        WorldChunkLoad.prototype.lightData = $util.newBuffer([]);
     
         /**
          * Creates a new WorldChunkLoad instance using the specified properties.
@@ -7248,12 +7689,14 @@
                 writer.uint32(/* id 2, wireType 0 =*/16).sint32(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
                 writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
-            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
-                writer.uint32(/* id 4, wireType 2 =*/34).bytes(message.data);
             if (message.height != null && Object.hasOwnProperty.call(message, "height"))
-                writer.uint32(/* id 5, wireType 0 =*/40).sint32(message.height);
+                writer.uint32(/* id 4, wireType 0 =*/32).sint32(message.height);
             if (message.compressed != null && Object.hasOwnProperty.call(message, "compressed"))
-                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.compressed);
+                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.compressed);
+            if (message.blockData != null && Object.hasOwnProperty.call(message, "blockData"))
+                writer.uint32(/* id 6, wireType 2 =*/50).bytes(message.blockData);
+            if (message.lightData != null && Object.hasOwnProperty.call(message, "lightData"))
+                writer.uint32(/* id 7, wireType 2 =*/58).bytes(message.lightData);
             return writer;
         };
     
@@ -7298,13 +7741,16 @@
                     message.z = reader.sint32();
                     break;
                 case 4:
-                    message.data = reader.bytes();
-                    break;
-                case 5:
                     message.height = reader.sint32();
                     break;
-                case 6:
+                case 5:
                     message.compressed = reader.bool();
+                    break;
+                case 6:
+                    message.blockData = reader.bytes();
+                    break;
+                case 7:
+                    message.lightData = reader.bytes();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -7350,15 +7796,18 @@
             if (message.z != null && message.hasOwnProperty("z"))
                 if (!$util.isInteger(message.z))
                     return "z: integer expected";
-            if (message.data != null && message.hasOwnProperty("data"))
-                if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
-                    return "data: buffer expected";
             if (message.height != null && message.hasOwnProperty("height"))
                 if (!$util.isInteger(message.height))
                     return "height: integer expected";
             if (message.compressed != null && message.hasOwnProperty("compressed"))
                 if (typeof message.compressed !== "boolean")
                     return "compressed: boolean expected";
+            if (message.blockData != null && message.hasOwnProperty("blockData"))
+                if (!(message.blockData && typeof message.blockData.length === "number" || $util.isString(message.blockData)))
+                    return "blockData: buffer expected";
+            if (message.lightData != null && message.hasOwnProperty("lightData"))
+                if (!(message.lightData && typeof message.lightData.length === "number" || $util.isString(message.lightData)))
+                    return "lightData: buffer expected";
             return null;
         };
     
@@ -7380,15 +7829,20 @@
                 message.y = object.y | 0;
             if (object.z != null)
                 message.z = object.z | 0;
-            if (object.data != null)
-                if (typeof object.data === "string")
-                    $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
-                else if (object.data.length)
-                    message.data = object.data;
             if (object.height != null)
                 message.height = object.height | 0;
             if (object.compressed != null)
                 message.compressed = Boolean(object.compressed);
+            if (object.blockData != null)
+                if (typeof object.blockData === "string")
+                    $util.base64.decode(object.blockData, message.blockData = $util.newBuffer($util.base64.length(object.blockData)), 0);
+                else if (object.blockData.length)
+                    message.blockData = object.blockData;
+            if (object.lightData != null)
+                if (typeof object.lightData === "string")
+                    $util.base64.decode(object.lightData, message.lightData = $util.newBuffer($util.base64.length(object.lightData)), 0);
+                else if (object.lightData.length)
+                    message.lightData = object.lightData;
             return message;
         };
     
@@ -7409,15 +7863,22 @@
                 object.x = 0;
                 object.y = 0;
                 object.z = 0;
-                if (options.bytes === String)
-                    object.data = "";
-                else {
-                    object.data = [];
-                    if (options.bytes !== Array)
-                        object.data = $util.newBuffer(object.data);
-                }
                 object.height = 0;
                 object.compressed = false;
+                if (options.bytes === String)
+                    object.blockData = "";
+                else {
+                    object.blockData = [];
+                    if (options.bytes !== Array)
+                        object.blockData = $util.newBuffer(object.blockData);
+                }
+                if (options.bytes === String)
+                    object.lightData = "";
+                else {
+                    object.lightData = [];
+                    if (options.bytes !== Array)
+                        object.lightData = $util.newBuffer(object.lightData);
+                }
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = message.x;
@@ -7425,12 +7886,14 @@
                 object.y = message.y;
             if (message.z != null && message.hasOwnProperty("z"))
                 object.z = message.z;
-            if (message.data != null && message.hasOwnProperty("data"))
-                object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
             if (message.height != null && message.hasOwnProperty("height"))
                 object.height = message.height;
             if (message.compressed != null && message.hasOwnProperty("compressed"))
                 object.compressed = message.compressed;
+            if (message.blockData != null && message.hasOwnProperty("blockData"))
+                object.blockData = options.bytes === String ? $util.base64.encode(message.blockData, 0, message.blockData.length) : options.bytes === Array ? Array.prototype.slice.call(message.blockData) : message.blockData;
+            if (message.lightData != null && message.hasOwnProperty("lightData"))
+                object.lightData = options.bytes === String ? $util.base64.encode(message.lightData, 0, message.lightData.length) : options.bytes === Array ? Array.prototype.slice.call(message.lightData) : message.lightData;
             return object;
         };
     
@@ -8121,216 +8584,6 @@
         return WorldChunksRemoveAll;
     })();
     
-    $root.RegistryUpdate = (function() {
-    
-        /**
-         * Properties of a RegistryUpdate.
-         * @exports IRegistryUpdate
-         * @interface IRegistryUpdate
-         * @property {string|null} [itemsDef] RegistryUpdate itemsDef
-         * @property {string|null} [blocksDef] RegistryUpdate blocksDef
-         */
-    
-        /**
-         * Constructs a new RegistryUpdate.
-         * @exports RegistryUpdate
-         * @classdesc Represents a RegistryUpdate.
-         * @implements IRegistryUpdate
-         * @constructor
-         * @param {IRegistryUpdate=} [properties] Properties to set
-         */
-        function RegistryUpdate(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-    
-        /**
-         * RegistryUpdate itemsDef.
-         * @member {string} itemsDef
-         * @memberof RegistryUpdate
-         * @instance
-         */
-        RegistryUpdate.prototype.itemsDef = "";
-    
-        /**
-         * RegistryUpdate blocksDef.
-         * @member {string} blocksDef
-         * @memberof RegistryUpdate
-         * @instance
-         */
-        RegistryUpdate.prototype.blocksDef = "";
-    
-        /**
-         * Creates a new RegistryUpdate instance using the specified properties.
-         * @function create
-         * @memberof RegistryUpdate
-         * @static
-         * @param {IRegistryUpdate=} [properties] Properties to set
-         * @returns {RegistryUpdate} RegistryUpdate instance
-         */
-        RegistryUpdate.create = function create(properties) {
-            return new RegistryUpdate(properties);
-        };
-    
-        /**
-         * Encodes the specified RegistryUpdate message. Does not implicitly {@link RegistryUpdate.verify|verify} messages.
-         * @function encode
-         * @memberof RegistryUpdate
-         * @static
-         * @param {IRegistryUpdate} message RegistryUpdate message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        RegistryUpdate.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.itemsDef != null && Object.hasOwnProperty.call(message, "itemsDef"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.itemsDef);
-            if (message.blocksDef != null && Object.hasOwnProperty.call(message, "blocksDef"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.blocksDef);
-            return writer;
-        };
-    
-        /**
-         * Encodes the specified RegistryUpdate message, length delimited. Does not implicitly {@link RegistryUpdate.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof RegistryUpdate
-         * @static
-         * @param {IRegistryUpdate} message RegistryUpdate message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        RegistryUpdate.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-    
-        /**
-         * Decodes a RegistryUpdate message from the specified reader or buffer.
-         * @function decode
-         * @memberof RegistryUpdate
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {RegistryUpdate} RegistryUpdate
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        RegistryUpdate.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.RegistryUpdate();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.itemsDef = reader.string();
-                    break;
-                case 2:
-                    message.blocksDef = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-    
-        /**
-         * Decodes a RegistryUpdate message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof RegistryUpdate
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {RegistryUpdate} RegistryUpdate
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        RegistryUpdate.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-    
-        /**
-         * Verifies a RegistryUpdate message.
-         * @function verify
-         * @memberof RegistryUpdate
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        RegistryUpdate.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
-                if (!$util.isString(message.itemsDef))
-                    return "itemsDef: string expected";
-            if (message.blocksDef != null && message.hasOwnProperty("blocksDef"))
-                if (!$util.isString(message.blocksDef))
-                    return "blocksDef: string expected";
-            return null;
-        };
-    
-        /**
-         * Creates a RegistryUpdate message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof RegistryUpdate
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {RegistryUpdate} RegistryUpdate
-         */
-        RegistryUpdate.fromObject = function fromObject(object) {
-            if (object instanceof $root.RegistryUpdate)
-                return object;
-            var message = new $root.RegistryUpdate();
-            if (object.itemsDef != null)
-                message.itemsDef = String(object.itemsDef);
-            if (object.blocksDef != null)
-                message.blocksDef = String(object.blocksDef);
-            return message;
-        };
-    
-        /**
-         * Creates a plain object from a RegistryUpdate message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof RegistryUpdate
-         * @static
-         * @param {RegistryUpdate} message RegistryUpdate
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        RegistryUpdate.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.itemsDef = "";
-                object.blocksDef = "";
-            }
-            if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
-                object.itemsDef = message.itemsDef;
-            if (message.blocksDef != null && message.hasOwnProperty("blocksDef"))
-                object.blocksDef = message.blocksDef;
-            return object;
-        };
-    
-        /**
-         * Converts this RegistryUpdate to JSON.
-         * @function toJSON
-         * @memberof RegistryUpdate
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        RegistryUpdate.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-    
-        return RegistryUpdate;
-    })();
-    
     $root.EnvironmentFogUpdate = (function() {
     
         /**
@@ -8971,6 +9224,193 @@
         return EnvironmentSkyUpdate;
     })();
     
+    $root.EnvironmentSetSkybox = (function() {
+    
+        /**
+         * Properties of an EnvironmentSetSkybox.
+         * @exports IEnvironmentSetSkybox
+         * @interface IEnvironmentSetSkybox
+         * @property {string|null} [texture] EnvironmentSetSkybox texture
+         */
+    
+        /**
+         * Constructs a new EnvironmentSetSkybox.
+         * @exports EnvironmentSetSkybox
+         * @classdesc Represents an EnvironmentSetSkybox.
+         * @implements IEnvironmentSetSkybox
+         * @constructor
+         * @param {IEnvironmentSetSkybox=} [properties] Properties to set
+         */
+        function EnvironmentSetSkybox(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * EnvironmentSetSkybox texture.
+         * @member {string} texture
+         * @memberof EnvironmentSetSkybox
+         * @instance
+         */
+        EnvironmentSetSkybox.prototype.texture = "";
+    
+        /**
+         * Creates a new EnvironmentSetSkybox instance using the specified properties.
+         * @function create
+         * @memberof EnvironmentSetSkybox
+         * @static
+         * @param {IEnvironmentSetSkybox=} [properties] Properties to set
+         * @returns {EnvironmentSetSkybox} EnvironmentSetSkybox instance
+         */
+        EnvironmentSetSkybox.create = function create(properties) {
+            return new EnvironmentSetSkybox(properties);
+        };
+    
+        /**
+         * Encodes the specified EnvironmentSetSkybox message. Does not implicitly {@link EnvironmentSetSkybox.verify|verify} messages.
+         * @function encode
+         * @memberof EnvironmentSetSkybox
+         * @static
+         * @param {IEnvironmentSetSkybox} message EnvironmentSetSkybox message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnvironmentSetSkybox.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.texture != null && Object.hasOwnProperty.call(message, "texture"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.texture);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified EnvironmentSetSkybox message, length delimited. Does not implicitly {@link EnvironmentSetSkybox.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof EnvironmentSetSkybox
+         * @static
+         * @param {IEnvironmentSetSkybox} message EnvironmentSetSkybox message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnvironmentSetSkybox.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an EnvironmentSetSkybox message from the specified reader or buffer.
+         * @function decode
+         * @memberof EnvironmentSetSkybox
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {EnvironmentSetSkybox} EnvironmentSetSkybox
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnvironmentSetSkybox.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EnvironmentSetSkybox();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.texture = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an EnvironmentSetSkybox message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof EnvironmentSetSkybox
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {EnvironmentSetSkybox} EnvironmentSetSkybox
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnvironmentSetSkybox.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an EnvironmentSetSkybox message.
+         * @function verify
+         * @memberof EnvironmentSetSkybox
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        EnvironmentSetSkybox.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.texture != null && message.hasOwnProperty("texture"))
+                if (!$util.isString(message.texture))
+                    return "texture: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an EnvironmentSetSkybox message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof EnvironmentSetSkybox
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {EnvironmentSetSkybox} EnvironmentSetSkybox
+         */
+        EnvironmentSetSkybox.fromObject = function fromObject(object) {
+            if (object instanceof $root.EnvironmentSetSkybox)
+                return object;
+            var message = new $root.EnvironmentSetSkybox();
+            if (object.texture != null)
+                message.texture = String(object.texture);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an EnvironmentSetSkybox message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof EnvironmentSetSkybox
+         * @static
+         * @param {EnvironmentSetSkybox} message EnvironmentSetSkybox
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EnvironmentSetSkybox.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.texture = "";
+            if (message.texture != null && message.hasOwnProperty("texture"))
+                object.texture = message.texture;
+            return object;
+        };
+    
+        /**
+         * Converts this EnvironmentSetSkybox to JSON.
+         * @function toJSON
+         * @memberof EnvironmentSetSkybox
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EnvironmentSetSkybox.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return EnvironmentSetSkybox;
+    })();
+    
     $root.PluginMessage = (function() {
     
         /**
@@ -9210,6 +9650,935 @@
         };
     
         return PluginMessage;
+    })();
+    
+    $root.ChatComponentType = (function() {
+    
+        /**
+         * Properties of a ChatComponentType.
+         * @exports IChatComponentType
+         * @interface IChatComponentType
+         * @property {string|null} [text] ChatComponentType text
+         * @property {string|null} [font] ChatComponentType font
+         * @property {string|null} [color] ChatComponentType color
+         * @property {boolean|null} [linethrough] ChatComponentType linethrough
+         * @property {boolean|null} [underline] ChatComponentType underline
+         * @property {string|null} [url] ChatComponentType url
+         */
+    
+        /**
+         * Constructs a new ChatComponentType.
+         * @exports ChatComponentType
+         * @classdesc Represents a ChatComponentType.
+         * @implements IChatComponentType
+         * @constructor
+         * @param {IChatComponentType=} [properties] Properties to set
+         */
+        function ChatComponentType(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * ChatComponentType text.
+         * @member {string} text
+         * @memberof ChatComponentType
+         * @instance
+         */
+        ChatComponentType.prototype.text = "";
+    
+        /**
+         * ChatComponentType font.
+         * @member {string} font
+         * @memberof ChatComponentType
+         * @instance
+         */
+        ChatComponentType.prototype.font = "";
+    
+        /**
+         * ChatComponentType color.
+         * @member {string} color
+         * @memberof ChatComponentType
+         * @instance
+         */
+        ChatComponentType.prototype.color = "";
+    
+        /**
+         * ChatComponentType linethrough.
+         * @member {boolean} linethrough
+         * @memberof ChatComponentType
+         * @instance
+         */
+        ChatComponentType.prototype.linethrough = false;
+    
+        /**
+         * ChatComponentType underline.
+         * @member {boolean} underline
+         * @memberof ChatComponentType
+         * @instance
+         */
+        ChatComponentType.prototype.underline = false;
+    
+        /**
+         * ChatComponentType url.
+         * @member {string} url
+         * @memberof ChatComponentType
+         * @instance
+         */
+        ChatComponentType.prototype.url = "";
+    
+        /**
+         * Creates a new ChatComponentType instance using the specified properties.
+         * @function create
+         * @memberof ChatComponentType
+         * @static
+         * @param {IChatComponentType=} [properties] Properties to set
+         * @returns {ChatComponentType} ChatComponentType instance
+         */
+        ChatComponentType.create = function create(properties) {
+            return new ChatComponentType(properties);
+        };
+    
+        /**
+         * Encodes the specified ChatComponentType message. Does not implicitly {@link ChatComponentType.verify|verify} messages.
+         * @function encode
+         * @memberof ChatComponentType
+         * @static
+         * @param {IChatComponentType} message ChatComponentType message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ChatComponentType.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.text != null && Object.hasOwnProperty.call(message, "text"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
+            if (message.font != null && Object.hasOwnProperty.call(message, "font"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.font);
+            if (message.color != null && Object.hasOwnProperty.call(message, "color"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.color);
+            if (message.linethrough != null && Object.hasOwnProperty.call(message, "linethrough"))
+                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.linethrough);
+            if (message.underline != null && Object.hasOwnProperty.call(message, "underline"))
+                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.underline);
+            if (message.url != null && Object.hasOwnProperty.call(message, "url"))
+                writer.uint32(/* id 6, wireType 2 =*/50).string(message.url);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified ChatComponentType message, length delimited. Does not implicitly {@link ChatComponentType.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ChatComponentType
+         * @static
+         * @param {IChatComponentType} message ChatComponentType message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ChatComponentType.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a ChatComponentType message from the specified reader or buffer.
+         * @function decode
+         * @memberof ChatComponentType
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ChatComponentType} ChatComponentType
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ChatComponentType.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChatComponentType();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.text = reader.string();
+                    break;
+                case 2:
+                    message.font = reader.string();
+                    break;
+                case 3:
+                    message.color = reader.string();
+                    break;
+                case 4:
+                    message.linethrough = reader.bool();
+                    break;
+                case 5:
+                    message.underline = reader.bool();
+                    break;
+                case 6:
+                    message.url = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a ChatComponentType message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ChatComponentType
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ChatComponentType} ChatComponentType
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ChatComponentType.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a ChatComponentType message.
+         * @function verify
+         * @memberof ChatComponentType
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ChatComponentType.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.text != null && message.hasOwnProperty("text"))
+                if (!$util.isString(message.text))
+                    return "text: string expected";
+            if (message.font != null && message.hasOwnProperty("font"))
+                if (!$util.isString(message.font))
+                    return "font: string expected";
+            if (message.color != null && message.hasOwnProperty("color"))
+                if (!$util.isString(message.color))
+                    return "color: string expected";
+            if (message.linethrough != null && message.hasOwnProperty("linethrough"))
+                if (typeof message.linethrough !== "boolean")
+                    return "linethrough: boolean expected";
+            if (message.underline != null && message.hasOwnProperty("underline"))
+                if (typeof message.underline !== "boolean")
+                    return "underline: boolean expected";
+            if (message.url != null && message.hasOwnProperty("url"))
+                if (!$util.isString(message.url))
+                    return "url: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a ChatComponentType message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ChatComponentType
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ChatComponentType} ChatComponentType
+         */
+        ChatComponentType.fromObject = function fromObject(object) {
+            if (object instanceof $root.ChatComponentType)
+                return object;
+            var message = new $root.ChatComponentType();
+            if (object.text != null)
+                message.text = String(object.text);
+            if (object.font != null)
+                message.font = String(object.font);
+            if (object.color != null)
+                message.color = String(object.color);
+            if (object.linethrough != null)
+                message.linethrough = Boolean(object.linethrough);
+            if (object.underline != null)
+                message.underline = Boolean(object.underline);
+            if (object.url != null)
+                message.url = String(object.url);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a ChatComponentType message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ChatComponentType
+         * @static
+         * @param {ChatComponentType} message ChatComponentType
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ChatComponentType.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.text = "";
+                object.font = "";
+                object.color = "";
+                object.linethrough = false;
+                object.underline = false;
+                object.url = "";
+            }
+            if (message.text != null && message.hasOwnProperty("text"))
+                object.text = message.text;
+            if (message.font != null && message.hasOwnProperty("font"))
+                object.font = message.font;
+            if (message.color != null && message.hasOwnProperty("color"))
+                object.color = message.color;
+            if (message.linethrough != null && message.hasOwnProperty("linethrough"))
+                object.linethrough = message.linethrough;
+            if (message.underline != null && message.hasOwnProperty("underline"))
+                object.underline = message.underline;
+            if (message.url != null && message.hasOwnProperty("url"))
+                object.url = message.url;
+            return object;
+        };
+    
+        /**
+         * Converts this ChatComponentType to JSON.
+         * @function toJSON
+         * @memberof ChatComponentType
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ChatComponentType.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return ChatComponentType;
+    })();
+    
+    $root.BasicChatComponentType = (function() {
+    
+        /**
+         * Properties of a BasicChatComponentType.
+         * @exports IBasicChatComponentType
+         * @interface IBasicChatComponentType
+         * @property {string|null} [text] BasicChatComponentType text
+         * @property {string|null} [font] BasicChatComponentType font
+         * @property {string|null} [color] BasicChatComponentType color
+         * @property {boolean|null} [linethrough] BasicChatComponentType linethrough
+         * @property {boolean|null} [underline] BasicChatComponentType underline
+         */
+    
+        /**
+         * Constructs a new BasicChatComponentType.
+         * @exports BasicChatComponentType
+         * @classdesc Represents a BasicChatComponentType.
+         * @implements IBasicChatComponentType
+         * @constructor
+         * @param {IBasicChatComponentType=} [properties] Properties to set
+         */
+        function BasicChatComponentType(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * BasicChatComponentType text.
+         * @member {string} text
+         * @memberof BasicChatComponentType
+         * @instance
+         */
+        BasicChatComponentType.prototype.text = "";
+    
+        /**
+         * BasicChatComponentType font.
+         * @member {string} font
+         * @memberof BasicChatComponentType
+         * @instance
+         */
+        BasicChatComponentType.prototype.font = "";
+    
+        /**
+         * BasicChatComponentType color.
+         * @member {string} color
+         * @memberof BasicChatComponentType
+         * @instance
+         */
+        BasicChatComponentType.prototype.color = "";
+    
+        /**
+         * BasicChatComponentType linethrough.
+         * @member {boolean} linethrough
+         * @memberof BasicChatComponentType
+         * @instance
+         */
+        BasicChatComponentType.prototype.linethrough = false;
+    
+        /**
+         * BasicChatComponentType underline.
+         * @member {boolean} underline
+         * @memberof BasicChatComponentType
+         * @instance
+         */
+        BasicChatComponentType.prototype.underline = false;
+    
+        /**
+         * Creates a new BasicChatComponentType instance using the specified properties.
+         * @function create
+         * @memberof BasicChatComponentType
+         * @static
+         * @param {IBasicChatComponentType=} [properties] Properties to set
+         * @returns {BasicChatComponentType} BasicChatComponentType instance
+         */
+        BasicChatComponentType.create = function create(properties) {
+            return new BasicChatComponentType(properties);
+        };
+    
+        /**
+         * Encodes the specified BasicChatComponentType message. Does not implicitly {@link BasicChatComponentType.verify|verify} messages.
+         * @function encode
+         * @memberof BasicChatComponentType
+         * @static
+         * @param {IBasicChatComponentType} message BasicChatComponentType message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BasicChatComponentType.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.text != null && Object.hasOwnProperty.call(message, "text"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.text);
+            if (message.font != null && Object.hasOwnProperty.call(message, "font"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.font);
+            if (message.color != null && Object.hasOwnProperty.call(message, "color"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.color);
+            if (message.linethrough != null && Object.hasOwnProperty.call(message, "linethrough"))
+                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.linethrough);
+            if (message.underline != null && Object.hasOwnProperty.call(message, "underline"))
+                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.underline);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified BasicChatComponentType message, length delimited. Does not implicitly {@link BasicChatComponentType.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof BasicChatComponentType
+         * @static
+         * @param {IBasicChatComponentType} message BasicChatComponentType message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BasicChatComponentType.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a BasicChatComponentType message from the specified reader or buffer.
+         * @function decode
+         * @memberof BasicChatComponentType
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {BasicChatComponentType} BasicChatComponentType
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BasicChatComponentType.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.BasicChatComponentType();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.text = reader.string();
+                    break;
+                case 2:
+                    message.font = reader.string();
+                    break;
+                case 3:
+                    message.color = reader.string();
+                    break;
+                case 4:
+                    message.linethrough = reader.bool();
+                    break;
+                case 5:
+                    message.underline = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a BasicChatComponentType message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof BasicChatComponentType
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {BasicChatComponentType} BasicChatComponentType
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BasicChatComponentType.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a BasicChatComponentType message.
+         * @function verify
+         * @memberof BasicChatComponentType
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BasicChatComponentType.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.text != null && message.hasOwnProperty("text"))
+                if (!$util.isString(message.text))
+                    return "text: string expected";
+            if (message.font != null && message.hasOwnProperty("font"))
+                if (!$util.isString(message.font))
+                    return "font: string expected";
+            if (message.color != null && message.hasOwnProperty("color"))
+                if (!$util.isString(message.color))
+                    return "color: string expected";
+            if (message.linethrough != null && message.hasOwnProperty("linethrough"))
+                if (typeof message.linethrough !== "boolean")
+                    return "linethrough: boolean expected";
+            if (message.underline != null && message.hasOwnProperty("underline"))
+                if (typeof message.underline !== "boolean")
+                    return "underline: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates a BasicChatComponentType message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof BasicChatComponentType
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {BasicChatComponentType} BasicChatComponentType
+         */
+        BasicChatComponentType.fromObject = function fromObject(object) {
+            if (object instanceof $root.BasicChatComponentType)
+                return object;
+            var message = new $root.BasicChatComponentType();
+            if (object.text != null)
+                message.text = String(object.text);
+            if (object.font != null)
+                message.font = String(object.font);
+            if (object.color != null)
+                message.color = String(object.color);
+            if (object.linethrough != null)
+                message.linethrough = Boolean(object.linethrough);
+            if (object.underline != null)
+                message.underline = Boolean(object.underline);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a BasicChatComponentType message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof BasicChatComponentType
+         * @static
+         * @param {BasicChatComponentType} message BasicChatComponentType
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BasicChatComponentType.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.text = "";
+                object.font = "";
+                object.color = "";
+                object.linethrough = false;
+                object.underline = false;
+            }
+            if (message.text != null && message.hasOwnProperty("text"))
+                object.text = message.text;
+            if (message.font != null && message.hasOwnProperty("font"))
+                object.font = message.font;
+            if (message.color != null && message.hasOwnProperty("color"))
+                object.color = message.color;
+            if (message.linethrough != null && message.hasOwnProperty("linethrough"))
+                object.linethrough = message.linethrough;
+            if (message.underline != null && message.hasOwnProperty("underline"))
+                object.underline = message.underline;
+            return object;
+        };
+    
+        /**
+         * Converts this BasicChatComponentType to JSON.
+         * @function toJSON
+         * @memberof BasicChatComponentType
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BasicChatComponentType.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return BasicChatComponentType;
+    })();
+    
+    $root.Item = (function() {
+    
+        /**
+         * Properties of an Item.
+         * @exports IItem
+         * @interface IItem
+         * @property {string|null} [id] Item id
+         * @property {number|null} [count] Item count
+         * @property {number|null} [damage] Item damage
+         * @property {Object.<string,IBasicChatComponentType>|null} [name] Item name
+         */
+    
+        /**
+         * Constructs a new Item.
+         * @exports Item
+         * @classdesc Represents an Item.
+         * @implements IItem
+         * @constructor
+         * @param {IItem=} [properties] Properties to set
+         */
+        function Item(properties) {
+            this.name = {};
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * Item id.
+         * @member {string} id
+         * @memberof Item
+         * @instance
+         */
+        Item.prototype.id = "";
+    
+        /**
+         * Item count.
+         * @member {number} count
+         * @memberof Item
+         * @instance
+         */
+        Item.prototype.count = 0;
+    
+        /**
+         * Item damage.
+         * @member {number} damage
+         * @memberof Item
+         * @instance
+         */
+        Item.prototype.damage = 0;
+    
+        /**
+         * Item name.
+         * @member {Object.<string,IBasicChatComponentType>} name
+         * @memberof Item
+         * @instance
+         */
+        Item.prototype.name = $util.emptyObject;
+    
+        /**
+         * Creates a new Item instance using the specified properties.
+         * @function create
+         * @memberof Item
+         * @static
+         * @param {IItem=} [properties] Properties to set
+         * @returns {Item} Item instance
+         */
+        Item.create = function create(properties) {
+            return new Item(properties);
+        };
+    
+        /**
+         * Encodes the specified Item message. Does not implicitly {@link Item.verify|verify} messages.
+         * @function encode
+         * @memberof Item
+         * @static
+         * @param {IItem} message Item message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Item.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.count != null && Object.hasOwnProperty.call(message, "count"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.count);
+            if (message.damage != null && Object.hasOwnProperty.call(message, "damage"))
+                writer.uint32(/* id 3, wireType 5 =*/29).float(message.damage);
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                for (var keys = Object.keys(message.name), i = 0; i < keys.length; ++i) {
+                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
+                    $root.BasicChatComponentType.encode(message.name[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                }
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified Item message, length delimited. Does not implicitly {@link Item.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof Item
+         * @static
+         * @param {IItem} message Item message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Item.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an Item message from the specified reader or buffer.
+         * @function decode
+         * @memberof Item
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {Item} Item
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Item.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Item(), key, value;
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.count = reader.int32();
+                    break;
+                case 3:
+                    message.damage = reader.float();
+                    break;
+                case 4:
+                    if (message.name === $util.emptyObject)
+                        message.name = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = 0;
+                    value = null;
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.uint32();
+                            break;
+                        case 2:
+                            value = $root.BasicChatComponentType.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.name[key] = value;
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an Item message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof Item
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {Item} Item
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Item.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an Item message.
+         * @function verify
+         * @memberof Item
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        Item.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.count != null && message.hasOwnProperty("count"))
+                if (!$util.isInteger(message.count))
+                    return "count: integer expected";
+            if (message.damage != null && message.hasOwnProperty("damage"))
+                if (typeof message.damage !== "number")
+                    return "damage: number expected";
+            if (message.name != null && message.hasOwnProperty("name")) {
+                if (!$util.isObject(message.name))
+                    return "name: object expected";
+                var key = Object.keys(message.name);
+                for (var i = 0; i < key.length; ++i) {
+                    if (!$util.key32Re.test(key[i]))
+                        return "name: integer key{k:uint32} expected";
+                    {
+                        var error = $root.BasicChatComponentType.verify(message.name[key[i]]);
+                        if (error)
+                            return "name." + error;
+                    }
+                }
+            }
+            return null;
+        };
+    
+        /**
+         * Creates an Item message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof Item
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {Item} Item
+         */
+        Item.fromObject = function fromObject(object) {
+            if (object instanceof $root.Item)
+                return object;
+            var message = new $root.Item();
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.count != null)
+                message.count = object.count | 0;
+            if (object.damage != null)
+                message.damage = Number(object.damage);
+            if (object.name) {
+                if (typeof object.name !== "object")
+                    throw TypeError(".Item.name: object expected");
+                message.name = {};
+                for (var keys = Object.keys(object.name), i = 0; i < keys.length; ++i) {
+                    if (typeof object.name[keys[i]] !== "object")
+                        throw TypeError(".Item.name: object expected");
+                    message.name[keys[i]] = $root.BasicChatComponentType.fromObject(object.name[keys[i]]);
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an Item message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof Item
+         * @static
+         * @param {Item} message Item
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        Item.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.objects || options.defaults)
+                object.name = {};
+            if (options.defaults) {
+                object.id = "";
+                object.count = 0;
+                object.damage = 0;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.count != null && message.hasOwnProperty("count"))
+                object.count = message.count;
+            if (message.damage != null && message.hasOwnProperty("damage"))
+                object.damage = options.json && !isFinite(message.damage) ? String(message.damage) : message.damage;
+            var keys2;
+            if (message.name && (keys2 = Object.keys(message.name)).length) {
+                object.name = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.name[keys2[j]] = $root.BasicChatComponentType.toObject(message.name[keys2[j]], options);
+            }
+            return object;
+        };
+    
+        /**
+         * Converts this Item to JSON.
+         * @function toJSON
+         * @memberof Item
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        Item.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return Item;
+    })();
+    
+    /**
+     * InventoryType enum.
+     * @exports InventoryType
+     * @enum {number}
+     * @property {number} MAIN=0 MAIN value
+     * @property {number} ARMOR=1 ARMOR value
+     * @property {number} CRAFT=2 CRAFT value
+     * @property {number} HOOK=3 HOOK value
+     */
+    $root.InventoryType = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "MAIN"] = 0;
+        values[valuesById[1] = "ARMOR"] = 1;
+        values[valuesById[2] = "CRAFT"] = 2;
+        values[valuesById[3] = "HOOK"] = 3;
+        return values;
+    })();
+    
+    /**
+     * ContainerType enum.
+     * @exports ContainerType
+     * @enum {number}
+     * @property {number} PLAYER=0 PLAYER value
+     * @property {number} CHEST=1 CHEST value
+     * @property {number} CRAFTING=2 CRAFTING value
+     * @property {number} FURNACE=3 FURNACE value
+     */
+    $root.ContainerType = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "PLAYER"] = 0;
+        values[valuesById[1] = "CHEST"] = 1;
+        values[valuesById[2] = "CRAFTING"] = 2;
+        values[valuesById[3] = "FURNACE"] = 3;
+        return values;
+    })();
+    
+    /**
+     * MouseClickType enum.
+     * @exports MouseClickType
+     * @enum {number}
+     * @property {number} LEFT=0 LEFT value
+     * @property {number} RIGHT=1 RIGHT value
+     * @property {number} MIDDLE=2 MIDDLE value
+     * @property {number} SELECT=3 SELECT value
+     */
+    $root.MouseClickType = (function() {
+        var valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[0] = "LEFT"] = 0;
+        values[valuesById[1] = "RIGHT"] = 1;
+        values[valuesById[2] = "MIDDLE"] = 2;
+        values[valuesById[3] = "SELECT"] = 3;
+        return values;
     })();
 
     return $root;

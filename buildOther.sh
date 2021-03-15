@@ -3,3 +3,5 @@
 
 ./protoc --java_out=./java/ --java_out=lite:./java-lite/ --csharp_out=./csharp/ ./proto/proxy-client.proto
 ./protoc --java_out=./java/ --java_out=lite:./java-lite/ --csharp_out=./csharp/ ./proto/proxy-server.proto
+
+./protoc --java_out=./java/ --java_out=lite:./java-lite/ --csharp_out=./csharp/ ./proto/types.proto
