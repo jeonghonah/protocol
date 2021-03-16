@@ -7638,6 +7638,645 @@ public final class Server {
 
   }
 
+  public interface PlayerEnterVehicleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PlayerEnterVehicle)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
+
+    /**
+     * <code>bool allow_control = 2;</code>
+     * @return The allowControl.
+     */
+    boolean getAllowControl();
+  }
+  /**
+   * Protobuf type {@code PlayerEnterVehicle}
+   */
+  public static final class PlayerEnterVehicle extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:PlayerEnterVehicle)
+      PlayerEnterVehicleOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PlayerEnterVehicle.newBuilder() to construct.
+    private PlayerEnterVehicle(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PlayerEnterVehicle() {
+      uuid_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PlayerEnterVehicle();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PlayerEnterVehicle(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uuid_ = s;
+              break;
+            }
+            case 16: {
+
+              allowControl_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Server.internal_static_PlayerEnterVehicle_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Server.internal_static_PlayerEnterVehicle_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Server.PlayerEnterVehicle.class, Server.PlayerEnterVehicle.Builder.class);
+    }
+
+    public static final int UUID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uuid_;
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uuid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uuid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ALLOW_CONTROL_FIELD_NUMBER = 2;
+    private boolean allowControl_;
+    /**
+     * <code>bool allow_control = 2;</code>
+     * @return The allowControl.
+     */
+    @java.lang.Override
+    public boolean getAllowControl() {
+      return allowControl_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getUuidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
+      }
+      if (allowControl_ != false) {
+        output.writeBool(2, allowControl_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getUuidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
+      }
+      if (allowControl_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, allowControl_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Server.PlayerEnterVehicle)) {
+        return super.equals(obj);
+      }
+      Server.PlayerEnterVehicle other = (Server.PlayerEnterVehicle) obj;
+
+      if (!getUuid()
+          .equals(other.getUuid())) return false;
+      if (getAllowControl()
+          != other.getAllowControl()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid().hashCode();
+      hash = (37 * hash) + ALLOW_CONTROL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getAllowControl());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Server.PlayerEnterVehicle parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Server.PlayerEnterVehicle parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Server.PlayerEnterVehicle parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Server.PlayerEnterVehicle parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Server.PlayerEnterVehicle prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code PlayerEnterVehicle}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:PlayerEnterVehicle)
+        Server.PlayerEnterVehicleOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Server.internal_static_PlayerEnterVehicle_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Server.internal_static_PlayerEnterVehicle_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Server.PlayerEnterVehicle.class, Server.PlayerEnterVehicle.Builder.class);
+      }
+
+      // Construct using Server.PlayerEnterVehicle.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uuid_ = "";
+
+        allowControl_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Server.internal_static_PlayerEnterVehicle_descriptor;
+      }
+
+      @java.lang.Override
+      public Server.PlayerEnterVehicle getDefaultInstanceForType() {
+        return Server.PlayerEnterVehicle.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Server.PlayerEnterVehicle build() {
+        Server.PlayerEnterVehicle result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Server.PlayerEnterVehicle buildPartial() {
+        Server.PlayerEnterVehicle result = new Server.PlayerEnterVehicle(this);
+        result.uuid_ = uuid_;
+        result.allowControl_ = allowControl_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Server.PlayerEnterVehicle) {
+          return mergeFrom((Server.PlayerEnterVehicle)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Server.PlayerEnterVehicle other) {
+        if (other == Server.PlayerEnterVehicle.getDefaultInstance()) return this;
+        if (!other.getUuid().isEmpty()) {
+          uuid_ = other.uuid_;
+          onChanged();
+        }
+        if (other.getAllowControl() != false) {
+          setAllowControl(other.getAllowControl());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Server.PlayerEnterVehicle parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Server.PlayerEnterVehicle) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object uuid_ = "";
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The uuid.
+       */
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uuid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The bytes for uuid.
+       */
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uuid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        
+        uuid_ = getDefaultInstance().getUuid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean allowControl_ ;
+      /**
+       * <code>bool allow_control = 2;</code>
+       * @return The allowControl.
+       */
+      @java.lang.Override
+      public boolean getAllowControl() {
+        return allowControl_;
+      }
+      /**
+       * <code>bool allow_control = 2;</code>
+       * @param value The allowControl to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAllowControl(boolean value) {
+        
+        allowControl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool allow_control = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAllowControl() {
+        
+        allowControl_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:PlayerEnterVehicle)
+    }
+
+    // @@protoc_insertion_point(class_scope:PlayerEnterVehicle)
+    private static final Server.PlayerEnterVehicle DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Server.PlayerEnterVehicle();
+    }
+
+    public static Server.PlayerEnterVehicle getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PlayerEnterVehicle>
+        PARSER = new com.google.protobuf.AbstractParser<PlayerEnterVehicle>() {
+      @java.lang.Override
+      public PlayerEnterVehicle parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PlayerEnterVehicle(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PlayerEnterVehicle> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PlayerEnterVehicle> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Server.PlayerEnterVehicle getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PlayerInventoryOrBuilder extends
       // @@protoc_insertion_point(interface_extends:PlayerInventory)
       com.google.protobuf.MessageOrBuilder {
@@ -30995,6 +31634,11 @@ public final class Server {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PlayerTeleport_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_PlayerEnterVehicle_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_PlayerEnterVehicle_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PlayerInventory_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -31215,80 +31859,82 @@ public final class Server {
       "re\030\003 \001(\t\022\016\n\006height\030\004 \001(\002\022\r\n\005witdh\030\005 \001(\002\"" +
       "R\n\016PlayerTeleport\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022" +
       "\t\n\001z\030\003 \001(\001\022\020\n\010rotation\030\004 \001(\002\022\r\n\005pitch\030\005 " +
-      "\001(\002\"\310\002\n\017PlayerInventory\022\014\n\004size\030\001 \001(\r\022(\n" +
-      "\004main\030\002 \003(\0132\032.PlayerInventory.MainEntry\022" +
-      "*\n\005armor\030\003 \003(\0132\033.PlayerInventory.ArmorEn" +
-      "try\0220\n\010crafting\030\004 \003(\0132\036.PlayerInventory." +
-      "CraftingEntry\0322\n\tMainEntry\022\013\n\003key\030\001 \001(\r\022" +
-      "\024\n\005value\030\002 \001(\0132\005.Item:\0028\001\0323\n\nArmorEntry\022" +
-      "\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132\005.Item:\0028\001\0326" +
-      "\n\rCraftingEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 " +
-      "\001(\0132\005.Item:\0028\001\"S\n\020PlayerSlotUpdate\022\014\n\004sl" +
-      "ot\030\001 \001(\005\022\034\n\004type\030\002 \001(\0162\016.InventoryType\022\023" +
-      "\n\004item\030\003 \001(\0132\005.Item\"5\n\022PlayerApplyImpuls" +
-      "e\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"2\n\024Pl" +
-      "ayerUpdateMovement\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\001\"1\n\023PlayerUpdatePhysics\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\001\"*\n\014PlayerHealth\022\r\n\005val" +
-      "ue\030\001 \001(\002\022\013\n\003max\030\002 \001(\002\"$\n\023PlayerSetBlockR" +
-      "each\022\r\n\005value\030\001 \001(\002\"\264\001\n\023PlayerOpenInvent" +
-      "ory\022\034\n\004type\030\001 \001(\0162\016.ContainerType\022\014\n\004nam" +
-      "e\030\002 \001(\t\022\014\n\004size\030\003 \001(\r\022.\n\005items\030\004 \003(\0132\037.P" +
-      "layerOpenInventory.ItemsEntry\0323\n\nItemsEn" +
-      "try\022\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132\005.Item:\002" +
-      "8\001\"\224\001\n\031PlayerUpdateOpenInventory\022\014\n\004name" +
-      "\030\001 \001(\t\0224\n\005items\030\002 \003(\0132%.PlayerUpdateOpen" +
-      "Inventory.ItemsEntry\0323\n\nItemsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132\005.Item:\0028\001\"K\n\tSou" +
-      "ndPlay\022\r\n\005sound\030\001 \001(\t\022\016\n\006volume\030\002 \001(\r\022\t\n" +
-      "\001x\030\003 \001(\001\022\t\n\001y\030\004 \001(\001\022\t\n\001z\030\005 \001(\001\"\213\001\n\013ChatM" +
-      "essage\022*\n\007message\030\001 \003(\0132\031.ChatMessage.Me" +
-      "ssageEntry\022\014\n\004time\030\002 \001(\004\032B\n\014MessageEntry" +
-      "\022\013\n\003key\030\001 \001(\r\022!\n\005value\030\002 \001(\0132\022.ChatCompo" +
-      "nentType:\0028\001\"\360\001\n\017UpdateTextBoard\022#\n\004type" +
-      "\030\001 \001(\0162\025.UpdateTextBoard.Type\022.\n\007message" +
-      "\030\002 \003(\0132\035.UpdateTextBoard.MessageEntry\022\014\n" +
-      "\004time\030\003 \001(\004\032G\n\014MessageEntry\022\013\n\003key\030\001 \001(\r" +
-      "\022&\n\005value\030\002 \001(\0132\027.BasicChatComponentType" +
-      ":\0028\001\"1\n\004Type\022\007\n\003TAB\020\000\022\010\n\004SIDE\020\001\022\n\n\006CENTE" +
-      "R\020\002\022\n\n\006HOTBAR\020\003\"*\n\014EntityCreate\022\014\n\004uuid\030" +
-      "\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\034\n\014EntityRemove\022\014\n\004u" +
-      "uid\030\001 \001(\t\"\\\n\nEntityMove\022\014\n\004uuid\030\001 \001(\t\022\t\n" +
-      "\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t\n\001z\030\004 \001(\001\022\020\n\010rotati" +
-      "on\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\"?\n\020EntityNameUpd" +
-      "ate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\017\n\007visib" +
-      "le\030\003 \001(\010\"*\n\016EntityHeldItem\022\014\n\004uuid\030\001 \001(\t" +
-      "\022\n\n\002id\030\002 \001(\t\"5\n\013EntityArmor\022\014\n\004uuid\030\001 \001(" +
-      "\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\t\"O\n\rEntityAni" +
-      "mate\022\014\n\004uuid\030\001 \001(\t\022\021\n\tanimation\030\002 \001(\t\022\014\n" +
-      "\004time\030\003 \001(\r\022\017\n\007replace\030\004 \001(\010\"R\n\020WorldBlo" +
-      "ckUpdate\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(" +
-      "\021\022\n\n\002id\030\004 \001(\r\022\021\n\tparticles\030\005 \001(\010\"\215\001\n\025Wor" +
-      "ldMultiBlockUpdate\0222\n\006blocks\030\001 \003(\0132\".Wor" +
-      "ldMultiBlockUpdate.BlocksEntry\032@\n\013Blocks" +
-      "Entry\022\013\n\003key\030\001 \001(\005\022 \n\005value\030\002 \001(\0132\021.Worl" +
-      "dBlockUpdate:\0028\001\"}\n\016WorldChunkLoad\022\t\n\001x\030" +
-      "\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006height\030\004 " +
-      "\001(\021\022\022\n\ncompressed\030\005 \001(\010\022\022\n\nblock_data\030\006 " +
-      "\001(\014\022\022\n\nlight_data\030\007 \001(\014\"C\n\020WorldChunkUnl" +
-      "oad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006" +
-      "height\030\004 \001(\021\"5\n\022WorldChunkIsLoaded\022\t\n\001x\030" +
-      "\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\"\'\n\024WorldChun" +
-      "ksRemoveAll\022\017\n\007confirm\030\001 \001(\010\"&\n\025Environm" +
-      "entTimeUpdate\022\r\n\005value\030\001 \001(\005\"\215\001\n\024Environ" +
-      "mentFogUpdate\022\014\n\004mode\030\001 \001(\r\022\017\n\007density\030\002" +
-      " \001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(\002\022\021\n\tcolo" +
-      "r_red\030\005 \001(\002\022\023\n\013color_green\030\006 \001(\002\022\022\n\ncolo" +
-      "r_blue\030\007 \001(\002\"\373\001\n\024EnvironmentSkyUpdate\022\016\n" +
-      "\006clouds\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013colo" +
-      "r_green\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001(\002\022\025\n\rcol" +
-      "or_red_top\030\005 \001(\002\022\027\n\017color_green_top\030\006 \001(" +
-      "\002\022\026\n\016color_blue_top\030\007 \001(\002\022\030\n\020color_red_b" +
-      "ottom\030\010 \001(\002\022\032\n\022color_green_bottom\030\t \001(\002\022" +
-      "\031\n\021color_blue_bottom\030\n \001(\002\"7\n\024Environmen" +
-      "tSetSkybox\022\016\n\006enable\030\001 \001(\010\022\017\n\007texture\030\002 " +
-      "\001(\t\"<\n\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007ver" +
-      "sion\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
+      "\001(\002\"9\n\022PlayerEnterVehicle\022\014\n\004uuid\030\001 \001(\t\022" +
+      "\025\n\rallow_control\030\002 \001(\010\"\310\002\n\017PlayerInvento" +
+      "ry\022\014\n\004size\030\001 \001(\r\022(\n\004main\030\002 \003(\0132\032.PlayerI" +
+      "nventory.MainEntry\022*\n\005armor\030\003 \003(\0132\033.Play" +
+      "erInventory.ArmorEntry\0220\n\010crafting\030\004 \003(\013" +
+      "2\036.PlayerInventory.CraftingEntry\0322\n\tMain" +
+      "Entry\022\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132\005.Item" +
+      ":\0028\001\0323\n\nArmorEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005value" +
+      "\030\002 \001(\0132\005.Item:\0028\001\0326\n\rCraftingEntry\022\013\n\003ke" +
+      "y\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132\005.Item:\0028\001\"S\n\020Pla" +
+      "yerSlotUpdate\022\014\n\004slot\030\001 \001(\005\022\034\n\004type\030\002 \001(" +
+      "\0162\016.InventoryType\022\023\n\004item\030\003 \001(\0132\005.Item\"5" +
+      "\n\022PlayerApplyImpulse\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001" +
+      "(\002\022\t\n\001z\030\003 \001(\002\"2\n\024PlayerUpdateMovement\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"1\n\023PlayerUpdat" +
+      "ePhysics\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"*\n\014" +
+      "PlayerHealth\022\r\n\005value\030\001 \001(\002\022\013\n\003max\030\002 \001(\002" +
+      "\"$\n\023PlayerSetBlockReach\022\r\n\005value\030\001 \001(\002\"\264" +
+      "\001\n\023PlayerOpenInventory\022\034\n\004type\030\001 \001(\0162\016.C" +
+      "ontainerType\022\014\n\004name\030\002 \001(\t\022\014\n\004size\030\003 \001(\r" +
+      "\022.\n\005items\030\004 \003(\0132\037.PlayerOpenInventory.It" +
+      "emsEntry\0323\n\nItemsEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005v" +
+      "alue\030\002 \001(\0132\005.Item:\0028\001\"\224\001\n\031PlayerUpdateOp" +
+      "enInventory\022\014\n\004name\030\001 \001(\t\0224\n\005items\030\002 \003(\013" +
+      "2%.PlayerUpdateOpenInventory.ItemsEntry\032" +
+      "3\n\nItemsEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 \001(" +
+      "\0132\005.Item:\0028\001\"K\n\tSoundPlay\022\r\n\005sound\030\001 \001(\t" +
+      "\022\016\n\006volume\030\002 \001(\r\022\t\n\001x\030\003 \001(\001\022\t\n\001y\030\004 \001(\001\022\t" +
+      "\n\001z\030\005 \001(\001\"\213\001\n\013ChatMessage\022*\n\007message\030\001 \003" +
+      "(\0132\031.ChatMessage.MessageEntry\022\014\n\004time\030\002 " +
+      "\001(\004\032B\n\014MessageEntry\022\013\n\003key\030\001 \001(\r\022!\n\005valu" +
+      "e\030\002 \001(\0132\022.ChatComponentType:\0028\001\"\360\001\n\017Upda" +
+      "teTextBoard\022#\n\004type\030\001 \001(\0162\025.UpdateTextBo" +
+      "ard.Type\022.\n\007message\030\002 \003(\0132\035.UpdateTextBo" +
+      "ard.MessageEntry\022\014\n\004time\030\003 \001(\004\032G\n\014Messag" +
+      "eEntry\022\013\n\003key\030\001 \001(\r\022&\n\005value\030\002 \001(\0132\027.Bas" +
+      "icChatComponentType:\0028\001\"1\n\004Type\022\007\n\003TAB\020\000" +
+      "\022\010\n\004SIDE\020\001\022\n\n\006CENTER\020\002\022\n\n\006HOTBAR\020\003\"*\n\014En" +
+      "tityCreate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\034" +
+      "\n\014EntityRemove\022\014\n\004uuid\030\001 \001(\t\"\\\n\nEntityMo" +
+      "ve\022\014\n\004uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t" +
+      "\n\001z\030\004 \001(\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001" +
+      "(\002\"?\n\020EntityNameUpdate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004" +
+      "name\030\002 \001(\t\022\017\n\007visible\030\003 \001(\010\"*\n\016EntityHel" +
+      "dItem\022\014\n\004uuid\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\"5\n\013Entit" +
+      "yArmor\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id" +
+      "\030\003 \001(\t\"O\n\rEntityAnimate\022\014\n\004uuid\030\001 \001(\t\022\021\n" +
+      "\tanimation\030\002 \001(\t\022\014\n\004time\030\003 \001(\r\022\017\n\007replac" +
+      "e\030\004 \001(\010\"R\n\020WorldBlockUpdate\022\t\n\001x\030\001 \001(\021\022\t" +
+      "\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 \001(\r\022\021\n\tpart" +
+      "icles\030\005 \001(\010\"\215\001\n\025WorldMultiBlockUpdate\0222\n" +
+      "\006blocks\030\001 \003(\0132\".WorldMultiBlockUpdate.Bl" +
+      "ocksEntry\032@\n\013BlocksEntry\022\013\n\003key\030\001 \001(\005\022 \n" +
+      "\005value\030\002 \001(\0132\021.WorldBlockUpdate:\0028\001\"}\n\016W" +
+      "orldChunkLoad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z" +
+      "\030\003 \001(\021\022\016\n\006height\030\004 \001(\021\022\022\n\ncompressed\030\005 \001" +
+      "(\010\022\022\n\nblock_data\030\006 \001(\014\022\022\n\nlight_data\030\007 \001" +
+      "(\014\"C\n\020WorldChunkUnload\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002" +
+      " \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006height\030\004 \001(\021\"5\n\022World" +
+      "ChunkIsLoaded\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z" +
+      "\030\003 \001(\021\"\'\n\024WorldChunksRemoveAll\022\017\n\007confir" +
+      "m\030\001 \001(\010\"&\n\025EnvironmentTimeUpdate\022\r\n\005valu" +
+      "e\030\001 \001(\005\"\215\001\n\024EnvironmentFogUpdate\022\014\n\004mode" +
+      "\030\001 \001(\r\022\017\n\007density\030\002 \001(\002\022\r\n\005start\030\003 \001(\002\022\013" +
+      "\n\003end\030\004 \001(\002\022\021\n\tcolor_red\030\005 \001(\002\022\023\n\013color_" +
+      "green\030\006 \001(\002\022\022\n\ncolor_blue\030\007 \001(\002\"\373\001\n\024Envi" +
+      "ronmentSkyUpdate\022\016\n\006clouds\030\001 \001(\010\022\021\n\tcolo" +
+      "r_red\030\002 \001(\002\022\023\n\013color_green\030\003 \001(\002\022\022\n\ncolo" +
+      "r_blue\030\004 \001(\002\022\025\n\rcolor_red_top\030\005 \001(\002\022\027\n\017c" +
+      "olor_green_top\030\006 \001(\002\022\026\n\016color_blue_top\030\007" +
+      " \001(\002\022\030\n\020color_red_bottom\030\010 \001(\002\022\032\n\022color_" +
+      "green_bottom\030\t \001(\002\022\031\n\021color_blue_bottom\030" +
+      "\n \001(\002\"7\n\024EnvironmentSetSkybox\022\016\n\006enable\030" +
+      "\001 \001(\010\022\017\n\007texture\030\002 \001(\t\"<\n\rPluginMessage\022" +
+      "\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003" +
+      " \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -31349,8 +31995,14 @@ public final class Server {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerTeleport_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Rotation", "Pitch", });
-    internal_static_PlayerInventory_descriptor =
+    internal_static_PlayerEnterVehicle_descriptor =
       getDescriptor().getMessageTypes().get(8);
+    internal_static_PlayerEnterVehicle_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PlayerEnterVehicle_descriptor,
+        new java.lang.String[] { "Uuid", "AllowControl", });
+    internal_static_PlayerInventory_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_PlayerInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerInventory_descriptor,
@@ -31374,43 +32026,43 @@ public final class Server {
         internal_static_PlayerInventory_CraftingEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_PlayerSlotUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_PlayerSlotUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerSlotUpdate_descriptor,
         new java.lang.String[] { "Slot", "Type", "Item", });
     internal_static_PlayerApplyImpulse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_PlayerApplyImpulse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerApplyImpulse_descriptor,
         new java.lang.String[] { "X", "Y", "Z", });
     internal_static_PlayerUpdateMovement_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_PlayerUpdateMovement_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerUpdateMovement_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_PlayerUpdatePhysics_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_PlayerUpdatePhysics_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerUpdatePhysics_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_PlayerHealth_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_PlayerHealth_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerHealth_descriptor,
         new java.lang.String[] { "Value", "Max", });
     internal_static_PlayerSetBlockReach_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_PlayerSetBlockReach_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerSetBlockReach_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_PlayerOpenInventory_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_PlayerOpenInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerOpenInventory_descriptor,
@@ -31422,7 +32074,7 @@ public final class Server {
         internal_static_PlayerOpenInventory_ItemsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_PlayerUpdateOpenInventory_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_PlayerUpdateOpenInventory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PlayerUpdateOpenInventory_descriptor,
@@ -31434,13 +32086,13 @@ public final class Server {
         internal_static_PlayerUpdateOpenInventory_ItemsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_SoundPlay_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_SoundPlay_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SoundPlay_descriptor,
         new java.lang.String[] { "Sound", "Volume", "X", "Y", "Z", });
     internal_static_ChatMessage_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_ChatMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatMessage_descriptor,
@@ -31452,7 +32104,7 @@ public final class Server {
         internal_static_ChatMessage_MessageEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_UpdateTextBoard_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_UpdateTextBoard_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdateTextBoard_descriptor,
@@ -31464,55 +32116,55 @@ public final class Server {
         internal_static_UpdateTextBoard_MessageEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_EntityCreate_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_EntityCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityCreate_descriptor,
         new java.lang.String[] { "Uuid", "Data", });
     internal_static_EntityRemove_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_EntityRemove_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityRemove_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_EntityMove_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_EntityMove_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityMove_descriptor,
         new java.lang.String[] { "Uuid", "X", "Y", "Z", "Rotation", "Pitch", });
     internal_static_EntityNameUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_EntityNameUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityNameUpdate_descriptor,
         new java.lang.String[] { "Uuid", "Name", "Visible", });
     internal_static_EntityHeldItem_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_EntityHeldItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityHeldItem_descriptor,
         new java.lang.String[] { "Uuid", "Id", });
     internal_static_EntityArmor_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_EntityArmor_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityArmor_descriptor,
         new java.lang.String[] { "Uuid", "Type", "Id", });
     internal_static_EntityAnimate_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_EntityAnimate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityAnimate_descriptor,
         new java.lang.String[] { "Uuid", "Animation", "Time", "Replace", });
     internal_static_WorldBlockUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_WorldBlockUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldBlockUpdate_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Id", "Particles", });
     internal_static_WorldMultiBlockUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_WorldMultiBlockUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldMultiBlockUpdate_descriptor,
@@ -31524,55 +32176,55 @@ public final class Server {
         internal_static_WorldMultiBlockUpdate_BlocksEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_WorldChunkLoad_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_WorldChunkLoad_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunkLoad_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Height", "Compressed", "BlockData", "LightData", });
     internal_static_WorldChunkUnload_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_WorldChunkUnload_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunkUnload_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Height", });
     internal_static_WorldChunkIsLoaded_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_WorldChunkIsLoaded_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunkIsLoaded_descriptor,
         new java.lang.String[] { "X", "Y", "Z", });
     internal_static_WorldChunksRemoveAll_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_WorldChunksRemoveAll_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunksRemoveAll_descriptor,
         new java.lang.String[] { "Confirm", });
     internal_static_EnvironmentTimeUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_EnvironmentTimeUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentTimeUpdate_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_EnvironmentFogUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_EnvironmentFogUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentFogUpdate_descriptor,
         new java.lang.String[] { "Mode", "Density", "Start", "End", "ColorRed", "ColorGreen", "ColorBlue", });
     internal_static_EnvironmentSkyUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_EnvironmentSkyUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentSkyUpdate_descriptor,
         new java.lang.String[] { "Clouds", "ColorRed", "ColorGreen", "ColorBlue", "ColorRedTop", "ColorGreenTop", "ColorBlueTop", "ColorRedBottom", "ColorGreenBottom", "ColorBlueBottom", });
     internal_static_EnvironmentSetSkybox_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_EnvironmentSetSkybox_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentSetSkybox_descriptor,
         new java.lang.String[] { "Enable", "Texture", });
     internal_static_PluginMessage_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_PluginMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PluginMessage_descriptor,

@@ -899,6 +899,102 @@ export class PlayerTeleport implements IPlayerTeleport {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a PlayerEnterVehicle. */
+export interface IPlayerEnterVehicle {
+
+    /** PlayerEnterVehicle uuid */
+    uuid?: (string|null);
+
+    /** PlayerEnterVehicle allowControl */
+    allowControl?: (boolean|null);
+}
+
+/** Represents a PlayerEnterVehicle. */
+export class PlayerEnterVehicle implements IPlayerEnterVehicle {
+
+    /**
+     * Constructs a new PlayerEnterVehicle.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerEnterVehicle);
+
+    /** PlayerEnterVehicle uuid. */
+    public uuid: string;
+
+    /** PlayerEnterVehicle allowControl. */
+    public allowControl: boolean;
+
+    /**
+     * Creates a new PlayerEnterVehicle instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerEnterVehicle instance
+     */
+    public static create(properties?: IPlayerEnterVehicle): PlayerEnterVehicle;
+
+    /**
+     * Encodes the specified PlayerEnterVehicle message. Does not implicitly {@link PlayerEnterVehicle.verify|verify} messages.
+     * @param message PlayerEnterVehicle message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerEnterVehicle, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerEnterVehicle message, length delimited. Does not implicitly {@link PlayerEnterVehicle.verify|verify} messages.
+     * @param message PlayerEnterVehicle message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerEnterVehicle, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerEnterVehicle message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerEnterVehicle
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerEnterVehicle;
+
+    /**
+     * Decodes a PlayerEnterVehicle message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerEnterVehicle
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerEnterVehicle;
+
+    /**
+     * Verifies a PlayerEnterVehicle message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerEnterVehicle message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerEnterVehicle
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerEnterVehicle;
+
+    /**
+     * Creates a plain object from a PlayerEnterVehicle message. Also converts values to other types if specified.
+     * @param message PlayerEnterVehicle
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerEnterVehicle, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerEnterVehicle to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PlayerInventory. */
 export interface IPlayerInventory {
 

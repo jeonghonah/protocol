@@ -101,6 +101,15 @@ message PlayerTeleport {
 }
 
 /* 
+ * PlayerEnterVehicle makes player enter vehicle (ride entity with selected uuid)
+*/
+
+message PlayerEnterVehicle {
+	string uuid = 1;
+	bool allow_control = 2;
+}
+
+/* 
  * PlayerInventory updates entire inventory of player.
  * inventory contains stringified copy of player's inventory object
 */

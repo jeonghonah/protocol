@@ -1445,6 +1445,96 @@ export class ActionClickEntity implements IActionClickEntity {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of an ActionLeaveVehicle. */
+export interface IActionLeaveVehicle {
+
+    /** ActionLeaveVehicle uuid */
+    uuid?: (string|null);
+}
+
+/** Represents an ActionLeaveVehicle. */
+export class ActionLeaveVehicle implements IActionLeaveVehicle {
+
+    /**
+     * Constructs a new ActionLeaveVehicle.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IActionLeaveVehicle);
+
+    /** ActionLeaveVehicle uuid. */
+    public uuid: string;
+
+    /**
+     * Creates a new ActionLeaveVehicle instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ActionLeaveVehicle instance
+     */
+    public static create(properties?: IActionLeaveVehicle): ActionLeaveVehicle;
+
+    /**
+     * Encodes the specified ActionLeaveVehicle message. Does not implicitly {@link ActionLeaveVehicle.verify|verify} messages.
+     * @param message ActionLeaveVehicle message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IActionLeaveVehicle, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ActionLeaveVehicle message, length delimited. Does not implicitly {@link ActionLeaveVehicle.verify|verify} messages.
+     * @param message ActionLeaveVehicle message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IActionLeaveVehicle, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an ActionLeaveVehicle message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ActionLeaveVehicle
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionLeaveVehicle;
+
+    /**
+     * Decodes an ActionLeaveVehicle message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ActionLeaveVehicle
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionLeaveVehicle;
+
+    /**
+     * Verifies an ActionLeaveVehicle message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an ActionLeaveVehicle message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ActionLeaveVehicle
+     */
+    public static fromObject(object: { [k: string]: any }): ActionLeaveVehicle;
+
+    /**
+     * Creates a plain object from an ActionLeaveVehicle message. Also converts values to other types if specified.
+     * @param message ActionLeaveVehicle
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ActionLeaveVehicle, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ActionLeaveVehicle to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of an ActionKeyPress. */
 export interface IActionKeyPress {
 

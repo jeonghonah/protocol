@@ -156,6 +156,14 @@ message ActionClickEntity {
 }
 
 /* 
+ * ActionLeaveVehicle is send after player leaves vehicle
+*/
+
+message ActionLeaveVehicle {
+	string uuid = 1;
+}
+
+/* 
  * ActionKeyPress is send after pressing movement keys
 */
 

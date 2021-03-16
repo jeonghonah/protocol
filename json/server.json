@@ -185,6 +185,18 @@
         }
       }
     },
+    "PlayerEnterVehicle": {
+      "fields": {
+        "uuid": {
+          "type": "string",
+          "id": 1
+        },
+        "allowControl": {
+          "type": "bool",
+          "id": 2
+        }
+      }
+    },
     "PlayerInventory": {
       "fields": {
         "size": {

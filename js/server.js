@@ -2281,6 +2281,216 @@
         return PlayerTeleport;
     })();
     
+    $root.PlayerEnterVehicle = (function() {
+    
+        /**
+         * Properties of a PlayerEnterVehicle.
+         * @exports IPlayerEnterVehicle
+         * @interface IPlayerEnterVehicle
+         * @property {string|null} [uuid] PlayerEnterVehicle uuid
+         * @property {boolean|null} [allowControl] PlayerEnterVehicle allowControl
+         */
+    
+        /**
+         * Constructs a new PlayerEnterVehicle.
+         * @exports PlayerEnterVehicle
+         * @classdesc Represents a PlayerEnterVehicle.
+         * @implements IPlayerEnterVehicle
+         * @constructor
+         * @param {IPlayerEnterVehicle=} [properties] Properties to set
+         */
+        function PlayerEnterVehicle(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerEnterVehicle uuid.
+         * @member {string} uuid
+         * @memberof PlayerEnterVehicle
+         * @instance
+         */
+        PlayerEnterVehicle.prototype.uuid = "";
+    
+        /**
+         * PlayerEnterVehicle allowControl.
+         * @member {boolean} allowControl
+         * @memberof PlayerEnterVehicle
+         * @instance
+         */
+        PlayerEnterVehicle.prototype.allowControl = false;
+    
+        /**
+         * Creates a new PlayerEnterVehicle instance using the specified properties.
+         * @function create
+         * @memberof PlayerEnterVehicle
+         * @static
+         * @param {IPlayerEnterVehicle=} [properties] Properties to set
+         * @returns {PlayerEnterVehicle} PlayerEnterVehicle instance
+         */
+        PlayerEnterVehicle.create = function create(properties) {
+            return new PlayerEnterVehicle(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerEnterVehicle message. Does not implicitly {@link PlayerEnterVehicle.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerEnterVehicle
+         * @static
+         * @param {IPlayerEnterVehicle} message PlayerEnterVehicle message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerEnterVehicle.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+            if (message.allowControl != null && Object.hasOwnProperty.call(message, "allowControl"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.allowControl);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerEnterVehicle message, length delimited. Does not implicitly {@link PlayerEnterVehicle.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerEnterVehicle
+         * @static
+         * @param {IPlayerEnterVehicle} message PlayerEnterVehicle message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerEnterVehicle.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerEnterVehicle message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerEnterVehicle
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerEnterVehicle} PlayerEnterVehicle
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerEnterVehicle.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerEnterVehicle();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.uuid = reader.string();
+                    break;
+                case 2:
+                    message.allowControl = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerEnterVehicle message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerEnterVehicle
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerEnterVehicle} PlayerEnterVehicle
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerEnterVehicle.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerEnterVehicle message.
+         * @function verify
+         * @memberof PlayerEnterVehicle
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerEnterVehicle.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
+            if (message.allowControl != null && message.hasOwnProperty("allowControl"))
+                if (typeof message.allowControl !== "boolean")
+                    return "allowControl: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerEnterVehicle message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerEnterVehicle
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerEnterVehicle} PlayerEnterVehicle
+         */
+        PlayerEnterVehicle.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerEnterVehicle)
+                return object;
+            var message = new $root.PlayerEnterVehicle();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
+            if (object.allowControl != null)
+                message.allowControl = Boolean(object.allowControl);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerEnterVehicle message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerEnterVehicle
+         * @static
+         * @param {PlayerEnterVehicle} message PlayerEnterVehicle
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerEnterVehicle.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.uuid = "";
+                object.allowControl = false;
+            }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
+            if (message.allowControl != null && message.hasOwnProperty("allowControl"))
+                object.allowControl = message.allowControl;
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerEnterVehicle to JSON.
+         * @function toJSON
+         * @memberof PlayerEnterVehicle
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerEnterVehicle.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerEnterVehicle;
+    })();
+    
     $root.PlayerInventory = (function() {
     
         /**

@@ -236,6 +236,14 @@
         }
       }
     },
+    "ActionLeaveVehicle": {
+      "fields": {
+        "uuid": {
+          "type": "string",
+          "id": 1
+        }
+      }
+    },
     "ActionKeyPress": {
       "fields": {
         "key": {

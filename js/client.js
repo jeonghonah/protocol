@@ -3455,6 +3455,193 @@
         return ActionClickEntity;
     })();
     
+    $root.ActionLeaveVehicle = (function() {
+    
+        /**
+         * Properties of an ActionLeaveVehicle.
+         * @exports IActionLeaveVehicle
+         * @interface IActionLeaveVehicle
+         * @property {string|null} [uuid] ActionLeaveVehicle uuid
+         */
+    
+        /**
+         * Constructs a new ActionLeaveVehicle.
+         * @exports ActionLeaveVehicle
+         * @classdesc Represents an ActionLeaveVehicle.
+         * @implements IActionLeaveVehicle
+         * @constructor
+         * @param {IActionLeaveVehicle=} [properties] Properties to set
+         */
+        function ActionLeaveVehicle(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * ActionLeaveVehicle uuid.
+         * @member {string} uuid
+         * @memberof ActionLeaveVehicle
+         * @instance
+         */
+        ActionLeaveVehicle.prototype.uuid = "";
+    
+        /**
+         * Creates a new ActionLeaveVehicle instance using the specified properties.
+         * @function create
+         * @memberof ActionLeaveVehicle
+         * @static
+         * @param {IActionLeaveVehicle=} [properties] Properties to set
+         * @returns {ActionLeaveVehicle} ActionLeaveVehicle instance
+         */
+        ActionLeaveVehicle.create = function create(properties) {
+            return new ActionLeaveVehicle(properties);
+        };
+    
+        /**
+         * Encodes the specified ActionLeaveVehicle message. Does not implicitly {@link ActionLeaveVehicle.verify|verify} messages.
+         * @function encode
+         * @memberof ActionLeaveVehicle
+         * @static
+         * @param {IActionLeaveVehicle} message ActionLeaveVehicle message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionLeaveVehicle.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified ActionLeaveVehicle message, length delimited. Does not implicitly {@link ActionLeaveVehicle.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ActionLeaveVehicle
+         * @static
+         * @param {IActionLeaveVehicle} message ActionLeaveVehicle message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionLeaveVehicle.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an ActionLeaveVehicle message from the specified reader or buffer.
+         * @function decode
+         * @memberof ActionLeaveVehicle
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ActionLeaveVehicle} ActionLeaveVehicle
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionLeaveVehicle.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionLeaveVehicle();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.uuid = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an ActionLeaveVehicle message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ActionLeaveVehicle
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ActionLeaveVehicle} ActionLeaveVehicle
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionLeaveVehicle.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an ActionLeaveVehicle message.
+         * @function verify
+         * @memberof ActionLeaveVehicle
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ActionLeaveVehicle.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an ActionLeaveVehicle message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ActionLeaveVehicle
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ActionLeaveVehicle} ActionLeaveVehicle
+         */
+        ActionLeaveVehicle.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionLeaveVehicle)
+                return object;
+            var message = new $root.ActionLeaveVehicle();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an ActionLeaveVehicle message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ActionLeaveVehicle
+         * @static
+         * @param {ActionLeaveVehicle} message ActionLeaveVehicle
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ActionLeaveVehicle.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.uuid = "";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
+            return object;
+        };
+    
+        /**
+         * Converts this ActionLeaveVehicle to JSON.
+         * @function toJSON
+         * @memberof ActionLeaveVehicle
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ActionLeaveVehicle.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return ActionLeaveVehicle;
+    })();
+    
     $root.ActionKeyPress = (function() {
     
         /**
