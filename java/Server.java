@@ -27053,6 +27053,494 @@ public final class Server {
 
   }
 
+  public interface EnvironmentTimeUpdateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:EnvironmentTimeUpdate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 value = 1;</code>
+     * @return The value.
+     */
+    int getValue();
+  }
+  /**
+   * Protobuf type {@code EnvironmentTimeUpdate}
+   */
+  public static final class EnvironmentTimeUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:EnvironmentTimeUpdate)
+      EnvironmentTimeUpdateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EnvironmentTimeUpdate.newBuilder() to construct.
+    private EnvironmentTimeUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EnvironmentTimeUpdate() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EnvironmentTimeUpdate();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EnvironmentTimeUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              value_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Server.internal_static_EnvironmentTimeUpdate_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Server.internal_static_EnvironmentTimeUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Server.EnvironmentTimeUpdate.class, Server.EnvironmentTimeUpdate.Builder.class);
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private int value_;
+    /**
+     * <code>int32 value = 1;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public int getValue() {
+      return value_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (value_ != 0) {
+        output.writeInt32(1, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (value_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Server.EnvironmentTimeUpdate)) {
+        return super.equals(obj);
+      }
+      Server.EnvironmentTimeUpdate other = (Server.EnvironmentTimeUpdate) obj;
+
+      if (getValue()
+          != other.getValue()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Server.EnvironmentTimeUpdate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Server.EnvironmentTimeUpdate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Server.EnvironmentTimeUpdate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Server.EnvironmentTimeUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Server.EnvironmentTimeUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code EnvironmentTimeUpdate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:EnvironmentTimeUpdate)
+        Server.EnvironmentTimeUpdateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Server.internal_static_EnvironmentTimeUpdate_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Server.internal_static_EnvironmentTimeUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Server.EnvironmentTimeUpdate.class, Server.EnvironmentTimeUpdate.Builder.class);
+      }
+
+      // Construct using Server.EnvironmentTimeUpdate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        value_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Server.internal_static_EnvironmentTimeUpdate_descriptor;
+      }
+
+      @java.lang.Override
+      public Server.EnvironmentTimeUpdate getDefaultInstanceForType() {
+        return Server.EnvironmentTimeUpdate.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Server.EnvironmentTimeUpdate build() {
+        Server.EnvironmentTimeUpdate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Server.EnvironmentTimeUpdate buildPartial() {
+        Server.EnvironmentTimeUpdate result = new Server.EnvironmentTimeUpdate(this);
+        result.value_ = value_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Server.EnvironmentTimeUpdate) {
+          return mergeFrom((Server.EnvironmentTimeUpdate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Server.EnvironmentTimeUpdate other) {
+        if (other == Server.EnvironmentTimeUpdate.getDefaultInstance()) return this;
+        if (other.getValue() != 0) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Server.EnvironmentTimeUpdate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Server.EnvironmentTimeUpdate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int value_ ;
+      /**
+       * <code>int32 value = 1;</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public int getValue() {
+        return value_;
+      }
+      /**
+       * <code>int32 value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(int value) {
+        
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 value = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        
+        value_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:EnvironmentTimeUpdate)
+    }
+
+    // @@protoc_insertion_point(class_scope:EnvironmentTimeUpdate)
+    private static final Server.EnvironmentTimeUpdate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Server.EnvironmentTimeUpdate();
+    }
+
+    public static Server.EnvironmentTimeUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EnvironmentTimeUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<EnvironmentTimeUpdate>() {
+      @java.lang.Override
+      public EnvironmentTimeUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EnvironmentTimeUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<EnvironmentTimeUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EnvironmentTimeUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Server.EnvironmentTimeUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface EnvironmentFogUpdateOrBuilder extends
       // @@protoc_insertion_point(interface_extends:EnvironmentFogUpdate)
       com.google.protobuf.MessageOrBuilder {
@@ -28018,6 +28506,24 @@ public final class Server {
      * @return The colorBlueTop.
      */
     float getColorBlueTop();
+
+    /**
+     * <code>float color_red_bottom = 8;</code>
+     * @return The colorRedBottom.
+     */
+    float getColorRedBottom();
+
+    /**
+     * <code>float color_green_bottom = 9;</code>
+     * @return The colorGreenBottom.
+     */
+    float getColorGreenBottom();
+
+    /**
+     * <code>float color_blue_bottom = 10;</code>
+     * @return The colorBlueBottom.
+     */
+    float getColorBlueBottom();
   }
   /**
    * Protobuf type {@code EnvironmentSkyUpdate}
@@ -28097,6 +28603,21 @@ public final class Server {
             case 61: {
 
               colorBlueTop_ = input.readFloat();
+              break;
+            }
+            case 69: {
+
+              colorRedBottom_ = input.readFloat();
+              break;
+            }
+            case 77: {
+
+              colorGreenBottom_ = input.readFloat();
+              break;
+            }
+            case 85: {
+
+              colorBlueBottom_ = input.readFloat();
               break;
             }
             default: {
@@ -28208,6 +28729,39 @@ public final class Server {
       return colorBlueTop_;
     }
 
+    public static final int COLOR_RED_BOTTOM_FIELD_NUMBER = 8;
+    private float colorRedBottom_;
+    /**
+     * <code>float color_red_bottom = 8;</code>
+     * @return The colorRedBottom.
+     */
+    @java.lang.Override
+    public float getColorRedBottom() {
+      return colorRedBottom_;
+    }
+
+    public static final int COLOR_GREEN_BOTTOM_FIELD_NUMBER = 9;
+    private float colorGreenBottom_;
+    /**
+     * <code>float color_green_bottom = 9;</code>
+     * @return The colorGreenBottom.
+     */
+    @java.lang.Override
+    public float getColorGreenBottom() {
+      return colorGreenBottom_;
+    }
+
+    public static final int COLOR_BLUE_BOTTOM_FIELD_NUMBER = 10;
+    private float colorBlueBottom_;
+    /**
+     * <code>float color_blue_bottom = 10;</code>
+     * @return The colorBlueBottom.
+     */
+    @java.lang.Override
+    public float getColorBlueBottom() {
+      return colorBlueBottom_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -28242,6 +28796,15 @@ public final class Server {
       }
       if (colorBlueTop_ != 0F) {
         output.writeFloat(7, colorBlueTop_);
+      }
+      if (colorRedBottom_ != 0F) {
+        output.writeFloat(8, colorRedBottom_);
+      }
+      if (colorGreenBottom_ != 0F) {
+        output.writeFloat(9, colorGreenBottom_);
+      }
+      if (colorBlueBottom_ != 0F) {
+        output.writeFloat(10, colorBlueBottom_);
       }
       unknownFields.writeTo(output);
     }
@@ -28280,6 +28843,18 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(7, colorBlueTop_);
       }
+      if (colorRedBottom_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(8, colorRedBottom_);
+      }
+      if (colorGreenBottom_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(9, colorGreenBottom_);
+      }
+      if (colorBlueBottom_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(10, colorBlueBottom_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -28315,6 +28890,15 @@ public final class Server {
       if (java.lang.Float.floatToIntBits(getColorBlueTop())
           != java.lang.Float.floatToIntBits(
               other.getColorBlueTop())) return false;
+      if (java.lang.Float.floatToIntBits(getColorRedBottom())
+          != java.lang.Float.floatToIntBits(
+              other.getColorRedBottom())) return false;
+      if (java.lang.Float.floatToIntBits(getColorGreenBottom())
+          != java.lang.Float.floatToIntBits(
+              other.getColorGreenBottom())) return false;
+      if (java.lang.Float.floatToIntBits(getColorBlueBottom())
+          != java.lang.Float.floatToIntBits(
+              other.getColorBlueBottom())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -28347,6 +28931,15 @@ public final class Server {
       hash = (37 * hash) + COLOR_BLUE_TOP_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getColorBlueTop());
+      hash = (37 * hash) + COLOR_RED_BOTTOM_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getColorRedBottom());
+      hash = (37 * hash) + COLOR_GREEN_BOTTOM_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getColorGreenBottom());
+      hash = (37 * hash) + COLOR_BLUE_BOTTOM_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getColorBlueBottom());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -28494,6 +29087,12 @@ public final class Server {
 
         colorBlueTop_ = 0F;
 
+        colorRedBottom_ = 0F;
+
+        colorGreenBottom_ = 0F;
+
+        colorBlueBottom_ = 0F;
+
         return this;
       }
 
@@ -28527,6 +29126,9 @@ public final class Server {
         result.colorRedTop_ = colorRedTop_;
         result.colorGreenTop_ = colorGreenTop_;
         result.colorBlueTop_ = colorBlueTop_;
+        result.colorRedBottom_ = colorRedBottom_;
+        result.colorGreenBottom_ = colorGreenBottom_;
+        result.colorBlueBottom_ = colorBlueBottom_;
         onBuilt();
         return result;
       }
@@ -28595,6 +29197,15 @@ public final class Server {
         }
         if (other.getColorBlueTop() != 0F) {
           setColorBlueTop(other.getColorBlueTop());
+        }
+        if (other.getColorRedBottom() != 0F) {
+          setColorRedBottom(other.getColorRedBottom());
+        }
+        if (other.getColorGreenBottom() != 0F) {
+          setColorGreenBottom(other.getColorGreenBottom());
+        }
+        if (other.getColorBlueBottom() != 0F) {
+          setColorBlueBottom(other.getColorBlueBottom());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -28841,6 +29452,99 @@ public final class Server {
         onChanged();
         return this;
       }
+
+      private float colorRedBottom_ ;
+      /**
+       * <code>float color_red_bottom = 8;</code>
+       * @return The colorRedBottom.
+       */
+      @java.lang.Override
+      public float getColorRedBottom() {
+        return colorRedBottom_;
+      }
+      /**
+       * <code>float color_red_bottom = 8;</code>
+       * @param value The colorRedBottom to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColorRedBottom(float value) {
+        
+        colorRedBottom_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float color_red_bottom = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColorRedBottom() {
+        
+        colorRedBottom_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float colorGreenBottom_ ;
+      /**
+       * <code>float color_green_bottom = 9;</code>
+       * @return The colorGreenBottom.
+       */
+      @java.lang.Override
+      public float getColorGreenBottom() {
+        return colorGreenBottom_;
+      }
+      /**
+       * <code>float color_green_bottom = 9;</code>
+       * @param value The colorGreenBottom to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColorGreenBottom(float value) {
+        
+        colorGreenBottom_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float color_green_bottom = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColorGreenBottom() {
+        
+        colorGreenBottom_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float colorBlueBottom_ ;
+      /**
+       * <code>float color_blue_bottom = 10;</code>
+       * @return The colorBlueBottom.
+       */
+      @java.lang.Override
+      public float getColorBlueBottom() {
+        return colorBlueBottom_;
+      }
+      /**
+       * <code>float color_blue_bottom = 10;</code>
+       * @param value The colorBlueBottom to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColorBlueBottom(float value) {
+        
+        colorBlueBottom_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float color_blue_bottom = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColorBlueBottom() {
+        
+        colorBlueBottom_ = 0F;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -28899,12 +29603,18 @@ public final class Server {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string texture = 1;</code>
+     * <code>bool enable = 1;</code>
+     * @return The enable.
+     */
+    boolean getEnable();
+
+    /**
+     * <code>string texture = 2;</code>
      * @return The texture.
      */
     java.lang.String getTexture();
     /**
-     * <code>string texture = 1;</code>
+     * <code>string texture = 2;</code>
      * @return The bytes for texture.
      */
     com.google.protobuf.ByteString
@@ -28956,7 +29666,12 @@ public final class Server {
             case 0:
               done = true;
               break;
-            case 10: {
+            case 8: {
+
+              enable_ = input.readBool();
+              break;
+            }
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               texture_ = s;
@@ -28994,10 +29709,21 @@ public final class Server {
               Server.EnvironmentSetSkybox.class, Server.EnvironmentSetSkybox.Builder.class);
     }
 
-    public static final int TEXTURE_FIELD_NUMBER = 1;
+    public static final int ENABLE_FIELD_NUMBER = 1;
+    private boolean enable_;
+    /**
+     * <code>bool enable = 1;</code>
+     * @return The enable.
+     */
+    @java.lang.Override
+    public boolean getEnable() {
+      return enable_;
+    }
+
+    public static final int TEXTURE_FIELD_NUMBER = 2;
     private volatile java.lang.Object texture_;
     /**
-     * <code>string texture = 1;</code>
+     * <code>string texture = 2;</code>
      * @return The texture.
      */
     @java.lang.Override
@@ -29014,7 +29740,7 @@ public final class Server {
       }
     }
     /**
-     * <code>string texture = 1;</code>
+     * <code>string texture = 2;</code>
      * @return The bytes for texture.
      */
     @java.lang.Override
@@ -29046,8 +29772,11 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (enable_ != false) {
+        output.writeBool(1, enable_);
+      }
       if (!getTextureBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, texture_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, texture_);
       }
       unknownFields.writeTo(output);
     }
@@ -29058,8 +29787,12 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
+      if (enable_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, enable_);
+      }
       if (!getTextureBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, texture_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, texture_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -29076,6 +29809,8 @@ public final class Server {
       }
       Server.EnvironmentSetSkybox other = (Server.EnvironmentSetSkybox) obj;
 
+      if (getEnable()
+          != other.getEnable()) return false;
       if (!getTexture()
           .equals(other.getTexture())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -29089,6 +29824,9 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ENABLE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getEnable());
       hash = (37 * hash) + TEXTURE_FIELD_NUMBER;
       hash = (53 * hash) + getTexture().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -29224,6 +29962,8 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        enable_ = false;
+
         texture_ = "";
 
         return this;
@@ -29252,6 +29992,7 @@ public final class Server {
       @java.lang.Override
       public Server.EnvironmentSetSkybox buildPartial() {
         Server.EnvironmentSetSkybox result = new Server.EnvironmentSetSkybox(this);
+        result.enable_ = enable_;
         result.texture_ = texture_;
         onBuilt();
         return result;
@@ -29301,6 +30042,9 @@ public final class Server {
 
       public Builder mergeFrom(Server.EnvironmentSetSkybox other) {
         if (other == Server.EnvironmentSetSkybox.getDefaultInstance()) return this;
+        if (other.getEnable() != false) {
+          setEnable(other.getEnable());
+        }
         if (!other.getTexture().isEmpty()) {
           texture_ = other.texture_;
           onChanged();
@@ -29334,9 +30078,40 @@ public final class Server {
         return this;
       }
 
+      private boolean enable_ ;
+      /**
+       * <code>bool enable = 1;</code>
+       * @return The enable.
+       */
+      @java.lang.Override
+      public boolean getEnable() {
+        return enable_;
+      }
+      /**
+       * <code>bool enable = 1;</code>
+       * @param value The enable to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnable(boolean value) {
+        
+        enable_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool enable = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnable() {
+        
+        enable_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object texture_ = "";
       /**
-       * <code>string texture = 1;</code>
+       * <code>string texture = 2;</code>
        * @return The texture.
        */
       public java.lang.String getTexture() {
@@ -29352,7 +30127,7 @@ public final class Server {
         }
       }
       /**
-       * <code>string texture = 1;</code>
+       * <code>string texture = 2;</code>
        * @return The bytes for texture.
        */
       public com.google.protobuf.ByteString
@@ -29369,7 +30144,7 @@ public final class Server {
         }
       }
       /**
-       * <code>string texture = 1;</code>
+       * <code>string texture = 2;</code>
        * @param value The texture to set.
        * @return This builder for chaining.
        */
@@ -29384,7 +30159,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string texture = 1;</code>
+       * <code>string texture = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearTexture() {
@@ -29394,7 +30169,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string texture = 1;</code>
+       * <code>string texture = 2;</code>
        * @param value The bytes for texture to set.
        * @return This builder for chaining.
        */
@@ -30385,6 +31160,11 @@ public final class Server {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_WorldChunksRemoveAll_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_EnvironmentTimeUpdate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_EnvironmentTimeUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_EnvironmentFogUpdate_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -30494,18 +31274,21 @@ public final class Server {
       "oad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006" +
       "height\030\004 \001(\021\"5\n\022WorldChunkIsLoaded\022\t\n\001x\030" +
       "\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\"\'\n\024WorldChun" +
-      "ksRemoveAll\022\017\n\007confirm\030\001 \001(\010\"\215\001\n\024Environ" +
+      "ksRemoveAll\022\017\n\007confirm\030\001 \001(\010\"&\n\025Environm" +
+      "entTimeUpdate\022\r\n\005value\030\001 \001(\005\"\215\001\n\024Environ" +
       "mentFogUpdate\022\014\n\004mode\030\001 \001(\r\022\017\n\007density\030\002" +
       " \001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(\002\022\021\n\tcolo" +
       "r_red\030\005 \001(\002\022\023\n\013color_green\030\006 \001(\002\022\022\n\ncolo" +
-      "r_blue\030\007 \001(\002\"\252\001\n\024EnvironmentSkyUpdate\022\016\n" +
+      "r_blue\030\007 \001(\002\"\373\001\n\024EnvironmentSkyUpdate\022\016\n" +
       "\006clouds\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013colo" +
       "r_green\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001(\002\022\025\n\rcol" +
       "or_red_top\030\005 \001(\002\022\027\n\017color_green_top\030\006 \001(" +
-      "\002\022\026\n\016color_blue_top\030\007 \001(\002\"\'\n\024Environment" +
-      "SetSkybox\022\017\n\007texture\030\001 \001(\t\"<\n\rPluginMess" +
-      "age\022\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005val" +
-      "ue\030\003 \001(\014b\006proto3"
+      "\002\022\026\n\016color_blue_top\030\007 \001(\002\022\030\n\020color_red_b" +
+      "ottom\030\010 \001(\002\022\032\n\022color_green_bottom\030\t \001(\002\022" +
+      "\031\n\021color_blue_bottom\030\n \001(\002\"7\n\024Environmen" +
+      "tSetSkybox\022\016\n\006enable\030\001 \001(\010\022\017\n\007texture\030\002 " +
+      "\001(\t\"<\n\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007ver" +
+      "sion\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -30764,26 +31547,32 @@ public final class Server {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunksRemoveAll_descriptor,
         new java.lang.String[] { "Confirm", });
-    internal_static_EnvironmentFogUpdate_descriptor =
+    internal_static_EnvironmentTimeUpdate_descriptor =
       getDescriptor().getMessageTypes().get(33);
+    internal_static_EnvironmentTimeUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_EnvironmentTimeUpdate_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_EnvironmentFogUpdate_descriptor =
+      getDescriptor().getMessageTypes().get(34);
     internal_static_EnvironmentFogUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentFogUpdate_descriptor,
         new java.lang.String[] { "Mode", "Density", "Start", "End", "ColorRed", "ColorGreen", "ColorBlue", });
     internal_static_EnvironmentSkyUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_EnvironmentSkyUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentSkyUpdate_descriptor,
-        new java.lang.String[] { "Clouds", "ColorRed", "ColorGreen", "ColorBlue", "ColorRedTop", "ColorGreenTop", "ColorBlueTop", });
+        new java.lang.String[] { "Clouds", "ColorRed", "ColorGreen", "ColorBlue", "ColorRedTop", "ColorGreenTop", "ColorBlueTop", "ColorRedBottom", "ColorGreenBottom", "ColorBlueBottom", });
     internal_static_EnvironmentSetSkybox_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_EnvironmentSetSkybox_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EnvironmentSetSkybox_descriptor,
-        new java.lang.String[] { "Texture", });
+        new java.lang.String[] { "Enable", "Texture", });
     internal_static_PluginMessage_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_PluginMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PluginMessage_descriptor,

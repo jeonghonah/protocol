@@ -3106,10 +3106,10 @@ public final class Client {
     int getZ();
 
     /**
-     * <code>float status = 4;</code>
+     * <code>uint32 status = 4;</code>
      * @return The status.
      */
-    float getStatus();
+    int getStatus();
   }
   /**
    * Protobuf type {@code ActionBlockBreak}
@@ -3200,29 +3200,29 @@ public final class Client {
     }
 
     public static final int STATUS_FIELD_NUMBER = 4;
-    private float status_;
+    private int status_;
     /**
-     * <code>float status = 4;</code>
+     * <code>uint32 status = 4;</code>
      * @return The status.
      */
     @java.lang.Override
-    public float getStatus() {
+    public int getStatus() {
       return status_;
     }
     /**
-     * <code>float status = 4;</code>
+     * <code>uint32 status = 4;</code>
      * @param value The status to set.
      */
-    private void setStatus(float value) {
+    private void setStatus(int value) {
       
       status_ = value;
     }
     /**
-     * <code>float status = 4;</code>
+     * <code>uint32 status = 4;</code>
      */
     private void clearStatus() {
       
-      status_ = 0F;
+      status_ = 0;
     }
 
     public static Client.ActionBlockBreak parseFrom(
@@ -3405,25 +3405,25 @@ public final class Client {
       }
 
       /**
-       * <code>float status = 4;</code>
+       * <code>uint32 status = 4;</code>
        * @return The status.
        */
       @java.lang.Override
-      public float getStatus() {
+      public int getStatus() {
         return instance.getStatus();
       }
       /**
-       * <code>float status = 4;</code>
+       * <code>uint32 status = 4;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setStatus(float value) {
+      public Builder setStatus(int value) {
         copyOnWrite();
         instance.setStatus(value);
         return this;
       }
       /**
-       * <code>float status = 4;</code>
+       * <code>uint32 status = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
@@ -3455,7 +3455,7 @@ public final class Client {
             };
             java.lang.String info =
                 "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u000f\u0002\u000f" +
-                "\u0003\u000f\u0004\u0001";
+                "\u0003\u000f\u0004\u000b";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

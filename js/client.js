@@ -1830,7 +1830,7 @@
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
                 writer.uint32(/* id 3, wireType 0 =*/24).sint32(message.z);
             if (message.status != null && Object.hasOwnProperty.call(message, "status"))
-                writer.uint32(/* id 4, wireType 5 =*/37).float(message.status);
+                writer.uint32(/* id 4, wireType 0 =*/32).uint32(message.status);
             return writer;
         };
     
@@ -1875,7 +1875,7 @@
                     message.z = reader.sint32();
                     break;
                 case 4:
-                    message.status = reader.float();
+                    message.status = reader.uint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1922,8 +1922,8 @@
                 if (!$util.isInteger(message.z))
                     return "z: integer expected";
             if (message.status != null && message.hasOwnProperty("status"))
-                if (typeof message.status !== "number")
-                    return "status: number expected";
+                if (!$util.isInteger(message.status))
+                    return "status: integer expected";
             return null;
         };
     
@@ -1946,7 +1946,7 @@
             if (object.z != null)
                 message.z = object.z | 0;
             if (object.status != null)
-                message.status = Number(object.status);
+                message.status = object.status >>> 0;
             return message;
         };
     
@@ -1976,7 +1976,7 @@
             if (message.z != null && message.hasOwnProperty("z"))
                 object.z = message.z;
             if (message.status != null && message.hasOwnProperty("status"))
-                object.status = options.json && !isFinite(message.status) ? String(message.status) : message.status;
+                object.status = message.status;
             return object;
         };
     

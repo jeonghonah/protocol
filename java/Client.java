@@ -5153,10 +5153,10 @@ public final class Client {
     int getZ();
 
     /**
-     * <code>float status = 4;</code>
+     * <code>uint32 status = 4;</code>
      * @return The status.
      */
-    float getStatus();
+    int getStatus();
   }
   /**
    * Protobuf type {@code ActionBlockBreak}
@@ -5218,9 +5218,9 @@ public final class Client {
               z_ = input.readSInt32();
               break;
             }
-            case 37: {
+            case 32: {
 
-              status_ = input.readFloat();
+              status_ = input.readUInt32();
               break;
             }
             default: {
@@ -5289,13 +5289,13 @@ public final class Client {
     }
 
     public static final int STATUS_FIELD_NUMBER = 4;
-    private float status_;
+    private int status_;
     /**
-     * <code>float status = 4;</code>
+     * <code>uint32 status = 4;</code>
      * @return The status.
      */
     @java.lang.Override
-    public float getStatus() {
+    public int getStatus() {
       return status_;
     }
 
@@ -5322,8 +5322,8 @@ public final class Client {
       if (z_ != 0) {
         output.writeSInt32(3, z_);
       }
-      if (status_ != 0F) {
-        output.writeFloat(4, status_);
+      if (status_ != 0) {
+        output.writeUInt32(4, status_);
       }
       unknownFields.writeTo(output);
     }
@@ -5346,9 +5346,9 @@ public final class Client {
         size += com.google.protobuf.CodedOutputStream
           .computeSInt32Size(3, z_);
       }
-      if (status_ != 0F) {
+      if (status_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(4, status_);
+          .computeUInt32Size(4, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5371,9 +5371,8 @@ public final class Client {
           != other.getY()) return false;
       if (getZ()
           != other.getZ()) return false;
-      if (java.lang.Float.floatToIntBits(getStatus())
-          != java.lang.Float.floatToIntBits(
-              other.getStatus())) return false;
+      if (getStatus()
+          != other.getStatus()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5392,8 +5391,7 @@ public final class Client {
       hash = (37 * hash) + Z_FIELD_NUMBER;
       hash = (53 * hash) + getZ();
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getStatus());
+      hash = (53 * hash) + getStatus();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5533,7 +5531,7 @@ public final class Client {
 
         z_ = 0;
 
-        status_ = 0F;
+        status_ = 0;
 
         return this;
       }
@@ -5622,7 +5620,7 @@ public final class Client {
         if (other.getZ() != 0) {
           setZ(other.getZ());
         }
-        if (other.getStatus() != 0F) {
+        if (other.getStatus() != 0) {
           setStatus(other.getStatus());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -5747,33 +5745,33 @@ public final class Client {
         return this;
       }
 
-      private float status_ ;
+      private int status_ ;
       /**
-       * <code>float status = 4;</code>
+       * <code>uint32 status = 4;</code>
        * @return The status.
        */
       @java.lang.Override
-      public float getStatus() {
+      public int getStatus() {
         return status_;
       }
       /**
-       * <code>float status = 4;</code>
+       * <code>uint32 status = 4;</code>
        * @param value The status to set.
        * @return This builder for chaining.
        */
-      public Builder setStatus(float value) {
+      public Builder setStatus(int value) {
         
         status_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>float status = 4;</code>
+       * <code>uint32 status = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearStatus() {
         
-        status_ = 0F;
+        status_ = 0;
         onChanged();
         return this;
       }
@@ -11964,7 +11962,7 @@ public final class Client {
       "(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002x2\030\004 \001(\021\022\n\n\002" +
       "y2\030\005 \001(\021\022\n\n\002z2\030\006 \001(\021\"C\n\020ActionBlockBreak" +
       "\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006sta" +
-      "tus\030\004 \001(\002\"f\n\024ActionInventoryClick\022\014\n\004slo" +
+      "tus\030\004 \001(\r\"f\n\024ActionInventoryClick\022\014\n\004slo" +
       "t\030\001 \001(\005\022\035\n\004type\030\002 \001(\0162\017.MouseClickType\022!" +
       "\n\tinventory\030\003 \001(\0162\016.InventoryType\"A\n\023Act" +
       "ionInventoryPick\022\014\n\004slot\030\001 \001(\005\022\r\n\005slot2\030" +

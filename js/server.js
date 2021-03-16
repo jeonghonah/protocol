@@ -8584,6 +8584,193 @@
         return WorldChunksRemoveAll;
     })();
     
+    $root.EnvironmentTimeUpdate = (function() {
+    
+        /**
+         * Properties of an EnvironmentTimeUpdate.
+         * @exports IEnvironmentTimeUpdate
+         * @interface IEnvironmentTimeUpdate
+         * @property {number|null} [value] EnvironmentTimeUpdate value
+         */
+    
+        /**
+         * Constructs a new EnvironmentTimeUpdate.
+         * @exports EnvironmentTimeUpdate
+         * @classdesc Represents an EnvironmentTimeUpdate.
+         * @implements IEnvironmentTimeUpdate
+         * @constructor
+         * @param {IEnvironmentTimeUpdate=} [properties] Properties to set
+         */
+        function EnvironmentTimeUpdate(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * EnvironmentTimeUpdate value.
+         * @member {number} value
+         * @memberof EnvironmentTimeUpdate
+         * @instance
+         */
+        EnvironmentTimeUpdate.prototype.value = 0;
+    
+        /**
+         * Creates a new EnvironmentTimeUpdate instance using the specified properties.
+         * @function create
+         * @memberof EnvironmentTimeUpdate
+         * @static
+         * @param {IEnvironmentTimeUpdate=} [properties] Properties to set
+         * @returns {EnvironmentTimeUpdate} EnvironmentTimeUpdate instance
+         */
+        EnvironmentTimeUpdate.create = function create(properties) {
+            return new EnvironmentTimeUpdate(properties);
+        };
+    
+        /**
+         * Encodes the specified EnvironmentTimeUpdate message. Does not implicitly {@link EnvironmentTimeUpdate.verify|verify} messages.
+         * @function encode
+         * @memberof EnvironmentTimeUpdate
+         * @static
+         * @param {IEnvironmentTimeUpdate} message EnvironmentTimeUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnvironmentTimeUpdate.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.value);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified EnvironmentTimeUpdate message, length delimited. Does not implicitly {@link EnvironmentTimeUpdate.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof EnvironmentTimeUpdate
+         * @static
+         * @param {IEnvironmentTimeUpdate} message EnvironmentTimeUpdate message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        EnvironmentTimeUpdate.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an EnvironmentTimeUpdate message from the specified reader or buffer.
+         * @function decode
+         * @memberof EnvironmentTimeUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {EnvironmentTimeUpdate} EnvironmentTimeUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnvironmentTimeUpdate.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EnvironmentTimeUpdate();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.value = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an EnvironmentTimeUpdate message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof EnvironmentTimeUpdate
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {EnvironmentTimeUpdate} EnvironmentTimeUpdate
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        EnvironmentTimeUpdate.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an EnvironmentTimeUpdate message.
+         * @function verify
+         * @memberof EnvironmentTimeUpdate
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        EnvironmentTimeUpdate.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (!$util.isInteger(message.value))
+                    return "value: integer expected";
+            return null;
+        };
+    
+        /**
+         * Creates an EnvironmentTimeUpdate message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof EnvironmentTimeUpdate
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {EnvironmentTimeUpdate} EnvironmentTimeUpdate
+         */
+        EnvironmentTimeUpdate.fromObject = function fromObject(object) {
+            if (object instanceof $root.EnvironmentTimeUpdate)
+                return object;
+            var message = new $root.EnvironmentTimeUpdate();
+            if (object.value != null)
+                message.value = object.value | 0;
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an EnvironmentTimeUpdate message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof EnvironmentTimeUpdate
+         * @static
+         * @param {EnvironmentTimeUpdate} message EnvironmentTimeUpdate
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        EnvironmentTimeUpdate.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.value = 0;
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = message.value;
+            return object;
+        };
+    
+        /**
+         * Converts this EnvironmentTimeUpdate to JSON.
+         * @function toJSON
+         * @memberof EnvironmentTimeUpdate
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        EnvironmentTimeUpdate.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return EnvironmentTimeUpdate;
+    })();
+    
     $root.EnvironmentFogUpdate = (function() {
     
         /**
@@ -8917,6 +9104,9 @@
          * @property {number|null} [colorRedTop] EnvironmentSkyUpdate colorRedTop
          * @property {number|null} [colorGreenTop] EnvironmentSkyUpdate colorGreenTop
          * @property {number|null} [colorBlueTop] EnvironmentSkyUpdate colorBlueTop
+         * @property {number|null} [colorRedBottom] EnvironmentSkyUpdate colorRedBottom
+         * @property {number|null} [colorGreenBottom] EnvironmentSkyUpdate colorGreenBottom
+         * @property {number|null} [colorBlueBottom] EnvironmentSkyUpdate colorBlueBottom
          */
     
         /**
@@ -8991,6 +9181,30 @@
         EnvironmentSkyUpdate.prototype.colorBlueTop = 0;
     
         /**
+         * EnvironmentSkyUpdate colorRedBottom.
+         * @member {number} colorRedBottom
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorRedBottom = 0;
+    
+        /**
+         * EnvironmentSkyUpdate colorGreenBottom.
+         * @member {number} colorGreenBottom
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorGreenBottom = 0;
+    
+        /**
+         * EnvironmentSkyUpdate colorBlueBottom.
+         * @member {number} colorBlueBottom
+         * @memberof EnvironmentSkyUpdate
+         * @instance
+         */
+        EnvironmentSkyUpdate.prototype.colorBlueBottom = 0;
+    
+        /**
          * Creates a new EnvironmentSkyUpdate instance using the specified properties.
          * @function create
          * @memberof EnvironmentSkyUpdate
@@ -9028,6 +9242,12 @@
                 writer.uint32(/* id 6, wireType 5 =*/53).float(message.colorGreenTop);
             if (message.colorBlueTop != null && Object.hasOwnProperty.call(message, "colorBlueTop"))
                 writer.uint32(/* id 7, wireType 5 =*/61).float(message.colorBlueTop);
+            if (message.colorRedBottom != null && Object.hasOwnProperty.call(message, "colorRedBottom"))
+                writer.uint32(/* id 8, wireType 5 =*/69).float(message.colorRedBottom);
+            if (message.colorGreenBottom != null && Object.hasOwnProperty.call(message, "colorGreenBottom"))
+                writer.uint32(/* id 9, wireType 5 =*/77).float(message.colorGreenBottom);
+            if (message.colorBlueBottom != null && Object.hasOwnProperty.call(message, "colorBlueBottom"))
+                writer.uint32(/* id 10, wireType 5 =*/85).float(message.colorBlueBottom);
             return writer;
         };
     
@@ -9082,6 +9302,15 @@
                     break;
                 case 7:
                     message.colorBlueTop = reader.float();
+                    break;
+                case 8:
+                    message.colorRedBottom = reader.float();
+                    break;
+                case 9:
+                    message.colorGreenBottom = reader.float();
+                    break;
+                case 10:
+                    message.colorBlueBottom = reader.float();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -9139,6 +9368,15 @@
             if (message.colorBlueTop != null && message.hasOwnProperty("colorBlueTop"))
                 if (typeof message.colorBlueTop !== "number")
                     return "colorBlueTop: number expected";
+            if (message.colorRedBottom != null && message.hasOwnProperty("colorRedBottom"))
+                if (typeof message.colorRedBottom !== "number")
+                    return "colorRedBottom: number expected";
+            if (message.colorGreenBottom != null && message.hasOwnProperty("colorGreenBottom"))
+                if (typeof message.colorGreenBottom !== "number")
+                    return "colorGreenBottom: number expected";
+            if (message.colorBlueBottom != null && message.hasOwnProperty("colorBlueBottom"))
+                if (typeof message.colorBlueBottom !== "number")
+                    return "colorBlueBottom: number expected";
             return null;
         };
     
@@ -9168,6 +9406,12 @@
                 message.colorGreenTop = Number(object.colorGreenTop);
             if (object.colorBlueTop != null)
                 message.colorBlueTop = Number(object.colorBlueTop);
+            if (object.colorRedBottom != null)
+                message.colorRedBottom = Number(object.colorRedBottom);
+            if (object.colorGreenBottom != null)
+                message.colorGreenBottom = Number(object.colorGreenBottom);
+            if (object.colorBlueBottom != null)
+                message.colorBlueBottom = Number(object.colorBlueBottom);
             return message;
         };
     
@@ -9192,6 +9436,9 @@
                 object.colorRedTop = 0;
                 object.colorGreenTop = 0;
                 object.colorBlueTop = 0;
+                object.colorRedBottom = 0;
+                object.colorGreenBottom = 0;
+                object.colorBlueBottom = 0;
             }
             if (message.clouds != null && message.hasOwnProperty("clouds"))
                 object.clouds = message.clouds;
@@ -9207,6 +9454,12 @@
                 object.colorGreenTop = options.json && !isFinite(message.colorGreenTop) ? String(message.colorGreenTop) : message.colorGreenTop;
             if (message.colorBlueTop != null && message.hasOwnProperty("colorBlueTop"))
                 object.colorBlueTop = options.json && !isFinite(message.colorBlueTop) ? String(message.colorBlueTop) : message.colorBlueTop;
+            if (message.colorRedBottom != null && message.hasOwnProperty("colorRedBottom"))
+                object.colorRedBottom = options.json && !isFinite(message.colorRedBottom) ? String(message.colorRedBottom) : message.colorRedBottom;
+            if (message.colorGreenBottom != null && message.hasOwnProperty("colorGreenBottom"))
+                object.colorGreenBottom = options.json && !isFinite(message.colorGreenBottom) ? String(message.colorGreenBottom) : message.colorGreenBottom;
+            if (message.colorBlueBottom != null && message.hasOwnProperty("colorBlueBottom"))
+                object.colorBlueBottom = options.json && !isFinite(message.colorBlueBottom) ? String(message.colorBlueBottom) : message.colorBlueBottom;
             return object;
         };
     
@@ -9230,6 +9483,7 @@
          * Properties of an EnvironmentSetSkybox.
          * @exports IEnvironmentSetSkybox
          * @interface IEnvironmentSetSkybox
+         * @property {boolean|null} [enable] EnvironmentSetSkybox enable
          * @property {string|null} [texture] EnvironmentSetSkybox texture
          */
     
@@ -9247,6 +9501,14 @@
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
+    
+        /**
+         * EnvironmentSetSkybox enable.
+         * @member {boolean} enable
+         * @memberof EnvironmentSetSkybox
+         * @instance
+         */
+        EnvironmentSetSkybox.prototype.enable = false;
     
         /**
          * EnvironmentSetSkybox texture.
@@ -9280,8 +9542,10 @@
         EnvironmentSetSkybox.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
+            if (message.enable != null && Object.hasOwnProperty.call(message, "enable"))
+                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.enable);
             if (message.texture != null && Object.hasOwnProperty.call(message, "texture"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.texture);
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.texture);
             return writer;
         };
     
@@ -9317,6 +9581,9 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
+                    message.enable = reader.bool();
+                    break;
+                case 2:
                     message.texture = reader.string();
                     break;
                 default:
@@ -9354,6 +9621,9 @@
         EnvironmentSetSkybox.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
+            if (message.enable != null && message.hasOwnProperty("enable"))
+                if (typeof message.enable !== "boolean")
+                    return "enable: boolean expected";
             if (message.texture != null && message.hasOwnProperty("texture"))
                 if (!$util.isString(message.texture))
                     return "texture: string expected";
@@ -9372,6 +9642,8 @@
             if (object instanceof $root.EnvironmentSetSkybox)
                 return object;
             var message = new $root.EnvironmentSetSkybox();
+            if (object.enable != null)
+                message.enable = Boolean(object.enable);
             if (object.texture != null)
                 message.texture = String(object.texture);
             return message;
@@ -9390,8 +9662,12 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults)
+            if (options.defaults) {
+                object.enable = false;
                 object.texture = "";
+            }
+            if (message.enable != null && message.hasOwnProperty("enable"))
+                object.enable = message.enable;
             if (message.texture != null && message.hasOwnProperty("texture"))
                 object.texture = message.texture;
             return object;

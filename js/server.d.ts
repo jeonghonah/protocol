@@ -3460,6 +3460,96 @@ export class WorldChunksRemoveAll implements IWorldChunksRemoveAll {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of an EnvironmentTimeUpdate. */
+export interface IEnvironmentTimeUpdate {
+
+    /** EnvironmentTimeUpdate value */
+    value?: (number|null);
+}
+
+/** Represents an EnvironmentTimeUpdate. */
+export class EnvironmentTimeUpdate implements IEnvironmentTimeUpdate {
+
+    /**
+     * Constructs a new EnvironmentTimeUpdate.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IEnvironmentTimeUpdate);
+
+    /** EnvironmentTimeUpdate value. */
+    public value: number;
+
+    /**
+     * Creates a new EnvironmentTimeUpdate instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns EnvironmentTimeUpdate instance
+     */
+    public static create(properties?: IEnvironmentTimeUpdate): EnvironmentTimeUpdate;
+
+    /**
+     * Encodes the specified EnvironmentTimeUpdate message. Does not implicitly {@link EnvironmentTimeUpdate.verify|verify} messages.
+     * @param message EnvironmentTimeUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IEnvironmentTimeUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified EnvironmentTimeUpdate message, length delimited. Does not implicitly {@link EnvironmentTimeUpdate.verify|verify} messages.
+     * @param message EnvironmentTimeUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IEnvironmentTimeUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an EnvironmentTimeUpdate message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns EnvironmentTimeUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): EnvironmentTimeUpdate;
+
+    /**
+     * Decodes an EnvironmentTimeUpdate message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns EnvironmentTimeUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): EnvironmentTimeUpdate;
+
+    /**
+     * Verifies an EnvironmentTimeUpdate message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an EnvironmentTimeUpdate message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns EnvironmentTimeUpdate
+     */
+    public static fromObject(object: { [k: string]: any }): EnvironmentTimeUpdate;
+
+    /**
+     * Creates a plain object from an EnvironmentTimeUpdate message. Also converts values to other types if specified.
+     * @param message EnvironmentTimeUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: EnvironmentTimeUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this EnvironmentTimeUpdate to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of an EnvironmentFogUpdate. */
 export interface IEnvironmentFogUpdate {
 
@@ -3609,6 +3699,15 @@ export interface IEnvironmentSkyUpdate {
 
     /** EnvironmentSkyUpdate colorBlueTop */
     colorBlueTop?: (number|null);
+
+    /** EnvironmentSkyUpdate colorRedBottom */
+    colorRedBottom?: (number|null);
+
+    /** EnvironmentSkyUpdate colorGreenBottom */
+    colorGreenBottom?: (number|null);
+
+    /** EnvironmentSkyUpdate colorBlueBottom */
+    colorBlueBottom?: (number|null);
 }
 
 /** Represents an EnvironmentSkyUpdate. */
@@ -3640,6 +3739,15 @@ export class EnvironmentSkyUpdate implements IEnvironmentSkyUpdate {
 
     /** EnvironmentSkyUpdate colorBlueTop. */
     public colorBlueTop: number;
+
+    /** EnvironmentSkyUpdate colorRedBottom. */
+    public colorRedBottom: number;
+
+    /** EnvironmentSkyUpdate colorGreenBottom. */
+    public colorGreenBottom: number;
+
+    /** EnvironmentSkyUpdate colorBlueBottom. */
+    public colorBlueBottom: number;
 
     /**
      * Creates a new EnvironmentSkyUpdate instance using the specified properties.
@@ -3715,6 +3823,9 @@ export class EnvironmentSkyUpdate implements IEnvironmentSkyUpdate {
 /** Properties of an EnvironmentSetSkybox. */
 export interface IEnvironmentSetSkybox {
 
+    /** EnvironmentSetSkybox enable */
+    enable?: (boolean|null);
+
     /** EnvironmentSetSkybox texture */
     texture?: (string|null);
 }
@@ -3727,6 +3838,9 @@ export class EnvironmentSetSkybox implements IEnvironmentSetSkybox {
      * @param [properties] Properties to set
      */
     constructor(properties?: IEnvironmentSetSkybox);
+
+    /** EnvironmentSetSkybox enable. */
+    public enable: boolean;
 
     /** EnvironmentSetSkybox texture. */
     public texture: string;

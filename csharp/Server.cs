@@ -94,17 +94,20 @@ public static partial class ServerReflection {
           "ChBXb3JsZENodW5rVW5sb2FkEgkKAXgYASABKBESCQoBeRgCIAEoERIJCgF6",
           "GAMgASgREg4KBmhlaWdodBgEIAEoESI1ChJXb3JsZENodW5rSXNMb2FkZWQS",
           "CQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoYAyABKBEiJwoUV29ybGRDaHVu",
-          "a3NSZW1vdmVBbGwSDwoHY29uZmlybRgBIAEoCCKNAQoURW52aXJvbm1lbnRG",
-          "b2dVcGRhdGUSDAoEbW9kZRgBIAEoDRIPCgdkZW5zaXR5GAIgASgCEg0KBXN0",
-          "YXJ0GAMgASgCEgsKA2VuZBgEIAEoAhIRCgljb2xvcl9yZWQYBSABKAISEwoL",
-          "Y29sb3JfZ3JlZW4YBiABKAISEgoKY29sb3JfYmx1ZRgHIAEoAiKqAQoURW52",
-          "aXJvbm1lbnRTa3lVcGRhdGUSDgoGY2xvdWRzGAEgASgIEhEKCWNvbG9yX3Jl",
-          "ZBgCIAEoAhITCgtjb2xvcl9ncmVlbhgDIAEoAhISCgpjb2xvcl9ibHVlGAQg",
-          "ASgCEhUKDWNvbG9yX3JlZF90b3AYBSABKAISFwoPY29sb3JfZ3JlZW5fdG9w",
-          "GAYgASgCEhYKDmNvbG9yX2JsdWVfdG9wGAcgASgCIicKFEVudmlyb25tZW50",
-          "U2V0U2t5Ym94Eg8KB3RleHR1cmUYASABKAkiPAoNUGx1Z2luTWVzc2FnZRIL",
-          "CgNrZXkYASABKAkSDwoHdmVyc2lvbhgCIAEoDRINCgV2YWx1ZRgDIAEoDGIG",
-          "cHJvdG8z"));
+          "a3NSZW1vdmVBbGwSDwoHY29uZmlybRgBIAEoCCImChVFbnZpcm9ubWVudFRp",
+          "bWVVcGRhdGUSDQoFdmFsdWUYASABKAUijQEKFEVudmlyb25tZW50Rm9nVXBk",
+          "YXRlEgwKBG1vZGUYASABKA0SDwoHZGVuc2l0eRgCIAEoAhINCgVzdGFydBgD",
+          "IAEoAhILCgNlbmQYBCABKAISEQoJY29sb3JfcmVkGAUgASgCEhMKC2NvbG9y",
+          "X2dyZWVuGAYgASgCEhIKCmNvbG9yX2JsdWUYByABKAIi+wEKFEVudmlyb25t",
+          "ZW50U2t5VXBkYXRlEg4KBmNsb3VkcxgBIAEoCBIRCgljb2xvcl9yZWQYAiAB",
+          "KAISEwoLY29sb3JfZ3JlZW4YAyABKAISEgoKY29sb3JfYmx1ZRgEIAEoAhIV",
+          "Cg1jb2xvcl9yZWRfdG9wGAUgASgCEhcKD2NvbG9yX2dyZWVuX3RvcBgGIAEo",
+          "AhIWCg5jb2xvcl9ibHVlX3RvcBgHIAEoAhIYChBjb2xvcl9yZWRfYm90dG9t",
+          "GAggASgCEhoKEmNvbG9yX2dyZWVuX2JvdHRvbRgJIAEoAhIZChFjb2xvcl9i",
+          "bHVlX2JvdHRvbRgKIAEoAiI3ChRFbnZpcm9ubWVudFNldFNreWJveBIOCgZl",
+          "bmFibGUYASABKAgSDwoHdGV4dHVyZRgCIAEoCSI8Cg1QbHVnaW5NZXNzYWdl",
+          "EgsKA2tleRgBIAEoCRIPCgd2ZXJzaW9uGAIgASgNEg0KBXZhbHVlGAMgASgM",
+          "YgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { global::TypesReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -141,9 +144,10 @@ public static partial class ServerReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::WorldChunkUnload), global::WorldChunkUnload.Parser, new[]{ "X", "Y", "Z", "Height" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::WorldChunkIsLoaded), global::WorldChunkIsLoaded.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::WorldChunksRemoveAll), global::WorldChunksRemoveAll.Parser, new[]{ "Confirm" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::EnvironmentTimeUpdate), global::EnvironmentTimeUpdate.Parser, new[]{ "Value" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::EnvironmentFogUpdate), global::EnvironmentFogUpdate.Parser, new[]{ "Mode", "Density", "Start", "End", "ColorRed", "ColorGreen", "ColorBlue" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::EnvironmentSkyUpdate), global::EnvironmentSkyUpdate.Parser, new[]{ "Clouds", "ColorRed", "ColorGreen", "ColorBlue", "ColorRedTop", "ColorGreenTop", "ColorBlueTop" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::EnvironmentSetSkybox), global::EnvironmentSetSkybox.Parser, new[]{ "Texture" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::EnvironmentSkyUpdate), global::EnvironmentSkyUpdate.Parser, new[]{ "Clouds", "ColorRed", "ColorGreen", "ColorBlue", "ColorRedTop", "ColorGreenTop", "ColorBlueTop", "ColorRedBottom", "ColorGreenBottom", "ColorBlueBottom" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::EnvironmentSetSkybox), global::EnvironmentSetSkybox.Parser, new[]{ "Enable", "Texture" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PluginMessage), global::PluginMessage.Parser, new[]{ "Key", "Version", "Value" }, null, null, null, null)
         }));
   }
@@ -8652,6 +8656,178 @@ public sealed partial class WorldChunksRemoveAll : pb::IMessage<WorldChunksRemov
 
 }
 
+public sealed partial class EnvironmentTimeUpdate : pb::IMessage<EnvironmentTimeUpdate>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<EnvironmentTimeUpdate> _parser = new pb::MessageParser<EnvironmentTimeUpdate>(() => new EnvironmentTimeUpdate());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<EnvironmentTimeUpdate> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::ServerReflection.Descriptor.MessageTypes[33]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public EnvironmentTimeUpdate() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public EnvironmentTimeUpdate(EnvironmentTimeUpdate other) : this() {
+    value_ = other.value_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public EnvironmentTimeUpdate Clone() {
+    return new EnvironmentTimeUpdate(this);
+  }
+
+  /// <summary>Field number for the "value" field.</summary>
+  public const int ValueFieldNumber = 1;
+  private int value_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Value {
+    get { return value_; }
+    set {
+      value_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as EnvironmentTimeUpdate);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(EnvironmentTimeUpdate other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Value != other.Value) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Value != 0) hash ^= Value.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Value != 0) {
+      output.WriteRawTag(8);
+      output.WriteInt32(Value);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Value != 0) {
+      output.WriteRawTag(8);
+      output.WriteInt32(Value);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Value != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Value);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(EnvironmentTimeUpdate other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Value != 0) {
+      Value = other.Value;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 8: {
+          Value = input.ReadInt32();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 8: {
+          Value = input.ReadInt32();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
 public sealed partial class EnvironmentFogUpdate : pb::IMessage<EnvironmentFogUpdate>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
@@ -8664,7 +8840,7 @@ public sealed partial class EnvironmentFogUpdate : pb::IMessage<EnvironmentFogUp
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ServerReflection.Descriptor.MessageTypes[33]; }
+    get { return global::ServerReflection.Descriptor.MessageTypes[34]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9052,7 +9228,7 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ServerReflection.Descriptor.MessageTypes[34]; }
+    get { return global::ServerReflection.Descriptor.MessageTypes[35]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9076,6 +9252,9 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
     colorRedTop_ = other.colorRedTop_;
     colorGreenTop_ = other.colorGreenTop_;
     colorBlueTop_ = other.colorBlueTop_;
+    colorRedBottom_ = other.colorRedBottom_;
+    colorGreenBottom_ = other.colorGreenBottom_;
+    colorBlueBottom_ = other.colorBlueBottom_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -9161,6 +9340,39 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
     }
   }
 
+  /// <summary>Field number for the "color_red_bottom" field.</summary>
+  public const int ColorRedBottomFieldNumber = 8;
+  private float colorRedBottom_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float ColorRedBottom {
+    get { return colorRedBottom_; }
+    set {
+      colorRedBottom_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "color_green_bottom" field.</summary>
+  public const int ColorGreenBottomFieldNumber = 9;
+  private float colorGreenBottom_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float ColorGreenBottom {
+    get { return colorGreenBottom_; }
+    set {
+      colorGreenBottom_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "color_blue_bottom" field.</summary>
+  public const int ColorBlueBottomFieldNumber = 10;
+  private float colorBlueBottom_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float ColorBlueBottom {
+    get { return colorBlueBottom_; }
+    set {
+      colorBlueBottom_ = value;
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as EnvironmentSkyUpdate);
@@ -9181,6 +9393,9 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ColorRedTop, other.ColorRedTop)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ColorGreenTop, other.ColorGreenTop)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ColorBlueTop, other.ColorBlueTop)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ColorRedBottom, other.ColorRedBottom)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ColorGreenBottom, other.ColorGreenBottom)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(ColorBlueBottom, other.ColorBlueBottom)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -9194,6 +9409,9 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
     if (ColorRedTop != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ColorRedTop);
     if (ColorGreenTop != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ColorGreenTop);
     if (ColorBlueTop != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ColorBlueTop);
+    if (ColorRedBottom != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ColorRedBottom);
+    if (ColorGreenBottom != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ColorGreenBottom);
+    if (ColorBlueBottom != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(ColorBlueBottom);
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -9238,6 +9456,18 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
       output.WriteRawTag(61);
       output.WriteFloat(ColorBlueTop);
     }
+    if (ColorRedBottom != 0F) {
+      output.WriteRawTag(69);
+      output.WriteFloat(ColorRedBottom);
+    }
+    if (ColorGreenBottom != 0F) {
+      output.WriteRawTag(77);
+      output.WriteFloat(ColorGreenBottom);
+    }
+    if (ColorBlueBottom != 0F) {
+      output.WriteRawTag(85);
+      output.WriteFloat(ColorBlueBottom);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -9275,6 +9505,18 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
       output.WriteRawTag(61);
       output.WriteFloat(ColorBlueTop);
     }
+    if (ColorRedBottom != 0F) {
+      output.WriteRawTag(69);
+      output.WriteFloat(ColorRedBottom);
+    }
+    if (ColorGreenBottom != 0F) {
+      output.WriteRawTag(77);
+      output.WriteFloat(ColorGreenBottom);
+    }
+    if (ColorBlueBottom != 0F) {
+      output.WriteRawTag(85);
+      output.WriteFloat(ColorBlueBottom);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -9303,6 +9545,15 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
       size += 1 + 4;
     }
     if (ColorBlueTop != 0F) {
+      size += 1 + 4;
+    }
+    if (ColorRedBottom != 0F) {
+      size += 1 + 4;
+    }
+    if (ColorGreenBottom != 0F) {
+      size += 1 + 4;
+    }
+    if (ColorBlueBottom != 0F) {
       size += 1 + 4;
     }
     if (_unknownFields != null) {
@@ -9337,6 +9588,15 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
     if (other.ColorBlueTop != 0F) {
       ColorBlueTop = other.ColorBlueTop;
     }
+    if (other.ColorRedBottom != 0F) {
+      ColorRedBottom = other.ColorRedBottom;
+    }
+    if (other.ColorGreenBottom != 0F) {
+      ColorGreenBottom = other.ColorGreenBottom;
+    }
+    if (other.ColorBlueBottom != 0F) {
+      ColorBlueBottom = other.ColorBlueBottom;
+    }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
 
@@ -9377,6 +9637,18 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
         }
         case 61: {
           ColorBlueTop = input.ReadFloat();
+          break;
+        }
+        case 69: {
+          ColorRedBottom = input.ReadFloat();
+          break;
+        }
+        case 77: {
+          ColorGreenBottom = input.ReadFloat();
+          break;
+        }
+        case 85: {
+          ColorBlueBottom = input.ReadFloat();
           break;
         }
       }
@@ -9421,6 +9693,18 @@ public sealed partial class EnvironmentSkyUpdate : pb::IMessage<EnvironmentSkyUp
           ColorBlueTop = input.ReadFloat();
           break;
         }
+        case 69: {
+          ColorRedBottom = input.ReadFloat();
+          break;
+        }
+        case 77: {
+          ColorGreenBottom = input.ReadFloat();
+          break;
+        }
+        case 85: {
+          ColorBlueBottom = input.ReadFloat();
+          break;
+        }
       }
     }
   }
@@ -9440,7 +9724,7 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ServerReflection.Descriptor.MessageTypes[35]; }
+    get { return global::ServerReflection.Descriptor.MessageTypes[36]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9457,6 +9741,7 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public EnvironmentSetSkybox(EnvironmentSetSkybox other) : this() {
+    enable_ = other.enable_;
     texture_ = other.texture_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
@@ -9466,8 +9751,19 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
     return new EnvironmentSetSkybox(this);
   }
 
+  /// <summary>Field number for the "enable" field.</summary>
+  public const int EnableFieldNumber = 1;
+  private bool enable_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Enable {
+    get { return enable_; }
+    set {
+      enable_ = value;
+    }
+  }
+
   /// <summary>Field number for the "texture" field.</summary>
-  public const int TextureFieldNumber = 1;
+  public const int TextureFieldNumber = 2;
   private string texture_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public string Texture {
@@ -9490,6 +9786,7 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
     if (ReferenceEquals(other, this)) {
       return true;
     }
+    if (Enable != other.Enable) return false;
     if (Texture != other.Texture) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
@@ -9497,6 +9794,7 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override int GetHashCode() {
     int hash = 1;
+    if (Enable != false) hash ^= Enable.GetHashCode();
     if (Texture.Length != 0) hash ^= Texture.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
@@ -9514,8 +9812,12 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     output.WriteRawMessage(this);
   #else
+    if (Enable != false) {
+      output.WriteRawTag(8);
+      output.WriteBool(Enable);
+    }
     if (Texture.Length != 0) {
-      output.WriteRawTag(10);
+      output.WriteRawTag(18);
       output.WriteString(Texture);
     }
     if (_unknownFields != null) {
@@ -9527,8 +9829,12 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Enable != false) {
+      output.WriteRawTag(8);
+      output.WriteBool(Enable);
+    }
     if (Texture.Length != 0) {
-      output.WriteRawTag(10);
+      output.WriteRawTag(18);
       output.WriteString(Texture);
     }
     if (_unknownFields != null) {
@@ -9540,6 +9846,9 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public int CalculateSize() {
     int size = 0;
+    if (Enable != false) {
+      size += 1 + 1;
+    }
     if (Texture.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Texture);
     }
@@ -9553,6 +9862,9 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
   public void MergeFrom(EnvironmentSetSkybox other) {
     if (other == null) {
       return;
+    }
+    if (other.Enable != false) {
+      Enable = other.Enable;
     }
     if (other.Texture.Length != 0) {
       Texture = other.Texture;
@@ -9571,7 +9883,11 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
           break;
-        case 10: {
+        case 8: {
+          Enable = input.ReadBool();
+          break;
+        }
+        case 18: {
           Texture = input.ReadString();
           break;
         }
@@ -9589,7 +9905,11 @@ public sealed partial class EnvironmentSetSkybox : pb::IMessage<EnvironmentSetSk
         default:
           _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
           break;
-        case 10: {
+        case 8: {
+          Enable = input.ReadBool();
+          break;
+        }
+        case 18: {
           Texture = input.ReadString();
           break;
         }
@@ -9612,7 +9932,7 @@ public sealed partial class PluginMessage : pb::IMessage<PluginMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ServerReflection.Descriptor.MessageTypes[36]; }
+    get { return global::ServerReflection.Descriptor.MessageTypes[37]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

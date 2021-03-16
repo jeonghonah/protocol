@@ -1,5 +1,4 @@
 syntax = "proto3";
-
 import "proto/types.proto";
 
 /* 
@@ -92,7 +91,7 @@ message ActionBlockBreak {
 	sint32 x = 1;
 	sint32 y = 2;
 	sint32 z = 3;
-	float status = 4;
+	uint32 status = 4;
 }
 
 /* 

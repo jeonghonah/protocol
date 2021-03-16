@@ -1,6 +1,4 @@
 syntax = "proto3";
-
-
 import "proto/types.proto";
 
 /* 
@@ -369,6 +367,14 @@ message WorldChunksRemoveAll {
 }
 
 /*
+ * Changes position of sun and moon
+*/
+
+message EnvironmentTimeUpdate {
+	int32 value = 1;
+}
+
+/*
  * Updates settings of fog
 */
 
@@ -395,6 +401,10 @@ message EnvironmentSkyUpdate {
 	float color_red_top = 5;
 	float color_green_top = 6;
 	float color_blue_top = 7;
+
+	float color_red_bottom = 8;
+	float color_green_bottom = 9;
+	float color_blue_bottom = 10;
 }
 
 /*
@@ -402,7 +412,8 @@ message EnvironmentSkyUpdate {
 */
 
 message EnvironmentSetSkybox {
-	string texture = 1;
+	bool enable = 1;
+	string texture = 2;
 }
 
 

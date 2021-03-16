@@ -603,6 +603,14 @@
         }
       }
     },
+    "EnvironmentTimeUpdate": {
+      "fields": {
+        "value": {
+          "type": "int32",
+          "id": 1
+        }
+      }
+    },
     "EnvironmentFogUpdate": {
       "fields": {
         "mode": {
@@ -664,14 +672,30 @@
         "colorBlueTop": {
           "type": "float",
           "id": 7
+        },
+        "colorRedBottom": {
+          "type": "float",
+          "id": 8
+        },
+        "colorGreenBottom": {
+          "type": "float",
+          "id": 9
+        },
+        "colorBlueBottom": {
+          "type": "float",
+          "id": 10
         }
       }
     },
     "EnvironmentSetSkybox": {
       "fields": {
+        "enable": {
+          "type": "bool",
+          "id": 1
+        },
         "texture": {
           "type": "string",
-          "id": 1
+          "id": 2
         }
       }
     },

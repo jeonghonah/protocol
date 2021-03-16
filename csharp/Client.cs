@@ -34,7 +34,7 @@ public static partial class ClientReflection {
           "GAEgASgJIlcKEEFjdGlvbkJsb2NrUGxhY2USCQoBeBgBIAEoERIJCgF5GAIg",
           "ASgREgkKAXoYAyABKBESCgoCeDIYBCABKBESCgoCeTIYBSABKBESCgoCejIY",
           "BiABKBEiQwoQQWN0aW9uQmxvY2tCcmVhaxIJCgF4GAEgASgREgkKAXkYAiAB",
-          "KBESCQoBehgDIAEoERIOCgZzdGF0dXMYBCABKAIiZgoUQWN0aW9uSW52ZW50",
+          "KBESCQoBehgDIAEoERIOCgZzdGF0dXMYBCABKA0iZgoUQWN0aW9uSW52ZW50",
           "b3J5Q2xpY2sSDAoEc2xvdBgBIAEoBRIdCgR0eXBlGAIgASgOMg8uTW91c2VD",
           "bGlja1R5cGUSIQoJaW52ZW50b3J5GAMgASgOMg4uSW52ZW50b3J5VHlwZSJB",
           "ChNBY3Rpb25JbnZlbnRvcnlQaWNrEgwKBHNsb3QYASABKAUSDQoFc2xvdDIY",
@@ -2006,9 +2006,9 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
 
   /// <summary>Field number for the "status" field.</summary>
   public const int StatusFieldNumber = 4;
-  private float status_;
+  private uint status_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public float Status {
+  public uint Status {
     get { return status_; }
     set {
       status_ = value;
@@ -2031,7 +2031,7 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     if (X != other.X) return false;
     if (Y != other.Y) return false;
     if (Z != other.Z) return false;
-    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Status, other.Status)) return false;
+    if (Status != other.Status) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -2041,7 +2041,7 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     if (X != 0) hash ^= X.GetHashCode();
     if (Y != 0) hash ^= Y.GetHashCode();
     if (Z != 0) hash ^= Z.GetHashCode();
-    if (Status != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Status);
+    if (Status != 0) hash ^= Status.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -2070,9 +2070,9 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
       output.WriteRawTag(24);
       output.WriteSInt32(Z);
     }
-    if (Status != 0F) {
-      output.WriteRawTag(37);
-      output.WriteFloat(Status);
+    if (Status != 0) {
+      output.WriteRawTag(32);
+      output.WriteUInt32(Status);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -2095,9 +2095,9 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
       output.WriteRawTag(24);
       output.WriteSInt32(Z);
     }
-    if (Status != 0F) {
-      output.WriteRawTag(37);
-      output.WriteFloat(Status);
+    if (Status != 0) {
+      output.WriteRawTag(32);
+      output.WriteUInt32(Status);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -2117,8 +2117,8 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     if (Z != 0) {
       size += 1 + pb::CodedOutputStream.ComputeSInt32Size(Z);
     }
-    if (Status != 0F) {
-      size += 1 + 4;
+    if (Status != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Status);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -2140,7 +2140,7 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
     if (other.Z != 0) {
       Z = other.Z;
     }
-    if (other.Status != 0F) {
+    if (other.Status != 0) {
       Status = other.Status;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2169,8 +2169,8 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
           Z = input.ReadSInt32();
           break;
         }
-        case 37: {
-          Status = input.ReadFloat();
+        case 32: {
+          Status = input.ReadUInt32();
           break;
         }
       }
@@ -2199,8 +2199,8 @@ public sealed partial class ActionBlockBreak : pb::IMessage<ActionBlockBreak>
           Z = input.ReadSInt32();
           break;
         }
-        case 37: {
-          Status = input.ReadFloat();
+        case 32: {
+          Status = input.ReadUInt32();
           break;
         }
       }
