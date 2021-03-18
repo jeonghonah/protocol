@@ -244,6 +244,22 @@
         }
       }
     },
+    "ActionDropItem": {
+      "fields": {
+        "uuid": {
+          "type": "string",
+          "id": 1
+        },
+        "inventory": {
+          "type": "InventoryType",
+          "id": 2
+        },
+        "slot": {
+          "type": "int32",
+          "id": 3
+        }
+      }
+    },
     "ActionKeyPress": {
       "fields": {
         "key": {
@@ -370,7 +386,8 @@
         "MAIN": 0,
         "ARMOR": 1,
         "CRAFT": 2,
-        "HOOK": 3
+        "HOOK": 3,
+        "TEMP": 4
       }
     },
     "ContainerType": {

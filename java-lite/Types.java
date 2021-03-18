@@ -27,6 +27,10 @@ public final class Types {
      * <code>HOOK = 3;</code>
      */
     HOOK(3),
+    /**
+     * <code>TEMP = 4;</code>
+     */
+    TEMP(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -46,6 +50,10 @@ public final class Types {
      * <code>HOOK = 3;</code>
      */
     public static final int HOOK_VALUE = 3;
+    /**
+     * <code>TEMP = 4;</code>
+     */
+    public static final int TEMP_VALUE = 4;
 
 
     @java.lang.Override
@@ -73,6 +81,7 @@ public final class Types {
         case 1: return ARMOR;
         case 2: return CRAFT;
         case 3: return HOOK;
+        case 4: return TEMP;
         default: return null;
       }
     }

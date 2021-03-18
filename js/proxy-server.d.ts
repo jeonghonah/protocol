@@ -970,7 +970,8 @@ export enum InventoryType {
     MAIN = 0,
     ARMOR = 1,
     CRAFT = 2,
-    HOOK = 3
+    HOOK = 3,
+    TEMP = 4
 }
 
 /** ContainerType enum. */

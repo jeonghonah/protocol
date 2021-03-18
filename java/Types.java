@@ -33,6 +33,10 @@ public final class Types {
      * <code>HOOK = 3;</code>
      */
     HOOK(3),
+    /**
+     * <code>TEMP = 4;</code>
+     */
+    TEMP(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -52,6 +56,10 @@ public final class Types {
      * <code>HOOK = 3;</code>
      */
     public static final int HOOK_VALUE = 3;
+    /**
+     * <code>TEMP = 4;</code>
+     */
+    public static final int TEMP_VALUE = 4;
 
 
     public final int getNumber() {
@@ -82,6 +90,7 @@ public final class Types {
         case 1: return ARMOR;
         case 2: return CRAFT;
         case 3: return HOOK;
+        case 4: return TEMP;
         default: return null;
       }
     }
@@ -3628,12 +3637,13 @@ public final class Types {
       "\005 \001(\010\"\226\001\n\004Item\022\n\n\002id\030\001 \001(\t\022\r\n\005count\030\002 \001(" +
       "\005\022\016\n\006damage\030\003 \001(\002\022\035\n\004name\030\004 \003(\0132\017.Item.N" +
       "ameEntry\032D\n\tNameEntry\022\013\n\003key\030\001 \001(\r\022&\n\005va" +
-      "lue\030\002 \001(\0132\027.BasicChatComponentType:\0028\001*9" +
+      "lue\030\002 \001(\0132\027.BasicChatComponentType:\0028\001*C" +
       "\n\rInventoryType\022\010\n\004MAIN\020\000\022\t\n\005ARMOR\020\001\022\t\n\005" +
-      "CRAFT\020\002\022\010\n\004HOOK\020\003*A\n\rContainerType\022\n\n\006PL" +
-      "AYER\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007FURNA" +
-      "CE\020\003*=\n\016MouseClickType\022\010\n\004LEFT\020\000\022\t\n\005RIGH" +
-      "T\020\001\022\n\n\006MIDDLE\020\002\022\n\n\006SELECT\020\003b\006proto3"
+      "CRAFT\020\002\022\010\n\004HOOK\020\003\022\010\n\004TEMP\020\004*A\n\rContainer" +
+      "Type\022\n\n\006PLAYER\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020" +
+      "\002\022\013\n\007FURNACE\020\003*=\n\016MouseClickType\022\010\n\004LEFT" +
+      "\020\000\022\t\n\005RIGHT\020\001\022\n\n\006MIDDLE\020\002\022\n\n\006SELECT\020\003b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

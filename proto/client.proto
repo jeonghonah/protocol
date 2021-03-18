@@ -164,6 +164,16 @@ message ActionLeaveVehicle {
 }
 
 /* 
+ * ActionDropItem is send while player drops item out of theirs inventory
+*/
+
+message ActionDropItem {
+	string uuid = 1;
+	InventoryType inventory = 2;
+	int32 slot = 3;
+}
+
+/* 
  * ActionKeyPress is send after pressing movement keys
 */
 

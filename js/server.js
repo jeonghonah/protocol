@@ -3051,6 +3051,7 @@
                 case 1:
                 case 2:
                 case 3:
+                case 4:
                     break;
                 }
             if (message.item != null && message.hasOwnProperty("item")) {
@@ -3091,6 +3092,10 @@
             case "HOOK":
             case 3:
                 message.type = 3;
+                break;
+            case "TEMP":
+            case 4:
+                message.type = 4;
                 break;
             }
             if (object.item != null) {
@@ -11021,6 +11026,7 @@
      * @property {number} ARMOR=1 ARMOR value
      * @property {number} CRAFT=2 CRAFT value
      * @property {number} HOOK=3 HOOK value
+     * @property {number} TEMP=4 TEMP value
      */
     $root.InventoryType = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -11028,6 +11034,7 @@
         values[valuesById[1] = "ARMOR"] = 1;
         values[valuesById[2] = "CRAFT"] = 2;
         values[valuesById[3] = "HOOK"] = 3;
+        values[valuesById[4] = "TEMP"] = 4;
         return values;
     })();
     

@@ -1535,6 +1535,108 @@ export class ActionLeaveVehicle implements IActionLeaveVehicle {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of an ActionDropItem. */
+export interface IActionDropItem {
+
+    /** ActionDropItem uuid */
+    uuid?: (string|null);
+
+    /** ActionDropItem inventory */
+    inventory?: (InventoryType|null);
+
+    /** ActionDropItem slot */
+    slot?: (number|null);
+}
+
+/** Represents an ActionDropItem. */
+export class ActionDropItem implements IActionDropItem {
+
+    /**
+     * Constructs a new ActionDropItem.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IActionDropItem);
+
+    /** ActionDropItem uuid. */
+    public uuid: string;
+
+    /** ActionDropItem inventory. */
+    public inventory: InventoryType;
+
+    /** ActionDropItem slot. */
+    public slot: number;
+
+    /**
+     * Creates a new ActionDropItem instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ActionDropItem instance
+     */
+    public static create(properties?: IActionDropItem): ActionDropItem;
+
+    /**
+     * Encodes the specified ActionDropItem message. Does not implicitly {@link ActionDropItem.verify|verify} messages.
+     * @param message ActionDropItem message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IActionDropItem, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ActionDropItem message, length delimited. Does not implicitly {@link ActionDropItem.verify|verify} messages.
+     * @param message ActionDropItem message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IActionDropItem, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an ActionDropItem message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ActionDropItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ActionDropItem;
+
+    /**
+     * Decodes an ActionDropItem message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ActionDropItem
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ActionDropItem;
+
+    /**
+     * Verifies an ActionDropItem message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an ActionDropItem message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ActionDropItem
+     */
+    public static fromObject(object: { [k: string]: any }): ActionDropItem;
+
+    /**
+     * Creates a plain object from an ActionDropItem message. Also converts values to other types if specified.
+     * @param message ActionDropItem
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ActionDropItem, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ActionDropItem to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of an ActionKeyPress. */
 export interface IActionKeyPress {
 
@@ -2188,7 +2290,8 @@ export enum InventoryType {
     MAIN = 0,
     ARMOR = 1,
     CRAFT = 2,
-    HOOK = 3
+    HOOK = 3,
+    TEMP = 4
 }
 
 /** ContainerType enum. */

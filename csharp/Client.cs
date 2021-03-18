@@ -45,11 +45,13 @@ public static partial class ClientReflection {
           "AyABKBESHQoEdHlwZRgEIAEoDjIPLk1vdXNlQ2xpY2tUeXBlEhAKCG9uX2Js",
           "b2NrGAUgASgIIkEKEUFjdGlvbkNsaWNrRW50aXR5EgwKBHV1aWQYASABKAkS",
           "DAoEdHlwZRgCIAEoCRIQCghkaXN0YW5jZRgDIAEoAiIiChJBY3Rpb25MZWF2",
-          "ZVZlaGljbGUSDAoEdXVpZBgBIAEoCSIrCg5BY3Rpb25LZXlQcmVzcxILCgNr",
-          "ZXkYASABKAkSDAoEdHlwZRgCIAEoCCJNChpXb3JsZENodW5rSXNMb2FkZWRS",
-          "ZXNwb25jZRIJCgF4GAEgASgREgkKAXkYAiABKBESCQoBehgDIAEoERIOCgZs",
-          "b2FkZWQYBCABKAgiPAoNUGx1Z2luTWVzc2FnZRILCgNrZXkYASABKAkSDwoH",
-          "dmVyc2lvbhgCIAEoDRINCgV2YWx1ZRgDIAEoDGIGcHJvdG8z"));
+          "ZVZlaGljbGUSDAoEdXVpZBgBIAEoCSJPCg5BY3Rpb25Ecm9wSXRlbRIMCgR1",
+          "dWlkGAEgASgJEiEKCWludmVudG9yeRgCIAEoDjIOLkludmVudG9yeVR5cGUS",
+          "DAoEc2xvdBgDIAEoBSIrCg5BY3Rpb25LZXlQcmVzcxILCgNrZXkYASABKAkS",
+          "DAoEdHlwZRgCIAEoCCJNChpXb3JsZENodW5rSXNMb2FkZWRSZXNwb25jZRIJ",
+          "CgF4GAEgASgREgkKAXkYAiABKBESCQoBehgDIAEoERIOCgZsb2FkZWQYBCAB",
+          "KAgiPAoNUGx1Z2luTWVzc2FnZRILCgNrZXkYASABKAkSDwoHdmVyc2lvbhgC",
+          "IAEoDRINCgV2YWx1ZRgDIAEoDGIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { global::TypesReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -68,6 +70,7 @@ public static partial class ClientReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionClick), global::ActionClick.Parser, new[]{ "X", "Y", "Z", "Type", "OnBlock" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionClickEntity), global::ActionClickEntity.Parser, new[]{ "Uuid", "Type", "Distance" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionLeaveVehicle), global::ActionLeaveVehicle.Parser, new[]{ "Uuid" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ActionDropItem), global::ActionDropItem.Parser, new[]{ "Uuid", "Inventory", "Slot" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionKeyPress), global::ActionKeyPress.Parser, new[]{ "Key", "Type" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::WorldChunkIsLoadedResponce), global::WorldChunkIsLoadedResponce.Parser, new[]{ "X", "Y", "Z", "Loaded" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PluginMessage), global::PluginMessage.Parser, new[]{ "Key", "Version", "Value" }, null, null, null, null)
@@ -3776,6 +3779,250 @@ public sealed partial class ActionLeaveVehicle : pb::IMessage<ActionLeaveVehicle
 
 }
 
+public sealed partial class ActionDropItem : pb::IMessage<ActionDropItem>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<ActionDropItem> _parser = new pb::MessageParser<ActionDropItem>(() => new ActionDropItem());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<ActionDropItem> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::ClientReflection.Descriptor.MessageTypes[15]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ActionDropItem() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ActionDropItem(ActionDropItem other) : this() {
+    uuid_ = other.uuid_;
+    inventory_ = other.inventory_;
+    slot_ = other.slot_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ActionDropItem Clone() {
+    return new ActionDropItem(this);
+  }
+
+  /// <summary>Field number for the "uuid" field.</summary>
+  public const int UuidFieldNumber = 1;
+  private string uuid_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Uuid {
+    get { return uuid_; }
+    set {
+      uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "inventory" field.</summary>
+  public const int InventoryFieldNumber = 2;
+  private global::InventoryType inventory_ = global::InventoryType.Main;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::InventoryType Inventory {
+    get { return inventory_; }
+    set {
+      inventory_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "slot" field.</summary>
+  public const int SlotFieldNumber = 3;
+  private int slot_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int Slot {
+    get { return slot_; }
+    set {
+      slot_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as ActionDropItem);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(ActionDropItem other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Uuid != other.Uuid) return false;
+    if (Inventory != other.Inventory) return false;
+    if (Slot != other.Slot) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
+    if (Inventory != global::InventoryType.Main) hash ^= Inventory.GetHashCode();
+    if (Slot != 0) hash ^= Slot.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Uuid.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Uuid);
+    }
+    if (Inventory != global::InventoryType.Main) {
+      output.WriteRawTag(16);
+      output.WriteEnum((int) Inventory);
+    }
+    if (Slot != 0) {
+      output.WriteRawTag(24);
+      output.WriteInt32(Slot);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Uuid.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Uuid);
+    }
+    if (Inventory != global::InventoryType.Main) {
+      output.WriteRawTag(16);
+      output.WriteEnum((int) Inventory);
+    }
+    if (Slot != 0) {
+      output.WriteRawTag(24);
+      output.WriteInt32(Slot);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Uuid.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
+    }
+    if (Inventory != global::InventoryType.Main) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Inventory);
+    }
+    if (Slot != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(Slot);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(ActionDropItem other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Uuid.Length != 0) {
+      Uuid = other.Uuid;
+    }
+    if (other.Inventory != global::InventoryType.Main) {
+      Inventory = other.Inventory;
+    }
+    if (other.Slot != 0) {
+      Slot = other.Slot;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          Uuid = input.ReadString();
+          break;
+        }
+        case 16: {
+          Inventory = (global::InventoryType) input.ReadEnum();
+          break;
+        }
+        case 24: {
+          Slot = input.ReadInt32();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          Uuid = input.ReadString();
+          break;
+        }
+        case 16: {
+          Inventory = (global::InventoryType) input.ReadEnum();
+          break;
+        }
+        case 24: {
+          Slot = input.ReadInt32();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
 public sealed partial class ActionKeyPress : pb::IMessage<ActionKeyPress>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
@@ -3788,7 +4035,7 @@ public sealed partial class ActionKeyPress : pb::IMessage<ActionKeyPress>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[15]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[16]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3996,7 +4243,7 @@ public sealed partial class WorldChunkIsLoadedResponce : pb::IMessage<WorldChunk
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[16]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[17]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4276,7 +4523,7 @@ public sealed partial class PluginMessage : pb::IMessage<PluginMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[17]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[18]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

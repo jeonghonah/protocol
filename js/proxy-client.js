@@ -1994,6 +1994,7 @@
      * @property {number} ARMOR=1 ARMOR value
      * @property {number} CRAFT=2 CRAFT value
      * @property {number} HOOK=3 HOOK value
+     * @property {number} TEMP=4 TEMP value
      */
     $root.InventoryType = (function() {
         var valuesById = {}, values = Object.create(valuesById);
@@ -2001,6 +2002,7 @@
         values[valuesById[1] = "ARMOR"] = 1;
         values[valuesById[2] = "CRAFT"] = 2;
         values[valuesById[3] = "HOOK"] = 3;
+        values[valuesById[4] = "TEMP"] = 4;
         return values;
     })();
     

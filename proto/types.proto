@@ -29,6 +29,7 @@ enum InventoryType {
 	ARMOR = 1;
 	CRAFT = 2;
 	HOOK = 3;
+	TEMP = 4;
 }
 
 enum ContainerType {

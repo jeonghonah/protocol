@@ -30,12 +30,12 @@ public static partial class TypesReflection {
           "CBIRCgl1bmRlcmxpbmUYBSABKAgilgEKBEl0ZW0SCgoCaWQYASABKAkSDQoF",
           "Y291bnQYAiABKAUSDgoGZGFtYWdlGAMgASgCEh0KBG5hbWUYBCADKAsyDy5J",
           "dGVtLk5hbWVFbnRyeRpECglOYW1lRW50cnkSCwoDa2V5GAEgASgNEiYKBXZh",
-          "bHVlGAIgASgLMhcuQmFzaWNDaGF0Q29tcG9uZW50VHlwZToCOAEqOQoNSW52",
+          "bHVlGAIgASgLMhcuQmFzaWNDaGF0Q29tcG9uZW50VHlwZToCOAEqQwoNSW52",
           "ZW50b3J5VHlwZRIICgRNQUlOEAASCQoFQVJNT1IQARIJCgVDUkFGVBACEggK",
-          "BEhPT0sQAypBCg1Db250YWluZXJUeXBlEgoKBlBMQVlFUhAAEgkKBUNIRVNU",
-          "EAESDAoIQ1JBRlRJTkcQAhILCgdGVVJOQUNFEAMqPQoOTW91c2VDbGlja1R5",
-          "cGUSCAoETEVGVBAAEgkKBVJJR0hUEAESCgoGTUlERExFEAISCgoGU0VMRUNU",
-          "EANiBnByb3RvMw=="));
+          "BEhPT0sQAxIICgRURU1QEAQqQQoNQ29udGFpbmVyVHlwZRIKCgZQTEFZRVIQ",
+          "ABIJCgVDSEVTVBABEgwKCENSQUZUSU5HEAISCwoHRlVSTkFDRRADKj0KDk1v",
+          "dXNlQ2xpY2tUeXBlEggKBExFRlQQABIJCgVSSUdIVBABEgoKBk1JRERMRRAC",
+          "EgoKBlNFTEVDVBADYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::InventoryType), typeof(global::ContainerType), typeof(global::MouseClickType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -53,6 +53,7 @@ public enum InventoryType {
   [pbr::OriginalName("ARMOR")] Armor = 1,
   [pbr::OriginalName("CRAFT")] Craft = 2,
   [pbr::OriginalName("HOOK")] Hook = 3,
+  [pbr::OriginalName("TEMP")] Temp = 4,
 }
 
 public enum ContainerType {
