@@ -510,7 +510,8 @@
           "id": 1
         },
         "name": {
-          "type": "string",
+          "rule": "repeated",
+          "type": "BasicChatComponentType",
           "id": 2
         },
         "visible": {

@@ -22883,16 +22883,28 @@ public final class Server {
         getUuidBytes();
 
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
-    java.lang.String getName();
+    java.util.List<Types.BasicChatComponentType> 
+        getNameList();
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getNameBytes();
+    Types.BasicChatComponentType getName(int index);
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    int getNameCount();
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index);
 
     /**
      * <code>bool visible = 3;</code>
@@ -22914,7 +22926,7 @@ public final class Server {
     }
     private EntityNameUpdate() {
       uuid_ = "";
-      name_ = "";
+      name_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -22937,6 +22949,7 @@ public final class Server {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -22954,9 +22967,12 @@ public final class Server {
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                name_ = new java.util.ArrayList<Types.BasicChatComponentType>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              name_.add(
+                  input.readMessage(Types.BasicChatComponentType.parser(), extensionRegistry));
               break;
             }
             case 24: {
@@ -22979,6 +22995,9 @@ public final class Server {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          name_ = java.util.Collections.unmodifiableList(name_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -23035,41 +23054,43 @@ public final class Server {
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    private java.util.List<Types.BasicChatComponentType> name_;
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
     @java.lang.Override
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
+    public java.util.List<Types.BasicChatComponentType> getNameList() {
+      return name_;
     }
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    @java.lang.Override
+    public int getNameCount() {
+      return name_.size();
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentType getName(int index) {
+      return name_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index) {
+      return name_.get(index);
     }
 
     public static final int VISIBLE_FIELD_NUMBER = 3;
@@ -23100,8 +23121,8 @@ public final class Server {
       if (!getUuidBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
       }
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+      for (int i = 0; i < name_.size(); i++) {
+        output.writeMessage(2, name_.get(i));
       }
       if (visible_ != false) {
         output.writeBool(3, visible_);
@@ -23118,8 +23139,9 @@ public final class Server {
       if (!getUuidBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
       }
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      for (int i = 0; i < name_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, name_.get(i));
       }
       if (visible_ != false) {
         size += com.google.protobuf.CodedOutputStream
@@ -23142,8 +23164,8 @@ public final class Server {
 
       if (!getUuid()
           .equals(other.getUuid())) return false;
-      if (!getName()
-          .equals(other.getName())) return false;
+      if (!getNameList()
+          .equals(other.getNameList())) return false;
       if (getVisible()
           != other.getVisible()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -23159,8 +23181,10 @@ public final class Server {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + UUID_FIELD_NUMBER;
       hash = (53 * hash) + getUuid().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
+      if (getNameCount() > 0) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getNameList().hashCode();
+      }
       hash = (37 * hash) + VISIBLE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getVisible());
@@ -23292,6 +23316,7 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getNameFieldBuilder();
         }
       }
       @java.lang.Override
@@ -23299,8 +23324,12 @@ public final class Server {
         super.clear();
         uuid_ = "";
 
-        name_ = "";
-
+        if (nameBuilder_ == null) {
+          name_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          nameBuilder_.clear();
+        }
         visible_ = false;
 
         return this;
@@ -23329,8 +23358,17 @@ public final class Server {
       @java.lang.Override
       public Server.EntityNameUpdate buildPartial() {
         Server.EntityNameUpdate result = new Server.EntityNameUpdate(this);
+        int from_bitField0_ = bitField0_;
         result.uuid_ = uuid_;
-        result.name_ = name_;
+        if (nameBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            name_ = java.util.Collections.unmodifiableList(name_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.name_ = name_;
+        } else {
+          result.name_ = nameBuilder_.build();
+        }
         result.visible_ = visible_;
         onBuilt();
         return result;
@@ -23384,9 +23422,31 @@ public final class Server {
           uuid_ = other.uuid_;
           onChanged();
         }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
+        if (nameBuilder_ == null) {
+          if (!other.name_.isEmpty()) {
+            if (name_.isEmpty()) {
+              name_ = other.name_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureNameIsMutable();
+              name_.addAll(other.name_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.name_.isEmpty()) {
+            if (nameBuilder_.isEmpty()) {
+              nameBuilder_.dispose();
+              nameBuilder_ = null;
+              name_ = other.name_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              nameBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNameFieldBuilder() : null;
+            } else {
+              nameBuilder_.addAllMessages(other.name_);
+            }
+          }
         }
         if (other.getVisible() != false) {
           setVisible(other.getVisible());
@@ -23419,6 +23479,7 @@ public final class Server {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object uuid_ = "";
       /**
@@ -23496,80 +23557,244 @@ public final class Server {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.util.List<Types.BasicChatComponentType> name_ =
+        java.util.Collections.emptyList();
+      private void ensureNameIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          name_ = new java.util.ArrayList<Types.BasicChatComponentType>(name_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> nameBuilder_;
+
       /**
-       * <code>string name = 2;</code>
-       * @return The name.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
+      public java.util.List<Types.BasicChatComponentType> getNameList() {
+        if (nameBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(name_);
         } else {
-          return (java.lang.String) ref;
+          return nameBuilder_.getMessageList();
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @return The bytes for name.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
+      public int getNameCount() {
+        if (nameBuilder_ == null) {
+          return name_.size();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return nameBuilder_.getCount();
         }
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The name to set.
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Types.BasicChatComponentType getName(int index) {
+        if (nameBuilder_ == null) {
+          return name_.get(index);
+        } else {
+          return nameBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
       public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
+          int index, Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.set(index, value);
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>string name = 2;</code>
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addName(Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.add(value);
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.add(index, value);
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addName(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.add(builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addAllName(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, name_);
+          onChanged();
+        } else {
+          nameBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
       public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
+        if (nameBuilder_ == null) {
+          name_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          nameBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The bytes for name to set.
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
+      public Builder removeName(int index) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.remove(index);
+          onChanged();
+        } else {
+          nameBuilder_.remove(index);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Types.BasicChatComponentType.Builder getNameBuilder(
+          int index) {
+        return getNameFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+          int index) {
+        if (nameBuilder_ == null) {
+          return name_.get(index);  } else {
+          return nameBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+           getNameOrBuilderList() {
+        if (nameBuilder_ != null) {
+          return nameBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(name_);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Types.BasicChatComponentType.Builder addNameBuilder() {
+        return getNameFieldBuilder().addBuilder(
+            Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Types.BasicChatComponentType.Builder addNameBuilder(
+          int index) {
+        return getNameFieldBuilder().addBuilder(
+            index, Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType.Builder> 
+           getNameBuilderList() {
+        return getNameFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> 
+          getNameFieldBuilder() {
+        if (nameBuilder_ == null) {
+          nameBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder>(
+                  name_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          name_ = null;
+        }
+        return nameBuilder_;
       }
 
       private boolean visible_ ;
@@ -34518,39 +34743,39 @@ public final class Server {
       "\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"\034\n\014Enti" +
       "tyRemove\022\014\n\004uuid\030\001 \001(\t\"\\\n\nEntityMove\022\014\n\004" +
       "uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t\n\001z\030\004 " +
-      "\001(\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\"?\n\020" +
-      "EntityNameUpdate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004name\030\002" +
-      " \001(\t\022\017\n\007visible\030\003 \001(\010\"*\n\016EntityHeldItem\022" +
-      "\014\n\004uuid\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\"5\n\013EntityArmor" +
-      "\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\t" +
-      "\"O\n\rEntityAnimate\022\014\n\004uuid\030\001 \001(\t\022\021\n\tanima" +
-      "tion\030\002 \001(\t\022\014\n\004time\030\003 \001(\r\022\017\n\007replace\030\004 \001(" +
-      "\010\"R\n\020WorldBlockUpdate\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 " +
-      "\001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 \001(\r\022\021\n\tparticles\030" +
-      "\005 \001(\010\":\n\025WorldMultiBlockUpdate\022!\n\006blocks" +
-      "\030\001 \003(\0132\021.WorldBlockUpdate\"}\n\016WorldChunkL" +
-      "oad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006" +
-      "height\030\004 \001(\021\022\022\n\ncompressed\030\005 \001(\010\022\022\n\nbloc" +
-      "k_data\030\006 \001(\014\022\022\n\nlight_data\030\007 \001(\014\"C\n\020Worl" +
-      "dChunkUnload\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030" +
-      "\003 \001(\021\022\016\n\006height\030\004 \001(\021\"5\n\022WorldChunkIsLoa" +
-      "ded\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\"\'\n\024" +
-      "WorldChunksRemoveAll\022\017\n\007confirm\030\001 \001(\010\"&\n" +
-      "\025EnvironmentTimeUpdate\022\r\n\005value\030\001 \001(\005\"\215\001" +
-      "\n\024EnvironmentFogUpdate\022\014\n\004mode\030\001 \001(\r\022\017\n\007" +
-      "density\030\002 \001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(" +
-      "\002\022\021\n\tcolor_red\030\005 \001(\002\022\023\n\013color_green\030\006 \001(" +
-      "\002\022\022\n\ncolor_blue\030\007 \001(\002\"\373\001\n\024EnvironmentSky" +
-      "Update\022\016\n\006clouds\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(" +
-      "\002\022\023\n\013color_green\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001" +
-      "(\002\022\025\n\rcolor_red_top\030\005 \001(\002\022\027\n\017color_green" +
-      "_top\030\006 \001(\002\022\026\n\016color_blue_top\030\007 \001(\002\022\030\n\020co" +
-      "lor_red_bottom\030\010 \001(\002\022\032\n\022color_green_bott" +
-      "om\030\t \001(\002\022\031\n\021color_blue_bottom\030\n \001(\002\"7\n\024E" +
-      "nvironmentSetSkybox\022\016\n\006enable\030\001 \001(\010\022\017\n\007t" +
-      "exture\030\002 \001(\t\"<\n\rPluginMessage\022\013\n\003key\030\001 \001" +
-      "(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006prot" +
-      "o3"
+      "\001(\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\"X\n\020" +
+      "EntityNameUpdate\022\014\n\004uuid\030\001 \001(\t\022%\n\004name\030\002" +
+      " \003(\0132\027.BasicChatComponentType\022\017\n\007visible" +
+      "\030\003 \001(\010\"*\n\016EntityHeldItem\022\014\n\004uuid\030\001 \001(\t\022\n" +
+      "\n\002id\030\002 \001(\t\"5\n\013EntityArmor\022\014\n\004uuid\030\001 \001(\t\022" +
+      "\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\t\"O\n\rEntityAnima" +
+      "te\022\014\n\004uuid\030\001 \001(\t\022\021\n\tanimation\030\002 \001(\t\022\014\n\004t" +
+      "ime\030\003 \001(\r\022\017\n\007replace\030\004 \001(\010\"R\n\020WorldBlock" +
+      "Update\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022" +
+      "\n\n\002id\030\004 \001(\r\022\021\n\tparticles\030\005 \001(\010\":\n\025WorldM" +
+      "ultiBlockUpdate\022!\n\006blocks\030\001 \003(\0132\021.WorldB" +
+      "lockUpdate\"}\n\016WorldChunkLoad\022\t\n\001x\030\001 \001(\021\022" +
+      "\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006height\030\004 \001(\021\022\022\n" +
+      "\ncompressed\030\005 \001(\010\022\022\n\nblock_data\030\006 \001(\014\022\022\n" +
+      "\nlight_data\030\007 \001(\014\"C\n\020WorldChunkUnload\022\t\n" +
+      "\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006height" +
+      "\030\004 \001(\021\"5\n\022WorldChunkIsLoaded\022\t\n\001x\030\001 \001(\021\022" +
+      "\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\"\'\n\024WorldChunksRemo" +
+      "veAll\022\017\n\007confirm\030\001 \001(\010\"&\n\025EnvironmentTim" +
+      "eUpdate\022\r\n\005value\030\001 \001(\005\"\215\001\n\024EnvironmentFo" +
+      "gUpdate\022\014\n\004mode\030\001 \001(\r\022\017\n\007density\030\002 \001(\002\022\r" +
+      "\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(\002\022\021\n\tcolor_red\030" +
+      "\005 \001(\002\022\023\n\013color_green\030\006 \001(\002\022\022\n\ncolor_blue" +
+      "\030\007 \001(\002\"\373\001\n\024EnvironmentSkyUpdate\022\016\n\006cloud" +
+      "s\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013color_gree" +
+      "n\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001(\002\022\025\n\rcolor_red" +
+      "_top\030\005 \001(\002\022\027\n\017color_green_top\030\006 \001(\002\022\026\n\016c" +
+      "olor_blue_top\030\007 \001(\002\022\030\n\020color_red_bottom\030" +
+      "\010 \001(\002\022\032\n\022color_green_bottom\030\t \001(\002\022\031\n\021col" +
+      "or_blue_bottom\030\n \001(\002\"7\n\024EnvironmentSetSk" +
+      "ybox\022\016\n\006enable\030\001 \001(\010\022\017\n\007texture\030\002 \001(\t\"<\n" +
+      "\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002" +
+      " \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

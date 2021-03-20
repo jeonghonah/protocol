@@ -2603,7 +2603,7 @@ export interface IEntityNameUpdate {
     uuid?: (string|null);
 
     /** EntityNameUpdate name */
-    name?: (string|null);
+    name?: (IBasicChatComponentType[]|null);
 
     /** EntityNameUpdate visible */
     visible?: (boolean|null);
@@ -2622,7 +2622,7 @@ export class EntityNameUpdate implements IEntityNameUpdate {
     public uuid: string;
 
     /** EntityNameUpdate name. */
-    public name: string;
+    public name: IBasicChatComponentType[];
 
     /** EntityNameUpdate visible. */
     public visible: boolean;

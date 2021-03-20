@@ -13894,16 +13894,18 @@ public final class Server {
         getUuidBytes();
 
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
-    java.lang.String getName();
+    java.util.List<Types.BasicChatComponentType> 
+        getNameList();
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getNameBytes();
+    Types.BasicChatComponentType getName(int index);
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    int getNameCount();
 
     /**
      * <code>bool visible = 3;</code>
@@ -13921,7 +13923,7 @@ public final class Server {
       EntityNameUpdateOrBuilder {
     private EntityNameUpdate() {
       uuid_ = "";
-      name_ = "";
+      name_ = emptyProtobufList();
     }
     public static final int UUID_FIELD_NUMBER = 1;
     private java.lang.String uuid_;
@@ -13971,50 +13973,97 @@ public final class Server {
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
-    private java.lang.String name_;
+    private com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> name_;
     /**
-     * <code>string name = 2;</code>
-     * @return The name.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
     @java.lang.Override
-    public java.lang.String getName() {
+    public java.util.List<Types.BasicChatComponentType> getNameList() {
       return name_;
     }
     /**
-     * <code>string name = 2;</code>
-     * @return The bytes for name.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(name_);
+    public int getNameCount() {
+      return name_.size();
     }
     /**
-     * <code>string name = 2;</code>
-     * @param value The name to set.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentType getName(int index) {
+      return name_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index) {
+      return name_.get(index);
+    }
+    private void ensureNameIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> tmp = name_;
+      if (!tmp.isModifiable()) {
+        name_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
     private void setName(
-        java.lang.String value) {
+        int index, Types.BasicChatComponentType value) {
       value.getClass();
-  
-      name_ = value;
+  ensureNameIsMutable();
+      name_.set(index, value);
     }
     /**
-     * <code>string name = 2;</code>
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    private void addName(Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.add(value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    private void addName(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.add(index, value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
+     */
+    private void addAllName(
+        java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+      ensureNameIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, name_);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
     private void clearName() {
-      
-      name_ = getDefaultInstance().getName();
+      name_ = emptyProtobufList();
     }
     /**
-     * <code>string name = 2;</code>
-     * @param value The bytes for name to set.
+     * <code>repeated .BasicChatComponentType name = 2;</code>
      */
-    private void setNameBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      name_ = value.toStringUtf8();
-      
+    private void removeName(int index) {
+      ensureNameIsMutable();
+      name_.remove(index);
     }
 
     public static final int VISIBLE_FIELD_NUMBER = 3;
@@ -14188,36 +14237,92 @@ public final class Server {
       }
 
       /**
-       * <code>string name = 2;</code>
-       * @return The name.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
       @java.lang.Override
-      public java.lang.String getName() {
-        return instance.getName();
+      public java.util.List<Types.BasicChatComponentType> getNameList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getNameList());
       }
       /**
-       * <code>string name = 2;</code>
-       * @return The bytes for name.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        return instance.getNameBytes();
+      public int getNameCount() {
+        return instance.getNameCount();
+      }/**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      @java.lang.Override
+      public Types.BasicChatComponentType getName(int index) {
+        return instance.getName(index);
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The name to set.
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
       public Builder setName(
-          java.lang.String value) {
+          int index, Types.BasicChatComponentType value) {
         copyOnWrite();
-        instance.setName(value);
+        instance.setName(index, value);
         return this;
       }
       /**
-       * <code>string name = 2;</code>
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.setName(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addName(Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addName(value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addName(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addName(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addName(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addName(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
+       */
+      public Builder addAllName(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        copyOnWrite();
+        instance.addAllName(values);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
       public Builder clearName() {
         copyOnWrite();
@@ -14225,14 +14330,11 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string name = 2;</code>
-       * @param value The bytes for name to set.
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType name = 2;</code>
        */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder removeName(int index) {
         copyOnWrite();
-        instance.setNameBytes(value);
+        instance.removeName(index);
         return this;
       }
 
@@ -14282,10 +14384,11 @@ public final class Server {
             java.lang.Object[] objects = new java.lang.Object[] {
               "uuid_",
               "name_",
+              Types.BasicChatComponentType.class,
               "visible_",
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0001\u0000\u0001\u0208\u0002\u001b" +
                 "\u0003\u0007";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }

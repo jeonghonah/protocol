@@ -256,7 +256,7 @@ message EntityCreate {
 	float pitch = 6;
 	string model = 7;
 	string texture = 8;
-	repeated  BasicChatComponentType name = 9;
+	repeated BasicChatComponentType name = 9;
 	repeated float hitbox = 10;
 	string held_item = 11;
 	map<uint32, string> armor = 12;
@@ -289,7 +289,7 @@ message EntityMove {
 
 message EntityNameUpdate {
 	string uuid = 1;
-	string name = 2;
+	repeated BasicChatComponentType name = 2;
 	bool visible = 3;
 }
 

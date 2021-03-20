@@ -84,34 +84,35 @@ public static partial class ServerReflection {
           "CgV2YWx1ZRgCIAEoCToCOAEiHAoMRW50aXR5UmVtb3ZlEgwKBHV1aWQYASAB",
           "KAkiXAoKRW50aXR5TW92ZRIMCgR1dWlkGAEgASgJEgkKAXgYAiABKAESCQoB",
           "eRgDIAEoARIJCgF6GAQgASgBEhAKCHJvdGF0aW9uGAUgASgCEg0KBXBpdGNo",
-          "GAYgASgCIj8KEEVudGl0eU5hbWVVcGRhdGUSDAoEdXVpZBgBIAEoCRIMCgRu",
-          "YW1lGAIgASgJEg8KB3Zpc2libGUYAyABKAgiKgoORW50aXR5SGVsZEl0ZW0S",
-          "DAoEdXVpZBgBIAEoCRIKCgJpZBgCIAEoCSI1CgtFbnRpdHlBcm1vchIMCgR1",
-          "dWlkGAEgASgJEgwKBHR5cGUYAiABKAUSCgoCaWQYAyABKAkiTwoNRW50aXR5",
-          "QW5pbWF0ZRIMCgR1dWlkGAEgASgJEhEKCWFuaW1hdGlvbhgCIAEoCRIMCgR0",
-          "aW1lGAMgASgNEg8KB3JlcGxhY2UYBCABKAgiUgoQV29ybGRCbG9ja1VwZGF0",
-          "ZRIJCgF4GAEgASgREgkKAXkYAiABKBESCQoBehgDIAEoERIKCgJpZBgEIAEo",
-          "DRIRCglwYXJ0aWNsZXMYBSABKAgiOgoVV29ybGRNdWx0aUJsb2NrVXBkYXRl",
-          "EiEKBmJsb2NrcxgBIAMoCzIRLldvcmxkQmxvY2tVcGRhdGUifQoOV29ybGRD",
-          "aHVua0xvYWQSCQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoYAyABKBESDgoG",
-          "aGVpZ2h0GAQgASgREhIKCmNvbXByZXNzZWQYBSABKAgSEgoKYmxvY2tfZGF0",
-          "YRgGIAEoDBISCgpsaWdodF9kYXRhGAcgASgMIkMKEFdvcmxkQ2h1bmtVbmxv",
-          "YWQSCQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoYAyABKBESDgoGaGVpZ2h0",
-          "GAQgASgRIjUKEldvcmxkQ2h1bmtJc0xvYWRlZBIJCgF4GAEgASgREgkKAXkY",
-          "AiABKBESCQoBehgDIAEoESInChRXb3JsZENodW5rc1JlbW92ZUFsbBIPCgdj",
-          "b25maXJtGAEgASgIIiYKFUVudmlyb25tZW50VGltZVVwZGF0ZRINCgV2YWx1",
-          "ZRgBIAEoBSKNAQoURW52aXJvbm1lbnRGb2dVcGRhdGUSDAoEbW9kZRgBIAEo",
-          "DRIPCgdkZW5zaXR5GAIgASgCEg0KBXN0YXJ0GAMgASgCEgsKA2VuZBgEIAEo",
-          "AhIRCgljb2xvcl9yZWQYBSABKAISEwoLY29sb3JfZ3JlZW4YBiABKAISEgoK",
-          "Y29sb3JfYmx1ZRgHIAEoAiL7AQoURW52aXJvbm1lbnRTa3lVcGRhdGUSDgoG",
-          "Y2xvdWRzGAEgASgIEhEKCWNvbG9yX3JlZBgCIAEoAhITCgtjb2xvcl9ncmVl",
-          "bhgDIAEoAhISCgpjb2xvcl9ibHVlGAQgASgCEhUKDWNvbG9yX3JlZF90b3AY",
-          "BSABKAISFwoPY29sb3JfZ3JlZW5fdG9wGAYgASgCEhYKDmNvbG9yX2JsdWVf",
-          "dG9wGAcgASgCEhgKEGNvbG9yX3JlZF9ib3R0b20YCCABKAISGgoSY29sb3Jf",
-          "Z3JlZW5fYm90dG9tGAkgASgCEhkKEWNvbG9yX2JsdWVfYm90dG9tGAogASgC",
-          "IjcKFEVudmlyb25tZW50U2V0U2t5Ym94Eg4KBmVuYWJsZRgBIAEoCBIPCgd0",
-          "ZXh0dXJlGAIgASgJIjwKDVBsdWdpbk1lc3NhZ2USCwoDa2V5GAEgASgJEg8K",
-          "B3ZlcnNpb24YAiABKA0SDQoFdmFsdWUYAyABKAxiBnByb3RvMw=="));
+          "GAYgASgCIlgKEEVudGl0eU5hbWVVcGRhdGUSDAoEdXVpZBgBIAEoCRIlCgRu",
+          "YW1lGAIgAygLMhcuQmFzaWNDaGF0Q29tcG9uZW50VHlwZRIPCgd2aXNpYmxl",
+          "GAMgASgIIioKDkVudGl0eUhlbGRJdGVtEgwKBHV1aWQYASABKAkSCgoCaWQY",
+          "AiABKAkiNQoLRW50aXR5QXJtb3ISDAoEdXVpZBgBIAEoCRIMCgR0eXBlGAIg",
+          "ASgFEgoKAmlkGAMgASgJIk8KDUVudGl0eUFuaW1hdGUSDAoEdXVpZBgBIAEo",
+          "CRIRCglhbmltYXRpb24YAiABKAkSDAoEdGltZRgDIAEoDRIPCgdyZXBsYWNl",
+          "GAQgASgIIlIKEFdvcmxkQmxvY2tVcGRhdGUSCQoBeBgBIAEoERIJCgF5GAIg",
+          "ASgREgkKAXoYAyABKBESCgoCaWQYBCABKA0SEQoJcGFydGljbGVzGAUgASgI",
+          "IjoKFVdvcmxkTXVsdGlCbG9ja1VwZGF0ZRIhCgZibG9ja3MYASADKAsyES5X",
+          "b3JsZEJsb2NrVXBkYXRlIn0KDldvcmxkQ2h1bmtMb2FkEgkKAXgYASABKBES",
+          "CQoBeRgCIAEoERIJCgF6GAMgASgREg4KBmhlaWdodBgEIAEoERISCgpjb21w",
+          "cmVzc2VkGAUgASgIEhIKCmJsb2NrX2RhdGEYBiABKAwSEgoKbGlnaHRfZGF0",
+          "YRgHIAEoDCJDChBXb3JsZENodW5rVW5sb2FkEgkKAXgYASABKBESCQoBeRgC",
+          "IAEoERIJCgF6GAMgASgREg4KBmhlaWdodBgEIAEoESI1ChJXb3JsZENodW5r",
+          "SXNMb2FkZWQSCQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoYAyABKBEiJwoU",
+          "V29ybGRDaHVua3NSZW1vdmVBbGwSDwoHY29uZmlybRgBIAEoCCImChVFbnZp",
+          "cm9ubWVudFRpbWVVcGRhdGUSDQoFdmFsdWUYASABKAUijQEKFEVudmlyb25t",
+          "ZW50Rm9nVXBkYXRlEgwKBG1vZGUYASABKA0SDwoHZGVuc2l0eRgCIAEoAhIN",
+          "CgVzdGFydBgDIAEoAhILCgNlbmQYBCABKAISEQoJY29sb3JfcmVkGAUgASgC",
+          "EhMKC2NvbG9yX2dyZWVuGAYgASgCEhIKCmNvbG9yX2JsdWUYByABKAIi+wEK",
+          "FEVudmlyb25tZW50U2t5VXBkYXRlEg4KBmNsb3VkcxgBIAEoCBIRCgljb2xv",
+          "cl9yZWQYAiABKAISEwoLY29sb3JfZ3JlZW4YAyABKAISEgoKY29sb3JfYmx1",
+          "ZRgEIAEoAhIVCg1jb2xvcl9yZWRfdG9wGAUgASgCEhcKD2NvbG9yX2dyZWVu",
+          "X3RvcBgGIAEoAhIWCg5jb2xvcl9ibHVlX3RvcBgHIAEoAhIYChBjb2xvcl9y",
+          "ZWRfYm90dG9tGAggASgCEhoKEmNvbG9yX2dyZWVuX2JvdHRvbRgJIAEoAhIZ",
+          "ChFjb2xvcl9ibHVlX2JvdHRvbRgKIAEoAiI3ChRFbnZpcm9ubWVudFNldFNr",
+          "eWJveBIOCgZlbmFibGUYASABKAgSDwoHdGV4dHVyZRgCIAEoCSI8Cg1QbHVn",
+          "aW5NZXNzYWdlEgsKA2tleRgBIAEoCRIPCgd2ZXJzaW9uGAIgASgNEg0KBXZh",
+          "bHVlGAMgASgMYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { global::TypesReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -6709,7 +6710,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public EntityNameUpdate(EntityNameUpdate other) : this() {
     uuid_ = other.uuid_;
-    name_ = other.name_;
+    name_ = other.name_.Clone();
     visible_ = other.visible_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
@@ -6732,13 +6733,12 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
 
   /// <summary>Field number for the "name" field.</summary>
   public const int NameFieldNumber = 2;
-  private string name_ = "";
+  private static readonly pb::FieldCodec<global::BasicChatComponentType> _repeated_name_codec
+      = pb::FieldCodec.ForMessage(18, global::BasicChatComponentType.Parser);
+  private readonly pbc::RepeatedField<global::BasicChatComponentType> name_ = new pbc::RepeatedField<global::BasicChatComponentType>();
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public string Name {
+  public pbc::RepeatedField<global::BasicChatComponentType> Name {
     get { return name_; }
-    set {
-      name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
   }
 
   /// <summary>Field number for the "visible" field.</summary>
@@ -6766,7 +6766,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
       return true;
     }
     if (Uuid != other.Uuid) return false;
-    if (Name != other.Name) return false;
+    if(!name_.Equals(other.name_)) return false;
     if (Visible != other.Visible) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
@@ -6775,7 +6775,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
   public override int GetHashCode() {
     int hash = 1;
     if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
-    if (Name.Length != 0) hash ^= Name.GetHashCode();
+    hash ^= name_.GetHashCode();
     if (Visible != false) hash ^= Visible.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
@@ -6797,10 +6797,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
       output.WriteRawTag(10);
       output.WriteString(Uuid);
     }
-    if (Name.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(Name);
-    }
+    name_.WriteTo(output, _repeated_name_codec);
     if (Visible != false) {
       output.WriteRawTag(24);
       output.WriteBool(Visible);
@@ -6818,10 +6815,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
       output.WriteRawTag(10);
       output.WriteString(Uuid);
     }
-    if (Name.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(Name);
-    }
+    name_.WriteTo(ref output, _repeated_name_codec);
     if (Visible != false) {
       output.WriteRawTag(24);
       output.WriteBool(Visible);
@@ -6838,9 +6832,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
     if (Uuid.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
     }
-    if (Name.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-    }
+    size += name_.CalculateSize(_repeated_name_codec);
     if (Visible != false) {
       size += 1 + 1;
     }
@@ -6858,9 +6850,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
     if (other.Uuid.Length != 0) {
       Uuid = other.Uuid;
     }
-    if (other.Name.Length != 0) {
-      Name = other.Name;
-    }
+    name_.Add(other.name_);
     if (other.Visible != false) {
       Visible = other.Visible;
     }
@@ -6883,7 +6873,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
           break;
         }
         case 18: {
-          Name = input.ReadString();
+          name_.AddEntriesFrom(input, _repeated_name_codec);
           break;
         }
         case 24: {
@@ -6909,7 +6899,7 @@ public sealed partial class EntityNameUpdate : pb::IMessage<EntityNameUpdate>
           break;
         }
         case 18: {
-          Name = input.ReadString();
+          name_.AddEntriesFrom(ref input, _repeated_name_codec);
           break;
         }
         case 24: {

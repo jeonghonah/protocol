@@ -6749,7 +6749,7 @@
          * @exports IEntityNameUpdate
          * @interface IEntityNameUpdate
          * @property {string|null} [uuid] EntityNameUpdate uuid
-         * @property {string|null} [name] EntityNameUpdate name
+         * @property {Array.<IBasicChatComponentType>|null} [name] EntityNameUpdate name
          * @property {boolean|null} [visible] EntityNameUpdate visible
          */
     
@@ -6762,6 +6762,7 @@
          * @param {IEntityNameUpdate=} [properties] Properties to set
          */
         function EntityNameUpdate(properties) {
+            this.name = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -6778,11 +6779,11 @@
     
         /**
          * EntityNameUpdate name.
-         * @member {string} name
+         * @member {Array.<IBasicChatComponentType>} name
          * @memberof EntityNameUpdate
          * @instance
          */
-        EntityNameUpdate.prototype.name = "";
+        EntityNameUpdate.prototype.name = $util.emptyArray;
     
         /**
          * EntityNameUpdate visible.
@@ -6818,8 +6819,9 @@
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
-            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
+            if (message.name != null && message.name.length)
+                for (var i = 0; i < message.name.length; ++i)
+                    $root.BasicChatComponentType.encode(message.name[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.visible != null && Object.hasOwnProperty.call(message, "visible"))
                 writer.uint32(/* id 3, wireType 0 =*/24).bool(message.visible);
             return writer;
@@ -6860,7 +6862,9 @@
                     message.uuid = reader.string();
                     break;
                 case 2:
-                    message.name = reader.string();
+                    if (!(message.name && message.name.length))
+                        message.name = [];
+                    message.name.push($root.BasicChatComponentType.decode(reader, reader.uint32()));
                     break;
                 case 3:
                     message.visible = reader.bool();
@@ -6903,9 +6907,15 @@
             if (message.uuid != null && message.hasOwnProperty("uuid"))
                 if (!$util.isString(message.uuid))
                     return "uuid: string expected";
-            if (message.name != null && message.hasOwnProperty("name"))
-                if (!$util.isString(message.name))
-                    return "name: string expected";
+            if (message.name != null && message.hasOwnProperty("name")) {
+                if (!Array.isArray(message.name))
+                    return "name: array expected";
+                for (var i = 0; i < message.name.length; ++i) {
+                    var error = $root.BasicChatComponentType.verify(message.name[i]);
+                    if (error)
+                        return "name." + error;
+                }
+            }
             if (message.visible != null && message.hasOwnProperty("visible"))
                 if (typeof message.visible !== "boolean")
                     return "visible: boolean expected";
@@ -6926,8 +6936,16 @@
             var message = new $root.EntityNameUpdate();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
-            if (object.name != null)
-                message.name = String(object.name);
+            if (object.name) {
+                if (!Array.isArray(object.name))
+                    throw TypeError(".EntityNameUpdate.name: array expected");
+                message.name = [];
+                for (var i = 0; i < object.name.length; ++i) {
+                    if (typeof object.name[i] !== "object")
+                        throw TypeError(".EntityNameUpdate.name: object expected");
+                    message.name[i] = $root.BasicChatComponentType.fromObject(object.name[i]);
+                }
+            }
             if (object.visible != null)
                 message.visible = Boolean(object.visible);
             return message;
@@ -6946,15 +6964,19 @@
             if (!options)
                 options = {};
             var object = {};
+            if (options.arrays || options.defaults)
+                object.name = [];
             if (options.defaults) {
                 object.uuid = "";
-                object.name = "";
                 object.visible = false;
             }
             if (message.uuid != null && message.hasOwnProperty("uuid"))
                 object.uuid = message.uuid;
-            if (message.name != null && message.hasOwnProperty("name"))
-                object.name = message.name;
+            if (message.name && message.name.length) {
+                object.name = [];
+                for (var j = 0; j < message.name.length; ++j)
+                    object.name[j] = $root.BasicChatComponentType.toObject(message.name[j], options);
+            }
             if (message.visible != null && message.hasOwnProperty("visible"))
                 object.visible = message.visible;
             return object;
