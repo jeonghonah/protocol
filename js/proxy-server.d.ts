@@ -1,137 +1,143 @@
 import * as $protobuf from "protobufjs";
-/** Properties of a ProxyInfo. */
-export interface IProxyInfo {
+/** Properties of a LoginRequest. */
+export interface ILoginRequest {
 
-    /** ProxyInfo name */
+    /** LoginRequest name */
     name?: (string|null);
 
-    /** ProxyInfo proxyProtocol */
-    proxyProtocol?: (number|null);
+    /** LoginRequest protocol */
+    protocol?: (number|null);
 
-    /** ProxyInfo onlinePlayers */
+    /** LoginRequest onlinePlayers */
     onlinePlayers?: (number|null);
 
-    /** ProxyInfo maxPlayers */
+    /** LoginRequest maxPlayers */
     maxPlayers?: (number|null);
 
-    /** ProxyInfo motd */
+    /** LoginRequest motd */
     motd?: (string|null);
 
-    /** ProxyInfo software */
+    /** LoginRequest software */
     software?: (string|null);
 
-    /** ProxyInfo auth */
+    /** LoginRequest auth */
     auth?: (boolean|null);
 
-    /** ProxyInfo secret */
+    /** LoginRequest secret */
     secret?: (string|null);
 
-    /** ProxyInfo isProxy */
+    /** LoginRequest isProxy */
     isProxy?: (boolean|null);
+
+    /** LoginRequest protocolRev */
+    protocolRev?: (number|null);
 }
 
-/** Represents a ProxyInfo. */
-export class ProxyInfo implements IProxyInfo {
+/** Represents a LoginRequest. */
+export class LoginRequest implements ILoginRequest {
 
     /**
-     * Constructs a new ProxyInfo.
+     * Constructs a new LoginRequest.
      * @param [properties] Properties to set
      */
-    constructor(properties?: IProxyInfo);
+    constructor(properties?: ILoginRequest);
 
-    /** ProxyInfo name. */
+    /** LoginRequest name. */
     public name: string;
 
-    /** ProxyInfo proxyProtocol. */
-    public proxyProtocol: number;
+    /** LoginRequest protocol. */
+    public protocol: number;
 
-    /** ProxyInfo onlinePlayers. */
+    /** LoginRequest onlinePlayers. */
     public onlinePlayers: number;
 
-    /** ProxyInfo maxPlayers. */
+    /** LoginRequest maxPlayers. */
     public maxPlayers: number;
 
-    /** ProxyInfo motd. */
+    /** LoginRequest motd. */
     public motd: string;
 
-    /** ProxyInfo software. */
+    /** LoginRequest software. */
     public software: string;
 
-    /** ProxyInfo auth. */
+    /** LoginRequest auth. */
     public auth: boolean;
 
-    /** ProxyInfo secret. */
+    /** LoginRequest secret. */
     public secret: string;
 
-    /** ProxyInfo isProxy. */
+    /** LoginRequest isProxy. */
     public isProxy: boolean;
 
+    /** LoginRequest protocolRev. */
+    public protocolRev: number;
+
     /**
-     * Creates a new ProxyInfo instance using the specified properties.
+     * Creates a new LoginRequest instance using the specified properties.
      * @param [properties] Properties to set
-     * @returns ProxyInfo instance
+     * @returns LoginRequest instance
      */
-    public static create(properties?: IProxyInfo): ProxyInfo;
+    public static create(properties?: ILoginRequest): LoginRequest;
 
     /**
-     * Encodes the specified ProxyInfo message. Does not implicitly {@link ProxyInfo.verify|verify} messages.
-     * @param message ProxyInfo message or plain object to encode
+     * Encodes the specified LoginRequest message. Does not implicitly {@link LoginRequest.verify|verify} messages.
+     * @param message LoginRequest message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encode(message: IProxyInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: ILoginRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ProxyInfo message, length delimited. Does not implicitly {@link ProxyInfo.verify|verify} messages.
-     * @param message ProxyInfo message or plain object to encode
+     * Encodes the specified LoginRequest message, length delimited. Does not implicitly {@link LoginRequest.verify|verify} messages.
+     * @param message LoginRequest message or plain object to encode
      * @param [writer] Writer to encode to
      * @returns Writer
      */
-    public static encodeDelimited(message: IProxyInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: ILoginRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Decodes a ProxyInfo message from the specified reader or buffer.
+     * Decodes a LoginRequest message from the specified reader or buffer.
      * @param reader Reader or buffer to decode from
      * @param [length] Message length if known beforehand
-     * @returns ProxyInfo
+     * @returns LoginRequest
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ProxyInfo;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): LoginRequest;
 
     /**
-     * Decodes a ProxyInfo message from the specified reader or buffer, length delimited.
+     * Decodes a LoginRequest message from the specified reader or buffer, length delimited.
      * @param reader Reader or buffer to decode from
-     * @returns ProxyInfo
+     * @returns LoginRequest
      * @throws {Error} If the payload is not a reader or valid buffer
      * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ProxyInfo;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): LoginRequest;
 
     /**
-     * Verifies a ProxyInfo message.
+     * Verifies a LoginRequest message.
      * @param message Plain object to verify
      * @returns `null` if valid, otherwise the reason why it is not
      */
     public static verify(message: { [k: string]: any }): (string|null);
 
     /**
-     * Creates a ProxyInfo message from a plain object. Also converts values to their respective internal types.
+     * Creates a LoginRequest message from a plain object. Also converts values to their respective internal types.
      * @param object Plain object
-     * @returns ProxyInfo
+     * @returns LoginRequest
      */
-    public static fromObject(object: { [k: string]: any }): ProxyInfo;
+    public static fromObject(object: { [k: string]: any }): LoginRequest;
 
     /**
-     * Creates a plain object from a ProxyInfo message. Also converts values to other types if specified.
-     * @param message ProxyInfo
+     * Creates a plain object from a LoginRequest message. Also converts values to other types if specified.
+     * @param message LoginRequest
      * @param [options] Conversion options
      * @returns Plain object
      */
-    public static toObject(message: ProxyInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+    public static toObject(message: LoginRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
-     * Converts this ProxyInfo to JSON.
+     * Converts this LoginRequest to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
@@ -870,7 +876,7 @@ export interface IItem {
     damage?: (number|null);
 
     /** Item name */
-    name?: ({ [k: string]: IBasicChatComponentType }|null);
+    name?: (IBasicChatComponentType[]|null);
 }
 
 /** Represents an Item. */
@@ -892,7 +898,7 @@ export class Item implements IItem {
     public damage: number;
 
     /** Item name. */
-    public name: { [k: string]: IBasicChatComponentType };
+    public name: IBasicChatComponentType[];
 
     /**
      * Creates a new Item instance using the specified properties.
@@ -988,4 +994,271 @@ export enum MouseClickType {
     RIGHT = 1,
     MIDDLE = 2,
     SELECT = 3
+}
+
+/** Represents an ItemDef. */
+export class ItemDef implements IItemDef {
+
+    /**
+     * Constructs a new ItemDef.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IItemDef);
+
+    /** ItemDef id. */
+    public id: string;
+
+    /** ItemDef maxStack. */
+    public maxStack: number;
+
+    /** ItemDef name. */
+    public name: IBasicChatComponentType[];
+
+    /** ItemDef type. */
+    public type: ItemDef.Type;
+
+    /** ItemDef model. */
+    public model: ItemDef.Model;
+
+    /** ItemDef textures. */
+    public textures: string[];
+
+    /** ItemDef toolType. */
+    public toolType: string[];
+
+    /** ItemDef miningSpeed. */
+    public miningSpeed: number;
+
+    /** ItemDef miningPower. */
+    public miningPower: number;
+
+    /** ItemDef customModel. */
+    public customModel: string;
+
+    /** ItemDef armorTexture. */
+    public armorTexture: string;
+
+    /**
+     * Creates a new ItemDef instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ItemDef instance
+     */
+    public static create(properties?: IItemDef): ItemDef;
+
+    /**
+     * Encodes the specified ItemDef message. Does not implicitly {@link ItemDef.verify|verify} messages.
+     * @param message ItemDef message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IItemDef, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ItemDef message, length delimited. Does not implicitly {@link ItemDef.verify|verify} messages.
+     * @param message ItemDef message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IItemDef, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an ItemDef message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ItemDef
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ItemDef;
+
+    /**
+     * Decodes an ItemDef message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ItemDef
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ItemDef;
+
+    /**
+     * Verifies an ItemDef message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an ItemDef message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ItemDef
+     */
+    public static fromObject(object: { [k: string]: any }): ItemDef;
+
+    /**
+     * Creates a plain object from an ItemDef message. Also converts values to other types if specified.
+     * @param message ItemDef
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ItemDef, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ItemDef to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace ItemDef {
+
+    /** Type enum. */
+    enum Type {
+        NONE = 0,
+        TOOL = 1,
+        BLOCK = 2,
+        ARMOR = 3
+    }
+
+    /** Model enum. */
+    enum Model {
+        FLAT = 0,
+        CUBE = 1,
+        CROSS = 2,
+        CUSTOM = 3
+    }
+}
+
+/** Represents a BlockDef. */
+export class BlockDef implements IBlockDef {
+
+    /**
+     * Constructs a new BlockDef.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IBlockDef);
+
+    /** BlockDef id. */
+    public id: string;
+
+    /** BlockDef numId. */
+    public numId: number;
+
+    /** BlockDef model. */
+    public model: BlockDef.Model;
+
+    /** BlockDef textures. */
+    public textures: string[];
+
+    /** BlockDef toolType. */
+    public toolType: string[];
+
+    /** BlockDef miningSpeed. */
+    public miningSpeed: number;
+
+    /** BlockDef miningPower. */
+    public miningPower: number;
+
+    /** BlockDef solid. */
+    public solid: boolean;
+
+    /** BlockDef fluid. */
+    public fluid: boolean;
+
+    /** BlockDef opaque. */
+    public opaque: boolean;
+
+    /** BlockDef color. */
+    public color: number[];
+
+    /** BlockDef material. */
+    public material: string[];
+
+    /** BlockDef fluidDensity. */
+    public fluidDensity: number;
+
+    /** BlockDef viscosity. */
+    public viscosity: number;
+
+    /** BlockDef customModel. */
+    public customModel: string;
+
+    /**
+     * Creates a new BlockDef instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns BlockDef instance
+     */
+    public static create(properties?: IBlockDef): BlockDef;
+
+    /**
+     * Encodes the specified BlockDef message. Does not implicitly {@link BlockDef.verify|verify} messages.
+     * @param message BlockDef message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IBlockDef, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified BlockDef message, length delimited. Does not implicitly {@link BlockDef.verify|verify} messages.
+     * @param message BlockDef message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IBlockDef, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a BlockDef message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns BlockDef
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): BlockDef;
+
+    /**
+     * Decodes a BlockDef message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns BlockDef
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): BlockDef;
+
+    /**
+     * Verifies a BlockDef message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a BlockDef message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns BlockDef
+     */
+    public static fromObject(object: { [k: string]: any }): BlockDef;
+
+    /**
+     * Creates a plain object from a BlockDef message. Also converts values to other types if specified.
+     * @param message BlockDef
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: BlockDef, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this BlockDef to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace BlockDef {
+
+    /** Model enum. */
+    enum Model {
+        BLOCK = 0,
+        CROSS = 1,
+        TRANSPARENT = 2
+    }
 }

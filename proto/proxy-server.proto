@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-message ProxyInfo {
+message LoginRequest {
 	string name = 1;
-	uint32 proxy_protocol = 2;
+	uint32 protocol = 2;
 	uint32 online_players = 3;
 	uint32 max_players = 4;
 	string motd = 5;
@@ -10,6 +10,7 @@ message ProxyInfo {
 	bool auth = 7;
 	string secret = 8;
 	bool is_proxy = 9;
+	int32 protocol_rev = 10;
 }
 
 message AuthResponce {

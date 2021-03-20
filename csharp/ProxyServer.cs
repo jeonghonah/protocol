@@ -22,22 +22,22 @@ public static partial class ProxyServerReflection {
   static ProxyServerReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "Chhwcm90by9wcm94eS1zZXJ2ZXIucHJvdG8irgEKCVByb3h5SW5mbxIMCgRu",
-          "YW1lGAEgASgJEhYKDnByb3h5X3Byb3RvY29sGAIgASgNEhYKDm9ubGluZV9w",
-          "bGF5ZXJzGAMgASgNEhMKC21heF9wbGF5ZXJzGAQgASgNEgwKBG1vdGQYBSAB",
-          "KAkSEAoIc29mdHdhcmUYBiABKAkSDAoEYXV0aBgHIAEoCBIOCgZzZWNyZXQY",
-          "CCABKAkSEAoIaXNfcHJveHkYCSABKAgiowEKDEF1dGhSZXNwb25jZRIQCghy",
-          "ZXNwb25jZRgBIAEoBRIPCgdtZXNzYWdlGAIgASgJEhUKDXByb3h5X3ZlcnNp",
-          "b24YAyABKA0SGQoRcHJveHlfdmVyc2lvbl9yZXYYBCABKA0SEAoIcHJvdG9j",
-          "b2wYBSABKA0SHgoWdXNlX3BhY2tldF90cmFuc2xhdGlvbhgGIAEoCBIMCgR0",
-          "eXBlGAcgASgJIhcKBERhdGESDwoHbWVzc2FnZRgBIAEoDCIiCg9Wb3hlbFNy",
-          "dk1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoDCIcCgpEaXNjb25uZWN0Eg4KBnJl",
-          "YXNvbhgBIAEoCSIfCgxQcm94eU1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoDGIG",
-          "cHJvdG8z"));
+          "Chhwcm90by9wcm94eS1zZXJ2ZXIucHJvdG8iwQEKDExvZ2luUmVxdWVzdBIM",
+          "CgRuYW1lGAEgASgJEhAKCHByb3RvY29sGAIgASgNEhYKDm9ubGluZV9wbGF5",
+          "ZXJzGAMgASgNEhMKC21heF9wbGF5ZXJzGAQgASgNEgwKBG1vdGQYBSABKAkS",
+          "EAoIc29mdHdhcmUYBiABKAkSDAoEYXV0aBgHIAEoCBIOCgZzZWNyZXQYCCAB",
+          "KAkSEAoIaXNfcHJveHkYCSABKAgSFAoMcHJvdG9jb2xfcmV2GAogASgFIqMB",
+          "CgxBdXRoUmVzcG9uY2USEAoIcmVzcG9uY2UYASABKAUSDwoHbWVzc2FnZRgC",
+          "IAEoCRIVCg1wcm94eV92ZXJzaW9uGAMgASgNEhkKEXByb3h5X3ZlcnNpb25f",
+          "cmV2GAQgASgNEhAKCHByb3RvY29sGAUgASgNEh4KFnVzZV9wYWNrZXRfdHJh",
+          "bnNsYXRpb24YBiABKAgSDAoEdHlwZRgHIAEoCSIXCgREYXRhEg8KB21lc3Nh",
+          "Z2UYASABKAwiIgoPVm94ZWxTcnZNZXNzYWdlEg8KB21lc3NhZ2UYASABKAwi",
+          "HAoKRGlzY29ubmVjdBIOCgZyZWFzb24YASABKAkiHwoMUHJveHlNZXNzYWdl",
+          "Eg8KB21lc3NhZ2UYASABKAxiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::ProxyInfo), global::ProxyInfo.Parser, new[]{ "Name", "ProxyProtocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "Secret", "IsProxy" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::LoginRequest), global::LoginRequest.Parser, new[]{ "Name", "Protocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "Secret", "IsProxy", "ProtocolRev" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::AuthResponce), global::AuthResponce.Parser, new[]{ "Responce", "Message", "ProxyVersion", "ProxyVersionRev", "Protocol", "UsePacketTranslation", "Type" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Data), global::Data.Parser, new[]{ "Message" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::VoxelSrvMessage), global::VoxelSrvMessage.Parser, new[]{ "Message" }, null, null, null, null),
@@ -49,15 +49,15 @@ public static partial class ProxyServerReflection {
 
 }
 #region Messages
-public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
+public sealed partial class LoginRequest : pb::IMessage<LoginRequest>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
 #endif
 {
-  private static readonly pb::MessageParser<ProxyInfo> _parser = new pb::MessageParser<ProxyInfo>(() => new ProxyInfo());
+  private static readonly pb::MessageParser<LoginRequest> _parser = new pb::MessageParser<LoginRequest>(() => new LoginRequest());
   private pb::UnknownFieldSet _unknownFields;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public static pb::MessageParser<ProxyInfo> Parser { get { return _parser; } }
+  public static pb::MessageParser<LoginRequest> Parser { get { return _parser; } }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
@@ -70,16 +70,16 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ProxyInfo() {
+  public LoginRequest() {
     OnConstruction();
   }
 
   partial void OnConstruction();
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ProxyInfo(ProxyInfo other) : this() {
+  public LoginRequest(LoginRequest other) : this() {
     name_ = other.name_;
-    proxyProtocol_ = other.proxyProtocol_;
+    protocol_ = other.protocol_;
     onlinePlayers_ = other.onlinePlayers_;
     maxPlayers_ = other.maxPlayers_;
     motd_ = other.motd_;
@@ -87,12 +87,13 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     auth_ = other.auth_;
     secret_ = other.secret_;
     isProxy_ = other.isProxy_;
+    protocolRev_ = other.protocolRev_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public ProxyInfo Clone() {
-    return new ProxyInfo(this);
+  public LoginRequest Clone() {
+    return new LoginRequest(this);
   }
 
   /// <summary>Field number for the "name" field.</summary>
@@ -106,14 +107,14 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     }
   }
 
-  /// <summary>Field number for the "proxy_protocol" field.</summary>
-  public const int ProxyProtocolFieldNumber = 2;
-  private uint proxyProtocol_;
+  /// <summary>Field number for the "protocol" field.</summary>
+  public const int ProtocolFieldNumber = 2;
+  private uint protocol_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public uint ProxyProtocol {
-    get { return proxyProtocol_; }
+  public uint Protocol {
+    get { return protocol_; }
     set {
-      proxyProtocol_ = value;
+      protocol_ = value;
     }
   }
 
@@ -194,13 +195,24 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     }
   }
 
+  /// <summary>Field number for the "protocol_rev" field.</summary>
+  public const int ProtocolRevFieldNumber = 10;
+  private int protocolRev_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public override bool Equals(object other) {
-    return Equals(other as ProxyInfo);
+  public int ProtocolRev {
+    get { return protocolRev_; }
+    set {
+      protocolRev_ = value;
+    }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public bool Equals(ProxyInfo other) {
+  public override bool Equals(object other) {
+    return Equals(other as LoginRequest);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(LoginRequest other) {
     if (ReferenceEquals(other, null)) {
       return false;
     }
@@ -208,7 +220,7 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
       return true;
     }
     if (Name != other.Name) return false;
-    if (ProxyProtocol != other.ProxyProtocol) return false;
+    if (Protocol != other.Protocol) return false;
     if (OnlinePlayers != other.OnlinePlayers) return false;
     if (MaxPlayers != other.MaxPlayers) return false;
     if (Motd != other.Motd) return false;
@@ -216,6 +228,7 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     if (Auth != other.Auth) return false;
     if (Secret != other.Secret) return false;
     if (IsProxy != other.IsProxy) return false;
+    if (ProtocolRev != other.ProtocolRev) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -223,7 +236,7 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
   public override int GetHashCode() {
     int hash = 1;
     if (Name.Length != 0) hash ^= Name.GetHashCode();
-    if (ProxyProtocol != 0) hash ^= ProxyProtocol.GetHashCode();
+    if (Protocol != 0) hash ^= Protocol.GetHashCode();
     if (OnlinePlayers != 0) hash ^= OnlinePlayers.GetHashCode();
     if (MaxPlayers != 0) hash ^= MaxPlayers.GetHashCode();
     if (Motd.Length != 0) hash ^= Motd.GetHashCode();
@@ -231,6 +244,7 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     if (Auth != false) hash ^= Auth.GetHashCode();
     if (Secret.Length != 0) hash ^= Secret.GetHashCode();
     if (IsProxy != false) hash ^= IsProxy.GetHashCode();
+    if (ProtocolRev != 0) hash ^= ProtocolRev.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -251,9 +265,9 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
       output.WriteRawTag(10);
       output.WriteString(Name);
     }
-    if (ProxyProtocol != 0) {
+    if (Protocol != 0) {
       output.WriteRawTag(16);
-      output.WriteUInt32(ProxyProtocol);
+      output.WriteUInt32(Protocol);
     }
     if (OnlinePlayers != 0) {
       output.WriteRawTag(24);
@@ -282,6 +296,10 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     if (IsProxy != false) {
       output.WriteRawTag(72);
       output.WriteBool(IsProxy);
+    }
+    if (ProtocolRev != 0) {
+      output.WriteRawTag(80);
+      output.WriteInt32(ProtocolRev);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -296,9 +314,9 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
       output.WriteRawTag(10);
       output.WriteString(Name);
     }
-    if (ProxyProtocol != 0) {
+    if (Protocol != 0) {
       output.WriteRawTag(16);
-      output.WriteUInt32(ProxyProtocol);
+      output.WriteUInt32(Protocol);
     }
     if (OnlinePlayers != 0) {
       output.WriteRawTag(24);
@@ -328,6 +346,10 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
       output.WriteRawTag(72);
       output.WriteBool(IsProxy);
     }
+    if (ProtocolRev != 0) {
+      output.WriteRawTag(80);
+      output.WriteInt32(ProtocolRev);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -340,8 +362,8 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     if (Name.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
     }
-    if (ProxyProtocol != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ProxyProtocol);
+    if (Protocol != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Protocol);
     }
     if (OnlinePlayers != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(OnlinePlayers);
@@ -364,6 +386,9 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     if (IsProxy != false) {
       size += 1 + 1;
     }
+    if (ProtocolRev != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeInt32Size(ProtocolRev);
+    }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
     }
@@ -371,15 +396,15 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public void MergeFrom(ProxyInfo other) {
+  public void MergeFrom(LoginRequest other) {
     if (other == null) {
       return;
     }
     if (other.Name.Length != 0) {
       Name = other.Name;
     }
-    if (other.ProxyProtocol != 0) {
-      ProxyProtocol = other.ProxyProtocol;
+    if (other.Protocol != 0) {
+      Protocol = other.Protocol;
     }
     if (other.OnlinePlayers != 0) {
       OnlinePlayers = other.OnlinePlayers;
@@ -402,6 +427,9 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
     if (other.IsProxy != false) {
       IsProxy = other.IsProxy;
     }
+    if (other.ProtocolRev != 0) {
+      ProtocolRev = other.ProtocolRev;
+    }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
 
@@ -421,7 +449,7 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
           break;
         }
         case 16: {
-          ProxyProtocol = input.ReadUInt32();
+          Protocol = input.ReadUInt32();
           break;
         }
         case 24: {
@@ -450,6 +478,10 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
         }
         case 72: {
           IsProxy = input.ReadBool();
+          break;
+        }
+        case 80: {
+          ProtocolRev = input.ReadInt32();
           break;
         }
       }
@@ -471,7 +503,7 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
           break;
         }
         case 16: {
-          ProxyProtocol = input.ReadUInt32();
+          Protocol = input.ReadUInt32();
           break;
         }
         case 24: {
@@ -500,6 +532,10 @@ public sealed partial class ProxyInfo : pb::IMessage<ProxyInfo>
         }
         case 72: {
           IsProxy = input.ReadBool();
+          break;
+        }
+        case 80: {
+          ProtocolRev = input.ReadInt32();
           break;
         }
       }

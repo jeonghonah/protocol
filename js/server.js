@@ -635,8 +635,8 @@
          * @property {string|null} [message] LoginSuccess message
          * @property {number|Long|null} [time] LoginSuccess time
          * @property {string|null} [assets] LoginSuccess assets
-         * @property {string|null} [itemsDef] LoginSuccess itemsDef
-         * @property {string|null} [blocksDef] LoginSuccess blocksDef
+         * @property {Array.<IItemDef>|null} [itemsDef] LoginSuccess itemsDef
+         * @property {Array.<IBlockDef>|null} [blocksDef] LoginSuccess blocksDef
          */
     
         /**
@@ -648,6 +648,8 @@
          * @param {ILoginSuccess=} [properties] Properties to set
          */
         function LoginSuccess(properties) {
+            this.itemsDef = [];
+            this.blocksDef = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -680,19 +682,19 @@
     
         /**
          * LoginSuccess itemsDef.
-         * @member {string} itemsDef
+         * @member {Array.<IItemDef>} itemsDef
          * @memberof LoginSuccess
          * @instance
          */
-        LoginSuccess.prototype.itemsDef = "";
+        LoginSuccess.prototype.itemsDef = $util.emptyArray;
     
         /**
          * LoginSuccess blocksDef.
-         * @member {string} blocksDef
+         * @member {Array.<IBlockDef>} blocksDef
          * @memberof LoginSuccess
          * @instance
          */
-        LoginSuccess.prototype.blocksDef = "";
+        LoginSuccess.prototype.blocksDef = $util.emptyArray;
     
         /**
          * Creates a new LoginSuccess instance using the specified properties.
@@ -724,10 +726,12 @@
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
             if (message.assets != null && Object.hasOwnProperty.call(message, "assets"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.assets);
-            if (message.itemsDef != null && Object.hasOwnProperty.call(message, "itemsDef"))
-                writer.uint32(/* id 4, wireType 2 =*/34).string(message.itemsDef);
-            if (message.blocksDef != null && Object.hasOwnProperty.call(message, "blocksDef"))
-                writer.uint32(/* id 5, wireType 2 =*/42).string(message.blocksDef);
+            if (message.itemsDef != null && message.itemsDef.length)
+                for (var i = 0; i < message.itemsDef.length; ++i)
+                    $root.ItemDef.encode(message.itemsDef[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+            if (message.blocksDef != null && message.blocksDef.length)
+                for (var i = 0; i < message.blocksDef.length; ++i)
+                    $root.BlockDef.encode(message.blocksDef[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
             return writer;
         };
     
@@ -772,10 +776,14 @@
                     message.assets = reader.string();
                     break;
                 case 4:
-                    message.itemsDef = reader.string();
+                    if (!(message.itemsDef && message.itemsDef.length))
+                        message.itemsDef = [];
+                    message.itemsDef.push($root.ItemDef.decode(reader, reader.uint32()));
                     break;
                 case 5:
-                    message.blocksDef = reader.string();
+                    if (!(message.blocksDef && message.blocksDef.length))
+                        message.blocksDef = [];
+                    message.blocksDef.push($root.BlockDef.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -821,12 +829,24 @@
             if (message.assets != null && message.hasOwnProperty("assets"))
                 if (!$util.isString(message.assets))
                     return "assets: string expected";
-            if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
-                if (!$util.isString(message.itemsDef))
-                    return "itemsDef: string expected";
-            if (message.blocksDef != null && message.hasOwnProperty("blocksDef"))
-                if (!$util.isString(message.blocksDef))
-                    return "blocksDef: string expected";
+            if (message.itemsDef != null && message.hasOwnProperty("itemsDef")) {
+                if (!Array.isArray(message.itemsDef))
+                    return "itemsDef: array expected";
+                for (var i = 0; i < message.itemsDef.length; ++i) {
+                    var error = $root.ItemDef.verify(message.itemsDef[i]);
+                    if (error)
+                        return "itemsDef." + error;
+                }
+            }
+            if (message.blocksDef != null && message.hasOwnProperty("blocksDef")) {
+                if (!Array.isArray(message.blocksDef))
+                    return "blocksDef: array expected";
+                for (var i = 0; i < message.blocksDef.length; ++i) {
+                    var error = $root.BlockDef.verify(message.blocksDef[i]);
+                    if (error)
+                        return "blocksDef." + error;
+                }
+            }
             return null;
         };
     
@@ -855,10 +875,26 @@
                     message.time = new $util.LongBits(object.time.low >>> 0, object.time.high >>> 0).toNumber(true);
             if (object.assets != null)
                 message.assets = String(object.assets);
-            if (object.itemsDef != null)
-                message.itemsDef = String(object.itemsDef);
-            if (object.blocksDef != null)
-                message.blocksDef = String(object.blocksDef);
+            if (object.itemsDef) {
+                if (!Array.isArray(object.itemsDef))
+                    throw TypeError(".LoginSuccess.itemsDef: array expected");
+                message.itemsDef = [];
+                for (var i = 0; i < object.itemsDef.length; ++i) {
+                    if (typeof object.itemsDef[i] !== "object")
+                        throw TypeError(".LoginSuccess.itemsDef: object expected");
+                    message.itemsDef[i] = $root.ItemDef.fromObject(object.itemsDef[i]);
+                }
+            }
+            if (object.blocksDef) {
+                if (!Array.isArray(object.blocksDef))
+                    throw TypeError(".LoginSuccess.blocksDef: array expected");
+                message.blocksDef = [];
+                for (var i = 0; i < object.blocksDef.length; ++i) {
+                    if (typeof object.blocksDef[i] !== "object")
+                        throw TypeError(".LoginSuccess.blocksDef: object expected");
+                    message.blocksDef[i] = $root.BlockDef.fromObject(object.blocksDef[i]);
+                }
+            }
             return message;
         };
     
@@ -875,6 +911,10 @@
             if (!options)
                 options = {};
             var object = {};
+            if (options.arrays || options.defaults) {
+                object.itemsDef = [];
+                object.blocksDef = [];
+            }
             if (options.defaults) {
                 object.message = "";
                 if ($util.Long) {
@@ -883,8 +923,6 @@
                 } else
                     object.time = options.longs === String ? "0" : 0;
                 object.assets = "";
-                object.itemsDef = "";
-                object.blocksDef = "";
             }
             if (message.message != null && message.hasOwnProperty("message"))
                 object.message = message.message;
@@ -895,10 +933,16 @@
                     object.time = options.longs === String ? $util.Long.prototype.toString.call(message.time) : options.longs === Number ? new $util.LongBits(message.time.low >>> 0, message.time.high >>> 0).toNumber(true) : message.time;
             if (message.assets != null && message.hasOwnProperty("assets"))
                 object.assets = message.assets;
-            if (message.itemsDef != null && message.hasOwnProperty("itemsDef"))
-                object.itemsDef = message.itemsDef;
-            if (message.blocksDef != null && message.hasOwnProperty("blocksDef"))
-                object.blocksDef = message.blocksDef;
+            if (message.itemsDef && message.itemsDef.length) {
+                object.itemsDef = [];
+                for (var j = 0; j < message.itemsDef.length; ++j)
+                    object.itemsDef[j] = $root.ItemDef.toObject(message.itemsDef[j], options);
+            }
+            if (message.blocksDef && message.blocksDef.length) {
+                object.blocksDef = [];
+                for (var j = 0; j < message.blocksDef.length; ++j)
+                    object.blocksDef[j] = $root.BlockDef.toObject(message.blocksDef[j], options);
+            }
             return object;
         };
     
@@ -1511,7 +1555,7 @@
          * Properties of a PlayerKick.
          * @exports IPlayerKick
          * @interface IPlayerKick
-         * @property {string|null} [reason] PlayerKick reason
+         * @property {Array.<IBasicChatComponentType>|null} [reason] PlayerKick reason
          * @property {number|Long|null} [time] PlayerKick time
          */
     
@@ -1524,6 +1568,7 @@
          * @param {IPlayerKick=} [properties] Properties to set
          */
         function PlayerKick(properties) {
+            this.reason = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -1532,11 +1577,11 @@
     
         /**
          * PlayerKick reason.
-         * @member {string} reason
+         * @member {Array.<IBasicChatComponentType>} reason
          * @memberof PlayerKick
          * @instance
          */
-        PlayerKick.prototype.reason = "";
+        PlayerKick.prototype.reason = $util.emptyArray;
     
         /**
          * PlayerKick time.
@@ -1570,8 +1615,9 @@
         PlayerKick.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
-                writer.uint32(/* id 1, wireType 2 =*/10).string(message.reason);
+            if (message.reason != null && message.reason.length)
+                for (var i = 0; i < message.reason.length; ++i)
+                    $root.BasicChatComponentType.encode(message.reason[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.time != null && Object.hasOwnProperty.call(message, "time"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
             return writer;
@@ -1609,7 +1655,9 @@
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.reason = reader.string();
+                    if (!(message.reason && message.reason.length))
+                        message.reason = [];
+                    message.reason.push($root.BasicChatComponentType.decode(reader, reader.uint32()));
                     break;
                 case 2:
                     message.time = reader.uint64();
@@ -1649,9 +1697,15 @@
         PlayerKick.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.reason != null && message.hasOwnProperty("reason"))
-                if (!$util.isString(message.reason))
-                    return "reason: string expected";
+            if (message.reason != null && message.hasOwnProperty("reason")) {
+                if (!Array.isArray(message.reason))
+                    return "reason: array expected";
+                for (var i = 0; i < message.reason.length; ++i) {
+                    var error = $root.BasicChatComponentType.verify(message.reason[i]);
+                    if (error)
+                        return "reason." + error;
+                }
+            }
             if (message.time != null && message.hasOwnProperty("time"))
                 if (!$util.isInteger(message.time) && !(message.time && $util.isInteger(message.time.low) && $util.isInteger(message.time.high)))
                     return "time: integer|Long expected";
@@ -1670,8 +1724,16 @@
             if (object instanceof $root.PlayerKick)
                 return object;
             var message = new $root.PlayerKick();
-            if (object.reason != null)
-                message.reason = String(object.reason);
+            if (object.reason) {
+                if (!Array.isArray(object.reason))
+                    throw TypeError(".PlayerKick.reason: array expected");
+                message.reason = [];
+                for (var i = 0; i < object.reason.length; ++i) {
+                    if (typeof object.reason[i] !== "object")
+                        throw TypeError(".PlayerKick.reason: object expected");
+                    message.reason[i] = $root.BasicChatComponentType.fromObject(object.reason[i]);
+                }
+            }
             if (object.time != null)
                 if ($util.Long)
                     (message.time = $util.Long.fromValue(object.time)).unsigned = true;
@@ -1697,16 +1759,19 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
-                object.reason = "";
+            if (options.arrays || options.defaults)
+                object.reason = [];
+            if (options.defaults)
                 if ($util.Long) {
                     var long = new $util.Long(0, 0, true);
                     object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.time = options.longs === String ? "0" : 0;
+            if (message.reason && message.reason.length) {
+                object.reason = [];
+                for (var j = 0; j < message.reason.length; ++j)
+                    object.reason[j] = $root.BasicChatComponentType.toObject(message.reason[j], options);
             }
-            if (message.reason != null && message.hasOwnProperty("reason"))
-                object.reason = message.reason;
             if (message.time != null && message.hasOwnProperty("time"))
                 if (typeof message.time === "number")
                     object.time = options.longs === String ? String(message.time) : message.time;
@@ -4787,6 +4852,7 @@
          * @property {number|null} [x] SoundPlay x
          * @property {number|null} [y] SoundPlay y
          * @property {number|null} [z] SoundPlay z
+         * @property {SoundPlay.Type|null} [type] SoundPlay type
          */
     
         /**
@@ -4845,6 +4911,14 @@
         SoundPlay.prototype.z = 0;
     
         /**
+         * SoundPlay type.
+         * @member {SoundPlay.Type} type
+         * @memberof SoundPlay
+         * @instance
+         */
+        SoundPlay.prototype.type = 0;
+    
+        /**
          * Creates a new SoundPlay instance using the specified properties.
          * @function create
          * @memberof SoundPlay
@@ -4878,6 +4952,8 @@
                 writer.uint32(/* id 4, wireType 1 =*/33).double(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
                 writer.uint32(/* id 5, wireType 1 =*/41).double(message.z);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 6, wireType 0 =*/48).int32(message.type);
             return writer;
         };
     
@@ -4926,6 +5002,9 @@
                     break;
                 case 5:
                     message.z = reader.double();
+                    break;
+                case 6:
+                    message.type = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4977,6 +5056,17 @@
             if (message.z != null && message.hasOwnProperty("z"))
                 if (typeof message.z !== "number")
                     return "z: number expected";
+            if (message.type != null && message.hasOwnProperty("type"))
+                switch (message.type) {
+                default:
+                    return "type: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    break;
+                }
             return null;
         };
     
@@ -5002,6 +5092,28 @@
                 message.y = Number(object.y);
             if (object.z != null)
                 message.z = Number(object.z);
+            switch (object.type) {
+            case "GENERAL":
+            case 0:
+                message.type = 0;
+                break;
+            case "ENTITY":
+            case 1:
+                message.type = 1;
+                break;
+            case "BLOCK":
+            case 2:
+                message.type = 2;
+                break;
+            case "MUSIC":
+            case 3:
+                message.type = 3;
+                break;
+            case "SELF":
+            case 4:
+                message.type = 4;
+                break;
+            }
             return message;
         };
     
@@ -5024,6 +5136,7 @@
                 object.x = 0;
                 object.y = 0;
                 object.z = 0;
+                object.type = options.enums === String ? "GENERAL" : 0;
             }
             if (message.sound != null && message.hasOwnProperty("sound"))
                 object.sound = message.sound;
@@ -5035,6 +5148,8 @@
                 object.y = options.json && !isFinite(message.y) ? String(message.y) : message.y;
             if (message.z != null && message.hasOwnProperty("z"))
                 object.z = options.json && !isFinite(message.z) ? String(message.z) : message.z;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = options.enums === String ? $root.SoundPlay.Type[message.type] : message.type;
             return object;
         };
     
@@ -5049,6 +5164,26 @@
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
     
+        /**
+         * Type enum.
+         * @name SoundPlay.Type
+         * @enum {number}
+         * @property {number} GENERAL=0 GENERAL value
+         * @property {number} ENTITY=1 ENTITY value
+         * @property {number} BLOCK=2 BLOCK value
+         * @property {number} MUSIC=3 MUSIC value
+         * @property {number} SELF=4 SELF value
+         */
+        SoundPlay.Type = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "GENERAL"] = 0;
+            values[valuesById[1] = "ENTITY"] = 1;
+            values[valuesById[2] = "BLOCK"] = 2;
+            values[valuesById[3] = "MUSIC"] = 3;
+            values[valuesById[4] = "SELF"] = 4;
+            return values;
+        })();
+    
         return SoundPlay;
     })();
     
@@ -5058,7 +5193,7 @@
          * Properties of a ChatMessage.
          * @exports IChatMessage
          * @interface IChatMessage
-         * @property {Object.<string,IChatComponentType>|null} [message] ChatMessage message
+         * @property {Array.<IChatComponentType>|null} [message] ChatMessage message
          * @property {number|Long|null} [time] ChatMessage time
          */
     
@@ -5071,7 +5206,7 @@
          * @param {IChatMessage=} [properties] Properties to set
          */
         function ChatMessage(properties) {
-            this.message = {};
+            this.message = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -5080,11 +5215,11 @@
     
         /**
          * ChatMessage message.
-         * @member {Object.<string,IChatComponentType>} message
+         * @member {Array.<IChatComponentType>} message
          * @memberof ChatMessage
          * @instance
          */
-        ChatMessage.prototype.message = $util.emptyObject;
+        ChatMessage.prototype.message = $util.emptyArray;
     
         /**
          * ChatMessage time.
@@ -5118,11 +5253,9 @@
         ChatMessage.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.message != null && Object.hasOwnProperty.call(message, "message"))
-                for (var keys = Object.keys(message.message), i = 0; i < keys.length; ++i) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
-                    $root.ChatComponentType.encode(message.message[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                }
+            if (message.message != null && message.message.length)
+                for (var i = 0; i < message.message.length; ++i)
+                    $root.ChatComponentType.encode(message.message[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             if (message.time != null && Object.hasOwnProperty.call(message, "time"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.time);
             return writer;
@@ -5155,31 +5288,14 @@
         ChatMessage.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChatMessage(), key, value;
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ChatMessage();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    if (message.message === $util.emptyObject)
-                        message.message = {};
-                    var end2 = reader.uint32() + reader.pos;
-                    key = 0;
-                    value = null;
-                    while (reader.pos < end2) {
-                        var tag2 = reader.uint32();
-                        switch (tag2 >>> 3) {
-                        case 1:
-                            key = reader.uint32();
-                            break;
-                        case 2:
-                            value = $root.ChatComponentType.decode(reader, reader.uint32());
-                            break;
-                        default:
-                            reader.skipType(tag2 & 7);
-                            break;
-                        }
-                    }
-                    message.message[key] = value;
+                    if (!(message.message && message.message.length))
+                        message.message = [];
+                    message.message.push($root.ChatComponentType.decode(reader, reader.uint32()));
                     break;
                 case 2:
                     message.time = reader.uint64();
@@ -5220,17 +5336,12 @@
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.message != null && message.hasOwnProperty("message")) {
-                if (!$util.isObject(message.message))
-                    return "message: object expected";
-                var key = Object.keys(message.message);
-                for (var i = 0; i < key.length; ++i) {
-                    if (!$util.key32Re.test(key[i]))
-                        return "message: integer key{k:uint32} expected";
-                    {
-                        var error = $root.ChatComponentType.verify(message.message[key[i]]);
-                        if (error)
-                            return "message." + error;
-                    }
+                if (!Array.isArray(message.message))
+                    return "message: array expected";
+                for (var i = 0; i < message.message.length; ++i) {
+                    var error = $root.ChatComponentType.verify(message.message[i]);
+                    if (error)
+                        return "message." + error;
                 }
             }
             if (message.time != null && message.hasOwnProperty("time"))
@@ -5252,13 +5363,13 @@
                 return object;
             var message = new $root.ChatMessage();
             if (object.message) {
-                if (typeof object.message !== "object")
-                    throw TypeError(".ChatMessage.message: object expected");
-                message.message = {};
-                for (var keys = Object.keys(object.message), i = 0; i < keys.length; ++i) {
-                    if (typeof object.message[keys[i]] !== "object")
+                if (!Array.isArray(object.message))
+                    throw TypeError(".ChatMessage.message: array expected");
+                message.message = [];
+                for (var i = 0; i < object.message.length; ++i) {
+                    if (typeof object.message[i] !== "object")
                         throw TypeError(".ChatMessage.message: object expected");
-                    message.message[keys[i]] = $root.ChatComponentType.fromObject(object.message[keys[i]]);
+                    message.message[i] = $root.ChatComponentType.fromObject(object.message[i]);
                 }
             }
             if (object.time != null)
@@ -5286,19 +5397,18 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.objects || options.defaults)
-                object.message = {};
+            if (options.arrays || options.defaults)
+                object.message = [];
             if (options.defaults)
                 if ($util.Long) {
                     var long = new $util.Long(0, 0, true);
                     object.time = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                 } else
                     object.time = options.longs === String ? "0" : 0;
-            var keys2;
-            if (message.message && (keys2 = Object.keys(message.message)).length) {
-                object.message = {};
-                for (var j = 0; j < keys2.length; ++j)
-                    object.message[keys2[j]] = $root.ChatComponentType.toObject(message.message[keys2[j]], options);
+            if (message.message && message.message.length) {
+                object.message = [];
+                for (var j = 0; j < message.message.length; ++j)
+                    object.message[j] = $root.ChatComponentType.toObject(message.message[j], options);
             }
             if (message.time != null && message.hasOwnProperty("time"))
                 if (typeof message.time === "number")
@@ -5329,7 +5439,7 @@
          * @exports IUpdateTextBoard
          * @interface IUpdateTextBoard
          * @property {UpdateTextBoard.Type|null} [type] UpdateTextBoard type
-         * @property {Object.<string,IBasicChatComponentType>|null} [message] UpdateTextBoard message
+         * @property {Array.<IBasicChatComponentType>|null} [message] UpdateTextBoard message
          * @property {number|Long|null} [time] UpdateTextBoard time
          */
     
@@ -5342,7 +5452,7 @@
          * @param {IUpdateTextBoard=} [properties] Properties to set
          */
         function UpdateTextBoard(properties) {
-            this.message = {};
+            this.message = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -5359,11 +5469,11 @@
     
         /**
          * UpdateTextBoard message.
-         * @member {Object.<string,IBasicChatComponentType>} message
+         * @member {Array.<IBasicChatComponentType>} message
          * @memberof UpdateTextBoard
          * @instance
          */
-        UpdateTextBoard.prototype.message = $util.emptyObject;
+        UpdateTextBoard.prototype.message = $util.emptyArray;
     
         /**
          * UpdateTextBoard time.
@@ -5399,11 +5509,9 @@
                 writer = $Writer.create();
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
-            if (message.message != null && Object.hasOwnProperty.call(message, "message"))
-                for (var keys = Object.keys(message.message), i = 0; i < keys.length; ++i) {
-                    writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
-                    $root.BasicChatComponentType.encode(message.message[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                }
+            if (message.message != null && message.message.length)
+                for (var i = 0; i < message.message.length; ++i)
+                    $root.BasicChatComponentType.encode(message.message[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.time != null && Object.hasOwnProperty.call(message, "time"))
                 writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.time);
             return writer;
@@ -5436,7 +5544,7 @@
         UpdateTextBoard.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UpdateTextBoard(), key, value;
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.UpdateTextBoard();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5444,26 +5552,9 @@
                     message.type = reader.int32();
                     break;
                 case 2:
-                    if (message.message === $util.emptyObject)
-                        message.message = {};
-                    var end2 = reader.uint32() + reader.pos;
-                    key = 0;
-                    value = null;
-                    while (reader.pos < end2) {
-                        var tag2 = reader.uint32();
-                        switch (tag2 >>> 3) {
-                        case 1:
-                            key = reader.uint32();
-                            break;
-                        case 2:
-                            value = $root.BasicChatComponentType.decode(reader, reader.uint32());
-                            break;
-                        default:
-                            reader.skipType(tag2 & 7);
-                            break;
-                        }
-                    }
-                    message.message[key] = value;
+                    if (!(message.message && message.message.length))
+                        message.message = [];
+                    message.message.push($root.BasicChatComponentType.decode(reader, reader.uint32()));
                     break;
                 case 3:
                     message.time = reader.uint64();
@@ -5514,17 +5605,12 @@
                     break;
                 }
             if (message.message != null && message.hasOwnProperty("message")) {
-                if (!$util.isObject(message.message))
-                    return "message: object expected";
-                var key = Object.keys(message.message);
-                for (var i = 0; i < key.length; ++i) {
-                    if (!$util.key32Re.test(key[i]))
-                        return "message: integer key{k:uint32} expected";
-                    {
-                        var error = $root.BasicChatComponentType.verify(message.message[key[i]]);
-                        if (error)
-                            return "message." + error;
-                    }
+                if (!Array.isArray(message.message))
+                    return "message: array expected";
+                for (var i = 0; i < message.message.length; ++i) {
+                    var error = $root.BasicChatComponentType.verify(message.message[i]);
+                    if (error)
+                        return "message." + error;
                 }
             }
             if (message.time != null && message.hasOwnProperty("time"))
@@ -5564,13 +5650,13 @@
                 break;
             }
             if (object.message) {
-                if (typeof object.message !== "object")
-                    throw TypeError(".UpdateTextBoard.message: object expected");
-                message.message = {};
-                for (var keys = Object.keys(object.message), i = 0; i < keys.length; ++i) {
-                    if (typeof object.message[keys[i]] !== "object")
+                if (!Array.isArray(object.message))
+                    throw TypeError(".UpdateTextBoard.message: array expected");
+                message.message = [];
+                for (var i = 0; i < object.message.length; ++i) {
+                    if (typeof object.message[i] !== "object")
                         throw TypeError(".UpdateTextBoard.message: object expected");
-                    message.message[keys[i]] = $root.BasicChatComponentType.fromObject(object.message[keys[i]]);
+                    message.message[i] = $root.BasicChatComponentType.fromObject(object.message[i]);
                 }
             }
             if (object.time != null)
@@ -5598,8 +5684,8 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.objects || options.defaults)
-                object.message = {};
+            if (options.arrays || options.defaults)
+                object.message = [];
             if (options.defaults) {
                 object.type = options.enums === String ? "TAB" : 0;
                 if ($util.Long) {
@@ -5610,11 +5696,10 @@
             }
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = options.enums === String ? $root.UpdateTextBoard.Type[message.type] : message.type;
-            var keys2;
-            if (message.message && (keys2 = Object.keys(message.message)).length) {
-                object.message = {};
-                for (var j = 0; j < keys2.length; ++j)
-                    object.message[keys2[j]] = $root.BasicChatComponentType.toObject(message.message[keys2[j]], options);
+            if (message.message && message.message.length) {
+                object.message = [];
+                for (var j = 0; j < message.message.length; ++j)
+                    object.message[j] = $root.BasicChatComponentType.toObject(message.message[j], options);
             }
             if (message.time != null && message.hasOwnProperty("time"))
                 if (typeof message.time === "number")
@@ -5663,7 +5748,17 @@
          * @exports IEntityCreate
          * @interface IEntityCreate
          * @property {string|null} [uuid] EntityCreate uuid
-         * @property {string|null} [data] EntityCreate data
+         * @property {number|null} [x] EntityCreate x
+         * @property {number|null} [y] EntityCreate y
+         * @property {number|null} [z] EntityCreate z
+         * @property {number|null} [rotation] EntityCreate rotation
+         * @property {number|null} [pitch] EntityCreate pitch
+         * @property {string|null} [model] EntityCreate model
+         * @property {string|null} [texture] EntityCreate texture
+         * @property {Array.<IBasicChatComponentType>|null} [name] EntityCreate name
+         * @property {Array.<number>|null} [hitbox] EntityCreate hitbox
+         * @property {string|null} [heldItem] EntityCreate heldItem
+         * @property {Object.<string,string>|null} [armor] EntityCreate armor
          */
     
         /**
@@ -5675,6 +5770,9 @@
          * @param {IEntityCreate=} [properties] Properties to set
          */
         function EntityCreate(properties) {
+            this.name = [];
+            this.hitbox = [];
+            this.armor = {};
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -5690,12 +5788,92 @@
         EntityCreate.prototype.uuid = "";
     
         /**
-         * EntityCreate data.
-         * @member {string} data
+         * EntityCreate x.
+         * @member {number} x
          * @memberof EntityCreate
          * @instance
          */
-        EntityCreate.prototype.data = "";
+        EntityCreate.prototype.x = 0;
+    
+        /**
+         * EntityCreate y.
+         * @member {number} y
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.y = 0;
+    
+        /**
+         * EntityCreate z.
+         * @member {number} z
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.z = 0;
+    
+        /**
+         * EntityCreate rotation.
+         * @member {number} rotation
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.rotation = 0;
+    
+        /**
+         * EntityCreate pitch.
+         * @member {number} pitch
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.pitch = 0;
+    
+        /**
+         * EntityCreate model.
+         * @member {string} model
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.model = "";
+    
+        /**
+         * EntityCreate texture.
+         * @member {string} texture
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.texture = "";
+    
+        /**
+         * EntityCreate name.
+         * @member {Array.<IBasicChatComponentType>} name
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.name = $util.emptyArray;
+    
+        /**
+         * EntityCreate hitbox.
+         * @member {Array.<number>} hitbox
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.hitbox = $util.emptyArray;
+    
+        /**
+         * EntityCreate heldItem.
+         * @member {string} heldItem
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.heldItem = "";
+    
+        /**
+         * EntityCreate armor.
+         * @member {Object.<string,string>} armor
+         * @memberof EntityCreate
+         * @instance
+         */
+        EntityCreate.prototype.armor = $util.emptyObject;
     
         /**
          * Creates a new EntityCreate instance using the specified properties.
@@ -5723,8 +5901,34 @@
                 writer = $Writer.create();
             if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
-            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.data);
+            if (message.x != null && Object.hasOwnProperty.call(message, "x"))
+                writer.uint32(/* id 2, wireType 1 =*/17).double(message.x);
+            if (message.y != null && Object.hasOwnProperty.call(message, "y"))
+                writer.uint32(/* id 3, wireType 1 =*/25).double(message.y);
+            if (message.z != null && Object.hasOwnProperty.call(message, "z"))
+                writer.uint32(/* id 4, wireType 1 =*/33).double(message.z);
+            if (message.rotation != null && Object.hasOwnProperty.call(message, "rotation"))
+                writer.uint32(/* id 5, wireType 5 =*/45).float(message.rotation);
+            if (message.pitch != null && Object.hasOwnProperty.call(message, "pitch"))
+                writer.uint32(/* id 6, wireType 5 =*/53).float(message.pitch);
+            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
+                writer.uint32(/* id 7, wireType 2 =*/58).string(message.model);
+            if (message.texture != null && Object.hasOwnProperty.call(message, "texture"))
+                writer.uint32(/* id 8, wireType 2 =*/66).string(message.texture);
+            if (message.name != null && message.name.length)
+                for (var i = 0; i < message.name.length; ++i)
+                    $root.BasicChatComponentType.encode(message.name[i], writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+            if (message.hitbox != null && message.hitbox.length) {
+                writer.uint32(/* id 10, wireType 2 =*/82).fork();
+                for (var i = 0; i < message.hitbox.length; ++i)
+                    writer.float(message.hitbox[i]);
+                writer.ldelim();
+            }
+            if (message.heldItem != null && Object.hasOwnProperty.call(message, "heldItem"))
+                writer.uint32(/* id 11, wireType 2 =*/90).string(message.heldItem);
+            if (message.armor != null && Object.hasOwnProperty.call(message, "armor"))
+                for (var keys = Object.keys(message.armor), i = 0; i < keys.length; ++i)
+                    writer.uint32(/* id 12, wireType 2 =*/98).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.armor[keys[i]]).ldelim();
             return writer;
         };
     
@@ -5755,7 +5959,7 @@
         EntityCreate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityCreate();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.EntityCreate(), key, value;
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5763,7 +5967,65 @@
                     message.uuid = reader.string();
                     break;
                 case 2:
-                    message.data = reader.string();
+                    message.x = reader.double();
+                    break;
+                case 3:
+                    message.y = reader.double();
+                    break;
+                case 4:
+                    message.z = reader.double();
+                    break;
+                case 5:
+                    message.rotation = reader.float();
+                    break;
+                case 6:
+                    message.pitch = reader.float();
+                    break;
+                case 7:
+                    message.model = reader.string();
+                    break;
+                case 8:
+                    message.texture = reader.string();
+                    break;
+                case 9:
+                    if (!(message.name && message.name.length))
+                        message.name = [];
+                    message.name.push($root.BasicChatComponentType.decode(reader, reader.uint32()));
+                    break;
+                case 10:
+                    if (!(message.hitbox && message.hitbox.length))
+                        message.hitbox = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.hitbox.push(reader.float());
+                    } else
+                        message.hitbox.push(reader.float());
+                    break;
+                case 11:
+                    message.heldItem = reader.string();
+                    break;
+                case 12:
+                    if (message.armor === $util.emptyObject)
+                        message.armor = {};
+                    var end2 = reader.uint32() + reader.pos;
+                    key = 0;
+                    value = "";
+                    while (reader.pos < end2) {
+                        var tag2 = reader.uint32();
+                        switch (tag2 >>> 3) {
+                        case 1:
+                            key = reader.uint32();
+                            break;
+                        case 2:
+                            value = reader.string();
+                            break;
+                        default:
+                            reader.skipType(tag2 & 7);
+                            break;
+                        }
+                    }
+                    message.armor[key] = value;
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5803,9 +6065,57 @@
             if (message.uuid != null && message.hasOwnProperty("uuid"))
                 if (!$util.isString(message.uuid))
                     return "uuid: string expected";
-            if (message.data != null && message.hasOwnProperty("data"))
-                if (!$util.isString(message.data))
-                    return "data: string expected";
+            if (message.x != null && message.hasOwnProperty("x"))
+                if (typeof message.x !== "number")
+                    return "x: number expected";
+            if (message.y != null && message.hasOwnProperty("y"))
+                if (typeof message.y !== "number")
+                    return "y: number expected";
+            if (message.z != null && message.hasOwnProperty("z"))
+                if (typeof message.z !== "number")
+                    return "z: number expected";
+            if (message.rotation != null && message.hasOwnProperty("rotation"))
+                if (typeof message.rotation !== "number")
+                    return "rotation: number expected";
+            if (message.pitch != null && message.hasOwnProperty("pitch"))
+                if (typeof message.pitch !== "number")
+                    return "pitch: number expected";
+            if (message.model != null && message.hasOwnProperty("model"))
+                if (!$util.isString(message.model))
+                    return "model: string expected";
+            if (message.texture != null && message.hasOwnProperty("texture"))
+                if (!$util.isString(message.texture))
+                    return "texture: string expected";
+            if (message.name != null && message.hasOwnProperty("name")) {
+                if (!Array.isArray(message.name))
+                    return "name: array expected";
+                for (var i = 0; i < message.name.length; ++i) {
+                    var error = $root.BasicChatComponentType.verify(message.name[i]);
+                    if (error)
+                        return "name." + error;
+                }
+            }
+            if (message.hitbox != null && message.hasOwnProperty("hitbox")) {
+                if (!Array.isArray(message.hitbox))
+                    return "hitbox: array expected";
+                for (var i = 0; i < message.hitbox.length; ++i)
+                    if (typeof message.hitbox[i] !== "number")
+                        return "hitbox: number[] expected";
+            }
+            if (message.heldItem != null && message.hasOwnProperty("heldItem"))
+                if (!$util.isString(message.heldItem))
+                    return "heldItem: string expected";
+            if (message.armor != null && message.hasOwnProperty("armor")) {
+                if (!$util.isObject(message.armor))
+                    return "armor: object expected";
+                var key = Object.keys(message.armor);
+                for (var i = 0; i < key.length; ++i) {
+                    if (!$util.key32Re.test(key[i]))
+                        return "armor: integer key{k:uint32} expected";
+                    if (!$util.isString(message.armor[key[i]]))
+                        return "armor: string{k:uint32} expected";
+                }
+            }
             return null;
         };
     
@@ -5823,8 +6133,46 @@
             var message = new $root.EntityCreate();
             if (object.uuid != null)
                 message.uuid = String(object.uuid);
-            if (object.data != null)
-                message.data = String(object.data);
+            if (object.x != null)
+                message.x = Number(object.x);
+            if (object.y != null)
+                message.y = Number(object.y);
+            if (object.z != null)
+                message.z = Number(object.z);
+            if (object.rotation != null)
+                message.rotation = Number(object.rotation);
+            if (object.pitch != null)
+                message.pitch = Number(object.pitch);
+            if (object.model != null)
+                message.model = String(object.model);
+            if (object.texture != null)
+                message.texture = String(object.texture);
+            if (object.name) {
+                if (!Array.isArray(object.name))
+                    throw TypeError(".EntityCreate.name: array expected");
+                message.name = [];
+                for (var i = 0; i < object.name.length; ++i) {
+                    if (typeof object.name[i] !== "object")
+                        throw TypeError(".EntityCreate.name: object expected");
+                    message.name[i] = $root.BasicChatComponentType.fromObject(object.name[i]);
+                }
+            }
+            if (object.hitbox) {
+                if (!Array.isArray(object.hitbox))
+                    throw TypeError(".EntityCreate.hitbox: array expected");
+                message.hitbox = [];
+                for (var i = 0; i < object.hitbox.length; ++i)
+                    message.hitbox[i] = Number(object.hitbox[i]);
+            }
+            if (object.heldItem != null)
+                message.heldItem = String(object.heldItem);
+            if (object.armor) {
+                if (typeof object.armor !== "object")
+                    throw TypeError(".EntityCreate.armor: object expected");
+                message.armor = {};
+                for (var keys = Object.keys(object.armor), i = 0; i < keys.length; ++i)
+                    message.armor[keys[i]] = String(object.armor[keys[i]]);
+            }
             return message;
         };
     
@@ -5841,14 +6189,57 @@
             if (!options)
                 options = {};
             var object = {};
+            if (options.arrays || options.defaults) {
+                object.name = [];
+                object.hitbox = [];
+            }
+            if (options.objects || options.defaults)
+                object.armor = {};
             if (options.defaults) {
                 object.uuid = "";
-                object.data = "";
+                object.x = 0;
+                object.y = 0;
+                object.z = 0;
+                object.rotation = 0;
+                object.pitch = 0;
+                object.model = "";
+                object.texture = "";
+                object.heldItem = "";
             }
             if (message.uuid != null && message.hasOwnProperty("uuid"))
                 object.uuid = message.uuid;
-            if (message.data != null && message.hasOwnProperty("data"))
-                object.data = message.data;
+            if (message.x != null && message.hasOwnProperty("x"))
+                object.x = options.json && !isFinite(message.x) ? String(message.x) : message.x;
+            if (message.y != null && message.hasOwnProperty("y"))
+                object.y = options.json && !isFinite(message.y) ? String(message.y) : message.y;
+            if (message.z != null && message.hasOwnProperty("z"))
+                object.z = options.json && !isFinite(message.z) ? String(message.z) : message.z;
+            if (message.rotation != null && message.hasOwnProperty("rotation"))
+                object.rotation = options.json && !isFinite(message.rotation) ? String(message.rotation) : message.rotation;
+            if (message.pitch != null && message.hasOwnProperty("pitch"))
+                object.pitch = options.json && !isFinite(message.pitch) ? String(message.pitch) : message.pitch;
+            if (message.model != null && message.hasOwnProperty("model"))
+                object.model = message.model;
+            if (message.texture != null && message.hasOwnProperty("texture"))
+                object.texture = message.texture;
+            if (message.name && message.name.length) {
+                object.name = [];
+                for (var j = 0; j < message.name.length; ++j)
+                    object.name[j] = $root.BasicChatComponentType.toObject(message.name[j], options);
+            }
+            if (message.hitbox && message.hitbox.length) {
+                object.hitbox = [];
+                for (var j = 0; j < message.hitbox.length; ++j)
+                    object.hitbox[j] = options.json && !isFinite(message.hitbox[j]) ? String(message.hitbox[j]) : message.hitbox[j];
+            }
+            if (message.heldItem != null && message.hasOwnProperty("heldItem"))
+                object.heldItem = message.heldItem;
+            var keys2;
+            if (message.armor && (keys2 = Object.keys(message.armor)).length) {
+                object.armor = {};
+                for (var j = 0; j < keys2.length; ++j)
+                    object.armor[keys2[j]] = message.armor[keys2[j]];
+            }
             return object;
         };
     
@@ -7561,7 +7952,7 @@
          * Properties of a WorldMultiBlockUpdate.
          * @exports IWorldMultiBlockUpdate
          * @interface IWorldMultiBlockUpdate
-         * @property {Object.<string,IWorldBlockUpdate>|null} [blocks] WorldMultiBlockUpdate blocks
+         * @property {Array.<IWorldBlockUpdate>|null} [blocks] WorldMultiBlockUpdate blocks
          */
     
         /**
@@ -7573,7 +7964,7 @@
          * @param {IWorldMultiBlockUpdate=} [properties] Properties to set
          */
         function WorldMultiBlockUpdate(properties) {
-            this.blocks = {};
+            this.blocks = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -7582,11 +7973,11 @@
     
         /**
          * WorldMultiBlockUpdate blocks.
-         * @member {Object.<string,IWorldBlockUpdate>} blocks
+         * @member {Array.<IWorldBlockUpdate>} blocks
          * @memberof WorldMultiBlockUpdate
          * @instance
          */
-        WorldMultiBlockUpdate.prototype.blocks = $util.emptyObject;
+        WorldMultiBlockUpdate.prototype.blocks = $util.emptyArray;
     
         /**
          * Creates a new WorldMultiBlockUpdate instance using the specified properties.
@@ -7612,11 +8003,9 @@
         WorldMultiBlockUpdate.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.blocks != null && Object.hasOwnProperty.call(message, "blocks"))
-                for (var keys = Object.keys(message.blocks), i = 0; i < keys.length; ++i) {
-                    writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).int32(keys[i]);
-                    $root.WorldBlockUpdate.encode(message.blocks[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                }
+            if (message.blocks != null && message.blocks.length)
+                for (var i = 0; i < message.blocks.length; ++i)
+                    $root.WorldBlockUpdate.encode(message.blocks[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             return writer;
         };
     
@@ -7647,31 +8036,14 @@
         WorldMultiBlockUpdate.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.WorldMultiBlockUpdate(), key, value;
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.WorldMultiBlockUpdate();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    if (message.blocks === $util.emptyObject)
-                        message.blocks = {};
-                    var end2 = reader.uint32() + reader.pos;
-                    key = 0;
-                    value = null;
-                    while (reader.pos < end2) {
-                        var tag2 = reader.uint32();
-                        switch (tag2 >>> 3) {
-                        case 1:
-                            key = reader.int32();
-                            break;
-                        case 2:
-                            value = $root.WorldBlockUpdate.decode(reader, reader.uint32());
-                            break;
-                        default:
-                            reader.skipType(tag2 & 7);
-                            break;
-                        }
-                    }
-                    message.blocks[key] = value;
+                    if (!(message.blocks && message.blocks.length))
+                        message.blocks = [];
+                    message.blocks.push($root.WorldBlockUpdate.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -7709,17 +8081,12 @@
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.blocks != null && message.hasOwnProperty("blocks")) {
-                if (!$util.isObject(message.blocks))
-                    return "blocks: object expected";
-                var key = Object.keys(message.blocks);
-                for (var i = 0; i < key.length; ++i) {
-                    if (!$util.key32Re.test(key[i]))
-                        return "blocks: integer key{k:int32} expected";
-                    {
-                        var error = $root.WorldBlockUpdate.verify(message.blocks[key[i]]);
-                        if (error)
-                            return "blocks." + error;
-                    }
+                if (!Array.isArray(message.blocks))
+                    return "blocks: array expected";
+                for (var i = 0; i < message.blocks.length; ++i) {
+                    var error = $root.WorldBlockUpdate.verify(message.blocks[i]);
+                    if (error)
+                        return "blocks." + error;
                 }
             }
             return null;
@@ -7738,13 +8105,13 @@
                 return object;
             var message = new $root.WorldMultiBlockUpdate();
             if (object.blocks) {
-                if (typeof object.blocks !== "object")
-                    throw TypeError(".WorldMultiBlockUpdate.blocks: object expected");
-                message.blocks = {};
-                for (var keys = Object.keys(object.blocks), i = 0; i < keys.length; ++i) {
-                    if (typeof object.blocks[keys[i]] !== "object")
+                if (!Array.isArray(object.blocks))
+                    throw TypeError(".WorldMultiBlockUpdate.blocks: array expected");
+                message.blocks = [];
+                for (var i = 0; i < object.blocks.length; ++i) {
+                    if (typeof object.blocks[i] !== "object")
                         throw TypeError(".WorldMultiBlockUpdate.blocks: object expected");
-                    message.blocks[keys[i]] = $root.WorldBlockUpdate.fromObject(object.blocks[keys[i]]);
+                    message.blocks[i] = $root.WorldBlockUpdate.fromObject(object.blocks[i]);
                 }
             }
             return message;
@@ -7763,13 +8130,12 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.objects || options.defaults)
-                object.blocks = {};
-            var keys2;
-            if (message.blocks && (keys2 = Object.keys(message.blocks)).length) {
-                object.blocks = {};
-                for (var j = 0; j < keys2.length; ++j)
-                    object.blocks[keys2[j]] = $root.WorldBlockUpdate.toObject(message.blocks[keys2[j]], options);
+            if (options.arrays || options.defaults)
+                object.blocks = [];
+            if (message.blocks && message.blocks.length) {
+                object.blocks = [];
+                for (var j = 0; j < message.blocks.length; ++j)
+                    object.blocks[j] = $root.WorldBlockUpdate.toObject(message.blocks[j], options);
             }
             return object;
         };
@@ -10726,7 +11092,7 @@
          * @property {string|null} [id] Item id
          * @property {number|null} [count] Item count
          * @property {number|null} [damage] Item damage
-         * @property {Object.<string,IBasicChatComponentType>|null} [name] Item name
+         * @property {Array.<IBasicChatComponentType>|null} [name] Item name
          */
     
         /**
@@ -10738,7 +11104,7 @@
          * @param {IItem=} [properties] Properties to set
          */
         function Item(properties) {
-            this.name = {};
+            this.name = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -10771,11 +11137,11 @@
     
         /**
          * Item name.
-         * @member {Object.<string,IBasicChatComponentType>} name
+         * @member {Array.<IBasicChatComponentType>} name
          * @memberof Item
          * @instance
          */
-        Item.prototype.name = $util.emptyObject;
+        Item.prototype.name = $util.emptyArray;
     
         /**
          * Creates a new Item instance using the specified properties.
@@ -10807,11 +11173,9 @@
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.count);
             if (message.damage != null && Object.hasOwnProperty.call(message, "damage"))
                 writer.uint32(/* id 3, wireType 5 =*/29).float(message.damage);
-            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                for (var keys = Object.keys(message.name), i = 0; i < keys.length; ++i) {
-                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
-                    $root.BasicChatComponentType.encode(message.name[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                }
+            if (message.name != null && message.name.length)
+                for (var i = 0; i < message.name.length; ++i)
+                    $root.BasicChatComponentType.encode(message.name[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
             return writer;
         };
     
@@ -10842,7 +11206,7 @@
         Item.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Item(), key, value;
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Item();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -10856,26 +11220,9 @@
                     message.damage = reader.float();
                     break;
                 case 4:
-                    if (message.name === $util.emptyObject)
-                        message.name = {};
-                    var end2 = reader.uint32() + reader.pos;
-                    key = 0;
-                    value = null;
-                    while (reader.pos < end2) {
-                        var tag2 = reader.uint32();
-                        switch (tag2 >>> 3) {
-                        case 1:
-                            key = reader.uint32();
-                            break;
-                        case 2:
-                            value = $root.BasicChatComponentType.decode(reader, reader.uint32());
-                            break;
-                        default:
-                            reader.skipType(tag2 & 7);
-                            break;
-                        }
-                    }
-                    message.name[key] = value;
+                    if (!(message.name && message.name.length))
+                        message.name = [];
+                    message.name.push($root.BasicChatComponentType.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -10922,17 +11269,12 @@
                 if (typeof message.damage !== "number")
                     return "damage: number expected";
             if (message.name != null && message.hasOwnProperty("name")) {
-                if (!$util.isObject(message.name))
-                    return "name: object expected";
-                var key = Object.keys(message.name);
-                for (var i = 0; i < key.length; ++i) {
-                    if (!$util.key32Re.test(key[i]))
-                        return "name: integer key{k:uint32} expected";
-                    {
-                        var error = $root.BasicChatComponentType.verify(message.name[key[i]]);
-                        if (error)
-                            return "name." + error;
-                    }
+                if (!Array.isArray(message.name))
+                    return "name: array expected";
+                for (var i = 0; i < message.name.length; ++i) {
+                    var error = $root.BasicChatComponentType.verify(message.name[i]);
+                    if (error)
+                        return "name." + error;
                 }
             }
             return null;
@@ -10957,13 +11299,13 @@
             if (object.damage != null)
                 message.damage = Number(object.damage);
             if (object.name) {
-                if (typeof object.name !== "object")
-                    throw TypeError(".Item.name: object expected");
-                message.name = {};
-                for (var keys = Object.keys(object.name), i = 0; i < keys.length; ++i) {
-                    if (typeof object.name[keys[i]] !== "object")
+                if (!Array.isArray(object.name))
+                    throw TypeError(".Item.name: array expected");
+                message.name = [];
+                for (var i = 0; i < object.name.length; ++i) {
+                    if (typeof object.name[i] !== "object")
                         throw TypeError(".Item.name: object expected");
-                    message.name[keys[i]] = $root.BasicChatComponentType.fromObject(object.name[keys[i]]);
+                    message.name[i] = $root.BasicChatComponentType.fromObject(object.name[i]);
                 }
             }
             return message;
@@ -10982,8 +11324,8 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.objects || options.defaults)
-                object.name = {};
+            if (options.arrays || options.defaults)
+                object.name = [];
             if (options.defaults) {
                 object.id = "";
                 object.count = 0;
@@ -10995,11 +11337,10 @@
                 object.count = message.count;
             if (message.damage != null && message.hasOwnProperty("damage"))
                 object.damage = options.json && !isFinite(message.damage) ? String(message.damage) : message.damage;
-            var keys2;
-            if (message.name && (keys2 = Object.keys(message.name)).length) {
-                object.name = {};
-                for (var j = 0; j < keys2.length; ++j)
-                    object.name[keys2[j]] = $root.BasicChatComponentType.toObject(message.name[keys2[j]], options);
+            if (message.name && message.name.length) {
+                object.name = [];
+                for (var j = 0; j < message.name.length; ++j)
+                    object.name[j] = $root.BasicChatComponentType.toObject(message.name[j], options);
             }
             return object;
         };
@@ -11072,6 +11413,1155 @@
         values[valuesById[2] = "MIDDLE"] = 2;
         values[valuesById[3] = "SELECT"] = 3;
         return values;
+    })();
+    
+    $root.ItemDef = (function() {
+    
+        /**
+         * Properties of an ItemDef.
+         * @exports IItemDef
+         * @interface IItemDef
+         * @property {string|null} [id] ItemDef id
+         * @property {number|null} [maxStack] ItemDef maxStack
+         * @property {Array.<IBasicChatComponentType>|null} [name] ItemDef name
+         * @property {ItemDef.Type|null} [type] ItemDef type
+         * @property {ItemDef.Model|null} [model] ItemDef model
+         * @property {Array.<string>|null} [textures] ItemDef textures
+         * @property {Array.<string>|null} [toolType] ItemDef toolType
+         * @property {number|null} [miningSpeed] ItemDef miningSpeed
+         * @property {number|null} [miningPower] ItemDef miningPower
+         * @property {string|null} [customModel] ItemDef customModel
+         * @property {string|null} [armorTexture] ItemDef armorTexture
+         */
+    
+        /**
+         * Constructs a new ItemDef.
+         * @exports ItemDef
+         * @classdesc Represents an ItemDef.
+         * @implements IItemDef
+         * @constructor
+         * @param {IItemDef=} [properties] Properties to set
+         */
+        function ItemDef(properties) {
+            this.name = [];
+            this.textures = [];
+            this.toolType = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * ItemDef id.
+         * @member {string} id
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.id = "";
+    
+        /**
+         * ItemDef maxStack.
+         * @member {number} maxStack
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.maxStack = 0;
+    
+        /**
+         * ItemDef name.
+         * @member {Array.<IBasicChatComponentType>} name
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.name = $util.emptyArray;
+    
+        /**
+         * ItemDef type.
+         * @member {ItemDef.Type} type
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.type = 0;
+    
+        /**
+         * ItemDef model.
+         * @member {ItemDef.Model} model
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.model = 0;
+    
+        /**
+         * ItemDef textures.
+         * @member {Array.<string>} textures
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.textures = $util.emptyArray;
+    
+        /**
+         * ItemDef toolType.
+         * @member {Array.<string>} toolType
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.toolType = $util.emptyArray;
+    
+        /**
+         * ItemDef miningSpeed.
+         * @member {number} miningSpeed
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.miningSpeed = 0;
+    
+        /**
+         * ItemDef miningPower.
+         * @member {number} miningPower
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.miningPower = 0;
+    
+        /**
+         * ItemDef customModel.
+         * @member {string} customModel
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.customModel = "";
+    
+        /**
+         * ItemDef armorTexture.
+         * @member {string} armorTexture
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.armorTexture = "";
+    
+        /**
+         * Creates a new ItemDef instance using the specified properties.
+         * @function create
+         * @memberof ItemDef
+         * @static
+         * @param {IItemDef=} [properties] Properties to set
+         * @returns {ItemDef} ItemDef instance
+         */
+        ItemDef.create = function create(properties) {
+            return new ItemDef(properties);
+        };
+    
+        /**
+         * Encodes the specified ItemDef message. Does not implicitly {@link ItemDef.verify|verify} messages.
+         * @function encode
+         * @memberof ItemDef
+         * @static
+         * @param {IItemDef} message ItemDef message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ItemDef.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.maxStack != null && Object.hasOwnProperty.call(message, "maxStack"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.maxStack);
+            if (message.name != null && message.name.length)
+                for (var i = 0; i < message.name.length; ++i)
+                    $root.BasicChatComponentType.encode(message.name[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.type);
+            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
+                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.model);
+            if (message.textures != null && message.textures.length)
+                for (var i = 0; i < message.textures.length; ++i)
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.textures[i]);
+            if (message.toolType != null && message.toolType.length)
+                for (var i = 0; i < message.toolType.length; ++i)
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.toolType[i]);
+            if (message.miningSpeed != null && Object.hasOwnProperty.call(message, "miningSpeed"))
+                writer.uint32(/* id 8, wireType 5 =*/69).float(message.miningSpeed);
+            if (message.miningPower != null && Object.hasOwnProperty.call(message, "miningPower"))
+                writer.uint32(/* id 9, wireType 5 =*/77).float(message.miningPower);
+            if (message.customModel != null && Object.hasOwnProperty.call(message, "customModel"))
+                writer.uint32(/* id 10, wireType 2 =*/82).string(message.customModel);
+            if (message.armorTexture != null && Object.hasOwnProperty.call(message, "armorTexture"))
+                writer.uint32(/* id 11, wireType 2 =*/90).string(message.armorTexture);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified ItemDef message, length delimited. Does not implicitly {@link ItemDef.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ItemDef
+         * @static
+         * @param {IItemDef} message ItemDef message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ItemDef.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an ItemDef message from the specified reader or buffer.
+         * @function decode
+         * @memberof ItemDef
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ItemDef} ItemDef
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ItemDef.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ItemDef();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.maxStack = reader.uint32();
+                    break;
+                case 3:
+                    if (!(message.name && message.name.length))
+                        message.name = [];
+                    message.name.push($root.BasicChatComponentType.decode(reader, reader.uint32()));
+                    break;
+                case 4:
+                    message.type = reader.int32();
+                    break;
+                case 5:
+                    message.model = reader.int32();
+                    break;
+                case 6:
+                    if (!(message.textures && message.textures.length))
+                        message.textures = [];
+                    message.textures.push(reader.string());
+                    break;
+                case 7:
+                    if (!(message.toolType && message.toolType.length))
+                        message.toolType = [];
+                    message.toolType.push(reader.string());
+                    break;
+                case 8:
+                    message.miningSpeed = reader.float();
+                    break;
+                case 9:
+                    message.miningPower = reader.float();
+                    break;
+                case 10:
+                    message.customModel = reader.string();
+                    break;
+                case 11:
+                    message.armorTexture = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an ItemDef message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ItemDef
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ItemDef} ItemDef
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ItemDef.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an ItemDef message.
+         * @function verify
+         * @memberof ItemDef
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ItemDef.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.maxStack != null && message.hasOwnProperty("maxStack"))
+                if (!$util.isInteger(message.maxStack))
+                    return "maxStack: integer expected";
+            if (message.name != null && message.hasOwnProperty("name")) {
+                if (!Array.isArray(message.name))
+                    return "name: array expected";
+                for (var i = 0; i < message.name.length; ++i) {
+                    var error = $root.BasicChatComponentType.verify(message.name[i]);
+                    if (error)
+                        return "name." + error;
+                }
+            }
+            if (message.type != null && message.hasOwnProperty("type"))
+                switch (message.type) {
+                default:
+                    return "type: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
+            if (message.model != null && message.hasOwnProperty("model"))
+                switch (message.model) {
+                default:
+                    return "model: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
+            if (message.textures != null && message.hasOwnProperty("textures")) {
+                if (!Array.isArray(message.textures))
+                    return "textures: array expected";
+                for (var i = 0; i < message.textures.length; ++i)
+                    if (!$util.isString(message.textures[i]))
+                        return "textures: string[] expected";
+            }
+            if (message.toolType != null && message.hasOwnProperty("toolType")) {
+                if (!Array.isArray(message.toolType))
+                    return "toolType: array expected";
+                for (var i = 0; i < message.toolType.length; ++i)
+                    if (!$util.isString(message.toolType[i]))
+                        return "toolType: string[] expected";
+            }
+            if (message.miningSpeed != null && message.hasOwnProperty("miningSpeed"))
+                if (typeof message.miningSpeed !== "number")
+                    return "miningSpeed: number expected";
+            if (message.miningPower != null && message.hasOwnProperty("miningPower"))
+                if (typeof message.miningPower !== "number")
+                    return "miningPower: number expected";
+            if (message.customModel != null && message.hasOwnProperty("customModel"))
+                if (!$util.isString(message.customModel))
+                    return "customModel: string expected";
+            if (message.armorTexture != null && message.hasOwnProperty("armorTexture"))
+                if (!$util.isString(message.armorTexture))
+                    return "armorTexture: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an ItemDef message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ItemDef
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ItemDef} ItemDef
+         */
+        ItemDef.fromObject = function fromObject(object) {
+            if (object instanceof $root.ItemDef)
+                return object;
+            var message = new $root.ItemDef();
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.maxStack != null)
+                message.maxStack = object.maxStack >>> 0;
+            if (object.name) {
+                if (!Array.isArray(object.name))
+                    throw TypeError(".ItemDef.name: array expected");
+                message.name = [];
+                for (var i = 0; i < object.name.length; ++i) {
+                    if (typeof object.name[i] !== "object")
+                        throw TypeError(".ItemDef.name: object expected");
+                    message.name[i] = $root.BasicChatComponentType.fromObject(object.name[i]);
+                }
+            }
+            switch (object.type) {
+            case "NONE":
+            case 0:
+                message.type = 0;
+                break;
+            case "TOOL":
+            case 1:
+                message.type = 1;
+                break;
+            case "BLOCK":
+            case 2:
+                message.type = 2;
+                break;
+            case "ARMOR":
+            case 3:
+                message.type = 3;
+                break;
+            }
+            switch (object.model) {
+            case "FLAT":
+            case 0:
+                message.model = 0;
+                break;
+            case "CUBE":
+            case 1:
+                message.model = 1;
+                break;
+            case "CROSS":
+            case 2:
+                message.model = 2;
+                break;
+            case "CUSTOM":
+            case 3:
+                message.model = 3;
+                break;
+            }
+            if (object.textures) {
+                if (!Array.isArray(object.textures))
+                    throw TypeError(".ItemDef.textures: array expected");
+                message.textures = [];
+                for (var i = 0; i < object.textures.length; ++i)
+                    message.textures[i] = String(object.textures[i]);
+            }
+            if (object.toolType) {
+                if (!Array.isArray(object.toolType))
+                    throw TypeError(".ItemDef.toolType: array expected");
+                message.toolType = [];
+                for (var i = 0; i < object.toolType.length; ++i)
+                    message.toolType[i] = String(object.toolType[i]);
+            }
+            if (object.miningSpeed != null)
+                message.miningSpeed = Number(object.miningSpeed);
+            if (object.miningPower != null)
+                message.miningPower = Number(object.miningPower);
+            if (object.customModel != null)
+                message.customModel = String(object.customModel);
+            if (object.armorTexture != null)
+                message.armorTexture = String(object.armorTexture);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an ItemDef message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ItemDef
+         * @static
+         * @param {ItemDef} message ItemDef
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ItemDef.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.name = [];
+                object.textures = [];
+                object.toolType = [];
+            }
+            if (options.defaults) {
+                object.id = "";
+                object.maxStack = 0;
+                object.type = options.enums === String ? "NONE" : 0;
+                object.model = options.enums === String ? "FLAT" : 0;
+                object.miningSpeed = 0;
+                object.miningPower = 0;
+                object.customModel = "";
+                object.armorTexture = "";
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.maxStack != null && message.hasOwnProperty("maxStack"))
+                object.maxStack = message.maxStack;
+            if (message.name && message.name.length) {
+                object.name = [];
+                for (var j = 0; j < message.name.length; ++j)
+                    object.name[j] = $root.BasicChatComponentType.toObject(message.name[j], options);
+            }
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = options.enums === String ? $root.ItemDef.Type[message.type] : message.type;
+            if (message.model != null && message.hasOwnProperty("model"))
+                object.model = options.enums === String ? $root.ItemDef.Model[message.model] : message.model;
+            if (message.textures && message.textures.length) {
+                object.textures = [];
+                for (var j = 0; j < message.textures.length; ++j)
+                    object.textures[j] = message.textures[j];
+            }
+            if (message.toolType && message.toolType.length) {
+                object.toolType = [];
+                for (var j = 0; j < message.toolType.length; ++j)
+                    object.toolType[j] = message.toolType[j];
+            }
+            if (message.miningSpeed != null && message.hasOwnProperty("miningSpeed"))
+                object.miningSpeed = options.json && !isFinite(message.miningSpeed) ? String(message.miningSpeed) : message.miningSpeed;
+            if (message.miningPower != null && message.hasOwnProperty("miningPower"))
+                object.miningPower = options.json && !isFinite(message.miningPower) ? String(message.miningPower) : message.miningPower;
+            if (message.customModel != null && message.hasOwnProperty("customModel"))
+                object.customModel = message.customModel;
+            if (message.armorTexture != null && message.hasOwnProperty("armorTexture"))
+                object.armorTexture = message.armorTexture;
+            return object;
+        };
+    
+        /**
+         * Converts this ItemDef to JSON.
+         * @function toJSON
+         * @memberof ItemDef
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ItemDef.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        /**
+         * Type enum.
+         * @name ItemDef.Type
+         * @enum {number}
+         * @property {number} NONE=0 NONE value
+         * @property {number} TOOL=1 TOOL value
+         * @property {number} BLOCK=2 BLOCK value
+         * @property {number} ARMOR=3 ARMOR value
+         */
+        ItemDef.Type = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "NONE"] = 0;
+            values[valuesById[1] = "TOOL"] = 1;
+            values[valuesById[2] = "BLOCK"] = 2;
+            values[valuesById[3] = "ARMOR"] = 3;
+            return values;
+        })();
+    
+        /**
+         * Model enum.
+         * @name ItemDef.Model
+         * @enum {number}
+         * @property {number} FLAT=0 FLAT value
+         * @property {number} CUBE=1 CUBE value
+         * @property {number} CROSS=2 CROSS value
+         * @property {number} CUSTOM=3 CUSTOM value
+         */
+        ItemDef.Model = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "FLAT"] = 0;
+            values[valuesById[1] = "CUBE"] = 1;
+            values[valuesById[2] = "CROSS"] = 2;
+            values[valuesById[3] = "CUSTOM"] = 3;
+            return values;
+        })();
+    
+        return ItemDef;
+    })();
+    
+    $root.BlockDef = (function() {
+    
+        /**
+         * Properties of a BlockDef.
+         * @exports IBlockDef
+         * @interface IBlockDef
+         * @property {string|null} [id] BlockDef id
+         * @property {number|null} [numId] BlockDef numId
+         * @property {BlockDef.Model|null} [model] BlockDef model
+         * @property {Array.<string>|null} [textures] BlockDef textures
+         * @property {Array.<string>|null} [toolType] BlockDef toolType
+         * @property {number|null} [miningSpeed] BlockDef miningSpeed
+         * @property {number|null} [miningPower] BlockDef miningPower
+         * @property {boolean|null} [solid] BlockDef solid
+         * @property {boolean|null} [fluid] BlockDef fluid
+         * @property {boolean|null} [opaque] BlockDef opaque
+         * @property {Array.<number>|null} [color] BlockDef color
+         * @property {Array.<string>|null} [material] BlockDef material
+         * @property {number|null} [fluidDensity] BlockDef fluidDensity
+         * @property {number|null} [viscosity] BlockDef viscosity
+         * @property {string|null} [customModel] BlockDef customModel
+         */
+    
+        /**
+         * Constructs a new BlockDef.
+         * @exports BlockDef
+         * @classdesc Represents a BlockDef.
+         * @implements IBlockDef
+         * @constructor
+         * @param {IBlockDef=} [properties] Properties to set
+         */
+        function BlockDef(properties) {
+            this.textures = [];
+            this.toolType = [];
+            this.color = [];
+            this.material = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * BlockDef id.
+         * @member {string} id
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.id = "";
+    
+        /**
+         * BlockDef numId.
+         * @member {number} numId
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.numId = 0;
+    
+        /**
+         * BlockDef model.
+         * @member {BlockDef.Model} model
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.model = 0;
+    
+        /**
+         * BlockDef textures.
+         * @member {Array.<string>} textures
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.textures = $util.emptyArray;
+    
+        /**
+         * BlockDef toolType.
+         * @member {Array.<string>} toolType
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.toolType = $util.emptyArray;
+    
+        /**
+         * BlockDef miningSpeed.
+         * @member {number} miningSpeed
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.miningSpeed = 0;
+    
+        /**
+         * BlockDef miningPower.
+         * @member {number} miningPower
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.miningPower = 0;
+    
+        /**
+         * BlockDef solid.
+         * @member {boolean} solid
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.solid = false;
+    
+        /**
+         * BlockDef fluid.
+         * @member {boolean} fluid
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.fluid = false;
+    
+        /**
+         * BlockDef opaque.
+         * @member {boolean} opaque
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.opaque = false;
+    
+        /**
+         * BlockDef color.
+         * @member {Array.<number>} color
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.color = $util.emptyArray;
+    
+        /**
+         * BlockDef material.
+         * @member {Array.<string>} material
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.material = $util.emptyArray;
+    
+        /**
+         * BlockDef fluidDensity.
+         * @member {number} fluidDensity
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.fluidDensity = 0;
+    
+        /**
+         * BlockDef viscosity.
+         * @member {number} viscosity
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.viscosity = 0;
+    
+        /**
+         * BlockDef customModel.
+         * @member {string} customModel
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.customModel = "";
+    
+        /**
+         * Creates a new BlockDef instance using the specified properties.
+         * @function create
+         * @memberof BlockDef
+         * @static
+         * @param {IBlockDef=} [properties] Properties to set
+         * @returns {BlockDef} BlockDef instance
+         */
+        BlockDef.create = function create(properties) {
+            return new BlockDef(properties);
+        };
+    
+        /**
+         * Encodes the specified BlockDef message. Does not implicitly {@link BlockDef.verify|verify} messages.
+         * @function encode
+         * @memberof BlockDef
+         * @static
+         * @param {IBlockDef} message BlockDef message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BlockDef.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.numId != null && Object.hasOwnProperty.call(message, "numId"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.numId);
+            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.model);
+            if (message.textures != null && message.textures.length)
+                for (var i = 0; i < message.textures.length; ++i)
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.textures[i]);
+            if (message.toolType != null && message.toolType.length)
+                for (var i = 0; i < message.toolType.length; ++i)
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.toolType[i]);
+            if (message.miningSpeed != null && Object.hasOwnProperty.call(message, "miningSpeed"))
+                writer.uint32(/* id 6, wireType 5 =*/53).float(message.miningSpeed);
+            if (message.miningPower != null && Object.hasOwnProperty.call(message, "miningPower"))
+                writer.uint32(/* id 7, wireType 5 =*/61).float(message.miningPower);
+            if (message.solid != null && Object.hasOwnProperty.call(message, "solid"))
+                writer.uint32(/* id 8, wireType 0 =*/64).bool(message.solid);
+            if (message.fluid != null && Object.hasOwnProperty.call(message, "fluid"))
+                writer.uint32(/* id 9, wireType 0 =*/72).bool(message.fluid);
+            if (message.opaque != null && Object.hasOwnProperty.call(message, "opaque"))
+                writer.uint32(/* id 10, wireType 0 =*/80).bool(message.opaque);
+            if (message.color != null && message.color.length) {
+                writer.uint32(/* id 11, wireType 2 =*/90).fork();
+                for (var i = 0; i < message.color.length; ++i)
+                    writer.float(message.color[i]);
+                writer.ldelim();
+            }
+            if (message.material != null && message.material.length)
+                for (var i = 0; i < message.material.length; ++i)
+                    writer.uint32(/* id 12, wireType 2 =*/98).string(message.material[i]);
+            if (message.fluidDensity != null && Object.hasOwnProperty.call(message, "fluidDensity"))
+                writer.uint32(/* id 13, wireType 1 =*/105).double(message.fluidDensity);
+            if (message.viscosity != null && Object.hasOwnProperty.call(message, "viscosity"))
+                writer.uint32(/* id 14, wireType 1 =*/113).double(message.viscosity);
+            if (message.customModel != null && Object.hasOwnProperty.call(message, "customModel"))
+                writer.uint32(/* id 15, wireType 2 =*/122).string(message.customModel);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified BlockDef message, length delimited. Does not implicitly {@link BlockDef.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof BlockDef
+         * @static
+         * @param {IBlockDef} message BlockDef message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BlockDef.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a BlockDef message from the specified reader or buffer.
+         * @function decode
+         * @memberof BlockDef
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {BlockDef} BlockDef
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BlockDef.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.BlockDef();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.numId = reader.uint32();
+                    break;
+                case 3:
+                    message.model = reader.int32();
+                    break;
+                case 4:
+                    if (!(message.textures && message.textures.length))
+                        message.textures = [];
+                    message.textures.push(reader.string());
+                    break;
+                case 5:
+                    if (!(message.toolType && message.toolType.length))
+                        message.toolType = [];
+                    message.toolType.push(reader.string());
+                    break;
+                case 6:
+                    message.miningSpeed = reader.float();
+                    break;
+                case 7:
+                    message.miningPower = reader.float();
+                    break;
+                case 8:
+                    message.solid = reader.bool();
+                    break;
+                case 9:
+                    message.fluid = reader.bool();
+                    break;
+                case 10:
+                    message.opaque = reader.bool();
+                    break;
+                case 11:
+                    if (!(message.color && message.color.length))
+                        message.color = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.color.push(reader.float());
+                    } else
+                        message.color.push(reader.float());
+                    break;
+                case 12:
+                    if (!(message.material && message.material.length))
+                        message.material = [];
+                    message.material.push(reader.string());
+                    break;
+                case 13:
+                    message.fluidDensity = reader.double();
+                    break;
+                case 14:
+                    message.viscosity = reader.double();
+                    break;
+                case 15:
+                    message.customModel = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a BlockDef message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof BlockDef
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {BlockDef} BlockDef
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BlockDef.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a BlockDef message.
+         * @function verify
+         * @memberof BlockDef
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BlockDef.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.numId != null && message.hasOwnProperty("numId"))
+                if (!$util.isInteger(message.numId))
+                    return "numId: integer expected";
+            if (message.model != null && message.hasOwnProperty("model"))
+                switch (message.model) {
+                default:
+                    return "model: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                    break;
+                }
+            if (message.textures != null && message.hasOwnProperty("textures")) {
+                if (!Array.isArray(message.textures))
+                    return "textures: array expected";
+                for (var i = 0; i < message.textures.length; ++i)
+                    if (!$util.isString(message.textures[i]))
+                        return "textures: string[] expected";
+            }
+            if (message.toolType != null && message.hasOwnProperty("toolType")) {
+                if (!Array.isArray(message.toolType))
+                    return "toolType: array expected";
+                for (var i = 0; i < message.toolType.length; ++i)
+                    if (!$util.isString(message.toolType[i]))
+                        return "toolType: string[] expected";
+            }
+            if (message.miningSpeed != null && message.hasOwnProperty("miningSpeed"))
+                if (typeof message.miningSpeed !== "number")
+                    return "miningSpeed: number expected";
+            if (message.miningPower != null && message.hasOwnProperty("miningPower"))
+                if (typeof message.miningPower !== "number")
+                    return "miningPower: number expected";
+            if (message.solid != null && message.hasOwnProperty("solid"))
+                if (typeof message.solid !== "boolean")
+                    return "solid: boolean expected";
+            if (message.fluid != null && message.hasOwnProperty("fluid"))
+                if (typeof message.fluid !== "boolean")
+                    return "fluid: boolean expected";
+            if (message.opaque != null && message.hasOwnProperty("opaque"))
+                if (typeof message.opaque !== "boolean")
+                    return "opaque: boolean expected";
+            if (message.color != null && message.hasOwnProperty("color")) {
+                if (!Array.isArray(message.color))
+                    return "color: array expected";
+                for (var i = 0; i < message.color.length; ++i)
+                    if (typeof message.color[i] !== "number")
+                        return "color: number[] expected";
+            }
+            if (message.material != null && message.hasOwnProperty("material")) {
+                if (!Array.isArray(message.material))
+                    return "material: array expected";
+                for (var i = 0; i < message.material.length; ++i)
+                    if (!$util.isString(message.material[i]))
+                        return "material: string[] expected";
+            }
+            if (message.fluidDensity != null && message.hasOwnProperty("fluidDensity"))
+                if (typeof message.fluidDensity !== "number")
+                    return "fluidDensity: number expected";
+            if (message.viscosity != null && message.hasOwnProperty("viscosity"))
+                if (typeof message.viscosity !== "number")
+                    return "viscosity: number expected";
+            if (message.customModel != null && message.hasOwnProperty("customModel"))
+                if (!$util.isString(message.customModel))
+                    return "customModel: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a BlockDef message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof BlockDef
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {BlockDef} BlockDef
+         */
+        BlockDef.fromObject = function fromObject(object) {
+            if (object instanceof $root.BlockDef)
+                return object;
+            var message = new $root.BlockDef();
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.numId != null)
+                message.numId = object.numId >>> 0;
+            switch (object.model) {
+            case "BLOCK":
+            case 0:
+                message.model = 0;
+                break;
+            case "CROSS":
+            case 1:
+                message.model = 1;
+                break;
+            case "TRANSPARENT":
+            case 2:
+                message.model = 2;
+                break;
+            }
+            if (object.textures) {
+                if (!Array.isArray(object.textures))
+                    throw TypeError(".BlockDef.textures: array expected");
+                message.textures = [];
+                for (var i = 0; i < object.textures.length; ++i)
+                    message.textures[i] = String(object.textures[i]);
+            }
+            if (object.toolType) {
+                if (!Array.isArray(object.toolType))
+                    throw TypeError(".BlockDef.toolType: array expected");
+                message.toolType = [];
+                for (var i = 0; i < object.toolType.length; ++i)
+                    message.toolType[i] = String(object.toolType[i]);
+            }
+            if (object.miningSpeed != null)
+                message.miningSpeed = Number(object.miningSpeed);
+            if (object.miningPower != null)
+                message.miningPower = Number(object.miningPower);
+            if (object.solid != null)
+                message.solid = Boolean(object.solid);
+            if (object.fluid != null)
+                message.fluid = Boolean(object.fluid);
+            if (object.opaque != null)
+                message.opaque = Boolean(object.opaque);
+            if (object.color) {
+                if (!Array.isArray(object.color))
+                    throw TypeError(".BlockDef.color: array expected");
+                message.color = [];
+                for (var i = 0; i < object.color.length; ++i)
+                    message.color[i] = Number(object.color[i]);
+            }
+            if (object.material) {
+                if (!Array.isArray(object.material))
+                    throw TypeError(".BlockDef.material: array expected");
+                message.material = [];
+                for (var i = 0; i < object.material.length; ++i)
+                    message.material[i] = String(object.material[i]);
+            }
+            if (object.fluidDensity != null)
+                message.fluidDensity = Number(object.fluidDensity);
+            if (object.viscosity != null)
+                message.viscosity = Number(object.viscosity);
+            if (object.customModel != null)
+                message.customModel = String(object.customModel);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a BlockDef message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof BlockDef
+         * @static
+         * @param {BlockDef} message BlockDef
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BlockDef.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.textures = [];
+                object.toolType = [];
+                object.color = [];
+                object.material = [];
+            }
+            if (options.defaults) {
+                object.id = "";
+                object.numId = 0;
+                object.model = options.enums === String ? "BLOCK" : 0;
+                object.miningSpeed = 0;
+                object.miningPower = 0;
+                object.solid = false;
+                object.fluid = false;
+                object.opaque = false;
+                object.fluidDensity = 0;
+                object.viscosity = 0;
+                object.customModel = "";
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.numId != null && message.hasOwnProperty("numId"))
+                object.numId = message.numId;
+            if (message.model != null && message.hasOwnProperty("model"))
+                object.model = options.enums === String ? $root.BlockDef.Model[message.model] : message.model;
+            if (message.textures && message.textures.length) {
+                object.textures = [];
+                for (var j = 0; j < message.textures.length; ++j)
+                    object.textures[j] = message.textures[j];
+            }
+            if (message.toolType && message.toolType.length) {
+                object.toolType = [];
+                for (var j = 0; j < message.toolType.length; ++j)
+                    object.toolType[j] = message.toolType[j];
+            }
+            if (message.miningSpeed != null && message.hasOwnProperty("miningSpeed"))
+                object.miningSpeed = options.json && !isFinite(message.miningSpeed) ? String(message.miningSpeed) : message.miningSpeed;
+            if (message.miningPower != null && message.hasOwnProperty("miningPower"))
+                object.miningPower = options.json && !isFinite(message.miningPower) ? String(message.miningPower) : message.miningPower;
+            if (message.solid != null && message.hasOwnProperty("solid"))
+                object.solid = message.solid;
+            if (message.fluid != null && message.hasOwnProperty("fluid"))
+                object.fluid = message.fluid;
+            if (message.opaque != null && message.hasOwnProperty("opaque"))
+                object.opaque = message.opaque;
+            if (message.color && message.color.length) {
+                object.color = [];
+                for (var j = 0; j < message.color.length; ++j)
+                    object.color[j] = options.json && !isFinite(message.color[j]) ? String(message.color[j]) : message.color[j];
+            }
+            if (message.material && message.material.length) {
+                object.material = [];
+                for (var j = 0; j < message.material.length; ++j)
+                    object.material[j] = message.material[j];
+            }
+            if (message.fluidDensity != null && message.hasOwnProperty("fluidDensity"))
+                object.fluidDensity = options.json && !isFinite(message.fluidDensity) ? String(message.fluidDensity) : message.fluidDensity;
+            if (message.viscosity != null && message.hasOwnProperty("viscosity"))
+                object.viscosity = options.json && !isFinite(message.viscosity) ? String(message.viscosity) : message.viscosity;
+            if (message.customModel != null && message.hasOwnProperty("customModel"))
+                object.customModel = message.customModel;
+            return object;
+        };
+    
+        /**
+         * Converts this BlockDef to JSON.
+         * @function toJSON
+         * @memberof BlockDef
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BlockDef.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        /**
+         * Model enum.
+         * @name BlockDef.Model
+         * @enum {number}
+         * @property {number} BLOCK=0 BLOCK value
+         * @property {number} CROSS=1 CROSS value
+         * @property {number} TRANSPARENT=2 TRANSPARENT value
+         */
+        BlockDef.Model = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "BLOCK"] = 0;
+            values[valuesById[1] = "CROSS"] = 1;
+            values[valuesById[2] = "TRANSPARENT"] = 2;
+            return values;
+        })();
+    
+        return BlockDef;
     })();
 
     return $root;

@@ -12,8 +12,8 @@ public final class ProxyServer {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface ProxyInfoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ProxyInfo)
+  public interface LoginRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:LoginRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -29,10 +29,10 @@ public final class ProxyServer {
         getNameBytes();
 
     /**
-     * <code>uint32 proxy_protocol = 2;</code>
-     * @return The proxyProtocol.
+     * <code>uint32 protocol = 2;</code>
+     * @return The protocol.
      */
-    int getProxyProtocol();
+    int getProtocol();
 
     /**
      * <code>uint32 online_players = 3;</code>
@@ -93,20 +93,26 @@ public final class ProxyServer {
      * @return The isProxy.
      */
     boolean getIsProxy();
+
+    /**
+     * <code>int32 protocol_rev = 10;</code>
+     * @return The protocolRev.
+     */
+    int getProtocolRev();
   }
   /**
-   * Protobuf type {@code ProxyInfo}
+   * Protobuf type {@code LoginRequest}
    */
-  public static final class ProxyInfo extends
+  public static final class LoginRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ProxyInfo)
-      ProxyInfoOrBuilder {
+      // @@protoc_insertion_point(message_implements:LoginRequest)
+      LoginRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ProxyInfo.newBuilder() to construct.
-    private ProxyInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use LoginRequest.newBuilder() to construct.
+    private LoginRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ProxyInfo() {
+    private LoginRequest() {
       name_ = "";
       motd_ = "";
       software_ = "";
@@ -117,7 +123,7 @@ public final class ProxyServer {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ProxyInfo();
+      return new LoginRequest();
     }
 
     @java.lang.Override
@@ -125,7 +131,7 @@ public final class ProxyServer {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ProxyInfo(
+    private LoginRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -151,7 +157,7 @@ public final class ProxyServer {
             }
             case 16: {
 
-              proxyProtocol_ = input.readUInt32();
+              protocol_ = input.readUInt32();
               break;
             }
             case 24: {
@@ -192,6 +198,11 @@ public final class ProxyServer {
               isProxy_ = input.readBool();
               break;
             }
+            case 80: {
+
+              protocolRev_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -213,15 +224,15 @@ public final class ProxyServer {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ProxyServer.internal_static_ProxyInfo_descriptor;
+      return ProxyServer.internal_static_LoginRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ProxyServer.internal_static_ProxyInfo_fieldAccessorTable
+      return ProxyServer.internal_static_LoginRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ProxyServer.ProxyInfo.class, ProxyServer.ProxyInfo.Builder.class);
+              ProxyServer.LoginRequest.class, ProxyServer.LoginRequest.Builder.class);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
@@ -262,15 +273,15 @@ public final class ProxyServer {
       }
     }
 
-    public static final int PROXY_PROTOCOL_FIELD_NUMBER = 2;
-    private int proxyProtocol_;
+    public static final int PROTOCOL_FIELD_NUMBER = 2;
+    private int protocol_;
     /**
-     * <code>uint32 proxy_protocol = 2;</code>
-     * @return The proxyProtocol.
+     * <code>uint32 protocol = 2;</code>
+     * @return The protocol.
      */
     @java.lang.Override
-    public int getProxyProtocol() {
-      return proxyProtocol_;
+    public int getProtocol() {
+      return protocol_;
     }
 
     public static final int ONLINE_PLAYERS_FIELD_NUMBER = 3;
@@ -431,6 +442,17 @@ public final class ProxyServer {
       return isProxy_;
     }
 
+    public static final int PROTOCOL_REV_FIELD_NUMBER = 10;
+    private int protocolRev_;
+    /**
+     * <code>int32 protocol_rev = 10;</code>
+     * @return The protocolRev.
+     */
+    @java.lang.Override
+    public int getProtocolRev() {
+      return protocolRev_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -448,8 +470,8 @@ public final class ProxyServer {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (proxyProtocol_ != 0) {
-        output.writeUInt32(2, proxyProtocol_);
+      if (protocol_ != 0) {
+        output.writeUInt32(2, protocol_);
       }
       if (onlinePlayers_ != 0) {
         output.writeUInt32(3, onlinePlayers_);
@@ -472,6 +494,9 @@ public final class ProxyServer {
       if (isProxy_ != false) {
         output.writeBool(9, isProxy_);
       }
+      if (protocolRev_ != 0) {
+        output.writeInt32(10, protocolRev_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -484,9 +509,9 @@ public final class ProxyServer {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (proxyProtocol_ != 0) {
+      if (protocol_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, proxyProtocol_);
+          .computeUInt32Size(2, protocol_);
       }
       if (onlinePlayers_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -513,6 +538,10 @@ public final class ProxyServer {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(9, isProxy_);
       }
+      if (protocolRev_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, protocolRev_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -523,15 +552,15 @@ public final class ProxyServer {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ProxyServer.ProxyInfo)) {
+      if (!(obj instanceof ProxyServer.LoginRequest)) {
         return super.equals(obj);
       }
-      ProxyServer.ProxyInfo other = (ProxyServer.ProxyInfo) obj;
+      ProxyServer.LoginRequest other = (ProxyServer.LoginRequest) obj;
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (getProxyProtocol()
-          != other.getProxyProtocol()) return false;
+      if (getProtocol()
+          != other.getProtocol()) return false;
       if (getOnlinePlayers()
           != other.getOnlinePlayers()) return false;
       if (getMaxPlayers()
@@ -546,6 +575,8 @@ public final class ProxyServer {
           .equals(other.getSecret())) return false;
       if (getIsProxy()
           != other.getIsProxy()) return false;
+      if (getProtocolRev()
+          != other.getProtocolRev()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -559,8 +590,8 @@ public final class ProxyServer {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + PROXY_PROTOCOL_FIELD_NUMBER;
-      hash = (53 * hash) + getProxyProtocol();
+      hash = (37 * hash) + PROTOCOL_FIELD_NUMBER;
+      hash = (53 * hash) + getProtocol();
       hash = (37 * hash) + ONLINE_PLAYERS_FIELD_NUMBER;
       hash = (53 * hash) + getOnlinePlayers();
       hash = (37 * hash) + MAX_PLAYERS_FIELD_NUMBER;
@@ -577,74 +608,76 @@ public final class ProxyServer {
       hash = (37 * hash) + IS_PROXY_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsProxy());
+      hash = (37 * hash) + PROTOCOL_REV_FIELD_NUMBER;
+      hash = (53 * hash) + getProtocolRev();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static ProxyServer.ProxyInfo parseFrom(
+    public static ProxyServer.LoginRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProxyServer.ProxyInfo parseFrom(
+    public static ProxyServer.LoginRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProxyServer.ProxyInfo parseFrom(
+    public static ProxyServer.LoginRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProxyServer.ProxyInfo parseFrom(
+    public static ProxyServer.LoginRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProxyServer.ProxyInfo parseFrom(byte[] data)
+    public static ProxyServer.LoginRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProxyServer.ProxyInfo parseFrom(
+    public static ProxyServer.LoginRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProxyServer.ProxyInfo parseFrom(java.io.InputStream input)
+    public static ProxyServer.LoginRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProxyServer.ProxyInfo parseFrom(
+    public static ProxyServer.LoginRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProxyServer.ProxyInfo parseDelimitedFrom(java.io.InputStream input)
+    public static ProxyServer.LoginRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ProxyServer.ProxyInfo parseDelimitedFrom(
+    public static ProxyServer.LoginRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProxyServer.ProxyInfo parseFrom(
+    public static ProxyServer.LoginRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProxyServer.ProxyInfo parseFrom(
+    public static ProxyServer.LoginRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -657,7 +690,7 @@ public final class ProxyServer {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ProxyServer.ProxyInfo prototype) {
+    public static Builder newBuilder(ProxyServer.LoginRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -673,26 +706,26 @@ public final class ProxyServer {
       return builder;
     }
     /**
-     * Protobuf type {@code ProxyInfo}
+     * Protobuf type {@code LoginRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ProxyInfo)
-        ProxyServer.ProxyInfoOrBuilder {
+        // @@protoc_insertion_point(builder_implements:LoginRequest)
+        ProxyServer.LoginRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProxyServer.internal_static_ProxyInfo_descriptor;
+        return ProxyServer.internal_static_LoginRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProxyServer.internal_static_ProxyInfo_fieldAccessorTable
+        return ProxyServer.internal_static_LoginRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProxyServer.ProxyInfo.class, ProxyServer.ProxyInfo.Builder.class);
+                ProxyServer.LoginRequest.class, ProxyServer.LoginRequest.Builder.class);
       }
 
-      // Construct using ProxyServer.ProxyInfo.newBuilder()
+      // Construct using ProxyServer.LoginRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -712,7 +745,7 @@ public final class ProxyServer {
         super.clear();
         name_ = "";
 
-        proxyProtocol_ = 0;
+        protocol_ = 0;
 
         onlinePlayers_ = 0;
 
@@ -728,23 +761,25 @@ public final class ProxyServer {
 
         isProxy_ = false;
 
+        protocolRev_ = 0;
+
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ProxyServer.internal_static_ProxyInfo_descriptor;
+        return ProxyServer.internal_static_LoginRequest_descriptor;
       }
 
       @java.lang.Override
-      public ProxyServer.ProxyInfo getDefaultInstanceForType() {
-        return ProxyServer.ProxyInfo.getDefaultInstance();
+      public ProxyServer.LoginRequest getDefaultInstanceForType() {
+        return ProxyServer.LoginRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public ProxyServer.ProxyInfo build() {
-        ProxyServer.ProxyInfo result = buildPartial();
+      public ProxyServer.LoginRequest build() {
+        ProxyServer.LoginRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -752,10 +787,10 @@ public final class ProxyServer {
       }
 
       @java.lang.Override
-      public ProxyServer.ProxyInfo buildPartial() {
-        ProxyServer.ProxyInfo result = new ProxyServer.ProxyInfo(this);
+      public ProxyServer.LoginRequest buildPartial() {
+        ProxyServer.LoginRequest result = new ProxyServer.LoginRequest(this);
         result.name_ = name_;
-        result.proxyProtocol_ = proxyProtocol_;
+        result.protocol_ = protocol_;
         result.onlinePlayers_ = onlinePlayers_;
         result.maxPlayers_ = maxPlayers_;
         result.motd_ = motd_;
@@ -763,6 +798,7 @@ public final class ProxyServer {
         result.auth_ = auth_;
         result.secret_ = secret_;
         result.isProxy_ = isProxy_;
+        result.protocolRev_ = protocolRev_;
         onBuilt();
         return result;
       }
@@ -801,22 +837,22 @@ public final class ProxyServer {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ProxyServer.ProxyInfo) {
-          return mergeFrom((ProxyServer.ProxyInfo)other);
+        if (other instanceof ProxyServer.LoginRequest) {
+          return mergeFrom((ProxyServer.LoginRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ProxyServer.ProxyInfo other) {
-        if (other == ProxyServer.ProxyInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(ProxyServer.LoginRequest other) {
+        if (other == ProxyServer.LoginRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
         }
-        if (other.getProxyProtocol() != 0) {
-          setProxyProtocol(other.getProxyProtocol());
+        if (other.getProtocol() != 0) {
+          setProtocol(other.getProtocol());
         }
         if (other.getOnlinePlayers() != 0) {
           setOnlinePlayers(other.getOnlinePlayers());
@@ -842,6 +878,9 @@ public final class ProxyServer {
         if (other.getIsProxy() != false) {
           setIsProxy(other.getIsProxy());
         }
+        if (other.getProtocolRev() != 0) {
+          setProtocolRev(other.getProtocolRev());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -857,11 +896,11 @@ public final class ProxyServer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ProxyServer.ProxyInfo parsedMessage = null;
+        ProxyServer.LoginRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ProxyServer.ProxyInfo) e.getUnfinishedMessage();
+          parsedMessage = (ProxyServer.LoginRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -947,33 +986,33 @@ public final class ProxyServer {
         return this;
       }
 
-      private int proxyProtocol_ ;
+      private int protocol_ ;
       /**
-       * <code>uint32 proxy_protocol = 2;</code>
-       * @return The proxyProtocol.
+       * <code>uint32 protocol = 2;</code>
+       * @return The protocol.
        */
       @java.lang.Override
-      public int getProxyProtocol() {
-        return proxyProtocol_;
+      public int getProtocol() {
+        return protocol_;
       }
       /**
-       * <code>uint32 proxy_protocol = 2;</code>
-       * @param value The proxyProtocol to set.
+       * <code>uint32 protocol = 2;</code>
+       * @param value The protocol to set.
        * @return This builder for chaining.
        */
-      public Builder setProxyProtocol(int value) {
+      public Builder setProtocol(int value) {
         
-        proxyProtocol_ = value;
+        protocol_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 proxy_protocol = 2;</code>
+       * <code>uint32 protocol = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearProxyProtocol() {
+      public Builder clearProtocol() {
         
-        proxyProtocol_ = 0;
+        protocol_ = 0;
         onChanged();
         return this;
       }
@@ -1329,6 +1368,37 @@ public final class ProxyServer {
         onChanged();
         return this;
       }
+
+      private int protocolRev_ ;
+      /**
+       * <code>int32 protocol_rev = 10;</code>
+       * @return The protocolRev.
+       */
+      @java.lang.Override
+      public int getProtocolRev() {
+        return protocolRev_;
+      }
+      /**
+       * <code>int32 protocol_rev = 10;</code>
+       * @param value The protocolRev to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolRev(int value) {
+        
+        protocolRev_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 protocol_rev = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProtocolRev() {
+        
+        protocolRev_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1342,41 +1412,41 @@ public final class ProxyServer {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ProxyInfo)
+      // @@protoc_insertion_point(builder_scope:LoginRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:ProxyInfo)
-    private static final ProxyServer.ProxyInfo DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:LoginRequest)
+    private static final ProxyServer.LoginRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ProxyServer.ProxyInfo();
+      DEFAULT_INSTANCE = new ProxyServer.LoginRequest();
     }
 
-    public static ProxyServer.ProxyInfo getDefaultInstance() {
+    public static ProxyServer.LoginRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ProxyInfo>
-        PARSER = new com.google.protobuf.AbstractParser<ProxyInfo>() {
+    private static final com.google.protobuf.Parser<LoginRequest>
+        PARSER = new com.google.protobuf.AbstractParser<LoginRequest>() {
       @java.lang.Override
-      public ProxyInfo parsePartialFrom(
+      public LoginRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProxyInfo(input, extensionRegistry);
+        return new LoginRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ProxyInfo> parser() {
+    public static com.google.protobuf.Parser<LoginRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ProxyInfo> getParserForType() {
+    public com.google.protobuf.Parser<LoginRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public ProxyServer.ProxyInfo getDefaultInstanceForType() {
+    public ProxyServer.LoginRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4496,10 +4566,10 @@ public final class ProxyServer {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ProxyInfo_descriptor;
+    internal_static_LoginRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ProxyInfo_fieldAccessorTable;
+      internal_static_LoginRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_AuthResponce_descriptor;
   private static final 
@@ -4534,30 +4604,30 @@ public final class ProxyServer {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\030proto/proxy-server.proto\"\256\001\n\tProxyInfo" +
-      "\022\014\n\004name\030\001 \001(\t\022\026\n\016proxy_protocol\030\002 \001(\r\022\026" +
-      "\n\016online_players\030\003 \001(\r\022\023\n\013max_players\030\004 " +
-      "\001(\r\022\014\n\004motd\030\005 \001(\t\022\020\n\010software\030\006 \001(\t\022\014\n\004a" +
-      "uth\030\007 \001(\010\022\016\n\006secret\030\010 \001(\t\022\020\n\010is_proxy\030\t " +
-      "\001(\010\"\243\001\n\014AuthResponce\022\020\n\010responce\030\001 \001(\005\022\017" +
-      "\n\007message\030\002 \001(\t\022\025\n\rproxy_version\030\003 \001(\r\022\031" +
-      "\n\021proxy_version_rev\030\004 \001(\r\022\020\n\010protocol\030\005 " +
-      "\001(\r\022\036\n\026use_packet_translation\030\006 \001(\010\022\014\n\004t" +
-      "ype\030\007 \001(\t\"\027\n\004Data\022\017\n\007message\030\001 \001(\014\"\"\n\017Vo" +
-      "xelSrvMessage\022\017\n\007message\030\001 \001(\014\"\034\n\nDiscon" +
-      "nect\022\016\n\006reason\030\001 \001(\t\"\037\n\014ProxyMessage\022\017\n\007" +
-      "message\030\001 \001(\014b\006proto3"
+      "\n\030proto/proxy-server.proto\"\301\001\n\014LoginRequ" +
+      "est\022\014\n\004name\030\001 \001(\t\022\020\n\010protocol\030\002 \001(\r\022\026\n\016o" +
+      "nline_players\030\003 \001(\r\022\023\n\013max_players\030\004 \001(\r" +
+      "\022\014\n\004motd\030\005 \001(\t\022\020\n\010software\030\006 \001(\t\022\014\n\004auth" +
+      "\030\007 \001(\010\022\016\n\006secret\030\010 \001(\t\022\020\n\010is_proxy\030\t \001(\010" +
+      "\022\024\n\014protocol_rev\030\n \001(\005\"\243\001\n\014AuthResponce\022" +
+      "\020\n\010responce\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\025\n\rpr" +
+      "oxy_version\030\003 \001(\r\022\031\n\021proxy_version_rev\030\004" +
+      " \001(\r\022\020\n\010protocol\030\005 \001(\r\022\036\n\026use_packet_tra" +
+      "nslation\030\006 \001(\010\022\014\n\004type\030\007 \001(\t\"\027\n\004Data\022\017\n\007" +
+      "message\030\001 \001(\014\"\"\n\017VoxelSrvMessage\022\017\n\007mess" +
+      "age\030\001 \001(\014\"\034\n\nDisconnect\022\016\n\006reason\030\001 \001(\t\"" +
+      "\037\n\014ProxyMessage\022\017\n\007message\030\001 \001(\014b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_ProxyInfo_descriptor =
+    internal_static_LoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_ProxyInfo_fieldAccessorTable = new
+    internal_static_LoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ProxyInfo_descriptor,
-        new java.lang.String[] { "Name", "ProxyProtocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "Secret", "IsProxy", });
+        internal_static_LoginRequest_descriptor,
+        new java.lang.String[] { "Name", "Protocol", "OnlinePlayers", "MaxPlayers", "Motd", "Software", "Auth", "Secret", "IsProxy", "ProtocolRev", });
     internal_static_AuthResponce_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_AuthResponce_fieldAccessorTable = new

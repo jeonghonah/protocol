@@ -1,1 +1,1 @@
-["ProxyInfo","AuthResponce","Data","VoxelSrvMessage","Disconnect","ProxyMessage","ChatComponentType","BasicChatComponentType","Item","InventoryType","ContainerType","MouseClickType"]
+["LoginRequest","AuthResponce","Data","VoxelSrvMessage","Disconnect","ProxyMessage"]

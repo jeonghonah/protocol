@@ -27,21 +27,37 @@ public static partial class TypesReflection {
           "ZXRocm91Z2gYBCABKAgSEQoJdW5kZXJsaW5lGAUgASgIEgsKA3VybBgGIAEo",
           "CSJrChZCYXNpY0NoYXRDb21wb25lbnRUeXBlEgwKBHRleHQYASABKAkSDAoE",
           "Zm9udBgCIAEoCRINCgVjb2xvchgDIAEoCRITCgtsaW5ldGhyb3VnaBgEIAEo",
-          "CBIRCgl1bmRlcmxpbmUYBSABKAgilgEKBEl0ZW0SCgoCaWQYASABKAkSDQoF",
-          "Y291bnQYAiABKAUSDgoGZGFtYWdlGAMgASgCEh0KBG5hbWUYBCADKAsyDy5J",
-          "dGVtLk5hbWVFbnRyeRpECglOYW1lRW50cnkSCwoDa2V5GAEgASgNEiYKBXZh",
-          "bHVlGAIgASgLMhcuQmFzaWNDaGF0Q29tcG9uZW50VHlwZToCOAEqQwoNSW52",
-          "ZW50b3J5VHlwZRIICgRNQUlOEAASCQoFQVJNT1IQARIJCgVDUkFGVBACEggK",
-          "BEhPT0sQAxIICgRURU1QEAQqQQoNQ29udGFpbmVyVHlwZRIKCgZQTEFZRVIQ",
-          "ABIJCgVDSEVTVBABEgwKCENSQUZUSU5HEAISCwoHRlVSTkFDRRADKj0KDk1v",
-          "dXNlQ2xpY2tUeXBlEggKBExFRlQQABIJCgVSSUdIVBABEgoKBk1JRERMRRAC",
-          "EgoKBlNFTEVDVBADYgZwcm90bzM="));
+          "CBIRCgl1bmRlcmxpbmUYBSABKAgiWAoESXRlbRIKCgJpZBgBIAEoCRINCgVj",
+          "b3VudBgCIAEoBRIOCgZkYW1hZ2UYAyABKAISJQoEbmFtZRgEIAMoCzIXLkJh",
+          "c2ljQ2hhdENvbXBvbmVudFR5cGUi7wIKB0l0ZW1EZWYSCgoCaWQYASABKAkS",
+          "EQoJbWF4X3N0YWNrGAIgASgNEiUKBG5hbWUYAyADKAsyFy5CYXNpY0NoYXRD",
+          "b21wb25lbnRUeXBlEhsKBHR5cGUYBCABKA4yDS5JdGVtRGVmLlR5cGUSHQoF",
+          "bW9kZWwYBSABKA4yDi5JdGVtRGVmLk1vZGVsEhAKCHRleHR1cmVzGAYgAygJ",
+          "EhEKCXRvb2xfdHlwZRgHIAMoCRIUCgxtaW5pbmdfc3BlZWQYCCABKAISFAoM",
+          "bWluaW5nX3Bvd2VyGAkgASgCEhQKDGN1c3RvbV9tb2RlbBgKIAEoCRIVCg1h",
+          "cm1vcl90ZXh0dXJlGAsgASgJIjAKBFR5cGUSCAoETk9ORRAAEggKBFRPT0wQ",
+          "ARIJCgVCTE9DSxACEgkKBUFSTU9SEAMiMgoFTW9kZWwSCAoERkxBVBAAEggK",
+          "BENVQkUQARIJCgVDUk9TUxACEgoKBkNVU1RPTRADItYCCghCbG9ja0RlZhIK",
+          "CgJpZBgBIAEoCRIOCgZudW1faWQYAiABKA0SHgoFbW9kZWwYAyABKA4yDy5C",
+          "bG9ja0RlZi5Nb2RlbBIQCgh0ZXh0dXJlcxgEIAMoCRIRCgl0b29sX3R5cGUY",
+          "BSADKAkSFAoMbWluaW5nX3NwZWVkGAYgASgCEhQKDG1pbmluZ19wb3dlchgH",
+          "IAEoAhINCgVzb2xpZBgIIAEoCBINCgVmbHVpZBgJIAEoCBIOCgZvcGFxdWUY",
+          "CiABKAgSDQoFY29sb3IYCyADKAISEAoIbWF0ZXJpYWwYDCADKAkSFQoNZmx1",
+          "aWRfZGVuc2l0eRgNIAEoARIRCgl2aXNjb3NpdHkYDiABKAESFAoMY3VzdG9t",
+          "X21vZGVsGA8gASgJIi4KBU1vZGVsEgkKBUJMT0NLEAASCQoFQ1JPU1MQARIP",
+          "CgtUUkFOU1BBUkVOVBACKkMKDUludmVudG9yeVR5cGUSCAoETUFJThAAEgkK",
+          "BUFSTU9SEAESCQoFQ1JBRlQQAhIICgRIT09LEAMSCAoEVEVNUBAEKkEKDUNv",
+          "bnRhaW5lclR5cGUSCgoGUExBWUVSEAASCQoFQ0hFU1QQARIMCghDUkFGVElO",
+          "RxACEgsKB0ZVUk5BQ0UQAyo9Cg5Nb3VzZUNsaWNrVHlwZRIICgRMRUZUEAAS",
+          "CQoFUklHSFQQARIKCgZNSURETEUQAhIKCgZTRUxFQ1QQA2IGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::InventoryType), typeof(global::ContainerType), typeof(global::MouseClickType), }, null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::ChatComponentType), global::ChatComponentType.Parser, new[]{ "Text", "Font", "Color", "Linethrough", "Underline", "Url" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::BasicChatComponentType), global::BasicChatComponentType.Parser, new[]{ "Text", "Font", "Color", "Linethrough", "Underline" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::Item), global::Item.Parser, new[]{ "Id", "Count", "Damage", "Name" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+          new pbr::GeneratedClrTypeInfo(typeof(global::Item), global::Item.Parser, new[]{ "Id", "Count", "Damage", "Name" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ItemDef), global::ItemDef.Parser, new[]{ "Id", "MaxStack", "Name", "Type", "Model", "Textures", "ToolType", "MiningSpeed", "MiningPower", "CustomModel", "ArmorTexture" }, null, new[]{ typeof(global::ItemDef.Types.Type), typeof(global::ItemDef.Types.Model) }, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::BlockDef), global::BlockDef.Parser, new[]{ "Id", "NumId", "Model", "Textures", "ToolType", "MiningSpeed", "MiningPower", "Solid", "Fluid", "Opaque", "Color", "Material", "FluidDensity", "Viscosity", "CustomModel" }, null, new[]{ typeof(global::BlockDef.Types.Model) }, null, null)
         }));
   }
   #endregion
@@ -817,11 +833,11 @@ public sealed partial class Item : pb::IMessage<Item>
 
   /// <summary>Field number for the "name" field.</summary>
   public const int NameFieldNumber = 4;
-  private static readonly pbc::MapField<uint, global::BasicChatComponentType>.Codec _map_name_codec
-      = new pbc::MapField<uint, global::BasicChatComponentType>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForMessage(18, global::BasicChatComponentType.Parser), 34);
-  private readonly pbc::MapField<uint, global::BasicChatComponentType> name_ = new pbc::MapField<uint, global::BasicChatComponentType>();
+  private static readonly pb::FieldCodec<global::BasicChatComponentType> _repeated_name_codec
+      = pb::FieldCodec.ForMessage(34, global::BasicChatComponentType.Parser);
+  private readonly pbc::RepeatedField<global::BasicChatComponentType> name_ = new pbc::RepeatedField<global::BasicChatComponentType>();
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public pbc::MapField<uint, global::BasicChatComponentType> Name {
+  public pbc::RepeatedField<global::BasicChatComponentType> Name {
     get { return name_; }
   }
 
@@ -841,7 +857,7 @@ public sealed partial class Item : pb::IMessage<Item>
     if (Id != other.Id) return false;
     if (Count != other.Count) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Damage, other.Damage)) return false;
-    if (!Name.Equals(other.Name)) return false;
+    if(!name_.Equals(other.name_)) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -851,7 +867,7 @@ public sealed partial class Item : pb::IMessage<Item>
     if (Id.Length != 0) hash ^= Id.GetHashCode();
     if (Count != 0) hash ^= Count.GetHashCode();
     if (Damage != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Damage);
-    hash ^= Name.GetHashCode();
+    hash ^= name_.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -880,7 +896,7 @@ public sealed partial class Item : pb::IMessage<Item>
       output.WriteRawTag(29);
       output.WriteFloat(Damage);
     }
-    name_.WriteTo(output, _map_name_codec);
+    name_.WriteTo(output, _repeated_name_codec);
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -902,7 +918,7 @@ public sealed partial class Item : pb::IMessage<Item>
       output.WriteRawTag(29);
       output.WriteFloat(Damage);
     }
-    name_.WriteTo(ref output, _map_name_codec);
+    name_.WriteTo(ref output, _repeated_name_codec);
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -921,7 +937,7 @@ public sealed partial class Item : pb::IMessage<Item>
     if (Damage != 0F) {
       size += 1 + 4;
     }
-    size += name_.CalculateSize(_map_name_codec);
+    size += name_.CalculateSize(_repeated_name_codec);
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
     }
@@ -970,7 +986,7 @@ public sealed partial class Item : pb::IMessage<Item>
           break;
         }
         case 34: {
-          name_.AddEntriesFrom(input, _map_name_codec);
+          name_.AddEntriesFrom(input, _repeated_name_codec);
           break;
         }
       }
@@ -1000,13 +1016,1180 @@ public sealed partial class Item : pb::IMessage<Item>
           break;
         }
         case 34: {
-          name_.AddEntriesFrom(ref input, _map_name_codec);
+          name_.AddEntriesFrom(ref input, _repeated_name_codec);
           break;
         }
       }
     }
   }
   #endif
+
+}
+
+public sealed partial class ItemDef : pb::IMessage<ItemDef>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<ItemDef> _parser = new pb::MessageParser<ItemDef>(() => new ItemDef());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<ItemDef> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::TypesReflection.Descriptor.MessageTypes[3]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ItemDef() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ItemDef(ItemDef other) : this() {
+    id_ = other.id_;
+    maxStack_ = other.maxStack_;
+    name_ = other.name_.Clone();
+    type_ = other.type_;
+    model_ = other.model_;
+    textures_ = other.textures_.Clone();
+    toolType_ = other.toolType_.Clone();
+    miningSpeed_ = other.miningSpeed_;
+    miningPower_ = other.miningPower_;
+    customModel_ = other.customModel_;
+    armorTexture_ = other.armorTexture_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ItemDef Clone() {
+    return new ItemDef(this);
+  }
+
+  /// <summary>Field number for the "id" field.</summary>
+  public const int IdFieldNumber = 1;
+  private string id_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Id {
+    get { return id_; }
+    set {
+      id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "max_stack" field.</summary>
+  public const int MaxStackFieldNumber = 2;
+  private uint maxStack_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public uint MaxStack {
+    get { return maxStack_; }
+    set {
+      maxStack_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "name" field.</summary>
+  public const int NameFieldNumber = 3;
+  private static readonly pb::FieldCodec<global::BasicChatComponentType> _repeated_name_codec
+      = pb::FieldCodec.ForMessage(26, global::BasicChatComponentType.Parser);
+  private readonly pbc::RepeatedField<global::BasicChatComponentType> name_ = new pbc::RepeatedField<global::BasicChatComponentType>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<global::BasicChatComponentType> Name {
+    get { return name_; }
+  }
+
+  /// <summary>Field number for the "type" field.</summary>
+  public const int TypeFieldNumber = 4;
+  private global::ItemDef.Types.Type type_ = global::ItemDef.Types.Type.None;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::ItemDef.Types.Type Type {
+    get { return type_; }
+    set {
+      type_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "model" field.</summary>
+  public const int ModelFieldNumber = 5;
+  private global::ItemDef.Types.Model model_ = global::ItemDef.Types.Model.Flat;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::ItemDef.Types.Model Model {
+    get { return model_; }
+    set {
+      model_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "textures" field.</summary>
+  public const int TexturesFieldNumber = 6;
+  private static readonly pb::FieldCodec<string> _repeated_textures_codec
+      = pb::FieldCodec.ForString(50);
+  private readonly pbc::RepeatedField<string> textures_ = new pbc::RepeatedField<string>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<string> Textures {
+    get { return textures_; }
+  }
+
+  /// <summary>Field number for the "tool_type" field.</summary>
+  public const int ToolTypeFieldNumber = 7;
+  private static readonly pb::FieldCodec<string> _repeated_toolType_codec
+      = pb::FieldCodec.ForString(58);
+  private readonly pbc::RepeatedField<string> toolType_ = new pbc::RepeatedField<string>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<string> ToolType {
+    get { return toolType_; }
+  }
+
+  /// <summary>Field number for the "mining_speed" field.</summary>
+  public const int MiningSpeedFieldNumber = 8;
+  private float miningSpeed_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float MiningSpeed {
+    get { return miningSpeed_; }
+    set {
+      miningSpeed_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "mining_power" field.</summary>
+  public const int MiningPowerFieldNumber = 9;
+  private float miningPower_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float MiningPower {
+    get { return miningPower_; }
+    set {
+      miningPower_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "custom_model" field.</summary>
+  public const int CustomModelFieldNumber = 10;
+  private string customModel_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string CustomModel {
+    get { return customModel_; }
+    set {
+      customModel_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "armor_texture" field.</summary>
+  public const int ArmorTextureFieldNumber = 11;
+  private string armorTexture_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string ArmorTexture {
+    get { return armorTexture_; }
+    set {
+      armorTexture_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as ItemDef);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(ItemDef other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Id != other.Id) return false;
+    if (MaxStack != other.MaxStack) return false;
+    if(!name_.Equals(other.name_)) return false;
+    if (Type != other.Type) return false;
+    if (Model != other.Model) return false;
+    if(!textures_.Equals(other.textures_)) return false;
+    if(!toolType_.Equals(other.toolType_)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MiningSpeed, other.MiningSpeed)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MiningPower, other.MiningPower)) return false;
+    if (CustomModel != other.CustomModel) return false;
+    if (ArmorTexture != other.ArmorTexture) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Id.Length != 0) hash ^= Id.GetHashCode();
+    if (MaxStack != 0) hash ^= MaxStack.GetHashCode();
+    hash ^= name_.GetHashCode();
+    if (Type != global::ItemDef.Types.Type.None) hash ^= Type.GetHashCode();
+    if (Model != global::ItemDef.Types.Model.Flat) hash ^= Model.GetHashCode();
+    hash ^= textures_.GetHashCode();
+    hash ^= toolType_.GetHashCode();
+    if (MiningSpeed != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MiningSpeed);
+    if (MiningPower != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MiningPower);
+    if (CustomModel.Length != 0) hash ^= CustomModel.GetHashCode();
+    if (ArmorTexture.Length != 0) hash ^= ArmorTexture.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Id.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Id);
+    }
+    if (MaxStack != 0) {
+      output.WriteRawTag(16);
+      output.WriteUInt32(MaxStack);
+    }
+    name_.WriteTo(output, _repeated_name_codec);
+    if (Type != global::ItemDef.Types.Type.None) {
+      output.WriteRawTag(32);
+      output.WriteEnum((int) Type);
+    }
+    if (Model != global::ItemDef.Types.Model.Flat) {
+      output.WriteRawTag(40);
+      output.WriteEnum((int) Model);
+    }
+    textures_.WriteTo(output, _repeated_textures_codec);
+    toolType_.WriteTo(output, _repeated_toolType_codec);
+    if (MiningSpeed != 0F) {
+      output.WriteRawTag(69);
+      output.WriteFloat(MiningSpeed);
+    }
+    if (MiningPower != 0F) {
+      output.WriteRawTag(77);
+      output.WriteFloat(MiningPower);
+    }
+    if (CustomModel.Length != 0) {
+      output.WriteRawTag(82);
+      output.WriteString(CustomModel);
+    }
+    if (ArmorTexture.Length != 0) {
+      output.WriteRawTag(90);
+      output.WriteString(ArmorTexture);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Id.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Id);
+    }
+    if (MaxStack != 0) {
+      output.WriteRawTag(16);
+      output.WriteUInt32(MaxStack);
+    }
+    name_.WriteTo(ref output, _repeated_name_codec);
+    if (Type != global::ItemDef.Types.Type.None) {
+      output.WriteRawTag(32);
+      output.WriteEnum((int) Type);
+    }
+    if (Model != global::ItemDef.Types.Model.Flat) {
+      output.WriteRawTag(40);
+      output.WriteEnum((int) Model);
+    }
+    textures_.WriteTo(ref output, _repeated_textures_codec);
+    toolType_.WriteTo(ref output, _repeated_toolType_codec);
+    if (MiningSpeed != 0F) {
+      output.WriteRawTag(69);
+      output.WriteFloat(MiningSpeed);
+    }
+    if (MiningPower != 0F) {
+      output.WriteRawTag(77);
+      output.WriteFloat(MiningPower);
+    }
+    if (CustomModel.Length != 0) {
+      output.WriteRawTag(82);
+      output.WriteString(CustomModel);
+    }
+    if (ArmorTexture.Length != 0) {
+      output.WriteRawTag(90);
+      output.WriteString(ArmorTexture);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Id.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+    }
+    if (MaxStack != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxStack);
+    }
+    size += name_.CalculateSize(_repeated_name_codec);
+    if (Type != global::ItemDef.Types.Type.None) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+    }
+    if (Model != global::ItemDef.Types.Model.Flat) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Model);
+    }
+    size += textures_.CalculateSize(_repeated_textures_codec);
+    size += toolType_.CalculateSize(_repeated_toolType_codec);
+    if (MiningSpeed != 0F) {
+      size += 1 + 4;
+    }
+    if (MiningPower != 0F) {
+      size += 1 + 4;
+    }
+    if (CustomModel.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(CustomModel);
+    }
+    if (ArmorTexture.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(ArmorTexture);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(ItemDef other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Id.Length != 0) {
+      Id = other.Id;
+    }
+    if (other.MaxStack != 0) {
+      MaxStack = other.MaxStack;
+    }
+    name_.Add(other.name_);
+    if (other.Type != global::ItemDef.Types.Type.None) {
+      Type = other.Type;
+    }
+    if (other.Model != global::ItemDef.Types.Model.Flat) {
+      Model = other.Model;
+    }
+    textures_.Add(other.textures_);
+    toolType_.Add(other.toolType_);
+    if (other.MiningSpeed != 0F) {
+      MiningSpeed = other.MiningSpeed;
+    }
+    if (other.MiningPower != 0F) {
+      MiningPower = other.MiningPower;
+    }
+    if (other.CustomModel.Length != 0) {
+      CustomModel = other.CustomModel;
+    }
+    if (other.ArmorTexture.Length != 0) {
+      ArmorTexture = other.ArmorTexture;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          Id = input.ReadString();
+          break;
+        }
+        case 16: {
+          MaxStack = input.ReadUInt32();
+          break;
+        }
+        case 26: {
+          name_.AddEntriesFrom(input, _repeated_name_codec);
+          break;
+        }
+        case 32: {
+          Type = (global::ItemDef.Types.Type) input.ReadEnum();
+          break;
+        }
+        case 40: {
+          Model = (global::ItemDef.Types.Model) input.ReadEnum();
+          break;
+        }
+        case 50: {
+          textures_.AddEntriesFrom(input, _repeated_textures_codec);
+          break;
+        }
+        case 58: {
+          toolType_.AddEntriesFrom(input, _repeated_toolType_codec);
+          break;
+        }
+        case 69: {
+          MiningSpeed = input.ReadFloat();
+          break;
+        }
+        case 77: {
+          MiningPower = input.ReadFloat();
+          break;
+        }
+        case 82: {
+          CustomModel = input.ReadString();
+          break;
+        }
+        case 90: {
+          ArmorTexture = input.ReadString();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          Id = input.ReadString();
+          break;
+        }
+        case 16: {
+          MaxStack = input.ReadUInt32();
+          break;
+        }
+        case 26: {
+          name_.AddEntriesFrom(ref input, _repeated_name_codec);
+          break;
+        }
+        case 32: {
+          Type = (global::ItemDef.Types.Type) input.ReadEnum();
+          break;
+        }
+        case 40: {
+          Model = (global::ItemDef.Types.Model) input.ReadEnum();
+          break;
+        }
+        case 50: {
+          textures_.AddEntriesFrom(ref input, _repeated_textures_codec);
+          break;
+        }
+        case 58: {
+          toolType_.AddEntriesFrom(ref input, _repeated_toolType_codec);
+          break;
+        }
+        case 69: {
+          MiningSpeed = input.ReadFloat();
+          break;
+        }
+        case 77: {
+          MiningPower = input.ReadFloat();
+          break;
+        }
+        case 82: {
+          CustomModel = input.ReadString();
+          break;
+        }
+        case 90: {
+          ArmorTexture = input.ReadString();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+  #region Nested types
+  /// <summary>Container for nested types declared in the ItemDef message type.</summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static partial class Types {
+    public enum Type {
+      [pbr::OriginalName("NONE")] None = 0,
+      [pbr::OriginalName("TOOL")] Tool = 1,
+      [pbr::OriginalName("BLOCK")] Block = 2,
+      [pbr::OriginalName("ARMOR")] Armor = 3,
+    }
+
+    public enum Model {
+      [pbr::OriginalName("FLAT")] Flat = 0,
+      [pbr::OriginalName("CUBE")] Cube = 1,
+      [pbr::OriginalName("CROSS")] Cross = 2,
+      [pbr::OriginalName("CUSTOM")] Custom = 3,
+    }
+
+  }
+  #endregion
+
+}
+
+public sealed partial class BlockDef : pb::IMessage<BlockDef>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<BlockDef> _parser = new pb::MessageParser<BlockDef>(() => new BlockDef());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<BlockDef> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::TypesReflection.Descriptor.MessageTypes[4]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public BlockDef() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public BlockDef(BlockDef other) : this() {
+    id_ = other.id_;
+    numId_ = other.numId_;
+    model_ = other.model_;
+    textures_ = other.textures_.Clone();
+    toolType_ = other.toolType_.Clone();
+    miningSpeed_ = other.miningSpeed_;
+    miningPower_ = other.miningPower_;
+    solid_ = other.solid_;
+    fluid_ = other.fluid_;
+    opaque_ = other.opaque_;
+    color_ = other.color_.Clone();
+    material_ = other.material_.Clone();
+    fluidDensity_ = other.fluidDensity_;
+    viscosity_ = other.viscosity_;
+    customModel_ = other.customModel_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public BlockDef Clone() {
+    return new BlockDef(this);
+  }
+
+  /// <summary>Field number for the "id" field.</summary>
+  public const int IdFieldNumber = 1;
+  private string id_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Id {
+    get { return id_; }
+    set {
+      id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "num_id" field.</summary>
+  public const int NumIdFieldNumber = 2;
+  private uint numId_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public uint NumId {
+    get { return numId_; }
+    set {
+      numId_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "model" field.</summary>
+  public const int ModelFieldNumber = 3;
+  private global::BlockDef.Types.Model model_ = global::BlockDef.Types.Model.Block;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public global::BlockDef.Types.Model Model {
+    get { return model_; }
+    set {
+      model_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "textures" field.</summary>
+  public const int TexturesFieldNumber = 4;
+  private static readonly pb::FieldCodec<string> _repeated_textures_codec
+      = pb::FieldCodec.ForString(34);
+  private readonly pbc::RepeatedField<string> textures_ = new pbc::RepeatedField<string>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<string> Textures {
+    get { return textures_; }
+  }
+
+  /// <summary>Field number for the "tool_type" field.</summary>
+  public const int ToolTypeFieldNumber = 5;
+  private static readonly pb::FieldCodec<string> _repeated_toolType_codec
+      = pb::FieldCodec.ForString(42);
+  private readonly pbc::RepeatedField<string> toolType_ = new pbc::RepeatedField<string>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<string> ToolType {
+    get { return toolType_; }
+  }
+
+  /// <summary>Field number for the "mining_speed" field.</summary>
+  public const int MiningSpeedFieldNumber = 6;
+  private float miningSpeed_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float MiningSpeed {
+    get { return miningSpeed_; }
+    set {
+      miningSpeed_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "mining_power" field.</summary>
+  public const int MiningPowerFieldNumber = 7;
+  private float miningPower_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float MiningPower {
+    get { return miningPower_; }
+    set {
+      miningPower_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "solid" field.</summary>
+  public const int SolidFieldNumber = 8;
+  private bool solid_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Solid {
+    get { return solid_; }
+    set {
+      solid_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "fluid" field.</summary>
+  public const int FluidFieldNumber = 9;
+  private bool fluid_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Fluid {
+    get { return fluid_; }
+    set {
+      fluid_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "opaque" field.</summary>
+  public const int OpaqueFieldNumber = 10;
+  private bool opaque_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Opaque {
+    get { return opaque_; }
+    set {
+      opaque_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "color" field.</summary>
+  public const int ColorFieldNumber = 11;
+  private static readonly pb::FieldCodec<float> _repeated_color_codec
+      = pb::FieldCodec.ForFloat(90);
+  private readonly pbc::RepeatedField<float> color_ = new pbc::RepeatedField<float>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<float> Color {
+    get { return color_; }
+  }
+
+  /// <summary>Field number for the "material" field.</summary>
+  public const int MaterialFieldNumber = 12;
+  private static readonly pb::FieldCodec<string> _repeated_material_codec
+      = pb::FieldCodec.ForString(98);
+  private readonly pbc::RepeatedField<string> material_ = new pbc::RepeatedField<string>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public pbc::RepeatedField<string> Material {
+    get { return material_; }
+  }
+
+  /// <summary>Field number for the "fluid_density" field.</summary>
+  public const int FluidDensityFieldNumber = 13;
+  private double fluidDensity_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public double FluidDensity {
+    get { return fluidDensity_; }
+    set {
+      fluidDensity_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "viscosity" field.</summary>
+  public const int ViscosityFieldNumber = 14;
+  private double viscosity_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public double Viscosity {
+    get { return viscosity_; }
+    set {
+      viscosity_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "custom_model" field.</summary>
+  public const int CustomModelFieldNumber = 15;
+  private string customModel_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string CustomModel {
+    get { return customModel_; }
+    set {
+      customModel_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as BlockDef);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(BlockDef other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Id != other.Id) return false;
+    if (NumId != other.NumId) return false;
+    if (Model != other.Model) return false;
+    if(!textures_.Equals(other.textures_)) return false;
+    if(!toolType_.Equals(other.toolType_)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MiningSpeed, other.MiningSpeed)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MiningPower, other.MiningPower)) return false;
+    if (Solid != other.Solid) return false;
+    if (Fluid != other.Fluid) return false;
+    if (Opaque != other.Opaque) return false;
+    if(!color_.Equals(other.color_)) return false;
+    if(!material_.Equals(other.material_)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(FluidDensity, other.FluidDensity)) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Viscosity, other.Viscosity)) return false;
+    if (CustomModel != other.CustomModel) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Id.Length != 0) hash ^= Id.GetHashCode();
+    if (NumId != 0) hash ^= NumId.GetHashCode();
+    if (Model != global::BlockDef.Types.Model.Block) hash ^= Model.GetHashCode();
+    hash ^= textures_.GetHashCode();
+    hash ^= toolType_.GetHashCode();
+    if (MiningSpeed != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MiningSpeed);
+    if (MiningPower != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MiningPower);
+    if (Solid != false) hash ^= Solid.GetHashCode();
+    if (Fluid != false) hash ^= Fluid.GetHashCode();
+    if (Opaque != false) hash ^= Opaque.GetHashCode();
+    hash ^= color_.GetHashCode();
+    hash ^= material_.GetHashCode();
+    if (FluidDensity != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(FluidDensity);
+    if (Viscosity != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Viscosity);
+    if (CustomModel.Length != 0) hash ^= CustomModel.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Id.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Id);
+    }
+    if (NumId != 0) {
+      output.WriteRawTag(16);
+      output.WriteUInt32(NumId);
+    }
+    if (Model != global::BlockDef.Types.Model.Block) {
+      output.WriteRawTag(24);
+      output.WriteEnum((int) Model);
+    }
+    textures_.WriteTo(output, _repeated_textures_codec);
+    toolType_.WriteTo(output, _repeated_toolType_codec);
+    if (MiningSpeed != 0F) {
+      output.WriteRawTag(53);
+      output.WriteFloat(MiningSpeed);
+    }
+    if (MiningPower != 0F) {
+      output.WriteRawTag(61);
+      output.WriteFloat(MiningPower);
+    }
+    if (Solid != false) {
+      output.WriteRawTag(64);
+      output.WriteBool(Solid);
+    }
+    if (Fluid != false) {
+      output.WriteRawTag(72);
+      output.WriteBool(Fluid);
+    }
+    if (Opaque != false) {
+      output.WriteRawTag(80);
+      output.WriteBool(Opaque);
+    }
+    color_.WriteTo(output, _repeated_color_codec);
+    material_.WriteTo(output, _repeated_material_codec);
+    if (FluidDensity != 0D) {
+      output.WriteRawTag(105);
+      output.WriteDouble(FluidDensity);
+    }
+    if (Viscosity != 0D) {
+      output.WriteRawTag(113);
+      output.WriteDouble(Viscosity);
+    }
+    if (CustomModel.Length != 0) {
+      output.WriteRawTag(122);
+      output.WriteString(CustomModel);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Id.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Id);
+    }
+    if (NumId != 0) {
+      output.WriteRawTag(16);
+      output.WriteUInt32(NumId);
+    }
+    if (Model != global::BlockDef.Types.Model.Block) {
+      output.WriteRawTag(24);
+      output.WriteEnum((int) Model);
+    }
+    textures_.WriteTo(ref output, _repeated_textures_codec);
+    toolType_.WriteTo(ref output, _repeated_toolType_codec);
+    if (MiningSpeed != 0F) {
+      output.WriteRawTag(53);
+      output.WriteFloat(MiningSpeed);
+    }
+    if (MiningPower != 0F) {
+      output.WriteRawTag(61);
+      output.WriteFloat(MiningPower);
+    }
+    if (Solid != false) {
+      output.WriteRawTag(64);
+      output.WriteBool(Solid);
+    }
+    if (Fluid != false) {
+      output.WriteRawTag(72);
+      output.WriteBool(Fluid);
+    }
+    if (Opaque != false) {
+      output.WriteRawTag(80);
+      output.WriteBool(Opaque);
+    }
+    color_.WriteTo(ref output, _repeated_color_codec);
+    material_.WriteTo(ref output, _repeated_material_codec);
+    if (FluidDensity != 0D) {
+      output.WriteRawTag(105);
+      output.WriteDouble(FluidDensity);
+    }
+    if (Viscosity != 0D) {
+      output.WriteRawTag(113);
+      output.WriteDouble(Viscosity);
+    }
+    if (CustomModel.Length != 0) {
+      output.WriteRawTag(122);
+      output.WriteString(CustomModel);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Id.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+    }
+    if (NumId != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumId);
+    }
+    if (Model != global::BlockDef.Types.Model.Block) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Model);
+    }
+    size += textures_.CalculateSize(_repeated_textures_codec);
+    size += toolType_.CalculateSize(_repeated_toolType_codec);
+    if (MiningSpeed != 0F) {
+      size += 1 + 4;
+    }
+    if (MiningPower != 0F) {
+      size += 1 + 4;
+    }
+    if (Solid != false) {
+      size += 1 + 1;
+    }
+    if (Fluid != false) {
+      size += 1 + 1;
+    }
+    if (Opaque != false) {
+      size += 1 + 1;
+    }
+    size += color_.CalculateSize(_repeated_color_codec);
+    size += material_.CalculateSize(_repeated_material_codec);
+    if (FluidDensity != 0D) {
+      size += 1 + 8;
+    }
+    if (Viscosity != 0D) {
+      size += 1 + 8;
+    }
+    if (CustomModel.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(CustomModel);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(BlockDef other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Id.Length != 0) {
+      Id = other.Id;
+    }
+    if (other.NumId != 0) {
+      NumId = other.NumId;
+    }
+    if (other.Model != global::BlockDef.Types.Model.Block) {
+      Model = other.Model;
+    }
+    textures_.Add(other.textures_);
+    toolType_.Add(other.toolType_);
+    if (other.MiningSpeed != 0F) {
+      MiningSpeed = other.MiningSpeed;
+    }
+    if (other.MiningPower != 0F) {
+      MiningPower = other.MiningPower;
+    }
+    if (other.Solid != false) {
+      Solid = other.Solid;
+    }
+    if (other.Fluid != false) {
+      Fluid = other.Fluid;
+    }
+    if (other.Opaque != false) {
+      Opaque = other.Opaque;
+    }
+    color_.Add(other.color_);
+    material_.Add(other.material_);
+    if (other.FluidDensity != 0D) {
+      FluidDensity = other.FluidDensity;
+    }
+    if (other.Viscosity != 0D) {
+      Viscosity = other.Viscosity;
+    }
+    if (other.CustomModel.Length != 0) {
+      CustomModel = other.CustomModel;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          Id = input.ReadString();
+          break;
+        }
+        case 16: {
+          NumId = input.ReadUInt32();
+          break;
+        }
+        case 24: {
+          Model = (global::BlockDef.Types.Model) input.ReadEnum();
+          break;
+        }
+        case 34: {
+          textures_.AddEntriesFrom(input, _repeated_textures_codec);
+          break;
+        }
+        case 42: {
+          toolType_.AddEntriesFrom(input, _repeated_toolType_codec);
+          break;
+        }
+        case 53: {
+          MiningSpeed = input.ReadFloat();
+          break;
+        }
+        case 61: {
+          MiningPower = input.ReadFloat();
+          break;
+        }
+        case 64: {
+          Solid = input.ReadBool();
+          break;
+        }
+        case 72: {
+          Fluid = input.ReadBool();
+          break;
+        }
+        case 80: {
+          Opaque = input.ReadBool();
+          break;
+        }
+        case 90:
+        case 93: {
+          color_.AddEntriesFrom(input, _repeated_color_codec);
+          break;
+        }
+        case 98: {
+          material_.AddEntriesFrom(input, _repeated_material_codec);
+          break;
+        }
+        case 105: {
+          FluidDensity = input.ReadDouble();
+          break;
+        }
+        case 113: {
+          Viscosity = input.ReadDouble();
+          break;
+        }
+        case 122: {
+          CustomModel = input.ReadString();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          Id = input.ReadString();
+          break;
+        }
+        case 16: {
+          NumId = input.ReadUInt32();
+          break;
+        }
+        case 24: {
+          Model = (global::BlockDef.Types.Model) input.ReadEnum();
+          break;
+        }
+        case 34: {
+          textures_.AddEntriesFrom(ref input, _repeated_textures_codec);
+          break;
+        }
+        case 42: {
+          toolType_.AddEntriesFrom(ref input, _repeated_toolType_codec);
+          break;
+        }
+        case 53: {
+          MiningSpeed = input.ReadFloat();
+          break;
+        }
+        case 61: {
+          MiningPower = input.ReadFloat();
+          break;
+        }
+        case 64: {
+          Solid = input.ReadBool();
+          break;
+        }
+        case 72: {
+          Fluid = input.ReadBool();
+          break;
+        }
+        case 80: {
+          Opaque = input.ReadBool();
+          break;
+        }
+        case 90:
+        case 93: {
+          color_.AddEntriesFrom(ref input, _repeated_color_codec);
+          break;
+        }
+        case 98: {
+          material_.AddEntriesFrom(ref input, _repeated_material_codec);
+          break;
+        }
+        case 105: {
+          FluidDensity = input.ReadDouble();
+          break;
+        }
+        case 113: {
+          Viscosity = input.ReadDouble();
+          break;
+        }
+        case 122: {
+          CustomModel = input.ReadString();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+  #region Nested types
+  /// <summary>Container for nested types declared in the BlockDef message type.</summary>
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static partial class Types {
+    public enum Model {
+      [pbr::OriginalName("BLOCK")] Block = 0,
+      [pbr::OriginalName("CROSS")] Cross = 1,
+      [pbr::OriginalName("TRANSPARENT")] Transparent = 2,
+    }
+
+  }
+  #endregion
 
 }
 

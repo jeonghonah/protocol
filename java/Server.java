@@ -2162,28 +2162,52 @@ public final class Server {
         getAssetsBytes();
 
     /**
-     * <code>string items_def = 4;</code>
-     * @return The itemsDef.
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
-    java.lang.String getItemsDef();
+    java.util.List<Types.ItemDef> 
+        getItemsDefList();
     /**
-     * <code>string items_def = 4;</code>
-     * @return The bytes for itemsDef.
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
-    com.google.protobuf.ByteString
-        getItemsDefBytes();
+    Types.ItemDef getItemsDef(int index);
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    int getItemsDefCount();
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    java.util.List<? extends Types.ItemDefOrBuilder> 
+        getItemsDefOrBuilderList();
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    Types.ItemDefOrBuilder getItemsDefOrBuilder(
+        int index);
 
     /**
-     * <code>string blocks_def = 5;</code>
-     * @return The blocksDef.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
-    java.lang.String getBlocksDef();
+    java.util.List<Types.BlockDef> 
+        getBlocksDefList();
     /**
-     * <code>string blocks_def = 5;</code>
-     * @return The bytes for blocksDef.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
-    com.google.protobuf.ByteString
-        getBlocksDefBytes();
+    Types.BlockDef getBlocksDef(int index);
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    int getBlocksDefCount();
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    java.util.List<? extends Types.BlockDefOrBuilder> 
+        getBlocksDefOrBuilderList();
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    Types.BlockDefOrBuilder getBlocksDefOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code LoginSuccess}
@@ -2200,8 +2224,8 @@ public final class Server {
     private LoginSuccess() {
       message_ = "";
       assets_ = "";
-      itemsDef_ = "";
-      blocksDef_ = "";
+      itemsDef_ = java.util.Collections.emptyList();
+      blocksDef_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2224,6 +2248,7 @@ public final class Server {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2252,15 +2277,21 @@ public final class Server {
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              itemsDef_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                itemsDef_ = new java.util.ArrayList<Types.ItemDef>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              itemsDef_.add(
+                  input.readMessage(Types.ItemDef.parser(), extensionRegistry));
               break;
             }
             case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              blocksDef_ = s;
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                blocksDef_ = new java.util.ArrayList<Types.BlockDef>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              blocksDef_.add(
+                  input.readMessage(Types.BlockDef.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -2278,6 +2309,12 @@ public final class Server {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          itemsDef_ = java.util.Collections.unmodifiableList(itemsDef_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          blocksDef_ = java.util.Collections.unmodifiableList(blocksDef_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2383,79 +2420,83 @@ public final class Server {
     }
 
     public static final int ITEMS_DEF_FIELD_NUMBER = 4;
-    private volatile java.lang.Object itemsDef_;
+    private java.util.List<Types.ItemDef> itemsDef_;
     /**
-     * <code>string items_def = 4;</code>
-     * @return The itemsDef.
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
     @java.lang.Override
-    public java.lang.String getItemsDef() {
-      java.lang.Object ref = itemsDef_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        itemsDef_ = s;
-        return s;
-      }
+    public java.util.List<Types.ItemDef> getItemsDefList() {
+      return itemsDef_;
     }
     /**
-     * <code>string items_def = 4;</code>
-     * @return The bytes for itemsDef.
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getItemsDefBytes() {
-      java.lang.Object ref = itemsDef_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        itemsDef_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public java.util.List<? extends Types.ItemDefOrBuilder> 
+        getItemsDefOrBuilderList() {
+      return itemsDef_;
+    }
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    @java.lang.Override
+    public int getItemsDefCount() {
+      return itemsDef_.size();
+    }
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    @java.lang.Override
+    public Types.ItemDef getItemsDef(int index) {
+      return itemsDef_.get(index);
+    }
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    @java.lang.Override
+    public Types.ItemDefOrBuilder getItemsDefOrBuilder(
+        int index) {
+      return itemsDef_.get(index);
     }
 
     public static final int BLOCKS_DEF_FIELD_NUMBER = 5;
-    private volatile java.lang.Object blocksDef_;
+    private java.util.List<Types.BlockDef> blocksDef_;
     /**
-     * <code>string blocks_def = 5;</code>
-     * @return The blocksDef.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
     @java.lang.Override
-    public java.lang.String getBlocksDef() {
-      java.lang.Object ref = blocksDef_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        blocksDef_ = s;
-        return s;
-      }
+    public java.util.List<Types.BlockDef> getBlocksDefList() {
+      return blocksDef_;
     }
     /**
-     * <code>string blocks_def = 5;</code>
-     * @return The bytes for blocksDef.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getBlocksDefBytes() {
-      java.lang.Object ref = blocksDef_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        blocksDef_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public java.util.List<? extends Types.BlockDefOrBuilder> 
+        getBlocksDefOrBuilderList() {
+      return blocksDef_;
+    }
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    @java.lang.Override
+    public int getBlocksDefCount() {
+      return blocksDef_.size();
+    }
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    @java.lang.Override
+    public Types.BlockDef getBlocksDef(int index) {
+      return blocksDef_.get(index);
+    }
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    @java.lang.Override
+    public Types.BlockDefOrBuilder getBlocksDefOrBuilder(
+        int index) {
+      return blocksDef_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2481,11 +2522,11 @@ public final class Server {
       if (!getAssetsBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, assets_);
       }
-      if (!getItemsDefBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, itemsDef_);
+      for (int i = 0; i < itemsDef_.size(); i++) {
+        output.writeMessage(4, itemsDef_.get(i));
       }
-      if (!getBlocksDefBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, blocksDef_);
+      for (int i = 0; i < blocksDef_.size(); i++) {
+        output.writeMessage(5, blocksDef_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -2506,11 +2547,13 @@ public final class Server {
       if (!getAssetsBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, assets_);
       }
-      if (!getItemsDefBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, itemsDef_);
+      for (int i = 0; i < itemsDef_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, itemsDef_.get(i));
       }
-      if (!getBlocksDefBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, blocksDef_);
+      for (int i = 0; i < blocksDef_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, blocksDef_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2533,10 +2576,10 @@ public final class Server {
           != other.getTime()) return false;
       if (!getAssets()
           .equals(other.getAssets())) return false;
-      if (!getItemsDef()
-          .equals(other.getItemsDef())) return false;
-      if (!getBlocksDef()
-          .equals(other.getBlocksDef())) return false;
+      if (!getItemsDefList()
+          .equals(other.getItemsDefList())) return false;
+      if (!getBlocksDefList()
+          .equals(other.getBlocksDefList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2555,10 +2598,14 @@ public final class Server {
           getTime());
       hash = (37 * hash) + ASSETS_FIELD_NUMBER;
       hash = (53 * hash) + getAssets().hashCode();
-      hash = (37 * hash) + ITEMS_DEF_FIELD_NUMBER;
-      hash = (53 * hash) + getItemsDef().hashCode();
-      hash = (37 * hash) + BLOCKS_DEF_FIELD_NUMBER;
-      hash = (53 * hash) + getBlocksDef().hashCode();
+      if (getItemsDefCount() > 0) {
+        hash = (37 * hash) + ITEMS_DEF_FIELD_NUMBER;
+        hash = (53 * hash) + getItemsDefList().hashCode();
+      }
+      if (getBlocksDefCount() > 0) {
+        hash = (37 * hash) + BLOCKS_DEF_FIELD_NUMBER;
+        hash = (53 * hash) + getBlocksDefList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2687,6 +2734,8 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getItemsDefFieldBuilder();
+          getBlocksDefFieldBuilder();
         }
       }
       @java.lang.Override
@@ -2698,10 +2747,18 @@ public final class Server {
 
         assets_ = "";
 
-        itemsDef_ = "";
-
-        blocksDef_ = "";
-
+        if (itemsDefBuilder_ == null) {
+          itemsDef_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          itemsDefBuilder_.clear();
+        }
+        if (blocksDefBuilder_ == null) {
+          blocksDef_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          blocksDefBuilder_.clear();
+        }
         return this;
       }
 
@@ -2728,11 +2785,28 @@ public final class Server {
       @java.lang.Override
       public Server.LoginSuccess buildPartial() {
         Server.LoginSuccess result = new Server.LoginSuccess(this);
+        int from_bitField0_ = bitField0_;
         result.message_ = message_;
         result.time_ = time_;
         result.assets_ = assets_;
-        result.itemsDef_ = itemsDef_;
-        result.blocksDef_ = blocksDef_;
+        if (itemsDefBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            itemsDef_ = java.util.Collections.unmodifiableList(itemsDef_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.itemsDef_ = itemsDef_;
+        } else {
+          result.itemsDef_ = itemsDefBuilder_.build();
+        }
+        if (blocksDefBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            blocksDef_ = java.util.Collections.unmodifiableList(blocksDef_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.blocksDef_ = blocksDef_;
+        } else {
+          result.blocksDef_ = blocksDefBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -2792,13 +2866,57 @@ public final class Server {
           assets_ = other.assets_;
           onChanged();
         }
-        if (!other.getItemsDef().isEmpty()) {
-          itemsDef_ = other.itemsDef_;
-          onChanged();
+        if (itemsDefBuilder_ == null) {
+          if (!other.itemsDef_.isEmpty()) {
+            if (itemsDef_.isEmpty()) {
+              itemsDef_ = other.itemsDef_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureItemsDefIsMutable();
+              itemsDef_.addAll(other.itemsDef_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.itemsDef_.isEmpty()) {
+            if (itemsDefBuilder_.isEmpty()) {
+              itemsDefBuilder_.dispose();
+              itemsDefBuilder_ = null;
+              itemsDef_ = other.itemsDef_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              itemsDefBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getItemsDefFieldBuilder() : null;
+            } else {
+              itemsDefBuilder_.addAllMessages(other.itemsDef_);
+            }
+          }
         }
-        if (!other.getBlocksDef().isEmpty()) {
-          blocksDef_ = other.blocksDef_;
-          onChanged();
+        if (blocksDefBuilder_ == null) {
+          if (!other.blocksDef_.isEmpty()) {
+            if (blocksDef_.isEmpty()) {
+              blocksDef_ = other.blocksDef_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureBlocksDefIsMutable();
+              blocksDef_.addAll(other.blocksDef_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.blocksDef_.isEmpty()) {
+            if (blocksDefBuilder_.isEmpty()) {
+              blocksDefBuilder_.dispose();
+              blocksDefBuilder_ = null;
+              blocksDef_ = other.blocksDef_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              blocksDefBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getBlocksDefFieldBuilder() : null;
+            } else {
+              blocksDefBuilder_.addAllMessages(other.blocksDef_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2828,6 +2946,7 @@ public final class Server {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object message_ = "";
       /**
@@ -3012,156 +3131,484 @@ public final class Server {
         return this;
       }
 
-      private java.lang.Object itemsDef_ = "";
-      /**
-       * <code>string items_def = 4;</code>
-       * @return The itemsDef.
-       */
-      public java.lang.String getItemsDef() {
-        java.lang.Object ref = itemsDef_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          itemsDef_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string items_def = 4;</code>
-       * @return The bytes for itemsDef.
-       */
-      public com.google.protobuf.ByteString
-          getItemsDefBytes() {
-        java.lang.Object ref = itemsDef_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          itemsDef_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string items_def = 4;</code>
-       * @param value The itemsDef to set.
-       * @return This builder for chaining.
-       */
-      public Builder setItemsDef(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        itemsDef_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string items_def = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearItemsDef() {
-        
-        itemsDef_ = getDefaultInstance().getItemsDef();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string items_def = 4;</code>
-       * @param value The bytes for itemsDef to set.
-       * @return This builder for chaining.
-       */
-      public Builder setItemsDefBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        itemsDef_ = value;
-        onChanged();
-        return this;
+      private java.util.List<Types.ItemDef> itemsDef_ =
+        java.util.Collections.emptyList();
+      private void ensureItemsDefIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          itemsDef_ = new java.util.ArrayList<Types.ItemDef>(itemsDef_);
+          bitField0_ |= 0x00000001;
+         }
       }
 
-      private java.lang.Object blocksDef_ = "";
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.ItemDef, Types.ItemDef.Builder, Types.ItemDefOrBuilder> itemsDefBuilder_;
+
       /**
-       * <code>string blocks_def = 5;</code>
-       * @return The blocksDef.
+       * <code>repeated .ItemDef items_def = 4;</code>
        */
-      public java.lang.String getBlocksDef() {
-        java.lang.Object ref = blocksDef_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          blocksDef_ = s;
-          return s;
+      public java.util.List<Types.ItemDef> getItemsDefList() {
+        if (itemsDefBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(itemsDef_);
         } else {
-          return (java.lang.String) ref;
+          return itemsDefBuilder_.getMessageList();
         }
       }
       /**
-       * <code>string blocks_def = 5;</code>
-       * @return The bytes for blocksDef.
+       * <code>repeated .ItemDef items_def = 4;</code>
        */
-      public com.google.protobuf.ByteString
-          getBlocksDefBytes() {
-        java.lang.Object ref = blocksDef_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          blocksDef_ = b;
-          return b;
+      public int getItemsDefCount() {
+        if (itemsDefBuilder_ == null) {
+          return itemsDef_.size();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return itemsDefBuilder_.getCount();
         }
       }
       /**
-       * <code>string blocks_def = 5;</code>
-       * @param value The blocksDef to set.
-       * @return This builder for chaining.
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Types.ItemDef getItemsDef(int index) {
+        if (itemsDefBuilder_ == null) {
+          return itemsDef_.get(index);
+        } else {
+          return itemsDefBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder setItemsDef(
+          int index, Types.ItemDef value) {
+        if (itemsDefBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsDefIsMutable();
+          itemsDef_.set(index, value);
+          onChanged();
+        } else {
+          itemsDefBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder setItemsDef(
+          int index, Types.ItemDef.Builder builderForValue) {
+        if (itemsDefBuilder_ == null) {
+          ensureItemsDefIsMutable();
+          itemsDef_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsDefBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addItemsDef(Types.ItemDef value) {
+        if (itemsDefBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsDefIsMutable();
+          itemsDef_.add(value);
+          onChanged();
+        } else {
+          itemsDefBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addItemsDef(
+          int index, Types.ItemDef value) {
+        if (itemsDefBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsDefIsMutable();
+          itemsDef_.add(index, value);
+          onChanged();
+        } else {
+          itemsDefBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addItemsDef(
+          Types.ItemDef.Builder builderForValue) {
+        if (itemsDefBuilder_ == null) {
+          ensureItemsDefIsMutable();
+          itemsDef_.add(builderForValue.build());
+          onChanged();
+        } else {
+          itemsDefBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addItemsDef(
+          int index, Types.ItemDef.Builder builderForValue) {
+        if (itemsDefBuilder_ == null) {
+          ensureItemsDefIsMutable();
+          itemsDef_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsDefBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addAllItemsDef(
+          java.lang.Iterable<? extends Types.ItemDef> values) {
+        if (itemsDefBuilder_ == null) {
+          ensureItemsDefIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, itemsDef_);
+          onChanged();
+        } else {
+          itemsDefBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder clearItemsDef() {
+        if (itemsDefBuilder_ == null) {
+          itemsDef_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          itemsDefBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder removeItemsDef(int index) {
+        if (itemsDefBuilder_ == null) {
+          ensureItemsDefIsMutable();
+          itemsDef_.remove(index);
+          onChanged();
+        } else {
+          itemsDefBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Types.ItemDef.Builder getItemsDefBuilder(
+          int index) {
+        return getItemsDefFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Types.ItemDefOrBuilder getItemsDefOrBuilder(
+          int index) {
+        if (itemsDefBuilder_ == null) {
+          return itemsDef_.get(index);  } else {
+          return itemsDefBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public java.util.List<? extends Types.ItemDefOrBuilder> 
+           getItemsDefOrBuilderList() {
+        if (itemsDefBuilder_ != null) {
+          return itemsDefBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(itemsDef_);
+        }
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Types.ItemDef.Builder addItemsDefBuilder() {
+        return getItemsDefFieldBuilder().addBuilder(
+            Types.ItemDef.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Types.ItemDef.Builder addItemsDefBuilder(
+          int index) {
+        return getItemsDefFieldBuilder().addBuilder(
+            index, Types.ItemDef.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public java.util.List<Types.ItemDef.Builder> 
+           getItemsDefBuilderList() {
+        return getItemsDefFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.ItemDef, Types.ItemDef.Builder, Types.ItemDefOrBuilder> 
+          getItemsDefFieldBuilder() {
+        if (itemsDefBuilder_ == null) {
+          itemsDefBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.ItemDef, Types.ItemDef.Builder, Types.ItemDefOrBuilder>(
+                  itemsDef_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          itemsDef_ = null;
+        }
+        return itemsDefBuilder_;
+      }
+
+      private java.util.List<Types.BlockDef> blocksDef_ =
+        java.util.Collections.emptyList();
+      private void ensureBlocksDefIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          blocksDef_ = new java.util.ArrayList<Types.BlockDef>(blocksDef_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BlockDef, Types.BlockDef.Builder, Types.BlockDefOrBuilder> blocksDefBuilder_;
+
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public java.util.List<Types.BlockDef> getBlocksDefList() {
+        if (blocksDefBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(blocksDef_);
+        } else {
+          return blocksDefBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public int getBlocksDefCount() {
+        if (blocksDefBuilder_ == null) {
+          return blocksDef_.size();
+        } else {
+          return blocksDefBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Types.BlockDef getBlocksDef(int index) {
+        if (blocksDefBuilder_ == null) {
+          return blocksDef_.get(index);
+        } else {
+          return blocksDefBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
        */
       public Builder setBlocksDef(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        blocksDef_ = value;
-        onChanged();
+          int index, Types.BlockDef value) {
+        if (blocksDefBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksDefIsMutable();
+          blocksDef_.set(index, value);
+          onChanged();
+        } else {
+          blocksDefBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>string blocks_def = 5;</code>
-       * @return This builder for chaining.
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder setBlocksDef(
+          int index, Types.BlockDef.Builder builderForValue) {
+        if (blocksDefBuilder_ == null) {
+          ensureBlocksDefIsMutable();
+          blocksDef_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          blocksDefBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addBlocksDef(Types.BlockDef value) {
+        if (blocksDefBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksDefIsMutable();
+          blocksDef_.add(value);
+          onChanged();
+        } else {
+          blocksDefBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addBlocksDef(
+          int index, Types.BlockDef value) {
+        if (blocksDefBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksDefIsMutable();
+          blocksDef_.add(index, value);
+          onChanged();
+        } else {
+          blocksDefBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addBlocksDef(
+          Types.BlockDef.Builder builderForValue) {
+        if (blocksDefBuilder_ == null) {
+          ensureBlocksDefIsMutable();
+          blocksDef_.add(builderForValue.build());
+          onChanged();
+        } else {
+          blocksDefBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addBlocksDef(
+          int index, Types.BlockDef.Builder builderForValue) {
+        if (blocksDefBuilder_ == null) {
+          ensureBlocksDefIsMutable();
+          blocksDef_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          blocksDefBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addAllBlocksDef(
+          java.lang.Iterable<? extends Types.BlockDef> values) {
+        if (blocksDefBuilder_ == null) {
+          ensureBlocksDefIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, blocksDef_);
+          onChanged();
+        } else {
+          blocksDefBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
        */
       public Builder clearBlocksDef() {
-        
-        blocksDef_ = getDefaultInstance().getBlocksDef();
-        onChanged();
+        if (blocksDefBuilder_ == null) {
+          blocksDef_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          blocksDefBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>string blocks_def = 5;</code>
-       * @param value The bytes for blocksDef to set.
-       * @return This builder for chaining.
+       * <code>repeated .BlockDef blocks_def = 5;</code>
        */
-      public Builder setBlocksDefBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        blocksDef_ = value;
-        onChanged();
+      public Builder removeBlocksDef(int index) {
+        if (blocksDefBuilder_ == null) {
+          ensureBlocksDefIsMutable();
+          blocksDef_.remove(index);
+          onChanged();
+        } else {
+          blocksDefBuilder_.remove(index);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Types.BlockDef.Builder getBlocksDefBuilder(
+          int index) {
+        return getBlocksDefFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Types.BlockDefOrBuilder getBlocksDefOrBuilder(
+          int index) {
+        if (blocksDefBuilder_ == null) {
+          return blocksDef_.get(index);  } else {
+          return blocksDefBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public java.util.List<? extends Types.BlockDefOrBuilder> 
+           getBlocksDefOrBuilderList() {
+        if (blocksDefBuilder_ != null) {
+          return blocksDefBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(blocksDef_);
+        }
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Types.BlockDef.Builder addBlocksDefBuilder() {
+        return getBlocksDefFieldBuilder().addBuilder(
+            Types.BlockDef.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Types.BlockDef.Builder addBlocksDefBuilder(
+          int index) {
+        return getBlocksDefFieldBuilder().addBuilder(
+            index, Types.BlockDef.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public java.util.List<Types.BlockDef.Builder> 
+           getBlocksDefBuilderList() {
+        return getBlocksDefFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BlockDef, Types.BlockDef.Builder, Types.BlockDefOrBuilder> 
+          getBlocksDefFieldBuilder() {
+        if (blocksDefBuilder_ == null) {
+          blocksDefBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.BlockDef, Types.BlockDef.Builder, Types.BlockDefOrBuilder>(
+                  blocksDef_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          blocksDef_ = null;
+        }
+        return blocksDefBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5214,16 +5661,28 @@ public final class Server {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string reason = 1;</code>
-     * @return The reason.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
-    java.lang.String getReason();
+    java.util.List<Types.BasicChatComponentType> 
+        getReasonList();
     /**
-     * <code>string reason = 1;</code>
-     * @return The bytes for reason.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getReasonBytes();
+    Types.BasicChatComponentType getReason(int index);
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    int getReasonCount();
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getReasonOrBuilderList();
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    Types.BasicChatComponentTypeOrBuilder getReasonOrBuilder(
+        int index);
 
     /**
      * <code>uint64 time = 2;</code>
@@ -5244,7 +5703,7 @@ public final class Server {
       super(builder);
     }
     private PlayerKick() {
-      reason_ = "";
+      reason_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -5267,6 +5726,7 @@ public final class Server {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -5278,9 +5738,12 @@ public final class Server {
               done = true;
               break;
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              reason_ = s;
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                reason_ = new java.util.ArrayList<Types.BasicChatComponentType>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              reason_.add(
+                  input.readMessage(Types.BasicChatComponentType.parser(), extensionRegistry));
               break;
             }
             case 16: {
@@ -5303,6 +5766,9 @@ public final class Server {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          reason_ = java.util.Collections.unmodifiableList(reason_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -5321,41 +5787,43 @@ public final class Server {
     }
 
     public static final int REASON_FIELD_NUMBER = 1;
-    private volatile java.lang.Object reason_;
+    private java.util.List<Types.BasicChatComponentType> reason_;
     /**
-     * <code>string reason = 1;</code>
-     * @return The reason.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
     @java.lang.Override
-    public java.lang.String getReason() {
-      java.lang.Object ref = reason_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        reason_ = s;
-        return s;
-      }
+    public java.util.List<Types.BasicChatComponentType> getReasonList() {
+      return reason_;
     }
     /**
-     * <code>string reason = 1;</code>
-     * @return The bytes for reason.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getReasonBytes() {
-      java.lang.Object ref = reason_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        reason_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getReasonOrBuilderList() {
+      return reason_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    @java.lang.Override
+    public int getReasonCount() {
+      return reason_.size();
+    }
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentType getReason(int index) {
+      return reason_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentTypeOrBuilder getReasonOrBuilder(
+        int index) {
+      return reason_.get(index);
     }
 
     public static final int TIME_FIELD_NUMBER = 2;
@@ -5383,8 +5851,8 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getReasonBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, reason_);
+      for (int i = 0; i < reason_.size(); i++) {
+        output.writeMessage(1, reason_.get(i));
       }
       if (time_ != 0L) {
         output.writeUInt64(2, time_);
@@ -5398,8 +5866,9 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
-      if (!getReasonBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, reason_);
+      for (int i = 0; i < reason_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, reason_.get(i));
       }
       if (time_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -5420,8 +5889,8 @@ public final class Server {
       }
       Server.PlayerKick other = (Server.PlayerKick) obj;
 
-      if (!getReason()
-          .equals(other.getReason())) return false;
+      if (!getReasonList()
+          .equals(other.getReasonList())) return false;
       if (getTime()
           != other.getTime()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -5435,8 +5904,10 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REASON_FIELD_NUMBER;
-      hash = (53 * hash) + getReason().hashCode();
+      if (getReasonCount() > 0) {
+        hash = (37 * hash) + REASON_FIELD_NUMBER;
+        hash = (53 * hash) + getReasonList().hashCode();
+      }
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTime());
@@ -5568,13 +6039,18 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getReasonFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        reason_ = "";
-
+        if (reasonBuilder_ == null) {
+          reason_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          reasonBuilder_.clear();
+        }
         time_ = 0L;
 
         return this;
@@ -5603,7 +6079,16 @@ public final class Server {
       @java.lang.Override
       public Server.PlayerKick buildPartial() {
         Server.PlayerKick result = new Server.PlayerKick(this);
-        result.reason_ = reason_;
+        int from_bitField0_ = bitField0_;
+        if (reasonBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            reason_ = java.util.Collections.unmodifiableList(reason_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.reason_ = reason_;
+        } else {
+          result.reason_ = reasonBuilder_.build();
+        }
         result.time_ = time_;
         onBuilt();
         return result;
@@ -5653,9 +6138,31 @@ public final class Server {
 
       public Builder mergeFrom(Server.PlayerKick other) {
         if (other == Server.PlayerKick.getDefaultInstance()) return this;
-        if (!other.getReason().isEmpty()) {
-          reason_ = other.reason_;
-          onChanged();
+        if (reasonBuilder_ == null) {
+          if (!other.reason_.isEmpty()) {
+            if (reason_.isEmpty()) {
+              reason_ = other.reason_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureReasonIsMutable();
+              reason_.addAll(other.reason_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.reason_.isEmpty()) {
+            if (reasonBuilder_.isEmpty()) {
+              reasonBuilder_.dispose();
+              reasonBuilder_ = null;
+              reason_ = other.reason_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              reasonBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getReasonFieldBuilder() : null;
+            } else {
+              reasonBuilder_.addAllMessages(other.reason_);
+            }
+          }
         }
         if (other.getTime() != 0L) {
           setTime(other.getTime());
@@ -5688,81 +6195,246 @@ public final class Server {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object reason_ = "";
+      private java.util.List<Types.BasicChatComponentType> reason_ =
+        java.util.Collections.emptyList();
+      private void ensureReasonIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          reason_ = new java.util.ArrayList<Types.BasicChatComponentType>(reason_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> reasonBuilder_;
+
       /**
-       * <code>string reason = 1;</code>
-       * @return The reason.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
-      public java.lang.String getReason() {
-        java.lang.Object ref = reason_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          reason_ = s;
-          return s;
+      public java.util.List<Types.BasicChatComponentType> getReasonList() {
+        if (reasonBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(reason_);
         } else {
-          return (java.lang.String) ref;
+          return reasonBuilder_.getMessageList();
         }
       }
       /**
-       * <code>string reason = 1;</code>
-       * @return The bytes for reason.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getReasonBytes() {
-        java.lang.Object ref = reason_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          reason_ = b;
-          return b;
+      public int getReasonCount() {
+        if (reasonBuilder_ == null) {
+          return reason_.size();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return reasonBuilder_.getCount();
         }
       }
       /**
-       * <code>string reason = 1;</code>
-       * @param value The reason to set.
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Types.BasicChatComponentType getReason(int index) {
+        if (reasonBuilder_ == null) {
+          return reason_.get(index);
+        } else {
+          return reasonBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
       public Builder setReason(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        reason_ = value;
-        onChanged();
+          int index, Types.BasicChatComponentType value) {
+        if (reasonBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureReasonIsMutable();
+          reason_.set(index, value);
+          onChanged();
+        } else {
+          reasonBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>string reason = 1;</code>
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder setReason(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (reasonBuilder_ == null) {
+          ensureReasonIsMutable();
+          reason_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          reasonBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addReason(Types.BasicChatComponentType value) {
+        if (reasonBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureReasonIsMutable();
+          reason_.add(value);
+          onChanged();
+        } else {
+          reasonBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addReason(
+          int index, Types.BasicChatComponentType value) {
+        if (reasonBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureReasonIsMutable();
+          reason_.add(index, value);
+          onChanged();
+        } else {
+          reasonBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addReason(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        if (reasonBuilder_ == null) {
+          ensureReasonIsMutable();
+          reason_.add(builderForValue.build());
+          onChanged();
+        } else {
+          reasonBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addReason(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (reasonBuilder_ == null) {
+          ensureReasonIsMutable();
+          reason_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          reasonBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addAllReason(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        if (reasonBuilder_ == null) {
+          ensureReasonIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, reason_);
+          onChanged();
+        } else {
+          reasonBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
       public Builder clearReason() {
-        
-        reason_ = getDefaultInstance().getReason();
-        onChanged();
+        if (reasonBuilder_ == null) {
+          reason_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          reasonBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>string reason = 1;</code>
-       * @param value The bytes for reason to set.
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
-      public Builder setReasonBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        reason_ = value;
-        onChanged();
+      public Builder removeReason(int index) {
+        if (reasonBuilder_ == null) {
+          ensureReasonIsMutable();
+          reason_.remove(index);
+          onChanged();
+        } else {
+          reasonBuilder_.remove(index);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Types.BasicChatComponentType.Builder getReasonBuilder(
+          int index) {
+        return getReasonFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Types.BasicChatComponentTypeOrBuilder getReasonOrBuilder(
+          int index) {
+        if (reasonBuilder_ == null) {
+          return reason_.get(index);  } else {
+          return reasonBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+           getReasonOrBuilderList() {
+        if (reasonBuilder_ != null) {
+          return reasonBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(reason_);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Types.BasicChatComponentType.Builder addReasonBuilder() {
+        return getReasonFieldBuilder().addBuilder(
+            Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Types.BasicChatComponentType.Builder addReasonBuilder(
+          int index) {
+        return getReasonFieldBuilder().addBuilder(
+            index, Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType.Builder> 
+           getReasonBuilderList() {
+        return getReasonFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> 
+          getReasonFieldBuilder() {
+        if (reasonBuilder_ == null) {
+          reasonBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder>(
+                  reason_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          reason_ = null;
+        }
+        return reasonBuilder_;
       }
 
       private long time_ ;
@@ -15419,6 +16091,17 @@ public final class Server {
      * @return The z.
      */
     double getZ();
+
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @return The type.
+     */
+    Server.SoundPlay.Type getType();
   }
   /**
    * Protobuf type {@code SoundPlay}
@@ -15434,6 +16117,7 @@ public final class Server {
     }
     private SoundPlay() {
       sound_ = "";
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -15492,6 +16176,12 @@ public final class Server {
               z_ = input.readDouble();
               break;
             }
+            case 48: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -15522,6 +16212,141 @@ public final class Server {
       return Server.internal_static_SoundPlay_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               Server.SoundPlay.class, Server.SoundPlay.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code SoundPlay.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>GENERAL = 0;</code>
+       */
+      GENERAL(0),
+      /**
+       * <code>ENTITY = 1;</code>
+       */
+      ENTITY(1),
+      /**
+       * <code>BLOCK = 2;</code>
+       */
+      BLOCK(2),
+      /**
+       * <code>MUSIC = 3;</code>
+       */
+      MUSIC(3),
+      /**
+       * <code>SELF = 4;</code>
+       */
+      SELF(4),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>GENERAL = 0;</code>
+       */
+      public static final int GENERAL_VALUE = 0;
+      /**
+       * <code>ENTITY = 1;</code>
+       */
+      public static final int ENTITY_VALUE = 1;
+      /**
+       * <code>BLOCK = 2;</code>
+       */
+      public static final int BLOCK_VALUE = 2;
+      /**
+       * <code>MUSIC = 3;</code>
+       */
+      public static final int MUSIC_VALUE = 3;
+      /**
+       * <code>SELF = 4;</code>
+       */
+      public static final int SELF_VALUE = 4;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return GENERAL;
+          case 1: return ENTITY;
+          case 2: return BLOCK;
+          case 3: return MUSIC;
+          case 4: return SELF;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Server.SoundPlay.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:SoundPlay.Type)
     }
 
     public static final int SOUND_FIELD_NUMBER = 1;
@@ -15606,6 +16431,25 @@ public final class Server {
       return z_;
     }
 
+    public static final int TYPE_FIELD_NUMBER = 6;
+    private int type_;
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @return The type.
+     */
+    @java.lang.Override public Server.SoundPlay.Type getType() {
+      @SuppressWarnings("deprecation")
+      Server.SoundPlay.Type result = Server.SoundPlay.Type.valueOf(type_);
+      return result == null ? Server.SoundPlay.Type.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -15635,6 +16479,9 @@ public final class Server {
       if (z_ != 0D) {
         output.writeDouble(5, z_);
       }
+      if (type_ != Server.SoundPlay.Type.GENERAL.getNumber()) {
+        output.writeEnum(6, type_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -15662,6 +16509,10 @@ public final class Server {
       if (z_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(5, z_);
+      }
+      if (type_ != Server.SoundPlay.Type.GENERAL.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, type_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -15691,6 +16542,7 @@ public final class Server {
       if (java.lang.Double.doubleToLongBits(getZ())
           != java.lang.Double.doubleToLongBits(
               other.getZ())) return false;
+      if (type_ != other.type_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -15715,6 +16567,8 @@ public final class Server {
       hash = (37 * hash) + Z_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getZ()));
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -15858,6 +16712,8 @@ public final class Server {
 
         z_ = 0D;
 
+        type_ = 0;
+
         return this;
       }
 
@@ -15889,6 +16745,7 @@ public final class Server {
         result.x_ = x_;
         result.y_ = y_;
         result.z_ = z_;
+        result.type_ = type_;
         onBuilt();
         return result;
       }
@@ -15952,6 +16809,9 @@ public final class Server {
         }
         if (other.getZ() != 0D) {
           setZ(other.getZ());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -16181,6 +17041,60 @@ public final class Server {
         onChanged();
         return this;
       }
+
+      private int type_ = 0;
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public Server.SoundPlay.Type getType() {
+        @SuppressWarnings("deprecation")
+        Server.SoundPlay.Type result = Server.SoundPlay.Type.valueOf(type_);
+        return result == null ? Server.SoundPlay.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(Server.SoundPlay.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -16239,38 +17153,28 @@ public final class Server {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    java.util.List<Types.ChatComponentType> 
+        getMessageList();
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    Types.ChatComponentType getMessage(int index);
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
     int getMessageCount();
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
-    boolean containsMessage(
-        int key);
+    java.util.List<? extends Types.ChatComponentTypeOrBuilder> 
+        getMessageOrBuilderList();
     /**
-     * Use {@link #getMessageMap()} instead.
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Types.ChatComponentType>
-    getMessage();
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-    java.util.Map<java.lang.Integer, Types.ChatComponentType>
-    getMessageMap();
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-
-    Types.ChatComponentType getMessageOrDefault(
-        int key,
-        Types.ChatComponentType defaultValue);
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-
-    Types.ChatComponentType getMessageOrThrow(
-        int key);
+    Types.ChatComponentTypeOrBuilder getMessageOrBuilder(
+        int index);
 
     /**
      * <code>uint64 time = 2;</code>
@@ -16291,6 +17195,7 @@ public final class Server {
       super(builder);
     }
     private ChatMessage() {
+      message_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -16326,15 +17231,11 @@ public final class Server {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                message_ = com.google.protobuf.MapField.newMapField(
-                    MessageDefaultEntryHolder.defaultEntry);
+                message_ = new java.util.ArrayList<Types.ChatComponentType>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<java.lang.Integer, Types.ChatComponentType>
-              message__ = input.readMessage(
-                  MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              message_.getMutableMap().put(
-                  message__.getKey(), message__.getValue());
+              message_.add(
+                  input.readMessage(Types.ChatComponentType.parser(), extensionRegistry));
               break;
             }
             case 16: {
@@ -16357,6 +17258,9 @@ public final class Server {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          message_ = java.util.Collections.unmodifiableList(message_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -16366,18 +17270,6 @@ public final class Server {
       return Server.internal_static_ChatMessage_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetMessage();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -16387,84 +17279,43 @@ public final class Server {
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 1;
-    private static final class MessageDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.Integer, Types.ChatComponentType> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.Integer, Types.ChatComponentType>newDefaultInstance(
-                  Server.internal_static_ChatMessage_MessageEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0,
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Types.ChatComponentType.getDefaultInstance());
-    }
-    private com.google.protobuf.MapField<
-        java.lang.Integer, Types.ChatComponentType> message_;
-    private com.google.protobuf.MapField<java.lang.Integer, Types.ChatComponentType>
-    internalGetMessage() {
-      if (message_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            MessageDefaultEntryHolder.defaultEntry);
-      }
+    private java.util.List<Types.ChatComponentType> message_;
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<Types.ChatComponentType> getMessageList() {
       return message_;
     }
-
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends Types.ChatComponentTypeOrBuilder> 
+        getMessageOrBuilderList() {
+      return message_;
+    }
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    @java.lang.Override
     public int getMessageCount() {
-      return internalGetMessage().getMap().size();
+      return message_.size();
     }
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
-
     @java.lang.Override
-    public boolean containsMessage(
-        int key) {
-      
-      return internalGetMessage().getMap().containsKey(key);
+    public Types.ChatComponentType getMessage(int index) {
+      return message_.get(index);
     }
     /**
-     * Use {@link #getMessageMap()} instead.
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessage() {
-      return getMessageMap();
-    }
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessageMap() {
-      return internalGetMessage().getMap();
-    }
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-    @java.lang.Override
-
-    public Types.ChatComponentType getMessageOrDefault(
-        int key,
-        Types.ChatComponentType defaultValue) {
-      
-      java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
-          internalGetMessage().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-    @java.lang.Override
-
-    public Types.ChatComponentType getMessageOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
-          internalGetMessage().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public Types.ChatComponentTypeOrBuilder getMessageOrBuilder(
+        int index) {
+      return message_.get(index);
     }
 
     public static final int TIME_FIELD_NUMBER = 2;
@@ -16492,12 +17343,9 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      com.google.protobuf.GeneratedMessageV3
-        .serializeIntegerMapTo(
-          output,
-          internalGetMessage(),
-          MessageDefaultEntryHolder.defaultEntry,
-          1);
+      for (int i = 0; i < message_.size(); i++) {
+        output.writeMessage(1, message_.get(i));
+      }
       if (time_ != 0L) {
         output.writeUInt64(2, time_);
       }
@@ -16510,15 +17358,9 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.Integer, Types.ChatComponentType> entry
-           : internalGetMessage().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.Integer, Types.ChatComponentType>
-        message__ = MessageDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < message_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, message__);
+          .computeMessageSize(1, message_.get(i));
       }
       if (time_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -16539,8 +17381,8 @@ public final class Server {
       }
       Server.ChatMessage other = (Server.ChatMessage) obj;
 
-      if (!internalGetMessage().equals(
-          other.internalGetMessage())) return false;
+      if (!getMessageList()
+          .equals(other.getMessageList())) return false;
       if (getTime()
           != other.getTime()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -16554,9 +17396,9 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetMessage().getMap().isEmpty()) {
+      if (getMessageCount() > 0) {
         hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetMessage().hashCode();
+        hash = (53 * hash) + getMessageList().hashCode();
       }
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -16668,28 +17510,6 @@ public final class Server {
         return Server.internal_static_ChatMessage_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetMessage();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetMutableMessage();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -16711,12 +17531,18 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getMessageFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        internalGetMutableMessage().clear();
+        if (messageBuilder_ == null) {
+          message_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          messageBuilder_.clear();
+        }
         time_ = 0L;
 
         return this;
@@ -16746,8 +17572,15 @@ public final class Server {
       public Server.ChatMessage buildPartial() {
         Server.ChatMessage result = new Server.ChatMessage(this);
         int from_bitField0_ = bitField0_;
-        result.message_ = internalGetMessage();
-        result.message_.makeImmutable();
+        if (messageBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            message_ = java.util.Collections.unmodifiableList(message_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.message_ = message_;
+        } else {
+          result.message_ = messageBuilder_.build();
+        }
         result.time_ = time_;
         onBuilt();
         return result;
@@ -16797,8 +17630,32 @@ public final class Server {
 
       public Builder mergeFrom(Server.ChatMessage other) {
         if (other == Server.ChatMessage.getDefaultInstance()) return this;
-        internalGetMutableMessage().mergeFrom(
-            other.internalGetMessage());
+        if (messageBuilder_ == null) {
+          if (!other.message_.isEmpty()) {
+            if (message_.isEmpty()) {
+              message_ = other.message_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureMessageIsMutable();
+              message_.addAll(other.message_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.message_.isEmpty()) {
+            if (messageBuilder_.isEmpty()) {
+              messageBuilder_.dispose();
+              messageBuilder_ = null;
+              message_ = other.message_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              messageBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMessageFieldBuilder() : null;
+            } else {
+              messageBuilder_.addAllMessages(other.message_);
+            }
+          }
+        }
         if (other.getTime() != 0L) {
           setTime(other.getTime());
         }
@@ -16832,132 +17689,244 @@ public final class Server {
       }
       private int bitField0_;
 
-      private com.google.protobuf.MapField<
-          java.lang.Integer, Types.ChatComponentType> message_;
-      private com.google.protobuf.MapField<java.lang.Integer, Types.ChatComponentType>
-      internalGetMessage() {
-        if (message_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              MessageDefaultEntryHolder.defaultEntry);
-        }
-        return message_;
-      }
-      private com.google.protobuf.MapField<java.lang.Integer, Types.ChatComponentType>
-      internalGetMutableMessage() {
-        onChanged();;
-        if (message_ == null) {
-          message_ = com.google.protobuf.MapField.newMapField(
-              MessageDefaultEntryHolder.defaultEntry);
-        }
-        if (!message_.isMutable()) {
-          message_ = message_.copy();
-        }
-        return message_;
+      private java.util.List<Types.ChatComponentType> message_ =
+        java.util.Collections.emptyList();
+      private void ensureMessageIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          message_ = new java.util.ArrayList<Types.ChatComponentType>(message_);
+          bitField0_ |= 0x00000001;
+         }
       }
 
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.ChatComponentType, Types.ChatComponentType.Builder, Types.ChatComponentTypeOrBuilder> messageBuilder_;
+
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public java.util.List<Types.ChatComponentType> getMessageList() {
+        if (messageBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(message_);
+        } else {
+          return messageBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
       public int getMessageCount() {
-        return internalGetMessage().getMap().size();
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-
-      @java.lang.Override
-      public boolean containsMessage(
-          int key) {
-        
-        return internalGetMessage().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getMessageMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessage() {
-        return getMessageMap();
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-      @java.lang.Override
-
-      public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessageMap() {
-        return internalGetMessage().getMap();
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-      @java.lang.Override
-
-      public Types.ChatComponentType getMessageOrDefault(
-          int key,
-          Types.ChatComponentType defaultValue) {
-        
-        java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
-            internalGetMessage().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-      @java.lang.Override
-
-      public Types.ChatComponentType getMessageOrThrow(
-          int key) {
-        
-        java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
-            internalGetMessage().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+        if (messageBuilder_ == null) {
+          return message_.size();
+        } else {
+          return messageBuilder_.getCount();
         }
-        return map.get(key);
       }
-
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Types.ChatComponentType getMessage(int index) {
+        if (messageBuilder_ == null) {
+          return message_.get(index);
+        } else {
+          return messageBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder setMessage(
+          int index, Types.ChatComponentType value) {
+        if (messageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessageIsMutable();
+          message_.set(index, value);
+          onChanged();
+        } else {
+          messageBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder setMessage(
+          int index, Types.ChatComponentType.Builder builderForValue) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          message_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          messageBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addMessage(Types.ChatComponentType value) {
+        if (messageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessageIsMutable();
+          message_.add(value);
+          onChanged();
+        } else {
+          messageBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addMessage(
+          int index, Types.ChatComponentType value) {
+        if (messageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessageIsMutable();
+          message_.add(index, value);
+          onChanged();
+        } else {
+          messageBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addMessage(
+          Types.ChatComponentType.Builder builderForValue) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          message_.add(builderForValue.build());
+          onChanged();
+        } else {
+          messageBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addMessage(
+          int index, Types.ChatComponentType.Builder builderForValue) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          message_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          messageBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addAllMessage(
+          java.lang.Iterable<? extends Types.ChatComponentType> values) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, message_);
+          onChanged();
+        } else {
+          messageBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
       public Builder clearMessage() {
-        internalGetMutableMessage().getMutableMap()
-            .clear();
+        if (messageBuilder_ == null) {
+          message_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          messageBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+       * <code>repeated .ChatComponentType message = 1;</code>
        */
-
-      public Builder removeMessage(
-          int key) {
-        
-        internalGetMutableMessage().getMutableMap()
-            .remove(key);
+      public Builder removeMessage(int index) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          message_.remove(index);
+          onChanged();
+        } else {
+          messageBuilder_.remove(index);
+        }
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <code>repeated .ChatComponentType message = 1;</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.ChatComponentType>
-      getMutableMessage() {
-        return internalGetMutableMessage().getMutableMap();
+      public Types.ChatComponentType.Builder getMessageBuilder(
+          int index) {
+        return getMessageFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+       * <code>repeated .ChatComponentType message = 1;</code>
        */
-      public Builder putMessage(
-          int key,
-          Types.ChatComponentType value) {
-        
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableMessage().getMutableMap()
-            .put(key, value);
-        return this;
+      public Types.ChatComponentTypeOrBuilder getMessageOrBuilder(
+          int index) {
+        if (messageBuilder_ == null) {
+          return message_.get(index);  } else {
+          return messageBuilder_.getMessageOrBuilder(index);
+        }
       }
       /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+       * <code>repeated .ChatComponentType message = 1;</code>
        */
-
-      public Builder putAllMessage(
-          java.util.Map<java.lang.Integer, Types.ChatComponentType> values) {
-        internalGetMutableMessage().getMutableMap()
-            .putAll(values);
-        return this;
+      public java.util.List<? extends Types.ChatComponentTypeOrBuilder> 
+           getMessageOrBuilderList() {
+        if (messageBuilder_ != null) {
+          return messageBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(message_);
+        }
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Types.ChatComponentType.Builder addMessageBuilder() {
+        return getMessageFieldBuilder().addBuilder(
+            Types.ChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Types.ChatComponentType.Builder addMessageBuilder(
+          int index) {
+        return getMessageFieldBuilder().addBuilder(
+            index, Types.ChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public java.util.List<Types.ChatComponentType.Builder> 
+           getMessageBuilderList() {
+        return getMessageFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.ChatComponentType, Types.ChatComponentType.Builder, Types.ChatComponentTypeOrBuilder> 
+          getMessageFieldBuilder() {
+        if (messageBuilder_ == null) {
+          messageBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.ChatComponentType, Types.ChatComponentType.Builder, Types.ChatComponentTypeOrBuilder>(
+                  message_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        return messageBuilder_;
       }
 
       private long time_ ;
@@ -17059,38 +18028,28 @@ public final class Server {
     Server.UpdateTextBoard.Type getType();
 
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    java.util.List<Types.BasicChatComponentType> 
+        getMessageList();
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    Types.BasicChatComponentType getMessage(int index);
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
     int getMessageCount();
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
-    boolean containsMessage(
-        int key);
+    java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getMessageOrBuilderList();
     /**
-     * Use {@link #getMessageMap()} instead.
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getMessage();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getMessageMap();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-
-    Types.BasicChatComponentType getMessageOrDefault(
-        int key,
-        Types.BasicChatComponentType defaultValue);
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-
-    Types.BasicChatComponentType getMessageOrThrow(
-        int key);
+    Types.BasicChatComponentTypeOrBuilder getMessageOrBuilder(
+        int index);
 
     /**
      * <code>uint64 time = 3;</code>
@@ -17112,6 +18071,7 @@ public final class Server {
     }
     private UpdateTextBoard() {
       type_ = 0;
+      message_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -17153,15 +18113,11 @@ public final class Server {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                message_ = com.google.protobuf.MapField.newMapField(
-                    MessageDefaultEntryHolder.defaultEntry);
+                message_ = new java.util.ArrayList<Types.BasicChatComponentType>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<java.lang.Integer, Types.BasicChatComponentType>
-              message__ = input.readMessage(
-                  MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              message_.getMutableMap().put(
-                  message__.getKey(), message__.getValue());
+              message_.add(
+                  input.readMessage(Types.BasicChatComponentType.parser(), extensionRegistry));
               break;
             }
             case 24: {
@@ -17184,6 +18140,9 @@ public final class Server {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          message_ = java.util.Collections.unmodifiableList(message_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -17193,18 +18152,6 @@ public final class Server {
       return Server.internal_static_UpdateTextBoard_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 2:
-          return internalGetMessage();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -17359,84 +18306,43 @@ public final class Server {
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 2;
-    private static final class MessageDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.Integer, Types.BasicChatComponentType> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.Integer, Types.BasicChatComponentType>newDefaultInstance(
-                  Server.internal_static_UpdateTextBoard_MessageEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0,
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Types.BasicChatComponentType.getDefaultInstance());
-    }
-    private com.google.protobuf.MapField<
-        java.lang.Integer, Types.BasicChatComponentType> message_;
-    private com.google.protobuf.MapField<java.lang.Integer, Types.BasicChatComponentType>
-    internalGetMessage() {
-      if (message_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            MessageDefaultEntryHolder.defaultEntry);
-      }
+    private java.util.List<Types.BasicChatComponentType> message_;
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<Types.BasicChatComponentType> getMessageList() {
       return message_;
     }
-
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getMessageOrBuilderList() {
+      return message_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    @java.lang.Override
     public int getMessageCount() {
-      return internalGetMessage().getMap().size();
+      return message_.size();
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
-
     @java.lang.Override
-    public boolean containsMessage(
-        int key) {
-      
-      return internalGetMessage().getMap().containsKey(key);
+    public Types.BasicChatComponentType getMessage(int index) {
+      return message_.get(index);
     }
     /**
-     * Use {@link #getMessageMap()} instead.
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessage() {
-      return getMessageMap();
-    }
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessageMap() {
-      return internalGetMessage().getMap();
-    }
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-    @java.lang.Override
-
-    public Types.BasicChatComponentType getMessageOrDefault(
-        int key,
-        Types.BasicChatComponentType defaultValue) {
-      
-      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-          internalGetMessage().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-    @java.lang.Override
-
-    public Types.BasicChatComponentType getMessageOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-          internalGetMessage().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public Types.BasicChatComponentTypeOrBuilder getMessageOrBuilder(
+        int index) {
+      return message_.get(index);
     }
 
     public static final int TIME_FIELD_NUMBER = 3;
@@ -17467,12 +18373,9 @@ public final class Server {
       if (type_ != Server.UpdateTextBoard.Type.TAB.getNumber()) {
         output.writeEnum(1, type_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeIntegerMapTo(
-          output,
-          internalGetMessage(),
-          MessageDefaultEntryHolder.defaultEntry,
-          2);
+      for (int i = 0; i < message_.size(); i++) {
+        output.writeMessage(2, message_.get(i));
+      }
       if (time_ != 0L) {
         output.writeUInt64(3, time_);
       }
@@ -17489,15 +18392,9 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
-      for (java.util.Map.Entry<java.lang.Integer, Types.BasicChatComponentType> entry
-           : internalGetMessage().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.Integer, Types.BasicChatComponentType>
-        message__ = MessageDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < message_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, message__);
+          .computeMessageSize(2, message_.get(i));
       }
       if (time_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -17519,8 +18416,8 @@ public final class Server {
       Server.UpdateTextBoard other = (Server.UpdateTextBoard) obj;
 
       if (type_ != other.type_) return false;
-      if (!internalGetMessage().equals(
-          other.internalGetMessage())) return false;
+      if (!getMessageList()
+          .equals(other.getMessageList())) return false;
       if (getTime()
           != other.getTime()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -17536,9 +18433,9 @@ public final class Server {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
-      if (!internalGetMessage().getMap().isEmpty()) {
+      if (getMessageCount() > 0) {
         hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetMessage().hashCode();
+        hash = (53 * hash) + getMessageList().hashCode();
       }
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -17650,28 +18547,6 @@ public final class Server {
         return Server.internal_static_UpdateTextBoard_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetMessage();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 2:
-            return internalGetMutableMessage();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -17693,6 +18568,7 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getMessageFieldBuilder();
         }
       }
       @java.lang.Override
@@ -17700,7 +18576,12 @@ public final class Server {
         super.clear();
         type_ = 0;
 
-        internalGetMutableMessage().clear();
+        if (messageBuilder_ == null) {
+          message_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          messageBuilder_.clear();
+        }
         time_ = 0L;
 
         return this;
@@ -17731,8 +18612,15 @@ public final class Server {
         Server.UpdateTextBoard result = new Server.UpdateTextBoard(this);
         int from_bitField0_ = bitField0_;
         result.type_ = type_;
-        result.message_ = internalGetMessage();
-        result.message_.makeImmutable();
+        if (messageBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            message_ = java.util.Collections.unmodifiableList(message_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.message_ = message_;
+        } else {
+          result.message_ = messageBuilder_.build();
+        }
         result.time_ = time_;
         onBuilt();
         return result;
@@ -17785,8 +18673,32 @@ public final class Server {
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
-        internalGetMutableMessage().mergeFrom(
-            other.internalGetMessage());
+        if (messageBuilder_ == null) {
+          if (!other.message_.isEmpty()) {
+            if (message_.isEmpty()) {
+              message_ = other.message_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureMessageIsMutable();
+              message_.addAll(other.message_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.message_.isEmpty()) {
+            if (messageBuilder_.isEmpty()) {
+              messageBuilder_.dispose();
+              messageBuilder_ = null;
+              message_ = other.message_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              messageBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMessageFieldBuilder() : null;
+            } else {
+              messageBuilder_.addAllMessages(other.message_);
+            }
+          }
+        }
         if (other.getTime() != 0L) {
           setTime(other.getTime());
         }
@@ -17874,132 +18786,244 @@ public final class Server {
         return this;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.Integer, Types.BasicChatComponentType> message_;
-      private com.google.protobuf.MapField<java.lang.Integer, Types.BasicChatComponentType>
-      internalGetMessage() {
-        if (message_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              MessageDefaultEntryHolder.defaultEntry);
-        }
-        return message_;
-      }
-      private com.google.protobuf.MapField<java.lang.Integer, Types.BasicChatComponentType>
-      internalGetMutableMessage() {
-        onChanged();;
-        if (message_ == null) {
-          message_ = com.google.protobuf.MapField.newMapField(
-              MessageDefaultEntryHolder.defaultEntry);
-        }
-        if (!message_.isMutable()) {
-          message_ = message_.copy();
-        }
-        return message_;
+      private java.util.List<Types.BasicChatComponentType> message_ =
+        java.util.Collections.emptyList();
+      private void ensureMessageIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          message_ = new java.util.ArrayList<Types.BasicChatComponentType>(message_);
+          bitField0_ |= 0x00000001;
+         }
       }
 
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> messageBuilder_;
+
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType> getMessageList() {
+        if (messageBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(message_);
+        } else {
+          return messageBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
       public int getMessageCount() {
-        return internalGetMessage().getMap().size();
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-
-      @java.lang.Override
-      public boolean containsMessage(
-          int key) {
-        
-        return internalGetMessage().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getMessageMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessage() {
-        return getMessageMap();
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-      @java.lang.Override
-
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessageMap() {
-        return internalGetMessage().getMap();
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-      @java.lang.Override
-
-      public Types.BasicChatComponentType getMessageOrDefault(
-          int key,
-          Types.BasicChatComponentType defaultValue) {
-        
-        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-            internalGetMessage().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-      @java.lang.Override
-
-      public Types.BasicChatComponentType getMessageOrThrow(
-          int key) {
-        
-        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-            internalGetMessage().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+        if (messageBuilder_ == null) {
+          return message_.size();
+        } else {
+          return messageBuilder_.getCount();
         }
-        return map.get(key);
       }
-
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Types.BasicChatComponentType getMessage(int index) {
+        if (messageBuilder_ == null) {
+          return message_.get(index);
+        } else {
+          return messageBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder setMessage(
+          int index, Types.BasicChatComponentType value) {
+        if (messageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessageIsMutable();
+          message_.set(index, value);
+          onChanged();
+        } else {
+          messageBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder setMessage(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          message_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          messageBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addMessage(Types.BasicChatComponentType value) {
+        if (messageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessageIsMutable();
+          message_.add(value);
+          onChanged();
+        } else {
+          messageBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addMessage(
+          int index, Types.BasicChatComponentType value) {
+        if (messageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessageIsMutable();
+          message_.add(index, value);
+          onChanged();
+        } else {
+          messageBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addMessage(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          message_.add(builderForValue.build());
+          onChanged();
+        } else {
+          messageBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addMessage(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          message_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          messageBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addAllMessage(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, message_);
+          onChanged();
+        } else {
+          messageBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
       public Builder clearMessage() {
-        internalGetMutableMessage().getMutableMap()
-            .clear();
+        if (messageBuilder_ == null) {
+          message_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          messageBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+       * <code>repeated .BasicChatComponentType message = 2;</code>
        */
-
-      public Builder removeMessage(
-          int key) {
-        
-        internalGetMutableMessage().getMutableMap()
-            .remove(key);
+      public Builder removeMessage(int index) {
+        if (messageBuilder_ == null) {
+          ensureMessageIsMutable();
+          message_.remove(index);
+          onChanged();
+        } else {
+          messageBuilder_.remove(index);
+        }
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <code>repeated .BasicChatComponentType message = 2;</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-      getMutableMessage() {
-        return internalGetMutableMessage().getMutableMap();
+      public Types.BasicChatComponentType.Builder getMessageBuilder(
+          int index) {
+        return getMessageFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+       * <code>repeated .BasicChatComponentType message = 2;</code>
        */
-      public Builder putMessage(
-          int key,
-          Types.BasicChatComponentType value) {
-        
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableMessage().getMutableMap()
-            .put(key, value);
-        return this;
+      public Types.BasicChatComponentTypeOrBuilder getMessageOrBuilder(
+          int index) {
+        if (messageBuilder_ == null) {
+          return message_.get(index);  } else {
+          return messageBuilder_.getMessageOrBuilder(index);
+        }
       }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+       * <code>repeated .BasicChatComponentType message = 2;</code>
        */
-
-      public Builder putAllMessage(
-          java.util.Map<java.lang.Integer, Types.BasicChatComponentType> values) {
-        internalGetMutableMessage().getMutableMap()
-            .putAll(values);
-        return this;
+      public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+           getMessageOrBuilderList() {
+        if (messageBuilder_ != null) {
+          return messageBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(message_);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Types.BasicChatComponentType.Builder addMessageBuilder() {
+        return getMessageFieldBuilder().addBuilder(
+            Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Types.BasicChatComponentType.Builder addMessageBuilder(
+          int index) {
+        return getMessageFieldBuilder().addBuilder(
+            index, Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType.Builder> 
+           getMessageBuilderList() {
+        return getMessageFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> 
+          getMessageFieldBuilder() {
+        if (messageBuilder_ == null) {
+          messageBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder>(
+                  message_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        return messageBuilder_;
       }
 
       private long time_ ;
@@ -18102,16 +19126,145 @@ public final class Server {
         getUuidBytes();
 
     /**
-     * <code>string data = 2;</code>
-     * @return The data.
+     * <code>double x = 2;</code>
+     * @return The x.
      */
-    java.lang.String getData();
+    double getX();
+
     /**
-     * <code>string data = 2;</code>
-     * @return The bytes for data.
+     * <code>double y = 3;</code>
+     * @return The y.
+     */
+    double getY();
+
+    /**
+     * <code>double z = 4;</code>
+     * @return The z.
+     */
+    double getZ();
+
+    /**
+     * <code>float rotation = 5;</code>
+     * @return The rotation.
+     */
+    float getRotation();
+
+    /**
+     * <code>float pitch = 6;</code>
+     * @return The pitch.
+     */
+    float getPitch();
+
+    /**
+     * <code>string model = 7;</code>
+     * @return The model.
+     */
+    java.lang.String getModel();
+    /**
+     * <code>string model = 7;</code>
+     * @return The bytes for model.
      */
     com.google.protobuf.ByteString
-        getDataBytes();
+        getModelBytes();
+
+    /**
+     * <code>string texture = 8;</code>
+     * @return The texture.
+     */
+    java.lang.String getTexture();
+    /**
+     * <code>string texture = 8;</code>
+     * @return The bytes for texture.
+     */
+    com.google.protobuf.ByteString
+        getTextureBytes();
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    java.util.List<Types.BasicChatComponentType> 
+        getNameList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    Types.BasicChatComponentType getName(int index);
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    int getNameCount();
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @return A list containing the hitbox.
+     */
+    java.util.List<java.lang.Float> getHitboxList();
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @return The count of hitbox.
+     */
+    int getHitboxCount();
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @param index The index of the element to return.
+     * @return The hitbox at the given index.
+     */
+    float getHitbox(int index);
+
+    /**
+     * <code>string held_item = 11;</code>
+     * @return The heldItem.
+     */
+    java.lang.String getHeldItem();
+    /**
+     * <code>string held_item = 11;</code>
+     * @return The bytes for heldItem.
+     */
+    com.google.protobuf.ByteString
+        getHeldItemBytes();
+
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    int getArmorCount();
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    boolean containsArmor(
+        int key);
+    /**
+     * Use {@link #getArmorMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, java.lang.String>
+    getArmor();
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    java.util.Map<java.lang.Integer, java.lang.String>
+    getArmorMap();
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+
+    java.lang.String getArmorOrDefault(
+        int key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+
+    java.lang.String getArmorOrThrow(
+        int key);
   }
   /**
    * Protobuf type {@code EntityCreate}
@@ -18127,7 +19280,11 @@ public final class Server {
     }
     private EntityCreate() {
       uuid_ = "";
-      data_ = "";
+      model_ = "";
+      texture_ = "";
+      name_ = java.util.Collections.emptyList();
+      hitbox_ = emptyFloatList();
+      heldItem_ = "";
     }
 
     @java.lang.Override
@@ -18150,6 +19307,7 @@ public final class Server {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -18166,10 +19324,90 @@ public final class Server {
               uuid_ = s;
               break;
             }
-            case 18: {
+            case 17: {
+
+              x_ = input.readDouble();
+              break;
+            }
+            case 25: {
+
+              y_ = input.readDouble();
+              break;
+            }
+            case 33: {
+
+              z_ = input.readDouble();
+              break;
+            }
+            case 45: {
+
+              rotation_ = input.readFloat();
+              break;
+            }
+            case 53: {
+
+              pitch_ = input.readFloat();
+              break;
+            }
+            case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              data_ = s;
+              model_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              texture_ = s;
+              break;
+            }
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                name_ = new java.util.ArrayList<Types.BasicChatComponentType>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              name_.add(
+                  input.readMessage(Types.BasicChatComponentType.parser(), extensionRegistry));
+              break;
+            }
+            case 85: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                hitbox_ = newFloatList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              hitbox_.addFloat(input.readFloat());
+              break;
+            }
+            case 82: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                hitbox_ = newFloatList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                hitbox_.addFloat(input.readFloat());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              heldItem_ = s;
+              break;
+            }
+            case 98: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                armor_ = com.google.protobuf.MapField.newMapField(
+                    ArmorDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000004;
+              }
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+              armor__ = input.readMessage(
+                  ArmorDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              armor_.getMutableMap().put(
+                  armor__.getKey(), armor__.getValue());
               break;
             }
             default: {
@@ -18187,6 +19425,12 @@ public final class Server {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          name_ = java.util.Collections.unmodifiableList(name_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          hitbox_.makeImmutable(); // C
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -18196,6 +19440,18 @@ public final class Server {
       return Server.internal_static_EntityCreate_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 12:
+          return internalGetArmor();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -18242,42 +19498,322 @@ public final class Server {
       }
     }
 
-    public static final int DATA_FIELD_NUMBER = 2;
-    private volatile java.lang.Object data_;
+    public static final int X_FIELD_NUMBER = 2;
+    private double x_;
     /**
-     * <code>string data = 2;</code>
-     * @return The data.
+     * <code>double x = 2;</code>
+     * @return The x.
      */
     @java.lang.Override
-    public java.lang.String getData() {
-      java.lang.Object ref = data_;
+    public double getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 3;
+    private double y_;
+    /**
+     * <code>double y = 3;</code>
+     * @return The y.
+     */
+    @java.lang.Override
+    public double getY() {
+      return y_;
+    }
+
+    public static final int Z_FIELD_NUMBER = 4;
+    private double z_;
+    /**
+     * <code>double z = 4;</code>
+     * @return The z.
+     */
+    @java.lang.Override
+    public double getZ() {
+      return z_;
+    }
+
+    public static final int ROTATION_FIELD_NUMBER = 5;
+    private float rotation_;
+    /**
+     * <code>float rotation = 5;</code>
+     * @return The rotation.
+     */
+    @java.lang.Override
+    public float getRotation() {
+      return rotation_;
+    }
+
+    public static final int PITCH_FIELD_NUMBER = 6;
+    private float pitch_;
+    /**
+     * <code>float pitch = 6;</code>
+     * @return The pitch.
+     */
+    @java.lang.Override
+    public float getPitch() {
+      return pitch_;
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 7;
+    private volatile java.lang.Object model_;
+    /**
+     * <code>string model = 7;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public java.lang.String getModel() {
+      java.lang.Object ref = model_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        data_ = s;
+        model_ = s;
         return s;
       }
     }
     /**
-     * <code>string data = 2;</code>
-     * @return The bytes for data.
+     * <code>string model = 7;</code>
+     * @return The bytes for model.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getDataBytes() {
-      java.lang.Object ref = data_;
+        getModelBytes() {
+      java.lang.Object ref = model_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        data_ = b;
+        model_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int TEXTURE_FIELD_NUMBER = 8;
+    private volatile java.lang.Object texture_;
+    /**
+     * <code>string texture = 8;</code>
+     * @return The texture.
+     */
+    @java.lang.Override
+    public java.lang.String getTexture() {
+      java.lang.Object ref = texture_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        texture_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string texture = 8;</code>
+     * @return The bytes for texture.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTextureBytes() {
+      java.lang.Object ref = texture_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        texture_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAME_FIELD_NUMBER = 9;
+    private java.util.List<Types.BasicChatComponentType> name_;
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    @java.lang.Override
+    public java.util.List<Types.BasicChatComponentType> getNameList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    @java.lang.Override
+    public int getNameCount() {
+      return name_.size();
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentType getName(int index) {
+      return name_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index) {
+      return name_.get(index);
+    }
+
+    public static final int HITBOX_FIELD_NUMBER = 10;
+    private com.google.protobuf.Internal.FloatList hitbox_;
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @return A list containing the hitbox.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Float>
+        getHitboxList() {
+      return hitbox_;
+    }
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @return The count of hitbox.
+     */
+    public int getHitboxCount() {
+      return hitbox_.size();
+    }
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @param index The index of the element to return.
+     * @return The hitbox at the given index.
+     */
+    public float getHitbox(int index) {
+      return hitbox_.getFloat(index);
+    }
+    private int hitboxMemoizedSerializedSize = -1;
+
+    public static final int HELD_ITEM_FIELD_NUMBER = 11;
+    private volatile java.lang.Object heldItem_;
+    /**
+     * <code>string held_item = 11;</code>
+     * @return The heldItem.
+     */
+    @java.lang.Override
+    public java.lang.String getHeldItem() {
+      java.lang.Object ref = heldItem_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        heldItem_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string held_item = 11;</code>
+     * @return The bytes for heldItem.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getHeldItemBytes() {
+      java.lang.Object ref = heldItem_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        heldItem_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARMOR_FIELD_NUMBER = 12;
+    private static final class ArmorDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.Integer, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.Integer, java.lang.String>newDefaultInstance(
+                  Server.internal_static_EntityCreate_ArmorEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.Integer, java.lang.String> armor_;
+    private com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+    internalGetArmor() {
+      if (armor_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ArmorDefaultEntryHolder.defaultEntry);
+      }
+      return armor_;
+    }
+
+    public int getArmorCount() {
+      return internalGetArmor().getMap().size();
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsArmor(
+        int key) {
+      
+      return internalGetArmor().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getArmorMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, java.lang.String> getArmor() {
+      return getArmorMap();
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Integer, java.lang.String> getArmorMap() {
+      return internalGetArmor().getMap();
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getArmorOrDefault(
+        int key,
+        java.lang.String defaultValue) {
+      
+      java.util.Map<java.lang.Integer, java.lang.String> map =
+          internalGetArmor().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getArmorOrThrow(
+        int key) {
+      
+      java.util.Map<java.lang.Integer, java.lang.String> map =
+          internalGetArmor().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -18294,12 +19830,50 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (!getUuidBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
       }
-      if (!getDataBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, data_);
+      if (x_ != 0D) {
+        output.writeDouble(2, x_);
       }
+      if (y_ != 0D) {
+        output.writeDouble(3, y_);
+      }
+      if (z_ != 0D) {
+        output.writeDouble(4, z_);
+      }
+      if (rotation_ != 0F) {
+        output.writeFloat(5, rotation_);
+      }
+      if (pitch_ != 0F) {
+        output.writeFloat(6, pitch_);
+      }
+      if (!getModelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, model_);
+      }
+      if (!getTextureBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, texture_);
+      }
+      for (int i = 0; i < name_.size(); i++) {
+        output.writeMessage(9, name_.get(i));
+      }
+      if (getHitboxList().size() > 0) {
+        output.writeUInt32NoTag(82);
+        output.writeUInt32NoTag(hitboxMemoizedSerializedSize);
+      }
+      for (int i = 0; i < hitbox_.size(); i++) {
+        output.writeFloatNoTag(hitbox_.getFloat(i));
+      }
+      if (!getHeldItemBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, heldItem_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeIntegerMapTo(
+          output,
+          internalGetArmor(),
+          ArmorDefaultEntryHolder.defaultEntry,
+          12);
       unknownFields.writeTo(output);
     }
 
@@ -18312,8 +19886,59 @@ public final class Server {
       if (!getUuidBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
       }
-      if (!getDataBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, data_);
+      if (x_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, x_);
+      }
+      if (y_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, y_);
+      }
+      if (z_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, z_);
+      }
+      if (rotation_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(5, rotation_);
+      }
+      if (pitch_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(6, pitch_);
+      }
+      if (!getModelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, model_);
+      }
+      if (!getTextureBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, texture_);
+      }
+      for (int i = 0; i < name_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, name_.get(i));
+      }
+      {
+        int dataSize = 0;
+        dataSize = 4 * getHitboxList().size();
+        size += dataSize;
+        if (!getHitboxList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        hitboxMemoizedSerializedSize = dataSize;
+      }
+      if (!getHeldItemBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, heldItem_);
+      }
+      for (java.util.Map.Entry<java.lang.Integer, java.lang.String> entry
+           : internalGetArmor().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+        armor__ = ArmorDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(12, armor__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -18332,8 +19957,33 @@ public final class Server {
 
       if (!getUuid()
           .equals(other.getUuid())) return false;
-      if (!getData()
-          .equals(other.getData())) return false;
+      if (java.lang.Double.doubleToLongBits(getX())
+          != java.lang.Double.doubleToLongBits(
+              other.getX())) return false;
+      if (java.lang.Double.doubleToLongBits(getY())
+          != java.lang.Double.doubleToLongBits(
+              other.getY())) return false;
+      if (java.lang.Double.doubleToLongBits(getZ())
+          != java.lang.Double.doubleToLongBits(
+              other.getZ())) return false;
+      if (java.lang.Float.floatToIntBits(getRotation())
+          != java.lang.Float.floatToIntBits(
+              other.getRotation())) return false;
+      if (java.lang.Float.floatToIntBits(getPitch())
+          != java.lang.Float.floatToIntBits(
+              other.getPitch())) return false;
+      if (!getModel()
+          .equals(other.getModel())) return false;
+      if (!getTexture()
+          .equals(other.getTexture())) return false;
+      if (!getNameList()
+          .equals(other.getNameList())) return false;
+      if (!getHitboxList()
+          .equals(other.getHitboxList())) return false;
+      if (!getHeldItem()
+          .equals(other.getHeldItem())) return false;
+      if (!internalGetArmor().equals(
+          other.internalGetArmor())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -18347,8 +19997,39 @@ public final class Server {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + UUID_FIELD_NUMBER;
       hash = (53 * hash) + getUuid().hashCode();
-      hash = (37 * hash) + DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getData().hashCode();
+      hash = (37 * hash) + X_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getX()));
+      hash = (37 * hash) + Y_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getY()));
+      hash = (37 * hash) + Z_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getZ()));
+      hash = (37 * hash) + ROTATION_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getRotation());
+      hash = (37 * hash) + PITCH_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getPitch());
+      hash = (37 * hash) + MODEL_FIELD_NUMBER;
+      hash = (53 * hash) + getModel().hashCode();
+      hash = (37 * hash) + TEXTURE_FIELD_NUMBER;
+      hash = (53 * hash) + getTexture().hashCode();
+      if (getNameCount() > 0) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getNameList().hashCode();
+      }
+      if (getHitboxCount() > 0) {
+        hash = (37 * hash) + HITBOX_FIELD_NUMBER;
+        hash = (53 * hash) + getHitboxList().hashCode();
+      }
+      hash = (37 * hash) + HELD_ITEM_FIELD_NUMBER;
+      hash = (53 * hash) + getHeldItem().hashCode();
+      if (!internalGetArmor().getMap().isEmpty()) {
+        hash = (37 * hash) + ARMOR_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetArmor().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -18456,6 +20137,28 @@ public final class Server {
         return Server.internal_static_EntityCreate_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 12:
+            return internalGetArmor();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 12:
+            return internalGetMutableArmor();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -18477,6 +20180,7 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getNameFieldBuilder();
         }
       }
       @java.lang.Override
@@ -18484,8 +20188,31 @@ public final class Server {
         super.clear();
         uuid_ = "";
 
-        data_ = "";
+        x_ = 0D;
 
+        y_ = 0D;
+
+        z_ = 0D;
+
+        rotation_ = 0F;
+
+        pitch_ = 0F;
+
+        model_ = "";
+
+        texture_ = "";
+
+        if (nameBuilder_ == null) {
+          name_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          nameBuilder_.clear();
+        }
+        hitbox_ = emptyFloatList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        heldItem_ = "";
+
+        internalGetMutableArmor().clear();
         return this;
       }
 
@@ -18512,8 +20239,32 @@ public final class Server {
       @java.lang.Override
       public Server.EntityCreate buildPartial() {
         Server.EntityCreate result = new Server.EntityCreate(this);
+        int from_bitField0_ = bitField0_;
         result.uuid_ = uuid_;
-        result.data_ = data_;
+        result.x_ = x_;
+        result.y_ = y_;
+        result.z_ = z_;
+        result.rotation_ = rotation_;
+        result.pitch_ = pitch_;
+        result.model_ = model_;
+        result.texture_ = texture_;
+        if (nameBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            name_ = java.util.Collections.unmodifiableList(name_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.name_ = name_;
+        } else {
+          result.name_ = nameBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000002) != 0)) {
+          hitbox_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.hitbox_ = hitbox_;
+        result.heldItem_ = heldItem_;
+        result.armor_ = internalGetArmor();
+        result.armor_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -18566,10 +20317,71 @@ public final class Server {
           uuid_ = other.uuid_;
           onChanged();
         }
-        if (!other.getData().isEmpty()) {
-          data_ = other.data_;
+        if (other.getX() != 0D) {
+          setX(other.getX());
+        }
+        if (other.getY() != 0D) {
+          setY(other.getY());
+        }
+        if (other.getZ() != 0D) {
+          setZ(other.getZ());
+        }
+        if (other.getRotation() != 0F) {
+          setRotation(other.getRotation());
+        }
+        if (other.getPitch() != 0F) {
+          setPitch(other.getPitch());
+        }
+        if (!other.getModel().isEmpty()) {
+          model_ = other.model_;
           onChanged();
         }
+        if (!other.getTexture().isEmpty()) {
+          texture_ = other.texture_;
+          onChanged();
+        }
+        if (nameBuilder_ == null) {
+          if (!other.name_.isEmpty()) {
+            if (name_.isEmpty()) {
+              name_ = other.name_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureNameIsMutable();
+              name_.addAll(other.name_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.name_.isEmpty()) {
+            if (nameBuilder_.isEmpty()) {
+              nameBuilder_.dispose();
+              nameBuilder_ = null;
+              name_ = other.name_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              nameBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNameFieldBuilder() : null;
+            } else {
+              nameBuilder_.addAllMessages(other.name_);
+            }
+          }
+        }
+        if (!other.hitbox_.isEmpty()) {
+          if (hitbox_.isEmpty()) {
+            hitbox_ = other.hitbox_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureHitboxIsMutable();
+            hitbox_.addAll(other.hitbox_);
+          }
+          onChanged();
+        }
+        if (!other.getHeldItem().isEmpty()) {
+          heldItem_ = other.heldItem_;
+          onChanged();
+        }
+        internalGetMutableArmor().mergeFrom(
+            other.internalGetArmor());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -18598,6 +20410,7 @@ public final class Server {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object uuid_ = "";
       /**
@@ -18675,79 +20488,833 @@ public final class Server {
         return this;
       }
 
-      private java.lang.Object data_ = "";
+      private double x_ ;
       /**
-       * <code>string data = 2;</code>
-       * @return The data.
+       * <code>double x = 2;</code>
+       * @return The x.
        */
-      public java.lang.String getData() {
-        java.lang.Object ref = data_;
+      @java.lang.Override
+      public double getX() {
+        return x_;
+      }
+      /**
+       * <code>double x = 2;</code>
+       * @param value The x to set.
+       * @return This builder for chaining.
+       */
+      public Builder setX(double value) {
+        
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double x = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearX() {
+        
+        x_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double y_ ;
+      /**
+       * <code>double y = 3;</code>
+       * @return The y.
+       */
+      @java.lang.Override
+      public double getY() {
+        return y_;
+      }
+      /**
+       * <code>double y = 3;</code>
+       * @param value The y to set.
+       * @return This builder for chaining.
+       */
+      public Builder setY(double value) {
+        
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double y = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearY() {
+        
+        y_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double z_ ;
+      /**
+       * <code>double z = 4;</code>
+       * @return The z.
+       */
+      @java.lang.Override
+      public double getZ() {
+        return z_;
+      }
+      /**
+       * <code>double z = 4;</code>
+       * @param value The z to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZ(double value) {
+        
+        z_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double z = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZ() {
+        
+        z_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private float rotation_ ;
+      /**
+       * <code>float rotation = 5;</code>
+       * @return The rotation.
+       */
+      @java.lang.Override
+      public float getRotation() {
+        return rotation_;
+      }
+      /**
+       * <code>float rotation = 5;</code>
+       * @param value The rotation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRotation(float value) {
+        
+        rotation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float rotation = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRotation() {
+        
+        rotation_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float pitch_ ;
+      /**
+       * <code>float pitch = 6;</code>
+       * @return The pitch.
+       */
+      @java.lang.Override
+      public float getPitch() {
+        return pitch_;
+      }
+      /**
+       * <code>float pitch = 6;</code>
+       * @param value The pitch to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPitch(float value) {
+        
+        pitch_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float pitch = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPitch() {
+        
+        pitch_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object model_ = "";
+      /**
+       * <code>string model = 7;</code>
+       * @return The model.
+       */
+      public java.lang.String getModel() {
+        java.lang.Object ref = model_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          data_ = s;
+          model_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string data = 2;</code>
-       * @return The bytes for data.
+       * <code>string model = 7;</code>
+       * @return The bytes for model.
        */
       public com.google.protobuf.ByteString
-          getDataBytes() {
-        java.lang.Object ref = data_;
+          getModelBytes() {
+        java.lang.Object ref = model_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          data_ = b;
+          model_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string data = 2;</code>
-       * @param value The data to set.
+       * <code>string model = 7;</code>
+       * @param value The model to set.
        * @return This builder for chaining.
        */
-      public Builder setData(
+      public Builder setModel(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        data_ = value;
+        model_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string data = 2;</code>
+       * <code>string model = 7;</code>
        * @return This builder for chaining.
        */
-      public Builder clearData() {
+      public Builder clearModel() {
         
-        data_ = getDefaultInstance().getData();
+        model_ = getDefaultInstance().getModel();
         onChanged();
         return this;
       }
       /**
-       * <code>string data = 2;</code>
-       * @param value The bytes for data to set.
+       * <code>string model = 7;</code>
+       * @param value The bytes for model to set.
        * @return This builder for chaining.
        */
-      public Builder setDataBytes(
+      public Builder setModelBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        data_ = value;
+        model_ = value;
         onChanged();
+        return this;
+      }
+
+      private java.lang.Object texture_ = "";
+      /**
+       * <code>string texture = 8;</code>
+       * @return The texture.
+       */
+      public java.lang.String getTexture() {
+        java.lang.Object ref = texture_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          texture_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string texture = 8;</code>
+       * @return The bytes for texture.
+       */
+      public com.google.protobuf.ByteString
+          getTextureBytes() {
+        java.lang.Object ref = texture_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          texture_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string texture = 8;</code>
+       * @param value The texture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTexture(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        texture_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string texture = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTexture() {
+        
+        texture_ = getDefaultInstance().getTexture();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string texture = 8;</code>
+       * @param value The bytes for texture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextureBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        texture_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<Types.BasicChatComponentType> name_ =
+        java.util.Collections.emptyList();
+      private void ensureNameIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          name_ = new java.util.ArrayList<Types.BasicChatComponentType>(name_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> nameBuilder_;
+
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType> getNameList() {
+        if (nameBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(name_);
+        } else {
+          return nameBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public int getNameCount() {
+        if (nameBuilder_ == null) {
+          return name_.size();
+        } else {
+          return nameBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Types.BasicChatComponentType getName(int index) {
+        if (nameBuilder_ == null) {
+          return name_.get(index);
+        } else {
+          return nameBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.set(index, value);
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addName(Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.add(value);
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.add(index, value);
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addName(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.add(builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addAllName(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, name_);
+          onChanged();
+        } else {
+          nameBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder clearName() {
+        if (nameBuilder_ == null) {
+          name_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          nameBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder removeName(int index) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.remove(index);
+          onChanged();
+        } else {
+          nameBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Types.BasicChatComponentType.Builder getNameBuilder(
+          int index) {
+        return getNameFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+          int index) {
+        if (nameBuilder_ == null) {
+          return name_.get(index);  } else {
+          return nameBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+           getNameOrBuilderList() {
+        if (nameBuilder_ != null) {
+          return nameBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(name_);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Types.BasicChatComponentType.Builder addNameBuilder() {
+        return getNameFieldBuilder().addBuilder(
+            Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Types.BasicChatComponentType.Builder addNameBuilder(
+          int index) {
+        return getNameFieldBuilder().addBuilder(
+            index, Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType.Builder> 
+           getNameBuilderList() {
+        return getNameFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> 
+          getNameFieldBuilder() {
+        if (nameBuilder_ == null) {
+          nameBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder>(
+                  name_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          name_ = null;
+        }
+        return nameBuilder_;
+      }
+
+      private com.google.protobuf.Internal.FloatList hitbox_ = emptyFloatList();
+      private void ensureHitboxIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          hitbox_ = mutableCopy(hitbox_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @return A list containing the hitbox.
+       */
+      public java.util.List<java.lang.Float>
+          getHitboxList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(hitbox_) : hitbox_;
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @return The count of hitbox.
+       */
+      public int getHitboxCount() {
+        return hitbox_.size();
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @param index The index of the element to return.
+       * @return The hitbox at the given index.
+       */
+      public float getHitbox(int index) {
+        return hitbox_.getFloat(index);
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @param index The index to set the value at.
+       * @param value The hitbox to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHitbox(
+          int index, float value) {
+        ensureHitboxIsMutable();
+        hitbox_.setFloat(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @param value The hitbox to add.
+       * @return This builder for chaining.
+       */
+      public Builder addHitbox(float value) {
+        ensureHitboxIsMutable();
+        hitbox_.addFloat(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @param values The hitbox to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllHitbox(
+          java.lang.Iterable<? extends java.lang.Float> values) {
+        ensureHitboxIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, hitbox_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHitbox() {
+        hitbox_ = emptyFloatList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object heldItem_ = "";
+      /**
+       * <code>string held_item = 11;</code>
+       * @return The heldItem.
+       */
+      public java.lang.String getHeldItem() {
+        java.lang.Object ref = heldItem_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          heldItem_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string held_item = 11;</code>
+       * @return The bytes for heldItem.
+       */
+      public com.google.protobuf.ByteString
+          getHeldItemBytes() {
+        java.lang.Object ref = heldItem_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          heldItem_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string held_item = 11;</code>
+       * @param value The heldItem to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeldItem(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        heldItem_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string held_item = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHeldItem() {
+        
+        heldItem_ = getDefaultInstance().getHeldItem();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string held_item = 11;</code>
+       * @param value The bytes for heldItem to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeldItemBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        heldItem_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.Integer, java.lang.String> armor_;
+      private com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+      internalGetArmor() {
+        if (armor_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ArmorDefaultEntryHolder.defaultEntry);
+        }
+        return armor_;
+      }
+      private com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+      internalGetMutableArmor() {
+        onChanged();;
+        if (armor_ == null) {
+          armor_ = com.google.protobuf.MapField.newMapField(
+              ArmorDefaultEntryHolder.defaultEntry);
+        }
+        if (!armor_.isMutable()) {
+          armor_ = armor_.copy();
+        }
+        return armor_;
+      }
+
+      public int getArmorCount() {
+        return internalGetArmor().getMap().size();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsArmor(
+          int key) {
+        
+        return internalGetArmor().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getArmorMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, java.lang.String> getArmor() {
+        return getArmorMap();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.Integer, java.lang.String> getArmorMap() {
+        return internalGetArmor().getMap();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getArmorOrDefault(
+          int key,
+          java.lang.String defaultValue) {
+        
+        java.util.Map<java.lang.Integer, java.lang.String> map =
+            internalGetArmor().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getArmorOrThrow(
+          int key) {
+        
+        java.util.Map<java.lang.Integer, java.lang.String> map =
+            internalGetArmor().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearArmor() {
+        internalGetMutableArmor().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+
+      public Builder removeArmor(
+          int key) {
+        
+        internalGetMutableArmor().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, java.lang.String>
+      getMutableArmor() {
+        return internalGetMutableArmor().getMutableMap();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      public Builder putArmor(
+          int key,
+          java.lang.String value) {
+        
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableArmor().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+
+      public Builder putAllArmor(
+          java.util.Map<java.lang.Integer, java.lang.String> values) {
+        internalGetMutableArmor().getMutableMap()
+            .putAll(values);
         return this;
       }
       @java.lang.Override
@@ -24227,38 +26794,28 @@ public final class Server {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    java.util.List<Server.WorldBlockUpdate> 
+        getBlocksList();
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    Server.WorldBlockUpdate getBlocks(int index);
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
     int getBlocksCount();
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
-    boolean containsBlocks(
-        int key);
+    java.util.List<? extends Server.WorldBlockUpdateOrBuilder> 
+        getBlocksOrBuilderList();
     /**
-     * Use {@link #getBlocksMap()} instead.
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Server.WorldBlockUpdate>
-    getBlocks();
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-    java.util.Map<java.lang.Integer, Server.WorldBlockUpdate>
-    getBlocksMap();
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-
-    Server.WorldBlockUpdate getBlocksOrDefault(
-        int key,
-        Server.WorldBlockUpdate defaultValue);
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-
-    Server.WorldBlockUpdate getBlocksOrThrow(
-        int key);
+    Server.WorldBlockUpdateOrBuilder getBlocksOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code WorldMultiBlockUpdate}
@@ -24273,6 +26830,7 @@ public final class Server {
       super(builder);
     }
     private WorldMultiBlockUpdate() {
+      blocks_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -24308,15 +26866,11 @@ public final class Server {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                blocks_ = com.google.protobuf.MapField.newMapField(
-                    BlocksDefaultEntryHolder.defaultEntry);
+                blocks_ = new java.util.ArrayList<Server.WorldBlockUpdate>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<java.lang.Integer, Server.WorldBlockUpdate>
-              blocks__ = input.readMessage(
-                  BlocksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              blocks_.getMutableMap().put(
-                  blocks__.getKey(), blocks__.getValue());
+              blocks_.add(
+                  input.readMessage(Server.WorldBlockUpdate.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -24334,6 +26888,9 @@ public final class Server {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          blocks_ = java.util.Collections.unmodifiableList(blocks_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -24343,18 +26900,6 @@ public final class Server {
       return Server.internal_static_WorldMultiBlockUpdate_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetBlocks();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -24364,84 +26909,43 @@ public final class Server {
     }
 
     public static final int BLOCKS_FIELD_NUMBER = 1;
-    private static final class BlocksDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.Integer, Server.WorldBlockUpdate> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.Integer, Server.WorldBlockUpdate>newDefaultInstance(
-                  Server.internal_static_WorldMultiBlockUpdate_BlocksEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.INT32,
-                  0,
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Server.WorldBlockUpdate.getDefaultInstance());
-    }
-    private com.google.protobuf.MapField<
-        java.lang.Integer, Server.WorldBlockUpdate> blocks_;
-    private com.google.protobuf.MapField<java.lang.Integer, Server.WorldBlockUpdate>
-    internalGetBlocks() {
-      if (blocks_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            BlocksDefaultEntryHolder.defaultEntry);
-      }
+    private java.util.List<Server.WorldBlockUpdate> blocks_;
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<Server.WorldBlockUpdate> getBlocksList() {
       return blocks_;
     }
-
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends Server.WorldBlockUpdateOrBuilder> 
+        getBlocksOrBuilderList() {
+      return blocks_;
+    }
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    @java.lang.Override
     public int getBlocksCount() {
-      return internalGetBlocks().getMap().size();
+      return blocks_.size();
     }
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
-
     @java.lang.Override
-    public boolean containsBlocks(
-        int key) {
-      
-      return internalGetBlocks().getMap().containsKey(key);
+    public Server.WorldBlockUpdate getBlocks(int index) {
+      return blocks_.get(index);
     }
     /**
-     * Use {@link #getBlocksMap()} instead.
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> getBlocks() {
-      return getBlocksMap();
-    }
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> getBlocksMap() {
-      return internalGetBlocks().getMap();
-    }
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-    @java.lang.Override
-
-    public Server.WorldBlockUpdate getBlocksOrDefault(
-        int key,
-        Server.WorldBlockUpdate defaultValue) {
-      
-      java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> map =
-          internalGetBlocks().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-    @java.lang.Override
-
-    public Server.WorldBlockUpdate getBlocksOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> map =
-          internalGetBlocks().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public Server.WorldBlockUpdateOrBuilder getBlocksOrBuilder(
+        int index) {
+      return blocks_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -24458,12 +26962,9 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      com.google.protobuf.GeneratedMessageV3
-        .serializeIntegerMapTo(
-          output,
-          internalGetBlocks(),
-          BlocksDefaultEntryHolder.defaultEntry,
-          1);
+      for (int i = 0; i < blocks_.size(); i++) {
+        output.writeMessage(1, blocks_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -24473,15 +26974,9 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.Integer, Server.WorldBlockUpdate> entry
-           : internalGetBlocks().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.Integer, Server.WorldBlockUpdate>
-        blocks__ = BlocksDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < blocks_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, blocks__);
+          .computeMessageSize(1, blocks_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -24498,8 +26993,8 @@ public final class Server {
       }
       Server.WorldMultiBlockUpdate other = (Server.WorldMultiBlockUpdate) obj;
 
-      if (!internalGetBlocks().equals(
-          other.internalGetBlocks())) return false;
+      if (!getBlocksList()
+          .equals(other.getBlocksList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -24511,9 +27006,9 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetBlocks().getMap().isEmpty()) {
+      if (getBlocksCount() > 0) {
         hash = (37 * hash) + BLOCKS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetBlocks().hashCode();
+        hash = (53 * hash) + getBlocksList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -24622,28 +27117,6 @@ public final class Server {
         return Server.internal_static_WorldMultiBlockUpdate_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetBlocks();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetMutableBlocks();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -24665,12 +27138,18 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getBlocksFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        internalGetMutableBlocks().clear();
+        if (blocksBuilder_ == null) {
+          blocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          blocksBuilder_.clear();
+        }
         return this;
       }
 
@@ -24698,8 +27177,15 @@ public final class Server {
       public Server.WorldMultiBlockUpdate buildPartial() {
         Server.WorldMultiBlockUpdate result = new Server.WorldMultiBlockUpdate(this);
         int from_bitField0_ = bitField0_;
-        result.blocks_ = internalGetBlocks();
-        result.blocks_.makeImmutable();
+        if (blocksBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            blocks_ = java.util.Collections.unmodifiableList(blocks_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.blocks_ = blocks_;
+        } else {
+          result.blocks_ = blocksBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -24748,8 +27234,32 @@ public final class Server {
 
       public Builder mergeFrom(Server.WorldMultiBlockUpdate other) {
         if (other == Server.WorldMultiBlockUpdate.getDefaultInstance()) return this;
-        internalGetMutableBlocks().mergeFrom(
-            other.internalGetBlocks());
+        if (blocksBuilder_ == null) {
+          if (!other.blocks_.isEmpty()) {
+            if (blocks_.isEmpty()) {
+              blocks_ = other.blocks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureBlocksIsMutable();
+              blocks_.addAll(other.blocks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.blocks_.isEmpty()) {
+            if (blocksBuilder_.isEmpty()) {
+              blocksBuilder_.dispose();
+              blocksBuilder_ = null;
+              blocks_ = other.blocks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              blocksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getBlocksFieldBuilder() : null;
+            } else {
+              blocksBuilder_.addAllMessages(other.blocks_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -24780,132 +27290,244 @@ public final class Server {
       }
       private int bitField0_;
 
-      private com.google.protobuf.MapField<
-          java.lang.Integer, Server.WorldBlockUpdate> blocks_;
-      private com.google.protobuf.MapField<java.lang.Integer, Server.WorldBlockUpdate>
-      internalGetBlocks() {
-        if (blocks_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              BlocksDefaultEntryHolder.defaultEntry);
-        }
-        return blocks_;
-      }
-      private com.google.protobuf.MapField<java.lang.Integer, Server.WorldBlockUpdate>
-      internalGetMutableBlocks() {
-        onChanged();;
-        if (blocks_ == null) {
-          blocks_ = com.google.protobuf.MapField.newMapField(
-              BlocksDefaultEntryHolder.defaultEntry);
-        }
-        if (!blocks_.isMutable()) {
-          blocks_ = blocks_.copy();
-        }
-        return blocks_;
+      private java.util.List<Server.WorldBlockUpdate> blocks_ =
+        java.util.Collections.emptyList();
+      private void ensureBlocksIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          blocks_ = new java.util.ArrayList<Server.WorldBlockUpdate>(blocks_);
+          bitField0_ |= 0x00000001;
+         }
       }
 
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Server.WorldBlockUpdate, Server.WorldBlockUpdate.Builder, Server.WorldBlockUpdateOrBuilder> blocksBuilder_;
+
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public java.util.List<Server.WorldBlockUpdate> getBlocksList() {
+        if (blocksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(blocks_);
+        } else {
+          return blocksBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
       public int getBlocksCount() {
-        return internalGetBlocks().getMap().size();
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-
-      @java.lang.Override
-      public boolean containsBlocks(
-          int key) {
-        
-        return internalGetBlocks().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getBlocksMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> getBlocks() {
-        return getBlocksMap();
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-      @java.lang.Override
-
-      public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> getBlocksMap() {
-        return internalGetBlocks().getMap();
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-      @java.lang.Override
-
-      public Server.WorldBlockUpdate getBlocksOrDefault(
-          int key,
-          Server.WorldBlockUpdate defaultValue) {
-        
-        java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> map =
-            internalGetBlocks().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-      @java.lang.Override
-
-      public Server.WorldBlockUpdate getBlocksOrThrow(
-          int key) {
-        
-        java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> map =
-            internalGetBlocks().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+        if (blocksBuilder_ == null) {
+          return blocks_.size();
+        } else {
+          return blocksBuilder_.getCount();
         }
-        return map.get(key);
       }
-
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Server.WorldBlockUpdate getBlocks(int index) {
+        if (blocksBuilder_ == null) {
+          return blocks_.get(index);
+        } else {
+          return blocksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder setBlocks(
+          int index, Server.WorldBlockUpdate value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.set(index, value);
+          onChanged();
+        } else {
+          blocksBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder setBlocks(
+          int index, Server.WorldBlockUpdate.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addBlocks(Server.WorldBlockUpdate value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.add(value);
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          int index, Server.WorldBlockUpdate value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.add(index, value);
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          Server.WorldBlockUpdate.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.add(builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          int index, Server.WorldBlockUpdate.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addAllBlocks(
+          java.lang.Iterable<? extends Server.WorldBlockUpdate> values) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, blocks_);
+          onChanged();
+        } else {
+          blocksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
       public Builder clearBlocks() {
-        internalGetMutableBlocks().getMutableMap()
-            .clear();
+        if (blocksBuilder_ == null) {
+          blocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          blocksBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
        */
-
-      public Builder removeBlocks(
-          int key) {
-        
-        internalGetMutableBlocks().getMutableMap()
-            .remove(key);
+      public Builder removeBlocks(int index) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.remove(index);
+          onChanged();
+        } else {
+          blocksBuilder_.remove(index);
+        }
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate>
-      getMutableBlocks() {
-        return internalGetMutableBlocks().getMutableMap();
+      public Server.WorldBlockUpdate.Builder getBlocksBuilder(
+          int index) {
+        return getBlocksFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
        */
-      public Builder putBlocks(
-          int key,
-          Server.WorldBlockUpdate value) {
-        
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableBlocks().getMutableMap()
-            .put(key, value);
-        return this;
+      public Server.WorldBlockUpdateOrBuilder getBlocksOrBuilder(
+          int index) {
+        if (blocksBuilder_ == null) {
+          return blocks_.get(index);  } else {
+          return blocksBuilder_.getMessageOrBuilder(index);
+        }
       }
       /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
        */
-
-      public Builder putAllBlocks(
-          java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> values) {
-        internalGetMutableBlocks().getMutableMap()
-            .putAll(values);
-        return this;
+      public java.util.List<? extends Server.WorldBlockUpdateOrBuilder> 
+           getBlocksOrBuilderList() {
+        if (blocksBuilder_ != null) {
+          return blocksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(blocks_);
+        }
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Server.WorldBlockUpdate.Builder addBlocksBuilder() {
+        return getBlocksFieldBuilder().addBuilder(
+            Server.WorldBlockUpdate.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Server.WorldBlockUpdate.Builder addBlocksBuilder(
+          int index) {
+        return getBlocksFieldBuilder().addBuilder(
+            index, Server.WorldBlockUpdate.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public java.util.List<Server.WorldBlockUpdate.Builder> 
+           getBlocksBuilderList() {
+        return getBlocksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Server.WorldBlockUpdate, Server.WorldBlockUpdate.Builder, Server.WorldBlockUpdateOrBuilder> 
+          getBlocksFieldBuilder() {
+        if (blocksBuilder_ == null) {
+          blocksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Server.WorldBlockUpdate, Server.WorldBlockUpdate.Builder, Server.WorldBlockUpdateOrBuilder>(
+                  blocks_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          blocks_ = null;
+        }
+        return blocksBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -31719,25 +34341,20 @@ public final class Server {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ChatMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ChatMessage_MessageEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ChatMessage_MessageEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UpdateTextBoard_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_UpdateTextBoard_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_UpdateTextBoard_MessageEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_UpdateTextBoard_MessageEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_EntityCreate_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_EntityCreate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_EntityCreate_ArmorEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_EntityCreate_ArmorEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_EntityRemove_descriptor;
   private static final 
@@ -31778,11 +34395,6 @@ public final class Server {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_WorldMultiBlockUpdate_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_WorldMultiBlockUpdate_BlocksEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_WorldMultiBlockUpdate_BlocksEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_WorldChunkLoad_descriptor;
   private static final 
@@ -31844,97 +34456,101 @@ public final class Server {
       "\006 \001(\t\022\014\n\004auth\030\007 \001(\010\022\016\n\006secret\030\010 \001(\t\022\020\n\010i" +
       "s_proxy\030\t \001(\010\022\024\n\014protocol_rev\030\n \001(\005\",\n\013L" +
       "oginStatus\022\017\n\007message\030\001 \001(\t\022\014\n\004time\030\002 \001(" +
-      "\004\"d\n\014LoginSuccess\022\017\n\007message\030\001 \001(\t\022\014\n\004ti" +
-      "me\030\002 \001(\004\022\016\n\006assets\030\003 \001(\t\022\021\n\titems_def\030\004 " +
-      "\001(\t\022\022\n\nblocks_def\030\005 \001(\t\"\024\n\004Ping\022\014\n\004time\030" +
-      "\001 \001(\004\"\376\001\n\013PlayerSpawn\022\r\n\005x_pos\030\001 \001(\001\022\r\n\005" +
-      "y_pos\030\002 \001(\001\022\r\n\005z_pos\030\003 \001(\001\022\020\n\010rotation\030\004" +
-      " \001(\002\022\r\n\005pitch\030\005 \001(\002\022,\n\010movement\030\006 \003(\0132\032." +
-      "PlayerSpawn.MovementEntry\022#\n\tinventory\030\007" +
-      " \001(\0132\020.PlayerInventory\022\035\n\006entity\030\010 \001(\0132\r" +
-      ".PlayerEntity\032/\n\rMovementEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\"*\n\nPlayerKick\022\016\n\006" +
-      "reason\030\001 \001(\t\022\014\n\004time\030\002 \001(\004\"[\n\014PlayerEnti" +
-      "ty\022\014\n\004uuid\030\001 \001(\t\022\r\n\005model\030\002 \001(\t\022\017\n\007textu" +
-      "re\030\003 \001(\t\022\016\n\006height\030\004 \001(\002\022\r\n\005witdh\030\005 \001(\002\"" +
-      "R\n\016PlayerTeleport\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022" +
-      "\t\n\001z\030\003 \001(\001\022\020\n\010rotation\030\004 \001(\002\022\r\n\005pitch\030\005 " +
-      "\001(\002\"9\n\022PlayerEnterVehicle\022\014\n\004uuid\030\001 \001(\t\022" +
-      "\025\n\rallow_control\030\002 \001(\010\"\310\002\n\017PlayerInvento" +
-      "ry\022\014\n\004size\030\001 \001(\r\022(\n\004main\030\002 \003(\0132\032.PlayerI" +
-      "nventory.MainEntry\022*\n\005armor\030\003 \003(\0132\033.Play" +
-      "erInventory.ArmorEntry\0220\n\010crafting\030\004 \003(\013" +
-      "2\036.PlayerInventory.CraftingEntry\0322\n\tMain" +
-      "Entry\022\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132\005.Item" +
-      ":\0028\001\0323\n\nArmorEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005value" +
-      "\030\002 \001(\0132\005.Item:\0028\001\0326\n\rCraftingEntry\022\013\n\003ke" +
-      "y\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132\005.Item:\0028\001\"S\n\020Pla" +
-      "yerSlotUpdate\022\014\n\004slot\030\001 \001(\005\022\034\n\004type\030\002 \001(" +
-      "\0162\016.InventoryType\022\023\n\004item\030\003 \001(\0132\005.Item\"5" +
-      "\n\022PlayerApplyImpulse\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001" +
-      "(\002\022\t\n\001z\030\003 \001(\002\"2\n\024PlayerUpdateMovement\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"1\n\023PlayerUpdat" +
-      "ePhysics\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"*\n\014" +
-      "PlayerHealth\022\r\n\005value\030\001 \001(\002\022\013\n\003max\030\002 \001(\002" +
-      "\"$\n\023PlayerSetBlockReach\022\r\n\005value\030\001 \001(\002\"\264" +
-      "\001\n\023PlayerOpenInventory\022\034\n\004type\030\001 \001(\0162\016.C" +
-      "ontainerType\022\014\n\004name\030\002 \001(\t\022\014\n\004size\030\003 \001(\r" +
-      "\022.\n\005items\030\004 \003(\0132\037.PlayerOpenInventory.It" +
-      "emsEntry\0323\n\nItemsEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005v" +
-      "alue\030\002 \001(\0132\005.Item:\0028\001\"\224\001\n\031PlayerUpdateOp" +
-      "enInventory\022\014\n\004name\030\001 \001(\t\0224\n\005items\030\002 \003(\013" +
-      "2%.PlayerUpdateOpenInventory.ItemsEntry\032" +
-      "3\n\nItemsEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 \001(" +
-      "\0132\005.Item:\0028\001\"K\n\tSoundPlay\022\r\n\005sound\030\001 \001(\t" +
-      "\022\016\n\006volume\030\002 \001(\r\022\t\n\001x\030\003 \001(\001\022\t\n\001y\030\004 \001(\001\022\t" +
-      "\n\001z\030\005 \001(\001\"\213\001\n\013ChatMessage\022*\n\007message\030\001 \003" +
-      "(\0132\031.ChatMessage.MessageEntry\022\014\n\004time\030\002 " +
-      "\001(\004\032B\n\014MessageEntry\022\013\n\003key\030\001 \001(\r\022!\n\005valu" +
-      "e\030\002 \001(\0132\022.ChatComponentType:\0028\001\"\360\001\n\017Upda" +
-      "teTextBoard\022#\n\004type\030\001 \001(\0162\025.UpdateTextBo" +
-      "ard.Type\022.\n\007message\030\002 \003(\0132\035.UpdateTextBo" +
-      "ard.MessageEntry\022\014\n\004time\030\003 \001(\004\032G\n\014Messag" +
-      "eEntry\022\013\n\003key\030\001 \001(\r\022&\n\005value\030\002 \001(\0132\027.Bas" +
-      "icChatComponentType:\0028\001\"1\n\004Type\022\007\n\003TAB\020\000" +
-      "\022\010\n\004SIDE\020\001\022\n\n\006CENTER\020\002\022\n\n\006HOTBAR\020\003\"*\n\014En" +
-      "tityCreate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\034" +
-      "\n\014EntityRemove\022\014\n\004uuid\030\001 \001(\t\"\\\n\nEntityMo" +
-      "ve\022\014\n\004uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t" +
-      "\n\001z\030\004 \001(\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001" +
-      "(\002\"?\n\020EntityNameUpdate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004" +
-      "name\030\002 \001(\t\022\017\n\007visible\030\003 \001(\010\"*\n\016EntityHel" +
-      "dItem\022\014\n\004uuid\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\"5\n\013Entit" +
-      "yArmor\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id" +
-      "\030\003 \001(\t\"O\n\rEntityAnimate\022\014\n\004uuid\030\001 \001(\t\022\021\n" +
-      "\tanimation\030\002 \001(\t\022\014\n\004time\030\003 \001(\r\022\017\n\007replac" +
-      "e\030\004 \001(\010\"R\n\020WorldBlockUpdate\022\t\n\001x\030\001 \001(\021\022\t" +
-      "\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 \001(\r\022\021\n\tpart" +
-      "icles\030\005 \001(\010\"\215\001\n\025WorldMultiBlockUpdate\0222\n" +
-      "\006blocks\030\001 \003(\0132\".WorldMultiBlockUpdate.Bl" +
-      "ocksEntry\032@\n\013BlocksEntry\022\013\n\003key\030\001 \001(\005\022 \n" +
-      "\005value\030\002 \001(\0132\021.WorldBlockUpdate:\0028\001\"}\n\016W" +
-      "orldChunkLoad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z" +
-      "\030\003 \001(\021\022\016\n\006height\030\004 \001(\021\022\022\n\ncompressed\030\005 \001" +
-      "(\010\022\022\n\nblock_data\030\006 \001(\014\022\022\n\nlight_data\030\007 \001" +
-      "(\014\"C\n\020WorldChunkUnload\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002" +
-      " \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006height\030\004 \001(\021\"5\n\022World" +
-      "ChunkIsLoaded\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z" +
-      "\030\003 \001(\021\"\'\n\024WorldChunksRemoveAll\022\017\n\007confir" +
-      "m\030\001 \001(\010\"&\n\025EnvironmentTimeUpdate\022\r\n\005valu" +
-      "e\030\001 \001(\005\"\215\001\n\024EnvironmentFogUpdate\022\014\n\004mode" +
-      "\030\001 \001(\r\022\017\n\007density\030\002 \001(\002\022\r\n\005start\030\003 \001(\002\022\013" +
-      "\n\003end\030\004 \001(\002\022\021\n\tcolor_red\030\005 \001(\002\022\023\n\013color_" +
-      "green\030\006 \001(\002\022\022\n\ncolor_blue\030\007 \001(\002\"\373\001\n\024Envi" +
-      "ronmentSkyUpdate\022\016\n\006clouds\030\001 \001(\010\022\021\n\tcolo" +
-      "r_red\030\002 \001(\002\022\023\n\013color_green\030\003 \001(\002\022\022\n\ncolo" +
-      "r_blue\030\004 \001(\002\022\025\n\rcolor_red_top\030\005 \001(\002\022\027\n\017c" +
-      "olor_green_top\030\006 \001(\002\022\026\n\016color_blue_top\030\007" +
-      " \001(\002\022\030\n\020color_red_bottom\030\010 \001(\002\022\032\n\022color_" +
-      "green_bottom\030\t \001(\002\022\031\n\021color_blue_bottom\030" +
-      "\n \001(\002\"7\n\024EnvironmentSetSkybox\022\016\n\006enable\030" +
-      "\001 \001(\010\022\017\n\007texture\030\002 \001(\t\"<\n\rPluginMessage\022" +
-      "\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003" +
-      " \001(\014b\006proto3"
+      "\004\"y\n\014LoginSuccess\022\017\n\007message\030\001 \001(\t\022\014\n\004ti" +
+      "me\030\002 \001(\004\022\016\n\006assets\030\003 \001(\t\022\033\n\titems_def\030\004 " +
+      "\003(\0132\010.ItemDef\022\035\n\nblocks_def\030\005 \003(\0132\t.Bloc" +
+      "kDef\"\024\n\004Ping\022\014\n\004time\030\001 \001(\004\"\376\001\n\013PlayerSpa" +
+      "wn\022\r\n\005x_pos\030\001 \001(\001\022\r\n\005y_pos\030\002 \001(\001\022\r\n\005z_po" +
+      "s\030\003 \001(\001\022\020\n\010rotation\030\004 \001(\002\022\r\n\005pitch\030\005 \001(\002" +
+      "\022,\n\010movement\030\006 \003(\0132\032.PlayerSpawn.Movemen" +
+      "tEntry\022#\n\tinventory\030\007 \001(\0132\020.PlayerInvent" +
+      "ory\022\035\n\006entity\030\010 \001(\0132\r.PlayerEntity\032/\n\rMo" +
+      "vementEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:" +
+      "\0028\001\"C\n\nPlayerKick\022\'\n\006reason\030\001 \003(\0132\027.Basi" +
+      "cChatComponentType\022\014\n\004time\030\002 \001(\004\"[\n\014Play" +
+      "erEntity\022\014\n\004uuid\030\001 \001(\t\022\r\n\005model\030\002 \001(\t\022\017\n" +
+      "\007texture\030\003 \001(\t\022\016\n\006height\030\004 \001(\002\022\r\n\005witdh\030" +
+      "\005 \001(\002\"R\n\016PlayerTeleport\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030" +
+      "\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\020\n\010rotation\030\004 \001(\002\022\r\n\005pi" +
+      "tch\030\005 \001(\002\"9\n\022PlayerEnterVehicle\022\014\n\004uuid\030" +
+      "\001 \001(\t\022\025\n\rallow_control\030\002 \001(\010\"\310\002\n\017PlayerI" +
+      "nventory\022\014\n\004size\030\001 \001(\r\022(\n\004main\030\002 \003(\0132\032.P" +
+      "layerInventory.MainEntry\022*\n\005armor\030\003 \003(\0132" +
+      "\033.PlayerInventory.ArmorEntry\0220\n\010crafting" +
+      "\030\004 \003(\0132\036.PlayerInventory.CraftingEntry\0322" +
+      "\n\tMainEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132" +
+      "\005.Item:\0028\001\0323\n\nArmorEntry\022\013\n\003key\030\001 \001(\r\022\024\n" +
+      "\005value\030\002 \001(\0132\005.Item:\0028\001\0326\n\rCraftingEntry" +
+      "\022\013\n\003key\030\001 \001(\r\022\024\n\005value\030\002 \001(\0132\005.Item:\0028\001\"" +
+      "S\n\020PlayerSlotUpdate\022\014\n\004slot\030\001 \001(\005\022\034\n\004typ" +
+      "e\030\002 \001(\0162\016.InventoryType\022\023\n\004item\030\003 \001(\0132\005." +
+      "Item\"5\n\022PlayerApplyImpulse\022\t\n\001x\030\001 \001(\002\022\t\n" +
+      "\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"2\n\024PlayerUpdateMovem" +
+      "ent\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"1\n\023Playe" +
+      "rUpdatePhysics\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\001\"*\n\014PlayerHealth\022\r\n\005value\030\001 \001(\002\022\013\n\003max" +
+      "\030\002 \001(\002\"$\n\023PlayerSetBlockReach\022\r\n\005value\030\001" +
+      " \001(\002\"\264\001\n\023PlayerOpenInventory\022\034\n\004type\030\001 \001" +
+      "(\0162\016.ContainerType\022\014\n\004name\030\002 \001(\t\022\014\n\004size" +
+      "\030\003 \001(\r\022.\n\005items\030\004 \003(\0132\037.PlayerOpenInvent" +
+      "ory.ItemsEntry\0323\n\nItemsEntry\022\013\n\003key\030\001 \001(" +
+      "\r\022\024\n\005value\030\002 \001(\0132\005.Item:\0028\001\"\224\001\n\031PlayerUp" +
+      "dateOpenInventory\022\014\n\004name\030\001 \001(\t\0224\n\005items" +
+      "\030\002 \003(\0132%.PlayerUpdateOpenInventory.Items" +
+      "Entry\0323\n\nItemsEntry\022\013\n\003key\030\001 \001(\r\022\024\n\005valu" +
+      "e\030\002 \001(\0132\005.Item:\0028\001\"\253\001\n\tSoundPlay\022\r\n\005soun" +
+      "d\030\001 \001(\t\022\016\n\006volume\030\002 \001(\r\022\t\n\001x\030\003 \001(\001\022\t\n\001y\030" +
+      "\004 \001(\001\022\t\n\001z\030\005 \001(\001\022\035\n\004type\030\006 \001(\0162\017.SoundPl" +
+      "ay.Type\"?\n\004Type\022\013\n\007GENERAL\020\000\022\n\n\006ENTITY\020\001" +
+      "\022\t\n\005BLOCK\020\002\022\t\n\005MUSIC\020\003\022\010\n\004SELF\020\004\"@\n\013Chat" +
+      "Message\022#\n\007message\030\001 \003(\0132\022.ChatComponent" +
+      "Type\022\014\n\004time\030\002 \001(\004\"\241\001\n\017UpdateTextBoard\022#" +
+      "\n\004type\030\001 \001(\0162\025.UpdateTextBoard.Type\022(\n\007m" +
+      "essage\030\002 \003(\0132\027.BasicChatComponentType\022\014\n" +
+      "\004time\030\003 \001(\004\"1\n\004Type\022\007\n\003TAB\020\000\022\010\n\004SIDE\020\001\022\n" +
+      "\n\006CENTER\020\002\022\n\n\006HOTBAR\020\003\"\237\002\n\014EntityCreate\022" +
+      "\014\n\004uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t\n\001z" +
+      "\030\004 \001(\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\022" +
+      "\r\n\005model\030\007 \001(\t\022\017\n\007texture\030\010 \001(\t\022%\n\004name\030" +
+      "\t \003(\0132\027.BasicChatComponentType\022\016\n\006hitbox" +
+      "\030\n \003(\002\022\021\n\theld_item\030\013 \001(\t\022\'\n\005armor\030\014 \003(\013" +
+      "2\030.EntityCreate.ArmorEntry\032,\n\nArmorEntry" +
+      "\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"\034\n\014Enti" +
+      "tyRemove\022\014\n\004uuid\030\001 \001(\t\"\\\n\nEntityMove\022\014\n\004" +
+      "uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t\n\001z\030\004 " +
+      "\001(\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\"?\n\020" +
+      "EntityNameUpdate\022\014\n\004uuid\030\001 \001(\t\022\014\n\004name\030\002" +
+      " \001(\t\022\017\n\007visible\030\003 \001(\010\"*\n\016EntityHeldItem\022" +
+      "\014\n\004uuid\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\"5\n\013EntityArmor" +
+      "\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\t" +
+      "\"O\n\rEntityAnimate\022\014\n\004uuid\030\001 \001(\t\022\021\n\tanima" +
+      "tion\030\002 \001(\t\022\014\n\004time\030\003 \001(\r\022\017\n\007replace\030\004 \001(" +
+      "\010\"R\n\020WorldBlockUpdate\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 " +
+      "\001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 \001(\r\022\021\n\tparticles\030" +
+      "\005 \001(\010\":\n\025WorldMultiBlockUpdate\022!\n\006blocks" +
+      "\030\001 \003(\0132\021.WorldBlockUpdate\"}\n\016WorldChunkL" +
+      "oad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006" +
+      "height\030\004 \001(\021\022\022\n\ncompressed\030\005 \001(\010\022\022\n\nbloc" +
+      "k_data\030\006 \001(\014\022\022\n\nlight_data\030\007 \001(\014\"C\n\020Worl" +
+      "dChunkUnload\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030" +
+      "\003 \001(\021\022\016\n\006height\030\004 \001(\021\"5\n\022WorldChunkIsLoa" +
+      "ded\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\"\'\n\024" +
+      "WorldChunksRemoveAll\022\017\n\007confirm\030\001 \001(\010\"&\n" +
+      "\025EnvironmentTimeUpdate\022\r\n\005value\030\001 \001(\005\"\215\001" +
+      "\n\024EnvironmentFogUpdate\022\014\n\004mode\030\001 \001(\r\022\017\n\007" +
+      "density\030\002 \001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(" +
+      "\002\022\021\n\tcolor_red\030\005 \001(\002\022\023\n\013color_green\030\006 \001(" +
+      "\002\022\022\n\ncolor_blue\030\007 \001(\002\"\373\001\n\024EnvironmentSky" +
+      "Update\022\016\n\006clouds\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(" +
+      "\002\022\023\n\013color_green\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001" +
+      "(\002\022\025\n\rcolor_red_top\030\005 \001(\002\022\027\n\017color_green" +
+      "_top\030\006 \001(\002\022\026\n\016color_blue_top\030\007 \001(\002\022\030\n\020co" +
+      "lor_red_bottom\030\010 \001(\002\022\032\n\022color_green_bott" +
+      "om\030\t \001(\002\022\031\n\021color_blue_bottom\030\n \001(\002\"7\n\024E" +
+      "nvironmentSetSkybox\022\016\n\006enable\030\001 \001(\010\022\017\n\007t" +
+      "exture\030\002 \001(\t\"<\n\rPluginMessage\022\013\n\003key\030\001 \001" +
+      "(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -32090,37 +34706,31 @@ public final class Server {
     internal_static_SoundPlay_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SoundPlay_descriptor,
-        new java.lang.String[] { "Sound", "Volume", "X", "Y", "Z", });
+        new java.lang.String[] { "Sound", "Volume", "X", "Y", "Z", "Type", });
     internal_static_ChatMessage_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_ChatMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChatMessage_descriptor,
         new java.lang.String[] { "Message", "Time", });
-    internal_static_ChatMessage_MessageEntry_descriptor =
-      internal_static_ChatMessage_descriptor.getNestedTypes().get(0);
-    internal_static_ChatMessage_MessageEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ChatMessage_MessageEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_UpdateTextBoard_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_UpdateTextBoard_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdateTextBoard_descriptor,
         new java.lang.String[] { "Type", "Message", "Time", });
-    internal_static_UpdateTextBoard_MessageEntry_descriptor =
-      internal_static_UpdateTextBoard_descriptor.getNestedTypes().get(0);
-    internal_static_UpdateTextBoard_MessageEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_UpdateTextBoard_MessageEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_EntityCreate_descriptor =
       getDescriptor().getMessageTypes().get(21);
     internal_static_EntityCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityCreate_descriptor,
-        new java.lang.String[] { "Uuid", "Data", });
+        new java.lang.String[] { "Uuid", "X", "Y", "Z", "Rotation", "Pitch", "Model", "Texture", "Name", "Hitbox", "HeldItem", "Armor", });
+    internal_static_EntityCreate_ArmorEntry_descriptor =
+      internal_static_EntityCreate_descriptor.getNestedTypes().get(0);
+    internal_static_EntityCreate_ArmorEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_EntityCreate_ArmorEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_EntityRemove_descriptor =
       getDescriptor().getMessageTypes().get(22);
     internal_static_EntityRemove_fieldAccessorTable = new
@@ -32169,12 +34779,6 @@ public final class Server {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldMultiBlockUpdate_descriptor,
         new java.lang.String[] { "Blocks", });
-    internal_static_WorldMultiBlockUpdate_BlocksEntry_descriptor =
-      internal_static_WorldMultiBlockUpdate_descriptor.getNestedTypes().get(0);
-    internal_static_WorldMultiBlockUpdate_BlocksEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_WorldMultiBlockUpdate_BlocksEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_WorldChunkLoad_descriptor =
       getDescriptor().getMessageTypes().get(30);
     internal_static_WorldChunkLoad_fieldAccessorTable = new

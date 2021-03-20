@@ -375,7 +375,7 @@
           "id": 3
         },
         "name": {
-          "keyType": "uint32",
+          "rule": "repeated",
           "type": "BasicChatComponentType",
           "id": 4
         }
@@ -404,6 +404,152 @@
         "RIGHT": 1,
         "MIDDLE": 2,
         "SELECT": 3
+      }
+    },
+    "ItemDef": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "id": 1
+        },
+        "maxStack": {
+          "type": "uint32",
+          "id": 2
+        },
+        "name": {
+          "rule": "repeated",
+          "type": "BasicChatComponentType",
+          "id": 3
+        },
+        "type": {
+          "type": "Type",
+          "id": 4
+        },
+        "model": {
+          "type": "Model",
+          "id": 5
+        },
+        "textures": {
+          "rule": "repeated",
+          "type": "string",
+          "id": 6
+        },
+        "toolType": {
+          "rule": "repeated",
+          "type": "string",
+          "id": 7
+        },
+        "miningSpeed": {
+          "type": "float",
+          "id": 8
+        },
+        "miningPower": {
+          "type": "float",
+          "id": 9
+        },
+        "customModel": {
+          "type": "string",
+          "id": 10
+        },
+        "armorTexture": {
+          "type": "string",
+          "id": 11
+        }
+      },
+      "nested": {
+        "Type": {
+          "values": {
+            "NONE": 0,
+            "TOOL": 1,
+            "BLOCK": 2,
+            "ARMOR": 3
+          }
+        },
+        "Model": {
+          "values": {
+            "FLAT": 0,
+            "CUBE": 1,
+            "CROSS": 2,
+            "CUSTOM": 3
+          }
+        }
+      }
+    },
+    "BlockDef": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "id": 1
+        },
+        "numId": {
+          "type": "uint32",
+          "id": 2
+        },
+        "model": {
+          "type": "Model",
+          "id": 3
+        },
+        "textures": {
+          "rule": "repeated",
+          "type": "string",
+          "id": 4
+        },
+        "toolType": {
+          "rule": "repeated",
+          "type": "string",
+          "id": 5
+        },
+        "miningSpeed": {
+          "type": "float",
+          "id": 6
+        },
+        "miningPower": {
+          "type": "float",
+          "id": 7
+        },
+        "solid": {
+          "type": "bool",
+          "id": 8
+        },
+        "fluid": {
+          "type": "bool",
+          "id": 9
+        },
+        "opaque": {
+          "type": "bool",
+          "id": 10
+        },
+        "color": {
+          "rule": "repeated",
+          "type": "float",
+          "id": 11
+        },
+        "material": {
+          "rule": "repeated",
+          "type": "string",
+          "id": 12
+        },
+        "fluidDensity": {
+          "type": "double",
+          "id": 13
+        },
+        "viscosity": {
+          "type": "double",
+          "id": 14
+        },
+        "customModel": {
+          "type": "string",
+          "id": 15
+        }
+      },
+      "nested": {
+        "Model": {
+          "values": {
+            "BLOCK": 0,
+            "CROSS": 1,
+            "TRANSPARENT": 2
+          }
+        }
       }
     }
   }

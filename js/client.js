@@ -5195,7 +5195,7 @@
          * @property {string|null} [id] Item id
          * @property {number|null} [count] Item count
          * @property {number|null} [damage] Item damage
-         * @property {Object.<string,IBasicChatComponentType>|null} [name] Item name
+         * @property {Array.<IBasicChatComponentType>|null} [name] Item name
          */
     
         /**
@@ -5207,7 +5207,7 @@
          * @param {IItem=} [properties] Properties to set
          */
         function Item(properties) {
-            this.name = {};
+            this.name = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -5240,11 +5240,11 @@
     
         /**
          * Item name.
-         * @member {Object.<string,IBasicChatComponentType>} name
+         * @member {Array.<IBasicChatComponentType>} name
          * @memberof Item
          * @instance
          */
-        Item.prototype.name = $util.emptyObject;
+        Item.prototype.name = $util.emptyArray;
     
         /**
          * Creates a new Item instance using the specified properties.
@@ -5276,11 +5276,9 @@
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.count);
             if (message.damage != null && Object.hasOwnProperty.call(message, "damage"))
                 writer.uint32(/* id 3, wireType 5 =*/29).float(message.damage);
-            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                for (var keys = Object.keys(message.name), i = 0; i < keys.length; ++i) {
-                    writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 0 =*/8).uint32(keys[i]);
-                    $root.BasicChatComponentType.encode(message.name[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                }
+            if (message.name != null && message.name.length)
+                for (var i = 0; i < message.name.length; ++i)
+                    $root.BasicChatComponentType.encode(message.name[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
             return writer;
         };
     
@@ -5311,7 +5309,7 @@
         Item.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Item(), key, value;
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.Item();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -5325,26 +5323,9 @@
                     message.damage = reader.float();
                     break;
                 case 4:
-                    if (message.name === $util.emptyObject)
-                        message.name = {};
-                    var end2 = reader.uint32() + reader.pos;
-                    key = 0;
-                    value = null;
-                    while (reader.pos < end2) {
-                        var tag2 = reader.uint32();
-                        switch (tag2 >>> 3) {
-                        case 1:
-                            key = reader.uint32();
-                            break;
-                        case 2:
-                            value = $root.BasicChatComponentType.decode(reader, reader.uint32());
-                            break;
-                        default:
-                            reader.skipType(tag2 & 7);
-                            break;
-                        }
-                    }
-                    message.name[key] = value;
+                    if (!(message.name && message.name.length))
+                        message.name = [];
+                    message.name.push($root.BasicChatComponentType.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5391,17 +5372,12 @@
                 if (typeof message.damage !== "number")
                     return "damage: number expected";
             if (message.name != null && message.hasOwnProperty("name")) {
-                if (!$util.isObject(message.name))
-                    return "name: object expected";
-                var key = Object.keys(message.name);
-                for (var i = 0; i < key.length; ++i) {
-                    if (!$util.key32Re.test(key[i]))
-                        return "name: integer key{k:uint32} expected";
-                    {
-                        var error = $root.BasicChatComponentType.verify(message.name[key[i]]);
-                        if (error)
-                            return "name." + error;
-                    }
+                if (!Array.isArray(message.name))
+                    return "name: array expected";
+                for (var i = 0; i < message.name.length; ++i) {
+                    var error = $root.BasicChatComponentType.verify(message.name[i]);
+                    if (error)
+                        return "name." + error;
                 }
             }
             return null;
@@ -5426,13 +5402,13 @@
             if (object.damage != null)
                 message.damage = Number(object.damage);
             if (object.name) {
-                if (typeof object.name !== "object")
-                    throw TypeError(".Item.name: object expected");
-                message.name = {};
-                for (var keys = Object.keys(object.name), i = 0; i < keys.length; ++i) {
-                    if (typeof object.name[keys[i]] !== "object")
+                if (!Array.isArray(object.name))
+                    throw TypeError(".Item.name: array expected");
+                message.name = [];
+                for (var i = 0; i < object.name.length; ++i) {
+                    if (typeof object.name[i] !== "object")
                         throw TypeError(".Item.name: object expected");
-                    message.name[keys[i]] = $root.BasicChatComponentType.fromObject(object.name[keys[i]]);
+                    message.name[i] = $root.BasicChatComponentType.fromObject(object.name[i]);
                 }
             }
             return message;
@@ -5451,8 +5427,8 @@
             if (!options)
                 options = {};
             var object = {};
-            if (options.objects || options.defaults)
-                object.name = {};
+            if (options.arrays || options.defaults)
+                object.name = [];
             if (options.defaults) {
                 object.id = "";
                 object.count = 0;
@@ -5464,11 +5440,10 @@
                 object.count = message.count;
             if (message.damage != null && message.hasOwnProperty("damage"))
                 object.damage = options.json && !isFinite(message.damage) ? String(message.damage) : message.damage;
-            var keys2;
-            if (message.name && (keys2 = Object.keys(message.name)).length) {
-                object.name = {};
-                for (var j = 0; j < keys2.length; ++j)
-                    object.name[keys2[j]] = $root.BasicChatComponentType.toObject(message.name[keys2[j]], options);
+            if (message.name && message.name.length) {
+                object.name = [];
+                for (var j = 0; j < message.name.length; ++j)
+                    object.name[j] = $root.BasicChatComponentType.toObject(message.name[j], options);
             }
             return object;
         };
@@ -5541,6 +5516,1155 @@
         values[valuesById[2] = "MIDDLE"] = 2;
         values[valuesById[3] = "SELECT"] = 3;
         return values;
+    })();
+    
+    $root.ItemDef = (function() {
+    
+        /**
+         * Properties of an ItemDef.
+         * @exports IItemDef
+         * @interface IItemDef
+         * @property {string|null} [id] ItemDef id
+         * @property {number|null} [maxStack] ItemDef maxStack
+         * @property {Array.<IBasicChatComponentType>|null} [name] ItemDef name
+         * @property {ItemDef.Type|null} [type] ItemDef type
+         * @property {ItemDef.Model|null} [model] ItemDef model
+         * @property {Array.<string>|null} [textures] ItemDef textures
+         * @property {Array.<string>|null} [toolType] ItemDef toolType
+         * @property {number|null} [miningSpeed] ItemDef miningSpeed
+         * @property {number|null} [miningPower] ItemDef miningPower
+         * @property {string|null} [customModel] ItemDef customModel
+         * @property {string|null} [armorTexture] ItemDef armorTexture
+         */
+    
+        /**
+         * Constructs a new ItemDef.
+         * @exports ItemDef
+         * @classdesc Represents an ItemDef.
+         * @implements IItemDef
+         * @constructor
+         * @param {IItemDef=} [properties] Properties to set
+         */
+        function ItemDef(properties) {
+            this.name = [];
+            this.textures = [];
+            this.toolType = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * ItemDef id.
+         * @member {string} id
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.id = "";
+    
+        /**
+         * ItemDef maxStack.
+         * @member {number} maxStack
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.maxStack = 0;
+    
+        /**
+         * ItemDef name.
+         * @member {Array.<IBasicChatComponentType>} name
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.name = $util.emptyArray;
+    
+        /**
+         * ItemDef type.
+         * @member {ItemDef.Type} type
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.type = 0;
+    
+        /**
+         * ItemDef model.
+         * @member {ItemDef.Model} model
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.model = 0;
+    
+        /**
+         * ItemDef textures.
+         * @member {Array.<string>} textures
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.textures = $util.emptyArray;
+    
+        /**
+         * ItemDef toolType.
+         * @member {Array.<string>} toolType
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.toolType = $util.emptyArray;
+    
+        /**
+         * ItemDef miningSpeed.
+         * @member {number} miningSpeed
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.miningSpeed = 0;
+    
+        /**
+         * ItemDef miningPower.
+         * @member {number} miningPower
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.miningPower = 0;
+    
+        /**
+         * ItemDef customModel.
+         * @member {string} customModel
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.customModel = "";
+    
+        /**
+         * ItemDef armorTexture.
+         * @member {string} armorTexture
+         * @memberof ItemDef
+         * @instance
+         */
+        ItemDef.prototype.armorTexture = "";
+    
+        /**
+         * Creates a new ItemDef instance using the specified properties.
+         * @function create
+         * @memberof ItemDef
+         * @static
+         * @param {IItemDef=} [properties] Properties to set
+         * @returns {ItemDef} ItemDef instance
+         */
+        ItemDef.create = function create(properties) {
+            return new ItemDef(properties);
+        };
+    
+        /**
+         * Encodes the specified ItemDef message. Does not implicitly {@link ItemDef.verify|verify} messages.
+         * @function encode
+         * @memberof ItemDef
+         * @static
+         * @param {IItemDef} message ItemDef message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ItemDef.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.maxStack != null && Object.hasOwnProperty.call(message, "maxStack"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.maxStack);
+            if (message.name != null && message.name.length)
+                for (var i = 0; i < message.name.length; ++i)
+                    $root.BasicChatComponentType.encode(message.name[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.type);
+            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
+                writer.uint32(/* id 5, wireType 0 =*/40).int32(message.model);
+            if (message.textures != null && message.textures.length)
+                for (var i = 0; i < message.textures.length; ++i)
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.textures[i]);
+            if (message.toolType != null && message.toolType.length)
+                for (var i = 0; i < message.toolType.length; ++i)
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.toolType[i]);
+            if (message.miningSpeed != null && Object.hasOwnProperty.call(message, "miningSpeed"))
+                writer.uint32(/* id 8, wireType 5 =*/69).float(message.miningSpeed);
+            if (message.miningPower != null && Object.hasOwnProperty.call(message, "miningPower"))
+                writer.uint32(/* id 9, wireType 5 =*/77).float(message.miningPower);
+            if (message.customModel != null && Object.hasOwnProperty.call(message, "customModel"))
+                writer.uint32(/* id 10, wireType 2 =*/82).string(message.customModel);
+            if (message.armorTexture != null && Object.hasOwnProperty.call(message, "armorTexture"))
+                writer.uint32(/* id 11, wireType 2 =*/90).string(message.armorTexture);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified ItemDef message, length delimited. Does not implicitly {@link ItemDef.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ItemDef
+         * @static
+         * @param {IItemDef} message ItemDef message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ItemDef.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an ItemDef message from the specified reader or buffer.
+         * @function decode
+         * @memberof ItemDef
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ItemDef} ItemDef
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ItemDef.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ItemDef();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.maxStack = reader.uint32();
+                    break;
+                case 3:
+                    if (!(message.name && message.name.length))
+                        message.name = [];
+                    message.name.push($root.BasicChatComponentType.decode(reader, reader.uint32()));
+                    break;
+                case 4:
+                    message.type = reader.int32();
+                    break;
+                case 5:
+                    message.model = reader.int32();
+                    break;
+                case 6:
+                    if (!(message.textures && message.textures.length))
+                        message.textures = [];
+                    message.textures.push(reader.string());
+                    break;
+                case 7:
+                    if (!(message.toolType && message.toolType.length))
+                        message.toolType = [];
+                    message.toolType.push(reader.string());
+                    break;
+                case 8:
+                    message.miningSpeed = reader.float();
+                    break;
+                case 9:
+                    message.miningPower = reader.float();
+                    break;
+                case 10:
+                    message.customModel = reader.string();
+                    break;
+                case 11:
+                    message.armorTexture = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an ItemDef message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ItemDef
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ItemDef} ItemDef
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ItemDef.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an ItemDef message.
+         * @function verify
+         * @memberof ItemDef
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ItemDef.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.maxStack != null && message.hasOwnProperty("maxStack"))
+                if (!$util.isInteger(message.maxStack))
+                    return "maxStack: integer expected";
+            if (message.name != null && message.hasOwnProperty("name")) {
+                if (!Array.isArray(message.name))
+                    return "name: array expected";
+                for (var i = 0; i < message.name.length; ++i) {
+                    var error = $root.BasicChatComponentType.verify(message.name[i]);
+                    if (error)
+                        return "name." + error;
+                }
+            }
+            if (message.type != null && message.hasOwnProperty("type"))
+                switch (message.type) {
+                default:
+                    return "type: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
+            if (message.model != null && message.hasOwnProperty("model"))
+                switch (message.model) {
+                default:
+                    return "model: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+                }
+            if (message.textures != null && message.hasOwnProperty("textures")) {
+                if (!Array.isArray(message.textures))
+                    return "textures: array expected";
+                for (var i = 0; i < message.textures.length; ++i)
+                    if (!$util.isString(message.textures[i]))
+                        return "textures: string[] expected";
+            }
+            if (message.toolType != null && message.hasOwnProperty("toolType")) {
+                if (!Array.isArray(message.toolType))
+                    return "toolType: array expected";
+                for (var i = 0; i < message.toolType.length; ++i)
+                    if (!$util.isString(message.toolType[i]))
+                        return "toolType: string[] expected";
+            }
+            if (message.miningSpeed != null && message.hasOwnProperty("miningSpeed"))
+                if (typeof message.miningSpeed !== "number")
+                    return "miningSpeed: number expected";
+            if (message.miningPower != null && message.hasOwnProperty("miningPower"))
+                if (typeof message.miningPower !== "number")
+                    return "miningPower: number expected";
+            if (message.customModel != null && message.hasOwnProperty("customModel"))
+                if (!$util.isString(message.customModel))
+                    return "customModel: string expected";
+            if (message.armorTexture != null && message.hasOwnProperty("armorTexture"))
+                if (!$util.isString(message.armorTexture))
+                    return "armorTexture: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an ItemDef message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ItemDef
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ItemDef} ItemDef
+         */
+        ItemDef.fromObject = function fromObject(object) {
+            if (object instanceof $root.ItemDef)
+                return object;
+            var message = new $root.ItemDef();
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.maxStack != null)
+                message.maxStack = object.maxStack >>> 0;
+            if (object.name) {
+                if (!Array.isArray(object.name))
+                    throw TypeError(".ItemDef.name: array expected");
+                message.name = [];
+                for (var i = 0; i < object.name.length; ++i) {
+                    if (typeof object.name[i] !== "object")
+                        throw TypeError(".ItemDef.name: object expected");
+                    message.name[i] = $root.BasicChatComponentType.fromObject(object.name[i]);
+                }
+            }
+            switch (object.type) {
+            case "NONE":
+            case 0:
+                message.type = 0;
+                break;
+            case "TOOL":
+            case 1:
+                message.type = 1;
+                break;
+            case "BLOCK":
+            case 2:
+                message.type = 2;
+                break;
+            case "ARMOR":
+            case 3:
+                message.type = 3;
+                break;
+            }
+            switch (object.model) {
+            case "FLAT":
+            case 0:
+                message.model = 0;
+                break;
+            case "CUBE":
+            case 1:
+                message.model = 1;
+                break;
+            case "CROSS":
+            case 2:
+                message.model = 2;
+                break;
+            case "CUSTOM":
+            case 3:
+                message.model = 3;
+                break;
+            }
+            if (object.textures) {
+                if (!Array.isArray(object.textures))
+                    throw TypeError(".ItemDef.textures: array expected");
+                message.textures = [];
+                for (var i = 0; i < object.textures.length; ++i)
+                    message.textures[i] = String(object.textures[i]);
+            }
+            if (object.toolType) {
+                if (!Array.isArray(object.toolType))
+                    throw TypeError(".ItemDef.toolType: array expected");
+                message.toolType = [];
+                for (var i = 0; i < object.toolType.length; ++i)
+                    message.toolType[i] = String(object.toolType[i]);
+            }
+            if (object.miningSpeed != null)
+                message.miningSpeed = Number(object.miningSpeed);
+            if (object.miningPower != null)
+                message.miningPower = Number(object.miningPower);
+            if (object.customModel != null)
+                message.customModel = String(object.customModel);
+            if (object.armorTexture != null)
+                message.armorTexture = String(object.armorTexture);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an ItemDef message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ItemDef
+         * @static
+         * @param {ItemDef} message ItemDef
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ItemDef.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.name = [];
+                object.textures = [];
+                object.toolType = [];
+            }
+            if (options.defaults) {
+                object.id = "";
+                object.maxStack = 0;
+                object.type = options.enums === String ? "NONE" : 0;
+                object.model = options.enums === String ? "FLAT" : 0;
+                object.miningSpeed = 0;
+                object.miningPower = 0;
+                object.customModel = "";
+                object.armorTexture = "";
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.maxStack != null && message.hasOwnProperty("maxStack"))
+                object.maxStack = message.maxStack;
+            if (message.name && message.name.length) {
+                object.name = [];
+                for (var j = 0; j < message.name.length; ++j)
+                    object.name[j] = $root.BasicChatComponentType.toObject(message.name[j], options);
+            }
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = options.enums === String ? $root.ItemDef.Type[message.type] : message.type;
+            if (message.model != null && message.hasOwnProperty("model"))
+                object.model = options.enums === String ? $root.ItemDef.Model[message.model] : message.model;
+            if (message.textures && message.textures.length) {
+                object.textures = [];
+                for (var j = 0; j < message.textures.length; ++j)
+                    object.textures[j] = message.textures[j];
+            }
+            if (message.toolType && message.toolType.length) {
+                object.toolType = [];
+                for (var j = 0; j < message.toolType.length; ++j)
+                    object.toolType[j] = message.toolType[j];
+            }
+            if (message.miningSpeed != null && message.hasOwnProperty("miningSpeed"))
+                object.miningSpeed = options.json && !isFinite(message.miningSpeed) ? String(message.miningSpeed) : message.miningSpeed;
+            if (message.miningPower != null && message.hasOwnProperty("miningPower"))
+                object.miningPower = options.json && !isFinite(message.miningPower) ? String(message.miningPower) : message.miningPower;
+            if (message.customModel != null && message.hasOwnProperty("customModel"))
+                object.customModel = message.customModel;
+            if (message.armorTexture != null && message.hasOwnProperty("armorTexture"))
+                object.armorTexture = message.armorTexture;
+            return object;
+        };
+    
+        /**
+         * Converts this ItemDef to JSON.
+         * @function toJSON
+         * @memberof ItemDef
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ItemDef.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        /**
+         * Type enum.
+         * @name ItemDef.Type
+         * @enum {number}
+         * @property {number} NONE=0 NONE value
+         * @property {number} TOOL=1 TOOL value
+         * @property {number} BLOCK=2 BLOCK value
+         * @property {number} ARMOR=3 ARMOR value
+         */
+        ItemDef.Type = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "NONE"] = 0;
+            values[valuesById[1] = "TOOL"] = 1;
+            values[valuesById[2] = "BLOCK"] = 2;
+            values[valuesById[3] = "ARMOR"] = 3;
+            return values;
+        })();
+    
+        /**
+         * Model enum.
+         * @name ItemDef.Model
+         * @enum {number}
+         * @property {number} FLAT=0 FLAT value
+         * @property {number} CUBE=1 CUBE value
+         * @property {number} CROSS=2 CROSS value
+         * @property {number} CUSTOM=3 CUSTOM value
+         */
+        ItemDef.Model = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "FLAT"] = 0;
+            values[valuesById[1] = "CUBE"] = 1;
+            values[valuesById[2] = "CROSS"] = 2;
+            values[valuesById[3] = "CUSTOM"] = 3;
+            return values;
+        })();
+    
+        return ItemDef;
+    })();
+    
+    $root.BlockDef = (function() {
+    
+        /**
+         * Properties of a BlockDef.
+         * @exports IBlockDef
+         * @interface IBlockDef
+         * @property {string|null} [id] BlockDef id
+         * @property {number|null} [numId] BlockDef numId
+         * @property {BlockDef.Model|null} [model] BlockDef model
+         * @property {Array.<string>|null} [textures] BlockDef textures
+         * @property {Array.<string>|null} [toolType] BlockDef toolType
+         * @property {number|null} [miningSpeed] BlockDef miningSpeed
+         * @property {number|null} [miningPower] BlockDef miningPower
+         * @property {boolean|null} [solid] BlockDef solid
+         * @property {boolean|null} [fluid] BlockDef fluid
+         * @property {boolean|null} [opaque] BlockDef opaque
+         * @property {Array.<number>|null} [color] BlockDef color
+         * @property {Array.<string>|null} [material] BlockDef material
+         * @property {number|null} [fluidDensity] BlockDef fluidDensity
+         * @property {number|null} [viscosity] BlockDef viscosity
+         * @property {string|null} [customModel] BlockDef customModel
+         */
+    
+        /**
+         * Constructs a new BlockDef.
+         * @exports BlockDef
+         * @classdesc Represents a BlockDef.
+         * @implements IBlockDef
+         * @constructor
+         * @param {IBlockDef=} [properties] Properties to set
+         */
+        function BlockDef(properties) {
+            this.textures = [];
+            this.toolType = [];
+            this.color = [];
+            this.material = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * BlockDef id.
+         * @member {string} id
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.id = "";
+    
+        /**
+         * BlockDef numId.
+         * @member {number} numId
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.numId = 0;
+    
+        /**
+         * BlockDef model.
+         * @member {BlockDef.Model} model
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.model = 0;
+    
+        /**
+         * BlockDef textures.
+         * @member {Array.<string>} textures
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.textures = $util.emptyArray;
+    
+        /**
+         * BlockDef toolType.
+         * @member {Array.<string>} toolType
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.toolType = $util.emptyArray;
+    
+        /**
+         * BlockDef miningSpeed.
+         * @member {number} miningSpeed
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.miningSpeed = 0;
+    
+        /**
+         * BlockDef miningPower.
+         * @member {number} miningPower
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.miningPower = 0;
+    
+        /**
+         * BlockDef solid.
+         * @member {boolean} solid
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.solid = false;
+    
+        /**
+         * BlockDef fluid.
+         * @member {boolean} fluid
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.fluid = false;
+    
+        /**
+         * BlockDef opaque.
+         * @member {boolean} opaque
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.opaque = false;
+    
+        /**
+         * BlockDef color.
+         * @member {Array.<number>} color
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.color = $util.emptyArray;
+    
+        /**
+         * BlockDef material.
+         * @member {Array.<string>} material
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.material = $util.emptyArray;
+    
+        /**
+         * BlockDef fluidDensity.
+         * @member {number} fluidDensity
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.fluidDensity = 0;
+    
+        /**
+         * BlockDef viscosity.
+         * @member {number} viscosity
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.viscosity = 0;
+    
+        /**
+         * BlockDef customModel.
+         * @member {string} customModel
+         * @memberof BlockDef
+         * @instance
+         */
+        BlockDef.prototype.customModel = "";
+    
+        /**
+         * Creates a new BlockDef instance using the specified properties.
+         * @function create
+         * @memberof BlockDef
+         * @static
+         * @param {IBlockDef=} [properties] Properties to set
+         * @returns {BlockDef} BlockDef instance
+         */
+        BlockDef.create = function create(properties) {
+            return new BlockDef(properties);
+        };
+    
+        /**
+         * Encodes the specified BlockDef message. Does not implicitly {@link BlockDef.verify|verify} messages.
+         * @function encode
+         * @memberof BlockDef
+         * @static
+         * @param {IBlockDef} message BlockDef message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BlockDef.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            if (message.numId != null && Object.hasOwnProperty.call(message, "numId"))
+                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.numId);
+            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.model);
+            if (message.textures != null && message.textures.length)
+                for (var i = 0; i < message.textures.length; ++i)
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.textures[i]);
+            if (message.toolType != null && message.toolType.length)
+                for (var i = 0; i < message.toolType.length; ++i)
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.toolType[i]);
+            if (message.miningSpeed != null && Object.hasOwnProperty.call(message, "miningSpeed"))
+                writer.uint32(/* id 6, wireType 5 =*/53).float(message.miningSpeed);
+            if (message.miningPower != null && Object.hasOwnProperty.call(message, "miningPower"))
+                writer.uint32(/* id 7, wireType 5 =*/61).float(message.miningPower);
+            if (message.solid != null && Object.hasOwnProperty.call(message, "solid"))
+                writer.uint32(/* id 8, wireType 0 =*/64).bool(message.solid);
+            if (message.fluid != null && Object.hasOwnProperty.call(message, "fluid"))
+                writer.uint32(/* id 9, wireType 0 =*/72).bool(message.fluid);
+            if (message.opaque != null && Object.hasOwnProperty.call(message, "opaque"))
+                writer.uint32(/* id 10, wireType 0 =*/80).bool(message.opaque);
+            if (message.color != null && message.color.length) {
+                writer.uint32(/* id 11, wireType 2 =*/90).fork();
+                for (var i = 0; i < message.color.length; ++i)
+                    writer.float(message.color[i]);
+                writer.ldelim();
+            }
+            if (message.material != null && message.material.length)
+                for (var i = 0; i < message.material.length; ++i)
+                    writer.uint32(/* id 12, wireType 2 =*/98).string(message.material[i]);
+            if (message.fluidDensity != null && Object.hasOwnProperty.call(message, "fluidDensity"))
+                writer.uint32(/* id 13, wireType 1 =*/105).double(message.fluidDensity);
+            if (message.viscosity != null && Object.hasOwnProperty.call(message, "viscosity"))
+                writer.uint32(/* id 14, wireType 1 =*/113).double(message.viscosity);
+            if (message.customModel != null && Object.hasOwnProperty.call(message, "customModel"))
+                writer.uint32(/* id 15, wireType 2 =*/122).string(message.customModel);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified BlockDef message, length delimited. Does not implicitly {@link BlockDef.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof BlockDef
+         * @static
+         * @param {IBlockDef} message BlockDef message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        BlockDef.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a BlockDef message from the specified reader or buffer.
+         * @function decode
+         * @memberof BlockDef
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {BlockDef} BlockDef
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BlockDef.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.BlockDef();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.numId = reader.uint32();
+                    break;
+                case 3:
+                    message.model = reader.int32();
+                    break;
+                case 4:
+                    if (!(message.textures && message.textures.length))
+                        message.textures = [];
+                    message.textures.push(reader.string());
+                    break;
+                case 5:
+                    if (!(message.toolType && message.toolType.length))
+                        message.toolType = [];
+                    message.toolType.push(reader.string());
+                    break;
+                case 6:
+                    message.miningSpeed = reader.float();
+                    break;
+                case 7:
+                    message.miningPower = reader.float();
+                    break;
+                case 8:
+                    message.solid = reader.bool();
+                    break;
+                case 9:
+                    message.fluid = reader.bool();
+                    break;
+                case 10:
+                    message.opaque = reader.bool();
+                    break;
+                case 11:
+                    if (!(message.color && message.color.length))
+                        message.color = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.color.push(reader.float());
+                    } else
+                        message.color.push(reader.float());
+                    break;
+                case 12:
+                    if (!(message.material && message.material.length))
+                        message.material = [];
+                    message.material.push(reader.string());
+                    break;
+                case 13:
+                    message.fluidDensity = reader.double();
+                    break;
+                case 14:
+                    message.viscosity = reader.double();
+                    break;
+                case 15:
+                    message.customModel = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a BlockDef message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof BlockDef
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {BlockDef} BlockDef
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        BlockDef.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a BlockDef message.
+         * @function verify
+         * @memberof BlockDef
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        BlockDef.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.numId != null && message.hasOwnProperty("numId"))
+                if (!$util.isInteger(message.numId))
+                    return "numId: integer expected";
+            if (message.model != null && message.hasOwnProperty("model"))
+                switch (message.model) {
+                default:
+                    return "model: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                    break;
+                }
+            if (message.textures != null && message.hasOwnProperty("textures")) {
+                if (!Array.isArray(message.textures))
+                    return "textures: array expected";
+                for (var i = 0; i < message.textures.length; ++i)
+                    if (!$util.isString(message.textures[i]))
+                        return "textures: string[] expected";
+            }
+            if (message.toolType != null && message.hasOwnProperty("toolType")) {
+                if (!Array.isArray(message.toolType))
+                    return "toolType: array expected";
+                for (var i = 0; i < message.toolType.length; ++i)
+                    if (!$util.isString(message.toolType[i]))
+                        return "toolType: string[] expected";
+            }
+            if (message.miningSpeed != null && message.hasOwnProperty("miningSpeed"))
+                if (typeof message.miningSpeed !== "number")
+                    return "miningSpeed: number expected";
+            if (message.miningPower != null && message.hasOwnProperty("miningPower"))
+                if (typeof message.miningPower !== "number")
+                    return "miningPower: number expected";
+            if (message.solid != null && message.hasOwnProperty("solid"))
+                if (typeof message.solid !== "boolean")
+                    return "solid: boolean expected";
+            if (message.fluid != null && message.hasOwnProperty("fluid"))
+                if (typeof message.fluid !== "boolean")
+                    return "fluid: boolean expected";
+            if (message.opaque != null && message.hasOwnProperty("opaque"))
+                if (typeof message.opaque !== "boolean")
+                    return "opaque: boolean expected";
+            if (message.color != null && message.hasOwnProperty("color")) {
+                if (!Array.isArray(message.color))
+                    return "color: array expected";
+                for (var i = 0; i < message.color.length; ++i)
+                    if (typeof message.color[i] !== "number")
+                        return "color: number[] expected";
+            }
+            if (message.material != null && message.hasOwnProperty("material")) {
+                if (!Array.isArray(message.material))
+                    return "material: array expected";
+                for (var i = 0; i < message.material.length; ++i)
+                    if (!$util.isString(message.material[i]))
+                        return "material: string[] expected";
+            }
+            if (message.fluidDensity != null && message.hasOwnProperty("fluidDensity"))
+                if (typeof message.fluidDensity !== "number")
+                    return "fluidDensity: number expected";
+            if (message.viscosity != null && message.hasOwnProperty("viscosity"))
+                if (typeof message.viscosity !== "number")
+                    return "viscosity: number expected";
+            if (message.customModel != null && message.hasOwnProperty("customModel"))
+                if (!$util.isString(message.customModel))
+                    return "customModel: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a BlockDef message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof BlockDef
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {BlockDef} BlockDef
+         */
+        BlockDef.fromObject = function fromObject(object) {
+            if (object instanceof $root.BlockDef)
+                return object;
+            var message = new $root.BlockDef();
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.numId != null)
+                message.numId = object.numId >>> 0;
+            switch (object.model) {
+            case "BLOCK":
+            case 0:
+                message.model = 0;
+                break;
+            case "CROSS":
+            case 1:
+                message.model = 1;
+                break;
+            case "TRANSPARENT":
+            case 2:
+                message.model = 2;
+                break;
+            }
+            if (object.textures) {
+                if (!Array.isArray(object.textures))
+                    throw TypeError(".BlockDef.textures: array expected");
+                message.textures = [];
+                for (var i = 0; i < object.textures.length; ++i)
+                    message.textures[i] = String(object.textures[i]);
+            }
+            if (object.toolType) {
+                if (!Array.isArray(object.toolType))
+                    throw TypeError(".BlockDef.toolType: array expected");
+                message.toolType = [];
+                for (var i = 0; i < object.toolType.length; ++i)
+                    message.toolType[i] = String(object.toolType[i]);
+            }
+            if (object.miningSpeed != null)
+                message.miningSpeed = Number(object.miningSpeed);
+            if (object.miningPower != null)
+                message.miningPower = Number(object.miningPower);
+            if (object.solid != null)
+                message.solid = Boolean(object.solid);
+            if (object.fluid != null)
+                message.fluid = Boolean(object.fluid);
+            if (object.opaque != null)
+                message.opaque = Boolean(object.opaque);
+            if (object.color) {
+                if (!Array.isArray(object.color))
+                    throw TypeError(".BlockDef.color: array expected");
+                message.color = [];
+                for (var i = 0; i < object.color.length; ++i)
+                    message.color[i] = Number(object.color[i]);
+            }
+            if (object.material) {
+                if (!Array.isArray(object.material))
+                    throw TypeError(".BlockDef.material: array expected");
+                message.material = [];
+                for (var i = 0; i < object.material.length; ++i)
+                    message.material[i] = String(object.material[i]);
+            }
+            if (object.fluidDensity != null)
+                message.fluidDensity = Number(object.fluidDensity);
+            if (object.viscosity != null)
+                message.viscosity = Number(object.viscosity);
+            if (object.customModel != null)
+                message.customModel = String(object.customModel);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a BlockDef message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof BlockDef
+         * @static
+         * @param {BlockDef} message BlockDef
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        BlockDef.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults) {
+                object.textures = [];
+                object.toolType = [];
+                object.color = [];
+                object.material = [];
+            }
+            if (options.defaults) {
+                object.id = "";
+                object.numId = 0;
+                object.model = options.enums === String ? "BLOCK" : 0;
+                object.miningSpeed = 0;
+                object.miningPower = 0;
+                object.solid = false;
+                object.fluid = false;
+                object.opaque = false;
+                object.fluidDensity = 0;
+                object.viscosity = 0;
+                object.customModel = "";
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.numId != null && message.hasOwnProperty("numId"))
+                object.numId = message.numId;
+            if (message.model != null && message.hasOwnProperty("model"))
+                object.model = options.enums === String ? $root.BlockDef.Model[message.model] : message.model;
+            if (message.textures && message.textures.length) {
+                object.textures = [];
+                for (var j = 0; j < message.textures.length; ++j)
+                    object.textures[j] = message.textures[j];
+            }
+            if (message.toolType && message.toolType.length) {
+                object.toolType = [];
+                for (var j = 0; j < message.toolType.length; ++j)
+                    object.toolType[j] = message.toolType[j];
+            }
+            if (message.miningSpeed != null && message.hasOwnProperty("miningSpeed"))
+                object.miningSpeed = options.json && !isFinite(message.miningSpeed) ? String(message.miningSpeed) : message.miningSpeed;
+            if (message.miningPower != null && message.hasOwnProperty("miningPower"))
+                object.miningPower = options.json && !isFinite(message.miningPower) ? String(message.miningPower) : message.miningPower;
+            if (message.solid != null && message.hasOwnProperty("solid"))
+                object.solid = message.solid;
+            if (message.fluid != null && message.hasOwnProperty("fluid"))
+                object.fluid = message.fluid;
+            if (message.opaque != null && message.hasOwnProperty("opaque"))
+                object.opaque = message.opaque;
+            if (message.color && message.color.length) {
+                object.color = [];
+                for (var j = 0; j < message.color.length; ++j)
+                    object.color[j] = options.json && !isFinite(message.color[j]) ? String(message.color[j]) : message.color[j];
+            }
+            if (message.material && message.material.length) {
+                object.material = [];
+                for (var j = 0; j < message.material.length; ++j)
+                    object.material[j] = message.material[j];
+            }
+            if (message.fluidDensity != null && message.hasOwnProperty("fluidDensity"))
+                object.fluidDensity = options.json && !isFinite(message.fluidDensity) ? String(message.fluidDensity) : message.fluidDensity;
+            if (message.viscosity != null && message.hasOwnProperty("viscosity"))
+                object.viscosity = options.json && !isFinite(message.viscosity) ? String(message.viscosity) : message.viscosity;
+            if (message.customModel != null && message.hasOwnProperty("customModel"))
+                object.customModel = message.customModel;
+            return object;
+        };
+    
+        /**
+         * Converts this BlockDef to JSON.
+         * @function toJSON
+         * @memberof BlockDef
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        BlockDef.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        /**
+         * Model enum.
+         * @name BlockDef.Model
+         * @enum {number}
+         * @property {number} BLOCK=0 BLOCK value
+         * @property {number} CROSS=1 CROSS value
+         * @property {number} TRANSPARENT=2 TRANSPARENT value
+         */
+        BlockDef.Model = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "BLOCK"] = 0;
+            values[valuesById[1] = "CROSS"] = 1;
+            values[valuesById[2] = "TRANSPARENT"] = 2;
+            return values;
+        })();
+    
+        return BlockDef;
     })();
 
     return $root;

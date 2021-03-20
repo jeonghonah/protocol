@@ -252,10 +252,10 @@ export interface ILoginSuccess {
     assets?: (string|null);
 
     /** LoginSuccess itemsDef */
-    itemsDef?: (string|null);
+    itemsDef?: (IItemDef[]|null);
 
     /** LoginSuccess blocksDef */
-    blocksDef?: (string|null);
+    blocksDef?: (IBlockDef[]|null);
 }
 
 /** Represents a LoginSuccess. */
@@ -277,10 +277,10 @@ export class LoginSuccess implements ILoginSuccess {
     public assets: string;
 
     /** LoginSuccess itemsDef. */
-    public itemsDef: string;
+    public itemsDef: IItemDef[];
 
     /** LoginSuccess blocksDef. */
-    public blocksDef: string;
+    public blocksDef: IBlockDef[];
 
     /**
      * Creates a new LoginSuccess instance using the specified properties.
@@ -579,7 +579,7 @@ export class PlayerSpawn implements IPlayerSpawn {
 export interface IPlayerKick {
 
     /** PlayerKick reason */
-    reason?: (string|null);
+    reason?: (IBasicChatComponentType[]|null);
 
     /** PlayerKick time */
     time?: (number|Long|null);
@@ -595,7 +595,7 @@ export class PlayerKick implements IPlayerKick {
     constructor(properties?: IPlayerKick);
 
     /** PlayerKick reason. */
-    public reason: string;
+    public reason: IBasicChatComponentType[];
 
     /** PlayerKick time. */
     public time: (number|Long);
@@ -1906,6 +1906,9 @@ export interface ISoundPlay {
 
     /** SoundPlay z */
     z?: (number|null);
+
+    /** SoundPlay type */
+    type?: (SoundPlay.Type|null);
 }
 
 /** Represents a SoundPlay. */
@@ -1931,6 +1934,9 @@ export class SoundPlay implements ISoundPlay {
 
     /** SoundPlay z. */
     public z: number;
+
+    /** SoundPlay type. */
+    public type: SoundPlay.Type;
 
     /**
      * Creates a new SoundPlay instance using the specified properties.
@@ -2003,11 +2009,23 @@ export class SoundPlay implements ISoundPlay {
     public toJSON(): { [k: string]: any };
 }
 
+export namespace SoundPlay {
+
+    /** Type enum. */
+    enum Type {
+        GENERAL = 0,
+        ENTITY = 1,
+        BLOCK = 2,
+        MUSIC = 3,
+        SELF = 4
+    }
+}
+
 /** Properties of a ChatMessage. */
 export interface IChatMessage {
 
     /** ChatMessage message */
-    message?: ({ [k: string]: IChatComponentType }|null);
+    message?: (IChatComponentType[]|null);
 
     /** ChatMessage time */
     time?: (number|Long|null);
@@ -2023,7 +2041,7 @@ export class ChatMessage implements IChatMessage {
     constructor(properties?: IChatMessage);
 
     /** ChatMessage message. */
-    public message: { [k: string]: IChatComponentType };
+    public message: IChatComponentType[];
 
     /** ChatMessage time. */
     public time: (number|Long);
@@ -2106,7 +2124,7 @@ export interface IUpdateTextBoard {
     type?: (UpdateTextBoard.Type|null);
 
     /** UpdateTextBoard message */
-    message?: ({ [k: string]: IBasicChatComponentType }|null);
+    message?: (IBasicChatComponentType[]|null);
 
     /** UpdateTextBoard time */
     time?: (number|Long|null);
@@ -2125,7 +2143,7 @@ export class UpdateTextBoard implements IUpdateTextBoard {
     public type: UpdateTextBoard.Type;
 
     /** UpdateTextBoard message. */
-    public message: { [k: string]: IBasicChatComponentType };
+    public message: IBasicChatComponentType[];
 
     /** UpdateTextBoard time. */
     public time: (number|Long);
@@ -2218,8 +2236,38 @@ export interface IEntityCreate {
     /** EntityCreate uuid */
     uuid?: (string|null);
 
-    /** EntityCreate data */
-    data?: (string|null);
+    /** EntityCreate x */
+    x?: (number|null);
+
+    /** EntityCreate y */
+    y?: (number|null);
+
+    /** EntityCreate z */
+    z?: (number|null);
+
+    /** EntityCreate rotation */
+    rotation?: (number|null);
+
+    /** EntityCreate pitch */
+    pitch?: (number|null);
+
+    /** EntityCreate model */
+    model?: (string|null);
+
+    /** EntityCreate texture */
+    texture?: (string|null);
+
+    /** EntityCreate name */
+    name?: (IBasicChatComponentType[]|null);
+
+    /** EntityCreate hitbox */
+    hitbox?: (number[]|null);
+
+    /** EntityCreate heldItem */
+    heldItem?: (string|null);
+
+    /** EntityCreate armor */
+    armor?: ({ [k: string]: string }|null);
 }
 
 /** Represents an EntityCreate. */
@@ -2234,8 +2282,38 @@ export class EntityCreate implements IEntityCreate {
     /** EntityCreate uuid. */
     public uuid: string;
 
-    /** EntityCreate data. */
-    public data: string;
+    /** EntityCreate x. */
+    public x: number;
+
+    /** EntityCreate y. */
+    public y: number;
+
+    /** EntityCreate z. */
+    public z: number;
+
+    /** EntityCreate rotation. */
+    public rotation: number;
+
+    /** EntityCreate pitch. */
+    public pitch: number;
+
+    /** EntityCreate model. */
+    public model: string;
+
+    /** EntityCreate texture. */
+    public texture: string;
+
+    /** EntityCreate name. */
+    public name: IBasicChatComponentType[];
+
+    /** EntityCreate hitbox. */
+    public hitbox: number[];
+
+    /** EntityCreate heldItem. */
+    public heldItem: string;
+
+    /** EntityCreate armor. */
+    public armor: { [k: string]: string };
 
     /**
      * Creates a new EntityCreate instance using the specified properties.
@@ -3044,7 +3122,7 @@ export class WorldBlockUpdate implements IWorldBlockUpdate {
 export interface IWorldMultiBlockUpdate {
 
     /** WorldMultiBlockUpdate blocks */
-    blocks?: ({ [k: string]: IWorldBlockUpdate }|null);
+    blocks?: (IWorldBlockUpdate[]|null);
 }
 
 /** Represents a WorldMultiBlockUpdate. */
@@ -3057,7 +3135,7 @@ export class WorldMultiBlockUpdate implements IWorldMultiBlockUpdate {
     constructor(properties?: IWorldMultiBlockUpdate);
 
     /** WorldMultiBlockUpdate blocks. */
-    public blocks: { [k: string]: IWorldBlockUpdate };
+    public blocks: IWorldBlockUpdate[];
 
     /**
      * Creates a new WorldMultiBlockUpdate instance using the specified properties.
@@ -4361,7 +4439,7 @@ export interface IItem {
     damage?: (number|null);
 
     /** Item name */
-    name?: ({ [k: string]: IBasicChatComponentType }|null);
+    name?: (IBasicChatComponentType[]|null);
 }
 
 /** Represents an Item. */
@@ -4383,7 +4461,7 @@ export class Item implements IItem {
     public damage: number;
 
     /** Item name. */
-    public name: { [k: string]: IBasicChatComponentType };
+    public name: IBasicChatComponentType[];
 
     /**
      * Creates a new Item instance using the specified properties.
@@ -4479,4 +4557,271 @@ export enum MouseClickType {
     RIGHT = 1,
     MIDDLE = 2,
     SELECT = 3
+}
+
+/** Represents an ItemDef. */
+export class ItemDef implements IItemDef {
+
+    /**
+     * Constructs a new ItemDef.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IItemDef);
+
+    /** ItemDef id. */
+    public id: string;
+
+    /** ItemDef maxStack. */
+    public maxStack: number;
+
+    /** ItemDef name. */
+    public name: IBasicChatComponentType[];
+
+    /** ItemDef type. */
+    public type: ItemDef.Type;
+
+    /** ItemDef model. */
+    public model: ItemDef.Model;
+
+    /** ItemDef textures. */
+    public textures: string[];
+
+    /** ItemDef toolType. */
+    public toolType: string[];
+
+    /** ItemDef miningSpeed. */
+    public miningSpeed: number;
+
+    /** ItemDef miningPower. */
+    public miningPower: number;
+
+    /** ItemDef customModel. */
+    public customModel: string;
+
+    /** ItemDef armorTexture. */
+    public armorTexture: string;
+
+    /**
+     * Creates a new ItemDef instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ItemDef instance
+     */
+    public static create(properties?: IItemDef): ItemDef;
+
+    /**
+     * Encodes the specified ItemDef message. Does not implicitly {@link ItemDef.verify|verify} messages.
+     * @param message ItemDef message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IItemDef, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ItemDef message, length delimited. Does not implicitly {@link ItemDef.verify|verify} messages.
+     * @param message ItemDef message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IItemDef, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an ItemDef message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ItemDef
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ItemDef;
+
+    /**
+     * Decodes an ItemDef message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ItemDef
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ItemDef;
+
+    /**
+     * Verifies an ItemDef message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an ItemDef message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ItemDef
+     */
+    public static fromObject(object: { [k: string]: any }): ItemDef;
+
+    /**
+     * Creates a plain object from an ItemDef message. Also converts values to other types if specified.
+     * @param message ItemDef
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ItemDef, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ItemDef to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace ItemDef {
+
+    /** Type enum. */
+    enum Type {
+        NONE = 0,
+        TOOL = 1,
+        BLOCK = 2,
+        ARMOR = 3
+    }
+
+    /** Model enum. */
+    enum Model {
+        FLAT = 0,
+        CUBE = 1,
+        CROSS = 2,
+        CUSTOM = 3
+    }
+}
+
+/** Represents a BlockDef. */
+export class BlockDef implements IBlockDef {
+
+    /**
+     * Constructs a new BlockDef.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IBlockDef);
+
+    /** BlockDef id. */
+    public id: string;
+
+    /** BlockDef numId. */
+    public numId: number;
+
+    /** BlockDef model. */
+    public model: BlockDef.Model;
+
+    /** BlockDef textures. */
+    public textures: string[];
+
+    /** BlockDef toolType. */
+    public toolType: string[];
+
+    /** BlockDef miningSpeed. */
+    public miningSpeed: number;
+
+    /** BlockDef miningPower. */
+    public miningPower: number;
+
+    /** BlockDef solid. */
+    public solid: boolean;
+
+    /** BlockDef fluid. */
+    public fluid: boolean;
+
+    /** BlockDef opaque. */
+    public opaque: boolean;
+
+    /** BlockDef color. */
+    public color: number[];
+
+    /** BlockDef material. */
+    public material: string[];
+
+    /** BlockDef fluidDensity. */
+    public fluidDensity: number;
+
+    /** BlockDef viscosity. */
+    public viscosity: number;
+
+    /** BlockDef customModel. */
+    public customModel: string;
+
+    /**
+     * Creates a new BlockDef instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns BlockDef instance
+     */
+    public static create(properties?: IBlockDef): BlockDef;
+
+    /**
+     * Encodes the specified BlockDef message. Does not implicitly {@link BlockDef.verify|verify} messages.
+     * @param message BlockDef message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IBlockDef, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified BlockDef message, length delimited. Does not implicitly {@link BlockDef.verify|verify} messages.
+     * @param message BlockDef message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IBlockDef, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a BlockDef message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns BlockDef
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): BlockDef;
+
+    /**
+     * Decodes a BlockDef message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns BlockDef
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): BlockDef;
+
+    /**
+     * Verifies a BlockDef message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a BlockDef message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns BlockDef
+     */
+    public static fromObject(object: { [k: string]: any }): BlockDef;
+
+    /**
+     * Creates a plain object from a BlockDef message. Also converts values to other types if specified.
+     * @param message BlockDef
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: BlockDef, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this BlockDef to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace BlockDef {
+
+    /** Model enum. */
+    enum Model {
+        BLOCK = 0,
+        CROSS = 1,
+        TRANSPARENT = 2
+    }
 }

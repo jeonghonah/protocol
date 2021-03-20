@@ -37,8 +37,8 @@ message LoginSuccess {
 	string message = 1;
 	uint64 time = 2;
 	string assets = 3;
-	string items_def = 4;
-	string blocks_def = 5;
+	repeated ItemDef items_def = 4;
+	repeated BlockDef blocks_def = 5;
 }
 
 /* 
@@ -71,7 +71,7 @@ message PlayerSpawn {
 */
 
 message PlayerKick {
-	string reason = 1;
+	repeated BasicChatComponentType reason = 1;
 	uint64 time = 2;
 }
 
@@ -178,7 +178,7 @@ message PlayerSetBlockReach {
 }
 
 /* 
- * PlayerOpenInventory opens inventory to player. If type is MAIN, data and name is ignored.
+ * PlayerOpenInventory opens inventory to player.
 */
 
 message PlayerOpenInventory {
@@ -204,11 +204,21 @@ message PlayerUpdateOpenInventory {
 */
 
 message SoundPlay {
+	enum Type {
+		GENERAL = 0;
+		ENTITY = 1;
+		BLOCK = 2;
+		MUSIC = 3;
+		SELF = 4;
+	}
+
 	string sound = 1;
 	uint32 volume = 2;
 	double x = 3;
 	double y = 4;
 	double z = 5;
+
+	Type type = 6;
 }
 
 /* 
@@ -216,7 +226,7 @@ message SoundPlay {
 */
 
 message ChatMessage {
-	map<uint32, ChatComponentType> message = 1;
+	repeated ChatComponentType message = 1;
 	uint64 time = 2;
 }
 
@@ -229,18 +239,27 @@ message UpdateTextBoard {
 	}
 
 	Type type = 1;
-	map<uint32, BasicChatComponentType> message = 2;
+	repeated BasicChatComponentType message = 2;
 	uint64 time = 3;
 }
 
 /* 
  * EntityCreate creates new entity.
- * uuid is entity's id, data is stringifid version of entity's object
 */
 
 message EntityCreate {
 	string uuid = 1;
-	string data = 2;
+	double x = 2;
+	double y = 3;
+	double z = 4;
+	float rotation = 5;
+	float pitch = 6;
+	string model = 7;
+	string texture = 8;
+	repeated  BasicChatComponentType name = 9;
+	repeated float hitbox = 10;
+	string held_item = 11;
+	map<uint32, string> armor = 12;
 }
 
 /* 
@@ -323,7 +342,7 @@ message WorldBlockUpdate {
 */
 
 message WorldMultiBlockUpdate {
-	map<int32, WorldBlockUpdate> blocks = 1;
+	repeated WorldBlockUpdate blocks = 1;
 }
 
 /* 

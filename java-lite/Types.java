@@ -1745,38 +1745,18 @@ public final class Types {
     float getDamage();
 
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    java.util.List<Types.BasicChatComponentType> 
+        getNameList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    Types.BasicChatComponentType getName(int index);
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
     int getNameCount();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-    boolean containsName(
-        int key);
-    /**
-     * Use {@link #getNameMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getName();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getNameMap();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-
-    Types.BasicChatComponentType getNameOrDefault(
-        int key,
-        Types.BasicChatComponentType defaultValue);
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-
-    Types.BasicChatComponentType getNameOrThrow(
-        int key);
   }
   /**
    * Protobuf type {@code Item}
@@ -1788,6 +1768,7 @@ public final class Types {
       ItemOrBuilder {
     private Item() {
       id_ = "";
+      name_ = emptyProtobufList();
     }
     public static final int ID_FIELD_NUMBER = 1;
     private java.lang.String id_;
@@ -1889,96 +1870,97 @@ public final class Types {
     }
 
     public static final int NAME_FIELD_NUMBER = 4;
-    private static final class NameDefaultEntryHolder {
-      static final com.google.protobuf.MapEntryLite<
-          java.lang.Integer, Types.BasicChatComponentType> defaultEntry =
-              com.google.protobuf.MapEntryLite
-              .<java.lang.Integer, Types.BasicChatComponentType>newDefaultInstance(
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0,
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Types.BasicChatComponentType.getDefaultInstance());
-    }
-    private com.google.protobuf.MapFieldLite<
-        java.lang.Integer, Types.BasicChatComponentType> name_ =
-            com.google.protobuf.MapFieldLite.emptyMapField();
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.BasicChatComponentType>
-    internalGetName() {
-      return name_;
-    }
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.BasicChatComponentType>
-    internalGetMutableName() {
-      if (!name_.isMutable()) {
-        name_ = name_.mutableCopy();
-      }
-      return name_;
-    }
+    private com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> name_;
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
     @java.lang.Override
-
+    public java.util.List<Types.BasicChatComponentType> getNameList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    @java.lang.Override
     public int getNameCount() {
-      return internalGetName().size();
+      return name_.size();
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
     @java.lang.Override
+    public Types.BasicChatComponentType getName(int index) {
+      return name_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index) {
+      return name_.get(index);
+    }
+    private void ensureNameIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> tmp = name_;
+      if (!tmp.isModifiable()) {
+        name_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
 
-    public boolean containsName(
-        int key) {
-      
-      return internalGetName().containsKey(key);
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    private void setName(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.set(index, value);
     }
     /**
-     * Use {@link #getNameMap()} instead.
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getName() {
-      return getNameMap();
+    private void addName(Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.add(value);
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getNameMap() {
-      return java.util.Collections.unmodifiableMap(
-          internalGetName());
+    private void addName(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.add(index, value);
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
-    @java.lang.Override
-
-    public Types.BasicChatComponentType getNameOrDefault(
-        int key,
-        Types.BasicChatComponentType defaultValue) {
-      
-      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-          internalGetName();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
+    private void addAllName(
+        java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+      ensureNameIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, name_);
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
-    @java.lang.Override
-
-    public Types.BasicChatComponentType getNameOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-          internalGetName();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    private void clearName() {
+      name_ = emptyProtobufList();
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
-    private java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getMutableNameMap() {
-      return internalGetMutableName();
+    private void removeName(int index) {
+      ensureNameIsMutable();
+      name_.remove(index);
     }
 
     public static Types.Item parseFrom(
@@ -2181,101 +2163,105 @@ public final class Types {
         return this;
       }
 
-      @java.lang.Override
-
-      public int getNameCount() {
-        return instance.getNameMap().size();
-      }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+       * <code>repeated .BasicChatComponentType name = 4;</code>
        */
       @java.lang.Override
-
-      public boolean containsName(
-          int key) {
-        
-        return instance.getNameMap().containsKey(key);
+      public java.util.List<Types.BasicChatComponentType> getNameList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getNameList());
       }
-
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      @java.lang.Override
+      public int getNameCount() {
+        return instance.getNameCount();
+      }/**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      @java.lang.Override
+      public Types.BasicChatComponentType getName(int index) {
+        return instance.getName(index);
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.setName(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.setName(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addName(Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addName(value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addName(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addName(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addName(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addName(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addAllName(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        copyOnWrite();
+        instance.addAllName(values);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
       public Builder clearName() {
         copyOnWrite();
-        instance.getMutableNameMap().clear();
+        instance.clearName();
         return this;
       }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+       * <code>repeated .BasicChatComponentType name = 4;</code>
        */
-
-      public Builder removeName(
-          int key) {
-        
+      public Builder removeName(int index) {
         copyOnWrite();
-        instance.getMutableNameMap().remove(key);
-        return this;
-      }
-      /**
-       * Use {@link #getNameMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getName() {
-        return getNameMap();
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-      @java.lang.Override
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getNameMap() {
-        return java.util.Collections.unmodifiableMap(
-            instance.getNameMap());
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-      @java.lang.Override
-
-      public Types.BasicChatComponentType getNameOrDefault(
-          int key,
-          Types.BasicChatComponentType defaultValue) {
-        
-        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-            instance.getNameMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-      @java.lang.Override
-
-      public Types.BasicChatComponentType getNameOrThrow(
-          int key) {
-        
-        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-            instance.getNameMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-      public Builder putName(
-          int key,
-          Types.BasicChatComponentType value) {
-        
-        value.getClass();
-        copyOnWrite();
-        instance.getMutableNameMap().put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-      public Builder putAllName(
-          java.util.Map<java.lang.Integer, Types.BasicChatComponentType> values) {
-        copyOnWrite();
-        instance.getMutableNameMap().putAll(values);
+        instance.removeName(index);
         return this;
       }
 
@@ -2299,11 +2285,11 @@ public final class Types {
               "count_",
               "damage_",
               "name_",
-              NameDefaultEntryHolder.defaultEntry,
+              Types.BasicChatComponentType.class,
             };
             java.lang.String info =
-                "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0001\u0000\u0000\u0001\u0208\u0002\u0004" +
-                "\u0003\u0001\u00042";
+                "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0001\u0000\u0001\u0208\u0002\u0004" +
+                "\u0003\u0001\u0004\u001b";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -2354,6 +2340,3639 @@ public final class Types {
     private static volatile com.google.protobuf.Parser<Item> PARSER;
 
     public static com.google.protobuf.Parser<Item> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface ItemDefOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ItemDef)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>uint32 max_stack = 2;</code>
+     * @return The maxStack.
+     */
+    int getMaxStack();
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    java.util.List<Types.BasicChatComponentType> 
+        getNameList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    Types.BasicChatComponentType getName(int index);
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    int getNameCount();
+
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @return The type.
+     */
+    Types.ItemDef.Type getType();
+
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @return The enum numeric value on the wire for model.
+     */
+    int getModelValue();
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @return The model.
+     */
+    Types.ItemDef.Model getModel();
+
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @return A list containing the textures.
+     */
+    java.util.List<java.lang.String>
+        getTexturesList();
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @return The count of textures.
+     */
+    int getTexturesCount();
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    java.lang.String getTextures(int index);
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTexturesBytes(int index);
+
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @return A list containing the toolType.
+     */
+    java.util.List<java.lang.String>
+        getToolTypeList();
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @return The count of toolType.
+     */
+    int getToolTypeCount();
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    java.lang.String getToolType(int index);
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    com.google.protobuf.ByteString
+        getToolTypeBytes(int index);
+
+    /**
+     * <code>float mining_speed = 8;</code>
+     * @return The miningSpeed.
+     */
+    float getMiningSpeed();
+
+    /**
+     * <code>float mining_power = 9;</code>
+     * @return The miningPower.
+     */
+    float getMiningPower();
+
+    /**
+     * <code>string custom_model = 10;</code>
+     * @return The customModel.
+     */
+    java.lang.String getCustomModel();
+    /**
+     * <code>string custom_model = 10;</code>
+     * @return The bytes for customModel.
+     */
+    com.google.protobuf.ByteString
+        getCustomModelBytes();
+
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @return The armorTexture.
+     */
+    java.lang.String getArmorTexture();
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @return The bytes for armorTexture.
+     */
+    com.google.protobuf.ByteString
+        getArmorTextureBytes();
+  }
+  /**
+   * Protobuf type {@code ItemDef}
+   */
+  public  static final class ItemDef extends
+      com.google.protobuf.GeneratedMessageLite<
+          ItemDef, ItemDef.Builder> implements
+      // @@protoc_insertion_point(message_implements:ItemDef)
+      ItemDefOrBuilder {
+    private ItemDef() {
+      id_ = "";
+      name_ = emptyProtobufList();
+      textures_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      toolType_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      customModel_ = "";
+      armorTexture_ = "";
+    }
+    /**
+     * Protobuf enum {@code ItemDef.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.Internal.EnumLite {
+      /**
+       * <code>NONE = 0;</code>
+       */
+      NONE(0),
+      /**
+       * <code>TOOL = 1;</code>
+       */
+      TOOL(1),
+      /**
+       * <code>BLOCK = 2;</code>
+       */
+      BLOCK(2),
+      /**
+       * <code>ARMOR = 3;</code>
+       */
+      ARMOR(3),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>NONE = 0;</code>
+       */
+      public static final int NONE_VALUE = 0;
+      /**
+       * <code>TOOL = 1;</code>
+       */
+      public static final int TOOL_VALUE = 1;
+      /**
+       * <code>BLOCK = 2;</code>
+       */
+      public static final int BLOCK_VALUE = 2;
+      /**
+       * <code>ARMOR = 3;</code>
+       */
+      public static final int ARMOR_VALUE = 3;
+
+
+      @java.lang.Override
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return NONE;
+          case 1: return TOOL;
+          case 2: return BLOCK;
+          case 3: return ARMOR;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              @java.lang.Override
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public static com.google.protobuf.Internal.EnumVerifier 
+          internalGetVerifier() {
+        return TypeVerifier.INSTANCE;
+      }
+
+      private static final class TypeVerifier implements 
+           com.google.protobuf.Internal.EnumVerifier { 
+              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeVerifier();
+              @java.lang.Override
+              public boolean isInRange(int number) {
+                return Type.forNumber(number) != null;
+              }
+            };
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:ItemDef.Type)
+    }
+
+    /**
+     * Protobuf enum {@code ItemDef.Model}
+     */
+    public enum Model
+        implements com.google.protobuf.Internal.EnumLite {
+      /**
+       * <code>FLAT = 0;</code>
+       */
+      FLAT(0),
+      /**
+       * <code>CUBE = 1;</code>
+       */
+      CUBE(1),
+      /**
+       * <code>CROSS = 2;</code>
+       */
+      CROSS(2),
+      /**
+       * <code>CUSTOM = 3;</code>
+       */
+      CUSTOM(3),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>FLAT = 0;</code>
+       */
+      public static final int FLAT_VALUE = 0;
+      /**
+       * <code>CUBE = 1;</code>
+       */
+      public static final int CUBE_VALUE = 1;
+      /**
+       * <code>CROSS = 2;</code>
+       */
+      public static final int CROSS_VALUE = 2;
+      /**
+       * <code>CUSTOM = 3;</code>
+       */
+      public static final int CUSTOM_VALUE = 3;
+
+
+      @java.lang.Override
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Model valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static Model forNumber(int value) {
+        switch (value) {
+          case 0: return FLAT;
+          case 1: return CUBE;
+          case 2: return CROSS;
+          case 3: return CUSTOM;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Model>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Model> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Model>() {
+              @java.lang.Override
+              public Model findValueByNumber(int number) {
+                return Model.forNumber(number);
+              }
+            };
+
+      public static com.google.protobuf.Internal.EnumVerifier 
+          internalGetVerifier() {
+        return ModelVerifier.INSTANCE;
+      }
+
+      private static final class ModelVerifier implements 
+           com.google.protobuf.Internal.EnumVerifier { 
+              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new ModelVerifier();
+              @java.lang.Override
+              public boolean isInRange(int number) {
+                return Model.forNumber(number) != null;
+              }
+            };
+
+      private final int value;
+
+      private Model(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:ItemDef.Model)
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private java.lang.String id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      return id_;
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(id_);
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The id to set.
+     */
+    private void setId(
+        java.lang.String value) {
+      value.getClass();
+  
+      id_ = value;
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    private void clearId() {
+      
+      id_ = getDefaultInstance().getId();
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The bytes for id to set.
+     */
+    private void setIdBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      id_ = value.toStringUtf8();
+      
+    }
+
+    public static final int MAX_STACK_FIELD_NUMBER = 2;
+    private int maxStack_;
+    /**
+     * <code>uint32 max_stack = 2;</code>
+     * @return The maxStack.
+     */
+    @java.lang.Override
+    public int getMaxStack() {
+      return maxStack_;
+    }
+    /**
+     * <code>uint32 max_stack = 2;</code>
+     * @param value The maxStack to set.
+     */
+    private void setMaxStack(int value) {
+      
+      maxStack_ = value;
+    }
+    /**
+     * <code>uint32 max_stack = 2;</code>
+     */
+    private void clearMaxStack() {
+      
+      maxStack_ = 0;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> name_;
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<Types.BasicChatComponentType> getNameList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    @java.lang.Override
+    public int getNameCount() {
+      return name_.size();
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentType getName(int index) {
+      return name_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index) {
+      return name_.get(index);
+    }
+    private void ensureNameIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> tmp = name_;
+      if (!tmp.isModifiable()) {
+        name_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    private void setName(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.set(index, value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    private void addName(Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.add(value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    private void addName(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.add(index, value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    private void addAllName(
+        java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+      ensureNameIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, name_);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    private void clearName() {
+      name_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    private void removeName(int index) {
+      ensureNameIsMutable();
+      name_.remove(index);
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 4;
+    private int type_;
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @return The type.
+     */
+    @java.lang.Override
+    public Types.ItemDef.Type getType() {
+      Types.ItemDef.Type result = Types.ItemDef.Type.forNumber(type_);
+      return result == null ? Types.ItemDef.Type.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @param value The enum numeric value on the wire for type to set.
+     */
+    private void setTypeValue(int value) {
+        type_ = value;
+    }
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @param value The type to set.
+     */
+    private void setType(Types.ItemDef.Type value) {
+      type_ = value.getNumber();
+      
+    }
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     */
+    private void clearType() {
+      
+      type_ = 0;
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 5;
+    private int model_;
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @return The enum numeric value on the wire for model.
+     */
+    @java.lang.Override
+    public int getModelValue() {
+      return model_;
+    }
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public Types.ItemDef.Model getModel() {
+      Types.ItemDef.Model result = Types.ItemDef.Model.forNumber(model_);
+      return result == null ? Types.ItemDef.Model.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @param value The enum numeric value on the wire for model to set.
+     */
+    private void setModelValue(int value) {
+        model_ = value;
+    }
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @param value The model to set.
+     */
+    private void setModel(Types.ItemDef.Model value) {
+      model_ = value.getNumber();
+      
+    }
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     */
+    private void clearModel() {
+      
+      model_ = 0;
+    }
+
+    public static final int TEXTURES_FIELD_NUMBER = 6;
+    private com.google.protobuf.Internal.ProtobufList<java.lang.String> textures_;
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @return A list containing the textures.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.String> getTexturesList() {
+      return textures_;
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @return The count of textures.
+     */
+    @java.lang.Override
+    public int getTexturesCount() {
+      return textures_.size();
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    @java.lang.Override
+    public java.lang.String getTextures(int index) {
+      return textures_.get(index);
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the textures at the given index.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTexturesBytes(int index) {
+      return com.google.protobuf.ByteString.copyFromUtf8(
+          textures_.get(index));
+    }
+    private void ensureTexturesIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+          textures_;  if (!tmp.isModifiable()) {
+        textures_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index to set the value at.
+     * @param value The textures to set.
+     */
+    private void setTextures(
+        int index, java.lang.String value) {
+      value.getClass();
+  ensureTexturesIsMutable();
+      textures_.set(index, value);
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param value The textures to add.
+     */
+    private void addTextures(
+        java.lang.String value) {
+      value.getClass();
+  ensureTexturesIsMutable();
+      textures_.add(value);
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param values The textures to add.
+     */
+    private void addAllTextures(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureTexturesIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, textures_);
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     */
+    private void clearTextures() {
+      textures_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param value The bytes of the textures to add.
+     */
+    private void addTexturesBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      ensureTexturesIsMutable();
+      textures_.add(value.toStringUtf8());
+    }
+
+    public static final int TOOL_TYPE_FIELD_NUMBER = 7;
+    private com.google.protobuf.Internal.ProtobufList<java.lang.String> toolType_;
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @return A list containing the toolType.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.String> getToolTypeList() {
+      return toolType_;
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @return The count of toolType.
+     */
+    @java.lang.Override
+    public int getToolTypeCount() {
+      return toolType_.size();
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    @java.lang.Override
+    public java.lang.String getToolType(int index) {
+      return toolType_.get(index);
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the toolType at the given index.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getToolTypeBytes(int index) {
+      return com.google.protobuf.ByteString.copyFromUtf8(
+          toolType_.get(index));
+    }
+    private void ensureToolTypeIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+          toolType_;  if (!tmp.isModifiable()) {
+        toolType_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The toolType to set.
+     */
+    private void setToolType(
+        int index, java.lang.String value) {
+      value.getClass();
+  ensureToolTypeIsMutable();
+      toolType_.set(index, value);
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param value The toolType to add.
+     */
+    private void addToolType(
+        java.lang.String value) {
+      value.getClass();
+  ensureToolTypeIsMutable();
+      toolType_.add(value);
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param values The toolType to add.
+     */
+    private void addAllToolType(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureToolTypeIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, toolType_);
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     */
+    private void clearToolType() {
+      toolType_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param value The bytes of the toolType to add.
+     */
+    private void addToolTypeBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      ensureToolTypeIsMutable();
+      toolType_.add(value.toStringUtf8());
+    }
+
+    public static final int MINING_SPEED_FIELD_NUMBER = 8;
+    private float miningSpeed_;
+    /**
+     * <code>float mining_speed = 8;</code>
+     * @return The miningSpeed.
+     */
+    @java.lang.Override
+    public float getMiningSpeed() {
+      return miningSpeed_;
+    }
+    /**
+     * <code>float mining_speed = 8;</code>
+     * @param value The miningSpeed to set.
+     */
+    private void setMiningSpeed(float value) {
+      
+      miningSpeed_ = value;
+    }
+    /**
+     * <code>float mining_speed = 8;</code>
+     */
+    private void clearMiningSpeed() {
+      
+      miningSpeed_ = 0F;
+    }
+
+    public static final int MINING_POWER_FIELD_NUMBER = 9;
+    private float miningPower_;
+    /**
+     * <code>float mining_power = 9;</code>
+     * @return The miningPower.
+     */
+    @java.lang.Override
+    public float getMiningPower() {
+      return miningPower_;
+    }
+    /**
+     * <code>float mining_power = 9;</code>
+     * @param value The miningPower to set.
+     */
+    private void setMiningPower(float value) {
+      
+      miningPower_ = value;
+    }
+    /**
+     * <code>float mining_power = 9;</code>
+     */
+    private void clearMiningPower() {
+      
+      miningPower_ = 0F;
+    }
+
+    public static final int CUSTOM_MODEL_FIELD_NUMBER = 10;
+    private java.lang.String customModel_;
+    /**
+     * <code>string custom_model = 10;</code>
+     * @return The customModel.
+     */
+    @java.lang.Override
+    public java.lang.String getCustomModel() {
+      return customModel_;
+    }
+    /**
+     * <code>string custom_model = 10;</code>
+     * @return The bytes for customModel.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCustomModelBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(customModel_);
+    }
+    /**
+     * <code>string custom_model = 10;</code>
+     * @param value The customModel to set.
+     */
+    private void setCustomModel(
+        java.lang.String value) {
+      value.getClass();
+  
+      customModel_ = value;
+    }
+    /**
+     * <code>string custom_model = 10;</code>
+     */
+    private void clearCustomModel() {
+      
+      customModel_ = getDefaultInstance().getCustomModel();
+    }
+    /**
+     * <code>string custom_model = 10;</code>
+     * @param value The bytes for customModel to set.
+     */
+    private void setCustomModelBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      customModel_ = value.toStringUtf8();
+      
+    }
+
+    public static final int ARMOR_TEXTURE_FIELD_NUMBER = 11;
+    private java.lang.String armorTexture_;
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @return The armorTexture.
+     */
+    @java.lang.Override
+    public java.lang.String getArmorTexture() {
+      return armorTexture_;
+    }
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @return The bytes for armorTexture.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getArmorTextureBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(armorTexture_);
+    }
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @param value The armorTexture to set.
+     */
+    private void setArmorTexture(
+        java.lang.String value) {
+      value.getClass();
+  
+      armorTexture_ = value;
+    }
+    /**
+     * <code>string armor_texture = 11;</code>
+     */
+    private void clearArmorTexture() {
+      
+      armorTexture_ = getDefaultInstance().getArmorTexture();
+    }
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @param value The bytes for armorTexture to set.
+     */
+    private void setArmorTextureBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      armorTexture_ = value.toStringUtf8();
+      
+    }
+
+    public static Types.ItemDef parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Types.ItemDef parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Types.ItemDef parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Types.ItemDef parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Types.ItemDef parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Types.ItemDef parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Types.ItemDef parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Types.ItemDef parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Types.ItemDef parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Types.ItemDef parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Types.ItemDef parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Types.ItemDef parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Types.ItemDef prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code ItemDef}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Types.ItemDef, Builder> implements
+        // @@protoc_insertion_point(builder_implements:ItemDef)
+        Types.ItemDefOrBuilder {
+      // Construct using Types.ItemDef.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public java.lang.String getId() {
+        return instance.getId();
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        return instance.getIdBytes();
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setId(value);
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        copyOnWrite();
+        instance.clearId();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setIdBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>uint32 max_stack = 2;</code>
+       * @return The maxStack.
+       */
+      @java.lang.Override
+      public int getMaxStack() {
+        return instance.getMaxStack();
+      }
+      /**
+       * <code>uint32 max_stack = 2;</code>
+       * @param value The maxStack to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaxStack(int value) {
+        copyOnWrite();
+        instance.setMaxStack(value);
+        return this;
+      }
+      /**
+       * <code>uint32 max_stack = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxStack() {
+        copyOnWrite();
+        instance.clearMaxStack();
+        return this;
+      }
+
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      @java.lang.Override
+      public java.util.List<Types.BasicChatComponentType> getNameList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getNameList());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      @java.lang.Override
+      public int getNameCount() {
+        return instance.getNameCount();
+      }/**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      @java.lang.Override
+      public Types.BasicChatComponentType getName(int index) {
+        return instance.getName(index);
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.setName(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.setName(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addName(Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addName(value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addName(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addName(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addName(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addName(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addAllName(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        copyOnWrite();
+        instance.addAllName(values);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder clearName() {
+        copyOnWrite();
+        instance.clearName();
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder removeName(int index) {
+        copyOnWrite();
+        instance.removeName(index);
+        return this;
+      }
+
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override
+      public int getTypeValue() {
+        return instance.getTypeValue();
+      }
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        copyOnWrite();
+        instance.setTypeValue(value);
+        return this;
+      }
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public Types.ItemDef.Type getType() {
+        return instance.getType();
+      }
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(Types.ItemDef.Type value) {
+        copyOnWrite();
+        instance.setType(value);
+        return this;
+      }
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        copyOnWrite();
+        instance.clearType();
+        return this;
+      }
+
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @return The enum numeric value on the wire for model.
+       */
+      @java.lang.Override
+      public int getModelValue() {
+        return instance.getModelValue();
+      }
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @param value The model to set.
+       * @return This builder for chaining.
+       */
+      public Builder setModelValue(int value) {
+        copyOnWrite();
+        instance.setModelValue(value);
+        return this;
+      }
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @return The model.
+       */
+      @java.lang.Override
+      public Types.ItemDef.Model getModel() {
+        return instance.getModel();
+      }
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @param value The enum numeric value on the wire for model to set.
+       * @return This builder for chaining.
+       */
+      public Builder setModel(Types.ItemDef.Model value) {
+        copyOnWrite();
+        instance.setModel(value);
+        return this;
+      }
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearModel() {
+        copyOnWrite();
+        instance.clearModel();
+        return this;
+      }
+
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @return A list containing the textures.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.String>
+          getTexturesList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getTexturesList());
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @return The count of textures.
+       */
+      @java.lang.Override
+      public int getTexturesCount() {
+        return instance.getTexturesCount();
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param index The index of the element to return.
+       * @return The textures at the given index.
+       */
+      @java.lang.Override
+      public java.lang.String getTextures(int index) {
+        return instance.getTextures(index);
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the textures at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getTexturesBytes(int index) {
+        return instance.getTexturesBytes(index);
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The textures to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextures(
+          int index, java.lang.String value) {
+        copyOnWrite();
+        instance.setTextures(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param value The textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTextures(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.addTextures(value);
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param values The textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTextures(
+          java.lang.Iterable<java.lang.String> values) {
+        copyOnWrite();
+        instance.addAllTextures(values);
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTextures() {
+        copyOnWrite();
+        instance.clearTextures();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param value The bytes of the textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTexturesBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.addTexturesBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @return A list containing the toolType.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.String>
+          getToolTypeList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getToolTypeList());
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @return The count of toolType.
+       */
+      @java.lang.Override
+      public int getToolTypeCount() {
+        return instance.getToolTypeCount();
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param index The index of the element to return.
+       * @return The toolType at the given index.
+       */
+      @java.lang.Override
+      public java.lang.String getToolType(int index) {
+        return instance.getToolType(index);
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the toolType at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getToolTypeBytes(int index) {
+        return instance.getToolTypeBytes(index);
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param index The index to set the value at.
+       * @param value The toolType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToolType(
+          int index, java.lang.String value) {
+        copyOnWrite();
+        instance.setToolType(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param value The toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addToolType(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.addToolType(value);
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param values The toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllToolType(
+          java.lang.Iterable<java.lang.String> values) {
+        copyOnWrite();
+        instance.addAllToolType(values);
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToolType() {
+        copyOnWrite();
+        instance.clearToolType();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param value The bytes of the toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addToolTypeBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.addToolTypeBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>float mining_speed = 8;</code>
+       * @return The miningSpeed.
+       */
+      @java.lang.Override
+      public float getMiningSpeed() {
+        return instance.getMiningSpeed();
+      }
+      /**
+       * <code>float mining_speed = 8;</code>
+       * @param value The miningSpeed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMiningSpeed(float value) {
+        copyOnWrite();
+        instance.setMiningSpeed(value);
+        return this;
+      }
+      /**
+       * <code>float mining_speed = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMiningSpeed() {
+        copyOnWrite();
+        instance.clearMiningSpeed();
+        return this;
+      }
+
+      /**
+       * <code>float mining_power = 9;</code>
+       * @return The miningPower.
+       */
+      @java.lang.Override
+      public float getMiningPower() {
+        return instance.getMiningPower();
+      }
+      /**
+       * <code>float mining_power = 9;</code>
+       * @param value The miningPower to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMiningPower(float value) {
+        copyOnWrite();
+        instance.setMiningPower(value);
+        return this;
+      }
+      /**
+       * <code>float mining_power = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMiningPower() {
+        copyOnWrite();
+        instance.clearMiningPower();
+        return this;
+      }
+
+      /**
+       * <code>string custom_model = 10;</code>
+       * @return The customModel.
+       */
+      @java.lang.Override
+      public java.lang.String getCustomModel() {
+        return instance.getCustomModel();
+      }
+      /**
+       * <code>string custom_model = 10;</code>
+       * @return The bytes for customModel.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getCustomModelBytes() {
+        return instance.getCustomModelBytes();
+      }
+      /**
+       * <code>string custom_model = 10;</code>
+       * @param value The customModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomModel(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setCustomModel(value);
+        return this;
+      }
+      /**
+       * <code>string custom_model = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCustomModel() {
+        copyOnWrite();
+        instance.clearCustomModel();
+        return this;
+      }
+      /**
+       * <code>string custom_model = 10;</code>
+       * @param value The bytes for customModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomModelBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setCustomModelBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @return The armorTexture.
+       */
+      @java.lang.Override
+      public java.lang.String getArmorTexture() {
+        return instance.getArmorTexture();
+      }
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @return The bytes for armorTexture.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getArmorTextureBytes() {
+        return instance.getArmorTextureBytes();
+      }
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @param value The armorTexture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArmorTexture(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setArmorTexture(value);
+        return this;
+      }
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearArmorTexture() {
+        copyOnWrite();
+        instance.clearArmorTexture();
+        return this;
+      }
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @param value The bytes for armorTexture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArmorTextureBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setArmorTextureBytes(value);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ItemDef)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Types.ItemDef();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "id_",
+              "maxStack_",
+              "name_",
+              Types.BasicChatComponentType.class,
+              "type_",
+              "model_",
+              "textures_",
+              "toolType_",
+              "miningSpeed_",
+              "miningPower_",
+              "customModel_",
+              "armorTexture_",
+            };
+            java.lang.String info =
+                "\u0000\u000b\u0000\u0000\u0001\u000b\u000b\u0000\u0003\u0000\u0001\u0208\u0002\u000b" +
+                "\u0003\u001b\u0004\f\u0005\f\u0006\u021a\u0007\u021a\b\u0001\t\u0001\n\u0208\u000b" +
+                "\u0208";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Types.ItemDef> parser = PARSER;
+          if (parser == null) {
+            synchronized (Types.ItemDef.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Types.ItemDef>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:ItemDef)
+    private static final Types.ItemDef DEFAULT_INSTANCE;
+    static {
+      ItemDef defaultInstance = new ItemDef();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        ItemDef.class, defaultInstance);
+    }
+
+    public static Types.ItemDef getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<ItemDef> PARSER;
+
+    public static com.google.protobuf.Parser<ItemDef> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface BlockDefOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BlockDef)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>uint32 num_id = 2;</code>
+     * @return The numId.
+     */
+    int getNumId();
+
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @return The enum numeric value on the wire for model.
+     */
+    int getModelValue();
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @return The model.
+     */
+    Types.BlockDef.Model getModel();
+
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @return A list containing the textures.
+     */
+    java.util.List<java.lang.String>
+        getTexturesList();
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @return The count of textures.
+     */
+    int getTexturesCount();
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    java.lang.String getTextures(int index);
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTexturesBytes(int index);
+
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @return A list containing the toolType.
+     */
+    java.util.List<java.lang.String>
+        getToolTypeList();
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @return The count of toolType.
+     */
+    int getToolTypeCount();
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    java.lang.String getToolType(int index);
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    com.google.protobuf.ByteString
+        getToolTypeBytes(int index);
+
+    /**
+     * <code>float mining_speed = 6;</code>
+     * @return The miningSpeed.
+     */
+    float getMiningSpeed();
+
+    /**
+     * <code>float mining_power = 7;</code>
+     * @return The miningPower.
+     */
+    float getMiningPower();
+
+    /**
+     * <code>bool solid = 8;</code>
+     * @return The solid.
+     */
+    boolean getSolid();
+
+    /**
+     * <code>bool fluid = 9;</code>
+     * @return The fluid.
+     */
+    boolean getFluid();
+
+    /**
+     * <code>bool opaque = 10;</code>
+     * @return The opaque.
+     */
+    boolean getOpaque();
+
+    /**
+     * <code>repeated float color = 11;</code>
+     * @return A list containing the color.
+     */
+    java.util.List<java.lang.Float> getColorList();
+    /**
+     * <code>repeated float color = 11;</code>
+     * @return The count of color.
+     */
+    int getColorCount();
+    /**
+     * <code>repeated float color = 11;</code>
+     * @param index The index of the element to return.
+     * @return The color at the given index.
+     */
+    float getColor(int index);
+
+    /**
+     * <code>repeated string material = 12;</code>
+     * @return A list containing the material.
+     */
+    java.util.List<java.lang.String>
+        getMaterialList();
+    /**
+     * <code>repeated string material = 12;</code>
+     * @return The count of material.
+     */
+    int getMaterialCount();
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index of the element to return.
+     * @return The material at the given index.
+     */
+    java.lang.String getMaterial(int index);
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index of the element to return.
+     * @return The material at the given index.
+     */
+    com.google.protobuf.ByteString
+        getMaterialBytes(int index);
+
+    /**
+     * <code>double fluid_density = 13;</code>
+     * @return The fluidDensity.
+     */
+    double getFluidDensity();
+
+    /**
+     * <code>double viscosity = 14;</code>
+     * @return The viscosity.
+     */
+    double getViscosity();
+
+    /**
+     * <code>string custom_model = 15;</code>
+     * @return The customModel.
+     */
+    java.lang.String getCustomModel();
+    /**
+     * <code>string custom_model = 15;</code>
+     * @return The bytes for customModel.
+     */
+    com.google.protobuf.ByteString
+        getCustomModelBytes();
+  }
+  /**
+   * Protobuf type {@code BlockDef}
+   */
+  public  static final class BlockDef extends
+      com.google.protobuf.GeneratedMessageLite<
+          BlockDef, BlockDef.Builder> implements
+      // @@protoc_insertion_point(message_implements:BlockDef)
+      BlockDefOrBuilder {
+    private BlockDef() {
+      id_ = "";
+      textures_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      toolType_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      color_ = emptyFloatList();
+      material_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+      customModel_ = "";
+    }
+    /**
+     * Protobuf enum {@code BlockDef.Model}
+     */
+    public enum Model
+        implements com.google.protobuf.Internal.EnumLite {
+      /**
+       * <code>BLOCK = 0;</code>
+       */
+      BLOCK(0),
+      /**
+       * <code>CROSS = 1;</code>
+       */
+      CROSS(1),
+      /**
+       * <code>TRANSPARENT = 2;</code>
+       */
+      TRANSPARENT(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>BLOCK = 0;</code>
+       */
+      public static final int BLOCK_VALUE = 0;
+      /**
+       * <code>CROSS = 1;</code>
+       */
+      public static final int CROSS_VALUE = 1;
+      /**
+       * <code>TRANSPARENT = 2;</code>
+       */
+      public static final int TRANSPARENT_VALUE = 2;
+
+
+      @java.lang.Override
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Model valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static Model forNumber(int value) {
+        switch (value) {
+          case 0: return BLOCK;
+          case 1: return CROSS;
+          case 2: return TRANSPARENT;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Model>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Model> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Model>() {
+              @java.lang.Override
+              public Model findValueByNumber(int number) {
+                return Model.forNumber(number);
+              }
+            };
+
+      public static com.google.protobuf.Internal.EnumVerifier 
+          internalGetVerifier() {
+        return ModelVerifier.INSTANCE;
+      }
+
+      private static final class ModelVerifier implements 
+           com.google.protobuf.Internal.EnumVerifier { 
+              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new ModelVerifier();
+              @java.lang.Override
+              public boolean isInRange(int number) {
+                return Model.forNumber(number) != null;
+              }
+            };
+
+      private final int value;
+
+      private Model(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:BlockDef.Model)
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private java.lang.String id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      return id_;
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(id_);
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The id to set.
+     */
+    private void setId(
+        java.lang.String value) {
+      value.getClass();
+  
+      id_ = value;
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    private void clearId() {
+      
+      id_ = getDefaultInstance().getId();
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The bytes for id to set.
+     */
+    private void setIdBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      id_ = value.toStringUtf8();
+      
+    }
+
+    public static final int NUM_ID_FIELD_NUMBER = 2;
+    private int numId_;
+    /**
+     * <code>uint32 num_id = 2;</code>
+     * @return The numId.
+     */
+    @java.lang.Override
+    public int getNumId() {
+      return numId_;
+    }
+    /**
+     * <code>uint32 num_id = 2;</code>
+     * @param value The numId to set.
+     */
+    private void setNumId(int value) {
+      
+      numId_ = value;
+    }
+    /**
+     * <code>uint32 num_id = 2;</code>
+     */
+    private void clearNumId() {
+      
+      numId_ = 0;
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 3;
+    private int model_;
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @return The enum numeric value on the wire for model.
+     */
+    @java.lang.Override
+    public int getModelValue() {
+      return model_;
+    }
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public Types.BlockDef.Model getModel() {
+      Types.BlockDef.Model result = Types.BlockDef.Model.forNumber(model_);
+      return result == null ? Types.BlockDef.Model.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @param value The enum numeric value on the wire for model to set.
+     */
+    private void setModelValue(int value) {
+        model_ = value;
+    }
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @param value The model to set.
+     */
+    private void setModel(Types.BlockDef.Model value) {
+      model_ = value.getNumber();
+      
+    }
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     */
+    private void clearModel() {
+      
+      model_ = 0;
+    }
+
+    public static final int TEXTURES_FIELD_NUMBER = 4;
+    private com.google.protobuf.Internal.ProtobufList<java.lang.String> textures_;
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @return A list containing the textures.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.String> getTexturesList() {
+      return textures_;
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @return The count of textures.
+     */
+    @java.lang.Override
+    public int getTexturesCount() {
+      return textures_.size();
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    @java.lang.Override
+    public java.lang.String getTextures(int index) {
+      return textures_.get(index);
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the textures at the given index.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTexturesBytes(int index) {
+      return com.google.protobuf.ByteString.copyFromUtf8(
+          textures_.get(index));
+    }
+    private void ensureTexturesIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+          textures_;  if (!tmp.isModifiable()) {
+        textures_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index to set the value at.
+     * @param value The textures to set.
+     */
+    private void setTextures(
+        int index, java.lang.String value) {
+      value.getClass();
+  ensureTexturesIsMutable();
+      textures_.set(index, value);
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param value The textures to add.
+     */
+    private void addTextures(
+        java.lang.String value) {
+      value.getClass();
+  ensureTexturesIsMutable();
+      textures_.add(value);
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param values The textures to add.
+     */
+    private void addAllTextures(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureTexturesIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, textures_);
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     */
+    private void clearTextures() {
+      textures_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param value The bytes of the textures to add.
+     */
+    private void addTexturesBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      ensureTexturesIsMutable();
+      textures_.add(value.toStringUtf8());
+    }
+
+    public static final int TOOL_TYPE_FIELD_NUMBER = 5;
+    private com.google.protobuf.Internal.ProtobufList<java.lang.String> toolType_;
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @return A list containing the toolType.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.String> getToolTypeList() {
+      return toolType_;
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @return The count of toolType.
+     */
+    @java.lang.Override
+    public int getToolTypeCount() {
+      return toolType_.size();
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    @java.lang.Override
+    public java.lang.String getToolType(int index) {
+      return toolType_.get(index);
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the toolType at the given index.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getToolTypeBytes(int index) {
+      return com.google.protobuf.ByteString.copyFromUtf8(
+          toolType_.get(index));
+    }
+    private void ensureToolTypeIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+          toolType_;  if (!tmp.isModifiable()) {
+        toolType_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index to set the value at.
+     * @param value The toolType to set.
+     */
+    private void setToolType(
+        int index, java.lang.String value) {
+      value.getClass();
+  ensureToolTypeIsMutable();
+      toolType_.set(index, value);
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param value The toolType to add.
+     */
+    private void addToolType(
+        java.lang.String value) {
+      value.getClass();
+  ensureToolTypeIsMutable();
+      toolType_.add(value);
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param values The toolType to add.
+     */
+    private void addAllToolType(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureToolTypeIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, toolType_);
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     */
+    private void clearToolType() {
+      toolType_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param value The bytes of the toolType to add.
+     */
+    private void addToolTypeBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      ensureToolTypeIsMutable();
+      toolType_.add(value.toStringUtf8());
+    }
+
+    public static final int MINING_SPEED_FIELD_NUMBER = 6;
+    private float miningSpeed_;
+    /**
+     * <code>float mining_speed = 6;</code>
+     * @return The miningSpeed.
+     */
+    @java.lang.Override
+    public float getMiningSpeed() {
+      return miningSpeed_;
+    }
+    /**
+     * <code>float mining_speed = 6;</code>
+     * @param value The miningSpeed to set.
+     */
+    private void setMiningSpeed(float value) {
+      
+      miningSpeed_ = value;
+    }
+    /**
+     * <code>float mining_speed = 6;</code>
+     */
+    private void clearMiningSpeed() {
+      
+      miningSpeed_ = 0F;
+    }
+
+    public static final int MINING_POWER_FIELD_NUMBER = 7;
+    private float miningPower_;
+    /**
+     * <code>float mining_power = 7;</code>
+     * @return The miningPower.
+     */
+    @java.lang.Override
+    public float getMiningPower() {
+      return miningPower_;
+    }
+    /**
+     * <code>float mining_power = 7;</code>
+     * @param value The miningPower to set.
+     */
+    private void setMiningPower(float value) {
+      
+      miningPower_ = value;
+    }
+    /**
+     * <code>float mining_power = 7;</code>
+     */
+    private void clearMiningPower() {
+      
+      miningPower_ = 0F;
+    }
+
+    public static final int SOLID_FIELD_NUMBER = 8;
+    private boolean solid_;
+    /**
+     * <code>bool solid = 8;</code>
+     * @return The solid.
+     */
+    @java.lang.Override
+    public boolean getSolid() {
+      return solid_;
+    }
+    /**
+     * <code>bool solid = 8;</code>
+     * @param value The solid to set.
+     */
+    private void setSolid(boolean value) {
+      
+      solid_ = value;
+    }
+    /**
+     * <code>bool solid = 8;</code>
+     */
+    private void clearSolid() {
+      
+      solid_ = false;
+    }
+
+    public static final int FLUID_FIELD_NUMBER = 9;
+    private boolean fluid_;
+    /**
+     * <code>bool fluid = 9;</code>
+     * @return The fluid.
+     */
+    @java.lang.Override
+    public boolean getFluid() {
+      return fluid_;
+    }
+    /**
+     * <code>bool fluid = 9;</code>
+     * @param value The fluid to set.
+     */
+    private void setFluid(boolean value) {
+      
+      fluid_ = value;
+    }
+    /**
+     * <code>bool fluid = 9;</code>
+     */
+    private void clearFluid() {
+      
+      fluid_ = false;
+    }
+
+    public static final int OPAQUE_FIELD_NUMBER = 10;
+    private boolean opaque_;
+    /**
+     * <code>bool opaque = 10;</code>
+     * @return The opaque.
+     */
+    @java.lang.Override
+    public boolean getOpaque() {
+      return opaque_;
+    }
+    /**
+     * <code>bool opaque = 10;</code>
+     * @param value The opaque to set.
+     */
+    private void setOpaque(boolean value) {
+      
+      opaque_ = value;
+    }
+    /**
+     * <code>bool opaque = 10;</code>
+     */
+    private void clearOpaque() {
+      
+      opaque_ = false;
+    }
+
+    public static final int COLOR_FIELD_NUMBER = 11;
+    private com.google.protobuf.Internal.FloatList color_;
+    /**
+     * <code>repeated float color = 11;</code>
+     * @return A list containing the color.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Float>
+        getColorList() {
+      return color_;
+    }
+    /**
+     * <code>repeated float color = 11;</code>
+     * @return The count of color.
+     */
+    @java.lang.Override
+    public int getColorCount() {
+      return color_.size();
+    }
+    /**
+     * <code>repeated float color = 11;</code>
+     * @param index The index of the element to return.
+     * @return The color at the given index.
+     */
+    @java.lang.Override
+    public float getColor(int index) {
+      return color_.getFloat(index);
+    }
+    private int colorMemoizedSerializedSize = -1;
+    private void ensureColorIsMutable() {
+      com.google.protobuf.Internal.FloatList tmp = color_;
+      if (!tmp.isModifiable()) {
+        color_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+    /**
+     * <code>repeated float color = 11;</code>
+     * @param index The index to set the value at.
+     * @param value The color to set.
+     */
+    private void setColor(
+        int index, float value) {
+      ensureColorIsMutable();
+      color_.setFloat(index, value);
+    }
+    /**
+     * <code>repeated float color = 11;</code>
+     * @param value The color to add.
+     */
+    private void addColor(float value) {
+      ensureColorIsMutable();
+      color_.addFloat(value);
+    }
+    /**
+     * <code>repeated float color = 11;</code>
+     * @param values The color to add.
+     */
+    private void addAllColor(
+        java.lang.Iterable<? extends java.lang.Float> values) {
+      ensureColorIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, color_);
+    }
+    /**
+     * <code>repeated float color = 11;</code>
+     */
+    private void clearColor() {
+      color_ = emptyFloatList();
+    }
+
+    public static final int MATERIAL_FIELD_NUMBER = 12;
+    private com.google.protobuf.Internal.ProtobufList<java.lang.String> material_;
+    /**
+     * <code>repeated string material = 12;</code>
+     * @return A list containing the material.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.String> getMaterialList() {
+      return material_;
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @return The count of material.
+     */
+    @java.lang.Override
+    public int getMaterialCount() {
+      return material_.size();
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index of the element to return.
+     * @return The material at the given index.
+     */
+    @java.lang.Override
+    public java.lang.String getMaterial(int index) {
+      return material_.get(index);
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the material at the given index.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMaterialBytes(int index) {
+      return com.google.protobuf.ByteString.copyFromUtf8(
+          material_.get(index));
+    }
+    private void ensureMaterialIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<java.lang.String> tmp =
+          material_;  if (!tmp.isModifiable()) {
+        material_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index to set the value at.
+     * @param value The material to set.
+     */
+    private void setMaterial(
+        int index, java.lang.String value) {
+      value.getClass();
+  ensureMaterialIsMutable();
+      material_.set(index, value);
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param value The material to add.
+     */
+    private void addMaterial(
+        java.lang.String value) {
+      value.getClass();
+  ensureMaterialIsMutable();
+      material_.add(value);
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param values The material to add.
+     */
+    private void addAllMaterial(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureMaterialIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, material_);
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     */
+    private void clearMaterial() {
+      material_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param value The bytes of the material to add.
+     */
+    private void addMaterialBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      ensureMaterialIsMutable();
+      material_.add(value.toStringUtf8());
+    }
+
+    public static final int FLUID_DENSITY_FIELD_NUMBER = 13;
+    private double fluidDensity_;
+    /**
+     * <code>double fluid_density = 13;</code>
+     * @return The fluidDensity.
+     */
+    @java.lang.Override
+    public double getFluidDensity() {
+      return fluidDensity_;
+    }
+    /**
+     * <code>double fluid_density = 13;</code>
+     * @param value The fluidDensity to set.
+     */
+    private void setFluidDensity(double value) {
+      
+      fluidDensity_ = value;
+    }
+    /**
+     * <code>double fluid_density = 13;</code>
+     */
+    private void clearFluidDensity() {
+      
+      fluidDensity_ = 0D;
+    }
+
+    public static final int VISCOSITY_FIELD_NUMBER = 14;
+    private double viscosity_;
+    /**
+     * <code>double viscosity = 14;</code>
+     * @return The viscosity.
+     */
+    @java.lang.Override
+    public double getViscosity() {
+      return viscosity_;
+    }
+    /**
+     * <code>double viscosity = 14;</code>
+     * @param value The viscosity to set.
+     */
+    private void setViscosity(double value) {
+      
+      viscosity_ = value;
+    }
+    /**
+     * <code>double viscosity = 14;</code>
+     */
+    private void clearViscosity() {
+      
+      viscosity_ = 0D;
+    }
+
+    public static final int CUSTOM_MODEL_FIELD_NUMBER = 15;
+    private java.lang.String customModel_;
+    /**
+     * <code>string custom_model = 15;</code>
+     * @return The customModel.
+     */
+    @java.lang.Override
+    public java.lang.String getCustomModel() {
+      return customModel_;
+    }
+    /**
+     * <code>string custom_model = 15;</code>
+     * @return The bytes for customModel.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCustomModelBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(customModel_);
+    }
+    /**
+     * <code>string custom_model = 15;</code>
+     * @param value The customModel to set.
+     */
+    private void setCustomModel(
+        java.lang.String value) {
+      value.getClass();
+  
+      customModel_ = value;
+    }
+    /**
+     * <code>string custom_model = 15;</code>
+     */
+    private void clearCustomModel() {
+      
+      customModel_ = getDefaultInstance().getCustomModel();
+    }
+    /**
+     * <code>string custom_model = 15;</code>
+     * @param value The bytes for customModel to set.
+     */
+    private void setCustomModelBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      customModel_ = value.toStringUtf8();
+      
+    }
+
+    public static Types.BlockDef parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Types.BlockDef parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Types.BlockDef parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Types.BlockDef parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Types.BlockDef parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Types.BlockDef parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Types.BlockDef parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Types.BlockDef parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Types.BlockDef parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Types.BlockDef parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Types.BlockDef parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Types.BlockDef parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Types.BlockDef prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code BlockDef}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Types.BlockDef, Builder> implements
+        // @@protoc_insertion_point(builder_implements:BlockDef)
+        Types.BlockDefOrBuilder {
+      // Construct using Types.BlockDef.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public java.lang.String getId() {
+        return instance.getId();
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        return instance.getIdBytes();
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setId(value);
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        copyOnWrite();
+        instance.clearId();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setIdBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>uint32 num_id = 2;</code>
+       * @return The numId.
+       */
+      @java.lang.Override
+      public int getNumId() {
+        return instance.getNumId();
+      }
+      /**
+       * <code>uint32 num_id = 2;</code>
+       * @param value The numId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNumId(int value) {
+        copyOnWrite();
+        instance.setNumId(value);
+        return this;
+      }
+      /**
+       * <code>uint32 num_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNumId() {
+        copyOnWrite();
+        instance.clearNumId();
+        return this;
+      }
+
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @return The enum numeric value on the wire for model.
+       */
+      @java.lang.Override
+      public int getModelValue() {
+        return instance.getModelValue();
+      }
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @param value The model to set.
+       * @return This builder for chaining.
+       */
+      public Builder setModelValue(int value) {
+        copyOnWrite();
+        instance.setModelValue(value);
+        return this;
+      }
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @return The model.
+       */
+      @java.lang.Override
+      public Types.BlockDef.Model getModel() {
+        return instance.getModel();
+      }
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @param value The enum numeric value on the wire for model to set.
+       * @return This builder for chaining.
+       */
+      public Builder setModel(Types.BlockDef.Model value) {
+        copyOnWrite();
+        instance.setModel(value);
+        return this;
+      }
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearModel() {
+        copyOnWrite();
+        instance.clearModel();
+        return this;
+      }
+
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @return A list containing the textures.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.String>
+          getTexturesList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getTexturesList());
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @return The count of textures.
+       */
+      @java.lang.Override
+      public int getTexturesCount() {
+        return instance.getTexturesCount();
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param index The index of the element to return.
+       * @return The textures at the given index.
+       */
+      @java.lang.Override
+      public java.lang.String getTextures(int index) {
+        return instance.getTextures(index);
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the textures at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getTexturesBytes(int index) {
+        return instance.getTexturesBytes(index);
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The textures to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextures(
+          int index, java.lang.String value) {
+        copyOnWrite();
+        instance.setTextures(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param value The textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTextures(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.addTextures(value);
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param values The textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTextures(
+          java.lang.Iterable<java.lang.String> values) {
+        copyOnWrite();
+        instance.addAllTextures(values);
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTextures() {
+        copyOnWrite();
+        instance.clearTextures();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param value The bytes of the textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTexturesBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.addTexturesBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @return A list containing the toolType.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.String>
+          getToolTypeList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getToolTypeList());
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @return The count of toolType.
+       */
+      @java.lang.Override
+      public int getToolTypeCount() {
+        return instance.getToolTypeCount();
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param index The index of the element to return.
+       * @return The toolType at the given index.
+       */
+      @java.lang.Override
+      public java.lang.String getToolType(int index) {
+        return instance.getToolType(index);
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the toolType at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getToolTypeBytes(int index) {
+        return instance.getToolTypeBytes(index);
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param index The index to set the value at.
+       * @param value The toolType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToolType(
+          int index, java.lang.String value) {
+        copyOnWrite();
+        instance.setToolType(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param value The toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addToolType(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.addToolType(value);
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param values The toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllToolType(
+          java.lang.Iterable<java.lang.String> values) {
+        copyOnWrite();
+        instance.addAllToolType(values);
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToolType() {
+        copyOnWrite();
+        instance.clearToolType();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param value The bytes of the toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addToolTypeBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.addToolTypeBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>float mining_speed = 6;</code>
+       * @return The miningSpeed.
+       */
+      @java.lang.Override
+      public float getMiningSpeed() {
+        return instance.getMiningSpeed();
+      }
+      /**
+       * <code>float mining_speed = 6;</code>
+       * @param value The miningSpeed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMiningSpeed(float value) {
+        copyOnWrite();
+        instance.setMiningSpeed(value);
+        return this;
+      }
+      /**
+       * <code>float mining_speed = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMiningSpeed() {
+        copyOnWrite();
+        instance.clearMiningSpeed();
+        return this;
+      }
+
+      /**
+       * <code>float mining_power = 7;</code>
+       * @return The miningPower.
+       */
+      @java.lang.Override
+      public float getMiningPower() {
+        return instance.getMiningPower();
+      }
+      /**
+       * <code>float mining_power = 7;</code>
+       * @param value The miningPower to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMiningPower(float value) {
+        copyOnWrite();
+        instance.setMiningPower(value);
+        return this;
+      }
+      /**
+       * <code>float mining_power = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMiningPower() {
+        copyOnWrite();
+        instance.clearMiningPower();
+        return this;
+      }
+
+      /**
+       * <code>bool solid = 8;</code>
+       * @return The solid.
+       */
+      @java.lang.Override
+      public boolean getSolid() {
+        return instance.getSolid();
+      }
+      /**
+       * <code>bool solid = 8;</code>
+       * @param value The solid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSolid(boolean value) {
+        copyOnWrite();
+        instance.setSolid(value);
+        return this;
+      }
+      /**
+       * <code>bool solid = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSolid() {
+        copyOnWrite();
+        instance.clearSolid();
+        return this;
+      }
+
+      /**
+       * <code>bool fluid = 9;</code>
+       * @return The fluid.
+       */
+      @java.lang.Override
+      public boolean getFluid() {
+        return instance.getFluid();
+      }
+      /**
+       * <code>bool fluid = 9;</code>
+       * @param value The fluid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFluid(boolean value) {
+        copyOnWrite();
+        instance.setFluid(value);
+        return this;
+      }
+      /**
+       * <code>bool fluid = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFluid() {
+        copyOnWrite();
+        instance.clearFluid();
+        return this;
+      }
+
+      /**
+       * <code>bool opaque = 10;</code>
+       * @return The opaque.
+       */
+      @java.lang.Override
+      public boolean getOpaque() {
+        return instance.getOpaque();
+      }
+      /**
+       * <code>bool opaque = 10;</code>
+       * @param value The opaque to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOpaque(boolean value) {
+        copyOnWrite();
+        instance.setOpaque(value);
+        return this;
+      }
+      /**
+       * <code>bool opaque = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOpaque() {
+        copyOnWrite();
+        instance.clearOpaque();
+        return this;
+      }
+
+      /**
+       * <code>repeated float color = 11;</code>
+       * @return A list containing the color.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Float>
+          getColorList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getColorList());
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @return The count of color.
+       */
+      @java.lang.Override
+      public int getColorCount() {
+        return instance.getColorCount();
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @param index The index of the element to return.
+       * @return The color at the given index.
+       */
+      @java.lang.Override
+      public float getColor(int index) {
+        return instance.getColor(index);
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @param value The color to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColor(
+          int index, float value) {
+        copyOnWrite();
+        instance.setColor(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @param value The color to add.
+       * @return This builder for chaining.
+       */
+      public Builder addColor(float value) {
+        copyOnWrite();
+        instance.addColor(value);
+        return this;
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @param values The color to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllColor(
+          java.lang.Iterable<? extends java.lang.Float> values) {
+        copyOnWrite();
+        instance.addAllColor(values);
+        return this;
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColor() {
+        copyOnWrite();
+        instance.clearColor();
+        return this;
+      }
+
+      /**
+       * <code>repeated string material = 12;</code>
+       * @return A list containing the material.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.String>
+          getMaterialList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getMaterialList());
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @return The count of material.
+       */
+      @java.lang.Override
+      public int getMaterialCount() {
+        return instance.getMaterialCount();
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param index The index of the element to return.
+       * @return The material at the given index.
+       */
+      @java.lang.Override
+      public java.lang.String getMaterial(int index) {
+        return instance.getMaterial(index);
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the material at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getMaterialBytes(int index) {
+        return instance.getMaterialBytes(index);
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param index The index to set the value at.
+       * @param value The material to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaterial(
+          int index, java.lang.String value) {
+        copyOnWrite();
+        instance.setMaterial(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param value The material to add.
+       * @return This builder for chaining.
+       */
+      public Builder addMaterial(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.addMaterial(value);
+        return this;
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param values The material to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllMaterial(
+          java.lang.Iterable<java.lang.String> values) {
+        copyOnWrite();
+        instance.addAllMaterial(values);
+        return this;
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaterial() {
+        copyOnWrite();
+        instance.clearMaterial();
+        return this;
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param value The bytes of the material to add.
+       * @return This builder for chaining.
+       */
+      public Builder addMaterialBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.addMaterialBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>double fluid_density = 13;</code>
+       * @return The fluidDensity.
+       */
+      @java.lang.Override
+      public double getFluidDensity() {
+        return instance.getFluidDensity();
+      }
+      /**
+       * <code>double fluid_density = 13;</code>
+       * @param value The fluidDensity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFluidDensity(double value) {
+        copyOnWrite();
+        instance.setFluidDensity(value);
+        return this;
+      }
+      /**
+       * <code>double fluid_density = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFluidDensity() {
+        copyOnWrite();
+        instance.clearFluidDensity();
+        return this;
+      }
+
+      /**
+       * <code>double viscosity = 14;</code>
+       * @return The viscosity.
+       */
+      @java.lang.Override
+      public double getViscosity() {
+        return instance.getViscosity();
+      }
+      /**
+       * <code>double viscosity = 14;</code>
+       * @param value The viscosity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViscosity(double value) {
+        copyOnWrite();
+        instance.setViscosity(value);
+        return this;
+      }
+      /**
+       * <code>double viscosity = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearViscosity() {
+        copyOnWrite();
+        instance.clearViscosity();
+        return this;
+      }
+
+      /**
+       * <code>string custom_model = 15;</code>
+       * @return The customModel.
+       */
+      @java.lang.Override
+      public java.lang.String getCustomModel() {
+        return instance.getCustomModel();
+      }
+      /**
+       * <code>string custom_model = 15;</code>
+       * @return The bytes for customModel.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getCustomModelBytes() {
+        return instance.getCustomModelBytes();
+      }
+      /**
+       * <code>string custom_model = 15;</code>
+       * @param value The customModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomModel(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setCustomModel(value);
+        return this;
+      }
+      /**
+       * <code>string custom_model = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCustomModel() {
+        copyOnWrite();
+        instance.clearCustomModel();
+        return this;
+      }
+      /**
+       * <code>string custom_model = 15;</code>
+       * @param value The bytes for customModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomModelBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setCustomModelBytes(value);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:BlockDef)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Types.BlockDef();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "id_",
+              "numId_",
+              "model_",
+              "textures_",
+              "toolType_",
+              "miningSpeed_",
+              "miningPower_",
+              "solid_",
+              "fluid_",
+              "opaque_",
+              "color_",
+              "material_",
+              "fluidDensity_",
+              "viscosity_",
+              "customModel_",
+            };
+            java.lang.String info =
+                "\u0000\u000f\u0000\u0000\u0001\u000f\u000f\u0000\u0004\u0000\u0001\u0208\u0002\u000b" +
+                "\u0003\f\u0004\u021a\u0005\u021a\u0006\u0001\u0007\u0001\b\u0007\t\u0007\n\u0007" +
+                "\u000b$\f\u021a\r\u0000\u000e\u0000\u000f\u0208";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Types.BlockDef> parser = PARSER;
+          if (parser == null) {
+            synchronized (Types.BlockDef.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Types.BlockDef>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:BlockDef)
+    private static final Types.BlockDef DEFAULT_INSTANCE;
+    static {
+      BlockDef defaultInstance = new BlockDef();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        BlockDef.class, defaultInstance);
+    }
+
+    public static Types.BlockDef getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<BlockDef> PARSER;
+
+    public static com.google.protobuf.Parser<BlockDef> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }

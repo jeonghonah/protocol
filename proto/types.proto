@@ -21,7 +21,7 @@ message Item {
 	string id = 1;
 	int32 count = 2;
 	float damage = 3;
-	map<uint32, BasicChatComponentType> name = 4;
+	repeated BasicChatComponentType name = 4;
 }
 
 enum InventoryType {
@@ -44,4 +44,57 @@ enum MouseClickType {
 	RIGHT = 1;
 	MIDDLE = 2;
 	SELECT = 3;
+}
+
+
+message ItemDef {
+	enum Type {
+		NONE = 0;
+		TOOL = 1;
+		BLOCK = 2;
+		ARMOR = 3;
+	}
+
+	enum Model {
+		FLAT = 0;
+		CUBE = 1;
+		CROSS = 2;
+		CUSTOM = 3;
+	}
+
+	string id = 1;
+	uint32 max_stack = 2;
+	repeated BasicChatComponentType name = 3;
+	Type type = 4;
+	Model model = 5;
+	repeated string textures = 6;
+	repeated string tool_type = 7;
+	float mining_speed = 8;
+	float mining_power = 9;
+	string custom_model = 10;
+	string armor_texture = 11;
+}
+
+message BlockDef {
+	enum Model {
+		BLOCK = 0;
+		CROSS = 1;
+		TRANSPARENT = 2;
+	}
+
+	string id = 1;
+	uint32 num_id = 2;
+	Model model = 3;
+	repeated string textures = 4;
+	repeated string tool_type = 5;
+	float mining_speed = 6;
+	float mining_power = 7;
+	bool solid = 8;
+	bool fluid = 9;
+	bool opaque = 10;
+	repeated float color = 11;
+	repeated string material = 12;
+	double fluid_density = 13;
+	double viscosity = 14;
+	string custom_model = 15;
 }

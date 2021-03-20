@@ -1432,28 +1432,32 @@ public final class Server {
         getAssetsBytes();
 
     /**
-     * <code>string items_def = 4;</code>
-     * @return The itemsDef.
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
-    java.lang.String getItemsDef();
+    java.util.List<Types.ItemDef> 
+        getItemsDefList();
     /**
-     * <code>string items_def = 4;</code>
-     * @return The bytes for itemsDef.
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
-    com.google.protobuf.ByteString
-        getItemsDefBytes();
+    Types.ItemDef getItemsDef(int index);
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    int getItemsDefCount();
 
     /**
-     * <code>string blocks_def = 5;</code>
-     * @return The blocksDef.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
-    java.lang.String getBlocksDef();
+    java.util.List<Types.BlockDef> 
+        getBlocksDefList();
     /**
-     * <code>string blocks_def = 5;</code>
-     * @return The bytes for blocksDef.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
-    com.google.protobuf.ByteString
-        getBlocksDefBytes();
+    Types.BlockDef getBlocksDef(int index);
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    int getBlocksDefCount();
   }
   /**
    * Protobuf type {@code LoginSuccess}
@@ -1466,8 +1470,8 @@ public final class Server {
     private LoginSuccess() {
       message_ = "";
       assets_ = "";
-      itemsDef_ = "";
-      blocksDef_ = "";
+      itemsDef_ = emptyProtobufList();
+      blocksDef_ = emptyProtobufList();
     }
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private java.lang.String message_;
@@ -1590,97 +1594,191 @@ public final class Server {
     }
 
     public static final int ITEMS_DEF_FIELD_NUMBER = 4;
-    private java.lang.String itemsDef_;
+    private com.google.protobuf.Internal.ProtobufList<Types.ItemDef> itemsDef_;
     /**
-     * <code>string items_def = 4;</code>
-     * @return The itemsDef.
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
     @java.lang.Override
-    public java.lang.String getItemsDef() {
+    public java.util.List<Types.ItemDef> getItemsDefList() {
       return itemsDef_;
     }
     /**
-     * <code>string items_def = 4;</code>
-     * @return The bytes for itemsDef.
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    public java.util.List<? extends Types.ItemDefOrBuilder> 
+        getItemsDefOrBuilderList() {
+      return itemsDef_;
+    }
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getItemsDefBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(itemsDef_);
+    public int getItemsDefCount() {
+      return itemsDef_.size();
     }
     /**
-     * <code>string items_def = 4;</code>
-     * @param value The itemsDef to set.
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    @java.lang.Override
+    public Types.ItemDef getItemsDef(int index) {
+      return itemsDef_.get(index);
+    }
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    public Types.ItemDefOrBuilder getItemsDefOrBuilder(
+        int index) {
+      return itemsDef_.get(index);
+    }
+    private void ensureItemsDefIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.ItemDef> tmp = itemsDef_;
+      if (!tmp.isModifiable()) {
+        itemsDef_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
     private void setItemsDef(
-        java.lang.String value) {
+        int index, Types.ItemDef value) {
       value.getClass();
-  
-      itemsDef_ = value;
+  ensureItemsDefIsMutable();
+      itemsDef_.set(index, value);
     }
     /**
-     * <code>string items_def = 4;</code>
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    private void addItemsDef(Types.ItemDef value) {
+      value.getClass();
+  ensureItemsDefIsMutable();
+      itemsDef_.add(value);
+    }
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    private void addItemsDef(
+        int index, Types.ItemDef value) {
+      value.getClass();
+  ensureItemsDefIsMutable();
+      itemsDef_.add(index, value);
+    }
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
+     */
+    private void addAllItemsDef(
+        java.lang.Iterable<? extends Types.ItemDef> values) {
+      ensureItemsDefIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, itemsDef_);
+    }
+    /**
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
     private void clearItemsDef() {
-      
-      itemsDef_ = getDefaultInstance().getItemsDef();
+      itemsDef_ = emptyProtobufList();
     }
     /**
-     * <code>string items_def = 4;</code>
-     * @param value The bytes for itemsDef to set.
+     * <code>repeated .ItemDef items_def = 4;</code>
      */
-    private void setItemsDefBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      itemsDef_ = value.toStringUtf8();
-      
+    private void removeItemsDef(int index) {
+      ensureItemsDefIsMutable();
+      itemsDef_.remove(index);
     }
 
     public static final int BLOCKS_DEF_FIELD_NUMBER = 5;
-    private java.lang.String blocksDef_;
+    private com.google.protobuf.Internal.ProtobufList<Types.BlockDef> blocksDef_;
     /**
-     * <code>string blocks_def = 5;</code>
-     * @return The blocksDef.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
     @java.lang.Override
-    public java.lang.String getBlocksDef() {
+    public java.util.List<Types.BlockDef> getBlocksDefList() {
       return blocksDef_;
     }
     /**
-     * <code>string blocks_def = 5;</code>
-     * @return The bytes for blocksDef.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    public java.util.List<? extends Types.BlockDefOrBuilder> 
+        getBlocksDefOrBuilderList() {
+      return blocksDef_;
+    }
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getBlocksDefBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(blocksDef_);
+    public int getBlocksDefCount() {
+      return blocksDef_.size();
     }
     /**
-     * <code>string blocks_def = 5;</code>
-     * @param value The blocksDef to set.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    @java.lang.Override
+    public Types.BlockDef getBlocksDef(int index) {
+      return blocksDef_.get(index);
+    }
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    public Types.BlockDefOrBuilder getBlocksDefOrBuilder(
+        int index) {
+      return blocksDef_.get(index);
+    }
+    private void ensureBlocksDefIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.BlockDef> tmp = blocksDef_;
+      if (!tmp.isModifiable()) {
+        blocksDef_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
     private void setBlocksDef(
-        java.lang.String value) {
+        int index, Types.BlockDef value) {
       value.getClass();
-  
-      blocksDef_ = value;
+  ensureBlocksDefIsMutable();
+      blocksDef_.set(index, value);
     }
     /**
-     * <code>string blocks_def = 5;</code>
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    private void addBlocksDef(Types.BlockDef value) {
+      value.getClass();
+  ensureBlocksDefIsMutable();
+      blocksDef_.add(value);
+    }
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    private void addBlocksDef(
+        int index, Types.BlockDef value) {
+      value.getClass();
+  ensureBlocksDefIsMutable();
+      blocksDef_.add(index, value);
+    }
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
+     */
+    private void addAllBlocksDef(
+        java.lang.Iterable<? extends Types.BlockDef> values) {
+      ensureBlocksDefIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, blocksDef_);
+    }
+    /**
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
     private void clearBlocksDef() {
-      
-      blocksDef_ = getDefaultInstance().getBlocksDef();
+      blocksDef_ = emptyProtobufList();
     }
     /**
-     * <code>string blocks_def = 5;</code>
-     * @param value The bytes for blocksDef to set.
+     * <code>repeated .BlockDef blocks_def = 5;</code>
      */
-    private void setBlocksDefBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      blocksDef_ = value.toStringUtf8();
-      
+    private void removeBlocksDef(int index) {
+      ensureBlocksDefIsMutable();
+      blocksDef_.remove(index);
     }
 
     public static Server.LoginSuccess parseFrom(
@@ -1905,36 +2003,92 @@ public final class Server {
       }
 
       /**
-       * <code>string items_def = 4;</code>
-       * @return The itemsDef.
+       * <code>repeated .ItemDef items_def = 4;</code>
        */
       @java.lang.Override
-      public java.lang.String getItemsDef() {
-        return instance.getItemsDef();
+      public java.util.List<Types.ItemDef> getItemsDefList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getItemsDefList());
       }
       /**
-       * <code>string items_def = 4;</code>
-       * @return The bytes for itemsDef.
+       * <code>repeated .ItemDef items_def = 4;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString
-          getItemsDefBytes() {
-        return instance.getItemsDefBytes();
+      public int getItemsDefCount() {
+        return instance.getItemsDefCount();
+      }/**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      @java.lang.Override
+      public Types.ItemDef getItemsDef(int index) {
+        return instance.getItemsDef(index);
       }
       /**
-       * <code>string items_def = 4;</code>
-       * @param value The itemsDef to set.
-       * @return This builder for chaining.
+       * <code>repeated .ItemDef items_def = 4;</code>
        */
       public Builder setItemsDef(
-          java.lang.String value) {
+          int index, Types.ItemDef value) {
         copyOnWrite();
-        instance.setItemsDef(value);
+        instance.setItemsDef(index, value);
         return this;
       }
       /**
-       * <code>string items_def = 4;</code>
-       * @return This builder for chaining.
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder setItemsDef(
+          int index, Types.ItemDef.Builder builderForValue) {
+        copyOnWrite();
+        instance.setItemsDef(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addItemsDef(Types.ItemDef value) {
+        copyOnWrite();
+        instance.addItemsDef(value);
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addItemsDef(
+          int index, Types.ItemDef value) {
+        copyOnWrite();
+        instance.addItemsDef(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addItemsDef(
+          Types.ItemDef.Builder builderForValue) {
+        copyOnWrite();
+        instance.addItemsDef(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addItemsDef(
+          int index, Types.ItemDef.Builder builderForValue) {
+        copyOnWrite();
+        instance.addItemsDef(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
+       */
+      public Builder addAllItemsDef(
+          java.lang.Iterable<? extends Types.ItemDef> values) {
+        copyOnWrite();
+        instance.addAllItemsDef(values);
+        return this;
+      }
+      /**
+       * <code>repeated .ItemDef items_def = 4;</code>
        */
       public Builder clearItemsDef() {
         copyOnWrite();
@@ -1942,48 +2096,101 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string items_def = 4;</code>
-       * @param value The bytes for itemsDef to set.
-       * @return This builder for chaining.
+       * <code>repeated .ItemDef items_def = 4;</code>
        */
-      public Builder setItemsDefBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder removeItemsDef(int index) {
         copyOnWrite();
-        instance.setItemsDefBytes(value);
+        instance.removeItemsDef(index);
         return this;
       }
 
       /**
-       * <code>string blocks_def = 5;</code>
-       * @return The blocksDef.
+       * <code>repeated .BlockDef blocks_def = 5;</code>
        */
       @java.lang.Override
-      public java.lang.String getBlocksDef() {
-        return instance.getBlocksDef();
+      public java.util.List<Types.BlockDef> getBlocksDefList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getBlocksDefList());
       }
       /**
-       * <code>string blocks_def = 5;</code>
-       * @return The bytes for blocksDef.
+       * <code>repeated .BlockDef blocks_def = 5;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString
-          getBlocksDefBytes() {
-        return instance.getBlocksDefBytes();
+      public int getBlocksDefCount() {
+        return instance.getBlocksDefCount();
+      }/**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      @java.lang.Override
+      public Types.BlockDef getBlocksDef(int index) {
+        return instance.getBlocksDef(index);
       }
       /**
-       * <code>string blocks_def = 5;</code>
-       * @param value The blocksDef to set.
-       * @return This builder for chaining.
+       * <code>repeated .BlockDef blocks_def = 5;</code>
        */
       public Builder setBlocksDef(
-          java.lang.String value) {
+          int index, Types.BlockDef value) {
         copyOnWrite();
-        instance.setBlocksDef(value);
+        instance.setBlocksDef(index, value);
         return this;
       }
       /**
-       * <code>string blocks_def = 5;</code>
-       * @return This builder for chaining.
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder setBlocksDef(
+          int index, Types.BlockDef.Builder builderForValue) {
+        copyOnWrite();
+        instance.setBlocksDef(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addBlocksDef(Types.BlockDef value) {
+        copyOnWrite();
+        instance.addBlocksDef(value);
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addBlocksDef(
+          int index, Types.BlockDef value) {
+        copyOnWrite();
+        instance.addBlocksDef(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addBlocksDef(
+          Types.BlockDef.Builder builderForValue) {
+        copyOnWrite();
+        instance.addBlocksDef(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addBlocksDef(
+          int index, Types.BlockDef.Builder builderForValue) {
+        copyOnWrite();
+        instance.addBlocksDef(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
+       */
+      public Builder addAllBlocksDef(
+          java.lang.Iterable<? extends Types.BlockDef> values) {
+        copyOnWrite();
+        instance.addAllBlocksDef(values);
+        return this;
+      }
+      /**
+       * <code>repeated .BlockDef blocks_def = 5;</code>
        */
       public Builder clearBlocksDef() {
         copyOnWrite();
@@ -1991,14 +2198,11 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string blocks_def = 5;</code>
-       * @param value The bytes for blocksDef to set.
-       * @return This builder for chaining.
+       * <code>repeated .BlockDef blocks_def = 5;</code>
        */
-      public Builder setBlocksDefBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder removeBlocksDef(int index) {
         copyOnWrite();
-        instance.setBlocksDefBytes(value);
+        instance.removeBlocksDef(index);
         return this;
       }
 
@@ -2022,11 +2226,13 @@ public final class Server {
               "time_",
               "assets_",
               "itemsDef_",
+              Types.ItemDef.class,
               "blocksDef_",
+              Types.BlockDef.class,
             };
             java.lang.String info =
-                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0208\u0002\u0003" +
-                "\u0003\u0208\u0004\u0208\u0005\u0208";
+                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0002\u0000\u0001\u0208\u0002\u0003" +
+                "\u0003\u0208\u0004\u001b\u0005\u001b";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -3254,16 +3460,18 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>string reason = 1;</code>
-     * @return The reason.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
-    java.lang.String getReason();
+    java.util.List<Types.BasicChatComponentType> 
+        getReasonList();
     /**
-     * <code>string reason = 1;</code>
-     * @return The bytes for reason.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
-    com.google.protobuf.ByteString
-        getReasonBytes();
+    Types.BasicChatComponentType getReason(int index);
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    int getReasonCount();
 
     /**
      * <code>uint64 time = 2;</code>
@@ -3280,53 +3488,100 @@ public final class Server {
       // @@protoc_insertion_point(message_implements:PlayerKick)
       PlayerKickOrBuilder {
     private PlayerKick() {
-      reason_ = "";
+      reason_ = emptyProtobufList();
     }
     public static final int REASON_FIELD_NUMBER = 1;
-    private java.lang.String reason_;
+    private com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> reason_;
     /**
-     * <code>string reason = 1;</code>
-     * @return The reason.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
     @java.lang.Override
-    public java.lang.String getReason() {
+    public java.util.List<Types.BasicChatComponentType> getReasonList() {
       return reason_;
     }
     /**
-     * <code>string reason = 1;</code>
-     * @return The bytes for reason.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getReasonOrBuilderList() {
+      return reason_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getReasonBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(reason_);
+    public int getReasonCount() {
+      return reason_.size();
     }
     /**
-     * <code>string reason = 1;</code>
-     * @param value The reason to set.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentType getReason(int index) {
+      return reason_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    public Types.BasicChatComponentTypeOrBuilder getReasonOrBuilder(
+        int index) {
+      return reason_.get(index);
+    }
+    private void ensureReasonIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> tmp = reason_;
+      if (!tmp.isModifiable()) {
+        reason_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
     private void setReason(
-        java.lang.String value) {
+        int index, Types.BasicChatComponentType value) {
       value.getClass();
-  
-      reason_ = value;
+  ensureReasonIsMutable();
+      reason_.set(index, value);
     }
     /**
-     * <code>string reason = 1;</code>
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    private void addReason(Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureReasonIsMutable();
+      reason_.add(value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    private void addReason(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureReasonIsMutable();
+      reason_.add(index, value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
+     */
+    private void addAllReason(
+        java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+      ensureReasonIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, reason_);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
     private void clearReason() {
-      
-      reason_ = getDefaultInstance().getReason();
+      reason_ = emptyProtobufList();
     }
     /**
-     * <code>string reason = 1;</code>
-     * @param value The bytes for reason to set.
+     * <code>repeated .BasicChatComponentType reason = 1;</code>
      */
-    private void setReasonBytes(
-        com.google.protobuf.ByteString value) {
-      checkByteStringIsUtf8(value);
-      reason_ = value.toStringUtf8();
-      
+    private void removeReason(int index) {
+      ensureReasonIsMutable();
+      reason_.remove(index);
     }
 
     public static final int TIME_FIELD_NUMBER = 2;
@@ -3451,36 +3706,92 @@ public final class Server {
 
 
       /**
-       * <code>string reason = 1;</code>
-       * @return The reason.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
       @java.lang.Override
-      public java.lang.String getReason() {
-        return instance.getReason();
+      public java.util.List<Types.BasicChatComponentType> getReasonList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getReasonList());
       }
       /**
-       * <code>string reason = 1;</code>
-       * @return The bytes for reason.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString
-          getReasonBytes() {
-        return instance.getReasonBytes();
+      public int getReasonCount() {
+        return instance.getReasonCount();
+      }/**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      @java.lang.Override
+      public Types.BasicChatComponentType getReason(int index) {
+        return instance.getReason(index);
       }
       /**
-       * <code>string reason = 1;</code>
-       * @param value The reason to set.
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
       public Builder setReason(
-          java.lang.String value) {
+          int index, Types.BasicChatComponentType value) {
         copyOnWrite();
-        instance.setReason(value);
+        instance.setReason(index, value);
         return this;
       }
       /**
-       * <code>string reason = 1;</code>
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder setReason(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.setReason(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addReason(Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addReason(value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addReason(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addReason(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addReason(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addReason(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addReason(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addReason(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
+       */
+      public Builder addAllReason(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        copyOnWrite();
+        instance.addAllReason(values);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
       public Builder clearReason() {
         copyOnWrite();
@@ -3488,14 +3799,11 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string reason = 1;</code>
-       * @param value The bytes for reason to set.
-       * @return This builder for chaining.
+       * <code>repeated .BasicChatComponentType reason = 1;</code>
        */
-      public Builder setReasonBytes(
-          com.google.protobuf.ByteString value) {
+      public Builder removeReason(int index) {
         copyOnWrite();
-        instance.setReasonBytes(value);
+        instance.removeReason(index);
         return this;
       }
 
@@ -3544,10 +3852,11 @@ public final class Server {
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
               "reason_",
+              Types.BasicChatComponentType.class,
               "time_",
             };
             java.lang.String info =
-                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0208\u0002\u0003" +
+                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0001\u0000\u0001\u001b\u0002\u0003" +
                 "";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
@@ -9315,6 +9624,17 @@ public final class Server {
      * @return The z.
      */
     double getZ();
+
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @return The type.
+     */
+    Server.SoundPlay.Type getType();
   }
   /**
    * Protobuf type {@code SoundPlay}
@@ -9327,6 +9647,122 @@ public final class Server {
     private SoundPlay() {
       sound_ = "";
     }
+    /**
+     * Protobuf enum {@code SoundPlay.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.Internal.EnumLite {
+      /**
+       * <code>GENERAL = 0;</code>
+       */
+      GENERAL(0),
+      /**
+       * <code>ENTITY = 1;</code>
+       */
+      ENTITY(1),
+      /**
+       * <code>BLOCK = 2;</code>
+       */
+      BLOCK(2),
+      /**
+       * <code>MUSIC = 3;</code>
+       */
+      MUSIC(3),
+      /**
+       * <code>SELF = 4;</code>
+       */
+      SELF(4),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>GENERAL = 0;</code>
+       */
+      public static final int GENERAL_VALUE = 0;
+      /**
+       * <code>ENTITY = 1;</code>
+       */
+      public static final int ENTITY_VALUE = 1;
+      /**
+       * <code>BLOCK = 2;</code>
+       */
+      public static final int BLOCK_VALUE = 2;
+      /**
+       * <code>MUSIC = 3;</code>
+       */
+      public static final int MUSIC_VALUE = 3;
+      /**
+       * <code>SELF = 4;</code>
+       */
+      public static final int SELF_VALUE = 4;
+
+
+      @java.lang.Override
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return GENERAL;
+          case 1: return ENTITY;
+          case 2: return BLOCK;
+          case 3: return MUSIC;
+          case 4: return SELF;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              @java.lang.Override
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public static com.google.protobuf.Internal.EnumVerifier 
+          internalGetVerifier() {
+        return TypeVerifier.INSTANCE;
+      }
+
+      private static final class TypeVerifier implements 
+           com.google.protobuf.Internal.EnumVerifier { 
+              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeVerifier();
+              @java.lang.Override
+              public boolean isInRange(int number) {
+                return Type.forNumber(number) != null;
+              }
+            };
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:SoundPlay.Type)
+    }
+
     public static final int SOUND_FIELD_NUMBER = 1;
     private java.lang.String sound_;
     /**
@@ -9476,6 +9912,48 @@ public final class Server {
     private void clearZ() {
       
       z_ = 0D;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 6;
+    private int type_;
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @return The type.
+     */
+    @java.lang.Override
+    public Server.SoundPlay.Type getType() {
+      Server.SoundPlay.Type result = Server.SoundPlay.Type.forNumber(type_);
+      return result == null ? Server.SoundPlay.Type.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @param value The enum numeric value on the wire for type to set.
+     */
+    private void setTypeValue(int value) {
+        type_ = value;
+    }
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     * @param value The type to set.
+     */
+    private void setType(Server.SoundPlay.Type value) {
+      type_ = value.getNumber();
+      
+    }
+    /**
+     * <code>.SoundPlay.Type type = 6;</code>
+     */
+    private void clearType() {
+      
+      type_ = 0;
     }
 
     public static Server.SoundPlay parseFrom(
@@ -9734,6 +10212,52 @@ public final class Server {
         return this;
       }
 
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override
+      public int getTypeValue() {
+        return instance.getTypeValue();
+      }
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        copyOnWrite();
+        instance.setTypeValue(value);
+        return this;
+      }
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public Server.SoundPlay.Type getType() {
+        return instance.getType();
+      }
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(Server.SoundPlay.Type value) {
+        copyOnWrite();
+        instance.setType(value);
+        return this;
+      }
+      /**
+       * <code>.SoundPlay.Type type = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        copyOnWrite();
+        instance.clearType();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:SoundPlay)
     }
     @java.lang.Override
@@ -9755,10 +10279,11 @@ public final class Server {
               "x_",
               "y_",
               "z_",
+              "type_",
             };
             java.lang.String info =
-                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0208\u0002\u000b" +
-                "\u0003\u0000\u0004\u0000\u0005\u0000";
+                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u0208\u0002\u000b" +
+                "\u0003\u0000\u0004\u0000\u0005\u0000\u0006\f";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -9818,38 +10343,18 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    java.util.List<Types.ChatComponentType> 
+        getMessageList();
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    Types.ChatComponentType getMessage(int index);
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
     int getMessageCount();
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-    boolean containsMessage(
-        int key);
-    /**
-     * Use {@link #getMessageMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Types.ChatComponentType>
-    getMessage();
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-    java.util.Map<java.lang.Integer, Types.ChatComponentType>
-    getMessageMap();
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-
-    Types.ChatComponentType getMessageOrDefault(
-        int key,
-        Types.ChatComponentType defaultValue);
-    /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-     */
-
-    Types.ChatComponentType getMessageOrThrow(
-        int key);
 
     /**
      * <code>uint64 time = 2;</code>
@@ -9866,98 +10371,100 @@ public final class Server {
       // @@protoc_insertion_point(message_implements:ChatMessage)
       ChatMessageOrBuilder {
     private ChatMessage() {
+      message_ = emptyProtobufList();
     }
     public static final int MESSAGE_FIELD_NUMBER = 1;
-    private static final class MessageDefaultEntryHolder {
-      static final com.google.protobuf.MapEntryLite<
-          java.lang.Integer, Types.ChatComponentType> defaultEntry =
-              com.google.protobuf.MapEntryLite
-              .<java.lang.Integer, Types.ChatComponentType>newDefaultInstance(
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0,
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Types.ChatComponentType.getDefaultInstance());
-    }
-    private com.google.protobuf.MapFieldLite<
-        java.lang.Integer, Types.ChatComponentType> message_ =
-            com.google.protobuf.MapFieldLite.emptyMapField();
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.ChatComponentType>
-    internalGetMessage() {
-      return message_;
-    }
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.ChatComponentType>
-    internalGetMutableMessage() {
-      if (!message_.isMutable()) {
-        message_ = message_.mutableCopy();
-      }
-      return message_;
-    }
+    private com.google.protobuf.Internal.ProtobufList<Types.ChatComponentType> message_;
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
     @java.lang.Override
-
+    public java.util.List<Types.ChatComponentType> getMessageList() {
+      return message_;
+    }
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    public java.util.List<? extends Types.ChatComponentTypeOrBuilder> 
+        getMessageOrBuilderList() {
+      return message_;
+    }
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    @java.lang.Override
     public int getMessageCount() {
-      return internalGetMessage().size();
+      return message_.size();
     }
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
     @java.lang.Override
+    public Types.ChatComponentType getMessage(int index) {
+      return message_.get(index);
+    }
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    public Types.ChatComponentTypeOrBuilder getMessageOrBuilder(
+        int index) {
+      return message_.get(index);
+    }
+    private void ensureMessageIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.ChatComponentType> tmp = message_;
+      if (!tmp.isModifiable()) {
+        message_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
 
-    public boolean containsMessage(
-        int key) {
-      
-      return internalGetMessage().containsKey(key);
+    /**
+     * <code>repeated .ChatComponentType message = 1;</code>
+     */
+    private void setMessage(
+        int index, Types.ChatComponentType value) {
+      value.getClass();
+  ensureMessageIsMutable();
+      message_.set(index, value);
     }
     /**
-     * Use {@link #getMessageMap()} instead.
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessage() {
-      return getMessageMap();
+    private void addMessage(Types.ChatComponentType value) {
+      value.getClass();
+  ensureMessageIsMutable();
+      message_.add(value);
     }
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessageMap() {
-      return java.util.Collections.unmodifiableMap(
-          internalGetMessage());
+    private void addMessage(
+        int index, Types.ChatComponentType value) {
+      value.getClass();
+  ensureMessageIsMutable();
+      message_.add(index, value);
     }
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
-    @java.lang.Override
-
-    public Types.ChatComponentType getMessageOrDefault(
-        int key,
-        Types.ChatComponentType defaultValue) {
-      
-      java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
-          internalGetMessage();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
+    private void addAllMessage(
+        java.lang.Iterable<? extends Types.ChatComponentType> values) {
+      ensureMessageIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, message_);
     }
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
-    @java.lang.Override
-
-    public Types.ChatComponentType getMessageOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
-          internalGetMessage();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    private void clearMessage() {
+      message_ = emptyProtobufList();
     }
     /**
-     * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+     * <code>repeated .ChatComponentType message = 1;</code>
      */
-    private java.util.Map<java.lang.Integer, Types.ChatComponentType>
-    getMutableMessageMap() {
-      return internalGetMutableMessage();
+    private void removeMessage(int index) {
+      ensureMessageIsMutable();
+      message_.remove(index);
     }
 
     public static final int TIME_FIELD_NUMBER = 2;
@@ -10081,101 +10588,105 @@ public final class Server {
       }
 
 
-      @java.lang.Override
-
-      public int getMessageCount() {
-        return instance.getMessageMap().size();
-      }
       /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+       * <code>repeated .ChatComponentType message = 1;</code>
        */
       @java.lang.Override
-
-      public boolean containsMessage(
-          int key) {
-        
-        return instance.getMessageMap().containsKey(key);
+      public java.util.List<Types.ChatComponentType> getMessageList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getMessageList());
       }
-
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      @java.lang.Override
+      public int getMessageCount() {
+        return instance.getMessageCount();
+      }/**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      @java.lang.Override
+      public Types.ChatComponentType getMessage(int index) {
+        return instance.getMessage(index);
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder setMessage(
+          int index, Types.ChatComponentType value) {
+        copyOnWrite();
+        instance.setMessage(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder setMessage(
+          int index, Types.ChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.setMessage(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addMessage(Types.ChatComponentType value) {
+        copyOnWrite();
+        instance.addMessage(value);
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addMessage(
+          int index, Types.ChatComponentType value) {
+        copyOnWrite();
+        instance.addMessage(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addMessage(
+          Types.ChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addMessage(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addMessage(
+          int index, Types.ChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addMessage(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
+      public Builder addAllMessage(
+          java.lang.Iterable<? extends Types.ChatComponentType> values) {
+        copyOnWrite();
+        instance.addAllMessage(values);
+        return this;
+      }
+      /**
+       * <code>repeated .ChatComponentType message = 1;</code>
+       */
       public Builder clearMessage() {
         copyOnWrite();
-        instance.getMutableMessageMap().clear();
+        instance.clearMessage();
         return this;
       }
       /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
+       * <code>repeated .ChatComponentType message = 1;</code>
        */
-
-      public Builder removeMessage(
-          int key) {
-        
+      public Builder removeMessage(int index) {
         copyOnWrite();
-        instance.getMutableMessageMap().remove(key);
-        return this;
-      }
-      /**
-       * Use {@link #getMessageMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessage() {
-        return getMessageMap();
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-      @java.lang.Override
-      public java.util.Map<java.lang.Integer, Types.ChatComponentType> getMessageMap() {
-        return java.util.Collections.unmodifiableMap(
-            instance.getMessageMap());
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-      @java.lang.Override
-
-      public Types.ChatComponentType getMessageOrDefault(
-          int key,
-          Types.ChatComponentType defaultValue) {
-        
-        java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
-            instance.getMessageMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-      @java.lang.Override
-
-      public Types.ChatComponentType getMessageOrThrow(
-          int key) {
-        
-        java.util.Map<java.lang.Integer, Types.ChatComponentType> map =
-            instance.getMessageMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-      public Builder putMessage(
-          int key,
-          Types.ChatComponentType value) {
-        
-        value.getClass();
-        copyOnWrite();
-        instance.getMutableMessageMap().put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;uint32, .ChatComponentType&gt; message = 1;</code>
-       */
-      public Builder putAllMessage(
-          java.util.Map<java.lang.Integer, Types.ChatComponentType> values) {
-        copyOnWrite();
-        instance.getMutableMessageMap().putAll(values);
+        instance.removeMessage(index);
         return this;
       }
 
@@ -10224,11 +10735,12 @@ public final class Server {
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
               "message_",
-              MessageDefaultEntryHolder.defaultEntry,
+              Types.ChatComponentType.class,
               "time_",
             };
             java.lang.String info =
-                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0001\u0000\u0000\u00012\u0002\u0003";
+                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0001\u0000\u0001\u001b\u0002\u0003" +
+                "";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -10299,38 +10811,18 @@ public final class Server {
     Server.UpdateTextBoard.Type getType();
 
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    java.util.List<Types.BasicChatComponentType> 
+        getMessageList();
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    Types.BasicChatComponentType getMessage(int index);
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
     int getMessageCount();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-    boolean containsMessage(
-        int key);
-    /**
-     * Use {@link #getMessageMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getMessage();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getMessageMap();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-
-    Types.BasicChatComponentType getMessageOrDefault(
-        int key,
-        Types.BasicChatComponentType defaultValue);
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-     */
-
-    Types.BasicChatComponentType getMessageOrThrow(
-        int key);
 
     /**
      * <code>uint64 time = 3;</code>
@@ -10347,6 +10839,7 @@ public final class Server {
       // @@protoc_insertion_point(message_implements:UpdateTextBoard)
       UpdateTextBoardOrBuilder {
     private UpdateTextBoard() {
+      message_ = emptyProtobufList();
     }
     /**
      * Protobuf enum {@code UpdateTextBoard.Type}
@@ -10498,96 +10991,97 @@ public final class Server {
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 2;
-    private static final class MessageDefaultEntryHolder {
-      static final com.google.protobuf.MapEntryLite<
-          java.lang.Integer, Types.BasicChatComponentType> defaultEntry =
-              com.google.protobuf.MapEntryLite
-              .<java.lang.Integer, Types.BasicChatComponentType>newDefaultInstance(
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0,
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Types.BasicChatComponentType.getDefaultInstance());
-    }
-    private com.google.protobuf.MapFieldLite<
-        java.lang.Integer, Types.BasicChatComponentType> message_ =
-            com.google.protobuf.MapFieldLite.emptyMapField();
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.BasicChatComponentType>
-    internalGetMessage() {
-      return message_;
-    }
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Types.BasicChatComponentType>
-    internalGetMutableMessage() {
-      if (!message_.isMutable()) {
-        message_ = message_.mutableCopy();
-      }
-      return message_;
-    }
+    private com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> message_;
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
     @java.lang.Override
-
+    public java.util.List<Types.BasicChatComponentType> getMessageList() {
+      return message_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getMessageOrBuilderList() {
+      return message_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    @java.lang.Override
     public int getMessageCount() {
-      return internalGetMessage().size();
+      return message_.size();
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
     @java.lang.Override
+    public Types.BasicChatComponentType getMessage(int index) {
+      return message_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    public Types.BasicChatComponentTypeOrBuilder getMessageOrBuilder(
+        int index) {
+      return message_.get(index);
+    }
+    private void ensureMessageIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> tmp = message_;
+      if (!tmp.isModifiable()) {
+        message_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
 
-    public boolean containsMessage(
-        int key) {
-      
-      return internalGetMessage().containsKey(key);
+    /**
+     * <code>repeated .BasicChatComponentType message = 2;</code>
+     */
+    private void setMessage(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureMessageIsMutable();
+      message_.set(index, value);
     }
     /**
-     * Use {@link #getMessageMap()} instead.
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessage() {
-      return getMessageMap();
+    private void addMessage(Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureMessageIsMutable();
+      message_.add(value);
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessageMap() {
-      return java.util.Collections.unmodifiableMap(
-          internalGetMessage());
+    private void addMessage(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureMessageIsMutable();
+      message_.add(index, value);
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
-    @java.lang.Override
-
-    public Types.BasicChatComponentType getMessageOrDefault(
-        int key,
-        Types.BasicChatComponentType defaultValue) {
-      
-      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-          internalGetMessage();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
+    private void addAllMessage(
+        java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+      ensureMessageIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, message_);
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
-    @java.lang.Override
-
-    public Types.BasicChatComponentType getMessageOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-          internalGetMessage();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    private void clearMessage() {
+      message_ = emptyProtobufList();
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+     * <code>repeated .BasicChatComponentType message = 2;</code>
      */
-    private java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getMutableMessageMap() {
-      return internalGetMutableMessage();
+    private void removeMessage(int index) {
+      ensureMessageIsMutable();
+      message_.remove(index);
     }
 
     public static final int TIME_FIELD_NUMBER = 3;
@@ -10757,101 +11251,105 @@ public final class Server {
         return this;
       }
 
-      @java.lang.Override
-
-      public int getMessageCount() {
-        return instance.getMessageMap().size();
-      }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+       * <code>repeated .BasicChatComponentType message = 2;</code>
        */
       @java.lang.Override
-
-      public boolean containsMessage(
-          int key) {
-        
-        return instance.getMessageMap().containsKey(key);
+      public java.util.List<Types.BasicChatComponentType> getMessageList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getMessageList());
       }
-
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      @java.lang.Override
+      public int getMessageCount() {
+        return instance.getMessageCount();
+      }/**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      @java.lang.Override
+      public Types.BasicChatComponentType getMessage(int index) {
+        return instance.getMessage(index);
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder setMessage(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.setMessage(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder setMessage(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.setMessage(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addMessage(Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addMessage(value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addMessage(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addMessage(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addMessage(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addMessage(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addMessage(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addMessage(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
+      public Builder addAllMessage(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        copyOnWrite();
+        instance.addAllMessage(values);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType message = 2;</code>
+       */
       public Builder clearMessage() {
         copyOnWrite();
-        instance.getMutableMessageMap().clear();
+        instance.clearMessage();
         return this;
       }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
+       * <code>repeated .BasicChatComponentType message = 2;</code>
        */
-
-      public Builder removeMessage(
-          int key) {
-        
+      public Builder removeMessage(int index) {
         copyOnWrite();
-        instance.getMutableMessageMap().remove(key);
-        return this;
-      }
-      /**
-       * Use {@link #getMessageMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessage() {
-        return getMessageMap();
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-      @java.lang.Override
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getMessageMap() {
-        return java.util.Collections.unmodifiableMap(
-            instance.getMessageMap());
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-      @java.lang.Override
-
-      public Types.BasicChatComponentType getMessageOrDefault(
-          int key,
-          Types.BasicChatComponentType defaultValue) {
-        
-        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-            instance.getMessageMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-      @java.lang.Override
-
-      public Types.BasicChatComponentType getMessageOrThrow(
-          int key) {
-        
-        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-            instance.getMessageMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-      public Builder putMessage(
-          int key,
-          Types.BasicChatComponentType value) {
-        
-        value.getClass();
-        copyOnWrite();
-        instance.getMutableMessageMap().put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; message = 2;</code>
-       */
-      public Builder putAllMessage(
-          java.util.Map<java.lang.Integer, Types.BasicChatComponentType> values) {
-        copyOnWrite();
-        instance.getMutableMessageMap().putAll(values);
+        instance.removeMessage(index);
         return this;
       }
 
@@ -10901,12 +11399,12 @@ public final class Server {
             java.lang.Object[] objects = new java.lang.Object[] {
               "type_",
               "message_",
-              MessageDefaultEntryHolder.defaultEntry,
+              Types.BasicChatComponentType.class,
               "time_",
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0001\u0000\u0000\u0001\f\u00022\u0003" +
-                "\u0003";
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0001\u0000\u0001\f\u0002\u001b" +
+                "\u0003\u0003";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -10978,16 +11476,135 @@ public final class Server {
         getUuidBytes();
 
     /**
-     * <code>string data = 2;</code>
-     * @return The data.
+     * <code>double x = 2;</code>
+     * @return The x.
      */
-    java.lang.String getData();
+    double getX();
+
     /**
-     * <code>string data = 2;</code>
-     * @return The bytes for data.
+     * <code>double y = 3;</code>
+     * @return The y.
+     */
+    double getY();
+
+    /**
+     * <code>double z = 4;</code>
+     * @return The z.
+     */
+    double getZ();
+
+    /**
+     * <code>float rotation = 5;</code>
+     * @return The rotation.
+     */
+    float getRotation();
+
+    /**
+     * <code>float pitch = 6;</code>
+     * @return The pitch.
+     */
+    float getPitch();
+
+    /**
+     * <code>string model = 7;</code>
+     * @return The model.
+     */
+    java.lang.String getModel();
+    /**
+     * <code>string model = 7;</code>
+     * @return The bytes for model.
      */
     com.google.protobuf.ByteString
-        getDataBytes();
+        getModelBytes();
+
+    /**
+     * <code>string texture = 8;</code>
+     * @return The texture.
+     */
+    java.lang.String getTexture();
+    /**
+     * <code>string texture = 8;</code>
+     * @return The bytes for texture.
+     */
+    com.google.protobuf.ByteString
+        getTextureBytes();
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    java.util.List<Types.BasicChatComponentType> 
+        getNameList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    Types.BasicChatComponentType getName(int index);
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    int getNameCount();
+
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @return A list containing the hitbox.
+     */
+    java.util.List<java.lang.Float> getHitboxList();
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @return The count of hitbox.
+     */
+    int getHitboxCount();
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @param index The index of the element to return.
+     * @return The hitbox at the given index.
+     */
+    float getHitbox(int index);
+
+    /**
+     * <code>string held_item = 11;</code>
+     * @return The heldItem.
+     */
+    java.lang.String getHeldItem();
+    /**
+     * <code>string held_item = 11;</code>
+     * @return The bytes for heldItem.
+     */
+    com.google.protobuf.ByteString
+        getHeldItemBytes();
+
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    int getArmorCount();
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    boolean containsArmor(
+        int key);
+    /**
+     * Use {@link #getArmorMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.Integer, java.lang.String>
+    getArmor();
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    java.util.Map<java.lang.Integer, java.lang.String>
+    getArmorMap();
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+
+    java.lang.String getArmorOrDefault(
+        int key,
+        java.lang.String defaultValue);
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+
+    java.lang.String getArmorOrThrow(
+        int key);
   }
   /**
    * Protobuf type {@code EntityCreate}
@@ -10999,7 +11616,11 @@ public final class Server {
       EntityCreateOrBuilder {
     private EntityCreate() {
       uuid_ = "";
-      data_ = "";
+      model_ = "";
+      texture_ = "";
+      name_ = emptyProtobufList();
+      hitbox_ = emptyFloatList();
+      heldItem_ = "";
     }
     public static final int UUID_FIELD_NUMBER = 1;
     private java.lang.String uuid_;
@@ -11048,51 +11669,533 @@ public final class Server {
       
     }
 
-    public static final int DATA_FIELD_NUMBER = 2;
-    private java.lang.String data_;
+    public static final int X_FIELD_NUMBER = 2;
+    private double x_;
     /**
-     * <code>string data = 2;</code>
-     * @return The data.
+     * <code>double x = 2;</code>
+     * @return The x.
      */
     @java.lang.Override
-    public java.lang.String getData() {
-      return data_;
+    public double getX() {
+      return x_;
     }
     /**
-     * <code>string data = 2;</code>
-     * @return The bytes for data.
+     * <code>double x = 2;</code>
+     * @param value The x to set.
+     */
+    private void setX(double value) {
+      
+      x_ = value;
+    }
+    /**
+     * <code>double x = 2;</code>
+     */
+    private void clearX() {
+      
+      x_ = 0D;
+    }
+
+    public static final int Y_FIELD_NUMBER = 3;
+    private double y_;
+    /**
+     * <code>double y = 3;</code>
+     * @return The y.
+     */
+    @java.lang.Override
+    public double getY() {
+      return y_;
+    }
+    /**
+     * <code>double y = 3;</code>
+     * @param value The y to set.
+     */
+    private void setY(double value) {
+      
+      y_ = value;
+    }
+    /**
+     * <code>double y = 3;</code>
+     */
+    private void clearY() {
+      
+      y_ = 0D;
+    }
+
+    public static final int Z_FIELD_NUMBER = 4;
+    private double z_;
+    /**
+     * <code>double z = 4;</code>
+     * @return The z.
+     */
+    @java.lang.Override
+    public double getZ() {
+      return z_;
+    }
+    /**
+     * <code>double z = 4;</code>
+     * @param value The z to set.
+     */
+    private void setZ(double value) {
+      
+      z_ = value;
+    }
+    /**
+     * <code>double z = 4;</code>
+     */
+    private void clearZ() {
+      
+      z_ = 0D;
+    }
+
+    public static final int ROTATION_FIELD_NUMBER = 5;
+    private float rotation_;
+    /**
+     * <code>float rotation = 5;</code>
+     * @return The rotation.
+     */
+    @java.lang.Override
+    public float getRotation() {
+      return rotation_;
+    }
+    /**
+     * <code>float rotation = 5;</code>
+     * @param value The rotation to set.
+     */
+    private void setRotation(float value) {
+      
+      rotation_ = value;
+    }
+    /**
+     * <code>float rotation = 5;</code>
+     */
+    private void clearRotation() {
+      
+      rotation_ = 0F;
+    }
+
+    public static final int PITCH_FIELD_NUMBER = 6;
+    private float pitch_;
+    /**
+     * <code>float pitch = 6;</code>
+     * @return The pitch.
+     */
+    @java.lang.Override
+    public float getPitch() {
+      return pitch_;
+    }
+    /**
+     * <code>float pitch = 6;</code>
+     * @param value The pitch to set.
+     */
+    private void setPitch(float value) {
+      
+      pitch_ = value;
+    }
+    /**
+     * <code>float pitch = 6;</code>
+     */
+    private void clearPitch() {
+      
+      pitch_ = 0F;
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 7;
+    private java.lang.String model_;
+    /**
+     * <code>string model = 7;</code>
+     * @return The model.
+     */
+    @java.lang.Override
+    public java.lang.String getModel() {
+      return model_;
+    }
+    /**
+     * <code>string model = 7;</code>
+     * @return The bytes for model.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getDataBytes() {
-      return com.google.protobuf.ByteString.copyFromUtf8(data_);
+        getModelBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(model_);
     }
     /**
-     * <code>string data = 2;</code>
-     * @param value The data to set.
+     * <code>string model = 7;</code>
+     * @param value The model to set.
      */
-    private void setData(
+    private void setModel(
         java.lang.String value) {
       value.getClass();
   
-      data_ = value;
+      model_ = value;
     }
     /**
-     * <code>string data = 2;</code>
+     * <code>string model = 7;</code>
      */
-    private void clearData() {
+    private void clearModel() {
       
-      data_ = getDefaultInstance().getData();
+      model_ = getDefaultInstance().getModel();
     }
     /**
-     * <code>string data = 2;</code>
-     * @param value The bytes for data to set.
+     * <code>string model = 7;</code>
+     * @param value The bytes for model to set.
      */
-    private void setDataBytes(
+    private void setModelBytes(
         com.google.protobuf.ByteString value) {
       checkByteStringIsUtf8(value);
-      data_ = value.toStringUtf8();
+      model_ = value.toStringUtf8();
       
+    }
+
+    public static final int TEXTURE_FIELD_NUMBER = 8;
+    private java.lang.String texture_;
+    /**
+     * <code>string texture = 8;</code>
+     * @return The texture.
+     */
+    @java.lang.Override
+    public java.lang.String getTexture() {
+      return texture_;
+    }
+    /**
+     * <code>string texture = 8;</code>
+     * @return The bytes for texture.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTextureBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(texture_);
+    }
+    /**
+     * <code>string texture = 8;</code>
+     * @param value The texture to set.
+     */
+    private void setTexture(
+        java.lang.String value) {
+      value.getClass();
+  
+      texture_ = value;
+    }
+    /**
+     * <code>string texture = 8;</code>
+     */
+    private void clearTexture() {
+      
+      texture_ = getDefaultInstance().getTexture();
+    }
+    /**
+     * <code>string texture = 8;</code>
+     * @param value The bytes for texture to set.
+     */
+    private void setTextureBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      texture_ = value.toStringUtf8();
+      
+    }
+
+    public static final int NAME_FIELD_NUMBER = 9;
+    private com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> name_;
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    @java.lang.Override
+    public java.util.List<Types.BasicChatComponentType> getNameList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    @java.lang.Override
+    public int getNameCount() {
+      return name_.size();
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentType getName(int index) {
+      return name_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index) {
+      return name_.get(index);
+    }
+    private void ensureNameIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> tmp = name_;
+      if (!tmp.isModifiable()) {
+        name_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    private void setName(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.set(index, value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    private void addName(Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.add(value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    private void addName(
+        int index, Types.BasicChatComponentType value) {
+      value.getClass();
+  ensureNameIsMutable();
+      name_.add(index, value);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    private void addAllName(
+        java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+      ensureNameIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, name_);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    private void clearName() {
+      name_ = emptyProtobufList();
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 9;</code>
+     */
+    private void removeName(int index) {
+      ensureNameIsMutable();
+      name_.remove(index);
+    }
+
+    public static final int HITBOX_FIELD_NUMBER = 10;
+    private com.google.protobuf.Internal.FloatList hitbox_;
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @return A list containing the hitbox.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Float>
+        getHitboxList() {
+      return hitbox_;
+    }
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @return The count of hitbox.
+     */
+    @java.lang.Override
+    public int getHitboxCount() {
+      return hitbox_.size();
+    }
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @param index The index of the element to return.
+     * @return The hitbox at the given index.
+     */
+    @java.lang.Override
+    public float getHitbox(int index) {
+      return hitbox_.getFloat(index);
+    }
+    private int hitboxMemoizedSerializedSize = -1;
+    private void ensureHitboxIsMutable() {
+      com.google.protobuf.Internal.FloatList tmp = hitbox_;
+      if (!tmp.isModifiable()) {
+        hitbox_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @param index The index to set the value at.
+     * @param value The hitbox to set.
+     */
+    private void setHitbox(
+        int index, float value) {
+      ensureHitboxIsMutable();
+      hitbox_.setFloat(index, value);
+    }
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @param value The hitbox to add.
+     */
+    private void addHitbox(float value) {
+      ensureHitboxIsMutable();
+      hitbox_.addFloat(value);
+    }
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     * @param values The hitbox to add.
+     */
+    private void addAllHitbox(
+        java.lang.Iterable<? extends java.lang.Float> values) {
+      ensureHitboxIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, hitbox_);
+    }
+    /**
+     * <code>repeated float hitbox = 10;</code>
+     */
+    private void clearHitbox() {
+      hitbox_ = emptyFloatList();
+    }
+
+    public static final int HELD_ITEM_FIELD_NUMBER = 11;
+    private java.lang.String heldItem_;
+    /**
+     * <code>string held_item = 11;</code>
+     * @return The heldItem.
+     */
+    @java.lang.Override
+    public java.lang.String getHeldItem() {
+      return heldItem_;
+    }
+    /**
+     * <code>string held_item = 11;</code>
+     * @return The bytes for heldItem.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getHeldItemBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(heldItem_);
+    }
+    /**
+     * <code>string held_item = 11;</code>
+     * @param value The heldItem to set.
+     */
+    private void setHeldItem(
+        java.lang.String value) {
+      value.getClass();
+  
+      heldItem_ = value;
+    }
+    /**
+     * <code>string held_item = 11;</code>
+     */
+    private void clearHeldItem() {
+      
+      heldItem_ = getDefaultInstance().getHeldItem();
+    }
+    /**
+     * <code>string held_item = 11;</code>
+     * @param value The bytes for heldItem to set.
+     */
+    private void setHeldItemBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      heldItem_ = value.toStringUtf8();
+      
+    }
+
+    public static final int ARMOR_FIELD_NUMBER = 12;
+    private static final class ArmorDefaultEntryHolder {
+      static final com.google.protobuf.MapEntryLite<
+          java.lang.Integer, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntryLite
+              .<java.lang.Integer, java.lang.String>newDefaultInstance(
+                  com.google.protobuf.WireFormat.FieldType.UINT32,
+                  0,
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapFieldLite<
+        java.lang.Integer, java.lang.String> armor_ =
+            com.google.protobuf.MapFieldLite.emptyMapField();
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, java.lang.String>
+    internalGetArmor() {
+      return armor_;
+    }
+    private com.google.protobuf.MapFieldLite<java.lang.Integer, java.lang.String>
+    internalGetMutableArmor() {
+      if (!armor_.isMutable()) {
+        armor_ = armor_.mutableCopy();
+      }
+      return armor_;
+    }
+    @java.lang.Override
+
+    public int getArmorCount() {
+      return internalGetArmor().size();
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    @java.lang.Override
+
+    public boolean containsArmor(
+        int key) {
+      
+      return internalGetArmor().containsKey(key);
+    }
+    /**
+     * Use {@link #getArmorMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, java.lang.String> getArmor() {
+      return getArmorMap();
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.Integer, java.lang.String> getArmorMap() {
+      return java.util.Collections.unmodifiableMap(
+          internalGetArmor());
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getArmorOrDefault(
+        int key,
+        java.lang.String defaultValue) {
+      
+      java.util.Map<java.lang.Integer, java.lang.String> map =
+          internalGetArmor();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getArmorOrThrow(
+        int key) {
+      
+      java.util.Map<java.lang.Integer, java.lang.String> map =
+          internalGetArmor();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    /**
+     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     */
+    private java.util.Map<java.lang.Integer, java.lang.String>
+    getMutableArmorMap() {
+      return internalGetMutableArmor();
     }
 
     public static Server.EntityCreate parseFrom(
@@ -11240,51 +12343,558 @@ public final class Server {
       }
 
       /**
-       * <code>string data = 2;</code>
-       * @return The data.
+       * <code>double x = 2;</code>
+       * @return The x.
        */
       @java.lang.Override
-      public java.lang.String getData() {
-        return instance.getData();
+      public double getX() {
+        return instance.getX();
       }
       /**
-       * <code>string data = 2;</code>
-       * @return The bytes for data.
+       * <code>double x = 2;</code>
+       * @param value The x to set.
+       * @return This builder for chaining.
+       */
+      public Builder setX(double value) {
+        copyOnWrite();
+        instance.setX(value);
+        return this;
+      }
+      /**
+       * <code>double x = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearX() {
+        copyOnWrite();
+        instance.clearX();
+        return this;
+      }
+
+      /**
+       * <code>double y = 3;</code>
+       * @return The y.
+       */
+      @java.lang.Override
+      public double getY() {
+        return instance.getY();
+      }
+      /**
+       * <code>double y = 3;</code>
+       * @param value The y to set.
+       * @return This builder for chaining.
+       */
+      public Builder setY(double value) {
+        copyOnWrite();
+        instance.setY(value);
+        return this;
+      }
+      /**
+       * <code>double y = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearY() {
+        copyOnWrite();
+        instance.clearY();
+        return this;
+      }
+
+      /**
+       * <code>double z = 4;</code>
+       * @return The z.
+       */
+      @java.lang.Override
+      public double getZ() {
+        return instance.getZ();
+      }
+      /**
+       * <code>double z = 4;</code>
+       * @param value The z to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZ(double value) {
+        copyOnWrite();
+        instance.setZ(value);
+        return this;
+      }
+      /**
+       * <code>double z = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZ() {
+        copyOnWrite();
+        instance.clearZ();
+        return this;
+      }
+
+      /**
+       * <code>float rotation = 5;</code>
+       * @return The rotation.
+       */
+      @java.lang.Override
+      public float getRotation() {
+        return instance.getRotation();
+      }
+      /**
+       * <code>float rotation = 5;</code>
+       * @param value The rotation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRotation(float value) {
+        copyOnWrite();
+        instance.setRotation(value);
+        return this;
+      }
+      /**
+       * <code>float rotation = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRotation() {
+        copyOnWrite();
+        instance.clearRotation();
+        return this;
+      }
+
+      /**
+       * <code>float pitch = 6;</code>
+       * @return The pitch.
+       */
+      @java.lang.Override
+      public float getPitch() {
+        return instance.getPitch();
+      }
+      /**
+       * <code>float pitch = 6;</code>
+       * @param value The pitch to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPitch(float value) {
+        copyOnWrite();
+        instance.setPitch(value);
+        return this;
+      }
+      /**
+       * <code>float pitch = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPitch() {
+        copyOnWrite();
+        instance.clearPitch();
+        return this;
+      }
+
+      /**
+       * <code>string model = 7;</code>
+       * @return The model.
+       */
+      @java.lang.Override
+      public java.lang.String getModel() {
+        return instance.getModel();
+      }
+      /**
+       * <code>string model = 7;</code>
+       * @return The bytes for model.
        */
       @java.lang.Override
       public com.google.protobuf.ByteString
-          getDataBytes() {
-        return instance.getDataBytes();
+          getModelBytes() {
+        return instance.getModelBytes();
       }
       /**
-       * <code>string data = 2;</code>
-       * @param value The data to set.
+       * <code>string model = 7;</code>
+       * @param value The model to set.
        * @return This builder for chaining.
        */
-      public Builder setData(
+      public Builder setModel(
           java.lang.String value) {
         copyOnWrite();
-        instance.setData(value);
+        instance.setModel(value);
         return this;
       }
       /**
-       * <code>string data = 2;</code>
+       * <code>string model = 7;</code>
        * @return This builder for chaining.
        */
-      public Builder clearData() {
+      public Builder clearModel() {
         copyOnWrite();
-        instance.clearData();
+        instance.clearModel();
         return this;
       }
       /**
-       * <code>string data = 2;</code>
-       * @param value The bytes for data to set.
+       * <code>string model = 7;</code>
+       * @param value The bytes for model to set.
        * @return This builder for chaining.
        */
-      public Builder setDataBytes(
+      public Builder setModelBytes(
           com.google.protobuf.ByteString value) {
         copyOnWrite();
-        instance.setDataBytes(value);
+        instance.setModelBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>string texture = 8;</code>
+       * @return The texture.
+       */
+      @java.lang.Override
+      public java.lang.String getTexture() {
+        return instance.getTexture();
+      }
+      /**
+       * <code>string texture = 8;</code>
+       * @return The bytes for texture.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getTextureBytes() {
+        return instance.getTextureBytes();
+      }
+      /**
+       * <code>string texture = 8;</code>
+       * @param value The texture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTexture(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setTexture(value);
+        return this;
+      }
+      /**
+       * <code>string texture = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTexture() {
+        copyOnWrite();
+        instance.clearTexture();
+        return this;
+      }
+      /**
+       * <code>string texture = 8;</code>
+       * @param value The bytes for texture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextureBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setTextureBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      @java.lang.Override
+      public java.util.List<Types.BasicChatComponentType> getNameList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getNameList());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      @java.lang.Override
+      public int getNameCount() {
+        return instance.getNameCount();
+      }/**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      @java.lang.Override
+      public Types.BasicChatComponentType getName(int index) {
+        return instance.getName(index);
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.setName(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.setName(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addName(Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addName(value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType value) {
+        copyOnWrite();
+        instance.addName(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addName(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addName(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        copyOnWrite();
+        instance.addName(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder addAllName(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        copyOnWrite();
+        instance.addAllName(values);
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder clearName() {
+        copyOnWrite();
+        instance.clearName();
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 9;</code>
+       */
+      public Builder removeName(int index) {
+        copyOnWrite();
+        instance.removeName(index);
+        return this;
+      }
+
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @return A list containing the hitbox.
+       */
+      @java.lang.Override
+      public java.util.List<java.lang.Float>
+          getHitboxList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getHitboxList());
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @return The count of hitbox.
+       */
+      @java.lang.Override
+      public int getHitboxCount() {
+        return instance.getHitboxCount();
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @param index The index of the element to return.
+       * @return The hitbox at the given index.
+       */
+      @java.lang.Override
+      public float getHitbox(int index) {
+        return instance.getHitbox(index);
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @param value The hitbox to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHitbox(
+          int index, float value) {
+        copyOnWrite();
+        instance.setHitbox(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @param value The hitbox to add.
+       * @return This builder for chaining.
+       */
+      public Builder addHitbox(float value) {
+        copyOnWrite();
+        instance.addHitbox(value);
+        return this;
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @param values The hitbox to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllHitbox(
+          java.lang.Iterable<? extends java.lang.Float> values) {
+        copyOnWrite();
+        instance.addAllHitbox(values);
+        return this;
+      }
+      /**
+       * <code>repeated float hitbox = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHitbox() {
+        copyOnWrite();
+        instance.clearHitbox();
+        return this;
+      }
+
+      /**
+       * <code>string held_item = 11;</code>
+       * @return The heldItem.
+       */
+      @java.lang.Override
+      public java.lang.String getHeldItem() {
+        return instance.getHeldItem();
+      }
+      /**
+       * <code>string held_item = 11;</code>
+       * @return The bytes for heldItem.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getHeldItemBytes() {
+        return instance.getHeldItemBytes();
+      }
+      /**
+       * <code>string held_item = 11;</code>
+       * @param value The heldItem to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeldItem(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setHeldItem(value);
+        return this;
+      }
+      /**
+       * <code>string held_item = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHeldItem() {
+        copyOnWrite();
+        instance.clearHeldItem();
+        return this;
+      }
+      /**
+       * <code>string held_item = 11;</code>
+       * @param value The bytes for heldItem to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeldItemBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setHeldItemBytes(value);
+        return this;
+      }
+
+      @java.lang.Override
+
+      public int getArmorCount() {
+        return instance.getArmorMap().size();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      @java.lang.Override
+
+      public boolean containsArmor(
+          int key) {
+        
+        return instance.getArmorMap().containsKey(key);
+      }
+
+      public Builder clearArmor() {
+        copyOnWrite();
+        instance.getMutableArmorMap().clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+
+      public Builder removeArmor(
+          int key) {
+        
+        copyOnWrite();
+        instance.getMutableArmorMap().remove(key);
+        return this;
+      }
+      /**
+       * Use {@link #getArmorMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.Integer, java.lang.String> getArmor() {
+        return getArmorMap();
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.Integer, java.lang.String> getArmorMap() {
+        return java.util.Collections.unmodifiableMap(
+            instance.getArmorMap());
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getArmorOrDefault(
+          int key,
+          java.lang.String defaultValue) {
+        
+        java.util.Map<java.lang.Integer, java.lang.String> map =
+            instance.getArmorMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getArmorOrThrow(
+          int key) {
+        
+        java.util.Map<java.lang.Integer, java.lang.String> map =
+            instance.getArmorMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      public Builder putArmor(
+          int key,
+          java.lang.String value) {
+        
+        value.getClass();
+        copyOnWrite();
+        instance.getMutableArmorMap().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       */
+      public Builder putAllArmor(
+          java.util.Map<java.lang.Integer, java.lang.String> values) {
+        copyOnWrite();
+        instance.getMutableArmorMap().putAll(values);
         return this;
       }
 
@@ -11305,11 +12915,24 @@ public final class Server {
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
               "uuid_",
-              "data_",
+              "x_",
+              "y_",
+              "z_",
+              "rotation_",
+              "pitch_",
+              "model_",
+              "texture_",
+              "name_",
+              Types.BasicChatComponentType.class,
+              "hitbox_",
+              "heldItem_",
+              "armor_",
+              ArmorDefaultEntryHolder.defaultEntry,
             };
             java.lang.String info =
-                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0208\u0002\u0208" +
-                "";
+                "\u0000\f\u0000\u0000\u0001\f\f\u0001\u0002\u0000\u0001\u0208\u0002\u0000\u0003\u0000" +
+                "\u0004\u0000\u0005\u0001\u0006\u0001\u0007\u0208\b\u0208\t\u001b\n$\u000b\u0208\f" +
+                "2";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -14603,38 +16226,18 @@ public final class Server {
       com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    java.util.List<Server.WorldBlockUpdate> 
+        getBlocksList();
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    Server.WorldBlockUpdate getBlocks(int index);
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
     int getBlocksCount();
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-    boolean containsBlocks(
-        int key);
-    /**
-     * Use {@link #getBlocksMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Server.WorldBlockUpdate>
-    getBlocks();
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-    java.util.Map<java.lang.Integer, Server.WorldBlockUpdate>
-    getBlocksMap();
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-
-    Server.WorldBlockUpdate getBlocksOrDefault(
-        int key,
-        Server.WorldBlockUpdate defaultValue);
-    /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-     */
-
-    Server.WorldBlockUpdate getBlocksOrThrow(
-        int key);
   }
   /**
    * Protobuf type {@code WorldMultiBlockUpdate}
@@ -14645,98 +16248,100 @@ public final class Server {
       // @@protoc_insertion_point(message_implements:WorldMultiBlockUpdate)
       WorldMultiBlockUpdateOrBuilder {
     private WorldMultiBlockUpdate() {
+      blocks_ = emptyProtobufList();
     }
     public static final int BLOCKS_FIELD_NUMBER = 1;
-    private static final class BlocksDefaultEntryHolder {
-      static final com.google.protobuf.MapEntryLite<
-          java.lang.Integer, Server.WorldBlockUpdate> defaultEntry =
-              com.google.protobuf.MapEntryLite
-              .<java.lang.Integer, Server.WorldBlockUpdate>newDefaultInstance(
-                  com.google.protobuf.WireFormat.FieldType.INT32,
-                  0,
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Server.WorldBlockUpdate.getDefaultInstance());
-    }
-    private com.google.protobuf.MapFieldLite<
-        java.lang.Integer, Server.WorldBlockUpdate> blocks_ =
-            com.google.protobuf.MapFieldLite.emptyMapField();
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Server.WorldBlockUpdate>
-    internalGetBlocks() {
-      return blocks_;
-    }
-    private com.google.protobuf.MapFieldLite<java.lang.Integer, Server.WorldBlockUpdate>
-    internalGetMutableBlocks() {
-      if (!blocks_.isMutable()) {
-        blocks_ = blocks_.mutableCopy();
-      }
-      return blocks_;
-    }
+    private com.google.protobuf.Internal.ProtobufList<Server.WorldBlockUpdate> blocks_;
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
     @java.lang.Override
-
+    public java.util.List<Server.WorldBlockUpdate> getBlocksList() {
+      return blocks_;
+    }
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    public java.util.List<? extends Server.WorldBlockUpdateOrBuilder> 
+        getBlocksOrBuilderList() {
+      return blocks_;
+    }
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    @java.lang.Override
     public int getBlocksCount() {
-      return internalGetBlocks().size();
+      return blocks_.size();
     }
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
     @java.lang.Override
+    public Server.WorldBlockUpdate getBlocks(int index) {
+      return blocks_.get(index);
+    }
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    public Server.WorldBlockUpdateOrBuilder getBlocksOrBuilder(
+        int index) {
+      return blocks_.get(index);
+    }
+    private void ensureBlocksIsMutable() {
+      com.google.protobuf.Internal.ProtobufList<Server.WorldBlockUpdate> tmp = blocks_;
+      if (!tmp.isModifiable()) {
+        blocks_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
+       }
+    }
 
-    public boolean containsBlocks(
-        int key) {
-      
-      return internalGetBlocks().containsKey(key);
+    /**
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+     */
+    private void setBlocks(
+        int index, Server.WorldBlockUpdate value) {
+      value.getClass();
+  ensureBlocksIsMutable();
+      blocks_.set(index, value);
     }
     /**
-     * Use {@link #getBlocksMap()} instead.
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
-    @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> getBlocks() {
-      return getBlocksMap();
+    private void addBlocks(Server.WorldBlockUpdate value) {
+      value.getClass();
+  ensureBlocksIsMutable();
+      blocks_.add(value);
     }
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> getBlocksMap() {
-      return java.util.Collections.unmodifiableMap(
-          internalGetBlocks());
+    private void addBlocks(
+        int index, Server.WorldBlockUpdate value) {
+      value.getClass();
+  ensureBlocksIsMutable();
+      blocks_.add(index, value);
     }
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
-    @java.lang.Override
-
-    public Server.WorldBlockUpdate getBlocksOrDefault(
-        int key,
-        Server.WorldBlockUpdate defaultValue) {
-      
-      java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> map =
-          internalGetBlocks();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
+    private void addAllBlocks(
+        java.lang.Iterable<? extends Server.WorldBlockUpdate> values) {
+      ensureBlocksIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, blocks_);
     }
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
-    @java.lang.Override
-
-    public Server.WorldBlockUpdate getBlocksOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> map =
-          internalGetBlocks();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    private void clearBlocks() {
+      blocks_ = emptyProtobufList();
     }
     /**
-     * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+     * <code>repeated .WorldBlockUpdate blocks = 1;</code>
      */
-    private java.util.Map<java.lang.Integer, Server.WorldBlockUpdate>
-    getMutableBlocksMap() {
-      return internalGetMutableBlocks();
+    private void removeBlocks(int index) {
+      ensureBlocksIsMutable();
+      blocks_.remove(index);
     }
 
     public static Server.WorldMultiBlockUpdate parseFrom(
@@ -14834,101 +16439,105 @@ public final class Server {
       }
 
 
-      @java.lang.Override
-
-      public int getBlocksCount() {
-        return instance.getBlocksMap().size();
-      }
       /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
        */
       @java.lang.Override
-
-      public boolean containsBlocks(
-          int key) {
-        
-        return instance.getBlocksMap().containsKey(key);
+      public java.util.List<Server.WorldBlockUpdate> getBlocksList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getBlocksList());
       }
-
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      @java.lang.Override
+      public int getBlocksCount() {
+        return instance.getBlocksCount();
+      }/**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      @java.lang.Override
+      public Server.WorldBlockUpdate getBlocks(int index) {
+        return instance.getBlocks(index);
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder setBlocks(
+          int index, Server.WorldBlockUpdate value) {
+        copyOnWrite();
+        instance.setBlocks(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder setBlocks(
+          int index, Server.WorldBlockUpdate.Builder builderForValue) {
+        copyOnWrite();
+        instance.setBlocks(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addBlocks(Server.WorldBlockUpdate value) {
+        copyOnWrite();
+        instance.addBlocks(value);
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          int index, Server.WorldBlockUpdate value) {
+        copyOnWrite();
+        instance.addBlocks(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          Server.WorldBlockUpdate.Builder builderForValue) {
+        copyOnWrite();
+        instance.addBlocks(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          int index, Server.WorldBlockUpdate.Builder builderForValue) {
+        copyOnWrite();
+        instance.addBlocks(index,
+            builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
+      public Builder addAllBlocks(
+          java.lang.Iterable<? extends Server.WorldBlockUpdate> values) {
+        copyOnWrite();
+        instance.addAllBlocks(values);
+        return this;
+      }
+      /**
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
+       */
       public Builder clearBlocks() {
         copyOnWrite();
-        instance.getMutableBlocksMap().clear();
+        instance.clearBlocks();
         return this;
       }
       /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
+       * <code>repeated .WorldBlockUpdate blocks = 1;</code>
        */
-
-      public Builder removeBlocks(
-          int key) {
-        
+      public Builder removeBlocks(int index) {
         copyOnWrite();
-        instance.getMutableBlocksMap().remove(key);
-        return this;
-      }
-      /**
-       * Use {@link #getBlocksMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> getBlocks() {
-        return getBlocksMap();
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-      @java.lang.Override
-      public java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> getBlocksMap() {
-        return java.util.Collections.unmodifiableMap(
-            instance.getBlocksMap());
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-      @java.lang.Override
-
-      public Server.WorldBlockUpdate getBlocksOrDefault(
-          int key,
-          Server.WorldBlockUpdate defaultValue) {
-        
-        java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> map =
-            instance.getBlocksMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-      @java.lang.Override
-
-      public Server.WorldBlockUpdate getBlocksOrThrow(
-          int key) {
-        
-        java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> map =
-            instance.getBlocksMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-      public Builder putBlocks(
-          int key,
-          Server.WorldBlockUpdate value) {
-        
-        value.getClass();
-        copyOnWrite();
-        instance.getMutableBlocksMap().put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;int32, .WorldBlockUpdate&gt; blocks = 1;</code>
-       */
-      public Builder putAllBlocks(
-          java.util.Map<java.lang.Integer, Server.WorldBlockUpdate> values) {
-        copyOnWrite();
-        instance.getMutableBlocksMap().putAll(values);
+        instance.removeBlocks(index);
         return this;
       }
 
@@ -14949,10 +16558,10 @@ public final class Server {
         case BUILD_MESSAGE_INFO: {
             java.lang.Object[] objects = new java.lang.Object[] {
               "blocks_",
-              BlocksDefaultEntryHolder.defaultEntry,
+              Server.WorldBlockUpdate.class,
             };
             java.lang.String info =
-                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0001\u0000\u0000\u00012";
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0001\u0000\u0001\u001b";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through

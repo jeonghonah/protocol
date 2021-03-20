@@ -2598,38 +2598,28 @@ public final class Types {
     float getDamage();
 
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    java.util.List<Types.BasicChatComponentType> 
+        getNameList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    Types.BasicChatComponentType getName(int index);
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
     int getNameCount();
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
-    boolean containsName(
-        int key);
+    java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList();
     /**
-     * Use {@link #getNameMap()} instead.
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getName();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-    java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-    getNameMap();
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-
-    Types.BasicChatComponentType getNameOrDefault(
-        int key,
-        Types.BasicChatComponentType defaultValue);
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-
-    Types.BasicChatComponentType getNameOrThrow(
-        int key);
+    Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code Item}
@@ -2645,6 +2635,7 @@ public final class Types {
     }
     private Item() {
       id_ = "";
+      name_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2696,15 +2687,11 @@ public final class Types {
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                name_ = com.google.protobuf.MapField.newMapField(
-                    NameDefaultEntryHolder.defaultEntry);
+                name_ = new java.util.ArrayList<Types.BasicChatComponentType>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<java.lang.Integer, Types.BasicChatComponentType>
-              name__ = input.readMessage(
-                  NameDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              name_.getMutableMap().put(
-                  name__.getKey(), name__.getValue());
+              name_.add(
+                  input.readMessage(Types.BasicChatComponentType.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -2722,6 +2709,9 @@ public final class Types {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          name_ = java.util.Collections.unmodifiableList(name_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -2731,18 +2721,6 @@ public final class Types {
       return Types.internal_static_Item_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 4:
-          return internalGetName();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -2812,84 +2790,43 @@ public final class Types {
     }
 
     public static final int NAME_FIELD_NUMBER = 4;
-    private static final class NameDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.Integer, Types.BasicChatComponentType> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.Integer, Types.BasicChatComponentType>newDefaultInstance(
-                  Types.internal_static_Item_NameEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.UINT32,
-                  0,
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  Types.BasicChatComponentType.getDefaultInstance());
-    }
-    private com.google.protobuf.MapField<
-        java.lang.Integer, Types.BasicChatComponentType> name_;
-    private com.google.protobuf.MapField<java.lang.Integer, Types.BasicChatComponentType>
-    internalGetName() {
-      if (name_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            NameDefaultEntryHolder.defaultEntry);
-      }
+    private java.util.List<Types.BasicChatComponentType> name_;
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<Types.BasicChatComponentType> getNameList() {
       return name_;
     }
-
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 4;</code>
+     */
+    @java.lang.Override
     public int getNameCount() {
-      return internalGetName().getMap().size();
+      return name_.size();
     }
     /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
-
     @java.lang.Override
-    public boolean containsName(
-        int key) {
-      
-      return internalGetName().getMap().containsKey(key);
+    public Types.BasicChatComponentType getName(int index) {
+      return name_.get(index);
     }
     /**
-     * Use {@link #getNameMap()} instead.
+     * <code>repeated .BasicChatComponentType name = 4;</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getName() {
-      return getNameMap();
-    }
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-    @java.lang.Override
-
-    public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getNameMap() {
-      return internalGetName().getMap();
-    }
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-    @java.lang.Override
-
-    public Types.BasicChatComponentType getNameOrDefault(
-        int key,
-        Types.BasicChatComponentType defaultValue) {
-      
-      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-          internalGetName().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-     */
-    @java.lang.Override
-
-    public Types.BasicChatComponentType getNameOrThrow(
-        int key) {
-      
-      java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-          internalGetName().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
+    public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index) {
+      return name_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2915,12 +2852,9 @@ public final class Types {
       if (damage_ != 0F) {
         output.writeFloat(3, damage_);
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeIntegerMapTo(
-          output,
-          internalGetName(),
-          NameDefaultEntryHolder.defaultEntry,
-          4);
+      for (int i = 0; i < name_.size(); i++) {
+        output.writeMessage(4, name_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2941,15 +2875,9 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(3, damage_);
       }
-      for (java.util.Map.Entry<java.lang.Integer, Types.BasicChatComponentType> entry
-           : internalGetName().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.Integer, Types.BasicChatComponentType>
-        name__ = NameDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
+      for (int i = 0; i < name_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, name__);
+          .computeMessageSize(4, name_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2973,8 +2901,8 @@ public final class Types {
       if (java.lang.Float.floatToIntBits(getDamage())
           != java.lang.Float.floatToIntBits(
               other.getDamage())) return false;
-      if (!internalGetName().equals(
-          other.internalGetName())) return false;
+      if (!getNameList()
+          .equals(other.getNameList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2993,9 +2921,9 @@ public final class Types {
       hash = (37 * hash) + DAMAGE_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getDamage());
-      if (!internalGetName().getMap().isEmpty()) {
+      if (getNameCount() > 0) {
         hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetName().hashCode();
+        hash = (53 * hash) + getNameList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3104,28 +3032,6 @@ public final class Types {
         return Types.internal_static_Item_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 4:
-            return internalGetName();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 4:
-            return internalGetMutableName();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -3147,6 +3053,7 @@ public final class Types {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getNameFieldBuilder();
         }
       }
       @java.lang.Override
@@ -3158,7 +3065,12 @@ public final class Types {
 
         damage_ = 0F;
 
-        internalGetMutableName().clear();
+        if (nameBuilder_ == null) {
+          name_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          nameBuilder_.clear();
+        }
         return this;
       }
 
@@ -3189,8 +3101,15 @@ public final class Types {
         result.id_ = id_;
         result.count_ = count_;
         result.damage_ = damage_;
-        result.name_ = internalGetName();
-        result.name_.makeImmutable();
+        if (nameBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            name_ = java.util.Collections.unmodifiableList(name_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.name_ = name_;
+        } else {
+          result.name_ = nameBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -3249,8 +3168,32 @@ public final class Types {
         if (other.getDamage() != 0F) {
           setDamage(other.getDamage());
         }
-        internalGetMutableName().mergeFrom(
-            other.internalGetName());
+        if (nameBuilder_ == null) {
+          if (!other.name_.isEmpty()) {
+            if (name_.isEmpty()) {
+              name_ = other.name_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureNameIsMutable();
+              name_.addAll(other.name_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.name_.isEmpty()) {
+            if (nameBuilder_.isEmpty()) {
+              nameBuilder_.dispose();
+              nameBuilder_ = null;
+              name_ = other.name_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              nameBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNameFieldBuilder() : null;
+            } else {
+              nameBuilder_.addAllMessages(other.name_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3419,132 +3362,244 @@ public final class Types {
         return this;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.Integer, Types.BasicChatComponentType> name_;
-      private com.google.protobuf.MapField<java.lang.Integer, Types.BasicChatComponentType>
-      internalGetName() {
-        if (name_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              NameDefaultEntryHolder.defaultEntry);
-        }
-        return name_;
-      }
-      private com.google.protobuf.MapField<java.lang.Integer, Types.BasicChatComponentType>
-      internalGetMutableName() {
-        onChanged();;
-        if (name_ == null) {
-          name_ = com.google.protobuf.MapField.newMapField(
-              NameDefaultEntryHolder.defaultEntry);
-        }
-        if (!name_.isMutable()) {
-          name_ = name_.copy();
-        }
-        return name_;
+      private java.util.List<Types.BasicChatComponentType> name_ =
+        java.util.Collections.emptyList();
+      private void ensureNameIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          name_ = new java.util.ArrayList<Types.BasicChatComponentType>(name_);
+          bitField0_ |= 0x00000001;
+         }
       }
 
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> nameBuilder_;
+
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType> getNameList() {
+        if (nameBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(name_);
+        } else {
+          return nameBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
       public int getNameCount() {
-        return internalGetName().getMap().size();
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-
-      @java.lang.Override
-      public boolean containsName(
-          int key) {
-        
-        return internalGetName().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getNameMap()} instead.
-       */
-      @java.lang.Override
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getName() {
-        return getNameMap();
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-      @java.lang.Override
-
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType> getNameMap() {
-        return internalGetName().getMap();
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-      @java.lang.Override
-
-      public Types.BasicChatComponentType getNameOrDefault(
-          int key,
-          Types.BasicChatComponentType defaultValue) {
-        
-        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-            internalGetName().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
-       */
-      @java.lang.Override
-
-      public Types.BasicChatComponentType getNameOrThrow(
-          int key) {
-        
-        java.util.Map<java.lang.Integer, Types.BasicChatComponentType> map =
-            internalGetName().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
+        if (nameBuilder_ == null) {
+          return name_.size();
+        } else {
+          return nameBuilder_.getCount();
         }
-        return map.get(key);
       }
-
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Types.BasicChatComponentType getName(int index) {
+        if (nameBuilder_ == null) {
+          return name_.get(index);
+        } else {
+          return nameBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.set(index, value);
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addName(Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.add(value);
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.add(index, value);
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addName(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.add(builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Builder addAllName(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, name_);
+          onChanged();
+        } else {
+          nameBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
       public Builder clearName() {
-        internalGetMutableName().getMutableMap()
-            .clear();
+        if (nameBuilder_ == null) {
+          name_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          nameBuilder_.clear();
+        }
         return this;
       }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+       * <code>repeated .BasicChatComponentType name = 4;</code>
        */
-
-      public Builder removeName(
-          int key) {
-        
-        internalGetMutableName().getMutableMap()
-            .remove(key);
+      public Builder removeName(int index) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.remove(index);
+          onChanged();
+        } else {
+          nameBuilder_.remove(index);
+        }
         return this;
       }
       /**
-       * Use alternate mutation accessors instead.
+       * <code>repeated .BasicChatComponentType name = 4;</code>
        */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.Integer, Types.BasicChatComponentType>
-      getMutableName() {
-        return internalGetMutableName().getMutableMap();
+      public Types.BasicChatComponentType.Builder getNameBuilder(
+          int index) {
+        return getNameFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+       * <code>repeated .BasicChatComponentType name = 4;</code>
        */
-      public Builder putName(
-          int key,
-          Types.BasicChatComponentType value) {
-        
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableName().getMutableMap()
-            .put(key, value);
-        return this;
+      public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+          int index) {
+        if (nameBuilder_ == null) {
+          return name_.get(index);  } else {
+          return nameBuilder_.getMessageOrBuilder(index);
+        }
       }
       /**
-       * <code>map&lt;uint32, .BasicChatComponentType&gt; name = 4;</code>
+       * <code>repeated .BasicChatComponentType name = 4;</code>
        */
-
-      public Builder putAllName(
-          java.util.Map<java.lang.Integer, Types.BasicChatComponentType> values) {
-        internalGetMutableName().getMutableMap()
-            .putAll(values);
-        return this;
+      public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+           getNameOrBuilderList() {
+        if (nameBuilder_ != null) {
+          return nameBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(name_);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Types.BasicChatComponentType.Builder addNameBuilder() {
+        return getNameFieldBuilder().addBuilder(
+            Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public Types.BasicChatComponentType.Builder addNameBuilder(
+          int index) {
+        return getNameFieldBuilder().addBuilder(
+            index, Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 4;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType.Builder> 
+           getNameBuilderList() {
+        return getNameFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> 
+          getNameFieldBuilder() {
+        if (nameBuilder_ == null) {
+          nameBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder>(
+                  name_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          name_ = null;
+        }
+        return nameBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3599,6 +3654,4721 @@ public final class Types {
 
   }
 
+  public interface ItemDefOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ItemDef)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>uint32 max_stack = 2;</code>
+     * @return The maxStack.
+     */
+    int getMaxStack();
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    java.util.List<Types.BasicChatComponentType> 
+        getNameList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    Types.BasicChatComponentType getName(int index);
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    int getNameCount();
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList();
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index);
+
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @return The type.
+     */
+    Types.ItemDef.Type getType();
+
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @return The enum numeric value on the wire for model.
+     */
+    int getModelValue();
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @return The model.
+     */
+    Types.ItemDef.Model getModel();
+
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @return A list containing the textures.
+     */
+    java.util.List<java.lang.String>
+        getTexturesList();
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @return The count of textures.
+     */
+    int getTexturesCount();
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    java.lang.String getTextures(int index);
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the textures at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTexturesBytes(int index);
+
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @return A list containing the toolType.
+     */
+    java.util.List<java.lang.String>
+        getToolTypeList();
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @return The count of toolType.
+     */
+    int getToolTypeCount();
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    java.lang.String getToolType(int index);
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the toolType at the given index.
+     */
+    com.google.protobuf.ByteString
+        getToolTypeBytes(int index);
+
+    /**
+     * <code>float mining_speed = 8;</code>
+     * @return The miningSpeed.
+     */
+    float getMiningSpeed();
+
+    /**
+     * <code>float mining_power = 9;</code>
+     * @return The miningPower.
+     */
+    float getMiningPower();
+
+    /**
+     * <code>string custom_model = 10;</code>
+     * @return The customModel.
+     */
+    java.lang.String getCustomModel();
+    /**
+     * <code>string custom_model = 10;</code>
+     * @return The bytes for customModel.
+     */
+    com.google.protobuf.ByteString
+        getCustomModelBytes();
+
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @return The armorTexture.
+     */
+    java.lang.String getArmorTexture();
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @return The bytes for armorTexture.
+     */
+    com.google.protobuf.ByteString
+        getArmorTextureBytes();
+  }
+  /**
+   * Protobuf type {@code ItemDef}
+   */
+  public static final class ItemDef extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ItemDef)
+      ItemDefOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ItemDef.newBuilder() to construct.
+    private ItemDef(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ItemDef() {
+      id_ = "";
+      name_ = java.util.Collections.emptyList();
+      type_ = 0;
+      model_ = 0;
+      textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      customModel_ = "";
+      armorTexture_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ItemDef();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ItemDef(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 16: {
+
+              maxStack_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                name_ = new java.util.ArrayList<Types.BasicChatComponentType>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              name_.add(
+                  input.readMessage(Types.BasicChatComponentType.parser(), extensionRegistry));
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 40: {
+              int rawValue = input.readEnum();
+
+              model_ = rawValue;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                textures_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              textures_.add(s);
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                toolType_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              toolType_.add(s);
+              break;
+            }
+            case 69: {
+
+              miningSpeed_ = input.readFloat();
+              break;
+            }
+            case 77: {
+
+              miningPower_ = input.readFloat();
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              customModel_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              armorTexture_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          name_ = java.util.Collections.unmodifiableList(name_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          textures_ = textures_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          toolType_ = toolType_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Types.internal_static_ItemDef_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Types.internal_static_ItemDef_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Types.ItemDef.class, Types.ItemDef.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code ItemDef.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>NONE = 0;</code>
+       */
+      NONE(0),
+      /**
+       * <code>TOOL = 1;</code>
+       */
+      TOOL(1),
+      /**
+       * <code>BLOCK = 2;</code>
+       */
+      BLOCK(2),
+      /**
+       * <code>ARMOR = 3;</code>
+       */
+      ARMOR(3),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>NONE = 0;</code>
+       */
+      public static final int NONE_VALUE = 0;
+      /**
+       * <code>TOOL = 1;</code>
+       */
+      public static final int TOOL_VALUE = 1;
+      /**
+       * <code>BLOCK = 2;</code>
+       */
+      public static final int BLOCK_VALUE = 2;
+      /**
+       * <code>ARMOR = 3;</code>
+       */
+      public static final int ARMOR_VALUE = 3;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return NONE;
+          case 1: return TOOL;
+          case 2: return BLOCK;
+          case 3: return ARMOR;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Types.ItemDef.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:ItemDef.Type)
+    }
+
+    /**
+     * Protobuf enum {@code ItemDef.Model}
+     */
+    public enum Model
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>FLAT = 0;</code>
+       */
+      FLAT(0),
+      /**
+       * <code>CUBE = 1;</code>
+       */
+      CUBE(1),
+      /**
+       * <code>CROSS = 2;</code>
+       */
+      CROSS(2),
+      /**
+       * <code>CUSTOM = 3;</code>
+       */
+      CUSTOM(3),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>FLAT = 0;</code>
+       */
+      public static final int FLAT_VALUE = 0;
+      /**
+       * <code>CUBE = 1;</code>
+       */
+      public static final int CUBE_VALUE = 1;
+      /**
+       * <code>CROSS = 2;</code>
+       */
+      public static final int CROSS_VALUE = 2;
+      /**
+       * <code>CUSTOM = 3;</code>
+       */
+      public static final int CUSTOM_VALUE = 3;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Model valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Model forNumber(int value) {
+        switch (value) {
+          case 0: return FLAT;
+          case 1: return CUBE;
+          case 2: return CROSS;
+          case 3: return CUSTOM;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Model>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Model> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Model>() {
+              public Model findValueByNumber(int number) {
+                return Model.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Types.ItemDef.getDescriptor().getEnumTypes().get(1);
+      }
+
+      private static final Model[] VALUES = values();
+
+      public static Model valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Model(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:ItemDef.Model)
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MAX_STACK_FIELD_NUMBER = 2;
+    private int maxStack_;
+    /**
+     * <code>uint32 max_stack = 2;</code>
+     * @return The maxStack.
+     */
+    @java.lang.Override
+    public int getMaxStack() {
+      return maxStack_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 3;
+    private java.util.List<Types.BasicChatComponentType> name_;
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<Types.BasicChatComponentType> getNameList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+        getNameOrBuilderList() {
+      return name_;
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    @java.lang.Override
+    public int getNameCount() {
+      return name_.size();
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentType getName(int index) {
+      return name_.get(index);
+    }
+    /**
+     * <code>repeated .BasicChatComponentType name = 3;</code>
+     */
+    @java.lang.Override
+    public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+        int index) {
+      return name_.get(index);
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 4;
+    private int type_;
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.ItemDef.Type type = 4;</code>
+     * @return The type.
+     */
+    @java.lang.Override public Types.ItemDef.Type getType() {
+      @SuppressWarnings("deprecation")
+      Types.ItemDef.Type result = Types.ItemDef.Type.valueOf(type_);
+      return result == null ? Types.ItemDef.Type.UNRECOGNIZED : result;
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 5;
+    private int model_;
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @return The enum numeric value on the wire for model.
+     */
+    @java.lang.Override public int getModelValue() {
+      return model_;
+    }
+    /**
+     * <code>.ItemDef.Model model = 5;</code>
+     * @return The model.
+     */
+    @java.lang.Override public Types.ItemDef.Model getModel() {
+      @SuppressWarnings("deprecation")
+      Types.ItemDef.Model result = Types.ItemDef.Model.valueOf(model_);
+      return result == null ? Types.ItemDef.Model.UNRECOGNIZED : result;
+    }
+
+    public static final int TEXTURES_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList textures_;
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @return A list containing the textures.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTexturesList() {
+      return textures_;
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @return The count of textures.
+     */
+    public int getTexturesCount() {
+      return textures_.size();
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    public java.lang.String getTextures(int index) {
+      return textures_.get(index);
+    }
+    /**
+     * <code>repeated string textures = 6;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the textures at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTexturesBytes(int index) {
+      return textures_.getByteString(index);
+    }
+
+    public static final int TOOL_TYPE_FIELD_NUMBER = 7;
+    private com.google.protobuf.LazyStringList toolType_;
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @return A list containing the toolType.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getToolTypeList() {
+      return toolType_;
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @return The count of toolType.
+     */
+    public int getToolTypeCount() {
+      return toolType_.size();
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    public java.lang.String getToolType(int index) {
+      return toolType_.get(index);
+    }
+    /**
+     * <code>repeated string tool_type = 7;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the toolType at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getToolTypeBytes(int index) {
+      return toolType_.getByteString(index);
+    }
+
+    public static final int MINING_SPEED_FIELD_NUMBER = 8;
+    private float miningSpeed_;
+    /**
+     * <code>float mining_speed = 8;</code>
+     * @return The miningSpeed.
+     */
+    @java.lang.Override
+    public float getMiningSpeed() {
+      return miningSpeed_;
+    }
+
+    public static final int MINING_POWER_FIELD_NUMBER = 9;
+    private float miningPower_;
+    /**
+     * <code>float mining_power = 9;</code>
+     * @return The miningPower.
+     */
+    @java.lang.Override
+    public float getMiningPower() {
+      return miningPower_;
+    }
+
+    public static final int CUSTOM_MODEL_FIELD_NUMBER = 10;
+    private volatile java.lang.Object customModel_;
+    /**
+     * <code>string custom_model = 10;</code>
+     * @return The customModel.
+     */
+    @java.lang.Override
+    public java.lang.String getCustomModel() {
+      java.lang.Object ref = customModel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        customModel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string custom_model = 10;</code>
+     * @return The bytes for customModel.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCustomModelBytes() {
+      java.lang.Object ref = customModel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        customModel_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARMOR_TEXTURE_FIELD_NUMBER = 11;
+    private volatile java.lang.Object armorTexture_;
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @return The armorTexture.
+     */
+    @java.lang.Override
+    public java.lang.String getArmorTexture() {
+      java.lang.Object ref = armorTexture_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        armorTexture_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string armor_texture = 11;</code>
+     * @return The bytes for armorTexture.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getArmorTextureBytes() {
+      java.lang.Object ref = armorTexture_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        armorTexture_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (maxStack_ != 0) {
+        output.writeUInt32(2, maxStack_);
+      }
+      for (int i = 0; i < name_.size(); i++) {
+        output.writeMessage(3, name_.get(i));
+      }
+      if (type_ != Types.ItemDef.Type.NONE.getNumber()) {
+        output.writeEnum(4, type_);
+      }
+      if (model_ != Types.ItemDef.Model.FLAT.getNumber()) {
+        output.writeEnum(5, model_);
+      }
+      for (int i = 0; i < textures_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, textures_.getRaw(i));
+      }
+      for (int i = 0; i < toolType_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, toolType_.getRaw(i));
+      }
+      if (miningSpeed_ != 0F) {
+        output.writeFloat(8, miningSpeed_);
+      }
+      if (miningPower_ != 0F) {
+        output.writeFloat(9, miningPower_);
+      }
+      if (!getCustomModelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, customModel_);
+      }
+      if (!getArmorTextureBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, armorTexture_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (maxStack_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, maxStack_);
+      }
+      for (int i = 0; i < name_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, name_.get(i));
+      }
+      if (type_ != Types.ItemDef.Type.NONE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, type_);
+      }
+      if (model_ != Types.ItemDef.Model.FLAT.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, model_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < textures_.size(); i++) {
+          dataSize += computeStringSizeNoTag(textures_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTexturesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < toolType_.size(); i++) {
+          dataSize += computeStringSizeNoTag(toolType_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getToolTypeList().size();
+      }
+      if (miningSpeed_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(8, miningSpeed_);
+      }
+      if (miningPower_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(9, miningPower_);
+      }
+      if (!getCustomModelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, customModel_);
+      }
+      if (!getArmorTextureBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, armorTexture_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Types.ItemDef)) {
+        return super.equals(obj);
+      }
+      Types.ItemDef other = (Types.ItemDef) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (getMaxStack()
+          != other.getMaxStack()) return false;
+      if (!getNameList()
+          .equals(other.getNameList())) return false;
+      if (type_ != other.type_) return false;
+      if (model_ != other.model_) return false;
+      if (!getTexturesList()
+          .equals(other.getTexturesList())) return false;
+      if (!getToolTypeList()
+          .equals(other.getToolTypeList())) return false;
+      if (java.lang.Float.floatToIntBits(getMiningSpeed())
+          != java.lang.Float.floatToIntBits(
+              other.getMiningSpeed())) return false;
+      if (java.lang.Float.floatToIntBits(getMiningPower())
+          != java.lang.Float.floatToIntBits(
+              other.getMiningPower())) return false;
+      if (!getCustomModel()
+          .equals(other.getCustomModel())) return false;
+      if (!getArmorTexture()
+          .equals(other.getArmorTexture())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + MAX_STACK_FIELD_NUMBER;
+      hash = (53 * hash) + getMaxStack();
+      if (getNameCount() > 0) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getNameList().hashCode();
+      }
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      hash = (37 * hash) + MODEL_FIELD_NUMBER;
+      hash = (53 * hash) + model_;
+      if (getTexturesCount() > 0) {
+        hash = (37 * hash) + TEXTURES_FIELD_NUMBER;
+        hash = (53 * hash) + getTexturesList().hashCode();
+      }
+      if (getToolTypeCount() > 0) {
+        hash = (37 * hash) + TOOL_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getToolTypeList().hashCode();
+      }
+      hash = (37 * hash) + MINING_SPEED_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getMiningSpeed());
+      hash = (37 * hash) + MINING_POWER_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getMiningPower());
+      hash = (37 * hash) + CUSTOM_MODEL_FIELD_NUMBER;
+      hash = (53 * hash) + getCustomModel().hashCode();
+      hash = (37 * hash) + ARMOR_TEXTURE_FIELD_NUMBER;
+      hash = (53 * hash) + getArmorTexture().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Types.ItemDef parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Types.ItemDef parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Types.ItemDef parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Types.ItemDef parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Types.ItemDef parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Types.ItemDef parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Types.ItemDef parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Types.ItemDef parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Types.ItemDef parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Types.ItemDef parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Types.ItemDef parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Types.ItemDef parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Types.ItemDef prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ItemDef}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ItemDef)
+        Types.ItemDefOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Types.internal_static_ItemDef_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Types.internal_static_ItemDef_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Types.ItemDef.class, Types.ItemDef.Builder.class);
+      }
+
+      // Construct using Types.ItemDef.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getNameFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        maxStack_ = 0;
+
+        if (nameBuilder_ == null) {
+          name_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          nameBuilder_.clear();
+        }
+        type_ = 0;
+
+        model_ = 0;
+
+        textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        miningSpeed_ = 0F;
+
+        miningPower_ = 0F;
+
+        customModel_ = "";
+
+        armorTexture_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Types.internal_static_ItemDef_descriptor;
+      }
+
+      @java.lang.Override
+      public Types.ItemDef getDefaultInstanceForType() {
+        return Types.ItemDef.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Types.ItemDef build() {
+        Types.ItemDef result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Types.ItemDef buildPartial() {
+        Types.ItemDef result = new Types.ItemDef(this);
+        int from_bitField0_ = bitField0_;
+        result.id_ = id_;
+        result.maxStack_ = maxStack_;
+        if (nameBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            name_ = java.util.Collections.unmodifiableList(name_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.name_ = name_;
+        } else {
+          result.name_ = nameBuilder_.build();
+        }
+        result.type_ = type_;
+        result.model_ = model_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          textures_ = textures_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.textures_ = textures_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          toolType_ = toolType_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.toolType_ = toolType_;
+        result.miningSpeed_ = miningSpeed_;
+        result.miningPower_ = miningPower_;
+        result.customModel_ = customModel_;
+        result.armorTexture_ = armorTexture_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Types.ItemDef) {
+          return mergeFrom((Types.ItemDef)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Types.ItemDef other) {
+        if (other == Types.ItemDef.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.getMaxStack() != 0) {
+          setMaxStack(other.getMaxStack());
+        }
+        if (nameBuilder_ == null) {
+          if (!other.name_.isEmpty()) {
+            if (name_.isEmpty()) {
+              name_ = other.name_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureNameIsMutable();
+              name_.addAll(other.name_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.name_.isEmpty()) {
+            if (nameBuilder_.isEmpty()) {
+              nameBuilder_.dispose();
+              nameBuilder_ = null;
+              name_ = other.name_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              nameBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNameFieldBuilder() : null;
+            } else {
+              nameBuilder_.addAllMessages(other.name_);
+            }
+          }
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        if (other.model_ != 0) {
+          setModelValue(other.getModelValue());
+        }
+        if (!other.textures_.isEmpty()) {
+          if (textures_.isEmpty()) {
+            textures_ = other.textures_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTexturesIsMutable();
+            textures_.addAll(other.textures_);
+          }
+          onChanged();
+        }
+        if (!other.toolType_.isEmpty()) {
+          if (toolType_.isEmpty()) {
+            toolType_ = other.toolType_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureToolTypeIsMutable();
+            toolType_.addAll(other.toolType_);
+          }
+          onChanged();
+        }
+        if (other.getMiningSpeed() != 0F) {
+          setMiningSpeed(other.getMiningSpeed());
+        }
+        if (other.getMiningPower() != 0F) {
+          setMiningPower(other.getMiningPower());
+        }
+        if (!other.getCustomModel().isEmpty()) {
+          customModel_ = other.customModel_;
+          onChanged();
+        }
+        if (!other.getArmorTexture().isEmpty()) {
+          armorTexture_ = other.armorTexture_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Types.ItemDef parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Types.ItemDef) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int maxStack_ ;
+      /**
+       * <code>uint32 max_stack = 2;</code>
+       * @return The maxStack.
+       */
+      @java.lang.Override
+      public int getMaxStack() {
+        return maxStack_;
+      }
+      /**
+       * <code>uint32 max_stack = 2;</code>
+       * @param value The maxStack to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaxStack(int value) {
+        
+        maxStack_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 max_stack = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxStack() {
+        
+        maxStack_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<Types.BasicChatComponentType> name_ =
+        java.util.Collections.emptyList();
+      private void ensureNameIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          name_ = new java.util.ArrayList<Types.BasicChatComponentType>(name_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> nameBuilder_;
+
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType> getNameList() {
+        if (nameBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(name_);
+        } else {
+          return nameBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public int getNameCount() {
+        if (nameBuilder_ == null) {
+          return name_.size();
+        } else {
+          return nameBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Types.BasicChatComponentType getName(int index) {
+        if (nameBuilder_ == null) {
+          return name_.get(index);
+        } else {
+          return nameBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.set(index, value);
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder setName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addName(Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.add(value);
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType value) {
+        if (nameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNameIsMutable();
+          name_.add(index, value);
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addName(
+          Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.add(builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addName(
+          int index, Types.BasicChatComponentType.Builder builderForValue) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          nameBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder addAllName(
+          java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, name_);
+          onChanged();
+        } else {
+          nameBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder clearName() {
+        if (nameBuilder_ == null) {
+          name_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          nameBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Builder removeName(int index) {
+        if (nameBuilder_ == null) {
+          ensureNameIsMutable();
+          name_.remove(index);
+          onChanged();
+        } else {
+          nameBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Types.BasicChatComponentType.Builder getNameBuilder(
+          int index) {
+        return getNameFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
+          int index) {
+        if (nameBuilder_ == null) {
+          return name_.get(index);  } else {
+          return nameBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
+           getNameOrBuilderList() {
+        if (nameBuilder_ != null) {
+          return nameBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(name_);
+        }
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Types.BasicChatComponentType.Builder addNameBuilder() {
+        return getNameFieldBuilder().addBuilder(
+            Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public Types.BasicChatComponentType.Builder addNameBuilder(
+          int index) {
+        return getNameFieldBuilder().addBuilder(
+            index, Types.BasicChatComponentType.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .BasicChatComponentType name = 3;</code>
+       */
+      public java.util.List<Types.BasicChatComponentType.Builder> 
+           getNameBuilderList() {
+        return getNameFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> 
+          getNameFieldBuilder() {
+        if (nameBuilder_ == null) {
+          nameBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder>(
+                  name_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          name_ = null;
+        }
+        return nameBuilder_;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public Types.ItemDef.Type getType() {
+        @SuppressWarnings("deprecation")
+        Types.ItemDef.Type result = Types.ItemDef.Type.valueOf(type_);
+        return result == null ? Types.ItemDef.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(Types.ItemDef.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.ItemDef.Type type = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int model_ = 0;
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @return The enum numeric value on the wire for model.
+       */
+      @java.lang.Override public int getModelValue() {
+        return model_;
+      }
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @param value The enum numeric value on the wire for model to set.
+       * @return This builder for chaining.
+       */
+      public Builder setModelValue(int value) {
+        
+        model_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @return The model.
+       */
+      @java.lang.Override
+      public Types.ItemDef.Model getModel() {
+        @SuppressWarnings("deprecation")
+        Types.ItemDef.Model result = Types.ItemDef.Model.valueOf(model_);
+        return result == null ? Types.ItemDef.Model.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @param value The model to set.
+       * @return This builder for chaining.
+       */
+      public Builder setModel(Types.ItemDef.Model value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        model_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.ItemDef.Model model = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearModel() {
+        
+        model_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTexturesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          textures_ = new com.google.protobuf.LazyStringArrayList(textures_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @return A list containing the textures.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTexturesList() {
+        return textures_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @return The count of textures.
+       */
+      public int getTexturesCount() {
+        return textures_.size();
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param index The index of the element to return.
+       * @return The textures at the given index.
+       */
+      public java.lang.String getTextures(int index) {
+        return textures_.get(index);
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the textures at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTexturesBytes(int index) {
+        return textures_.getByteString(index);
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The textures to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextures(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTexturesIsMutable();
+        textures_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param value The textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTextures(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTexturesIsMutable();
+        textures_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param values The textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTextures(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTexturesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, textures_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTextures() {
+        textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 6;</code>
+       * @param value The bytes of the textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTexturesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTexturesIsMutable();
+        textures_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureToolTypeIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          toolType_ = new com.google.protobuf.LazyStringArrayList(toolType_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @return A list containing the toolType.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getToolTypeList() {
+        return toolType_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @return The count of toolType.
+       */
+      public int getToolTypeCount() {
+        return toolType_.size();
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param index The index of the element to return.
+       * @return The toolType at the given index.
+       */
+      public java.lang.String getToolType(int index) {
+        return toolType_.get(index);
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the toolType at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getToolTypeBytes(int index) {
+        return toolType_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param index The index to set the value at.
+       * @param value The toolType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToolType(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureToolTypeIsMutable();
+        toolType_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param value The toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addToolType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureToolTypeIsMutable();
+        toolType_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param values The toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllToolType(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureToolTypeIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, toolType_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToolType() {
+        toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 7;</code>
+       * @param value The bytes of the toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addToolTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureToolTypeIsMutable();
+        toolType_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private float miningSpeed_ ;
+      /**
+       * <code>float mining_speed = 8;</code>
+       * @return The miningSpeed.
+       */
+      @java.lang.Override
+      public float getMiningSpeed() {
+        return miningSpeed_;
+      }
+      /**
+       * <code>float mining_speed = 8;</code>
+       * @param value The miningSpeed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMiningSpeed(float value) {
+        
+        miningSpeed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float mining_speed = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMiningSpeed() {
+        
+        miningSpeed_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float miningPower_ ;
+      /**
+       * <code>float mining_power = 9;</code>
+       * @return The miningPower.
+       */
+      @java.lang.Override
+      public float getMiningPower() {
+        return miningPower_;
+      }
+      /**
+       * <code>float mining_power = 9;</code>
+       * @param value The miningPower to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMiningPower(float value) {
+        
+        miningPower_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float mining_power = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMiningPower() {
+        
+        miningPower_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object customModel_ = "";
+      /**
+       * <code>string custom_model = 10;</code>
+       * @return The customModel.
+       */
+      public java.lang.String getCustomModel() {
+        java.lang.Object ref = customModel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          customModel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string custom_model = 10;</code>
+       * @return The bytes for customModel.
+       */
+      public com.google.protobuf.ByteString
+          getCustomModelBytes() {
+        java.lang.Object ref = customModel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          customModel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string custom_model = 10;</code>
+       * @param value The customModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomModel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        customModel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string custom_model = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCustomModel() {
+        
+        customModel_ = getDefaultInstance().getCustomModel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string custom_model = 10;</code>
+       * @param value The bytes for customModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomModelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        customModel_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object armorTexture_ = "";
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @return The armorTexture.
+       */
+      public java.lang.String getArmorTexture() {
+        java.lang.Object ref = armorTexture_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          armorTexture_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @return The bytes for armorTexture.
+       */
+      public com.google.protobuf.ByteString
+          getArmorTextureBytes() {
+        java.lang.Object ref = armorTexture_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          armorTexture_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @param value The armorTexture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArmorTexture(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        armorTexture_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearArmorTexture() {
+        
+        armorTexture_ = getDefaultInstance().getArmorTexture();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string armor_texture = 11;</code>
+       * @param value The bytes for armorTexture to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArmorTextureBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        armorTexture_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ItemDef)
+    }
+
+    // @@protoc_insertion_point(class_scope:ItemDef)
+    private static final Types.ItemDef DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Types.ItemDef();
+    }
+
+    public static Types.ItemDef getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ItemDef>
+        PARSER = new com.google.protobuf.AbstractParser<ItemDef>() {
+      @java.lang.Override
+      public ItemDef parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ItemDef(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ItemDef> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ItemDef> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Types.ItemDef getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BlockDefOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BlockDef)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>uint32 num_id = 2;</code>
+     * @return The numId.
+     */
+    int getNumId();
+
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @return The enum numeric value on the wire for model.
+     */
+    int getModelValue();
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @return The model.
+     */
+    Types.BlockDef.Model getModel();
+
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @return A list containing the textures.
+     */
+    java.util.List<java.lang.String>
+        getTexturesList();
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @return The count of textures.
+     */
+    int getTexturesCount();
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    java.lang.String getTextures(int index);
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the textures at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTexturesBytes(int index);
+
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @return A list containing the toolType.
+     */
+    java.util.List<java.lang.String>
+        getToolTypeList();
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @return The count of toolType.
+     */
+    int getToolTypeCount();
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    java.lang.String getToolType(int index);
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the toolType at the given index.
+     */
+    com.google.protobuf.ByteString
+        getToolTypeBytes(int index);
+
+    /**
+     * <code>float mining_speed = 6;</code>
+     * @return The miningSpeed.
+     */
+    float getMiningSpeed();
+
+    /**
+     * <code>float mining_power = 7;</code>
+     * @return The miningPower.
+     */
+    float getMiningPower();
+
+    /**
+     * <code>bool solid = 8;</code>
+     * @return The solid.
+     */
+    boolean getSolid();
+
+    /**
+     * <code>bool fluid = 9;</code>
+     * @return The fluid.
+     */
+    boolean getFluid();
+
+    /**
+     * <code>bool opaque = 10;</code>
+     * @return The opaque.
+     */
+    boolean getOpaque();
+
+    /**
+     * <code>repeated float color = 11;</code>
+     * @return A list containing the color.
+     */
+    java.util.List<java.lang.Float> getColorList();
+    /**
+     * <code>repeated float color = 11;</code>
+     * @return The count of color.
+     */
+    int getColorCount();
+    /**
+     * <code>repeated float color = 11;</code>
+     * @param index The index of the element to return.
+     * @return The color at the given index.
+     */
+    float getColor(int index);
+
+    /**
+     * <code>repeated string material = 12;</code>
+     * @return A list containing the material.
+     */
+    java.util.List<java.lang.String>
+        getMaterialList();
+    /**
+     * <code>repeated string material = 12;</code>
+     * @return The count of material.
+     */
+    int getMaterialCount();
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index of the element to return.
+     * @return The material at the given index.
+     */
+    java.lang.String getMaterial(int index);
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the material at the given index.
+     */
+    com.google.protobuf.ByteString
+        getMaterialBytes(int index);
+
+    /**
+     * <code>double fluid_density = 13;</code>
+     * @return The fluidDensity.
+     */
+    double getFluidDensity();
+
+    /**
+     * <code>double viscosity = 14;</code>
+     * @return The viscosity.
+     */
+    double getViscosity();
+
+    /**
+     * <code>string custom_model = 15;</code>
+     * @return The customModel.
+     */
+    java.lang.String getCustomModel();
+    /**
+     * <code>string custom_model = 15;</code>
+     * @return The bytes for customModel.
+     */
+    com.google.protobuf.ByteString
+        getCustomModelBytes();
+  }
+  /**
+   * Protobuf type {@code BlockDef}
+   */
+  public static final class BlockDef extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:BlockDef)
+      BlockDefOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BlockDef.newBuilder() to construct.
+    private BlockDef(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BlockDef() {
+      id_ = "";
+      model_ = 0;
+      textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      color_ = emptyFloatList();
+      material_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      customModel_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new BlockDef();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BlockDef(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 16: {
+
+              numId_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              model_ = rawValue;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                textures_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              textures_.add(s);
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                toolType_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              toolType_.add(s);
+              break;
+            }
+            case 53: {
+
+              miningSpeed_ = input.readFloat();
+              break;
+            }
+            case 61: {
+
+              miningPower_ = input.readFloat();
+              break;
+            }
+            case 64: {
+
+              solid_ = input.readBool();
+              break;
+            }
+            case 72: {
+
+              fluid_ = input.readBool();
+              break;
+            }
+            case 80: {
+
+              opaque_ = input.readBool();
+              break;
+            }
+            case 93: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                color_ = newFloatList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              color_.addFloat(input.readFloat());
+              break;
+            }
+            case 90: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000004) != 0) && input.getBytesUntilLimit() > 0) {
+                color_ = newFloatList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                color_.addFloat(input.readFloat());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                material_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              material_.add(s);
+              break;
+            }
+            case 105: {
+
+              fluidDensity_ = input.readDouble();
+              break;
+            }
+            case 113: {
+
+              viscosity_ = input.readDouble();
+              break;
+            }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              customModel_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          textures_ = textures_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          toolType_ = toolType_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          color_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          material_ = material_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Types.internal_static_BlockDef_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Types.internal_static_BlockDef_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Types.BlockDef.class, Types.BlockDef.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code BlockDef.Model}
+     */
+    public enum Model
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>BLOCK = 0;</code>
+       */
+      BLOCK(0),
+      /**
+       * <code>CROSS = 1;</code>
+       */
+      CROSS(1),
+      /**
+       * <code>TRANSPARENT = 2;</code>
+       */
+      TRANSPARENT(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>BLOCK = 0;</code>
+       */
+      public static final int BLOCK_VALUE = 0;
+      /**
+       * <code>CROSS = 1;</code>
+       */
+      public static final int CROSS_VALUE = 1;
+      /**
+       * <code>TRANSPARENT = 2;</code>
+       */
+      public static final int TRANSPARENT_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Model valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static Model forNumber(int value) {
+        switch (value) {
+          case 0: return BLOCK;
+          case 1: return CROSS;
+          case 2: return TRANSPARENT;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Model>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Model> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Model>() {
+              public Model findValueByNumber(int number) {
+                return Model.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return Types.BlockDef.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Model[] VALUES = values();
+
+      public static Model valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Model(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:BlockDef.Model)
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NUM_ID_FIELD_NUMBER = 2;
+    private int numId_;
+    /**
+     * <code>uint32 num_id = 2;</code>
+     * @return The numId.
+     */
+    @java.lang.Override
+    public int getNumId() {
+      return numId_;
+    }
+
+    public static final int MODEL_FIELD_NUMBER = 3;
+    private int model_;
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @return The enum numeric value on the wire for model.
+     */
+    @java.lang.Override public int getModelValue() {
+      return model_;
+    }
+    /**
+     * <code>.BlockDef.Model model = 3;</code>
+     * @return The model.
+     */
+    @java.lang.Override public Types.BlockDef.Model getModel() {
+      @SuppressWarnings("deprecation")
+      Types.BlockDef.Model result = Types.BlockDef.Model.valueOf(model_);
+      return result == null ? Types.BlockDef.Model.UNRECOGNIZED : result;
+    }
+
+    public static final int TEXTURES_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList textures_;
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @return A list containing the textures.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTexturesList() {
+      return textures_;
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @return The count of textures.
+     */
+    public int getTexturesCount() {
+      return textures_.size();
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index of the element to return.
+     * @return The textures at the given index.
+     */
+    public java.lang.String getTextures(int index) {
+      return textures_.get(index);
+    }
+    /**
+     * <code>repeated string textures = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the textures at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTexturesBytes(int index) {
+      return textures_.getByteString(index);
+    }
+
+    public static final int TOOL_TYPE_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList toolType_;
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @return A list containing the toolType.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getToolTypeList() {
+      return toolType_;
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @return The count of toolType.
+     */
+    public int getToolTypeCount() {
+      return toolType_.size();
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index of the element to return.
+     * @return The toolType at the given index.
+     */
+    public java.lang.String getToolType(int index) {
+      return toolType_.get(index);
+    }
+    /**
+     * <code>repeated string tool_type = 5;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the toolType at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getToolTypeBytes(int index) {
+      return toolType_.getByteString(index);
+    }
+
+    public static final int MINING_SPEED_FIELD_NUMBER = 6;
+    private float miningSpeed_;
+    /**
+     * <code>float mining_speed = 6;</code>
+     * @return The miningSpeed.
+     */
+    @java.lang.Override
+    public float getMiningSpeed() {
+      return miningSpeed_;
+    }
+
+    public static final int MINING_POWER_FIELD_NUMBER = 7;
+    private float miningPower_;
+    /**
+     * <code>float mining_power = 7;</code>
+     * @return The miningPower.
+     */
+    @java.lang.Override
+    public float getMiningPower() {
+      return miningPower_;
+    }
+
+    public static final int SOLID_FIELD_NUMBER = 8;
+    private boolean solid_;
+    /**
+     * <code>bool solid = 8;</code>
+     * @return The solid.
+     */
+    @java.lang.Override
+    public boolean getSolid() {
+      return solid_;
+    }
+
+    public static final int FLUID_FIELD_NUMBER = 9;
+    private boolean fluid_;
+    /**
+     * <code>bool fluid = 9;</code>
+     * @return The fluid.
+     */
+    @java.lang.Override
+    public boolean getFluid() {
+      return fluid_;
+    }
+
+    public static final int OPAQUE_FIELD_NUMBER = 10;
+    private boolean opaque_;
+    /**
+     * <code>bool opaque = 10;</code>
+     * @return The opaque.
+     */
+    @java.lang.Override
+    public boolean getOpaque() {
+      return opaque_;
+    }
+
+    public static final int COLOR_FIELD_NUMBER = 11;
+    private com.google.protobuf.Internal.FloatList color_;
+    /**
+     * <code>repeated float color = 11;</code>
+     * @return A list containing the color.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Float>
+        getColorList() {
+      return color_;
+    }
+    /**
+     * <code>repeated float color = 11;</code>
+     * @return The count of color.
+     */
+    public int getColorCount() {
+      return color_.size();
+    }
+    /**
+     * <code>repeated float color = 11;</code>
+     * @param index The index of the element to return.
+     * @return The color at the given index.
+     */
+    public float getColor(int index) {
+      return color_.getFloat(index);
+    }
+    private int colorMemoizedSerializedSize = -1;
+
+    public static final int MATERIAL_FIELD_NUMBER = 12;
+    private com.google.protobuf.LazyStringList material_;
+    /**
+     * <code>repeated string material = 12;</code>
+     * @return A list containing the material.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getMaterialList() {
+      return material_;
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @return The count of material.
+     */
+    public int getMaterialCount() {
+      return material_.size();
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index of the element to return.
+     * @return The material at the given index.
+     */
+    public java.lang.String getMaterial(int index) {
+      return material_.get(index);
+    }
+    /**
+     * <code>repeated string material = 12;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the material at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getMaterialBytes(int index) {
+      return material_.getByteString(index);
+    }
+
+    public static final int FLUID_DENSITY_FIELD_NUMBER = 13;
+    private double fluidDensity_;
+    /**
+     * <code>double fluid_density = 13;</code>
+     * @return The fluidDensity.
+     */
+    @java.lang.Override
+    public double getFluidDensity() {
+      return fluidDensity_;
+    }
+
+    public static final int VISCOSITY_FIELD_NUMBER = 14;
+    private double viscosity_;
+    /**
+     * <code>double viscosity = 14;</code>
+     * @return The viscosity.
+     */
+    @java.lang.Override
+    public double getViscosity() {
+      return viscosity_;
+    }
+
+    public static final int CUSTOM_MODEL_FIELD_NUMBER = 15;
+    private volatile java.lang.Object customModel_;
+    /**
+     * <code>string custom_model = 15;</code>
+     * @return The customModel.
+     */
+    @java.lang.Override
+    public java.lang.String getCustomModel() {
+      java.lang.Object ref = customModel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        customModel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string custom_model = 15;</code>
+     * @return The bytes for customModel.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCustomModelBytes() {
+      java.lang.Object ref = customModel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        customModel_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (numId_ != 0) {
+        output.writeUInt32(2, numId_);
+      }
+      if (model_ != Types.BlockDef.Model.BLOCK.getNumber()) {
+        output.writeEnum(3, model_);
+      }
+      for (int i = 0; i < textures_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, textures_.getRaw(i));
+      }
+      for (int i = 0; i < toolType_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, toolType_.getRaw(i));
+      }
+      if (miningSpeed_ != 0F) {
+        output.writeFloat(6, miningSpeed_);
+      }
+      if (miningPower_ != 0F) {
+        output.writeFloat(7, miningPower_);
+      }
+      if (solid_ != false) {
+        output.writeBool(8, solid_);
+      }
+      if (fluid_ != false) {
+        output.writeBool(9, fluid_);
+      }
+      if (opaque_ != false) {
+        output.writeBool(10, opaque_);
+      }
+      if (getColorList().size() > 0) {
+        output.writeUInt32NoTag(90);
+        output.writeUInt32NoTag(colorMemoizedSerializedSize);
+      }
+      for (int i = 0; i < color_.size(); i++) {
+        output.writeFloatNoTag(color_.getFloat(i));
+      }
+      for (int i = 0; i < material_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, material_.getRaw(i));
+      }
+      if (fluidDensity_ != 0D) {
+        output.writeDouble(13, fluidDensity_);
+      }
+      if (viscosity_ != 0D) {
+        output.writeDouble(14, viscosity_);
+      }
+      if (!getCustomModelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, customModel_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (numId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, numId_);
+      }
+      if (model_ != Types.BlockDef.Model.BLOCK.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, model_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < textures_.size(); i++) {
+          dataSize += computeStringSizeNoTag(textures_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTexturesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < toolType_.size(); i++) {
+          dataSize += computeStringSizeNoTag(toolType_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getToolTypeList().size();
+      }
+      if (miningSpeed_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(6, miningSpeed_);
+      }
+      if (miningPower_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(7, miningPower_);
+      }
+      if (solid_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(8, solid_);
+      }
+      if (fluid_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, fluid_);
+      }
+      if (opaque_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(10, opaque_);
+      }
+      {
+        int dataSize = 0;
+        dataSize = 4 * getColorList().size();
+        size += dataSize;
+        if (!getColorList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        colorMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < material_.size(); i++) {
+          dataSize += computeStringSizeNoTag(material_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getMaterialList().size();
+      }
+      if (fluidDensity_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(13, fluidDensity_);
+      }
+      if (viscosity_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(14, viscosity_);
+      }
+      if (!getCustomModelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, customModel_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Types.BlockDef)) {
+        return super.equals(obj);
+      }
+      Types.BlockDef other = (Types.BlockDef) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (getNumId()
+          != other.getNumId()) return false;
+      if (model_ != other.model_) return false;
+      if (!getTexturesList()
+          .equals(other.getTexturesList())) return false;
+      if (!getToolTypeList()
+          .equals(other.getToolTypeList())) return false;
+      if (java.lang.Float.floatToIntBits(getMiningSpeed())
+          != java.lang.Float.floatToIntBits(
+              other.getMiningSpeed())) return false;
+      if (java.lang.Float.floatToIntBits(getMiningPower())
+          != java.lang.Float.floatToIntBits(
+              other.getMiningPower())) return false;
+      if (getSolid()
+          != other.getSolid()) return false;
+      if (getFluid()
+          != other.getFluid()) return false;
+      if (getOpaque()
+          != other.getOpaque()) return false;
+      if (!getColorList()
+          .equals(other.getColorList())) return false;
+      if (!getMaterialList()
+          .equals(other.getMaterialList())) return false;
+      if (java.lang.Double.doubleToLongBits(getFluidDensity())
+          != java.lang.Double.doubleToLongBits(
+              other.getFluidDensity())) return false;
+      if (java.lang.Double.doubleToLongBits(getViscosity())
+          != java.lang.Double.doubleToLongBits(
+              other.getViscosity())) return false;
+      if (!getCustomModel()
+          .equals(other.getCustomModel())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + NUM_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getNumId();
+      hash = (37 * hash) + MODEL_FIELD_NUMBER;
+      hash = (53 * hash) + model_;
+      if (getTexturesCount() > 0) {
+        hash = (37 * hash) + TEXTURES_FIELD_NUMBER;
+        hash = (53 * hash) + getTexturesList().hashCode();
+      }
+      if (getToolTypeCount() > 0) {
+        hash = (37 * hash) + TOOL_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getToolTypeList().hashCode();
+      }
+      hash = (37 * hash) + MINING_SPEED_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getMiningSpeed());
+      hash = (37 * hash) + MINING_POWER_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getMiningPower());
+      hash = (37 * hash) + SOLID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSolid());
+      hash = (37 * hash) + FLUID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFluid());
+      hash = (37 * hash) + OPAQUE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOpaque());
+      if (getColorCount() > 0) {
+        hash = (37 * hash) + COLOR_FIELD_NUMBER;
+        hash = (53 * hash) + getColorList().hashCode();
+      }
+      if (getMaterialCount() > 0) {
+        hash = (37 * hash) + MATERIAL_FIELD_NUMBER;
+        hash = (53 * hash) + getMaterialList().hashCode();
+      }
+      hash = (37 * hash) + FLUID_DENSITY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getFluidDensity()));
+      hash = (37 * hash) + VISCOSITY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getViscosity()));
+      hash = (37 * hash) + CUSTOM_MODEL_FIELD_NUMBER;
+      hash = (53 * hash) + getCustomModel().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Types.BlockDef parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Types.BlockDef parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Types.BlockDef parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Types.BlockDef parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Types.BlockDef parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Types.BlockDef parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Types.BlockDef parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Types.BlockDef parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Types.BlockDef parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Types.BlockDef parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Types.BlockDef parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Types.BlockDef parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Types.BlockDef prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code BlockDef}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:BlockDef)
+        Types.BlockDefOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Types.internal_static_BlockDef_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Types.internal_static_BlockDef_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Types.BlockDef.class, Types.BlockDef.Builder.class);
+      }
+
+      // Construct using Types.BlockDef.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        numId_ = 0;
+
+        model_ = 0;
+
+        textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        miningSpeed_ = 0F;
+
+        miningPower_ = 0F;
+
+        solid_ = false;
+
+        fluid_ = false;
+
+        opaque_ = false;
+
+        color_ = emptyFloatList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        material_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        fluidDensity_ = 0D;
+
+        viscosity_ = 0D;
+
+        customModel_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Types.internal_static_BlockDef_descriptor;
+      }
+
+      @java.lang.Override
+      public Types.BlockDef getDefaultInstanceForType() {
+        return Types.BlockDef.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Types.BlockDef build() {
+        Types.BlockDef result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Types.BlockDef buildPartial() {
+        Types.BlockDef result = new Types.BlockDef(this);
+        int from_bitField0_ = bitField0_;
+        result.id_ = id_;
+        result.numId_ = numId_;
+        result.model_ = model_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          textures_ = textures_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.textures_ = textures_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          toolType_ = toolType_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.toolType_ = toolType_;
+        result.miningSpeed_ = miningSpeed_;
+        result.miningPower_ = miningPower_;
+        result.solid_ = solid_;
+        result.fluid_ = fluid_;
+        result.opaque_ = opaque_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          color_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.color_ = color_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          material_ = material_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.material_ = material_;
+        result.fluidDensity_ = fluidDensity_;
+        result.viscosity_ = viscosity_;
+        result.customModel_ = customModel_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Types.BlockDef) {
+          return mergeFrom((Types.BlockDef)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Types.BlockDef other) {
+        if (other == Types.BlockDef.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.getNumId() != 0) {
+          setNumId(other.getNumId());
+        }
+        if (other.model_ != 0) {
+          setModelValue(other.getModelValue());
+        }
+        if (!other.textures_.isEmpty()) {
+          if (textures_.isEmpty()) {
+            textures_ = other.textures_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTexturesIsMutable();
+            textures_.addAll(other.textures_);
+          }
+          onChanged();
+        }
+        if (!other.toolType_.isEmpty()) {
+          if (toolType_.isEmpty()) {
+            toolType_ = other.toolType_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureToolTypeIsMutable();
+            toolType_.addAll(other.toolType_);
+          }
+          onChanged();
+        }
+        if (other.getMiningSpeed() != 0F) {
+          setMiningSpeed(other.getMiningSpeed());
+        }
+        if (other.getMiningPower() != 0F) {
+          setMiningPower(other.getMiningPower());
+        }
+        if (other.getSolid() != false) {
+          setSolid(other.getSolid());
+        }
+        if (other.getFluid() != false) {
+          setFluid(other.getFluid());
+        }
+        if (other.getOpaque() != false) {
+          setOpaque(other.getOpaque());
+        }
+        if (!other.color_.isEmpty()) {
+          if (color_.isEmpty()) {
+            color_ = other.color_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureColorIsMutable();
+            color_.addAll(other.color_);
+          }
+          onChanged();
+        }
+        if (!other.material_.isEmpty()) {
+          if (material_.isEmpty()) {
+            material_ = other.material_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureMaterialIsMutable();
+            material_.addAll(other.material_);
+          }
+          onChanged();
+        }
+        if (other.getFluidDensity() != 0D) {
+          setFluidDensity(other.getFluidDensity());
+        }
+        if (other.getViscosity() != 0D) {
+          setViscosity(other.getViscosity());
+        }
+        if (!other.getCustomModel().isEmpty()) {
+          customModel_ = other.customModel_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Types.BlockDef parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Types.BlockDef) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int numId_ ;
+      /**
+       * <code>uint32 num_id = 2;</code>
+       * @return The numId.
+       */
+      @java.lang.Override
+      public int getNumId() {
+        return numId_;
+      }
+      /**
+       * <code>uint32 num_id = 2;</code>
+       * @param value The numId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNumId(int value) {
+        
+        numId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 num_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNumId() {
+        
+        numId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int model_ = 0;
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @return The enum numeric value on the wire for model.
+       */
+      @java.lang.Override public int getModelValue() {
+        return model_;
+      }
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @param value The enum numeric value on the wire for model to set.
+       * @return This builder for chaining.
+       */
+      public Builder setModelValue(int value) {
+        
+        model_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @return The model.
+       */
+      @java.lang.Override
+      public Types.BlockDef.Model getModel() {
+        @SuppressWarnings("deprecation")
+        Types.BlockDef.Model result = Types.BlockDef.Model.valueOf(model_);
+        return result == null ? Types.BlockDef.Model.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @param value The model to set.
+       * @return This builder for chaining.
+       */
+      public Builder setModel(Types.BlockDef.Model value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        model_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.BlockDef.Model model = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearModel() {
+        
+        model_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTexturesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          textures_ = new com.google.protobuf.LazyStringArrayList(textures_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @return A list containing the textures.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTexturesList() {
+        return textures_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @return The count of textures.
+       */
+      public int getTexturesCount() {
+        return textures_.size();
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param index The index of the element to return.
+       * @return The textures at the given index.
+       */
+      public java.lang.String getTextures(int index) {
+        return textures_.get(index);
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the textures at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTexturesBytes(int index) {
+        return textures_.getByteString(index);
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The textures to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTextures(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTexturesIsMutable();
+        textures_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param value The textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTextures(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTexturesIsMutable();
+        textures_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param values The textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTextures(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTexturesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, textures_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTextures() {
+        textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string textures = 4;</code>
+       * @param value The bytes of the textures to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTexturesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTexturesIsMutable();
+        textures_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureToolTypeIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          toolType_ = new com.google.protobuf.LazyStringArrayList(toolType_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @return A list containing the toolType.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getToolTypeList() {
+        return toolType_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @return The count of toolType.
+       */
+      public int getToolTypeCount() {
+        return toolType_.size();
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param index The index of the element to return.
+       * @return The toolType at the given index.
+       */
+      public java.lang.String getToolType(int index) {
+        return toolType_.get(index);
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the toolType at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getToolTypeBytes(int index) {
+        return toolType_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param index The index to set the value at.
+       * @param value The toolType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToolType(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureToolTypeIsMutable();
+        toolType_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param value The toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addToolType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureToolTypeIsMutable();
+        toolType_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param values The toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllToolType(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureToolTypeIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, toolType_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearToolType() {
+        toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tool_type = 5;</code>
+       * @param value The bytes of the toolType to add.
+       * @return This builder for chaining.
+       */
+      public Builder addToolTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureToolTypeIsMutable();
+        toolType_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private float miningSpeed_ ;
+      /**
+       * <code>float mining_speed = 6;</code>
+       * @return The miningSpeed.
+       */
+      @java.lang.Override
+      public float getMiningSpeed() {
+        return miningSpeed_;
+      }
+      /**
+       * <code>float mining_speed = 6;</code>
+       * @param value The miningSpeed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMiningSpeed(float value) {
+        
+        miningSpeed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float mining_speed = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMiningSpeed() {
+        
+        miningSpeed_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float miningPower_ ;
+      /**
+       * <code>float mining_power = 7;</code>
+       * @return The miningPower.
+       */
+      @java.lang.Override
+      public float getMiningPower() {
+        return miningPower_;
+      }
+      /**
+       * <code>float mining_power = 7;</code>
+       * @param value The miningPower to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMiningPower(float value) {
+        
+        miningPower_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float mining_power = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMiningPower() {
+        
+        miningPower_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private boolean solid_ ;
+      /**
+       * <code>bool solid = 8;</code>
+       * @return The solid.
+       */
+      @java.lang.Override
+      public boolean getSolid() {
+        return solid_;
+      }
+      /**
+       * <code>bool solid = 8;</code>
+       * @param value The solid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSolid(boolean value) {
+        
+        solid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool solid = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSolid() {
+        
+        solid_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean fluid_ ;
+      /**
+       * <code>bool fluid = 9;</code>
+       * @return The fluid.
+       */
+      @java.lang.Override
+      public boolean getFluid() {
+        return fluid_;
+      }
+      /**
+       * <code>bool fluid = 9;</code>
+       * @param value The fluid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFluid(boolean value) {
+        
+        fluid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool fluid = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFluid() {
+        
+        fluid_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean opaque_ ;
+      /**
+       * <code>bool opaque = 10;</code>
+       * @return The opaque.
+       */
+      @java.lang.Override
+      public boolean getOpaque() {
+        return opaque_;
+      }
+      /**
+       * <code>bool opaque = 10;</code>
+       * @param value The opaque to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOpaque(boolean value) {
+        
+        opaque_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool opaque = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOpaque() {
+        
+        opaque_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.FloatList color_ = emptyFloatList();
+      private void ensureColorIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          color_ = mutableCopy(color_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @return A list containing the color.
+       */
+      public java.util.List<java.lang.Float>
+          getColorList() {
+        return ((bitField0_ & 0x00000004) != 0) ?
+                 java.util.Collections.unmodifiableList(color_) : color_;
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @return The count of color.
+       */
+      public int getColorCount() {
+        return color_.size();
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @param index The index of the element to return.
+       * @return The color at the given index.
+       */
+      public float getColor(int index) {
+        return color_.getFloat(index);
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @param index The index to set the value at.
+       * @param value The color to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColor(
+          int index, float value) {
+        ensureColorIsMutable();
+        color_.setFloat(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @param value The color to add.
+       * @return This builder for chaining.
+       */
+      public Builder addColor(float value) {
+        ensureColorIsMutable();
+        color_.addFloat(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @param values The color to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllColor(
+          java.lang.Iterable<? extends java.lang.Float> values) {
+        ensureColorIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, color_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated float color = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColor() {
+        color_ = emptyFloatList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList material_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureMaterialIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          material_ = new com.google.protobuf.LazyStringArrayList(material_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @return A list containing the material.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getMaterialList() {
+        return material_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @return The count of material.
+       */
+      public int getMaterialCount() {
+        return material_.size();
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param index The index of the element to return.
+       * @return The material at the given index.
+       */
+      public java.lang.String getMaterial(int index) {
+        return material_.get(index);
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the material at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getMaterialBytes(int index) {
+        return material_.getByteString(index);
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param index The index to set the value at.
+       * @param value The material to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaterial(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMaterialIsMutable();
+        material_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param value The material to add.
+       * @return This builder for chaining.
+       */
+      public Builder addMaterial(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMaterialIsMutable();
+        material_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param values The material to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllMaterial(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureMaterialIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, material_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaterial() {
+        material_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string material = 12;</code>
+       * @param value The bytes of the material to add.
+       * @return This builder for chaining.
+       */
+      public Builder addMaterialBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureMaterialIsMutable();
+        material_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private double fluidDensity_ ;
+      /**
+       * <code>double fluid_density = 13;</code>
+       * @return The fluidDensity.
+       */
+      @java.lang.Override
+      public double getFluidDensity() {
+        return fluidDensity_;
+      }
+      /**
+       * <code>double fluid_density = 13;</code>
+       * @param value The fluidDensity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFluidDensity(double value) {
+        
+        fluidDensity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double fluid_density = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFluidDensity() {
+        
+        fluidDensity_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double viscosity_ ;
+      /**
+       * <code>double viscosity = 14;</code>
+       * @return The viscosity.
+       */
+      @java.lang.Override
+      public double getViscosity() {
+        return viscosity_;
+      }
+      /**
+       * <code>double viscosity = 14;</code>
+       * @param value The viscosity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setViscosity(double value) {
+        
+        viscosity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double viscosity = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearViscosity() {
+        
+        viscosity_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object customModel_ = "";
+      /**
+       * <code>string custom_model = 15;</code>
+       * @return The customModel.
+       */
+      public java.lang.String getCustomModel() {
+        java.lang.Object ref = customModel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          customModel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string custom_model = 15;</code>
+       * @return The bytes for customModel.
+       */
+      public com.google.protobuf.ByteString
+          getCustomModelBytes() {
+        java.lang.Object ref = customModel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          customModel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string custom_model = 15;</code>
+       * @param value The customModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomModel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        customModel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string custom_model = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCustomModel() {
+        
+        customModel_ = getDefaultInstance().getCustomModel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string custom_model = 15;</code>
+       * @param value The bytes for customModel to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomModelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        customModel_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:BlockDef)
+    }
+
+    // @@protoc_insertion_point(class_scope:BlockDef)
+    private static final Types.BlockDef DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Types.BlockDef();
+    }
+
+    public static Types.BlockDef getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BlockDef>
+        PARSER = new com.google.protobuf.AbstractParser<BlockDef>() {
+      @java.lang.Override
+      public BlockDef parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BlockDef(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlockDef> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BlockDef> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Types.BlockDef getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ChatComponentType_descriptor;
   private static final 
@@ -3615,10 +8385,15 @@ public final class Types {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Item_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Item_NameEntry_descriptor;
+    internal_static_ItemDef_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Item_NameEntry_fieldAccessorTable;
+      internal_static_ItemDef_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_BlockDef_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_BlockDef_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3634,16 +8409,32 @@ public final class Types {
       "\001(\010\022\013\n\003url\030\006 \001(\t\"k\n\026BasicChatComponentTy" +
       "pe\022\014\n\004text\030\001 \001(\t\022\014\n\004font\030\002 \001(\t\022\r\n\005color\030" +
       "\003 \001(\t\022\023\n\013linethrough\030\004 \001(\010\022\021\n\tunderline\030" +
-      "\005 \001(\010\"\226\001\n\004Item\022\n\n\002id\030\001 \001(\t\022\r\n\005count\030\002 \001(" +
-      "\005\022\016\n\006damage\030\003 \001(\002\022\035\n\004name\030\004 \003(\0132\017.Item.N" +
-      "ameEntry\032D\n\tNameEntry\022\013\n\003key\030\001 \001(\r\022&\n\005va" +
-      "lue\030\002 \001(\0132\027.BasicChatComponentType:\0028\001*C" +
-      "\n\rInventoryType\022\010\n\004MAIN\020\000\022\t\n\005ARMOR\020\001\022\t\n\005" +
-      "CRAFT\020\002\022\010\n\004HOOK\020\003\022\010\n\004TEMP\020\004*A\n\rContainer" +
-      "Type\022\n\n\006PLAYER\020\000\022\t\n\005CHEST\020\001\022\014\n\010CRAFTING\020" +
-      "\002\022\013\n\007FURNACE\020\003*=\n\016MouseClickType\022\010\n\004LEFT" +
-      "\020\000\022\t\n\005RIGHT\020\001\022\n\n\006MIDDLE\020\002\022\n\n\006SELECT\020\003b\006p" +
-      "roto3"
+      "\005 \001(\010\"X\n\004Item\022\n\n\002id\030\001 \001(\t\022\r\n\005count\030\002 \001(\005" +
+      "\022\016\n\006damage\030\003 \001(\002\022%\n\004name\030\004 \003(\0132\027.BasicCh" +
+      "atComponentType\"\357\002\n\007ItemDef\022\n\n\002id\030\001 \001(\t\022" +
+      "\021\n\tmax_stack\030\002 \001(\r\022%\n\004name\030\003 \003(\0132\027.Basic" +
+      "ChatComponentType\022\033\n\004type\030\004 \001(\0162\r.ItemDe" +
+      "f.Type\022\035\n\005model\030\005 \001(\0162\016.ItemDef.Model\022\020\n" +
+      "\010textures\030\006 \003(\t\022\021\n\ttool_type\030\007 \003(\t\022\024\n\014mi" +
+      "ning_speed\030\010 \001(\002\022\024\n\014mining_power\030\t \001(\002\022\024" +
+      "\n\014custom_model\030\n \001(\t\022\025\n\rarmor_texture\030\013 " +
+      "\001(\t\"0\n\004Type\022\010\n\004NONE\020\000\022\010\n\004TOOL\020\001\022\t\n\005BLOCK" +
+      "\020\002\022\t\n\005ARMOR\020\003\"2\n\005Model\022\010\n\004FLAT\020\000\022\010\n\004CUBE" +
+      "\020\001\022\t\n\005CROSS\020\002\022\n\n\006CUSTOM\020\003\"\326\002\n\010BlockDef\022\n" +
+      "\n\002id\030\001 \001(\t\022\016\n\006num_id\030\002 \001(\r\022\036\n\005model\030\003 \001(" +
+      "\0162\017.BlockDef.Model\022\020\n\010textures\030\004 \003(\t\022\021\n\t" +
+      "tool_type\030\005 \003(\t\022\024\n\014mining_speed\030\006 \001(\002\022\024\n" +
+      "\014mining_power\030\007 \001(\002\022\r\n\005solid\030\010 \001(\010\022\r\n\005fl" +
+      "uid\030\t \001(\010\022\016\n\006opaque\030\n \001(\010\022\r\n\005color\030\013 \003(\002" +
+      "\022\020\n\010material\030\014 \003(\t\022\025\n\rfluid_density\030\r \001(" +
+      "\001\022\021\n\tviscosity\030\016 \001(\001\022\024\n\014custom_model\030\017 \001" +
+      "(\t\".\n\005Model\022\t\n\005BLOCK\020\000\022\t\n\005CROSS\020\001\022\017\n\013TRA" +
+      "NSPARENT\020\002*C\n\rInventoryType\022\010\n\004MAIN\020\000\022\t\n" +
+      "\005ARMOR\020\001\022\t\n\005CRAFT\020\002\022\010\n\004HOOK\020\003\022\010\n\004TEMP\020\004*" +
+      "A\n\rContainerType\022\n\n\006PLAYER\020\000\022\t\n\005CHEST\020\001\022" +
+      "\014\n\010CRAFTING\020\002\022\013\n\007FURNACE\020\003*=\n\016MouseClick" +
+      "Type\022\010\n\004LEFT\020\000\022\t\n\005RIGHT\020\001\022\n\n\006MIDDLE\020\002\022\n\n" +
+      "\006SELECT\020\003b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3667,12 +8458,18 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Item_descriptor,
         new java.lang.String[] { "Id", "Count", "Damage", "Name", });
-    internal_static_Item_NameEntry_descriptor =
-      internal_static_Item_descriptor.getNestedTypes().get(0);
-    internal_static_Item_NameEntry_fieldAccessorTable = new
+    internal_static_ItemDef_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_ItemDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Item_NameEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        internal_static_ItemDef_descriptor,
+        new java.lang.String[] { "Id", "MaxStack", "Name", "Type", "Model", "Textures", "ToolType", "MiningSpeed", "MiningPower", "CustomModel", "ArmorTexture", });
+    internal_static_BlockDef_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_BlockDef_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_BlockDef_descriptor,
+        new java.lang.String[] { "Id", "NumId", "Model", "Textures", "ToolType", "MiningSpeed", "MiningPower", "Solid", "Fluid", "Opaque", "Color", "Material", "FluidDensity", "Viscosity", "CustomModel", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
