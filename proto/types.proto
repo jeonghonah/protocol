@@ -76,15 +76,16 @@ message ItemDef {
 }
 
 message BlockDef {
-	enum Model {
+	enum Type {
 		BLOCK = 0;
 		CROSS = 1;
 		TRANSPARENT = 2;
+		CUSTOM = 3;
 	}
 
 	string id = 1;
 	uint32 num_id = 2;
-	Model model = 3;
+	Type type = 3;
 	repeated string textures = 4;
 	repeated string tool_type = 5;
 	float mining_speed = 6;

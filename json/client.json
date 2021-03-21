@@ -485,8 +485,8 @@
           "type": "uint32",
           "id": 2
         },
-        "model": {
-          "type": "Model",
+        "type": {
+          "type": "Type",
           "id": 3
         },
         "textures": {
@@ -543,11 +543,12 @@
         }
       },
       "nested": {
-        "Model": {
+        "Type": {
           "values": {
             "BLOCK": 0,
             "CROSS": 1,
-            "TRANSPARENT": 2
+            "TRANSPARENT": 2,
+            "CUSTOM": 3
           }
         }
       }

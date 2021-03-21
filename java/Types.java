@@ -6034,15 +6034,15 @@ public final class Types {
     int getNumId();
 
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @return The enum numeric value on the wire for model.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    int getModelValue();
+    int getTypeValue();
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @return The model.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @return The type.
      */
-    Types.BlockDef.Model getModel();
+    Types.BlockDef.Type getType();
 
     /**
      * <code>repeated string textures = 4;</code>
@@ -6204,7 +6204,7 @@ public final class Types {
     }
     private BlockDef() {
       id_ = "";
-      model_ = 0;
+      type_ = 0;
       textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       toolType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       color_ = emptyFloatList();
@@ -6257,7 +6257,7 @@ public final class Types {
             case 24: {
               int rawValue = input.readEnum();
 
-              model_ = rawValue;
+              type_ = rawValue;
               break;
             }
             case 34: {
@@ -6394,9 +6394,9 @@ public final class Types {
     }
 
     /**
-     * Protobuf enum {@code BlockDef.Model}
+     * Protobuf enum {@code BlockDef.Type}
      */
-    public enum Model
+    public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <code>BLOCK = 0;</code>
@@ -6410,6 +6410,10 @@ public final class Types {
        * <code>TRANSPARENT = 2;</code>
        */
       TRANSPARENT(2),
+      /**
+       * <code>CUSTOM = 3;</code>
+       */
+      CUSTOM(3),
       UNRECOGNIZED(-1),
       ;
 
@@ -6425,6 +6429,10 @@ public final class Types {
        * <code>TRANSPARENT = 2;</code>
        */
       public static final int TRANSPARENT_VALUE = 2;
+      /**
+       * <code>CUSTOM = 3;</code>
+       */
+      public static final int CUSTOM_VALUE = 3;
 
 
       public final int getNumber() {
@@ -6441,7 +6449,7 @@ public final class Types {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static Model valueOf(int value) {
+      public static Type valueOf(int value) {
         return forNumber(value);
       }
 
@@ -6449,24 +6457,25 @@ public final class Types {
        * @param value The numeric wire value of the corresponding enum entry.
        * @return The enum associated with the given numeric wire value.
        */
-      public static Model forNumber(int value) {
+      public static Type forNumber(int value) {
         switch (value) {
           case 0: return BLOCK;
           case 1: return CROSS;
           case 2: return TRANSPARENT;
+          case 3: return CUSTOM;
           default: return null;
         }
       }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<Model>
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
           internalGetValueMap() {
         return internalValueMap;
       }
       private static final com.google.protobuf.Internal.EnumLiteMap<
-          Model> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Model>() {
-              public Model findValueByNumber(int number) {
-                return Model.forNumber(number);
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
               }
             };
 
@@ -6487,9 +6496,9 @@ public final class Types {
         return Types.BlockDef.getDescriptor().getEnumTypes().get(0);
       }
 
-      private static final Model[] VALUES = values();
+      private static final Type[] VALUES = values();
 
-      public static Model valueOf(
+      public static Type valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
           throw new java.lang.IllegalArgumentException(
@@ -6503,11 +6512,11 @@ public final class Types {
 
       private final int value;
 
-      private Model(int value) {
+      private Type(int value) {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:BlockDef.Model)
+      // @@protoc_insertion_point(enum_scope:BlockDef.Type)
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -6559,23 +6568,23 @@ public final class Types {
       return numId_;
     }
 
-    public static final int MODEL_FIELD_NUMBER = 3;
-    private int model_;
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private int type_;
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @return The enum numeric value on the wire for model.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    @java.lang.Override public int getModelValue() {
-      return model_;
+    @java.lang.Override public int getTypeValue() {
+      return type_;
     }
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @return The model.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @return The type.
      */
-    @java.lang.Override public Types.BlockDef.Model getModel() {
+    @java.lang.Override public Types.BlockDef.Type getType() {
       @SuppressWarnings("deprecation")
-      Types.BlockDef.Model result = Types.BlockDef.Model.valueOf(model_);
-      return result == null ? Types.BlockDef.Model.UNRECOGNIZED : result;
+      Types.BlockDef.Type result = Types.BlockDef.Type.valueOf(type_);
+      return result == null ? Types.BlockDef.Type.UNRECOGNIZED : result;
     }
 
     public static final int TEXTURES_FIELD_NUMBER = 4;
@@ -6847,8 +6856,8 @@ public final class Types {
       if (numId_ != 0) {
         output.writeUInt32(2, numId_);
       }
-      if (model_ != Types.BlockDef.Model.BLOCK.getNumber()) {
-        output.writeEnum(3, model_);
+      if (type_ != Types.BlockDef.Type.BLOCK.getNumber()) {
+        output.writeEnum(3, type_);
       }
       for (int i = 0; i < textures_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, textures_.getRaw(i));
@@ -6906,9 +6915,9 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, numId_);
       }
-      if (model_ != Types.BlockDef.Model.BLOCK.getNumber()) {
+      if (type_ != Types.BlockDef.Type.BLOCK.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, model_);
+          .computeEnumSize(3, type_);
       }
       {
         int dataSize = 0;
@@ -6995,7 +7004,7 @@ public final class Types {
           .equals(other.getId())) return false;
       if (getNumId()
           != other.getNumId()) return false;
-      if (model_ != other.model_) return false;
+      if (type_ != other.type_) return false;
       if (!getTexturesList()
           .equals(other.getTexturesList())) return false;
       if (!getToolTypeList()
@@ -7039,8 +7048,8 @@ public final class Types {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NUM_ID_FIELD_NUMBER;
       hash = (53 * hash) + getNumId();
-      hash = (37 * hash) + MODEL_FIELD_NUMBER;
-      hash = (53 * hash) + model_;
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       if (getTexturesCount() > 0) {
         hash = (37 * hash) + TEXTURES_FIELD_NUMBER;
         hash = (53 * hash) + getTexturesList().hashCode();
@@ -7217,7 +7226,7 @@ public final class Types {
 
         numId_ = 0;
 
-        model_ = 0;
+        type_ = 0;
 
         textures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -7272,7 +7281,7 @@ public final class Types {
         int from_bitField0_ = bitField0_;
         result.id_ = id_;
         result.numId_ = numId_;
-        result.model_ = model_;
+        result.type_ = type_;
         if (((bitField0_ & 0x00000001) != 0)) {
           textures_ = textures_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -7356,8 +7365,8 @@ public final class Types {
         if (other.getNumId() != 0) {
           setNumId(other.getNumId());
         }
-        if (other.model_ != 0) {
-          setModelValue(other.getModelValue());
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         if (!other.textures_.isEmpty()) {
           if (textures_.isEmpty()) {
@@ -7561,56 +7570,56 @@ public final class Types {
         return this;
       }
 
-      private int model_ = 0;
+      private int type_ = 0;
       /**
-       * <code>.BlockDef.Model model = 3;</code>
-       * @return The enum numeric value on the wire for model.
+       * <code>.BlockDef.Type type = 3;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      @java.lang.Override public int getModelValue() {
-        return model_;
+      @java.lang.Override public int getTypeValue() {
+        return type_;
       }
       /**
-       * <code>.BlockDef.Model model = 3;</code>
-       * @param value The enum numeric value on the wire for model to set.
+       * <code>.BlockDef.Type type = 3;</code>
+       * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
-      public Builder setModelValue(int value) {
+      public Builder setTypeValue(int value) {
         
-        model_ = value;
+        type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.BlockDef.Model model = 3;</code>
-       * @return The model.
+       * <code>.BlockDef.Type type = 3;</code>
+       * @return The type.
        */
       @java.lang.Override
-      public Types.BlockDef.Model getModel() {
+      public Types.BlockDef.Type getType() {
         @SuppressWarnings("deprecation")
-        Types.BlockDef.Model result = Types.BlockDef.Model.valueOf(model_);
-        return result == null ? Types.BlockDef.Model.UNRECOGNIZED : result;
+        Types.BlockDef.Type result = Types.BlockDef.Type.valueOf(type_);
+        return result == null ? Types.BlockDef.Type.UNRECOGNIZED : result;
       }
       /**
-       * <code>.BlockDef.Model model = 3;</code>
-       * @param value The model to set.
+       * <code>.BlockDef.Type type = 3;</code>
+       * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setModel(Types.BlockDef.Model value) {
+      public Builder setType(Types.BlockDef.Type value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        model_ = value.getNumber();
+        type_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.BlockDef.Model model = 3;</code>
+       * <code>.BlockDef.Type type = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearModel() {
+      public Builder clearType() {
         
-        model_ = 0;
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -8420,21 +8429,21 @@ public final class Types {
       "\n\014custom_model\030\n \001(\t\022\025\n\rarmor_texture\030\013 " +
       "\001(\t\"0\n\004Type\022\010\n\004NONE\020\000\022\010\n\004TOOL\020\001\022\t\n\005BLOCK" +
       "\020\002\022\t\n\005ARMOR\020\003\"2\n\005Model\022\010\n\004FLAT\020\000\022\010\n\004CUBE" +
-      "\020\001\022\t\n\005CROSS\020\002\022\n\n\006CUSTOM\020\003\"\326\002\n\010BlockDef\022\n" +
-      "\n\002id\030\001 \001(\t\022\016\n\006num_id\030\002 \001(\r\022\036\n\005model\030\003 \001(" +
-      "\0162\017.BlockDef.Model\022\020\n\010textures\030\004 \003(\t\022\021\n\t" +
-      "tool_type\030\005 \003(\t\022\024\n\014mining_speed\030\006 \001(\002\022\024\n" +
-      "\014mining_power\030\007 \001(\002\022\r\n\005solid\030\010 \001(\010\022\r\n\005fl" +
-      "uid\030\t \001(\010\022\016\n\006opaque\030\n \001(\010\022\r\n\005color\030\013 \003(\002" +
-      "\022\020\n\010material\030\014 \003(\t\022\025\n\rfluid_density\030\r \001(" +
-      "\001\022\021\n\tviscosity\030\016 \001(\001\022\024\n\014custom_model\030\017 \001" +
-      "(\t\".\n\005Model\022\t\n\005BLOCK\020\000\022\t\n\005CROSS\020\001\022\017\n\013TRA" +
-      "NSPARENT\020\002*C\n\rInventoryType\022\010\n\004MAIN\020\000\022\t\n" +
-      "\005ARMOR\020\001\022\t\n\005CRAFT\020\002\022\010\n\004HOOK\020\003\022\010\n\004TEMP\020\004*" +
-      "A\n\rContainerType\022\n\n\006PLAYER\020\000\022\t\n\005CHEST\020\001\022" +
-      "\014\n\010CRAFTING\020\002\022\013\n\007FURNACE\020\003*=\n\016MouseClick" +
-      "Type\022\010\n\004LEFT\020\000\022\t\n\005RIGHT\020\001\022\n\n\006MIDDLE\020\002\022\n\n" +
-      "\006SELECT\020\003b\006proto3"
+      "\020\001\022\t\n\005CROSS\020\002\022\n\n\006CUSTOM\020\003\"\337\002\n\010BlockDef\022\n" +
+      "\n\002id\030\001 \001(\t\022\016\n\006num_id\030\002 \001(\r\022\034\n\004type\030\003 \001(\016" +
+      "2\016.BlockDef.Type\022\020\n\010textures\030\004 \003(\t\022\021\n\tto" +
+      "ol_type\030\005 \003(\t\022\024\n\014mining_speed\030\006 \001(\002\022\024\n\014m" +
+      "ining_power\030\007 \001(\002\022\r\n\005solid\030\010 \001(\010\022\r\n\005flui" +
+      "d\030\t \001(\010\022\016\n\006opaque\030\n \001(\010\022\r\n\005color\030\013 \003(\002\022\020" +
+      "\n\010material\030\014 \003(\t\022\025\n\rfluid_density\030\r \001(\001\022" +
+      "\021\n\tviscosity\030\016 \001(\001\022\024\n\014custom_model\030\017 \001(\t" +
+      "\"9\n\004Type\022\t\n\005BLOCK\020\000\022\t\n\005CROSS\020\001\022\017\n\013TRANSP" +
+      "ARENT\020\002\022\n\n\006CUSTOM\020\003*C\n\rInventoryType\022\010\n\004" +
+      "MAIN\020\000\022\t\n\005ARMOR\020\001\022\t\n\005CRAFT\020\002\022\010\n\004HOOK\020\003\022\010" +
+      "\n\004TEMP\020\004*A\n\rContainerType\022\n\n\006PLAYER\020\000\022\t\n" +
+      "\005CHEST\020\001\022\014\n\010CRAFTING\020\002\022\013\n\007FURNACE\020\003*=\n\016M" +
+      "ouseClickType\022\010\n\004LEFT\020\000\022\t\n\005RIGHT\020\001\022\n\n\006MI" +
+      "DDLE\020\002\022\n\n\006SELECT\020\003b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8469,7 +8478,7 @@ public final class Types {
     internal_static_BlockDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_BlockDef_descriptor,
-        new java.lang.String[] { "Id", "NumId", "Model", "Textures", "ToolType", "MiningSpeed", "MiningPower", "Solid", "Fluid", "Opaque", "Color", "Material", "FluidDensity", "Viscosity", "CustomModel", });
+        new java.lang.String[] { "Id", "NumId", "Type", "Textures", "ToolType", "MiningSpeed", "MiningPower", "Solid", "Fluid", "Opaque", "Color", "Material", "FluidDensity", "Viscosity", "CustomModel", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

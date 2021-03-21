@@ -256,10 +256,11 @@ message EntityCreate {
 	float pitch = 6;
 	string model = 7;
 	string texture = 8;
-	repeated BasicChatComponentType name = 9;
-	repeated float hitbox = 10;
-	string held_item = 11;
-	map<uint32, string> armor = 12;
+	bool nametag = 9;
+	repeated BasicChatComponentType name = 10;
+	repeated float hitbox = 11;
+	string held_item = 12;
+	map<uint32, string> armor = 13;
 }
 
 /* 

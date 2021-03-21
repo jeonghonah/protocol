@@ -4115,15 +4115,15 @@ public final class Types {
     int getNumId();
 
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @return The enum numeric value on the wire for model.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    int getModelValue();
+    int getTypeValue();
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @return The model.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @return The type.
      */
-    Types.BlockDef.Model getModel();
+    Types.BlockDef.Type getType();
 
     /**
      * <code>repeated string textures = 4;</code>
@@ -4288,9 +4288,9 @@ public final class Types {
       customModel_ = "";
     }
     /**
-     * Protobuf enum {@code BlockDef.Model}
+     * Protobuf enum {@code BlockDef.Type}
      */
-    public enum Model
+    public enum Type
         implements com.google.protobuf.Internal.EnumLite {
       /**
        * <code>BLOCK = 0;</code>
@@ -4304,6 +4304,10 @@ public final class Types {
        * <code>TRANSPARENT = 2;</code>
        */
       TRANSPARENT(2),
+      /**
+       * <code>CUSTOM = 3;</code>
+       */
+      CUSTOM(3),
       UNRECOGNIZED(-1),
       ;
 
@@ -4319,6 +4323,10 @@ public final class Types {
        * <code>TRANSPARENT = 2;</code>
        */
       public static final int TRANSPARENT_VALUE = 2;
+      /**
+       * <code>CUSTOM = 3;</code>
+       */
+      public static final int CUSTOM_VALUE = 3;
 
 
       @java.lang.Override
@@ -4336,53 +4344,54 @@ public final class Types {
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static Model valueOf(int value) {
+      public static Type valueOf(int value) {
         return forNumber(value);
       }
 
-      public static Model forNumber(int value) {
+      public static Type forNumber(int value) {
         switch (value) {
           case 0: return BLOCK;
           case 1: return CROSS;
           case 2: return TRANSPARENT;
+          case 3: return CUSTOM;
           default: return null;
         }
       }
 
-      public static com.google.protobuf.Internal.EnumLiteMap<Model>
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
           internalGetValueMap() {
         return internalValueMap;
       }
       private static final com.google.protobuf.Internal.EnumLiteMap<
-          Model> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Model>() {
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
               @java.lang.Override
-              public Model findValueByNumber(int number) {
-                return Model.forNumber(number);
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
               }
             };
 
       public static com.google.protobuf.Internal.EnumVerifier 
           internalGetVerifier() {
-        return ModelVerifier.INSTANCE;
+        return TypeVerifier.INSTANCE;
       }
 
-      private static final class ModelVerifier implements 
+      private static final class TypeVerifier implements 
            com.google.protobuf.Internal.EnumVerifier { 
-              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new ModelVerifier();
+              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new TypeVerifier();
               @java.lang.Override
               public boolean isInRange(int number) {
-                return Model.forNumber(number) != null;
+                return Type.forNumber(number) != null;
               }
             };
 
       private final int value;
 
-      private Model(int value) {
+      private Type(int value) {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:BlockDef.Model)
+      // @@protoc_insertion_point(enum_scope:BlockDef.Type)
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -4458,46 +4467,46 @@ public final class Types {
       numId_ = 0;
     }
 
-    public static final int MODEL_FIELD_NUMBER = 3;
-    private int model_;
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private int type_;
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @return The enum numeric value on the wire for model.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @return The enum numeric value on the wire for type.
      */
     @java.lang.Override
-    public int getModelValue() {
-      return model_;
+    public int getTypeValue() {
+      return type_;
     }
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @return The model.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @return The type.
      */
     @java.lang.Override
-    public Types.BlockDef.Model getModel() {
-      Types.BlockDef.Model result = Types.BlockDef.Model.forNumber(model_);
-      return result == null ? Types.BlockDef.Model.UNRECOGNIZED : result;
+    public Types.BlockDef.Type getType() {
+      Types.BlockDef.Type result = Types.BlockDef.Type.forNumber(type_);
+      return result == null ? Types.BlockDef.Type.UNRECOGNIZED : result;
     }
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @param value The enum numeric value on the wire for model to set.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @param value The enum numeric value on the wire for type to set.
      */
-    private void setModelValue(int value) {
-        model_ = value;
+    private void setTypeValue(int value) {
+        type_ = value;
     }
     /**
-     * <code>.BlockDef.Model model = 3;</code>
-     * @param value The model to set.
+     * <code>.BlockDef.Type type = 3;</code>
+     * @param value The type to set.
      */
-    private void setModel(Types.BlockDef.Model value) {
-      model_ = value.getNumber();
+    private void setType(Types.BlockDef.Type value) {
+      type_ = value.getNumber();
       
     }
     /**
-     * <code>.BlockDef.Model model = 3;</code>
+     * <code>.BlockDef.Type type = 3;</code>
      */
-    private void clearModel() {
+    private void clearType() {
       
-      model_ = 0;
+      type_ = 0;
     }
 
     public static final int TEXTURES_FIELD_NUMBER = 4;
@@ -5252,48 +5261,48 @@ public final class Types {
       }
 
       /**
-       * <code>.BlockDef.Model model = 3;</code>
-       * @return The enum numeric value on the wire for model.
+       * <code>.BlockDef.Type type = 3;</code>
+       * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override
-      public int getModelValue() {
-        return instance.getModelValue();
+      public int getTypeValue() {
+        return instance.getTypeValue();
       }
       /**
-       * <code>.BlockDef.Model model = 3;</code>
-       * @param value The model to set.
+       * <code>.BlockDef.Type type = 3;</code>
+       * @param value The type to set.
        * @return This builder for chaining.
        */
-      public Builder setModelValue(int value) {
+      public Builder setTypeValue(int value) {
         copyOnWrite();
-        instance.setModelValue(value);
+        instance.setTypeValue(value);
         return this;
       }
       /**
-       * <code>.BlockDef.Model model = 3;</code>
-       * @return The model.
+       * <code>.BlockDef.Type type = 3;</code>
+       * @return The type.
        */
       @java.lang.Override
-      public Types.BlockDef.Model getModel() {
-        return instance.getModel();
+      public Types.BlockDef.Type getType() {
+        return instance.getType();
       }
       /**
-       * <code>.BlockDef.Model model = 3;</code>
-       * @param value The enum numeric value on the wire for model to set.
+       * <code>.BlockDef.Type type = 3;</code>
+       * @param value The enum numeric value on the wire for type to set.
        * @return This builder for chaining.
        */
-      public Builder setModel(Types.BlockDef.Model value) {
+      public Builder setType(Types.BlockDef.Type value) {
         copyOnWrite();
-        instance.setModel(value);
+        instance.setType(value);
         return this;
       }
       /**
-       * <code>.BlockDef.Model model = 3;</code>
+       * <code>.BlockDef.Type type = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearModel() {
+      public Builder clearType() {
         copyOnWrite();
-        instance.clearModel();
+        instance.clearType();
         return this;
       }
 
@@ -5905,7 +5914,7 @@ public final class Types {
             java.lang.Object[] objects = new java.lang.Object[] {
               "id_",
               "numId_",
-              "model_",
+              "type_",
               "textures_",
               "toolType_",
               "miningSpeed_",

@@ -37,19 +37,20 @@ public static partial class TypesReflection {
           "bWluaW5nX3Bvd2VyGAkgASgCEhQKDGN1c3RvbV9tb2RlbBgKIAEoCRIVCg1h",
           "cm1vcl90ZXh0dXJlGAsgASgJIjAKBFR5cGUSCAoETk9ORRAAEggKBFRPT0wQ",
           "ARIJCgVCTE9DSxACEgkKBUFSTU9SEAMiMgoFTW9kZWwSCAoERkxBVBAAEggK",
-          "BENVQkUQARIJCgVDUk9TUxACEgoKBkNVU1RPTRADItYCCghCbG9ja0RlZhIK",
-          "CgJpZBgBIAEoCRIOCgZudW1faWQYAiABKA0SHgoFbW9kZWwYAyABKA4yDy5C",
-          "bG9ja0RlZi5Nb2RlbBIQCgh0ZXh0dXJlcxgEIAMoCRIRCgl0b29sX3R5cGUY",
-          "BSADKAkSFAoMbWluaW5nX3NwZWVkGAYgASgCEhQKDG1pbmluZ19wb3dlchgH",
-          "IAEoAhINCgVzb2xpZBgIIAEoCBINCgVmbHVpZBgJIAEoCBIOCgZvcGFxdWUY",
-          "CiABKAgSDQoFY29sb3IYCyADKAISEAoIbWF0ZXJpYWwYDCADKAkSFQoNZmx1",
-          "aWRfZGVuc2l0eRgNIAEoARIRCgl2aXNjb3NpdHkYDiABKAESFAoMY3VzdG9t",
-          "X21vZGVsGA8gASgJIi4KBU1vZGVsEgkKBUJMT0NLEAASCQoFQ1JPU1MQARIP",
-          "CgtUUkFOU1BBUkVOVBACKkMKDUludmVudG9yeVR5cGUSCAoETUFJThAAEgkK",
-          "BUFSTU9SEAESCQoFQ1JBRlQQAhIICgRIT09LEAMSCAoEVEVNUBAEKkEKDUNv",
-          "bnRhaW5lclR5cGUSCgoGUExBWUVSEAASCQoFQ0hFU1QQARIMCghDUkFGVElO",
-          "RxACEgsKB0ZVUk5BQ0UQAyo9Cg5Nb3VzZUNsaWNrVHlwZRIICgRMRUZUEAAS",
-          "CQoFUklHSFQQARIKCgZNSURETEUQAhIKCgZTRUxFQ1QQA2IGcHJvdG8z"));
+          "BENVQkUQARIJCgVDUk9TUxACEgoKBkNVU1RPTRADIt8CCghCbG9ja0RlZhIK",
+          "CgJpZBgBIAEoCRIOCgZudW1faWQYAiABKA0SHAoEdHlwZRgDIAEoDjIOLkJs",
+          "b2NrRGVmLlR5cGUSEAoIdGV4dHVyZXMYBCADKAkSEQoJdG9vbF90eXBlGAUg",
+          "AygJEhQKDG1pbmluZ19zcGVlZBgGIAEoAhIUCgxtaW5pbmdfcG93ZXIYByAB",
+          "KAISDQoFc29saWQYCCABKAgSDQoFZmx1aWQYCSABKAgSDgoGb3BhcXVlGAog",
+          "ASgIEg0KBWNvbG9yGAsgAygCEhAKCG1hdGVyaWFsGAwgAygJEhUKDWZsdWlk",
+          "X2RlbnNpdHkYDSABKAESEQoJdmlzY29zaXR5GA4gASgBEhQKDGN1c3RvbV9t",
+          "b2RlbBgPIAEoCSI5CgRUeXBlEgkKBUJMT0NLEAASCQoFQ1JPU1MQARIPCgtU",
+          "UkFOU1BBUkVOVBACEgoKBkNVU1RPTRADKkMKDUludmVudG9yeVR5cGUSCAoE",
+          "TUFJThAAEgkKBUFSTU9SEAESCQoFQ1JBRlQQAhIICgRIT09LEAMSCAoEVEVN",
+          "UBAEKkEKDUNvbnRhaW5lclR5cGUSCgoGUExBWUVSEAASCQoFQ0hFU1QQARIM",
+          "CghDUkFGVElORxACEgsKB0ZVUk5BQ0UQAyo9Cg5Nb3VzZUNsaWNrVHlwZRII",
+          "CgRMRUZUEAASCQoFUklHSFQQARIKCgZNSURETEUQAhIKCgZTRUxFQ1QQA2IG",
+          "cHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::InventoryType), typeof(global::ContainerType), typeof(global::MouseClickType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -57,7 +58,7 @@ public static partial class TypesReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::BasicChatComponentType), global::BasicChatComponentType.Parser, new[]{ "Text", "Font", "Color", "Linethrough", "Underline" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Item), global::Item.Parser, new[]{ "Id", "Count", "Damage", "Name" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ItemDef), global::ItemDef.Parser, new[]{ "Id", "MaxStack", "Name", "Type", "Model", "Textures", "ToolType", "MiningSpeed", "MiningPower", "CustomModel", "ArmorTexture" }, null, new[]{ typeof(global::ItemDef.Types.Type), typeof(global::ItemDef.Types.Model) }, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::BlockDef), global::BlockDef.Parser, new[]{ "Id", "NumId", "Model", "Textures", "ToolType", "MiningSpeed", "MiningPower", "Solid", "Fluid", "Opaque", "Color", "Material", "FluidDensity", "Viscosity", "CustomModel" }, null, new[]{ typeof(global::BlockDef.Types.Model) }, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::BlockDef), global::BlockDef.Parser, new[]{ "Id", "NumId", "Type", "Textures", "ToolType", "MiningSpeed", "MiningPower", "Solid", "Fluid", "Opaque", "Color", "Material", "FluidDensity", "Viscosity", "CustomModel" }, null, new[]{ typeof(global::BlockDef.Types.Type) }, null, null)
         }));
   }
   #endregion
@@ -1577,7 +1578,7 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
   public BlockDef(BlockDef other) : this() {
     id_ = other.id_;
     numId_ = other.numId_;
-    model_ = other.model_;
+    type_ = other.type_;
     textures_ = other.textures_.Clone();
     toolType_ = other.toolType_.Clone();
     miningSpeed_ = other.miningSpeed_;
@@ -1620,14 +1621,14 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
     }
   }
 
-  /// <summary>Field number for the "model" field.</summary>
-  public const int ModelFieldNumber = 3;
-  private global::BlockDef.Types.Model model_ = global::BlockDef.Types.Model.Block;
+  /// <summary>Field number for the "type" field.</summary>
+  public const int TypeFieldNumber = 3;
+  private global::BlockDef.Types.Type type_ = global::BlockDef.Types.Type.Block;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  public global::BlockDef.Types.Model Model {
-    get { return model_; }
+  public global::BlockDef.Types.Type Type {
+    get { return type_; }
     set {
-      model_ = value;
+      type_ = value;
     }
   }
 
@@ -1774,7 +1775,7 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
     }
     if (Id != other.Id) return false;
     if (NumId != other.NumId) return false;
-    if (Model != other.Model) return false;
+    if (Type != other.Type) return false;
     if(!textures_.Equals(other.textures_)) return false;
     if(!toolType_.Equals(other.toolType_)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MiningSpeed, other.MiningSpeed)) return false;
@@ -1795,7 +1796,7 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
     int hash = 1;
     if (Id.Length != 0) hash ^= Id.GetHashCode();
     if (NumId != 0) hash ^= NumId.GetHashCode();
-    if (Model != global::BlockDef.Types.Model.Block) hash ^= Model.GetHashCode();
+    if (Type != global::BlockDef.Types.Type.Block) hash ^= Type.GetHashCode();
     hash ^= textures_.GetHashCode();
     hash ^= toolType_.GetHashCode();
     if (MiningSpeed != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MiningSpeed);
@@ -1832,9 +1833,9 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
       output.WriteRawTag(16);
       output.WriteUInt32(NumId);
     }
-    if (Model != global::BlockDef.Types.Model.Block) {
+    if (Type != global::BlockDef.Types.Type.Block) {
       output.WriteRawTag(24);
-      output.WriteEnum((int) Model);
+      output.WriteEnum((int) Type);
     }
     textures_.WriteTo(output, _repeated_textures_codec);
     toolType_.WriteTo(output, _repeated_toolType_codec);
@@ -1889,9 +1890,9 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
       output.WriteRawTag(16);
       output.WriteUInt32(NumId);
     }
-    if (Model != global::BlockDef.Types.Model.Block) {
+    if (Type != global::BlockDef.Types.Type.Block) {
       output.WriteRawTag(24);
-      output.WriteEnum((int) Model);
+      output.WriteEnum((int) Type);
     }
     textures_.WriteTo(ref output, _repeated_textures_codec);
     toolType_.WriteTo(ref output, _repeated_toolType_codec);
@@ -1944,8 +1945,8 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
     if (NumId != 0) {
       size += 1 + pb::CodedOutputStream.ComputeUInt32Size(NumId);
     }
-    if (Model != global::BlockDef.Types.Model.Block) {
-      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Model);
+    if (Type != global::BlockDef.Types.Type.Block) {
+      size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
     }
     size += textures_.CalculateSize(_repeated_textures_codec);
     size += toolType_.CalculateSize(_repeated_toolType_codec);
@@ -1992,8 +1993,8 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
     if (other.NumId != 0) {
       NumId = other.NumId;
     }
-    if (other.Model != global::BlockDef.Types.Model.Block) {
-      Model = other.Model;
+    if (other.Type != global::BlockDef.Types.Type.Block) {
+      Type = other.Type;
     }
     textures_.Add(other.textures_);
     toolType_.Add(other.toolType_);
@@ -2046,7 +2047,7 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
           break;
         }
         case 24: {
-          Model = (global::BlockDef.Types.Model) input.ReadEnum();
+          Type = (global::BlockDef.Types.Type) input.ReadEnum();
           break;
         }
         case 34: {
@@ -2121,7 +2122,7 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
           break;
         }
         case 24: {
-          Model = (global::BlockDef.Types.Model) input.ReadEnum();
+          Type = (global::BlockDef.Types.Type) input.ReadEnum();
           break;
         }
         case 34: {
@@ -2182,10 +2183,11 @@ public sealed partial class BlockDef : pb::IMessage<BlockDef>
   /// <summary>Container for nested types declared in the BlockDef message type.</summary>
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static partial class Types {
-    public enum Model {
+    public enum Type {
       [pbr::OriginalName("BLOCK")] Block = 0,
       [pbr::OriginalName("CROSS")] Cross = 1,
       [pbr::OriginalName("TRANSPARENT")] Transparent = 2,
+      [pbr::OriginalName("CUSTOM")] Custom = 3,
     }
 
   }

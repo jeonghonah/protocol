@@ -1143,8 +1143,8 @@ export class BlockDef implements IBlockDef {
     /** BlockDef numId. */
     public numId: number;
 
-    /** BlockDef model. */
-    public model: BlockDef.Model;
+    /** BlockDef type. */
+    public type: BlockDef.Type;
 
     /** BlockDef textures. */
     public textures: string[];
@@ -1255,10 +1255,11 @@ export class BlockDef implements IBlockDef {
 
 export namespace BlockDef {
 
-    /** Model enum. */
-    enum Model {
+    /** Type enum. */
+    enum Type {
         BLOCK = 0,
         CROSS = 1,
-        TRANSPARENT = 2
+        TRANSPARENT = 2,
+        CUSTOM = 3
     }
 }

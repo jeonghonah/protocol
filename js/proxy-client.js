@@ -2570,7 +2570,7 @@
          * @interface IBlockDef
          * @property {string|null} [id] BlockDef id
          * @property {number|null} [numId] BlockDef numId
-         * @property {BlockDef.Model|null} [model] BlockDef model
+         * @property {BlockDef.Type|null} [type] BlockDef type
          * @property {Array.<string>|null} [textures] BlockDef textures
          * @property {Array.<string>|null} [toolType] BlockDef toolType
          * @property {number|null} [miningSpeed] BlockDef miningSpeed
@@ -2621,12 +2621,12 @@
         BlockDef.prototype.numId = 0;
     
         /**
-         * BlockDef model.
-         * @member {BlockDef.Model} model
+         * BlockDef type.
+         * @member {BlockDef.Type} type
          * @memberof BlockDef
          * @instance
          */
-        BlockDef.prototype.model = 0;
+        BlockDef.prototype.type = 0;
     
         /**
          * BlockDef textures.
@@ -2752,8 +2752,8 @@
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
             if (message.numId != null && Object.hasOwnProperty.call(message, "numId"))
                 writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.numId);
-            if (message.model != null && Object.hasOwnProperty.call(message, "model"))
-                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.model);
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.type);
             if (message.textures != null && message.textures.length)
                 for (var i = 0; i < message.textures.length; ++i)
                     writer.uint32(/* id 4, wireType 2 =*/34).string(message.textures[i]);
@@ -2826,7 +2826,7 @@
                     message.numId = reader.uint32();
                     break;
                 case 3:
-                    message.model = reader.int32();
+                    message.type = reader.int32();
                     break;
                 case 4:
                     if (!(message.textures && message.textures.length))
@@ -2918,13 +2918,14 @@
             if (message.numId != null && message.hasOwnProperty("numId"))
                 if (!$util.isInteger(message.numId))
                     return "numId: integer expected";
-            if (message.model != null && message.hasOwnProperty("model"))
-                switch (message.model) {
+            if (message.type != null && message.hasOwnProperty("type"))
+                switch (message.type) {
                 default:
-                    return "model: enum value expected";
+                    return "type: enum value expected";
                 case 0:
                 case 1:
                 case 2:
+                case 3:
                     break;
                 }
             if (message.textures != null && message.hasOwnProperty("textures")) {
@@ -2998,18 +2999,22 @@
                 message.id = String(object.id);
             if (object.numId != null)
                 message.numId = object.numId >>> 0;
-            switch (object.model) {
+            switch (object.type) {
             case "BLOCK":
             case 0:
-                message.model = 0;
+                message.type = 0;
                 break;
             case "CROSS":
             case 1:
-                message.model = 1;
+                message.type = 1;
                 break;
             case "TRANSPARENT":
             case 2:
-                message.model = 2;
+                message.type = 2;
+                break;
+            case "CUSTOM":
+            case 3:
+                message.type = 3;
                 break;
             }
             if (object.textures) {
@@ -3081,7 +3086,7 @@
             if (options.defaults) {
                 object.id = "";
                 object.numId = 0;
-                object.model = options.enums === String ? "BLOCK" : 0;
+                object.type = options.enums === String ? "BLOCK" : 0;
                 object.miningSpeed = 0;
                 object.miningPower = 0;
                 object.solid = false;
@@ -3095,8 +3100,8 @@
                 object.id = message.id;
             if (message.numId != null && message.hasOwnProperty("numId"))
                 object.numId = message.numId;
-            if (message.model != null && message.hasOwnProperty("model"))
-                object.model = options.enums === String ? $root.BlockDef.Model[message.model] : message.model;
+            if (message.type != null && message.hasOwnProperty("type"))
+                object.type = options.enums === String ? $root.BlockDef.Type[message.type] : message.type;
             if (message.textures && message.textures.length) {
                 object.textures = [];
                 for (var j = 0; j < message.textures.length; ++j)
@@ -3148,18 +3153,20 @@
         };
     
         /**
-         * Model enum.
-         * @name BlockDef.Model
+         * Type enum.
+         * @name BlockDef.Type
          * @enum {number}
          * @property {number} BLOCK=0 BLOCK value
          * @property {number} CROSS=1 CROSS value
          * @property {number} TRANSPARENT=2 TRANSPARENT value
+         * @property {number} CUSTOM=3 CUSTOM value
          */
-        BlockDef.Model = (function() {
+        BlockDef.Type = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "BLOCK"] = 0;
             values[valuesById[1] = "CROSS"] = 1;
             values[valuesById[2] = "TRANSPARENT"] = 2;
+            values[valuesById[3] = "CUSTOM"] = 3;
             return values;
         })();
     

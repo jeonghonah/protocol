@@ -74,45 +74,45 @@ public static partial class ServerReflection {
           "DAoEdGltZRgCIAEoBCKhAQoPVXBkYXRlVGV4dEJvYXJkEiMKBHR5cGUYASAB",
           "KA4yFS5VcGRhdGVUZXh0Qm9hcmQuVHlwZRIoCgdtZXNzYWdlGAIgAygLMhcu",
           "QmFzaWNDaGF0Q29tcG9uZW50VHlwZRIMCgR0aW1lGAMgASgEIjEKBFR5cGUS",
-          "BwoDVEFCEAASCAoEU0lERRABEgoKBkNFTlRFUhACEgoKBkhPVEJBUhADIp8C",
+          "BwoDVEFCEAASCAoEU0lERRABEgoKBkNFTlRFUhACEgoKBkhPVEJBUhADIrAC",
           "CgxFbnRpdHlDcmVhdGUSDAoEdXVpZBgBIAEoCRIJCgF4GAIgASgBEgkKAXkY",
           "AyABKAESCQoBehgEIAEoARIQCghyb3RhdGlvbhgFIAEoAhINCgVwaXRjaBgG",
-          "IAEoAhINCgVtb2RlbBgHIAEoCRIPCgd0ZXh0dXJlGAggASgJEiUKBG5hbWUY",
-          "CSADKAsyFy5CYXNpY0NoYXRDb21wb25lbnRUeXBlEg4KBmhpdGJveBgKIAMo",
-          "AhIRCgloZWxkX2l0ZW0YCyABKAkSJwoFYXJtb3IYDCADKAsyGC5FbnRpdHlD",
-          "cmVhdGUuQXJtb3JFbnRyeRosCgpBcm1vckVudHJ5EgsKA2tleRgBIAEoDRIN",
-          "CgV2YWx1ZRgCIAEoCToCOAEiHAoMRW50aXR5UmVtb3ZlEgwKBHV1aWQYASAB",
-          "KAkiXAoKRW50aXR5TW92ZRIMCgR1dWlkGAEgASgJEgkKAXgYAiABKAESCQoB",
-          "eRgDIAEoARIJCgF6GAQgASgBEhAKCHJvdGF0aW9uGAUgASgCEg0KBXBpdGNo",
-          "GAYgASgCIlgKEEVudGl0eU5hbWVVcGRhdGUSDAoEdXVpZBgBIAEoCRIlCgRu",
-          "YW1lGAIgAygLMhcuQmFzaWNDaGF0Q29tcG9uZW50VHlwZRIPCgd2aXNpYmxl",
-          "GAMgASgIIioKDkVudGl0eUhlbGRJdGVtEgwKBHV1aWQYASABKAkSCgoCaWQY",
-          "AiABKAkiNQoLRW50aXR5QXJtb3ISDAoEdXVpZBgBIAEoCRIMCgR0eXBlGAIg",
-          "ASgFEgoKAmlkGAMgASgJIk8KDUVudGl0eUFuaW1hdGUSDAoEdXVpZBgBIAEo",
-          "CRIRCglhbmltYXRpb24YAiABKAkSDAoEdGltZRgDIAEoDRIPCgdyZXBsYWNl",
-          "GAQgASgIIlIKEFdvcmxkQmxvY2tVcGRhdGUSCQoBeBgBIAEoERIJCgF5GAIg",
-          "ASgREgkKAXoYAyABKBESCgoCaWQYBCABKA0SEQoJcGFydGljbGVzGAUgASgI",
-          "IjoKFVdvcmxkTXVsdGlCbG9ja1VwZGF0ZRIhCgZibG9ja3MYASADKAsyES5X",
-          "b3JsZEJsb2NrVXBkYXRlIn0KDldvcmxkQ2h1bmtMb2FkEgkKAXgYASABKBES",
-          "CQoBeRgCIAEoERIJCgF6GAMgASgREg4KBmhlaWdodBgEIAEoERISCgpjb21w",
-          "cmVzc2VkGAUgASgIEhIKCmJsb2NrX2RhdGEYBiABKAwSEgoKbGlnaHRfZGF0",
-          "YRgHIAEoDCJDChBXb3JsZENodW5rVW5sb2FkEgkKAXgYASABKBESCQoBeRgC",
-          "IAEoERIJCgF6GAMgASgREg4KBmhlaWdodBgEIAEoESI1ChJXb3JsZENodW5r",
-          "SXNMb2FkZWQSCQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoYAyABKBEiJwoU",
-          "V29ybGRDaHVua3NSZW1vdmVBbGwSDwoHY29uZmlybRgBIAEoCCImChVFbnZp",
-          "cm9ubWVudFRpbWVVcGRhdGUSDQoFdmFsdWUYASABKAUijQEKFEVudmlyb25t",
-          "ZW50Rm9nVXBkYXRlEgwKBG1vZGUYASABKA0SDwoHZGVuc2l0eRgCIAEoAhIN",
-          "CgVzdGFydBgDIAEoAhILCgNlbmQYBCABKAISEQoJY29sb3JfcmVkGAUgASgC",
-          "EhMKC2NvbG9yX2dyZWVuGAYgASgCEhIKCmNvbG9yX2JsdWUYByABKAIi+wEK",
-          "FEVudmlyb25tZW50U2t5VXBkYXRlEg4KBmNsb3VkcxgBIAEoCBIRCgljb2xv",
-          "cl9yZWQYAiABKAISEwoLY29sb3JfZ3JlZW4YAyABKAISEgoKY29sb3JfYmx1",
-          "ZRgEIAEoAhIVCg1jb2xvcl9yZWRfdG9wGAUgASgCEhcKD2NvbG9yX2dyZWVu",
-          "X3RvcBgGIAEoAhIWCg5jb2xvcl9ibHVlX3RvcBgHIAEoAhIYChBjb2xvcl9y",
-          "ZWRfYm90dG9tGAggASgCEhoKEmNvbG9yX2dyZWVuX2JvdHRvbRgJIAEoAhIZ",
-          "ChFjb2xvcl9ibHVlX2JvdHRvbRgKIAEoAiI3ChRFbnZpcm9ubWVudFNldFNr",
-          "eWJveBIOCgZlbmFibGUYASABKAgSDwoHdGV4dHVyZRgCIAEoCSI8Cg1QbHVn",
-          "aW5NZXNzYWdlEgsKA2tleRgBIAEoCRIPCgd2ZXJzaW9uGAIgASgNEg0KBXZh",
-          "bHVlGAMgASgMYgZwcm90bzM="));
+          "IAEoAhINCgVtb2RlbBgHIAEoCRIPCgd0ZXh0dXJlGAggASgJEg8KB25hbWV0",
+          "YWcYCSABKAgSJQoEbmFtZRgKIAMoCzIXLkJhc2ljQ2hhdENvbXBvbmVudFR5",
+          "cGUSDgoGaGl0Ym94GAsgAygCEhEKCWhlbGRfaXRlbRgMIAEoCRInCgVhcm1v",
+          "chgNIAMoCzIYLkVudGl0eUNyZWF0ZS5Bcm1vckVudHJ5GiwKCkFybW9yRW50",
+          "cnkSCwoDa2V5GAEgASgNEg0KBXZhbHVlGAIgASgJOgI4ASIcCgxFbnRpdHlS",
+          "ZW1vdmUSDAoEdXVpZBgBIAEoCSJcCgpFbnRpdHlNb3ZlEgwKBHV1aWQYASAB",
+          "KAkSCQoBeBgCIAEoARIJCgF5GAMgASgBEgkKAXoYBCABKAESEAoIcm90YXRp",
+          "b24YBSABKAISDQoFcGl0Y2gYBiABKAIiWAoQRW50aXR5TmFtZVVwZGF0ZRIM",
+          "CgR1dWlkGAEgASgJEiUKBG5hbWUYAiADKAsyFy5CYXNpY0NoYXRDb21wb25l",
+          "bnRUeXBlEg8KB3Zpc2libGUYAyABKAgiKgoORW50aXR5SGVsZEl0ZW0SDAoE",
+          "dXVpZBgBIAEoCRIKCgJpZBgCIAEoCSI1CgtFbnRpdHlBcm1vchIMCgR1dWlk",
+          "GAEgASgJEgwKBHR5cGUYAiABKAUSCgoCaWQYAyABKAkiTwoNRW50aXR5QW5p",
+          "bWF0ZRIMCgR1dWlkGAEgASgJEhEKCWFuaW1hdGlvbhgCIAEoCRIMCgR0aW1l",
+          "GAMgASgNEg8KB3JlcGxhY2UYBCABKAgiUgoQV29ybGRCbG9ja1VwZGF0ZRIJ",
+          "CgF4GAEgASgREgkKAXkYAiABKBESCQoBehgDIAEoERIKCgJpZBgEIAEoDRIR",
+          "CglwYXJ0aWNsZXMYBSABKAgiOgoVV29ybGRNdWx0aUJsb2NrVXBkYXRlEiEK",
+          "BmJsb2NrcxgBIAMoCzIRLldvcmxkQmxvY2tVcGRhdGUifQoOV29ybGRDaHVu",
+          "a0xvYWQSCQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoYAyABKBESDgoGaGVp",
+          "Z2h0GAQgASgREhIKCmNvbXByZXNzZWQYBSABKAgSEgoKYmxvY2tfZGF0YRgG",
+          "IAEoDBISCgpsaWdodF9kYXRhGAcgASgMIkMKEFdvcmxkQ2h1bmtVbmxvYWQS",
+          "CQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoYAyABKBESDgoGaGVpZ2h0GAQg",
+          "ASgRIjUKEldvcmxkQ2h1bmtJc0xvYWRlZBIJCgF4GAEgASgREgkKAXkYAiAB",
+          "KBESCQoBehgDIAEoESInChRXb3JsZENodW5rc1JlbW92ZUFsbBIPCgdjb25m",
+          "aXJtGAEgASgIIiYKFUVudmlyb25tZW50VGltZVVwZGF0ZRINCgV2YWx1ZRgB",
+          "IAEoBSKNAQoURW52aXJvbm1lbnRGb2dVcGRhdGUSDAoEbW9kZRgBIAEoDRIP",
+          "CgdkZW5zaXR5GAIgASgCEg0KBXN0YXJ0GAMgASgCEgsKA2VuZBgEIAEoAhIR",
+          "Cgljb2xvcl9yZWQYBSABKAISEwoLY29sb3JfZ3JlZW4YBiABKAISEgoKY29s",
+          "b3JfYmx1ZRgHIAEoAiL7AQoURW52aXJvbm1lbnRTa3lVcGRhdGUSDgoGY2xv",
+          "dWRzGAEgASgIEhEKCWNvbG9yX3JlZBgCIAEoAhITCgtjb2xvcl9ncmVlbhgD",
+          "IAEoAhISCgpjb2xvcl9ibHVlGAQgASgCEhUKDWNvbG9yX3JlZF90b3AYBSAB",
+          "KAISFwoPY29sb3JfZ3JlZW5fdG9wGAYgASgCEhYKDmNvbG9yX2JsdWVfdG9w",
+          "GAcgASgCEhgKEGNvbG9yX3JlZF9ib3R0b20YCCABKAISGgoSY29sb3JfZ3Jl",
+          "ZW5fYm90dG9tGAkgASgCEhkKEWNvbG9yX2JsdWVfYm90dG9tGAogASgCIjcK",
+          "FEVudmlyb25tZW50U2V0U2t5Ym94Eg4KBmVuYWJsZRgBIAEoCBIPCgd0ZXh0",
+          "dXJlGAIgASgJIjwKDVBsdWdpbk1lc3NhZ2USCwoDa2V5GAEgASgJEg8KB3Zl",
+          "cnNpb24YAiABKA0SDQoFdmFsdWUYAyABKAxiBnByb3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { global::TypesReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -137,7 +137,7 @@ public static partial class ServerReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::SoundPlay), global::SoundPlay.Parser, new[]{ "Sound", "Volume", "X", "Y", "Z", "Type" }, null, new[]{ typeof(global::SoundPlay.Types.Type) }, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ChatMessage), global::ChatMessage.Parser, new[]{ "Message", "Time" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::UpdateTextBoard), global::UpdateTextBoard.Parser, new[]{ "Type", "Message", "Time" }, null, new[]{ typeof(global::UpdateTextBoard.Types.Type) }, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::EntityCreate), global::EntityCreate.Parser, new[]{ "Uuid", "X", "Y", "Z", "Rotation", "Pitch", "Model", "Texture", "Name", "Hitbox", "HeldItem", "Armor" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+          new pbr::GeneratedClrTypeInfo(typeof(global::EntityCreate), global::EntityCreate.Parser, new[]{ "Uuid", "X", "Y", "Z", "Rotation", "Pitch", "Model", "Texture", "Nametag", "Name", "Hitbox", "HeldItem", "Armor" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
           new pbr::GeneratedClrTypeInfo(typeof(global::EntityRemove), global::EntityRemove.Parser, new[]{ "Uuid" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::EntityMove), global::EntityMove.Parser, new[]{ "Uuid", "X", "Y", "Z", "Rotation", "Pitch" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::EntityNameUpdate), global::EntityNameUpdate.Parser, new[]{ "Uuid", "Name", "Visible" }, null, null, null, null),
@@ -5656,6 +5656,7 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
     pitch_ = other.pitch_;
     model_ = other.model_;
     texture_ = other.texture_;
+    nametag_ = other.nametag_;
     name_ = other.name_.Clone();
     hitbox_ = other.hitbox_.Clone();
     heldItem_ = other.heldItem_;
@@ -5756,10 +5757,21 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
     }
   }
 
+  /// <summary>Field number for the "nametag" field.</summary>
+  public const int NametagFieldNumber = 9;
+  private bool nametag_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Nametag {
+    get { return nametag_; }
+    set {
+      nametag_ = value;
+    }
+  }
+
   /// <summary>Field number for the "name" field.</summary>
-  public const int NameFieldNumber = 9;
+  public const int NameFieldNumber = 10;
   private static readonly pb::FieldCodec<global::BasicChatComponentType> _repeated_name_codec
-      = pb::FieldCodec.ForMessage(74, global::BasicChatComponentType.Parser);
+      = pb::FieldCodec.ForMessage(82, global::BasicChatComponentType.Parser);
   private readonly pbc::RepeatedField<global::BasicChatComponentType> name_ = new pbc::RepeatedField<global::BasicChatComponentType>();
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<global::BasicChatComponentType> Name {
@@ -5767,9 +5779,9 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
   }
 
   /// <summary>Field number for the "hitbox" field.</summary>
-  public const int HitboxFieldNumber = 10;
+  public const int HitboxFieldNumber = 11;
   private static readonly pb::FieldCodec<float> _repeated_hitbox_codec
-      = pb::FieldCodec.ForFloat(82);
+      = pb::FieldCodec.ForFloat(90);
   private readonly pbc::RepeatedField<float> hitbox_ = new pbc::RepeatedField<float>();
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::RepeatedField<float> Hitbox {
@@ -5777,7 +5789,7 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
   }
 
   /// <summary>Field number for the "held_item" field.</summary>
-  public const int HeldItemFieldNumber = 11;
+  public const int HeldItemFieldNumber = 12;
   private string heldItem_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public string HeldItem {
@@ -5788,9 +5800,9 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
   }
 
   /// <summary>Field number for the "armor" field.</summary>
-  public const int ArmorFieldNumber = 12;
+  public const int ArmorFieldNumber = 13;
   private static readonly pbc::MapField<uint, string>.Codec _map_armor_codec
-      = new pbc::MapField<uint, string>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForString(18, ""), 98);
+      = new pbc::MapField<uint, string>.Codec(pb::FieldCodec.ForUInt32(8, 0), pb::FieldCodec.ForString(18, ""), 106);
   private readonly pbc::MapField<uint, string> armor_ = new pbc::MapField<uint, string>();
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public pbc::MapField<uint, string> Armor {
@@ -5818,6 +5830,7 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Pitch, other.Pitch)) return false;
     if (Model != other.Model) return false;
     if (Texture != other.Texture) return false;
+    if (Nametag != other.Nametag) return false;
     if(!name_.Equals(other.name_)) return false;
     if(!hitbox_.Equals(other.hitbox_)) return false;
     if (HeldItem != other.HeldItem) return false;
@@ -5836,6 +5849,7 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
     if (Pitch != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Pitch);
     if (Model.Length != 0) hash ^= Model.GetHashCode();
     if (Texture.Length != 0) hash ^= Texture.GetHashCode();
+    if (Nametag != false) hash ^= Nametag.GetHashCode();
     hash ^= name_.GetHashCode();
     hash ^= hitbox_.GetHashCode();
     if (HeldItem.Length != 0) hash ^= HeldItem.GetHashCode();
@@ -5888,10 +5902,14 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
       output.WriteRawTag(66);
       output.WriteString(Texture);
     }
+    if (Nametag != false) {
+      output.WriteRawTag(72);
+      output.WriteBool(Nametag);
+    }
     name_.WriteTo(output, _repeated_name_codec);
     hitbox_.WriteTo(output, _repeated_hitbox_codec);
     if (HeldItem.Length != 0) {
-      output.WriteRawTag(90);
+      output.WriteRawTag(98);
       output.WriteString(HeldItem);
     }
     armor_.WriteTo(output, _map_armor_codec);
@@ -5936,10 +5954,14 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
       output.WriteRawTag(66);
       output.WriteString(Texture);
     }
+    if (Nametag != false) {
+      output.WriteRawTag(72);
+      output.WriteBool(Nametag);
+    }
     name_.WriteTo(ref output, _repeated_name_codec);
     hitbox_.WriteTo(ref output, _repeated_hitbox_codec);
     if (HeldItem.Length != 0) {
-      output.WriteRawTag(90);
+      output.WriteRawTag(98);
       output.WriteString(HeldItem);
     }
     armor_.WriteTo(ref output, _map_armor_codec);
@@ -5975,6 +5997,9 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
     }
     if (Texture.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Texture);
+    }
+    if (Nametag != false) {
+      size += 1 + 1;
     }
     size += name_.CalculateSize(_repeated_name_codec);
     size += hitbox_.CalculateSize(_repeated_hitbox_codec);
@@ -6016,6 +6041,9 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
     }
     if (other.Texture.Length != 0) {
       Texture = other.Texture;
+    }
+    if (other.Nametag != false) {
+      Nametag = other.Nametag;
     }
     name_.Add(other.name_);
     hitbox_.Add(other.hitbox_);
@@ -6069,20 +6097,24 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
           Texture = input.ReadString();
           break;
         }
-        case 74: {
+        case 72: {
+          Nametag = input.ReadBool();
+          break;
+        }
+        case 82: {
           name_.AddEntriesFrom(input, _repeated_name_codec);
           break;
         }
-        case 82:
-        case 85: {
+        case 90:
+        case 93: {
           hitbox_.AddEntriesFrom(input, _repeated_hitbox_codec);
           break;
         }
-        case 90: {
+        case 98: {
           HeldItem = input.ReadString();
           break;
         }
-        case 98: {
+        case 106: {
           armor_.AddEntriesFrom(input, _map_armor_codec);
           break;
         }
@@ -6132,20 +6164,24 @@ public sealed partial class EntityCreate : pb::IMessage<EntityCreate>
           Texture = input.ReadString();
           break;
         }
-        case 74: {
+        case 72: {
+          Nametag = input.ReadBool();
+          break;
+        }
+        case 82: {
           name_.AddEntriesFrom(ref input, _repeated_name_codec);
           break;
         }
-        case 82:
-        case 85: {
+        case 90:
+        case 93: {
           hitbox_.AddEntriesFrom(ref input, _repeated_hitbox_codec);
           break;
         }
-        case 90: {
+        case 98: {
           HeldItem = input.ReadString();
           break;
         }
-        case 98: {
+        case 106: {
           armor_.AddEntriesFrom(ref input, _map_armor_codec);
           break;
         }

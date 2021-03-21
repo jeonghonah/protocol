@@ -19180,64 +19180,70 @@ public final class Server {
         getTextureBytes();
 
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>bool nametag = 9;</code>
+     * @return The nametag.
+     */
+    boolean getNametag();
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     java.util.List<Types.BasicChatComponentType> 
         getNameList();
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     Types.BasicChatComponentType getName(int index);
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     int getNameCount();
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
         getNameOrBuilderList();
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
         int index);
 
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @return A list containing the hitbox.
      */
     java.util.List<java.lang.Float> getHitboxList();
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @return The count of hitbox.
      */
     int getHitboxCount();
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @param index The index of the element to return.
      * @return The hitbox at the given index.
      */
     float getHitbox(int index);
 
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @return The heldItem.
      */
     java.lang.String getHeldItem();
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @return The bytes for heldItem.
      */
     com.google.protobuf.ByteString
         getHeldItemBytes();
 
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     int getArmorCount();
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     boolean containsArmor(
         int key);
@@ -19248,19 +19254,19 @@ public final class Server {
     java.util.Map<java.lang.Integer, java.lang.String>
     getArmor();
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     java.util.Map<java.lang.Integer, java.lang.String>
     getArmorMap();
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
 
     java.lang.String getArmorOrDefault(
         int key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
 
     java.lang.String getArmorOrThrow(
@@ -19361,7 +19367,12 @@ public final class Server {
               texture_ = s;
               break;
             }
-            case 74: {
+            case 72: {
+
+              nametag_ = input.readBool();
+              break;
+            }
+            case 82: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 name_ = new java.util.ArrayList<Types.BasicChatComponentType>();
                 mutable_bitField0_ |= 0x00000001;
@@ -19370,7 +19381,7 @@ public final class Server {
                   input.readMessage(Types.BasicChatComponentType.parser(), extensionRegistry));
               break;
             }
-            case 85: {
+            case 93: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 hitbox_ = newFloatList();
                 mutable_bitField0_ |= 0x00000002;
@@ -19378,7 +19389,7 @@ public final class Server {
               hitbox_.addFloat(input.readFloat());
               break;
             }
-            case 82: {
+            case 90: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
@@ -19391,13 +19402,13 @@ public final class Server {
               input.popLimit(limit);
               break;
             }
-            case 90: {
+            case 98: {
               java.lang.String s = input.readStringRequireUtf8();
 
               heldItem_ = s;
               break;
             }
-            case 98: {
+            case 106: {
               if (!((mutable_bitField0_ & 0x00000004) != 0)) {
                 armor_ = com.google.protobuf.MapField.newMapField(
                     ArmorDefaultEntryHolder.defaultEntry);
@@ -19445,7 +19456,7 @@ public final class Server {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 12:
+        case 13:
           return internalGetArmor();
         default:
           throw new RuntimeException(
@@ -19629,17 +19640,28 @@ public final class Server {
       }
     }
 
-    public static final int NAME_FIELD_NUMBER = 9;
+    public static final int NAMETAG_FIELD_NUMBER = 9;
+    private boolean nametag_;
+    /**
+     * <code>bool nametag = 9;</code>
+     * @return The nametag.
+     */
+    @java.lang.Override
+    public boolean getNametag() {
+      return nametag_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 10;
     private java.util.List<Types.BasicChatComponentType> name_;
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     @java.lang.Override
     public java.util.List<Types.BasicChatComponentType> getNameList() {
       return name_;
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     @java.lang.Override
     public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
@@ -19647,21 +19669,21 @@ public final class Server {
       return name_;
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     @java.lang.Override
     public int getNameCount() {
       return name_.size();
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     @java.lang.Override
     public Types.BasicChatComponentType getName(int index) {
       return name_.get(index);
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     @java.lang.Override
     public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
@@ -19669,10 +19691,10 @@ public final class Server {
       return name_.get(index);
     }
 
-    public static final int HITBOX_FIELD_NUMBER = 10;
+    public static final int HITBOX_FIELD_NUMBER = 11;
     private com.google.protobuf.Internal.FloatList hitbox_;
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @return A list containing the hitbox.
      */
     @java.lang.Override
@@ -19681,14 +19703,14 @@ public final class Server {
       return hitbox_;
     }
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @return The count of hitbox.
      */
     public int getHitboxCount() {
       return hitbox_.size();
     }
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @param index The index of the element to return.
      * @return The hitbox at the given index.
      */
@@ -19697,10 +19719,10 @@ public final class Server {
     }
     private int hitboxMemoizedSerializedSize = -1;
 
-    public static final int HELD_ITEM_FIELD_NUMBER = 11;
+    public static final int HELD_ITEM_FIELD_NUMBER = 12;
     private volatile java.lang.Object heldItem_;
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @return The heldItem.
      */
     @java.lang.Override
@@ -19717,7 +19739,7 @@ public final class Server {
       }
     }
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @return The bytes for heldItem.
      */
     @java.lang.Override
@@ -19735,7 +19757,7 @@ public final class Server {
       }
     }
 
-    public static final int ARMOR_FIELD_NUMBER = 12;
+    public static final int ARMOR_FIELD_NUMBER = 13;
     private static final class ArmorDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.Integer, java.lang.String> defaultEntry =
@@ -19762,7 +19784,7 @@ public final class Server {
       return internalGetArmor().getMap().size();
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
 
     @java.lang.Override
@@ -19780,7 +19802,7 @@ public final class Server {
       return getArmorMap();
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     @java.lang.Override
 
@@ -19788,7 +19810,7 @@ public final class Server {
       return internalGetArmor().getMap();
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     @java.lang.Override
 
@@ -19801,7 +19823,7 @@ public final class Server {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     @java.lang.Override
 
@@ -19855,25 +19877,28 @@ public final class Server {
       if (!getTextureBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, texture_);
       }
+      if (nametag_ != false) {
+        output.writeBool(9, nametag_);
+      }
       for (int i = 0; i < name_.size(); i++) {
-        output.writeMessage(9, name_.get(i));
+        output.writeMessage(10, name_.get(i));
       }
       if (getHitboxList().size() > 0) {
-        output.writeUInt32NoTag(82);
+        output.writeUInt32NoTag(90);
         output.writeUInt32NoTag(hitboxMemoizedSerializedSize);
       }
       for (int i = 0; i < hitbox_.size(); i++) {
         output.writeFloatNoTag(hitbox_.getFloat(i));
       }
       if (!getHeldItemBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, heldItem_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, heldItem_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeIntegerMapTo(
           output,
           internalGetArmor(),
           ArmorDefaultEntryHolder.defaultEntry,
-          12);
+          13);
       unknownFields.writeTo(output);
     }
 
@@ -19912,9 +19937,13 @@ public final class Server {
       if (!getTextureBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, texture_);
       }
+      if (nametag_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, nametag_);
+      }
       for (int i = 0; i < name_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, name_.get(i));
+          .computeMessageSize(10, name_.get(i));
       }
       {
         int dataSize = 0;
@@ -19928,7 +19957,7 @@ public final class Server {
         hitboxMemoizedSerializedSize = dataSize;
       }
       if (!getHeldItemBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, heldItem_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, heldItem_);
       }
       for (java.util.Map.Entry<java.lang.Integer, java.lang.String> entry
            : internalGetArmor().getMap().entrySet()) {
@@ -19938,7 +19967,7 @@ public final class Server {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(12, armor__);
+            .computeMessageSize(13, armor__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -19976,6 +20005,8 @@ public final class Server {
           .equals(other.getModel())) return false;
       if (!getTexture()
           .equals(other.getTexture())) return false;
+      if (getNametag()
+          != other.getNametag()) return false;
       if (!getNameList()
           .equals(other.getNameList())) return false;
       if (!getHitboxList()
@@ -20016,6 +20047,9 @@ public final class Server {
       hash = (53 * hash) + getModel().hashCode();
       hash = (37 * hash) + TEXTURE_FIELD_NUMBER;
       hash = (53 * hash) + getTexture().hashCode();
+      hash = (37 * hash) + NAMETAG_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getNametag());
       if (getNameCount() > 0) {
         hash = (37 * hash) + NAME_FIELD_NUMBER;
         hash = (53 * hash) + getNameList().hashCode();
@@ -20141,7 +20175,7 @@ public final class Server {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 12:
+          case 13:
             return internalGetArmor();
           default:
             throw new RuntimeException(
@@ -20152,7 +20186,7 @@ public final class Server {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 12:
+          case 13:
             return internalGetMutableArmor();
           default:
             throw new RuntimeException(
@@ -20202,6 +20236,8 @@ public final class Server {
 
         texture_ = "";
 
+        nametag_ = false;
+
         if (nameBuilder_ == null) {
           name_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -20248,6 +20284,7 @@ public final class Server {
         result.pitch_ = pitch_;
         result.model_ = model_;
         result.texture_ = texture_;
+        result.nametag_ = nametag_;
         if (nameBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             name_ = java.util.Collections.unmodifiableList(name_);
@@ -20339,6 +20376,9 @@ public final class Server {
         if (!other.getTexture().isEmpty()) {
           texture_ = other.texture_;
           onChanged();
+        }
+        if (other.getNametag() != false) {
+          setNametag(other.getNametag());
         }
         if (nameBuilder_ == null) {
           if (!other.name_.isEmpty()) {
@@ -20795,6 +20835,37 @@ public final class Server {
         return this;
       }
 
+      private boolean nametag_ ;
+      /**
+       * <code>bool nametag = 9;</code>
+       * @return The nametag.
+       */
+      @java.lang.Override
+      public boolean getNametag() {
+        return nametag_;
+      }
+      /**
+       * <code>bool nametag = 9;</code>
+       * @param value The nametag to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNametag(boolean value) {
+        
+        nametag_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool nametag = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNametag() {
+        
+        nametag_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<Types.BasicChatComponentType> name_ =
         java.util.Collections.emptyList();
       private void ensureNameIsMutable() {
@@ -20808,7 +20879,7 @@ public final class Server {
           Types.BasicChatComponentType, Types.BasicChatComponentType.Builder, Types.BasicChatComponentTypeOrBuilder> nameBuilder_;
 
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public java.util.List<Types.BasicChatComponentType> getNameList() {
         if (nameBuilder_ == null) {
@@ -20818,7 +20889,7 @@ public final class Server {
         }
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public int getNameCount() {
         if (nameBuilder_ == null) {
@@ -20828,7 +20899,7 @@ public final class Server {
         }
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Types.BasicChatComponentType getName(int index) {
         if (nameBuilder_ == null) {
@@ -20838,7 +20909,7 @@ public final class Server {
         }
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder setName(
           int index, Types.BasicChatComponentType value) {
@@ -20855,7 +20926,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder setName(
           int index, Types.BasicChatComponentType.Builder builderForValue) {
@@ -20869,7 +20940,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addName(Types.BasicChatComponentType value) {
         if (nameBuilder_ == null) {
@@ -20885,7 +20956,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addName(
           int index, Types.BasicChatComponentType value) {
@@ -20902,7 +20973,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addName(
           Types.BasicChatComponentType.Builder builderForValue) {
@@ -20916,7 +20987,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addName(
           int index, Types.BasicChatComponentType.Builder builderForValue) {
@@ -20930,7 +21001,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addAllName(
           java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
@@ -20945,7 +21016,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder clearName() {
         if (nameBuilder_ == null) {
@@ -20958,7 +21029,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder removeName(int index) {
         if (nameBuilder_ == null) {
@@ -20971,14 +21042,14 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Types.BasicChatComponentType.Builder getNameBuilder(
           int index) {
         return getNameFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
           int index) {
@@ -20988,7 +21059,7 @@ public final class Server {
         }
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
            getNameOrBuilderList() {
@@ -20999,14 +21070,14 @@ public final class Server {
         }
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Types.BasicChatComponentType.Builder addNameBuilder() {
         return getNameFieldBuilder().addBuilder(
             Types.BasicChatComponentType.getDefaultInstance());
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Types.BasicChatComponentType.Builder addNameBuilder(
           int index) {
@@ -21014,7 +21085,7 @@ public final class Server {
             index, Types.BasicChatComponentType.getDefaultInstance());
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public java.util.List<Types.BasicChatComponentType.Builder> 
            getNameBuilderList() {
@@ -21043,7 +21114,7 @@ public final class Server {
          }
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @return A list containing the hitbox.
        */
       public java.util.List<java.lang.Float>
@@ -21052,14 +21123,14 @@ public final class Server {
                  java.util.Collections.unmodifiableList(hitbox_) : hitbox_;
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @return The count of hitbox.
        */
       public int getHitboxCount() {
         return hitbox_.size();
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @param index The index of the element to return.
        * @return The hitbox at the given index.
        */
@@ -21067,7 +21138,7 @@ public final class Server {
         return hitbox_.getFloat(index);
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @param index The index to set the value at.
        * @param value The hitbox to set.
        * @return This builder for chaining.
@@ -21080,7 +21151,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @param value The hitbox to add.
        * @return This builder for chaining.
        */
@@ -21091,7 +21162,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @param values The hitbox to add.
        * @return This builder for chaining.
        */
@@ -21104,7 +21175,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @return This builder for chaining.
        */
       public Builder clearHitbox() {
@@ -21116,7 +21187,7 @@ public final class Server {
 
       private java.lang.Object heldItem_ = "";
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @return The heldItem.
        */
       public java.lang.String getHeldItem() {
@@ -21132,7 +21203,7 @@ public final class Server {
         }
       }
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @return The bytes for heldItem.
        */
       public com.google.protobuf.ByteString
@@ -21149,7 +21220,7 @@ public final class Server {
         }
       }
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @param value The heldItem to set.
        * @return This builder for chaining.
        */
@@ -21164,7 +21235,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @return This builder for chaining.
        */
       public Builder clearHeldItem() {
@@ -21174,7 +21245,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @param value The bytes for heldItem to set.
        * @return This builder for chaining.
        */
@@ -21217,7 +21288,7 @@ public final class Server {
         return internalGetArmor().getMap().size();
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
 
       @java.lang.Override
@@ -21235,7 +21306,7 @@ public final class Server {
         return getArmorMap();
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       @java.lang.Override
 
@@ -21243,7 +21314,7 @@ public final class Server {
         return internalGetArmor().getMap();
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       @java.lang.Override
 
@@ -21256,7 +21327,7 @@ public final class Server {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       @java.lang.Override
 
@@ -21277,7 +21348,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
 
       public Builder removeArmor(
@@ -21296,7 +21367,7 @@ public final class Server {
         return internalGetMutableArmor().getMutableMap();
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       public Builder putArmor(
           int key,
@@ -21308,7 +21379,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
 
       public Builder putAllArmor(
@@ -34733,49 +34804,50 @@ public final class Server {
       "\n\004type\030\001 \001(\0162\025.UpdateTextBoard.Type\022(\n\007m" +
       "essage\030\002 \003(\0132\027.BasicChatComponentType\022\014\n" +
       "\004time\030\003 \001(\004\"1\n\004Type\022\007\n\003TAB\020\000\022\010\n\004SIDE\020\001\022\n" +
-      "\n\006CENTER\020\002\022\n\n\006HOTBAR\020\003\"\237\002\n\014EntityCreate\022" +
+      "\n\006CENTER\020\002\022\n\n\006HOTBAR\020\003\"\260\002\n\014EntityCreate\022" +
       "\014\n\004uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t\n\001z" +
       "\030\004 \001(\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\022" +
-      "\r\n\005model\030\007 \001(\t\022\017\n\007texture\030\010 \001(\t\022%\n\004name\030" +
-      "\t \003(\0132\027.BasicChatComponentType\022\016\n\006hitbox" +
-      "\030\n \003(\002\022\021\n\theld_item\030\013 \001(\t\022\'\n\005armor\030\014 \003(\013" +
-      "2\030.EntityCreate.ArmorEntry\032,\n\nArmorEntry" +
-      "\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\t:\0028\001\"\034\n\014Enti" +
-      "tyRemove\022\014\n\004uuid\030\001 \001(\t\"\\\n\nEntityMove\022\014\n\004" +
-      "uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t\n\001y\030\003 \001(\001\022\t\n\001z\030\004 " +
-      "\001(\001\022\020\n\010rotation\030\005 \001(\002\022\r\n\005pitch\030\006 \001(\002\"X\n\020" +
-      "EntityNameUpdate\022\014\n\004uuid\030\001 \001(\t\022%\n\004name\030\002" +
-      " \003(\0132\027.BasicChatComponentType\022\017\n\007visible" +
-      "\030\003 \001(\010\"*\n\016EntityHeldItem\022\014\n\004uuid\030\001 \001(\t\022\n" +
-      "\n\002id\030\002 \001(\t\"5\n\013EntityArmor\022\014\n\004uuid\030\001 \001(\t\022" +
-      "\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001(\t\"O\n\rEntityAnima" +
-      "te\022\014\n\004uuid\030\001 \001(\t\022\021\n\tanimation\030\002 \001(\t\022\014\n\004t" +
-      "ime\030\003 \001(\r\022\017\n\007replace\030\004 \001(\010\"R\n\020WorldBlock" +
-      "Update\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022" +
-      "\n\n\002id\030\004 \001(\r\022\021\n\tparticles\030\005 \001(\010\":\n\025WorldM" +
-      "ultiBlockUpdate\022!\n\006blocks\030\001 \003(\0132\021.WorldB" +
-      "lockUpdate\"}\n\016WorldChunkLoad\022\t\n\001x\030\001 \001(\021\022" +
-      "\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006height\030\004 \001(\021\022\022\n" +
-      "\ncompressed\030\005 \001(\010\022\022\n\nblock_data\030\006 \001(\014\022\022\n" +
-      "\nlight_data\030\007 \001(\014\"C\n\020WorldChunkUnload\022\t\n" +
-      "\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006height" +
-      "\030\004 \001(\021\"5\n\022WorldChunkIsLoaded\022\t\n\001x\030\001 \001(\021\022" +
-      "\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\"\'\n\024WorldChunksRemo" +
-      "veAll\022\017\n\007confirm\030\001 \001(\010\"&\n\025EnvironmentTim" +
-      "eUpdate\022\r\n\005value\030\001 \001(\005\"\215\001\n\024EnvironmentFo" +
-      "gUpdate\022\014\n\004mode\030\001 \001(\r\022\017\n\007density\030\002 \001(\002\022\r" +
-      "\n\005start\030\003 \001(\002\022\013\n\003end\030\004 \001(\002\022\021\n\tcolor_red\030" +
-      "\005 \001(\002\022\023\n\013color_green\030\006 \001(\002\022\022\n\ncolor_blue" +
-      "\030\007 \001(\002\"\373\001\n\024EnvironmentSkyUpdate\022\016\n\006cloud" +
-      "s\030\001 \001(\010\022\021\n\tcolor_red\030\002 \001(\002\022\023\n\013color_gree" +
-      "n\030\003 \001(\002\022\022\n\ncolor_blue\030\004 \001(\002\022\025\n\rcolor_red" +
-      "_top\030\005 \001(\002\022\027\n\017color_green_top\030\006 \001(\002\022\026\n\016c" +
-      "olor_blue_top\030\007 \001(\002\022\030\n\020color_red_bottom\030" +
-      "\010 \001(\002\022\032\n\022color_green_bottom\030\t \001(\002\022\031\n\021col" +
-      "or_blue_bottom\030\n \001(\002\"7\n\024EnvironmentSetSk" +
-      "ybox\022\016\n\006enable\030\001 \001(\010\022\017\n\007texture\030\002 \001(\t\"<\n" +
-      "\rPluginMessage\022\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002" +
-      " \001(\r\022\r\n\005value\030\003 \001(\014b\006proto3"
+      "\r\n\005model\030\007 \001(\t\022\017\n\007texture\030\010 \001(\t\022\017\n\007namet" +
+      "ag\030\t \001(\010\022%\n\004name\030\n \003(\0132\027.BasicChatCompon" +
+      "entType\022\016\n\006hitbox\030\013 \003(\002\022\021\n\theld_item\030\014 \001" +
+      "(\t\022\'\n\005armor\030\r \003(\0132\030.EntityCreate.ArmorEn" +
+      "try\032,\n\nArmorEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\"\034\n\014EntityRemove\022\014\n\004uuid\030\001 \001(\t\"" +
+      "\\\n\nEntityMove\022\014\n\004uuid\030\001 \001(\t\022\t\n\001x\030\002 \001(\001\022\t" +
+      "\n\001y\030\003 \001(\001\022\t\n\001z\030\004 \001(\001\022\020\n\010rotation\030\005 \001(\002\022\r" +
+      "\n\005pitch\030\006 \001(\002\"X\n\020EntityNameUpdate\022\014\n\004uui" +
+      "d\030\001 \001(\t\022%\n\004name\030\002 \003(\0132\027.BasicChatCompone" +
+      "ntType\022\017\n\007visible\030\003 \001(\010\"*\n\016EntityHeldIte" +
+      "m\022\014\n\004uuid\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\"5\n\013EntityArm" +
+      "or\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\n\n\002id\030\003 \001" +
+      "(\t\"O\n\rEntityAnimate\022\014\n\004uuid\030\001 \001(\t\022\021\n\tani" +
+      "mation\030\002 \001(\t\022\014\n\004time\030\003 \001(\r\022\017\n\007replace\030\004 " +
+      "\001(\010\"R\n\020WorldBlockUpdate\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030" +
+      "\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002id\030\004 \001(\r\022\021\n\tparticle" +
+      "s\030\005 \001(\010\":\n\025WorldMultiBlockUpdate\022!\n\006bloc" +
+      "ks\030\001 \003(\0132\021.WorldBlockUpdate\"}\n\016WorldChun" +
+      "kLoad\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016" +
+      "\n\006height\030\004 \001(\021\022\022\n\ncompressed\030\005 \001(\010\022\022\n\nbl" +
+      "ock_data\030\006 \001(\014\022\022\n\nlight_data\030\007 \001(\014\"C\n\020Wo" +
+      "rldChunkUnload\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001" +
+      "z\030\003 \001(\021\022\016\n\006height\030\004 \001(\021\"5\n\022WorldChunkIsL" +
+      "oaded\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\"\'" +
+      "\n\024WorldChunksRemoveAll\022\017\n\007confirm\030\001 \001(\010\"" +
+      "&\n\025EnvironmentTimeUpdate\022\r\n\005value\030\001 \001(\005\"" +
+      "\215\001\n\024EnvironmentFogUpdate\022\014\n\004mode\030\001 \001(\r\022\017" +
+      "\n\007density\030\002 \001(\002\022\r\n\005start\030\003 \001(\002\022\013\n\003end\030\004 " +
+      "\001(\002\022\021\n\tcolor_red\030\005 \001(\002\022\023\n\013color_green\030\006 " +
+      "\001(\002\022\022\n\ncolor_blue\030\007 \001(\002\"\373\001\n\024EnvironmentS" +
+      "kyUpdate\022\016\n\006clouds\030\001 \001(\010\022\021\n\tcolor_red\030\002 " +
+      "\001(\002\022\023\n\013color_green\030\003 \001(\002\022\022\n\ncolor_blue\030\004" +
+      " \001(\002\022\025\n\rcolor_red_top\030\005 \001(\002\022\027\n\017color_gre" +
+      "en_top\030\006 \001(\002\022\026\n\016color_blue_top\030\007 \001(\002\022\030\n\020" +
+      "color_red_bottom\030\010 \001(\002\022\032\n\022color_green_bo" +
+      "ttom\030\t \001(\002\022\031\n\021color_blue_bottom\030\n \001(\002\"7\n" +
+      "\024EnvironmentSetSkybox\022\016\n\006enable\030\001 \001(\010\022\017\n" +
+      "\007texture\030\002 \001(\t\"<\n\rPluginMessage\022\013\n\003key\030\001" +
+      " \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -34949,7 +35021,7 @@ public final class Server {
     internal_static_EntityCreate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EntityCreate_descriptor,
-        new java.lang.String[] { "Uuid", "X", "Y", "Z", "Rotation", "Pitch", "Model", "Texture", "Name", "Hitbox", "HeldItem", "Armor", });
+        new java.lang.String[] { "Uuid", "X", "Y", "Z", "Rotation", "Pitch", "Model", "Texture", "Nametag", "Name", "Hitbox", "HeldItem", "Armor", });
     internal_static_EntityCreate_ArmorEntry_descriptor =
       internal_static_EntityCreate_descriptor.getNestedTypes().get(0);
     internal_static_EntityCreate_ArmorEntry_fieldAccessorTable = new

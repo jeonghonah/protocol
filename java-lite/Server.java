@@ -11530,54 +11530,60 @@ public final class Server {
         getTextureBytes();
 
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>bool nametag = 9;</code>
+     * @return The nametag.
+     */
+    boolean getNametag();
+
+    /**
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     java.util.List<Types.BasicChatComponentType> 
         getNameList();
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     Types.BasicChatComponentType getName(int index);
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     int getNameCount();
 
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @return A list containing the hitbox.
      */
     java.util.List<java.lang.Float> getHitboxList();
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @return The count of hitbox.
      */
     int getHitboxCount();
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @param index The index of the element to return.
      * @return The hitbox at the given index.
      */
     float getHitbox(int index);
 
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @return The heldItem.
      */
     java.lang.String getHeldItem();
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @return The bytes for heldItem.
      */
     com.google.protobuf.ByteString
         getHeldItemBytes();
 
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     int getArmorCount();
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     boolean containsArmor(
         int key);
@@ -11588,19 +11594,19 @@ public final class Server {
     java.util.Map<java.lang.Integer, java.lang.String>
     getArmor();
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     java.util.Map<java.lang.Integer, java.lang.String>
     getArmorMap();
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
 
     java.lang.String getArmorOrDefault(
         int key,
         java.lang.String defaultValue);
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
 
     java.lang.String getArmorOrThrow(
@@ -11893,38 +11899,64 @@ public final class Server {
       
     }
 
-    public static final int NAME_FIELD_NUMBER = 9;
+    public static final int NAMETAG_FIELD_NUMBER = 9;
+    private boolean nametag_;
+    /**
+     * <code>bool nametag = 9;</code>
+     * @return The nametag.
+     */
+    @java.lang.Override
+    public boolean getNametag() {
+      return nametag_;
+    }
+    /**
+     * <code>bool nametag = 9;</code>
+     * @param value The nametag to set.
+     */
+    private void setNametag(boolean value) {
+      
+      nametag_ = value;
+    }
+    /**
+     * <code>bool nametag = 9;</code>
+     */
+    private void clearNametag() {
+      
+      nametag_ = false;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 10;
     private com.google.protobuf.Internal.ProtobufList<Types.BasicChatComponentType> name_;
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     @java.lang.Override
     public java.util.List<Types.BasicChatComponentType> getNameList() {
       return name_;
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     public java.util.List<? extends Types.BasicChatComponentTypeOrBuilder> 
         getNameOrBuilderList() {
       return name_;
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     @java.lang.Override
     public int getNameCount() {
       return name_.size();
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     @java.lang.Override
     public Types.BasicChatComponentType getName(int index) {
       return name_.get(index);
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     public Types.BasicChatComponentTypeOrBuilder getNameOrBuilder(
         int index) {
@@ -11939,7 +11971,7 @@ public final class Server {
     }
 
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     private void setName(
         int index, Types.BasicChatComponentType value) {
@@ -11948,7 +11980,7 @@ public final class Server {
       name_.set(index, value);
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     private void addName(Types.BasicChatComponentType value) {
       value.getClass();
@@ -11956,7 +11988,7 @@ public final class Server {
       name_.add(value);
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     private void addName(
         int index, Types.BasicChatComponentType value) {
@@ -11965,7 +11997,7 @@ public final class Server {
       name_.add(index, value);
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     private void addAllName(
         java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
@@ -11974,23 +12006,23 @@ public final class Server {
           values, name_);
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     private void clearName() {
       name_ = emptyProtobufList();
     }
     /**
-     * <code>repeated .BasicChatComponentType name = 9;</code>
+     * <code>repeated .BasicChatComponentType name = 10;</code>
      */
     private void removeName(int index) {
       ensureNameIsMutable();
       name_.remove(index);
     }
 
-    public static final int HITBOX_FIELD_NUMBER = 10;
+    public static final int HITBOX_FIELD_NUMBER = 11;
     private com.google.protobuf.Internal.FloatList hitbox_;
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @return A list containing the hitbox.
      */
     @java.lang.Override
@@ -11999,7 +12031,7 @@ public final class Server {
       return hitbox_;
     }
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @return The count of hitbox.
      */
     @java.lang.Override
@@ -12007,7 +12039,7 @@ public final class Server {
       return hitbox_.size();
     }
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @param index The index of the element to return.
      * @return The hitbox at the given index.
      */
@@ -12024,7 +12056,7 @@ public final class Server {
        }
     }
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @param index The index to set the value at.
      * @param value The hitbox to set.
      */
@@ -12034,7 +12066,7 @@ public final class Server {
       hitbox_.setFloat(index, value);
     }
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @param value The hitbox to add.
      */
     private void addHitbox(float value) {
@@ -12042,7 +12074,7 @@ public final class Server {
       hitbox_.addFloat(value);
     }
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      * @param values The hitbox to add.
      */
     private void addAllHitbox(
@@ -12052,16 +12084,16 @@ public final class Server {
           values, hitbox_);
     }
     /**
-     * <code>repeated float hitbox = 10;</code>
+     * <code>repeated float hitbox = 11;</code>
      */
     private void clearHitbox() {
       hitbox_ = emptyFloatList();
     }
 
-    public static final int HELD_ITEM_FIELD_NUMBER = 11;
+    public static final int HELD_ITEM_FIELD_NUMBER = 12;
     private java.lang.String heldItem_;
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @return The heldItem.
      */
     @java.lang.Override
@@ -12069,7 +12101,7 @@ public final class Server {
       return heldItem_;
     }
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @return The bytes for heldItem.
      */
     @java.lang.Override
@@ -12078,7 +12110,7 @@ public final class Server {
       return com.google.protobuf.ByteString.copyFromUtf8(heldItem_);
     }
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @param value The heldItem to set.
      */
     private void setHeldItem(
@@ -12088,14 +12120,14 @@ public final class Server {
       heldItem_ = value;
     }
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      */
     private void clearHeldItem() {
       
       heldItem_ = getDefaultInstance().getHeldItem();
     }
     /**
-     * <code>string held_item = 11;</code>
+     * <code>string held_item = 12;</code>
      * @param value The bytes for heldItem to set.
      */
     private void setHeldItemBytes(
@@ -12105,7 +12137,7 @@ public final class Server {
       
     }
 
-    public static final int ARMOR_FIELD_NUMBER = 12;
+    public static final int ARMOR_FIELD_NUMBER = 13;
     private static final class ArmorDefaultEntryHolder {
       static final com.google.protobuf.MapEntryLite<
           java.lang.Integer, java.lang.String> defaultEntry =
@@ -12136,7 +12168,7 @@ public final class Server {
       return internalGetArmor().size();
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     @java.lang.Override
 
@@ -12154,7 +12186,7 @@ public final class Server {
       return getArmorMap();
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     @java.lang.Override
 
@@ -12163,7 +12195,7 @@ public final class Server {
           internalGetArmor());
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     @java.lang.Override
 
@@ -12176,7 +12208,7 @@ public final class Server {
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     @java.lang.Override
 
@@ -12191,7 +12223,7 @@ public final class Server {
       return map.get(key);
     }
     /**
-     * <code>map&lt;uint32, string&gt; armor = 12;</code>
+     * <code>map&lt;uint32, string&gt; armor = 13;</code>
      */
     private java.util.Map<java.lang.Integer, java.lang.String>
     getMutableArmorMap() {
@@ -12581,7 +12613,35 @@ public final class Server {
       }
 
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>bool nametag = 9;</code>
+       * @return The nametag.
+       */
+      @java.lang.Override
+      public boolean getNametag() {
+        return instance.getNametag();
+      }
+      /**
+       * <code>bool nametag = 9;</code>
+       * @param value The nametag to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNametag(boolean value) {
+        copyOnWrite();
+        instance.setNametag(value);
+        return this;
+      }
+      /**
+       * <code>bool nametag = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNametag() {
+        copyOnWrite();
+        instance.clearNametag();
+        return this;
+      }
+
+      /**
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       @java.lang.Override
       public java.util.List<Types.BasicChatComponentType> getNameList() {
@@ -12589,20 +12649,20 @@ public final class Server {
             instance.getNameList());
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       @java.lang.Override
       public int getNameCount() {
         return instance.getNameCount();
       }/**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       @java.lang.Override
       public Types.BasicChatComponentType getName(int index) {
         return instance.getName(index);
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder setName(
           int index, Types.BasicChatComponentType value) {
@@ -12611,7 +12671,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder setName(
           int index, Types.BasicChatComponentType.Builder builderForValue) {
@@ -12621,7 +12681,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addName(Types.BasicChatComponentType value) {
         copyOnWrite();
@@ -12629,7 +12689,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addName(
           int index, Types.BasicChatComponentType value) {
@@ -12638,7 +12698,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addName(
           Types.BasicChatComponentType.Builder builderForValue) {
@@ -12647,7 +12707,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addName(
           int index, Types.BasicChatComponentType.Builder builderForValue) {
@@ -12657,7 +12717,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder addAllName(
           java.lang.Iterable<? extends Types.BasicChatComponentType> values) {
@@ -12666,7 +12726,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder clearName() {
         copyOnWrite();
@@ -12674,7 +12734,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated .BasicChatComponentType name = 9;</code>
+       * <code>repeated .BasicChatComponentType name = 10;</code>
        */
       public Builder removeName(int index) {
         copyOnWrite();
@@ -12683,7 +12743,7 @@ public final class Server {
       }
 
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @return A list containing the hitbox.
        */
       @java.lang.Override
@@ -12693,7 +12753,7 @@ public final class Server {
             instance.getHitboxList());
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @return The count of hitbox.
        */
       @java.lang.Override
@@ -12701,7 +12761,7 @@ public final class Server {
         return instance.getHitboxCount();
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @param index The index of the element to return.
        * @return The hitbox at the given index.
        */
@@ -12710,7 +12770,7 @@ public final class Server {
         return instance.getHitbox(index);
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @param value The hitbox to set.
        * @return This builder for chaining.
        */
@@ -12721,7 +12781,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @param value The hitbox to add.
        * @return This builder for chaining.
        */
@@ -12731,7 +12791,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @param values The hitbox to add.
        * @return This builder for chaining.
        */
@@ -12742,7 +12802,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>repeated float hitbox = 10;</code>
+       * <code>repeated float hitbox = 11;</code>
        * @return This builder for chaining.
        */
       public Builder clearHitbox() {
@@ -12752,7 +12812,7 @@ public final class Server {
       }
 
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @return The heldItem.
        */
       @java.lang.Override
@@ -12760,7 +12820,7 @@ public final class Server {
         return instance.getHeldItem();
       }
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @return The bytes for heldItem.
        */
       @java.lang.Override
@@ -12769,7 +12829,7 @@ public final class Server {
         return instance.getHeldItemBytes();
       }
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @param value The heldItem to set.
        * @return This builder for chaining.
        */
@@ -12780,7 +12840,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @return This builder for chaining.
        */
       public Builder clearHeldItem() {
@@ -12789,7 +12849,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>string held_item = 11;</code>
+       * <code>string held_item = 12;</code>
        * @param value The bytes for heldItem to set.
        * @return This builder for chaining.
        */
@@ -12806,7 +12866,7 @@ public final class Server {
         return instance.getArmorMap().size();
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       @java.lang.Override
 
@@ -12822,7 +12882,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
 
       public Builder removeArmor(
@@ -12841,7 +12901,7 @@ public final class Server {
         return getArmorMap();
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       @java.lang.Override
       public java.util.Map<java.lang.Integer, java.lang.String> getArmorMap() {
@@ -12849,7 +12909,7 @@ public final class Server {
             instance.getArmorMap());
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       @java.lang.Override
 
@@ -12862,7 +12922,7 @@ public final class Server {
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       @java.lang.Override
 
@@ -12877,7 +12937,7 @@ public final class Server {
         return map.get(key);
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       public Builder putArmor(
           int key,
@@ -12889,7 +12949,7 @@ public final class Server {
         return this;
       }
       /**
-       * <code>map&lt;uint32, string&gt; armor = 12;</code>
+       * <code>map&lt;uint32, string&gt; armor = 13;</code>
        */
       public Builder putAllArmor(
           java.util.Map<java.lang.Integer, java.lang.String> values) {
@@ -12922,6 +12982,7 @@ public final class Server {
               "pitch_",
               "model_",
               "texture_",
+              "nametag_",
               "name_",
               Types.BasicChatComponentType.class,
               "hitbox_",
@@ -12930,9 +12991,9 @@ public final class Server {
               ArmorDefaultEntryHolder.defaultEntry,
             };
             java.lang.String info =
-                "\u0000\f\u0000\u0000\u0001\f\f\u0001\u0002\u0000\u0001\u0208\u0002\u0000\u0003\u0000" +
-                "\u0004\u0000\u0005\u0001\u0006\u0001\u0007\u0208\b\u0208\t\u001b\n$\u000b\u0208\f" +
-                "2";
+                "\u0000\r\u0000\u0000\u0001\r\r\u0001\u0002\u0000\u0001\u0208\u0002\u0000\u0003\u0000" +
+                "\u0004\u0000\u0005\u0001\u0006\u0001\u0007\u0208\b\u0208\t\u0007\n\u001b\u000b$\f" +
+                "\u0208\r2";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
