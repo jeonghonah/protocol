@@ -1771,6 +1771,12 @@ public final class Client {
      * @return The z.
      */
     double getZ();
+
+    /**
+     * <code>bool on_ground = 4;</code>
+     * @return The onGround.
+     */
+    boolean getOnGround();
   }
   /**
    * Protobuf type {@code ActionMove}
@@ -1830,6 +1836,11 @@ public final class Client {
             case 25: {
 
               z_ = input.readDouble();
+              break;
+            }
+            case 32: {
+
+              onGround_ = input.readBool();
               break;
             }
             default: {
@@ -1897,6 +1908,17 @@ public final class Client {
       return z_;
     }
 
+    public static final int ON_GROUND_FIELD_NUMBER = 4;
+    private boolean onGround_;
+    /**
+     * <code>bool on_ground = 4;</code>
+     * @return The onGround.
+     */
+    @java.lang.Override
+    public boolean getOnGround() {
+      return onGround_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1920,6 +1942,9 @@ public final class Client {
       if (z_ != 0D) {
         output.writeDouble(3, z_);
       }
+      if (onGround_ != false) {
+        output.writeBool(4, onGround_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1940,6 +1965,10 @@ public final class Client {
       if (z_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, z_);
+      }
+      if (onGround_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, onGround_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1965,6 +1994,8 @@ public final class Client {
       if (java.lang.Double.doubleToLongBits(getZ())
           != java.lang.Double.doubleToLongBits(
               other.getZ())) return false;
+      if (getOnGround()
+          != other.getOnGround()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1985,6 +2016,9 @@ public final class Client {
       hash = (37 * hash) + Z_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getZ()));
+      hash = (37 * hash) + ON_GROUND_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOnGround());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2124,6 +2158,8 @@ public final class Client {
 
         z_ = 0D;
 
+        onGround_ = false;
+
         return this;
       }
 
@@ -2153,6 +2189,7 @@ public final class Client {
         result.x_ = x_;
         result.y_ = y_;
         result.z_ = z_;
+        result.onGround_ = onGround_;
         onBuilt();
         return result;
       }
@@ -2209,6 +2246,9 @@ public final class Client {
         }
         if (other.getZ() != 0D) {
           setZ(other.getZ());
+        }
+        if (other.getOnGround() != false) {
+          setOnGround(other.getOnGround());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2328,6 +2368,37 @@ public final class Client {
       public Builder clearZ() {
         
         z_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private boolean onGround_ ;
+      /**
+       * <code>bool on_ground = 4;</code>
+       * @return The onGround.
+       */
+      @java.lang.Override
+      public boolean getOnGround() {
+        return onGround_;
+      }
+      /**
+       * <code>bool on_ground = 4;</code>
+       * @param value The onGround to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOnGround(boolean value) {
+        
+        onGround_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool on_ground = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOnGround() {
+        
+        onGround_ = false;
         onChanged();
         return this;
       }
@@ -2979,6 +3050,12 @@ public final class Client {
      * @return The pitch.
      */
     float getPitch();
+
+    /**
+     * <code>bool on_ground = 6;</code>
+     * @return The onGround.
+     */
+    boolean getOnGround();
   }
   /**
    * Protobuf type {@code ActionMoveLook}
@@ -3048,6 +3125,11 @@ public final class Client {
             case 45: {
 
               pitch_ = input.readFloat();
+              break;
+            }
+            case 48: {
+
+              onGround_ = input.readBool();
               break;
             }
             default: {
@@ -3137,6 +3219,17 @@ public final class Client {
       return pitch_;
     }
 
+    public static final int ON_GROUND_FIELD_NUMBER = 6;
+    private boolean onGround_;
+    /**
+     * <code>bool on_ground = 6;</code>
+     * @return The onGround.
+     */
+    @java.lang.Override
+    public boolean getOnGround() {
+      return onGround_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3166,6 +3259,9 @@ public final class Client {
       if (pitch_ != 0F) {
         output.writeFloat(5, pitch_);
       }
+      if (onGround_ != false) {
+        output.writeBool(6, onGround_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3194,6 +3290,10 @@ public final class Client {
       if (pitch_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(5, pitch_);
+      }
+      if (onGround_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, onGround_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3225,6 +3325,8 @@ public final class Client {
       if (java.lang.Float.floatToIntBits(getPitch())
           != java.lang.Float.floatToIntBits(
               other.getPitch())) return false;
+      if (getOnGround()
+          != other.getOnGround()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3251,6 +3353,9 @@ public final class Client {
       hash = (37 * hash) + PITCH_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getPitch());
+      hash = (37 * hash) + ON_GROUND_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOnGround());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3394,6 +3499,8 @@ public final class Client {
 
         pitch_ = 0F;
 
+        onGround_ = false;
+
         return this;
       }
 
@@ -3425,6 +3532,7 @@ public final class Client {
         result.z_ = z_;
         result.rotation_ = rotation_;
         result.pitch_ = pitch_;
+        result.onGround_ = onGround_;
         onBuilt();
         return result;
       }
@@ -3487,6 +3595,9 @@ public final class Client {
         }
         if (other.getPitch() != 0F) {
           setPitch(other.getPitch());
+        }
+        if (other.getOnGround() != false) {
+          setOnGround(other.getOnGround());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3668,6 +3779,37 @@ public final class Client {
       public Builder clearPitch() {
         
         pitch_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private boolean onGround_ ;
+      /**
+       * <code>bool on_ground = 6;</code>
+       * @return The onGround.
+       */
+      @java.lang.Override
+      public boolean getOnGround() {
+        return onGround_;
+      }
+      /**
+       * <code>bool on_ground = 6;</code>
+       * @param value The onGround to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOnGround(boolean value) {
+        
+        onGround_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool on_ground = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOnGround() {
+        
+        onGround_ = false;
         onChanged();
         return this;
       }
@@ -6525,6 +6667,574 @@ public final class Client {
 
     @java.lang.Override
     public Client.ActionInventoryClick getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ActionInventoryCheatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ActionInventoryCheat)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code ActionInventoryCheat}
+   */
+  public static final class ActionInventoryCheat extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ActionInventoryCheat)
+      ActionInventoryCheatOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ActionInventoryCheat.newBuilder() to construct.
+    private ActionInventoryCheat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ActionInventoryCheat() {
+      id_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ActionInventoryCheat();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ActionInventoryCheat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Client.internal_static_ActionInventoryCheat_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Client.internal_static_ActionInventoryCheat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Client.ActionInventoryCheat.class, Client.ActionInventoryCheat.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Client.ActionInventoryCheat)) {
+        return super.equals(obj);
+      }
+      Client.ActionInventoryCheat other = (Client.ActionInventoryCheat) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Client.ActionInventoryCheat parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Client.ActionInventoryCheat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Client.ActionInventoryCheat prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code ActionInventoryCheat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ActionInventoryCheat)
+        Client.ActionInventoryCheatOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Client.internal_static_ActionInventoryCheat_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Client.internal_static_ActionInventoryCheat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Client.ActionInventoryCheat.class, Client.ActionInventoryCheat.Builder.class);
+      }
+
+      // Construct using Client.ActionInventoryCheat.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Client.internal_static_ActionInventoryCheat_descriptor;
+      }
+
+      @java.lang.Override
+      public Client.ActionInventoryCheat getDefaultInstanceForType() {
+        return Client.ActionInventoryCheat.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Client.ActionInventoryCheat build() {
+        Client.ActionInventoryCheat result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Client.ActionInventoryCheat buildPartial() {
+        Client.ActionInventoryCheat result = new Client.ActionInventoryCheat(this);
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Client.ActionInventoryCheat) {
+          return mergeFrom((Client.ActionInventoryCheat)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Client.ActionInventoryCheat other) {
+        if (other == Client.ActionInventoryCheat.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Client.ActionInventoryCheat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Client.ActionInventoryCheat) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:ActionInventoryCheat)
+    }
+
+    // @@protoc_insertion_point(class_scope:ActionInventoryCheat)
+    private static final Client.ActionInventoryCheat DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Client.ActionInventoryCheat();
+    }
+
+    public static Client.ActionInventoryCheat getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ActionInventoryCheat>
+        PARSER = new com.google.protobuf.AbstractParser<ActionInventoryCheat>() {
+      @java.lang.Override
+      public ActionInventoryCheat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ActionInventoryCheat(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ActionInventoryCheat> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ActionInventoryCheat> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Client.ActionInventoryCheat getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12455,6 +13165,717 @@ public final class Client {
 
   }
 
+  public interface SoundStatusResponceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoundStatusResponce)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
+
+    /**
+     * <code>bool is_playing = 2;</code>
+     * @return The isPlaying.
+     */
+    boolean getIsPlaying();
+
+    /**
+     * <code>float progress = 3;</code>
+     * @return The progress.
+     */
+    float getProgress();
+  }
+  /**
+   * Protobuf type {@code SoundStatusResponce}
+   */
+  public static final class SoundStatusResponce extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SoundStatusResponce)
+      SoundStatusResponceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SoundStatusResponce.newBuilder() to construct.
+    private SoundStatusResponce(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SoundStatusResponce() {
+      uuid_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SoundStatusResponce();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SoundStatusResponce(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uuid_ = s;
+              break;
+            }
+            case 16: {
+
+              isPlaying_ = input.readBool();
+              break;
+            }
+            case 29: {
+
+              progress_ = input.readFloat();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Client.internal_static_SoundStatusResponce_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Client.internal_static_SoundStatusResponce_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Client.SoundStatusResponce.class, Client.SoundStatusResponce.Builder.class);
+    }
+
+    public static final int UUID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uuid_;
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uuid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uuid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IS_PLAYING_FIELD_NUMBER = 2;
+    private boolean isPlaying_;
+    /**
+     * <code>bool is_playing = 2;</code>
+     * @return The isPlaying.
+     */
+    @java.lang.Override
+    public boolean getIsPlaying() {
+      return isPlaying_;
+    }
+
+    public static final int PROGRESS_FIELD_NUMBER = 3;
+    private float progress_;
+    /**
+     * <code>float progress = 3;</code>
+     * @return The progress.
+     */
+    @java.lang.Override
+    public float getProgress() {
+      return progress_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getUuidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
+      }
+      if (isPlaying_ != false) {
+        output.writeBool(2, isPlaying_);
+      }
+      if (progress_ != 0F) {
+        output.writeFloat(3, progress_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getUuidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
+      }
+      if (isPlaying_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, isPlaying_);
+      }
+      if (progress_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(3, progress_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Client.SoundStatusResponce)) {
+        return super.equals(obj);
+      }
+      Client.SoundStatusResponce other = (Client.SoundStatusResponce) obj;
+
+      if (!getUuid()
+          .equals(other.getUuid())) return false;
+      if (getIsPlaying()
+          != other.getIsPlaying()) return false;
+      if (java.lang.Float.floatToIntBits(getProgress())
+          != java.lang.Float.floatToIntBits(
+              other.getProgress())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid().hashCode();
+      hash = (37 * hash) + IS_PLAYING_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsPlaying());
+      hash = (37 * hash) + PROGRESS_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getProgress());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Client.SoundStatusResponce parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Client.SoundStatusResponce parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Client.SoundStatusResponce prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SoundStatusResponce}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoundStatusResponce)
+        Client.SoundStatusResponceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Client.internal_static_SoundStatusResponce_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Client.internal_static_SoundStatusResponce_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Client.SoundStatusResponce.class, Client.SoundStatusResponce.Builder.class);
+      }
+
+      // Construct using Client.SoundStatusResponce.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uuid_ = "";
+
+        isPlaying_ = false;
+
+        progress_ = 0F;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Client.internal_static_SoundStatusResponce_descriptor;
+      }
+
+      @java.lang.Override
+      public Client.SoundStatusResponce getDefaultInstanceForType() {
+        return Client.SoundStatusResponce.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public Client.SoundStatusResponce build() {
+        Client.SoundStatusResponce result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public Client.SoundStatusResponce buildPartial() {
+        Client.SoundStatusResponce result = new Client.SoundStatusResponce(this);
+        result.uuid_ = uuid_;
+        result.isPlaying_ = isPlaying_;
+        result.progress_ = progress_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Client.SoundStatusResponce) {
+          return mergeFrom((Client.SoundStatusResponce)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Client.SoundStatusResponce other) {
+        if (other == Client.SoundStatusResponce.getDefaultInstance()) return this;
+        if (!other.getUuid().isEmpty()) {
+          uuid_ = other.uuid_;
+          onChanged();
+        }
+        if (other.getIsPlaying() != false) {
+          setIsPlaying(other.getIsPlaying());
+        }
+        if (other.getProgress() != 0F) {
+          setProgress(other.getProgress());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Client.SoundStatusResponce parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Client.SoundStatusResponce) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object uuid_ = "";
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The uuid.
+       */
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uuid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The bytes for uuid.
+       */
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uuid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        
+        uuid_ = getDefaultInstance().getUuid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean isPlaying_ ;
+      /**
+       * <code>bool is_playing = 2;</code>
+       * @return The isPlaying.
+       */
+      @java.lang.Override
+      public boolean getIsPlaying() {
+        return isPlaying_;
+      }
+      /**
+       * <code>bool is_playing = 2;</code>
+       * @param value The isPlaying to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsPlaying(boolean value) {
+        
+        isPlaying_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_playing = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsPlaying() {
+        
+        isPlaying_ = false;
+        onChanged();
+        return this;
+      }
+
+      private float progress_ ;
+      /**
+       * <code>float progress = 3;</code>
+       * @return The progress.
+       */
+      @java.lang.Override
+      public float getProgress() {
+        return progress_;
+      }
+      /**
+       * <code>float progress = 3;</code>
+       * @param value The progress to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProgress(float value) {
+        
+        progress_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>float progress = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProgress() {
+        
+        progress_ = 0F;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SoundStatusResponce)
+    }
+
+    // @@protoc_insertion_point(class_scope:SoundStatusResponce)
+    private static final Client.SoundStatusResponce DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Client.SoundStatusResponce();
+    }
+
+    public static Client.SoundStatusResponce getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SoundStatusResponce>
+        PARSER = new com.google.protobuf.AbstractParser<SoundStatusResponce>() {
+      @java.lang.Override
+      public SoundStatusResponce parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SoundStatusResponce(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SoundStatusResponce> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SoundStatusResponce> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public Client.SoundStatusResponce getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PluginMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:PluginMessage)
       com.google.protobuf.MessageOrBuilder {
@@ -13213,6 +14634,11 @@ public final class Client {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ActionInventoryClick_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ActionInventoryCheat_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ActionInventoryCheat_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ActionInventoryPick_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -13258,6 +14684,11 @@ public final class Client {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_WorldChunkIsLoadedResponce_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SoundStatusResponce_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SoundStatusResponce_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PluginMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -13276,35 +14707,39 @@ public final class Client {
       "rotocol\030\002 \001(\r\022\016\n\006mobile\030\003 \001(\010\022\016\n\006client\030" +
       "\004 \001(\t\022\014\n\004uuid\030\005 \001(\t\022\016\n\006secret\030\006 \001(\t\022\024\n\014p" +
       "rotocol_rev\030\007 \001(\005\"\024\n\004Ping\022\014\n\004time\030\001 \001(\004\"" +
-      "-\n\nActionMove\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z" +
-      "\030\003 \001(\001\"-\n\nActionLook\022\020\n\010rotation\030\001 \001(\002\022\r" +
-      "\n\005pitch\030\002 \001(\002\"R\n\016ActionMoveLook\022\t\n\001x\030\001 \001" +
-      "(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 \001(\001\022\020\n\010rotation\030\004 \001" +
-      "(\002\022\r\n\005pitch\030\005 \001(\002\" \n\rActionMessage\022\017\n\007me" +
-      "ssage\030\001 \001(\t\"W\n\020ActionBlockPlace\022\t\n\001x\030\001 \001" +
-      "(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002x2\030\004 \001(\021\022\n\n\002" +
-      "y2\030\005 \001(\021\022\n\n\002z2\030\006 \001(\021\"C\n\020ActionBlockBreak" +
-      "\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006sta" +
-      "tus\030\004 \001(\r\"f\n\024ActionInventoryClick\022\014\n\004slo" +
-      "t\030\001 \001(\005\022\035\n\004type\030\002 \001(\0162\017.MouseClickType\022!" +
-      "\n\tinventory\030\003 \001(\0162\016.InventoryType\"A\n\023Act" +
-      "ionInventoryPick\022\014\n\004slot\030\001 \001(\005\022\r\n\005slot2\030" +
-      "\002 \001(\005\022\r\n\005block\030\003 \001(\021\"8\n\023ActionInventoryO" +
-      "pen\022!\n\tinventory\030\001 \001(\0162\016.ContainerType\"9" +
-      "\n\024ActionInventoryClose\022!\n\tinventory\030\001 \001(" +
-      "\0162\016.ContainerType\"_\n\013ActionClick\022\t\n\001x\030\001 " +
-      "\001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\035\n\004type\030\004 \001(\0162" +
-      "\017.MouseClickType\022\020\n\010on_block\030\005 \001(\010\"A\n\021Ac" +
-      "tionClickEntity\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 " +
-      "\001(\t\022\020\n\010distance\030\003 \001(\002\"\"\n\022ActionLeaveVehi" +
-      "cle\022\014\n\004uuid\030\001 \001(\t\"O\n\016ActionDropItem\022\014\n\004u" +
-      "uid\030\001 \001(\t\022!\n\tinventory\030\002 \001(\0162\016.Inventory" +
-      "Type\022\014\n\004slot\030\003 \001(\005\"+\n\016ActionKeyPress\022\013\n\003" +
-      "key\030\001 \001(\t\022\014\n\004type\030\002 \001(\010\"M\n\032WorldChunkIsL" +
-      "oadedResponce\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z" +
-      "\030\003 \001(\021\022\016\n\006loaded\030\004 \001(\010\"<\n\rPluginMessage\022" +
-      "\013\n\003key\030\001 \001(\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003" +
-      " \001(\014b\006proto3"
+      "@\n\nActionMove\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z" +
+      "\030\003 \001(\001\022\021\n\ton_ground\030\004 \001(\010\"-\n\nActionLook\022" +
+      "\020\n\010rotation\030\001 \001(\002\022\r\n\005pitch\030\002 \001(\002\"e\n\016Acti" +
+      "onMoveLook\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\t\n\001z\030\003 " +
+      "\001(\001\022\020\n\010rotation\030\004 \001(\002\022\r\n\005pitch\030\005 \001(\002\022\021\n\t" +
+      "on_ground\030\006 \001(\010\" \n\rActionMessage\022\017\n\007mess" +
+      "age\030\001 \001(\t\"W\n\020ActionBlockPlace\022\t\n\001x\030\001 \001(\021" +
+      "\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\n\n\002x2\030\004 \001(\021\022\n\n\002y2" +
+      "\030\005 \001(\021\022\n\n\002z2\030\006 \001(\021\"C\n\020ActionBlockBreak\022\t" +
+      "\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\016\n\006statu" +
+      "s\030\004 \001(\r\"f\n\024ActionInventoryClick\022\014\n\004slot\030" +
+      "\001 \001(\005\022\035\n\004type\030\002 \001(\0162\017.MouseClickType\022!\n\t" +
+      "inventory\030\003 \001(\0162\016.InventoryType\"\"\n\024Actio" +
+      "nInventoryCheat\022\n\n\002id\030\001 \001(\t\"A\n\023ActionInv" +
+      "entoryPick\022\014\n\004slot\030\001 \001(\005\022\r\n\005slot2\030\002 \001(\005\022" +
+      "\r\n\005block\030\003 \001(\021\"8\n\023ActionInventoryOpen\022!\n" +
+      "\tinventory\030\001 \001(\0162\016.ContainerType\"9\n\024Acti" +
+      "onInventoryClose\022!\n\tinventory\030\001 \001(\0162\016.Co" +
+      "ntainerType\"_\n\013ActionClick\022\t\n\001x\030\001 \001(\021\022\t\n" +
+      "\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021\022\035\n\004type\030\004 \001(\0162\017.Mous" +
+      "eClickType\022\020\n\010on_block\030\005 \001(\010\"A\n\021ActionCl" +
+      "ickEntity\022\014\n\004uuid\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\020\n" +
+      "\010distance\030\003 \001(\002\"\"\n\022ActionLeaveVehicle\022\014\n" +
+      "\004uuid\030\001 \001(\t\"O\n\016ActionDropItem\022\014\n\004uuid\030\001 " +
+      "\001(\t\022!\n\tinventory\030\002 \001(\0162\016.InventoryType\022\014" +
+      "\n\004slot\030\003 \001(\005\"+\n\016ActionKeyPress\022\013\n\003key\030\001 " +
+      "\001(\t\022\014\n\004type\030\002 \001(\010\"M\n\032WorldChunkIsLoadedR" +
+      "esponce\022\t\n\001x\030\001 \001(\021\022\t\n\001y\030\002 \001(\021\022\t\n\001z\030\003 \001(\021" +
+      "\022\016\n\006loaded\030\004 \001(\010\"I\n\023SoundStatusResponce\022" +
+      "\014\n\004uuid\030\001 \001(\t\022\022\n\nis_playing\030\002 \001(\010\022\020\n\010pro" +
+      "gress\030\003 \001(\002\"<\n\rPluginMessage\022\013\n\003key\030\001 \001(" +
+      "\t\022\017\n\007version\030\002 \001(\r\022\r\n\005value\030\003 \001(\014b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13328,7 +14763,7 @@ public final class Client {
     internal_static_ActionMove_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionMove_descriptor,
-        new java.lang.String[] { "X", "Y", "Z", });
+        new java.lang.String[] { "X", "Y", "Z", "OnGround", });
     internal_static_ActionLook_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_ActionLook_fieldAccessorTable = new
@@ -13340,7 +14775,7 @@ public final class Client {
     internal_static_ActionMoveLook_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionMoveLook_descriptor,
-        new java.lang.String[] { "X", "Y", "Z", "Rotation", "Pitch", });
+        new java.lang.String[] { "X", "Y", "Z", "Rotation", "Pitch", "OnGround", });
     internal_static_ActionMessage_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_ActionMessage_fieldAccessorTable = new
@@ -13365,62 +14800,74 @@ public final class Client {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionInventoryClick_descriptor,
         new java.lang.String[] { "Slot", "Type", "Inventory", });
-    internal_static_ActionInventoryPick_descriptor =
+    internal_static_ActionInventoryCheat_descriptor =
       getDescriptor().getMessageTypes().get(9);
+    internal_static_ActionInventoryCheat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ActionInventoryCheat_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_ActionInventoryPick_descriptor =
+      getDescriptor().getMessageTypes().get(10);
     internal_static_ActionInventoryPick_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionInventoryPick_descriptor,
         new java.lang.String[] { "Slot", "Slot2", "Block", });
     internal_static_ActionInventoryOpen_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_ActionInventoryOpen_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionInventoryOpen_descriptor,
         new java.lang.String[] { "Inventory", });
     internal_static_ActionInventoryClose_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_ActionInventoryClose_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionInventoryClose_descriptor,
         new java.lang.String[] { "Inventory", });
     internal_static_ActionClick_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_ActionClick_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionClick_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Type", "OnBlock", });
     internal_static_ActionClickEntity_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_ActionClickEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionClickEntity_descriptor,
         new java.lang.String[] { "Uuid", "Type", "Distance", });
     internal_static_ActionLeaveVehicle_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_ActionLeaveVehicle_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionLeaveVehicle_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_ActionDropItem_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_ActionDropItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionDropItem_descriptor,
         new java.lang.String[] { "Uuid", "Inventory", "Slot", });
     internal_static_ActionKeyPress_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_ActionKeyPress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActionKeyPress_descriptor,
         new java.lang.String[] { "Key", "Type", });
     internal_static_WorldChunkIsLoadedResponce_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_WorldChunkIsLoadedResponce_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_WorldChunkIsLoadedResponce_descriptor,
         new java.lang.String[] { "X", "Y", "Z", "Loaded", });
+    internal_static_SoundStatusResponce_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_SoundStatusResponce_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SoundStatusResponce_descriptor,
+        new java.lang.String[] { "Uuid", "IsPlaying", "Progress", });
     internal_static_PluginMessage_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_PluginMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PluginMessage_descriptor,

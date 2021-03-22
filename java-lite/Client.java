@@ -1104,6 +1104,12 @@ public final class Client {
      * @return The z.
      */
     double getZ();
+
+    /**
+     * <code>bool on_ground = 4;</code>
+     * @return The onGround.
+     */
+    boolean getOnGround();
   }
   /**
    * Protobuf type {@code ActionMove}
@@ -1191,6 +1197,32 @@ public final class Client {
     private void clearZ() {
       
       z_ = 0D;
+    }
+
+    public static final int ON_GROUND_FIELD_NUMBER = 4;
+    private boolean onGround_;
+    /**
+     * <code>bool on_ground = 4;</code>
+     * @return The onGround.
+     */
+    @java.lang.Override
+    public boolean getOnGround() {
+      return onGround_;
+    }
+    /**
+     * <code>bool on_ground = 4;</code>
+     * @param value The onGround to set.
+     */
+    private void setOnGround(boolean value) {
+      
+      onGround_ = value;
+    }
+    /**
+     * <code>bool on_ground = 4;</code>
+     */
+    private void clearOnGround() {
+      
+      onGround_ = false;
     }
 
     public static Client.ActionMove parseFrom(
@@ -1372,6 +1404,34 @@ public final class Client {
         return this;
       }
 
+      /**
+       * <code>bool on_ground = 4;</code>
+       * @return The onGround.
+       */
+      @java.lang.Override
+      public boolean getOnGround() {
+        return instance.getOnGround();
+      }
+      /**
+       * <code>bool on_ground = 4;</code>
+       * @param value The onGround to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOnGround(boolean value) {
+        copyOnWrite();
+        instance.setOnGround(value);
+        return this;
+      }
+      /**
+       * <code>bool on_ground = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOnGround() {
+        copyOnWrite();
+        instance.clearOnGround();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:ActionMove)
     }
     @java.lang.Override
@@ -1391,10 +1451,11 @@ public final class Client {
               "x_",
               "y_",
               "z_",
+              "onGround_",
             };
             java.lang.String info =
-                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0000\u0002\u0000" +
-                "\u0003\u0000";
+                "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\u0000\u0002\u0000" +
+                "\u0003\u0000\u0004\u0007";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -1787,6 +1848,12 @@ public final class Client {
      * @return The pitch.
      */
     float getPitch();
+
+    /**
+     * <code>bool on_ground = 6;</code>
+     * @return The onGround.
+     */
+    boolean getOnGround();
   }
   /**
    * Protobuf type {@code ActionMoveLook}
@@ -1926,6 +1993,32 @@ public final class Client {
     private void clearPitch() {
       
       pitch_ = 0F;
+    }
+
+    public static final int ON_GROUND_FIELD_NUMBER = 6;
+    private boolean onGround_;
+    /**
+     * <code>bool on_ground = 6;</code>
+     * @return The onGround.
+     */
+    @java.lang.Override
+    public boolean getOnGround() {
+      return onGround_;
+    }
+    /**
+     * <code>bool on_ground = 6;</code>
+     * @param value The onGround to set.
+     */
+    private void setOnGround(boolean value) {
+      
+      onGround_ = value;
+    }
+    /**
+     * <code>bool on_ground = 6;</code>
+     */
+    private void clearOnGround() {
+      
+      onGround_ = false;
     }
 
     public static Client.ActionMoveLook parseFrom(
@@ -2163,6 +2256,34 @@ public final class Client {
         return this;
       }
 
+      /**
+       * <code>bool on_ground = 6;</code>
+       * @return The onGround.
+       */
+      @java.lang.Override
+      public boolean getOnGround() {
+        return instance.getOnGround();
+      }
+      /**
+       * <code>bool on_ground = 6;</code>
+       * @param value The onGround to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOnGround(boolean value) {
+        copyOnWrite();
+        instance.setOnGround(value);
+        return this;
+      }
+      /**
+       * <code>bool on_ground = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOnGround() {
+        copyOnWrite();
+        instance.clearOnGround();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:ActionMoveLook)
     }
     @java.lang.Override
@@ -2184,10 +2305,11 @@ public final class Client {
               "z_",
               "rotation_",
               "pitch_",
+              "onGround_",
             };
             java.lang.String info =
-                "\u0000\u0005\u0000\u0000\u0001\u0005\u0005\u0000\u0000\u0000\u0001\u0000\u0002\u0000" +
-                "\u0003\u0000\u0004\u0001\u0005\u0001";
+                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u0000\u0002\u0000" +
+                "\u0003\u0000\u0004\u0001\u0005\u0001\u0006\u0007";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -3950,6 +4072,298 @@ public final class Client {
     private static volatile com.google.protobuf.Parser<ActionInventoryClick> PARSER;
 
     public static com.google.protobuf.Parser<ActionInventoryClick> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface ActionInventoryCheatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ActionInventoryCheat)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code ActionInventoryCheat}
+   */
+  public  static final class ActionInventoryCheat extends
+      com.google.protobuf.GeneratedMessageLite<
+          ActionInventoryCheat, ActionInventoryCheat.Builder> implements
+      // @@protoc_insertion_point(message_implements:ActionInventoryCheat)
+      ActionInventoryCheatOrBuilder {
+    private ActionInventoryCheat() {
+      id_ = "";
+    }
+    public static final int ID_FIELD_NUMBER = 1;
+    private java.lang.String id_;
+    /**
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      return id_;
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(id_);
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The id to set.
+     */
+    private void setId(
+        java.lang.String value) {
+      value.getClass();
+  
+      id_ = value;
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    private void clearId() {
+      
+      id_ = getDefaultInstance().getId();
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The bytes for id to set.
+     */
+    private void setIdBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      id_ = value.toStringUtf8();
+      
+    }
+
+    public static Client.ActionInventoryCheat parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Client.ActionInventoryCheat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Client.ActionInventoryCheat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Client.ActionInventoryCheat prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code ActionInventoryCheat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Client.ActionInventoryCheat, Builder> implements
+        // @@protoc_insertion_point(builder_implements:ActionInventoryCheat)
+        Client.ActionInventoryCheatOrBuilder {
+      // Construct using Client.ActionInventoryCheat.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      @java.lang.Override
+      public java.lang.String getId() {
+        return instance.getId();
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        return instance.getIdBytes();
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setId(value);
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        copyOnWrite();
+        instance.clearId();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setIdBytes(value);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:ActionInventoryCheat)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Client.ActionInventoryCheat();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "id_",
+            };
+            java.lang.String info =
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0000\u0000\u0001\u0208";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Client.ActionInventoryCheat> parser = PARSER;
+          if (parser == null) {
+            synchronized (Client.ActionInventoryCheat.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Client.ActionInventoryCheat>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:ActionInventoryCheat)
+    private static final Client.ActionInventoryCheat DEFAULT_INSTANCE;
+    static {
+      ActionInventoryCheat defaultInstance = new ActionInventoryCheat();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        ActionInventoryCheat.class, defaultInstance);
+    }
+
+    public static Client.ActionInventoryCheat getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<ActionInventoryCheat> PARSER;
+
+    public static com.google.protobuf.Parser<ActionInventoryCheat> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }
@@ -7398,6 +7812,421 @@ public final class Client {
     private static volatile com.google.protobuf.Parser<WorldChunkIsLoadedResponce> PARSER;
 
     public static com.google.protobuf.Parser<WorldChunkIsLoadedResponce> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface SoundStatusResponceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoundStatusResponce)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
+
+    /**
+     * <code>bool is_playing = 2;</code>
+     * @return The isPlaying.
+     */
+    boolean getIsPlaying();
+
+    /**
+     * <code>float progress = 3;</code>
+     * @return The progress.
+     */
+    float getProgress();
+  }
+  /**
+   * Protobuf type {@code SoundStatusResponce}
+   */
+  public  static final class SoundStatusResponce extends
+      com.google.protobuf.GeneratedMessageLite<
+          SoundStatusResponce, SoundStatusResponce.Builder> implements
+      // @@protoc_insertion_point(message_implements:SoundStatusResponce)
+      SoundStatusResponceOrBuilder {
+    private SoundStatusResponce() {
+      uuid_ = "";
+    }
+    public static final int UUID_FIELD_NUMBER = 1;
+    private java.lang.String uuid_;
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      return uuid_;
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(uuid_);
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @param value The uuid to set.
+     */
+    private void setUuid(
+        java.lang.String value) {
+      value.getClass();
+  
+      uuid_ = value;
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     */
+    private void clearUuid() {
+      
+      uuid_ = getDefaultInstance().getUuid();
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @param value The bytes for uuid to set.
+     */
+    private void setUuidBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      uuid_ = value.toStringUtf8();
+      
+    }
+
+    public static final int IS_PLAYING_FIELD_NUMBER = 2;
+    private boolean isPlaying_;
+    /**
+     * <code>bool is_playing = 2;</code>
+     * @return The isPlaying.
+     */
+    @java.lang.Override
+    public boolean getIsPlaying() {
+      return isPlaying_;
+    }
+    /**
+     * <code>bool is_playing = 2;</code>
+     * @param value The isPlaying to set.
+     */
+    private void setIsPlaying(boolean value) {
+      
+      isPlaying_ = value;
+    }
+    /**
+     * <code>bool is_playing = 2;</code>
+     */
+    private void clearIsPlaying() {
+      
+      isPlaying_ = false;
+    }
+
+    public static final int PROGRESS_FIELD_NUMBER = 3;
+    private float progress_;
+    /**
+     * <code>float progress = 3;</code>
+     * @return The progress.
+     */
+    @java.lang.Override
+    public float getProgress() {
+      return progress_;
+    }
+    /**
+     * <code>float progress = 3;</code>
+     * @param value The progress to set.
+     */
+    private void setProgress(float value) {
+      
+      progress_ = value;
+    }
+    /**
+     * <code>float progress = 3;</code>
+     */
+    private void clearProgress() {
+      
+      progress_ = 0F;
+    }
+
+    public static Client.SoundStatusResponce parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Client.SoundStatusResponce parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Client.SoundStatusResponce parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Client.SoundStatusResponce prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code SoundStatusResponce}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Client.SoundStatusResponce, Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoundStatusResponce)
+        Client.SoundStatusResponceOrBuilder {
+      // Construct using Client.SoundStatusResponce.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The uuid.
+       */
+      @java.lang.Override
+      public java.lang.String getUuid() {
+        return instance.getUuid();
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The bytes for uuid.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        return instance.getUuidBytes();
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setUuid(value);
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        copyOnWrite();
+        instance.clearUuid();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setUuidBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>bool is_playing = 2;</code>
+       * @return The isPlaying.
+       */
+      @java.lang.Override
+      public boolean getIsPlaying() {
+        return instance.getIsPlaying();
+      }
+      /**
+       * <code>bool is_playing = 2;</code>
+       * @param value The isPlaying to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsPlaying(boolean value) {
+        copyOnWrite();
+        instance.setIsPlaying(value);
+        return this;
+      }
+      /**
+       * <code>bool is_playing = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsPlaying() {
+        copyOnWrite();
+        instance.clearIsPlaying();
+        return this;
+      }
+
+      /**
+       * <code>float progress = 3;</code>
+       * @return The progress.
+       */
+      @java.lang.Override
+      public float getProgress() {
+        return instance.getProgress();
+      }
+      /**
+       * <code>float progress = 3;</code>
+       * @param value The progress to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProgress(float value) {
+        copyOnWrite();
+        instance.setProgress(value);
+        return this;
+      }
+      /**
+       * <code>float progress = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProgress() {
+        copyOnWrite();
+        instance.clearProgress();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:SoundStatusResponce)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Client.SoundStatusResponce();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "uuid_",
+              "isPlaying_",
+              "progress_",
+            };
+            java.lang.String info =
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0208\u0002\u0007" +
+                "\u0003\u0001";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Client.SoundStatusResponce> parser = PARSER;
+          if (parser == null) {
+            synchronized (Client.SoundStatusResponce.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Client.SoundStatusResponce>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:SoundStatusResponce)
+    private static final Client.SoundStatusResponce DEFAULT_INSTANCE;
+    static {
+      SoundStatusResponce defaultInstance = new SoundStatusResponce();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        SoundStatusResponce.class, defaultInstance);
+    }
+
+    public static Client.SoundStatusResponce getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<SoundStatusResponce> PARSER;
+
+    public static com.google.protobuf.Parser<SoundStatusResponce> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }

@@ -3444,6 +3444,238 @@
         return PlayerApplyImpulse;
     })();
     
+    $root.PlayerAbilities = (function() {
+    
+        /**
+         * Properties of a PlayerAbilities.
+         * @exports IPlayerAbilities
+         * @interface IPlayerAbilities
+         * @property {boolean|null} [allowFlight] PlayerAbilities allowFlight
+         * @property {boolean|null} [allowCheats] PlayerAbilities allowCheats
+         * @property {boolean|null} [instantBreaking] PlayerAbilities instantBreaking
+         */
+    
+        /**
+         * Constructs a new PlayerAbilities.
+         * @exports PlayerAbilities
+         * @classdesc Represents a PlayerAbilities.
+         * @implements IPlayerAbilities
+         * @constructor
+         * @param {IPlayerAbilities=} [properties] Properties to set
+         */
+        function PlayerAbilities(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerAbilities allowFlight.
+         * @member {boolean} allowFlight
+         * @memberof PlayerAbilities
+         * @instance
+         */
+        PlayerAbilities.prototype.allowFlight = false;
+    
+        /**
+         * PlayerAbilities allowCheats.
+         * @member {boolean} allowCheats
+         * @memberof PlayerAbilities
+         * @instance
+         */
+        PlayerAbilities.prototype.allowCheats = false;
+    
+        /**
+         * PlayerAbilities instantBreaking.
+         * @member {boolean} instantBreaking
+         * @memberof PlayerAbilities
+         * @instance
+         */
+        PlayerAbilities.prototype.instantBreaking = false;
+    
+        /**
+         * Creates a new PlayerAbilities instance using the specified properties.
+         * @function create
+         * @memberof PlayerAbilities
+         * @static
+         * @param {IPlayerAbilities=} [properties] Properties to set
+         * @returns {PlayerAbilities} PlayerAbilities instance
+         */
+        PlayerAbilities.create = function create(properties) {
+            return new PlayerAbilities(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerAbilities message. Does not implicitly {@link PlayerAbilities.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerAbilities
+         * @static
+         * @param {IPlayerAbilities} message PlayerAbilities message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerAbilities.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.allowFlight != null && Object.hasOwnProperty.call(message, "allowFlight"))
+                writer.uint32(/* id 1, wireType 0 =*/8).bool(message.allowFlight);
+            if (message.allowCheats != null && Object.hasOwnProperty.call(message, "allowCheats"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.allowCheats);
+            if (message.instantBreaking != null && Object.hasOwnProperty.call(message, "instantBreaking"))
+                writer.uint32(/* id 3, wireType 0 =*/24).bool(message.instantBreaking);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerAbilities message, length delimited. Does not implicitly {@link PlayerAbilities.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerAbilities
+         * @static
+         * @param {IPlayerAbilities} message PlayerAbilities message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerAbilities.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerAbilities message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerAbilities
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerAbilities} PlayerAbilities
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerAbilities.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerAbilities();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.allowFlight = reader.bool();
+                    break;
+                case 2:
+                    message.allowCheats = reader.bool();
+                    break;
+                case 3:
+                    message.instantBreaking = reader.bool();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerAbilities message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerAbilities
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerAbilities} PlayerAbilities
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerAbilities.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerAbilities message.
+         * @function verify
+         * @memberof PlayerAbilities
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerAbilities.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.allowFlight != null && message.hasOwnProperty("allowFlight"))
+                if (typeof message.allowFlight !== "boolean")
+                    return "allowFlight: boolean expected";
+            if (message.allowCheats != null && message.hasOwnProperty("allowCheats"))
+                if (typeof message.allowCheats !== "boolean")
+                    return "allowCheats: boolean expected";
+            if (message.instantBreaking != null && message.hasOwnProperty("instantBreaking"))
+                if (typeof message.instantBreaking !== "boolean")
+                    return "instantBreaking: boolean expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerAbilities message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerAbilities
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerAbilities} PlayerAbilities
+         */
+        PlayerAbilities.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerAbilities)
+                return object;
+            var message = new $root.PlayerAbilities();
+            if (object.allowFlight != null)
+                message.allowFlight = Boolean(object.allowFlight);
+            if (object.allowCheats != null)
+                message.allowCheats = Boolean(object.allowCheats);
+            if (object.instantBreaking != null)
+                message.instantBreaking = Boolean(object.instantBreaking);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerAbilities message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerAbilities
+         * @static
+         * @param {PlayerAbilities} message PlayerAbilities
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerAbilities.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.allowFlight = false;
+                object.allowCheats = false;
+                object.instantBreaking = false;
+            }
+            if (message.allowFlight != null && message.hasOwnProperty("allowFlight"))
+                object.allowFlight = message.allowFlight;
+            if (message.allowCheats != null && message.hasOwnProperty("allowCheats"))
+                object.allowCheats = message.allowCheats;
+            if (message.instantBreaking != null && message.hasOwnProperty("instantBreaking"))
+                object.instantBreaking = message.instantBreaking;
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerAbilities to JSON.
+         * @function toJSON
+         * @memberof PlayerAbilities
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerAbilities.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerAbilities;
+    })();
+    
     $root.PlayerUpdateMovement = (function() {
     
         /**
@@ -4072,6 +4304,426 @@
         };
     
         return PlayerHealth;
+    })();
+    
+    $root.PlayerArmor = (function() {
+    
+        /**
+         * Properties of a PlayerArmor.
+         * @exports IPlayerArmor
+         * @interface IPlayerArmor
+         * @property {number|null} [value] PlayerArmor value
+         * @property {number|null} [max] PlayerArmor max
+         */
+    
+        /**
+         * Constructs a new PlayerArmor.
+         * @exports PlayerArmor
+         * @classdesc Represents a PlayerArmor.
+         * @implements IPlayerArmor
+         * @constructor
+         * @param {IPlayerArmor=} [properties] Properties to set
+         */
+        function PlayerArmor(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerArmor value.
+         * @member {number} value
+         * @memberof PlayerArmor
+         * @instance
+         */
+        PlayerArmor.prototype.value = 0;
+    
+        /**
+         * PlayerArmor max.
+         * @member {number} max
+         * @memberof PlayerArmor
+         * @instance
+         */
+        PlayerArmor.prototype.max = 0;
+    
+        /**
+         * Creates a new PlayerArmor instance using the specified properties.
+         * @function create
+         * @memberof PlayerArmor
+         * @static
+         * @param {IPlayerArmor=} [properties] Properties to set
+         * @returns {PlayerArmor} PlayerArmor instance
+         */
+        PlayerArmor.create = function create(properties) {
+            return new PlayerArmor(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerArmor message. Does not implicitly {@link PlayerArmor.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerArmor
+         * @static
+         * @param {IPlayerArmor} message PlayerArmor message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerArmor.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 1, wireType 5 =*/13).float(message.value);
+            if (message.max != null && Object.hasOwnProperty.call(message, "max"))
+                writer.uint32(/* id 2, wireType 5 =*/21).float(message.max);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerArmor message, length delimited. Does not implicitly {@link PlayerArmor.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerArmor
+         * @static
+         * @param {IPlayerArmor} message PlayerArmor message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerArmor.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerArmor message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerArmor
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerArmor} PlayerArmor
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerArmor.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerArmor();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.value = reader.float();
+                    break;
+                case 2:
+                    message.max = reader.float();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerArmor message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerArmor
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerArmor} PlayerArmor
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerArmor.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerArmor message.
+         * @function verify
+         * @memberof PlayerArmor
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerArmor.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (typeof message.value !== "number")
+                    return "value: number expected";
+            if (message.max != null && message.hasOwnProperty("max"))
+                if (typeof message.max !== "number")
+                    return "max: number expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerArmor message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerArmor
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerArmor} PlayerArmor
+         */
+        PlayerArmor.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerArmor)
+                return object;
+            var message = new $root.PlayerArmor();
+            if (object.value != null)
+                message.value = Number(object.value);
+            if (object.max != null)
+                message.max = Number(object.max);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerArmor message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerArmor
+         * @static
+         * @param {PlayerArmor} message PlayerArmor
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerArmor.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.value = 0;
+                object.max = 0;
+            }
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = options.json && !isFinite(message.value) ? String(message.value) : message.value;
+            if (message.max != null && message.hasOwnProperty("max"))
+                object.max = options.json && !isFinite(message.max) ? String(message.max) : message.max;
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerArmor to JSON.
+         * @function toJSON
+         * @memberof PlayerArmor
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerArmor.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerArmor;
+    })();
+    
+    $root.PlayerOxygen = (function() {
+    
+        /**
+         * Properties of a PlayerOxygen.
+         * @exports IPlayerOxygen
+         * @interface IPlayerOxygen
+         * @property {number|null} [value] PlayerOxygen value
+         * @property {number|null} [max] PlayerOxygen max
+         */
+    
+        /**
+         * Constructs a new PlayerOxygen.
+         * @exports PlayerOxygen
+         * @classdesc Represents a PlayerOxygen.
+         * @implements IPlayerOxygen
+         * @constructor
+         * @param {IPlayerOxygen=} [properties] Properties to set
+         */
+        function PlayerOxygen(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * PlayerOxygen value.
+         * @member {number} value
+         * @memberof PlayerOxygen
+         * @instance
+         */
+        PlayerOxygen.prototype.value = 0;
+    
+        /**
+         * PlayerOxygen max.
+         * @member {number} max
+         * @memberof PlayerOxygen
+         * @instance
+         */
+        PlayerOxygen.prototype.max = 0;
+    
+        /**
+         * Creates a new PlayerOxygen instance using the specified properties.
+         * @function create
+         * @memberof PlayerOxygen
+         * @static
+         * @param {IPlayerOxygen=} [properties] Properties to set
+         * @returns {PlayerOxygen} PlayerOxygen instance
+         */
+        PlayerOxygen.create = function create(properties) {
+            return new PlayerOxygen(properties);
+        };
+    
+        /**
+         * Encodes the specified PlayerOxygen message. Does not implicitly {@link PlayerOxygen.verify|verify} messages.
+         * @function encode
+         * @memberof PlayerOxygen
+         * @static
+         * @param {IPlayerOxygen} message PlayerOxygen message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerOxygen.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                writer.uint32(/* id 1, wireType 5 =*/13).float(message.value);
+            if (message.max != null && Object.hasOwnProperty.call(message, "max"))
+                writer.uint32(/* id 2, wireType 5 =*/21).float(message.max);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified PlayerOxygen message, length delimited. Does not implicitly {@link PlayerOxygen.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof PlayerOxygen
+         * @static
+         * @param {IPlayerOxygen} message PlayerOxygen message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        PlayerOxygen.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a PlayerOxygen message from the specified reader or buffer.
+         * @function decode
+         * @memberof PlayerOxygen
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {PlayerOxygen} PlayerOxygen
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerOxygen.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.PlayerOxygen();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.value = reader.float();
+                    break;
+                case 2:
+                    message.max = reader.float();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a PlayerOxygen message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof PlayerOxygen
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {PlayerOxygen} PlayerOxygen
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        PlayerOxygen.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a PlayerOxygen message.
+         * @function verify
+         * @memberof PlayerOxygen
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        PlayerOxygen.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.value != null && message.hasOwnProperty("value"))
+                if (typeof message.value !== "number")
+                    return "value: number expected";
+            if (message.max != null && message.hasOwnProperty("max"))
+                if (typeof message.max !== "number")
+                    return "max: number expected";
+            return null;
+        };
+    
+        /**
+         * Creates a PlayerOxygen message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof PlayerOxygen
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {PlayerOxygen} PlayerOxygen
+         */
+        PlayerOxygen.fromObject = function fromObject(object) {
+            if (object instanceof $root.PlayerOxygen)
+                return object;
+            var message = new $root.PlayerOxygen();
+            if (object.value != null)
+                message.value = Number(object.value);
+            if (object.max != null)
+                message.max = Number(object.max);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a PlayerOxygen message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof PlayerOxygen
+         * @static
+         * @param {PlayerOxygen} message PlayerOxygen
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        PlayerOxygen.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.value = 0;
+                object.max = 0;
+            }
+            if (message.value != null && message.hasOwnProperty("value"))
+                object.value = options.json && !isFinite(message.value) ? String(message.value) : message.value;
+            if (message.max != null && message.hasOwnProperty("max"))
+                object.max = options.json && !isFinite(message.max) ? String(message.max) : message.max;
+            return object;
+        };
+    
+        /**
+         * Converts this PlayerOxygen to JSON.
+         * @function toJSON
+         * @memberof PlayerOxygen
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        PlayerOxygen.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return PlayerOxygen;
     })();
     
     $root.PlayerSetBlockReach = (function() {
@@ -4853,6 +5505,7 @@
          * @property {number|null} [y] SoundPlay y
          * @property {number|null} [z] SoundPlay z
          * @property {SoundPlay.Type|null} [type] SoundPlay type
+         * @property {string|null} [uuid] SoundPlay uuid
          */
     
         /**
@@ -4919,6 +5572,14 @@
         SoundPlay.prototype.type = 0;
     
         /**
+         * SoundPlay uuid.
+         * @member {string} uuid
+         * @memberof SoundPlay
+         * @instance
+         */
+        SoundPlay.prototype.uuid = "";
+    
+        /**
          * Creates a new SoundPlay instance using the specified properties.
          * @function create
          * @memberof SoundPlay
@@ -4954,6 +5615,8 @@
                 writer.uint32(/* id 5, wireType 1 =*/41).double(message.z);
             if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.type);
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 7, wireType 2 =*/58).string(message.uuid);
             return writer;
         };
     
@@ -5005,6 +5668,9 @@
                     break;
                 case 6:
                     message.type = reader.int32();
+                    break;
+                case 7:
+                    message.uuid = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -5067,6 +5733,9 @@
                 case 4:
                     break;
                 }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
             return null;
         };
     
@@ -5114,6 +5783,8 @@
                 message.type = 4;
                 break;
             }
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
             return message;
         };
     
@@ -5137,6 +5808,7 @@
                 object.y = 0;
                 object.z = 0;
                 object.type = options.enums === String ? "GENERAL" : 0;
+                object.uuid = "";
             }
             if (message.sound != null && message.hasOwnProperty("sound"))
                 object.sound = message.sound;
@@ -5150,6 +5822,8 @@
                 object.z = options.json && !isFinite(message.z) ? String(message.z) : message.z;
             if (message.type != null && message.hasOwnProperty("type"))
                 object.type = options.enums === String ? $root.SoundPlay.Type[message.type] : message.type;
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
             return object;
         };
     
@@ -5185,6 +5859,193 @@
         })();
     
         return SoundPlay;
+    })();
+    
+    $root.SoundStatus = (function() {
+    
+        /**
+         * Properties of a SoundStatus.
+         * @exports ISoundStatus
+         * @interface ISoundStatus
+         * @property {string|null} [uuid] SoundStatus uuid
+         */
+    
+        /**
+         * Constructs a new SoundStatus.
+         * @exports SoundStatus
+         * @classdesc Represents a SoundStatus.
+         * @implements ISoundStatus
+         * @constructor
+         * @param {ISoundStatus=} [properties] Properties to set
+         */
+        function SoundStatus(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * SoundStatus uuid.
+         * @member {string} uuid
+         * @memberof SoundStatus
+         * @instance
+         */
+        SoundStatus.prototype.uuid = "";
+    
+        /**
+         * Creates a new SoundStatus instance using the specified properties.
+         * @function create
+         * @memberof SoundStatus
+         * @static
+         * @param {ISoundStatus=} [properties] Properties to set
+         * @returns {SoundStatus} SoundStatus instance
+         */
+        SoundStatus.create = function create(properties) {
+            return new SoundStatus(properties);
+        };
+    
+        /**
+         * Encodes the specified SoundStatus message. Does not implicitly {@link SoundStatus.verify|verify} messages.
+         * @function encode
+         * @memberof SoundStatus
+         * @static
+         * @param {ISoundStatus} message SoundStatus message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SoundStatus.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified SoundStatus message, length delimited. Does not implicitly {@link SoundStatus.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof SoundStatus
+         * @static
+         * @param {ISoundStatus} message SoundStatus message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SoundStatus.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a SoundStatus message from the specified reader or buffer.
+         * @function decode
+         * @memberof SoundStatus
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {SoundStatus} SoundStatus
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SoundStatus.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SoundStatus();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.uuid = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a SoundStatus message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof SoundStatus
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {SoundStatus} SoundStatus
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SoundStatus.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a SoundStatus message.
+         * @function verify
+         * @memberof SoundStatus
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SoundStatus.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates a SoundStatus message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof SoundStatus
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {SoundStatus} SoundStatus
+         */
+        SoundStatus.fromObject = function fromObject(object) {
+            if (object instanceof $root.SoundStatus)
+                return object;
+            var message = new $root.SoundStatus();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a SoundStatus message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof SoundStatus
+         * @static
+         * @param {SoundStatus} message SoundStatus
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SoundStatus.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.uuid = "";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
+            return object;
+        };
+    
+        /**
+         * Converts this SoundStatus to JSON.
+         * @function toJSON
+         * @memberof SoundStatus
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SoundStatus.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return SoundStatus;
     })();
     
     $root.ChatMessage = (function() {

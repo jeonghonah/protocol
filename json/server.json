@@ -255,6 +255,22 @@
         }
       }
     },
+    "PlayerAbilities": {
+      "fields": {
+        "allowFlight": {
+          "type": "bool",
+          "id": 1
+        },
+        "allowCheats": {
+          "type": "bool",
+          "id": 2
+        },
+        "instantBreaking": {
+          "type": "bool",
+          "id": 3
+        }
+      }
+    },
     "PlayerUpdateMovement": {
       "fields": {
         "key": {
@@ -280,6 +296,30 @@
       }
     },
     "PlayerHealth": {
+      "fields": {
+        "value": {
+          "type": "float",
+          "id": 1
+        },
+        "max": {
+          "type": "float",
+          "id": 2
+        }
+      }
+    },
+    "PlayerArmor": {
+      "fields": {
+        "value": {
+          "type": "float",
+          "id": 1
+        },
+        "max": {
+          "type": "float",
+          "id": 2
+        }
+      }
+    },
+    "PlayerOxygen": {
       "fields": {
         "value": {
           "type": "float",
@@ -358,6 +398,10 @@
         "type": {
           "type": "Type",
           "id": 6
+        },
+        "uuid": {
+          "type": "string",
+          "id": 7
         }
       },
       "nested": {
@@ -369,6 +413,14 @@
             "MUSIC": 3,
             "SELF": 4
           }
+        }
+      }
+    },
+    "SoundStatus": {
+      "fields": {
+        "uuid": {
+          "type": "string",
+          "id": 1
         }
       }
     },

@@ -32,6 +32,7 @@ message ActionMove {
 	double x = 1;
 	double y = 2;
 	double z = 3;
+	bool on_ground = 4;
 }
 
 /* 
@@ -56,6 +57,7 @@ message ActionMoveLook {
 	double z = 3;
 	float rotation = 4;
 	float pitch = 5;
+	bool on_ground = 6;
 }
 
 /* 
@@ -104,6 +106,14 @@ message ActionInventoryClick {
 	int32 slot = 1;
 	MouseClickType type = 2;
 	InventoryType inventory = 3;
+}
+
+/* 
+ * ActionInventoryClick is send after player will try to get items (with cheats)
+*/
+
+message ActionInventoryCheat {
+	string id = 1;
 }
 
 /* 
@@ -191,6 +201,16 @@ message WorldChunkIsLoadedResponce {
 	sint32 y = 2;
 	sint32 z = 3;
 	bool loaded = 4;
+}
+
+/* 
+ * SoundStatusResponce is send as answer to SoundStatus
+*/
+
+message SoundStatusResponce {
+	string uuid = 1;
+	bool is_playing = 2;
+	float progress = 3;
 }
 
 

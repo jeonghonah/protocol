@@ -26,44 +26,48 @@ public static partial class ClientReflection {
           "b2dpblJlc3BvbnNlEhAKCHVzZXJuYW1lGAEgASgJEhAKCHByb3RvY29sGAIg",
           "ASgNEg4KBm1vYmlsZRgDIAEoCBIOCgZjbGllbnQYBCABKAkSDAoEdXVpZBgF",
           "IAEoCRIOCgZzZWNyZXQYBiABKAkSFAoMcHJvdG9jb2xfcmV2GAcgASgFIhQK",
-          "BFBpbmcSDAoEdGltZRgBIAEoBCItCgpBY3Rpb25Nb3ZlEgkKAXgYASABKAES",
-          "CQoBeRgCIAEoARIJCgF6GAMgASgBIi0KCkFjdGlvbkxvb2sSEAoIcm90YXRp",
-          "b24YASABKAISDQoFcGl0Y2gYAiABKAIiUgoOQWN0aW9uTW92ZUxvb2sSCQoB",
-          "eBgBIAEoARIJCgF5GAIgASgBEgkKAXoYAyABKAESEAoIcm90YXRpb24YBCAB",
-          "KAISDQoFcGl0Y2gYBSABKAIiIAoNQWN0aW9uTWVzc2FnZRIPCgdtZXNzYWdl",
-          "GAEgASgJIlcKEEFjdGlvbkJsb2NrUGxhY2USCQoBeBgBIAEoERIJCgF5GAIg",
-          "ASgREgkKAXoYAyABKBESCgoCeDIYBCABKBESCgoCeTIYBSABKBESCgoCejIY",
-          "BiABKBEiQwoQQWN0aW9uQmxvY2tCcmVhaxIJCgF4GAEgASgREgkKAXkYAiAB",
-          "KBESCQoBehgDIAEoERIOCgZzdGF0dXMYBCABKA0iZgoUQWN0aW9uSW52ZW50",
-          "b3J5Q2xpY2sSDAoEc2xvdBgBIAEoBRIdCgR0eXBlGAIgASgOMg8uTW91c2VD",
-          "bGlja1R5cGUSIQoJaW52ZW50b3J5GAMgASgOMg4uSW52ZW50b3J5VHlwZSJB",
-          "ChNBY3Rpb25JbnZlbnRvcnlQaWNrEgwKBHNsb3QYASABKAUSDQoFc2xvdDIY",
-          "AiABKAUSDQoFYmxvY2sYAyABKBEiOAoTQWN0aW9uSW52ZW50b3J5T3BlbhIh",
-          "CglpbnZlbnRvcnkYASABKA4yDi5Db250YWluZXJUeXBlIjkKFEFjdGlvbklu",
-          "dmVudG9yeUNsb3NlEiEKCWludmVudG9yeRgBIAEoDjIOLkNvbnRhaW5lclR5",
-          "cGUiXwoLQWN0aW9uQ2xpY2sSCQoBeBgBIAEoERIJCgF5GAIgASgREgkKAXoY",
-          "AyABKBESHQoEdHlwZRgEIAEoDjIPLk1vdXNlQ2xpY2tUeXBlEhAKCG9uX2Js",
-          "b2NrGAUgASgIIkEKEUFjdGlvbkNsaWNrRW50aXR5EgwKBHV1aWQYASABKAkS",
-          "DAoEdHlwZRgCIAEoCRIQCghkaXN0YW5jZRgDIAEoAiIiChJBY3Rpb25MZWF2",
-          "ZVZlaGljbGUSDAoEdXVpZBgBIAEoCSJPCg5BY3Rpb25Ecm9wSXRlbRIMCgR1",
-          "dWlkGAEgASgJEiEKCWludmVudG9yeRgCIAEoDjIOLkludmVudG9yeVR5cGUS",
-          "DAoEc2xvdBgDIAEoBSIrCg5BY3Rpb25LZXlQcmVzcxILCgNrZXkYASABKAkS",
-          "DAoEdHlwZRgCIAEoCCJNChpXb3JsZENodW5rSXNMb2FkZWRSZXNwb25jZRIJ",
-          "CgF4GAEgASgREgkKAXkYAiABKBESCQoBehgDIAEoERIOCgZsb2FkZWQYBCAB",
-          "KAgiPAoNUGx1Z2luTWVzc2FnZRILCgNrZXkYASABKAkSDwoHdmVyc2lvbhgC",
-          "IAEoDRINCgV2YWx1ZRgDIAEoDGIGcHJvdG8z"));
+          "BFBpbmcSDAoEdGltZRgBIAEoBCJACgpBY3Rpb25Nb3ZlEgkKAXgYASABKAES",
+          "CQoBeRgCIAEoARIJCgF6GAMgASgBEhEKCW9uX2dyb3VuZBgEIAEoCCItCgpB",
+          "Y3Rpb25Mb29rEhAKCHJvdGF0aW9uGAEgASgCEg0KBXBpdGNoGAIgASgCImUK",
+          "DkFjdGlvbk1vdmVMb29rEgkKAXgYASABKAESCQoBeRgCIAEoARIJCgF6GAMg",
+          "ASgBEhAKCHJvdGF0aW9uGAQgASgCEg0KBXBpdGNoGAUgASgCEhEKCW9uX2dy",
+          "b3VuZBgGIAEoCCIgCg1BY3Rpb25NZXNzYWdlEg8KB21lc3NhZ2UYASABKAki",
+          "VwoQQWN0aW9uQmxvY2tQbGFjZRIJCgF4GAEgASgREgkKAXkYAiABKBESCQoB",
+          "ehgDIAEoERIKCgJ4MhgEIAEoERIKCgJ5MhgFIAEoERIKCgJ6MhgGIAEoESJD",
+          "ChBBY3Rpb25CbG9ja0JyZWFrEgkKAXgYASABKBESCQoBeRgCIAEoERIJCgF6",
+          "GAMgASgREg4KBnN0YXR1cxgEIAEoDSJmChRBY3Rpb25JbnZlbnRvcnlDbGlj",
+          "axIMCgRzbG90GAEgASgFEh0KBHR5cGUYAiABKA4yDy5Nb3VzZUNsaWNrVHlw",
+          "ZRIhCglpbnZlbnRvcnkYAyABKA4yDi5JbnZlbnRvcnlUeXBlIiIKFEFjdGlv",
+          "bkludmVudG9yeUNoZWF0EgoKAmlkGAEgASgJIkEKE0FjdGlvbkludmVudG9y",
+          "eVBpY2sSDAoEc2xvdBgBIAEoBRINCgVzbG90MhgCIAEoBRINCgVibG9jaxgD",
+          "IAEoESI4ChNBY3Rpb25JbnZlbnRvcnlPcGVuEiEKCWludmVudG9yeRgBIAEo",
+          "DjIOLkNvbnRhaW5lclR5cGUiOQoUQWN0aW9uSW52ZW50b3J5Q2xvc2USIQoJ",
+          "aW52ZW50b3J5GAEgASgOMg4uQ29udGFpbmVyVHlwZSJfCgtBY3Rpb25DbGlj",
+          "axIJCgF4GAEgASgREgkKAXkYAiABKBESCQoBehgDIAEoERIdCgR0eXBlGAQg",
+          "ASgOMg8uTW91c2VDbGlja1R5cGUSEAoIb25fYmxvY2sYBSABKAgiQQoRQWN0",
+          "aW9uQ2xpY2tFbnRpdHkSDAoEdXVpZBgBIAEoCRIMCgR0eXBlGAIgASgJEhAK",
+          "CGRpc3RhbmNlGAMgASgCIiIKEkFjdGlvbkxlYXZlVmVoaWNsZRIMCgR1dWlk",
+          "GAEgASgJIk8KDkFjdGlvbkRyb3BJdGVtEgwKBHV1aWQYASABKAkSIQoJaW52",
+          "ZW50b3J5GAIgASgOMg4uSW52ZW50b3J5VHlwZRIMCgRzbG90GAMgASgFIisK",
+          "DkFjdGlvbktleVByZXNzEgsKA2tleRgBIAEoCRIMCgR0eXBlGAIgASgIIk0K",
+          "GldvcmxkQ2h1bmtJc0xvYWRlZFJlc3BvbmNlEgkKAXgYASABKBESCQoBeRgC",
+          "IAEoERIJCgF6GAMgASgREg4KBmxvYWRlZBgEIAEoCCJJChNTb3VuZFN0YXR1",
+          "c1Jlc3BvbmNlEgwKBHV1aWQYASABKAkSEgoKaXNfcGxheWluZxgCIAEoCBIQ",
+          "Cghwcm9ncmVzcxgDIAEoAiI8Cg1QbHVnaW5NZXNzYWdlEgsKA2tleRgBIAEo",
+          "CRIPCgd2ZXJzaW9uGAIgASgNEg0KBXZhbHVlGAMgASgMYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { global::TypesReflection.Descriptor, },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::LoginResponse), global::LoginResponse.Parser, new[]{ "Username", "Protocol", "Mobile", "Client", "Uuid", "Secret", "ProtocolRev" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Ping), global::Ping.Parser, new[]{ "Time" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ActionMove), global::ActionMove.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ActionMove), global::ActionMove.Parser, new[]{ "X", "Y", "Z", "OnGround" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionLook), global::ActionLook.Parser, new[]{ "Rotation", "Pitch" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::ActionMoveLook), global::ActionMoveLook.Parser, new[]{ "X", "Y", "Z", "Rotation", "Pitch" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ActionMoveLook), global::ActionMoveLook.Parser, new[]{ "X", "Y", "Z", "Rotation", "Pitch", "OnGround" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionMessage), global::ActionMessage.Parser, new[]{ "Message" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionBlockPlace), global::ActionBlockPlace.Parser, new[]{ "X", "Y", "Z", "X2", "Y2", "Z2" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionBlockBreak), global::ActionBlockBreak.Parser, new[]{ "X", "Y", "Z", "Status" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryClick), global::ActionInventoryClick.Parser, new[]{ "Slot", "Type", "Inventory" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryCheat), global::ActionInventoryCheat.Parser, new[]{ "Id" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryPick), global::ActionInventoryPick.Parser, new[]{ "Slot", "Slot2", "Block" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryOpen), global::ActionInventoryOpen.Parser, new[]{ "Inventory" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionInventoryClose), global::ActionInventoryClose.Parser, new[]{ "Inventory" }, null, null, null, null),
@@ -73,6 +77,7 @@ public static partial class ClientReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionDropItem), global::ActionDropItem.Parser, new[]{ "Uuid", "Inventory", "Slot" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::ActionKeyPress), global::ActionKeyPress.Parser, new[]{ "Key", "Type" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::WorldChunkIsLoadedResponce), global::WorldChunkIsLoadedResponce.Parser, new[]{ "X", "Y", "Z", "Loaded" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::SoundStatusResponce), global::SoundStatusResponce.Parser, new[]{ "Uuid", "IsPlaying", "Progress" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PluginMessage), global::PluginMessage.Parser, new[]{ "Key", "Version", "Value" }, null, null, null, null)
         }));
   }
@@ -675,6 +680,7 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
     x_ = other.x_;
     y_ = other.y_;
     z_ = other.z_;
+    onGround_ = other.onGround_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -716,6 +722,17 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
     }
   }
 
+  /// <summary>Field number for the "on_ground" field.</summary>
+  public const int OnGroundFieldNumber = 4;
+  private bool onGround_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool OnGround {
+    get { return onGround_; }
+    set {
+      onGround_ = value;
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as ActionMove);
@@ -732,6 +749,7 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
     if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(X, other.X)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Y, other.Y)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Z, other.Z)) return false;
+    if (OnGround != other.OnGround) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -741,6 +759,7 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
     if (X != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(X);
     if (Y != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Y);
     if (Z != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Z);
+    if (OnGround != false) hash ^= OnGround.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -769,6 +788,10 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
       output.WriteRawTag(25);
       output.WriteDouble(Z);
     }
+    if (OnGround != false) {
+      output.WriteRawTag(32);
+      output.WriteBool(OnGround);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -790,6 +813,10 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
       output.WriteRawTag(25);
       output.WriteDouble(Z);
     }
+    if (OnGround != false) {
+      output.WriteRawTag(32);
+      output.WriteBool(OnGround);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -807,6 +834,9 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
     }
     if (Z != 0D) {
       size += 1 + 8;
+    }
+    if (OnGround != false) {
+      size += 1 + 1;
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -827,6 +857,9 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
     }
     if (other.Z != 0D) {
       Z = other.Z;
+    }
+    if (other.OnGround != false) {
+      OnGround = other.OnGround;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -854,6 +887,10 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
           Z = input.ReadDouble();
           break;
         }
+        case 32: {
+          OnGround = input.ReadBool();
+          break;
+        }
       }
     }
   #endif
@@ -878,6 +915,10 @@ public sealed partial class ActionMove : pb::IMessage<ActionMove>
         }
         case 25: {
           Z = input.ReadDouble();
+          break;
+        }
+        case 32: {
+          OnGround = input.ReadBool();
           break;
         }
       }
@@ -1129,6 +1170,7 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
     z_ = other.z_;
     rotation_ = other.rotation_;
     pitch_ = other.pitch_;
+    onGround_ = other.onGround_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -1192,6 +1234,17 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
     }
   }
 
+  /// <summary>Field number for the "on_ground" field.</summary>
+  public const int OnGroundFieldNumber = 6;
+  private bool onGround_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool OnGround {
+    get { return onGround_; }
+    set {
+      onGround_ = value;
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public override bool Equals(object other) {
     return Equals(other as ActionMoveLook);
@@ -1210,6 +1263,7 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
     if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Z, other.Z)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Rotation, other.Rotation)) return false;
     if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Pitch, other.Pitch)) return false;
+    if (OnGround != other.OnGround) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -1221,6 +1275,7 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
     if (Z != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Z);
     if (Rotation != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Rotation);
     if (Pitch != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Pitch);
+    if (OnGround != false) hash ^= OnGround.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -1257,6 +1312,10 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
       output.WriteRawTag(45);
       output.WriteFloat(Pitch);
     }
+    if (OnGround != false) {
+      output.WriteRawTag(48);
+      output.WriteBool(OnGround);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -1286,6 +1345,10 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
       output.WriteRawTag(45);
       output.WriteFloat(Pitch);
     }
+    if (OnGround != false) {
+      output.WriteRawTag(48);
+      output.WriteBool(OnGround);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -1309,6 +1372,9 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
     }
     if (Pitch != 0F) {
       size += 1 + 4;
+    }
+    if (OnGround != false) {
+      size += 1 + 1;
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -1335,6 +1401,9 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
     }
     if (other.Pitch != 0F) {
       Pitch = other.Pitch;
+    }
+    if (other.OnGround != false) {
+      OnGround = other.OnGround;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -1370,6 +1439,10 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
           Pitch = input.ReadFloat();
           break;
         }
+        case 48: {
+          OnGround = input.ReadBool();
+          break;
+        }
       }
     }
   #endif
@@ -1402,6 +1475,10 @@ public sealed partial class ActionMoveLook : pb::IMessage<ActionMoveLook>
         }
         case 45: {
           Pitch = input.ReadFloat();
+          break;
+        }
+        case 48: {
+          OnGround = input.ReadBool();
           break;
         }
       }
@@ -2459,6 +2536,178 @@ public sealed partial class ActionInventoryClick : pb::IMessage<ActionInventoryC
 
 }
 
+public sealed partial class ActionInventoryCheat : pb::IMessage<ActionInventoryCheat>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<ActionInventoryCheat> _parser = new pb::MessageParser<ActionInventoryCheat>(() => new ActionInventoryCheat());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<ActionInventoryCheat> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::ClientReflection.Descriptor.MessageTypes[9]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ActionInventoryCheat() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ActionInventoryCheat(ActionInventoryCheat other) : this() {
+    id_ = other.id_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public ActionInventoryCheat Clone() {
+    return new ActionInventoryCheat(this);
+  }
+
+  /// <summary>Field number for the "id" field.</summary>
+  public const int IdFieldNumber = 1;
+  private string id_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Id {
+    get { return id_; }
+    set {
+      id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as ActionInventoryCheat);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(ActionInventoryCheat other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Id != other.Id) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Id.Length != 0) hash ^= Id.GetHashCode();
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Id.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Id);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Id.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Id);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Id.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(ActionInventoryCheat other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Id.Length != 0) {
+      Id = other.Id;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          Id = input.ReadString();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          Id = input.ReadString();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
 public sealed partial class ActionInventoryPick : pb::IMessage<ActionInventoryPick>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
@@ -2471,7 +2720,7 @@ public sealed partial class ActionInventoryPick : pb::IMessage<ActionInventoryPi
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[9]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[10]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2715,7 +2964,7 @@ public sealed partial class ActionInventoryOpen : pb::IMessage<ActionInventoryOp
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[10]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[11]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2887,7 +3136,7 @@ public sealed partial class ActionInventoryClose : pb::IMessage<ActionInventoryC
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[11]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[12]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3059,7 +3308,7 @@ public sealed partial class ActionClick : pb::IMessage<ActionClick>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[12]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[13]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3375,7 +3624,7 @@ public sealed partial class ActionClickEntity : pb::IMessage<ActionClickEntity>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[13]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[14]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3619,7 +3868,7 @@ public sealed partial class ActionLeaveVehicle : pb::IMessage<ActionLeaveVehicle
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[14]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[15]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3791,7 +4040,7 @@ public sealed partial class ActionDropItem : pb::IMessage<ActionDropItem>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[15]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[16]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4035,7 +4284,7 @@ public sealed partial class ActionKeyPress : pb::IMessage<ActionKeyPress>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[16]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[17]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4243,7 +4492,7 @@ public sealed partial class WorldChunkIsLoadedResponce : pb::IMessage<WorldChunk
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[17]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[18]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4511,6 +4760,250 @@ public sealed partial class WorldChunkIsLoadedResponce : pb::IMessage<WorldChunk
 
 }
 
+public sealed partial class SoundStatusResponce : pb::IMessage<SoundStatusResponce>
+#if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    , pb::IBufferMessage
+#endif
+{
+  private static readonly pb::MessageParser<SoundStatusResponce> _parser = new pb::MessageParser<SoundStatusResponce>(() => new SoundStatusResponce());
+  private pb::UnknownFieldSet _unknownFields;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pb::MessageParser<SoundStatusResponce> Parser { get { return _parser; } }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public static pbr::MessageDescriptor Descriptor {
+    get { return global::ClientReflection.Descriptor.MessageTypes[19]; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  pbr::MessageDescriptor pb::IMessage.Descriptor {
+    get { return Descriptor; }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public SoundStatusResponce() {
+    OnConstruction();
+  }
+
+  partial void OnConstruction();
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public SoundStatusResponce(SoundStatusResponce other) : this() {
+    uuid_ = other.uuid_;
+    isPlaying_ = other.isPlaying_;
+    progress_ = other.progress_;
+    _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public SoundStatusResponce Clone() {
+    return new SoundStatusResponce(this);
+  }
+
+  /// <summary>Field number for the "uuid" field.</summary>
+  public const int UuidFieldNumber = 1;
+  private string uuid_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public string Uuid {
+    get { return uuid_; }
+    set {
+      uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "is_playing" field.</summary>
+  public const int IsPlayingFieldNumber = 2;
+  private bool isPlaying_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool IsPlaying {
+    get { return isPlaying_; }
+    set {
+      isPlaying_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "progress" field.</summary>
+  public const int ProgressFieldNumber = 3;
+  private float progress_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public float Progress {
+    get { return progress_; }
+    set {
+      progress_ = value;
+    }
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override bool Equals(object other) {
+    return Equals(other as SoundStatusResponce);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public bool Equals(SoundStatusResponce other) {
+    if (ReferenceEquals(other, null)) {
+      return false;
+    }
+    if (ReferenceEquals(other, this)) {
+      return true;
+    }
+    if (Uuid != other.Uuid) return false;
+    if (IsPlaying != other.IsPlaying) return false;
+    if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Progress, other.Progress)) return false;
+    return Equals(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override int GetHashCode() {
+    int hash = 1;
+    if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
+    if (IsPlaying != false) hash ^= IsPlaying.GetHashCode();
+    if (Progress != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Progress);
+    if (_unknownFields != null) {
+      hash ^= _unknownFields.GetHashCode();
+    }
+    return hash;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public override string ToString() {
+    return pb::JsonFormatter.ToDiagnosticString(this);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void WriteTo(pb::CodedOutputStream output) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    output.WriteRawMessage(this);
+  #else
+    if (Uuid.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Uuid);
+    }
+    if (IsPlaying != false) {
+      output.WriteRawTag(16);
+      output.WriteBool(IsPlaying);
+    }
+    if (Progress != 0F) {
+      output.WriteRawTag(29);
+      output.WriteFloat(Progress);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(output);
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+    if (Uuid.Length != 0) {
+      output.WriteRawTag(10);
+      output.WriteString(Uuid);
+    }
+    if (IsPlaying != false) {
+      output.WriteRawTag(16);
+      output.WriteBool(IsPlaying);
+    }
+    if (Progress != 0F) {
+      output.WriteRawTag(29);
+      output.WriteFloat(Progress);
+    }
+    if (_unknownFields != null) {
+      _unknownFields.WriteTo(ref output);
+    }
+  }
+  #endif
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public int CalculateSize() {
+    int size = 0;
+    if (Uuid.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
+    }
+    if (IsPlaying != false) {
+      size += 1 + 1;
+    }
+    if (Progress != 0F) {
+      size += 1 + 4;
+    }
+    if (_unknownFields != null) {
+      size += _unknownFields.CalculateSize();
+    }
+    return size;
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(SoundStatusResponce other) {
+    if (other == null) {
+      return;
+    }
+    if (other.Uuid.Length != 0) {
+      Uuid = other.Uuid;
+    }
+    if (other.IsPlaying != false) {
+      IsPlaying = other.IsPlaying;
+    }
+    if (other.Progress != 0F) {
+      Progress = other.Progress;
+    }
+    _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  public void MergeFrom(pb::CodedInputStream input) {
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    input.ReadRawMessage(this);
+  #else
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+          break;
+        case 10: {
+          Uuid = input.ReadString();
+          break;
+        }
+        case 16: {
+          IsPlaying = input.ReadBool();
+          break;
+        }
+        case 29: {
+          Progress = input.ReadFloat();
+          break;
+        }
+      }
+    }
+  #endif
+  }
+
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+    uint tag;
+    while ((tag = input.ReadTag()) != 0) {
+      switch(tag) {
+        default:
+          _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+          break;
+        case 10: {
+          Uuid = input.ReadString();
+          break;
+        }
+        case 16: {
+          IsPlaying = input.ReadBool();
+          break;
+        }
+        case 29: {
+          Progress = input.ReadFloat();
+          break;
+        }
+      }
+    }
+  }
+  #endif
+
+}
+
 public sealed partial class PluginMessage : pb::IMessage<PluginMessage>
 #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     , pb::IBufferMessage
@@ -4523,7 +5016,7 @@ public sealed partial class PluginMessage : pb::IMessage<PluginMessage>
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   public static pbr::MessageDescriptor Descriptor {
-    get { return global::ClientReflection.Descriptor.MessageTypes[18]; }
+    get { return global::ClientReflection.Descriptor.MessageTypes[20]; }
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

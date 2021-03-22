@@ -1307,6 +1307,108 @@ export class PlayerApplyImpulse implements IPlayerApplyImpulse {
     public toJSON(): { [k: string]: any };
 }
 
+/** Properties of a PlayerAbilities. */
+export interface IPlayerAbilities {
+
+    /** PlayerAbilities allowFlight */
+    allowFlight?: (boolean|null);
+
+    /** PlayerAbilities allowCheats */
+    allowCheats?: (boolean|null);
+
+    /** PlayerAbilities instantBreaking */
+    instantBreaking?: (boolean|null);
+}
+
+/** Represents a PlayerAbilities. */
+export class PlayerAbilities implements IPlayerAbilities {
+
+    /**
+     * Constructs a new PlayerAbilities.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerAbilities);
+
+    /** PlayerAbilities allowFlight. */
+    public allowFlight: boolean;
+
+    /** PlayerAbilities allowCheats. */
+    public allowCheats: boolean;
+
+    /** PlayerAbilities instantBreaking. */
+    public instantBreaking: boolean;
+
+    /**
+     * Creates a new PlayerAbilities instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerAbilities instance
+     */
+    public static create(properties?: IPlayerAbilities): PlayerAbilities;
+
+    /**
+     * Encodes the specified PlayerAbilities message. Does not implicitly {@link PlayerAbilities.verify|verify} messages.
+     * @param message PlayerAbilities message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerAbilities, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerAbilities message, length delimited. Does not implicitly {@link PlayerAbilities.verify|verify} messages.
+     * @param message PlayerAbilities message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerAbilities, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerAbilities message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerAbilities
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerAbilities;
+
+    /**
+     * Decodes a PlayerAbilities message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerAbilities
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerAbilities;
+
+    /**
+     * Verifies a PlayerAbilities message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerAbilities message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerAbilities
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerAbilities;
+
+    /**
+     * Creates a plain object from a PlayerAbilities message. Also converts values to other types if specified.
+     * @param message PlayerAbilities
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerAbilities, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerAbilities to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
 /** Properties of a PlayerUpdateMovement. */
 export interface IPlayerUpdateMovement {
 
@@ -1590,6 +1692,198 @@ export class PlayerHealth implements IPlayerHealth {
 
     /**
      * Converts this PlayerHealth to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a PlayerArmor. */
+export interface IPlayerArmor {
+
+    /** PlayerArmor value */
+    value?: (number|null);
+
+    /** PlayerArmor max */
+    max?: (number|null);
+}
+
+/** Represents a PlayerArmor. */
+export class PlayerArmor implements IPlayerArmor {
+
+    /**
+     * Constructs a new PlayerArmor.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerArmor);
+
+    /** PlayerArmor value. */
+    public value: number;
+
+    /** PlayerArmor max. */
+    public max: number;
+
+    /**
+     * Creates a new PlayerArmor instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerArmor instance
+     */
+    public static create(properties?: IPlayerArmor): PlayerArmor;
+
+    /**
+     * Encodes the specified PlayerArmor message. Does not implicitly {@link PlayerArmor.verify|verify} messages.
+     * @param message PlayerArmor message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerArmor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerArmor message, length delimited. Does not implicitly {@link PlayerArmor.verify|verify} messages.
+     * @param message PlayerArmor message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerArmor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerArmor message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerArmor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerArmor;
+
+    /**
+     * Decodes a PlayerArmor message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerArmor
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerArmor;
+
+    /**
+     * Verifies a PlayerArmor message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerArmor message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerArmor
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerArmor;
+
+    /**
+     * Creates a plain object from a PlayerArmor message. Also converts values to other types if specified.
+     * @param message PlayerArmor
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerArmor, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerArmor to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a PlayerOxygen. */
+export interface IPlayerOxygen {
+
+    /** PlayerOxygen value */
+    value?: (number|null);
+
+    /** PlayerOxygen max */
+    max?: (number|null);
+}
+
+/** Represents a PlayerOxygen. */
+export class PlayerOxygen implements IPlayerOxygen {
+
+    /**
+     * Constructs a new PlayerOxygen.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPlayerOxygen);
+
+    /** PlayerOxygen value. */
+    public value: number;
+
+    /** PlayerOxygen max. */
+    public max: number;
+
+    /**
+     * Creates a new PlayerOxygen instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PlayerOxygen instance
+     */
+    public static create(properties?: IPlayerOxygen): PlayerOxygen;
+
+    /**
+     * Encodes the specified PlayerOxygen message. Does not implicitly {@link PlayerOxygen.verify|verify} messages.
+     * @param message PlayerOxygen message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPlayerOxygen, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PlayerOxygen message, length delimited. Does not implicitly {@link PlayerOxygen.verify|verify} messages.
+     * @param message PlayerOxygen message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPlayerOxygen, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PlayerOxygen message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PlayerOxygen
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PlayerOxygen;
+
+    /**
+     * Decodes a PlayerOxygen message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PlayerOxygen
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PlayerOxygen;
+
+    /**
+     * Verifies a PlayerOxygen message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PlayerOxygen message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PlayerOxygen
+     */
+    public static fromObject(object: { [k: string]: any }): PlayerOxygen;
+
+    /**
+     * Creates a plain object from a PlayerOxygen message. Also converts values to other types if specified.
+     * @param message PlayerOxygen
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PlayerOxygen, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PlayerOxygen to JSON.
      * @returns JSON object
      */
     public toJSON(): { [k: string]: any };
@@ -1909,6 +2203,9 @@ export interface ISoundPlay {
 
     /** SoundPlay type */
     type?: (SoundPlay.Type|null);
+
+    /** SoundPlay uuid */
+    uuid?: (string|null);
 }
 
 /** Represents a SoundPlay. */
@@ -1937,6 +2234,9 @@ export class SoundPlay implements ISoundPlay {
 
     /** SoundPlay type. */
     public type: SoundPlay.Type;
+
+    /** SoundPlay uuid. */
+    public uuid: string;
 
     /**
      * Creates a new SoundPlay instance using the specified properties.
@@ -2019,6 +2319,96 @@ export namespace SoundPlay {
         MUSIC = 3,
         SELF = 4
     }
+}
+
+/** Properties of a SoundStatus. */
+export interface ISoundStatus {
+
+    /** SoundStatus uuid */
+    uuid?: (string|null);
+}
+
+/** Represents a SoundStatus. */
+export class SoundStatus implements ISoundStatus {
+
+    /**
+     * Constructs a new SoundStatus.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ISoundStatus);
+
+    /** SoundStatus uuid. */
+    public uuid: string;
+
+    /**
+     * Creates a new SoundStatus instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns SoundStatus instance
+     */
+    public static create(properties?: ISoundStatus): SoundStatus;
+
+    /**
+     * Encodes the specified SoundStatus message. Does not implicitly {@link SoundStatus.verify|verify} messages.
+     * @param message SoundStatus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ISoundStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified SoundStatus message, length delimited. Does not implicitly {@link SoundStatus.verify|verify} messages.
+     * @param message SoundStatus message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ISoundStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a SoundStatus message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns SoundStatus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SoundStatus;
+
+    /**
+     * Decodes a SoundStatus message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns SoundStatus
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SoundStatus;
+
+    /**
+     * Verifies a SoundStatus message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a SoundStatus message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns SoundStatus
+     */
+    public static fromObject(object: { [k: string]: any }): SoundStatus;
+
+    /**
+     * Creates a plain object from a SoundStatus message. Also converts values to other types if specified.
+     * @param message SoundStatus
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: SoundStatus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this SoundStatus to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
 }
 
 /** Properties of a ChatMessage. */

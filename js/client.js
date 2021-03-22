@@ -546,6 +546,7 @@
          * @property {number|null} [x] ActionMove x
          * @property {number|null} [y] ActionMove y
          * @property {number|null} [z] ActionMove z
+         * @property {boolean|null} [onGround] ActionMove onGround
          */
     
         /**
@@ -588,6 +589,14 @@
         ActionMove.prototype.z = 0;
     
         /**
+         * ActionMove onGround.
+         * @member {boolean} onGround
+         * @memberof ActionMove
+         * @instance
+         */
+        ActionMove.prototype.onGround = false;
+    
+        /**
          * Creates a new ActionMove instance using the specified properties.
          * @function create
          * @memberof ActionMove
@@ -617,6 +626,8 @@
                 writer.uint32(/* id 2, wireType 1 =*/17).double(message.y);
             if (message.z != null && Object.hasOwnProperty.call(message, "z"))
                 writer.uint32(/* id 3, wireType 1 =*/25).double(message.z);
+            if (message.onGround != null && Object.hasOwnProperty.call(message, "onGround"))
+                writer.uint32(/* id 4, wireType 0 =*/32).bool(message.onGround);
             return writer;
         };
     
@@ -659,6 +670,9 @@
                     break;
                 case 3:
                     message.z = reader.double();
+                    break;
+                case 4:
+                    message.onGround = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -704,6 +718,9 @@
             if (message.z != null && message.hasOwnProperty("z"))
                 if (typeof message.z !== "number")
                     return "z: number expected";
+            if (message.onGround != null && message.hasOwnProperty("onGround"))
+                if (typeof message.onGround !== "boolean")
+                    return "onGround: boolean expected";
             return null;
         };
     
@@ -725,6 +742,8 @@
                 message.y = Number(object.y);
             if (object.z != null)
                 message.z = Number(object.z);
+            if (object.onGround != null)
+                message.onGround = Boolean(object.onGround);
             return message;
         };
     
@@ -745,6 +764,7 @@
                 object.x = 0;
                 object.y = 0;
                 object.z = 0;
+                object.onGround = false;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = options.json && !isFinite(message.x) ? String(message.x) : message.x;
@@ -752,6 +772,8 @@
                 object.y = options.json && !isFinite(message.y) ? String(message.y) : message.y;
             if (message.z != null && message.hasOwnProperty("z"))
                 object.z = options.json && !isFinite(message.z) ? String(message.z) : message.z;
+            if (message.onGround != null && message.hasOwnProperty("onGround"))
+                object.onGround = message.onGround;
             return object;
         };
     
@@ -990,6 +1012,7 @@
          * @property {number|null} [z] ActionMoveLook z
          * @property {number|null} [rotation] ActionMoveLook rotation
          * @property {number|null} [pitch] ActionMoveLook pitch
+         * @property {boolean|null} [onGround] ActionMoveLook onGround
          */
     
         /**
@@ -1048,6 +1071,14 @@
         ActionMoveLook.prototype.pitch = 0;
     
         /**
+         * ActionMoveLook onGround.
+         * @member {boolean} onGround
+         * @memberof ActionMoveLook
+         * @instance
+         */
+        ActionMoveLook.prototype.onGround = false;
+    
+        /**
          * Creates a new ActionMoveLook instance using the specified properties.
          * @function create
          * @memberof ActionMoveLook
@@ -1081,6 +1112,8 @@
                 writer.uint32(/* id 4, wireType 5 =*/37).float(message.rotation);
             if (message.pitch != null && Object.hasOwnProperty.call(message, "pitch"))
                 writer.uint32(/* id 5, wireType 5 =*/45).float(message.pitch);
+            if (message.onGround != null && Object.hasOwnProperty.call(message, "onGround"))
+                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.onGround);
             return writer;
         };
     
@@ -1129,6 +1162,9 @@
                     break;
                 case 5:
                     message.pitch = reader.float();
+                    break;
+                case 6:
+                    message.onGround = reader.bool();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -1180,6 +1216,9 @@
             if (message.pitch != null && message.hasOwnProperty("pitch"))
                 if (typeof message.pitch !== "number")
                     return "pitch: number expected";
+            if (message.onGround != null && message.hasOwnProperty("onGround"))
+                if (typeof message.onGround !== "boolean")
+                    return "onGround: boolean expected";
             return null;
         };
     
@@ -1205,6 +1244,8 @@
                 message.rotation = Number(object.rotation);
             if (object.pitch != null)
                 message.pitch = Number(object.pitch);
+            if (object.onGround != null)
+                message.onGround = Boolean(object.onGround);
             return message;
         };
     
@@ -1227,6 +1268,7 @@
                 object.z = 0;
                 object.rotation = 0;
                 object.pitch = 0;
+                object.onGround = false;
             }
             if (message.x != null && message.hasOwnProperty("x"))
                 object.x = options.json && !isFinite(message.x) ? String(message.x) : message.x;
@@ -1238,6 +1280,8 @@
                 object.rotation = options.json && !isFinite(message.rotation) ? String(message.rotation) : message.rotation;
             if (message.pitch != null && message.hasOwnProperty("pitch"))
                 object.pitch = options.json && !isFinite(message.pitch) ? String(message.pitch) : message.pitch;
+            if (message.onGround != null && message.hasOwnProperty("onGround"))
+                object.onGround = message.onGround;
             return object;
         };
     
@@ -2275,6 +2319,193 @@
         };
     
         return ActionInventoryClick;
+    })();
+    
+    $root.ActionInventoryCheat = (function() {
+    
+        /**
+         * Properties of an ActionInventoryCheat.
+         * @exports IActionInventoryCheat
+         * @interface IActionInventoryCheat
+         * @property {string|null} [id] ActionInventoryCheat id
+         */
+    
+        /**
+         * Constructs a new ActionInventoryCheat.
+         * @exports ActionInventoryCheat
+         * @classdesc Represents an ActionInventoryCheat.
+         * @implements IActionInventoryCheat
+         * @constructor
+         * @param {IActionInventoryCheat=} [properties] Properties to set
+         */
+        function ActionInventoryCheat(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * ActionInventoryCheat id.
+         * @member {string} id
+         * @memberof ActionInventoryCheat
+         * @instance
+         */
+        ActionInventoryCheat.prototype.id = "";
+    
+        /**
+         * Creates a new ActionInventoryCheat instance using the specified properties.
+         * @function create
+         * @memberof ActionInventoryCheat
+         * @static
+         * @param {IActionInventoryCheat=} [properties] Properties to set
+         * @returns {ActionInventoryCheat} ActionInventoryCheat instance
+         */
+        ActionInventoryCheat.create = function create(properties) {
+            return new ActionInventoryCheat(properties);
+        };
+    
+        /**
+         * Encodes the specified ActionInventoryCheat message. Does not implicitly {@link ActionInventoryCheat.verify|verify} messages.
+         * @function encode
+         * @memberof ActionInventoryCheat
+         * @static
+         * @param {IActionInventoryCheat} message ActionInventoryCheat message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionInventoryCheat.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified ActionInventoryCheat message, length delimited. Does not implicitly {@link ActionInventoryCheat.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof ActionInventoryCheat
+         * @static
+         * @param {IActionInventoryCheat} message ActionInventoryCheat message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ActionInventoryCheat.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes an ActionInventoryCheat message from the specified reader or buffer.
+         * @function decode
+         * @memberof ActionInventoryCheat
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {ActionInventoryCheat} ActionInventoryCheat
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionInventoryCheat.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ActionInventoryCheat();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes an ActionInventoryCheat message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof ActionInventoryCheat
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {ActionInventoryCheat} ActionInventoryCheat
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ActionInventoryCheat.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies an ActionInventoryCheat message.
+         * @function verify
+         * @memberof ActionInventoryCheat
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ActionInventoryCheat.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            return null;
+        };
+    
+        /**
+         * Creates an ActionInventoryCheat message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof ActionInventoryCheat
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {ActionInventoryCheat} ActionInventoryCheat
+         */
+        ActionInventoryCheat.fromObject = function fromObject(object) {
+            if (object instanceof $root.ActionInventoryCheat)
+                return object;
+            var message = new $root.ActionInventoryCheat();
+            if (object.id != null)
+                message.id = String(object.id);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from an ActionInventoryCheat message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof ActionInventoryCheat
+         * @static
+         * @param {ActionInventoryCheat} message ActionInventoryCheat
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ActionInventoryCheat.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.id = "";
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            return object;
+        };
+    
+        /**
+         * Converts this ActionInventoryCheat to JSON.
+         * @function toJSON
+         * @memberof ActionInventoryCheat
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ActionInventoryCheat.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return ActionInventoryCheat;
     })();
     
     $root.ActionInventoryPick = (function() {
@@ -4369,6 +4600,238 @@
         };
     
         return WorldChunkIsLoadedResponce;
+    })();
+    
+    $root.SoundStatusResponce = (function() {
+    
+        /**
+         * Properties of a SoundStatusResponce.
+         * @exports ISoundStatusResponce
+         * @interface ISoundStatusResponce
+         * @property {string|null} [uuid] SoundStatusResponce uuid
+         * @property {boolean|null} [isPlaying] SoundStatusResponce isPlaying
+         * @property {number|null} [progress] SoundStatusResponce progress
+         */
+    
+        /**
+         * Constructs a new SoundStatusResponce.
+         * @exports SoundStatusResponce
+         * @classdesc Represents a SoundStatusResponce.
+         * @implements ISoundStatusResponce
+         * @constructor
+         * @param {ISoundStatusResponce=} [properties] Properties to set
+         */
+        function SoundStatusResponce(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+    
+        /**
+         * SoundStatusResponce uuid.
+         * @member {string} uuid
+         * @memberof SoundStatusResponce
+         * @instance
+         */
+        SoundStatusResponce.prototype.uuid = "";
+    
+        /**
+         * SoundStatusResponce isPlaying.
+         * @member {boolean} isPlaying
+         * @memberof SoundStatusResponce
+         * @instance
+         */
+        SoundStatusResponce.prototype.isPlaying = false;
+    
+        /**
+         * SoundStatusResponce progress.
+         * @member {number} progress
+         * @memberof SoundStatusResponce
+         * @instance
+         */
+        SoundStatusResponce.prototype.progress = 0;
+    
+        /**
+         * Creates a new SoundStatusResponce instance using the specified properties.
+         * @function create
+         * @memberof SoundStatusResponce
+         * @static
+         * @param {ISoundStatusResponce=} [properties] Properties to set
+         * @returns {SoundStatusResponce} SoundStatusResponce instance
+         */
+        SoundStatusResponce.create = function create(properties) {
+            return new SoundStatusResponce(properties);
+        };
+    
+        /**
+         * Encodes the specified SoundStatusResponce message. Does not implicitly {@link SoundStatusResponce.verify|verify} messages.
+         * @function encode
+         * @memberof SoundStatusResponce
+         * @static
+         * @param {ISoundStatusResponce} message SoundStatusResponce message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SoundStatusResponce.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+            if (message.isPlaying != null && Object.hasOwnProperty.call(message, "isPlaying"))
+                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.isPlaying);
+            if (message.progress != null && Object.hasOwnProperty.call(message, "progress"))
+                writer.uint32(/* id 3, wireType 5 =*/29).float(message.progress);
+            return writer;
+        };
+    
+        /**
+         * Encodes the specified SoundStatusResponce message, length delimited. Does not implicitly {@link SoundStatusResponce.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof SoundStatusResponce
+         * @static
+         * @param {ISoundStatusResponce} message SoundStatusResponce message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SoundStatusResponce.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    
+        /**
+         * Decodes a SoundStatusResponce message from the specified reader or buffer.
+         * @function decode
+         * @memberof SoundStatusResponce
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {SoundStatusResponce} SoundStatusResponce
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SoundStatusResponce.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.SoundStatusResponce();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.uuid = reader.string();
+                    break;
+                case 2:
+                    message.isPlaying = reader.bool();
+                    break;
+                case 3:
+                    message.progress = reader.float();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+    
+        /**
+         * Decodes a SoundStatusResponce message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof SoundStatusResponce
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {SoundStatusResponce} SoundStatusResponce
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SoundStatusResponce.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    
+        /**
+         * Verifies a SoundStatusResponce message.
+         * @function verify
+         * @memberof SoundStatusResponce
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SoundStatusResponce.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                if (!$util.isString(message.uuid))
+                    return "uuid: string expected";
+            if (message.isPlaying != null && message.hasOwnProperty("isPlaying"))
+                if (typeof message.isPlaying !== "boolean")
+                    return "isPlaying: boolean expected";
+            if (message.progress != null && message.hasOwnProperty("progress"))
+                if (typeof message.progress !== "number")
+                    return "progress: number expected";
+            return null;
+        };
+    
+        /**
+         * Creates a SoundStatusResponce message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof SoundStatusResponce
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {SoundStatusResponce} SoundStatusResponce
+         */
+        SoundStatusResponce.fromObject = function fromObject(object) {
+            if (object instanceof $root.SoundStatusResponce)
+                return object;
+            var message = new $root.SoundStatusResponce();
+            if (object.uuid != null)
+                message.uuid = String(object.uuid);
+            if (object.isPlaying != null)
+                message.isPlaying = Boolean(object.isPlaying);
+            if (object.progress != null)
+                message.progress = Number(object.progress);
+            return message;
+        };
+    
+        /**
+         * Creates a plain object from a SoundStatusResponce message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof SoundStatusResponce
+         * @static
+         * @param {SoundStatusResponce} message SoundStatusResponce
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SoundStatusResponce.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.uuid = "";
+                object.isPlaying = false;
+                object.progress = 0;
+            }
+            if (message.uuid != null && message.hasOwnProperty("uuid"))
+                object.uuid = message.uuid;
+            if (message.isPlaying != null && message.hasOwnProperty("isPlaying"))
+                object.isPlaying = message.isPlaying;
+            if (message.progress != null && message.hasOwnProperty("progress"))
+                object.progress = options.json && !isFinite(message.progress) ? String(message.progress) : message.progress;
+            return object;
+        };
+    
+        /**
+         * Converts this SoundStatusResponce to JSON.
+         * @function toJSON
+         * @memberof SoundStatusResponce
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SoundStatusResponce.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+    
+        return SoundStatusResponce;
     })();
     
     $root.PluginMessage = (function() {

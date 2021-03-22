@@ -143,6 +143,17 @@ message PlayerApplyImpulse {
 }
 
 /* 
+ * PlayerAbilities allows to change values of player abilities
+*/
+
+message PlayerAbilities {
+	bool allow_flight = 1;
+	bool allow_cheats = 2;
+	bool instant_breaking = 3;
+}
+
+
+/* 
  * PlayerUpdateMovement updates player's movement (noa) values.
 */
 
@@ -165,6 +176,24 @@ message PlayerUpdatePhysics {
 */
 
 message PlayerHealth {
+	float value = 1;
+	float max = 2;
+}
+
+/* 
+ * PlayerHealth updates number of armor points of player.
+*/
+
+message PlayerArmor {
+	float value = 1;
+	float max = 2;
+}
+
+/* 
+ * PlayerOxygen updates number of oxygen of player.
+*/
+
+message PlayerOxygen {
 	float value = 1;
 	float max = 2;
 }
@@ -219,6 +248,16 @@ message SoundPlay {
 	double z = 5;
 
 	Type type = 6;
+
+	string uuid = 7;
+}
+
+/* 
+ * SoundStatus allows to check if sound is still playing for player
+*/
+
+message SoundStatus {
+	string uuid = 1;
 }
 
 /* 

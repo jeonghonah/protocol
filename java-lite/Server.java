@@ -7129,6 +7129,372 @@ public final class Server {
     }
   }
 
+  public interface PlayerAbilitiesOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PlayerAbilities)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>bool allow_flight = 1;</code>
+     * @return The allowFlight.
+     */
+    boolean getAllowFlight();
+
+    /**
+     * <code>bool allow_cheats = 2;</code>
+     * @return The allowCheats.
+     */
+    boolean getAllowCheats();
+
+    /**
+     * <code>bool instant_breaking = 3;</code>
+     * @return The instantBreaking.
+     */
+    boolean getInstantBreaking();
+  }
+  /**
+   * Protobuf type {@code PlayerAbilities}
+   */
+  public  static final class PlayerAbilities extends
+      com.google.protobuf.GeneratedMessageLite<
+          PlayerAbilities, PlayerAbilities.Builder> implements
+      // @@protoc_insertion_point(message_implements:PlayerAbilities)
+      PlayerAbilitiesOrBuilder {
+    private PlayerAbilities() {
+    }
+    public static final int ALLOW_FLIGHT_FIELD_NUMBER = 1;
+    private boolean allowFlight_;
+    /**
+     * <code>bool allow_flight = 1;</code>
+     * @return The allowFlight.
+     */
+    @java.lang.Override
+    public boolean getAllowFlight() {
+      return allowFlight_;
+    }
+    /**
+     * <code>bool allow_flight = 1;</code>
+     * @param value The allowFlight to set.
+     */
+    private void setAllowFlight(boolean value) {
+      
+      allowFlight_ = value;
+    }
+    /**
+     * <code>bool allow_flight = 1;</code>
+     */
+    private void clearAllowFlight() {
+      
+      allowFlight_ = false;
+    }
+
+    public static final int ALLOW_CHEATS_FIELD_NUMBER = 2;
+    private boolean allowCheats_;
+    /**
+     * <code>bool allow_cheats = 2;</code>
+     * @return The allowCheats.
+     */
+    @java.lang.Override
+    public boolean getAllowCheats() {
+      return allowCheats_;
+    }
+    /**
+     * <code>bool allow_cheats = 2;</code>
+     * @param value The allowCheats to set.
+     */
+    private void setAllowCheats(boolean value) {
+      
+      allowCheats_ = value;
+    }
+    /**
+     * <code>bool allow_cheats = 2;</code>
+     */
+    private void clearAllowCheats() {
+      
+      allowCheats_ = false;
+    }
+
+    public static final int INSTANT_BREAKING_FIELD_NUMBER = 3;
+    private boolean instantBreaking_;
+    /**
+     * <code>bool instant_breaking = 3;</code>
+     * @return The instantBreaking.
+     */
+    @java.lang.Override
+    public boolean getInstantBreaking() {
+      return instantBreaking_;
+    }
+    /**
+     * <code>bool instant_breaking = 3;</code>
+     * @param value The instantBreaking to set.
+     */
+    private void setInstantBreaking(boolean value) {
+      
+      instantBreaking_ = value;
+    }
+    /**
+     * <code>bool instant_breaking = 3;</code>
+     */
+    private void clearInstantBreaking() {
+      
+      instantBreaking_ = false;
+    }
+
+    public static Server.PlayerAbilities parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerAbilities parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerAbilities parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerAbilities parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerAbilities parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerAbilities parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerAbilities parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerAbilities parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerAbilities parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerAbilities parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerAbilities parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerAbilities parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Server.PlayerAbilities prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code PlayerAbilities}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Server.PlayerAbilities, Builder> implements
+        // @@protoc_insertion_point(builder_implements:PlayerAbilities)
+        Server.PlayerAbilitiesOrBuilder {
+      // Construct using Server.PlayerAbilities.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>bool allow_flight = 1;</code>
+       * @return The allowFlight.
+       */
+      @java.lang.Override
+      public boolean getAllowFlight() {
+        return instance.getAllowFlight();
+      }
+      /**
+       * <code>bool allow_flight = 1;</code>
+       * @param value The allowFlight to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAllowFlight(boolean value) {
+        copyOnWrite();
+        instance.setAllowFlight(value);
+        return this;
+      }
+      /**
+       * <code>bool allow_flight = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAllowFlight() {
+        copyOnWrite();
+        instance.clearAllowFlight();
+        return this;
+      }
+
+      /**
+       * <code>bool allow_cheats = 2;</code>
+       * @return The allowCheats.
+       */
+      @java.lang.Override
+      public boolean getAllowCheats() {
+        return instance.getAllowCheats();
+      }
+      /**
+       * <code>bool allow_cheats = 2;</code>
+       * @param value The allowCheats to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAllowCheats(boolean value) {
+        copyOnWrite();
+        instance.setAllowCheats(value);
+        return this;
+      }
+      /**
+       * <code>bool allow_cheats = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAllowCheats() {
+        copyOnWrite();
+        instance.clearAllowCheats();
+        return this;
+      }
+
+      /**
+       * <code>bool instant_breaking = 3;</code>
+       * @return The instantBreaking.
+       */
+      @java.lang.Override
+      public boolean getInstantBreaking() {
+        return instance.getInstantBreaking();
+      }
+      /**
+       * <code>bool instant_breaking = 3;</code>
+       * @param value The instantBreaking to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInstantBreaking(boolean value) {
+        copyOnWrite();
+        instance.setInstantBreaking(value);
+        return this;
+      }
+      /**
+       * <code>bool instant_breaking = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInstantBreaking() {
+        copyOnWrite();
+        instance.clearInstantBreaking();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:PlayerAbilities)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Server.PlayerAbilities();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "allowFlight_",
+              "allowCheats_",
+              "instantBreaking_",
+            };
+            java.lang.String info =
+                "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u0007\u0002\u0007" +
+                "\u0003\u0007";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Server.PlayerAbilities> parser = PARSER;
+          if (parser == null) {
+            synchronized (Server.PlayerAbilities.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Server.PlayerAbilities>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:PlayerAbilities)
+    private static final Server.PlayerAbilities DEFAULT_INSTANCE;
+    static {
+      PlayerAbilities defaultInstance = new PlayerAbilities();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        PlayerAbilities.class, defaultInstance);
+    }
+
+    public static Server.PlayerAbilities getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<PlayerAbilities> PARSER;
+
+    public static com.google.protobuf.Parser<PlayerAbilities> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
   public interface PlayerUpdateMovementOrBuilder extends
       // @@protoc_insertion_point(interface_extends:PlayerUpdateMovement)
       com.google.protobuf.MessageLiteOrBuilder {
@@ -8138,6 +8504,616 @@ public final class Server {
     private static volatile com.google.protobuf.Parser<PlayerHealth> PARSER;
 
     public static com.google.protobuf.Parser<PlayerHealth> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface PlayerArmorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PlayerArmor)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>float value = 1;</code>
+     * @return The value.
+     */
+    float getValue();
+
+    /**
+     * <code>float max = 2;</code>
+     * @return The max.
+     */
+    float getMax();
+  }
+  /**
+   * Protobuf type {@code PlayerArmor}
+   */
+  public  static final class PlayerArmor extends
+      com.google.protobuf.GeneratedMessageLite<
+          PlayerArmor, PlayerArmor.Builder> implements
+      // @@protoc_insertion_point(message_implements:PlayerArmor)
+      PlayerArmorOrBuilder {
+    private PlayerArmor() {
+    }
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private float value_;
+    /**
+     * <code>float value = 1;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public float getValue() {
+      return value_;
+    }
+    /**
+     * <code>float value = 1;</code>
+     * @param value The value to set.
+     */
+    private void setValue(float value) {
+      
+      value_ = value;
+    }
+    /**
+     * <code>float value = 1;</code>
+     */
+    private void clearValue() {
+      
+      value_ = 0F;
+    }
+
+    public static final int MAX_FIELD_NUMBER = 2;
+    private float max_;
+    /**
+     * <code>float max = 2;</code>
+     * @return The max.
+     */
+    @java.lang.Override
+    public float getMax() {
+      return max_;
+    }
+    /**
+     * <code>float max = 2;</code>
+     * @param value The max to set.
+     */
+    private void setMax(float value) {
+      
+      max_ = value;
+    }
+    /**
+     * <code>float max = 2;</code>
+     */
+    private void clearMax() {
+      
+      max_ = 0F;
+    }
+
+    public static Server.PlayerArmor parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerArmor parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerArmor parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerArmor parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerArmor parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerArmor parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerArmor parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerArmor parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerArmor parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerArmor parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerArmor parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerArmor parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Server.PlayerArmor prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code PlayerArmor}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Server.PlayerArmor, Builder> implements
+        // @@protoc_insertion_point(builder_implements:PlayerArmor)
+        Server.PlayerArmorOrBuilder {
+      // Construct using Server.PlayerArmor.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>float value = 1;</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public float getValue() {
+        return instance.getValue();
+      }
+      /**
+       * <code>float value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(float value) {
+        copyOnWrite();
+        instance.setValue(value);
+        return this;
+      }
+      /**
+       * <code>float value = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        copyOnWrite();
+        instance.clearValue();
+        return this;
+      }
+
+      /**
+       * <code>float max = 2;</code>
+       * @return The max.
+       */
+      @java.lang.Override
+      public float getMax() {
+        return instance.getMax();
+      }
+      /**
+       * <code>float max = 2;</code>
+       * @param value The max to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMax(float value) {
+        copyOnWrite();
+        instance.setMax(value);
+        return this;
+      }
+      /**
+       * <code>float max = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMax() {
+        copyOnWrite();
+        instance.clearMax();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:PlayerArmor)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Server.PlayerArmor();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "value_",
+              "max_",
+            };
+            java.lang.String info =
+                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0001\u0002\u0001" +
+                "";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Server.PlayerArmor> parser = PARSER;
+          if (parser == null) {
+            synchronized (Server.PlayerArmor.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Server.PlayerArmor>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:PlayerArmor)
+    private static final Server.PlayerArmor DEFAULT_INSTANCE;
+    static {
+      PlayerArmor defaultInstance = new PlayerArmor();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        PlayerArmor.class, defaultInstance);
+    }
+
+    public static Server.PlayerArmor getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<PlayerArmor> PARSER;
+
+    public static com.google.protobuf.Parser<PlayerArmor> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface PlayerOxygenOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:PlayerOxygen)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>float value = 1;</code>
+     * @return The value.
+     */
+    float getValue();
+
+    /**
+     * <code>float max = 2;</code>
+     * @return The max.
+     */
+    float getMax();
+  }
+  /**
+   * Protobuf type {@code PlayerOxygen}
+   */
+  public  static final class PlayerOxygen extends
+      com.google.protobuf.GeneratedMessageLite<
+          PlayerOxygen, PlayerOxygen.Builder> implements
+      // @@protoc_insertion_point(message_implements:PlayerOxygen)
+      PlayerOxygenOrBuilder {
+    private PlayerOxygen() {
+    }
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private float value_;
+    /**
+     * <code>float value = 1;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public float getValue() {
+      return value_;
+    }
+    /**
+     * <code>float value = 1;</code>
+     * @param value The value to set.
+     */
+    private void setValue(float value) {
+      
+      value_ = value;
+    }
+    /**
+     * <code>float value = 1;</code>
+     */
+    private void clearValue() {
+      
+      value_ = 0F;
+    }
+
+    public static final int MAX_FIELD_NUMBER = 2;
+    private float max_;
+    /**
+     * <code>float max = 2;</code>
+     * @return The max.
+     */
+    @java.lang.Override
+    public float getMax() {
+      return max_;
+    }
+    /**
+     * <code>float max = 2;</code>
+     * @param value The max to set.
+     */
+    private void setMax(float value) {
+      
+      max_ = value;
+    }
+    /**
+     * <code>float max = 2;</code>
+     */
+    private void clearMax() {
+      
+      max_ = 0F;
+    }
+
+    public static Server.PlayerOxygen parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerOxygen parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerOxygen parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerOxygen parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerOxygen parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.PlayerOxygen parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.PlayerOxygen parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerOxygen parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerOxygen parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerOxygen parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.PlayerOxygen parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.PlayerOxygen parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Server.PlayerOxygen prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code PlayerOxygen}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Server.PlayerOxygen, Builder> implements
+        // @@protoc_insertion_point(builder_implements:PlayerOxygen)
+        Server.PlayerOxygenOrBuilder {
+      // Construct using Server.PlayerOxygen.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>float value = 1;</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public float getValue() {
+        return instance.getValue();
+      }
+      /**
+       * <code>float value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(float value) {
+        copyOnWrite();
+        instance.setValue(value);
+        return this;
+      }
+      /**
+       * <code>float value = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        copyOnWrite();
+        instance.clearValue();
+        return this;
+      }
+
+      /**
+       * <code>float max = 2;</code>
+       * @return The max.
+       */
+      @java.lang.Override
+      public float getMax() {
+        return instance.getMax();
+      }
+      /**
+       * <code>float max = 2;</code>
+       * @param value The max to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMax(float value) {
+        copyOnWrite();
+        instance.setMax(value);
+        return this;
+      }
+      /**
+       * <code>float max = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMax() {
+        copyOnWrite();
+        instance.clearMax();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:PlayerOxygen)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Server.PlayerOxygen();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "value_",
+              "max_",
+            };
+            java.lang.String info =
+                "\u0000\u0002\u0000\u0000\u0001\u0002\u0002\u0000\u0000\u0000\u0001\u0001\u0002\u0001" +
+                "";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Server.PlayerOxygen> parser = PARSER;
+          if (parser == null) {
+            synchronized (Server.PlayerOxygen.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Server.PlayerOxygen>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:PlayerOxygen)
+    private static final Server.PlayerOxygen DEFAULT_INSTANCE;
+    static {
+      PlayerOxygen defaultInstance = new PlayerOxygen();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        PlayerOxygen.class, defaultInstance);
+    }
+
+    public static Server.PlayerOxygen getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<PlayerOxygen> PARSER;
+
+    public static com.google.protobuf.Parser<PlayerOxygen> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }
@@ -9635,6 +10611,18 @@ public final class Server {
      * @return The type.
      */
     Server.SoundPlay.Type getType();
+
+    /**
+     * <code>string uuid = 7;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <code>string uuid = 7;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
   }
   /**
    * Protobuf type {@code SoundPlay}
@@ -9646,6 +10634,7 @@ public final class Server {
       SoundPlayOrBuilder {
     private SoundPlay() {
       sound_ = "";
+      uuid_ = "";
     }
     /**
      * Protobuf enum {@code SoundPlay.Type}
@@ -9956,6 +10945,53 @@ public final class Server {
       type_ = 0;
     }
 
+    public static final int UUID_FIELD_NUMBER = 7;
+    private java.lang.String uuid_;
+    /**
+     * <code>string uuid = 7;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      return uuid_;
+    }
+    /**
+     * <code>string uuid = 7;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(uuid_);
+    }
+    /**
+     * <code>string uuid = 7;</code>
+     * @param value The uuid to set.
+     */
+    private void setUuid(
+        java.lang.String value) {
+      value.getClass();
+  
+      uuid_ = value;
+    }
+    /**
+     * <code>string uuid = 7;</code>
+     */
+    private void clearUuid() {
+      
+      uuid_ = getDefaultInstance().getUuid();
+    }
+    /**
+     * <code>string uuid = 7;</code>
+     * @param value The bytes for uuid to set.
+     */
+    private void setUuidBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      uuid_ = value.toStringUtf8();
+      
+    }
+
     public static Server.SoundPlay parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10258,6 +11294,55 @@ public final class Server {
         return this;
       }
 
+      /**
+       * <code>string uuid = 7;</code>
+       * @return The uuid.
+       */
+      @java.lang.Override
+      public java.lang.String getUuid() {
+        return instance.getUuid();
+      }
+      /**
+       * <code>string uuid = 7;</code>
+       * @return The bytes for uuid.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        return instance.getUuidBytes();
+      }
+      /**
+       * <code>string uuid = 7;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setUuid(value);
+        return this;
+      }
+      /**
+       * <code>string uuid = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        copyOnWrite();
+        instance.clearUuid();
+        return this;
+      }
+      /**
+       * <code>string uuid = 7;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setUuidBytes(value);
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:SoundPlay)
     }
     @java.lang.Override
@@ -10280,10 +11365,11 @@ public final class Server {
               "y_",
               "z_",
               "type_",
+              "uuid_",
             };
             java.lang.String info =
-                "\u0000\u0006\u0000\u0000\u0001\u0006\u0006\u0000\u0000\u0000\u0001\u0208\u0002\u000b" +
-                "\u0003\u0000\u0004\u0000\u0005\u0000\u0006\f";
+                "\u0000\u0007\u0000\u0000\u0001\u0007\u0007\u0000\u0000\u0000\u0001\u0208\u0002\u000b" +
+                "\u0003\u0000\u0004\u0000\u0005\u0000\u0006\f\u0007\u0208";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -10334,6 +11420,298 @@ public final class Server {
     private static volatile com.google.protobuf.Parser<SoundPlay> PARSER;
 
     public static com.google.protobuf.Parser<SoundPlay> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface SoundStatusOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SoundStatus)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
+  }
+  /**
+   * Protobuf type {@code SoundStatus}
+   */
+  public  static final class SoundStatus extends
+      com.google.protobuf.GeneratedMessageLite<
+          SoundStatus, SoundStatus.Builder> implements
+      // @@protoc_insertion_point(message_implements:SoundStatus)
+      SoundStatusOrBuilder {
+    private SoundStatus() {
+      uuid_ = "";
+    }
+    public static final int UUID_FIELD_NUMBER = 1;
+    private java.lang.String uuid_;
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      return uuid_;
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(uuid_);
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @param value The uuid to set.
+     */
+    private void setUuid(
+        java.lang.String value) {
+      value.getClass();
+  
+      uuid_ = value;
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     */
+    private void clearUuid() {
+      
+      uuid_ = getDefaultInstance().getUuid();
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @param value The bytes for uuid to set.
+     */
+    private void setUuidBytes(
+        com.google.protobuf.ByteString value) {
+      checkByteStringIsUtf8(value);
+      uuid_ = value.toStringUtf8();
+      
+    }
+
+    public static Server.SoundStatus parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.SoundStatus parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.SoundStatus parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.SoundStatus parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.SoundStatus parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static Server.SoundStatus parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static Server.SoundStatus parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.SoundStatus parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.SoundStatus parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static Server.SoundStatus parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static Server.SoundStatus parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static Server.SoundStatus parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(Server.SoundStatus prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
+     * Protobuf type {@code SoundStatus}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          Server.SoundStatus, Builder> implements
+        // @@protoc_insertion_point(builder_implements:SoundStatus)
+        Server.SoundStatusOrBuilder {
+      // Construct using Server.SoundStatus.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The uuid.
+       */
+      @java.lang.Override
+      public java.lang.String getUuid() {
+        return instance.getUuid();
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The bytes for uuid.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        return instance.getUuidBytes();
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setUuid(value);
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        copyOnWrite();
+        instance.clearUuid();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setUuidBytes(value);
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:SoundStatus)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new Server.SoundStatus();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "uuid_",
+            };
+            java.lang.String info =
+                "\u0000\u0001\u0000\u0000\u0001\u0001\u0001\u0000\u0000\u0000\u0001\u0208";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<Server.SoundStatus> parser = PARSER;
+          if (parser == null) {
+            synchronized (Server.SoundStatus.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<Server.SoundStatus>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
+    }
+
+
+    // @@protoc_insertion_point(class_scope:SoundStatus)
+    private static final Server.SoundStatus DEFAULT_INSTANCE;
+    static {
+      SoundStatus defaultInstance = new SoundStatus();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        SoundStatus.class, defaultInstance);
+    }
+
+    public static Server.SoundStatus getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<SoundStatus> PARSER;
+
+    public static com.google.protobuf.Parser<SoundStatus> parser() {
       return DEFAULT_INSTANCE.getParserForType();
     }
   }

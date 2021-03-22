@@ -53,6 +53,10 @@
         "z": {
           "type": "double",
           "id": 3
+        },
+        "onGround": {
+          "type": "bool",
+          "id": 4
         }
       }
     },
@@ -89,6 +93,10 @@
         "pitch": {
           "type": "float",
           "id": 5
+        },
+        "onGround": {
+          "type": "bool",
+          "id": 6
         }
       }
     },
@@ -161,6 +169,14 @@
         "inventory": {
           "type": "InventoryType",
           "id": 3
+        }
+      }
+    },
+    "ActionInventoryCheat": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "id": 1
         }
       }
     },
@@ -289,6 +305,22 @@
         "loaded": {
           "type": "bool",
           "id": 4
+        }
+      }
+    },
+    "SoundStatusResponce": {
+      "fields": {
+        "uuid": {
+          "type": "string",
+          "id": 1
+        },
+        "isPlaying": {
+          "type": "bool",
+          "id": 2
+        },
+        "progress": {
+          "type": "float",
+          "id": 3
         }
       }
     },
